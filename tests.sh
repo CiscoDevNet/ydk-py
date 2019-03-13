@@ -7,11 +7,11 @@ function print_msg {
 function run_exec_test {
     local cmd=$@
     print_msg "Running command: $cmd"
-    $@
+    $cmd
     local status=$?
     if [ $status -ne 0 ]; then
         MSG_COLOR=$RED
-        print_msg "Exiting '$@' with status=$status"
+        print_msg "Exiting '$cmd' with status=$status"
         exit $status
     fi
     return $status
@@ -89,15 +89,27 @@ ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
 
 print_msg "Testing YDK core installation"
-run_exec_test ${PYTHON_BIN} -c \"import ydk.types\"
+${PYTHON_BIN} -c "import ydk.types"
+status=$?
+if [ $status -ne 0 ]; then
+    MSG_COLOR=$RED
+    print_msg "Exiting with status=$status"
+    exit $status
+fi
 
 print_msg "Installing YDK gNMI package"
 cd ../gnmi
 ${PYTHON_BIN} setup.py sdist
-sudo ${PIP_BIN} install  dist/ydk*.tar.gz
+sudo ${PIP_BIN} install dist/ydk*.tar.gz
 
 print_msg "Testing YDK gNMI installation"
-run_exec_test ${PYTHON_BIN} -c \"import ydk.gnmi.providers\"
+${PYTHON_BIN} -c "import ydk.gnmi.providers"
+status=$?
+if [ $status -ne 0 ]; then
+    MSG_COLOR=$RED
+    print_msg "Exiting with status=$status"
+    exit $status
+fi
 
 print_msg "Installing ietf bundle package"
 cd ../ietf
