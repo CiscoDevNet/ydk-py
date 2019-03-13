@@ -89,7 +89,7 @@ ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
 
 print_msg "Testing YDK core installation"
-run_exec_test ${PYTHON_BIN} -c "import ydk.types"
+run_exec_test ${PYTHON_BIN} -c \"import ydk.types\"
 
 print_msg "Installing YDK gNMI package"
 cd ../gnmi
@@ -97,7 +97,7 @@ ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
 
 print_msg "Testing YDK gNMI installation"
-run_exec_test ${PYTHON_BIN} -c "import ydk.gnmi.providers"
+run_exec_test ${PYTHON_BIN} -c \"import ydk.gnmi.providers\"
 
 print_msg "Installing ietf bundle package"
 cd ../ietf
