@@ -182,6 +182,11 @@ def _get_bundle_name(entity):
     m = importlib.import_module('.'.join([m, '_yang_ns']))
     return m.__dict__['BUNDLE_NAME']
 
+def _traverse_to_top_entity(entity):
+    while entity.parent is not None:
+        entity = entity.parent
+    return entity
+
 def _get_top_level_entity(read_filter, root_schema):
     if read_filter is None:
         return None
@@ -199,16 +204,23 @@ def _get_top_level_entity(read_filter, root_schema):
     if read_filter is not None and read_filter.is_top_level_class:
         return read_filter
 
-    if read_filter.parent is None:
-        data_node = get_data_node_from_entity(read_filter, root_schema)
-        while data_node.get_parent() is not None:
-            parent_datanode = data_node.get_parent()
-            if parent_datanode.get_path() == '/':
-                break
-            data_node = parent_datanode
-        return _datanode_to_entity(data_node)
+    top_entity = _traverse_to_top_entity(read_filter)
+    if top_entity.is_top_level_class:
+        if read_filter.ignore_validation:
+            top_entity.ignore_validation = True
+        return top_entity;
 
-    return _get_top_level_entity(read_filter.parent, root_schema)
+    if read_filter.ignore_validation:
+        log.error("Cannot disable validation for non-top-level entity '%s'" % top_entity.yang_name)
+
+    data_node = get_data_node_from_entity(top_entity, root_schema)
+    while data_node.get_parent() is not None:
+        parent_datanode = data_node.get_parent()
+        if parent_datanode.get_path() == '/':
+            return _datanode_to_entity(data_node)
+        data_node = parent_datanode
+
+    return None    # should never get here
 
 def _find_child_entity(parent_entity, filter_abs_path):
     parent_abs_path = parent_entity.get_absolute_path()
@@ -248,10 +260,15 @@ def _get_child_entity_from_top(top_entity, filter_entity):
     if filter_entity is None:
         return top_entity
 
-    if isinstance(top_entity, list) and isinstance(filter_entity, list) and len(top_entity) == len(filter_entity):
+    if isinstance(top_entity, list) and isinstance(filter_entity, list):
         entities = []
-        for i in range(len(top_entity)):
-            entity = _get_child_entity_from_top(top_entity[i], filter_entity[i])
+        for filter in filter_entity:
+            filter_abs_path = filter.get_absolute_path()
+            entity = None
+            for ent in top_entity:
+                if ent.get_segment_path() in filter_abs_path:
+                    entity = _get_child_entity_from_top(ent, filter)
+                    break;
             entities.append(entity)
         return entities
     elif isinstance(top_entity, Entity) and isinstance(filter_entity, Entity):

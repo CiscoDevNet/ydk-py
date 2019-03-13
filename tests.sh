@@ -1,7 +1,20 @@
 #!/bin/bash
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_osx.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): tests.sh | $@ ${NOCOLOR}"
+}
+
+function run_exec_test {
+    local cmd=$@
+    print_msg "Running command: $cmd"
+    $@
+    local status=$?
+    if [ $status -ne 0 ]; then
+        MSG_COLOR=$RED
+        print_msg "Exiting '$@' with status=$status"
+        exit $status
+    fi
+    return $status
 }
 
 function test_python_installation {
@@ -28,7 +41,7 @@ function test_python_installation {
     fi
   fi
   print_msg "Checking installation of ${PYTHON_BIN}"
-  ${PYTHON_BIN} --version &> /dev/null
+  ${PYTHON_BIN} -V
   status=$?
   if [ $status -ne 0 ]; then
     MSG_COLOR=$RED
@@ -36,7 +49,7 @@ function test_python_installation {
     exit $status
   fi
   print_msg "Checking installation of ${PIP_BIN}"
-  ${PIP_BIN} -V &> /dev/null
+  ${PIP_BIN} -V
   status=$?
   if [ $status -ne 0 ]; then
     MSG_COLOR=$RED
@@ -75,10 +88,16 @@ cd core
 ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
 
+print_msg "Testing YDK core installation"
+run_exec_test ${PYTHON_BIN} -c "import ydk.types"
+
 print_msg "Installing YDK gNMI package"
 cd ../gnmi
 ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
+
+print_msg "Testing YDK gNMI installation"
+run_exec_test ${PYTHON_BIN} -c "import ydk.gnmi.providers"
 
 print_msg "Installing ietf bundle package"
 cd ../ietf
