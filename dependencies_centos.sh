@@ -4,15 +4,27 @@ function print_msg {
     echo -e "${MSG_COLOR}*** $(date): dependencies_centos.sh | $@ ${NOCOLOR}"
 }
 
+function install_dependencies {
+    print_msg "Installing dependencies"
+
+    yum update -y > /dev/null
+    yum install epel-release -y > /dev/null
+    yum install https://centos7.iuscommunity.org/ius-release.rpm -y > /dev/null
+    yum install git which libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel -y > /dev/null
+    yum install cmake3 wget curl-devel unzip make java sudo -y > /dev/null
+    yum install python-devel python-pip python36u-devel python36u-pip  rpm-build redhat-lsb lcov -y > /dev/null
+}
+    
 function check_install_gcc {
+  print_msg "Checking gcc/g++ installation"
   which gcc
   local status=$?
   if [[ $status == 0 ]]
   then
     gcc_version=$(echo $(gcc --version) | awk '{ print $3 }')
-    print_msg "Current gcc/g++ version is $gcc_version"
+    print_msg "Current gcc version is $gcc_version"
   else
-    print_msg "The gcc/g++ not installed"
+    print_msg "The gcc not installed"
     gcc_version="4.0"
   fi
   if [[ $(echo $gcc_version | cut -d '.' -f 1) < 5 ]]
@@ -50,8 +62,7 @@ MSG_COLOR=$YELLOW
 os_info=$(cat /etc/*-release)
 print_msg "OS info: $os_info"
 
-yum install -y epel-release
-yum install -y libxslt-devel libssh-devel python-devel cmake3 python-pip which make sudo > /dev/null
+install_dependencies
 
 check_install_gcc
 
