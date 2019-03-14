@@ -17,19 +17,19 @@ function run_cmd {
 }
 
 function check_install_gcc {
-  which gcc
+  print_msg "Checking g++ installation"
+  which g++
   local status=$?
   if [[ $status == 0 ]]
   then
-    gcc_version=$(echo $(gcc --version) | awk '{ print $3 }' | cut -d '-' -f 1)
-    print_msg "Current gcc/g++ version is $gcc_version"
+    gpp_version=$(echo $(g++ --version) | awk '{ print $3 }' | cut -d '-' -f 1)
+    print_msg "Current g++ version is $gpp_version"
   else
-    print_msg "The gcc/g++ not installed"
-    gcc_version="4.0"
+    print_msg "The g++ is not installed"
+    gpp_version="4.0"
   fi
-  gcc_version=$(echo `gcc --version` | awk '{ print $3 }' | cut -d '-' -f 1)
-  print_msg "Current gcc/g++ version is $gcc_version"
-  if [[ $(echo $gcc_version | cut -d '.' -f 1) < 5 ]]
+
+  if [[ $(echo $gpp_version | cut -d '.' -f 1) < 5 ]]
   then
     print_msg "Upgrading gcc/g++ to version 5"
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -38,7 +38,9 @@ function check_install_gcc {
     sudo ln -fs /usr/bin/g++-5 /usr/bin/c++
     sudo ln -fs /usr/bin/gcc-5 /usr/bin/cc
     gcc_version=$(echo $(gcc --version) | awk '{ print $3 }' | cut -d '-' -f 1)
-    print_msg "Installed gcc/g++ version is $gcc_version"
+    print_msg "Installed gcc version is $gcc_version"
+    gpp_version=$(echo $(g++ --version) | awk '{ print $3 }' | cut -d '-' -f 1)
+    print_msg "Installed g++ version is $gpp_version"
   fi
 }
 
@@ -69,9 +71,11 @@ os_info=$(cat /etc/*-release)
 print_msg "OS info: $os_info"
 
 apt-get update -y > /dev/null
-apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo unzip -y
+apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo unzip git -y
+apt-get install libpcre3-dev libpcre++-dev libssh-dev libxml2-dev libxslt1-dev -y
+
+check_install_gcc
 
 ./dependencies_gnmi.sh
 
-check_install_gcc
 install_ydk_core

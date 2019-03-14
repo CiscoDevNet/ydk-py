@@ -6,9 +6,6 @@ function print_msg {
 
 function install_os_dependencies {
     brew install curl xml2 doxygen pybind11
-#    brew rm -f --ignore-dependencies python python3
-
-    ./dependencies_gnmi.sh
 }
 
 function install_libssh {
@@ -33,18 +30,22 @@ function install_libydk {
     print_msg "Installing YDK C++ core library"
     curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
     sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
+
+    print_msg "Installing YDK gNMI service library"
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk_gnmi-0.4.0-2_Darwin.pkg
+    sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
 }
 
 function check_python_installation {
     locate libpython2.7.dylib
     print_msg "Checking python3 and pip3 installation"
-    python3 -V &> /dev/null
+    python3 -V
     status=$?
     if [ $status -ne 0 ]; then
         print_msg "Installing python3"
         brew install python@3
     fi
-    pip3 -V &> /dev/null
+    pip3 -V
     status=$?
     if [ $status -ne 0 ]; then
         print_msg "Installing pip3"
@@ -62,6 +63,8 @@ MSG_COLOR=$YELLOW
 install_os_dependencies
 
 install_libssh
+
+./dependencies_gnmi.sh
 
 install_libydk
 

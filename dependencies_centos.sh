@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_osx.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): dependencies_centos.sh | $@ ${NOCOLOR}"
 }
 
 function check_install_gcc {
@@ -36,7 +36,7 @@ function check_install_gcc {
 
 function install_ydk_core {
     print_msg "Installing YDK core libraries"
-    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8.1-1.x86_64.rpm > /dev/null
+    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8.2-1.x86_64.rpm > /dev/null
     print_msg "Installing YDK gNMI Service library"
     yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk_gnmi-0.4.0-2.x86_64.rpm > /dev/null
 }
@@ -52,7 +52,9 @@ print_msg "OS info: $os_info"
 
 yum install -y epel-release
 yum install -y libxslt-devel libssh-devel python-devel cmake3 python-pip which make sudo > /dev/null
-./dependencies_gnmi.sh
 
 check_install_gcc
+
+./dependencies_gnmi.sh
+
 install_ydk_core
