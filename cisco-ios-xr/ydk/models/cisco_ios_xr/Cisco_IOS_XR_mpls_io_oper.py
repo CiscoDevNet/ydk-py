@@ -271,7 +271,7 @@ class MplsEa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
 
 
@@ -532,7 +532,7 @@ class MplsMa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
 
 

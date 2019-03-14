@@ -358,7 +358,7 @@ class VrfGroup(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', 'vr_fs', 'forward_reference'], name, value)
+                        self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', u'vr_fs', u'forward_reference'], name, value)
 
 
                     class Vrf(Entity):
@@ -396,7 +396,7 @@ class VrfGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group.Vrf, ['vrf_name'], name, value)
+                            self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group.Vrf, [u'vrf_name'], name, value)
 
 
 
@@ -642,7 +642,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
+                self._perform_setattr(Srlg.Groups.Group, ['group_name', u'group_name_xr', u'group_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -702,7 +702,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.Groups.Group.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
 
 
 
@@ -826,7 +826,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
+                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'value_count', u'registrations', u'srlg_value'], name, value)
 
 
 
@@ -947,7 +947,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Rsips.Rsip, ['rsip_name', 'optical_layer_interface_name', 'registrations', 'interface_values'], name, value)
+                self._perform_setattr(Srlg.Rsips.Rsip, ['rsip_name', u'optical_layer_interface_name', u'registrations', u'interface_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -1007,7 +1007,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Rsips.Rsip.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.Rsips.Rsip.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
 
 
 
@@ -1109,7 +1109,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
+                self._perform_setattr(Srlg.SrlgMaps.SrlgMap, ['srlg_name', u'srlg_value', u'srlg_name_xr'], name, value)
 
 
 
@@ -1364,7 +1364,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', u'srlg_value', u'srlg_name_xr'], name, value)
 
 
 
@@ -1472,7 +1472,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', u'group_name_xr', u'group_values'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -1532,7 +1532,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
 
 
 
@@ -1641,7 +1641,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', u'node_name', u'node_values'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -1701,7 +1701,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
 
 
 
@@ -1823,7 +1823,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'value_count', u'registrations', u'srlg_value'], name, value)
 
 
 
@@ -1941,7 +1941,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', u'groups', u'nodes'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -2019,7 +2019,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, [u'srlg_value', u'priority', u'source', u'source_name', u'srlg_index'], name, value)
 
 
 
@@ -2058,7 +2058,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, [u'rsip_name'], name, value)
 
 
 
@@ -2147,7 +2147,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', u'interface_name'], name, value)
 
 
 
@@ -2257,7 +2257,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', u'srlg_name_xr', u'srlg_value'], name, value)
 
 
                     class Interfaces(Entity):
@@ -2295,7 +2295,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, [u'interface_name'], name, value)
 
 
 
@@ -2410,7 +2410,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
+                self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', u'srlg_name_xr', u'srlg_value'], name, value)
 
 
             class Interfaces(Entity):
@@ -2448,7 +2448,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
+                    self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, [u'interface_name'], name, value)
 
 
 
@@ -2559,7 +2559,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
+                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', u'node_name', u'node_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -2619,7 +2619,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.InheritNodes.InheritNode.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
 
 
 
@@ -2710,7 +2710,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
+                self._perform_setattr(Srlg.SrlgValues.SrlgValue, ['value', u'interface_name'], name, value)
 
 
 
@@ -2830,7 +2830,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
+                self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail, ['interface_name', u'groups', u'nodes'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -2908,7 +2908,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, [u'srlg_value', u'priority', u'source', u'source_name', u'srlg_index'], name, value)
 
 
 
@@ -2947,7 +2947,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
+                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.Rsip, [u'rsip_name'], name, value)
 
 
 
@@ -3043,7 +3043,7 @@ class SelectiveVrfDownload(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SelectiveVrfDownload.State, ['is_svd_enabled', 'is_svd_enabled_cfg'], name, value)
+            self._perform_setattr(SelectiveVrfDownload.State, [u'is_svd_enabled', u'is_svd_enabled_cfg'], name, value)
 
 
     def clone_ptr(self):

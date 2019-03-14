@@ -68,7 +68,7 @@ class KeyChains(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(KeyChains, ['name'], name, value)
+        self._perform_setattr(KeyChains, [u'name'], name, value)
 
 
     class AcceptTolerance(Entity):
@@ -110,7 +110,7 @@ class KeyChains(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(KeyChains.AcceptTolerance, ['duration'], name, value)
+            self._perform_setattr(KeyChains.AcceptTolerance, [u'duration'], name, value)
 
 
 
@@ -176,7 +176,7 @@ class KeyChains(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(KeyChains.Key, ['key_id'], name, value)
+            self._perform_setattr(KeyChains.Key, [u'key_id'], name, value)
 
 
         class KeyString(Entity):
@@ -221,7 +221,7 @@ class KeyChains(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(KeyChains.Key.KeyString, ['keystring', 'hexadecimal_string'], name, value)
+                self._perform_setattr(KeyChains.Key.KeyString, [u'keystring', u'hexadecimal_string'], name, value)
 
 
 
@@ -350,7 +350,7 @@ class KeyChains(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(KeyChains.Key.Lifetime.SendAcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+                    self._perform_setattr(KeyChains.Key.Lifetime.SendAcceptLifetime, [u'always', u'start_date_time', u'no_end_time', u'duration', u'end_date_time'], name, value)
 
 
 
@@ -424,7 +424,7 @@ class KeyChains(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(KeyChains.Key.Lifetime.SendLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+                    self._perform_setattr(KeyChains.Key.Lifetime.SendLifetime, [u'always', u'start_date_time', u'no_end_time', u'duration', u'end_date_time'], name, value)
 
 
 
@@ -498,7 +498,7 @@ class KeyChains(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(KeyChains.Key.Lifetime.AcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+                    self._perform_setattr(KeyChains.Key.Lifetime.AcceptLifetime, [u'always', u'start_date_time', u'no_end_time', u'duration', u'end_date_time'], name, value)
 
 
 
@@ -585,7 +585,7 @@ class KeyChains(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(KeyChains.Key.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
+                self._perform_setattr(KeyChains.Key.CryptoAlgorithm, [u'hmac_sha1_12', u'hmac_sha1_20', u'md5', u'sha_1', u'hmac_sha_1', u'hmac_sha_256', u'hmac_sha_384', u'hmac_sha_512'], name, value)
 
 
 

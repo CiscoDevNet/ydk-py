@@ -1803,7 +1803,7 @@ class Acl(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -1857,7 +1857,7 @@ class Acl(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2310,7 +2310,7 @@ class Acl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2364,7 +2364,7 @@ class Acl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 

@@ -833,7 +833,7 @@ class Ipv6AclAndPrefixList(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'protocol_operator', 'protocol', 'protocol2', 'dscp', 'precedence', 'counter_name', 'log_option', 'capture', 'undetermined_transport', 'icmp_off', 'qos_group', 'set_ttl', 'remark', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'sequence_str'], name, value)
+                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', u'grant', u'protocol_operator', u'protocol', u'protocol2', u'dscp', u'precedence', u'counter_name', u'log_option', u'capture', u'undetermined_transport', u'icmp_off', u'qos_group', u'set_ttl', u'remark', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -889,7 +889,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits', 'source_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, [u'source_address', u'source_wild_card_bits', u'source_mask'], name, value)
 
 
 
@@ -946,7 +946,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits', 'destination_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, [u'destination_address', u'destination_wild_card_bits', u'destination_mask'], name, value)
 
 
 
@@ -1009,7 +1009,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, ['source_operator', 'first_source_port', 'second_source_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, [u'source_operator', u'first_source_port', u'second_source_port'], name, value)
 
 
 
@@ -1072,7 +1072,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, ['destination_operator', 'first_destination_port', 'second_destination_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, [u'destination_operator', u'first_destination_port', u'second_destination_port'], name, value)
 
 
 
@@ -1109,7 +1109,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, ['icmp_type_code'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, [u'icmp_type_code'], name, value)
 
 
 
@@ -1160,7 +1160,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, ['tcp_bits_match_operator', 'tcp_bits', 'tcp_bits_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, [u'tcp_bits_match_operator', u'tcp_bits', u'tcp_bits_mask'], name, value)
 
 
 
@@ -1215,7 +1215,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, ['packet_length_operator', 'packet_length_min', 'packet_length_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, [u'packet_length_operator', u'packet_length_min', u'packet_length_max'], name, value)
 
 
 
@@ -1270,7 +1270,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, ['time_to_live_operator', 'time_to_live_min', 'time_to_live_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, [u'time_to_live_operator', u'time_to_live_min', u'time_to_live_max'], name, value)
 
 
 
@@ -1333,7 +1333,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, ['dscp_operator', 'dscp_lower', 'dscp_upper'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, [u'dscp_operator', u'dscp_lower', u'dscp_upper'], name, value)
 
 
 
@@ -1397,7 +1397,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, ['next_hop_type'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, [u'next_hop_type'], name, value)
 
 
                         class NextHop1(Entity):
@@ -1453,7 +1453,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
 
@@ -1510,7 +1510,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
 
@@ -1567,7 +1567,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
 
@@ -1633,7 +1633,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, ['routing', 'destopts', 'hop_by_hop', 'fragments', 'authen'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, [u'routing', u'destopts', u'hop_by_hop', u'fragments', u'authen'], name, value)
 
 
 

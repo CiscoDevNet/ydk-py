@@ -195,7 +195,7 @@ class Redundancy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'log', 'active_reboot_reason', 'standby_reboot_reason', 'err_log'], name, value)
+                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', u'log', u'active_reboot_reason', u'standby_reboot_reason', u'err_log'], name, value)
 
 
             class Redundancy_(Entity):
@@ -269,7 +269,7 @@ class Redundancy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
                 class Groupinfo(Entity):
@@ -334,7 +334,7 @@ class Redundancy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
 
@@ -386,7 +386,7 @@ class Redundancy(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Redundancy.Summary, ['err_log'], name, value)
+            self._perform_setattr(Redundancy.Summary, [u'err_log'], name, value)
 
 
         class RedPair(Entity):
@@ -461,7 +461,7 @@ class Redundancy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                self._perform_setattr(Redundancy.Summary.RedPair, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
             class Groupinfo(Entity):
@@ -527,7 +527,7 @@ class Redundancy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
 

@@ -289,7 +289,7 @@ class Controllers(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', 'controller', 'state', 'description'], name, value)
+                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', u'controller', u'state', u'description'], name, value)
 
 
 

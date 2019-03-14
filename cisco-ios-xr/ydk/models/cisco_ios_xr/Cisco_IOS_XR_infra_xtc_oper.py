@@ -724,7 +724,7 @@ class PceLspData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr'], name, value)
+                self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr'], name, value)
 
 
             class PccAddress(Entity):
@@ -784,7 +784,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -907,7 +907,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -967,7 +967,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -1028,7 +1028,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -1166,7 +1166,7 @@ class PceLspData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceLspData.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
+                self._perform_setattr(PceLspData.LspSummary.AllLsPs, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
 
@@ -1303,7 +1303,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
+                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
 
@@ -1365,7 +1365,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -1533,7 +1533,7 @@ class PceLspData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr', u'xtc_controlled', u'color'], name, value)
+                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color'], name, value)
 
 
             class PccAddress(Entity):
@@ -1593,7 +1593,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -1691,7 +1691,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, ['event_id', 'event_message', 'time_stamp'], name, value)
 
 
 
@@ -1892,7 +1892,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, [u'signaled_bandwidth_specified', u'signaled_bandwidth', u'actual_bandwidth_specified', u'actual_bandwidth', u'lsp_role', u'computing_pce', u'srlg_info'], name, value)
+                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'srlg_info'], name, value)
 
 
                 class BriefLspInformation(Entity):
@@ -2014,7 +2014,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd'], name, value)
 
 
                     class SourceAddress(Entity):
@@ -2074,7 +2074,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2135,7 +2135,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2254,7 +2254,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, [u'reported_metric_type', u'reported_metric_value', u'computed_metric_type', u'computed_metric_value', u'computed_hop_list_time'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, ['reported_metric_type', 'reported_metric_value', 'computed_metric_type', 'computed_metric_value', 'computed_hop_list_time'], name, value)
 
 
                     class ReportedRsvpPath(Entity):
@@ -2294,7 +2294,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, ['hop_address'], name, value)
 
 
 
@@ -2366,7 +2366,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -2426,7 +2426,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2487,7 +2487,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2529,7 +2529,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, ['hop_address'], name, value)
 
 
 
@@ -2601,7 +2601,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -2661,7 +2661,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2722,7 +2722,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2834,7 +2834,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, [u'pcepid', u'pcep_flag_d', u'pcep_flag_s', u'pcep_flag_r', u'pcep_flag_a', u'pcep_flag_o', u'pcep_flag_c'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
                     class RsvpError(Entity):
@@ -2907,7 +2907,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, ['node_address', 'error_flags', 'error_code', 'error_value'], name, value)
 
 
 
@@ -2971,7 +2971,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, [u'association_type', u'association_id'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, ['association_type', 'association_id'], name, value)
 
 
                     class AssociationSource(Entity):
@@ -3031,7 +3031,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3126,7 +3126,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, ['affinity_exclude_any', 'affinity_include_any', 'affinity_include_all', 'setup_priority', 'hold_priority', 'local_protection'], name, value)
 
 
 
@@ -3187,7 +3187,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3248,7 +3248,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3309,7 +3309,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3392,7 +3392,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, [u'rro_type', u'ipv4_address', u'mpls_label', u'flags'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, ['rro_type', 'ipv4_address', 'mpls_label', 'flags'], name, value)
 
 
                     class SrRro(Entity):
@@ -3463,7 +3463,7 @@ class PceLspData(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -3523,7 +3523,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3584,7 +3584,7 @@ class PceLspData(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3773,7 +3773,7 @@ class PcePeer(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol', u'max_sid_depth'], name, value)
+                self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo, ['peer_address', 'peer_protocol', 'max_sid_depth'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -3833,7 +3833,7 @@ class PcePeer(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -4218,7 +4218,7 @@ class PcePeer(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval', u'max_sid_depth'], name, value)
+                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, ['error', 'speaker_id', 'pcep_up_time', 'keepalives', 'md5_enabled', 'keychain_enabled', 'negotiated_local_keepalive', 'negotiated_remote_keepalive', 'negotiated_dead_time', 'pce_request_rx', 'pce_request_tx', 'pce_reply_rx', 'pce_reply_tx', 'pce_error_rx', 'pce_error_tx', 'pce_open_tx', 'pce_open_rx', 'pce_report_rx', 'pce_report_tx', 'pce_update_rx', 'pce_update_tx', 'pce_initiate_rx', 'pce_initiate_tx', 'pce_keepalive_tx', 'pce_keepalive_rx', 'local_session_id', 'remote_session_id', 'minimum_keepalive_interval', 'maximum_dead_interval', 'max_sid_depth'], name, value)
 
 
                 class BriefPcepInformation(Entity):
@@ -4319,7 +4319,7 @@ class PcePeer(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
+                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
 
 
@@ -4371,7 +4371,7 @@ class PcePeer(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
+                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, ['pc_error_type', 'pc_error_value'], name, value)
 
 
 
@@ -4423,7 +4423,7 @@ class PcePeer(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
+                        self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, ['pc_error_type', 'pc_error_value'], name, value)
 
 
 
@@ -4543,7 +4543,7 @@ class PcePeer(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PcePeer.PeerInfos.PeerInfo, ['peer_address', u'peer_protocol'], name, value)
+                self._perform_setattr(PcePeer.PeerInfos.PeerInfo, ['peer_address', 'peer_protocol'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -4603,7 +4603,7 @@ class PcePeer(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -4705,7 +4705,7 @@ class PcePeer(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
+                    self._perform_setattr(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
 
 
@@ -4957,7 +4957,7 @@ class PceTopology(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PceTopology.TopologySummary, [u'nodes', u'lookup_nodes', u'prefixes', u'prefix_sids', u'regular_prefix_sids', u'strict_prefix_sids', u'links', u'epe_links', u'adjacency_sids', u'epesids', u'protected_adjacency_sids', u'un_protected_adjacency_sids', u'topology_consistent'], name, value)
+            self._perform_setattr(PceTopology.TopologySummary, ['nodes', 'lookup_nodes', 'prefixes', 'prefix_sids', 'regular_prefix_sids', 'strict_prefix_sids', 'links', 'epe_links', 'adjacency_sids', 'epesids', 'protected_adjacency_sids', 'un_protected_adjacency_sids', 'topology_consistent'], name, value)
 
 
         class StatsTopologyUpdate(Entity):
@@ -5053,7 +5053,7 @@ class PceTopology(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceTopology.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
+                self._perform_setattr(PceTopology.TopologySummary.StatsTopologyUpdate, ['num_nodes_added', 'num_nodes_deleted', 'num_links_added', 'num_links_deleted', 'num_prefixes_added', 'num_prefixes_deleted'], name, value)
 
 
 
@@ -5190,7 +5190,7 @@ class PceTopology(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode, ['node_identifier', u'node_identifier_xr', u'overload'], name, value)
+                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode, ['node_identifier', 'node_identifier_xr', 'overload'], name, value)
 
 
             class NodeProtocolIdentifier(Entity):
@@ -5285,7 +5285,7 @@ class PceTopology(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                 class IgpInformation(Entity):
@@ -5336,7 +5336,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -5398,7 +5398,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -5469,7 +5469,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -5518,7 +5518,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -5570,7 +5570,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -5622,7 +5622,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -5699,7 +5699,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -5761,7 +5761,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -5832,7 +5832,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -5881,7 +5881,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -5933,7 +5933,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -5985,7 +5985,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -6052,7 +6052,7 @@ class PceTopology(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe, [u'domain_identifier'], name, value)
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe, ['domain_identifier'], name, value)
 
 
                 class PfxSid(Entity):
@@ -6166,7 +6166,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -6226,7 +6226,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -6290,7 +6290,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                     class Igp(Entity):
@@ -6361,7 +6361,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, ['igp_id'], name, value)
 
 
                         class Isis(Entity):
@@ -6410,7 +6410,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -6462,7 +6462,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -6514,7 +6514,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -6677,7 +6677,7 @@ class PceTopology(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'administrative_groups', u'srlgs'], name, value)
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'srlgs'], name, value)
 
 
                 class LocalIgpInformation(Entity):
@@ -6728,7 +6728,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -6790,7 +6790,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -6861,7 +6861,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -6910,7 +6910,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -6962,7 +6962,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -7014,7 +7014,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -7113,7 +7113,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                     class IgpInformation(Entity):
@@ -7164,7 +7164,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -7226,7 +7226,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -7297,7 +7297,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -7346,7 +7346,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -7398,7 +7398,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -7450,7 +7450,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -7527,7 +7527,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -7589,7 +7589,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -7660,7 +7660,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -7709,7 +7709,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -7761,7 +7761,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -7813,7 +7813,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -7858,7 +7858,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, ['unidirectional_min_delay'], name, value)
 
 
 
@@ -7973,7 +7973,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -8033,7 +8033,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -8162,7 +8162,7 @@ class PceTopology(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, [u'local_ipv6_address', u'remote_ipv6_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth'], name, value)
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, ['local_ipv6_address', 'remote_ipv6_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth'], name, value)
 
 
                 class LocalIgpInformation(Entity):
@@ -8213,7 +8213,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -8275,7 +8275,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -8346,7 +8346,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -8395,7 +8395,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -8447,7 +8447,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -8499,7 +8499,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -8598,7 +8598,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                     class IgpInformation(Entity):
@@ -8649,7 +8649,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -8711,7 +8711,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -8782,7 +8782,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -8831,7 +8831,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -8883,7 +8883,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -8935,7 +8935,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -9012,7 +9012,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -9074,7 +9074,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -9145,7 +9145,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -9194,7 +9194,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -9246,7 +9246,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -9298,7 +9298,7 @@ class PceTopology(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -9417,7 +9417,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -9477,7 +9477,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -9592,7 +9592,7 @@ class PceTopology(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo, ['node_identifier', u'node_identifier_xr'], name, value)
+                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo, ['node_identifier', 'node_identifier_xr'], name, value)
 
 
             class NodeProtocolIdentifier(Entity):
@@ -9687,7 +9687,7 @@ class PceTopology(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                 class IgpInformation(Entity):
@@ -9738,7 +9738,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -9800,7 +9800,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -9871,7 +9871,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -9920,7 +9920,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -9972,7 +9972,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -10024,7 +10024,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -10101,7 +10101,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -10163,7 +10163,7 @@ class PceTopology(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -10234,7 +10234,7 @@ class PceTopology(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -10283,7 +10283,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -10335,7 +10335,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -10387,7 +10387,7 @@ class PceTopology(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -10491,7 +10491,7 @@ class PceTopology(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -10760,7 +10760,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.VerificationEvents.VerificationEvent, ['event_idx', u'event_id', u'event_message', u'time_stamp'], name, value)
+                self._perform_setattr(Pce.VerificationEvents.VerificationEvent, ['event_idx', 'event_id', 'event_message', 'time_stamp'], name, value)
 
 
 
@@ -10940,7 +10940,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.AssociationInfos.AssociationInfo, ['group_id', 'type', 'sub_id', u'association_type', u'association_id', u'strict', u'status', u'headends_swapped'], name, value)
+                self._perform_setattr(Pce.AssociationInfos.AssociationInfo, ['group_id', 'type', 'sub_id', 'association_type', 'association_id', 'strict', 'status', 'headends_swapped'], name, value)
 
 
             class AssociationSource(Entity):
@@ -11000,7 +11000,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -11092,7 +11092,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp, [u'tunnel_id', u'lspid', u'tunnel_name', u'pce_based', u'plsp_id'], name, value)
+                    self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp, ['tunnel_id', 'lspid', 'tunnel_name', 'pce_based', 'plsp_id'], name, value)
 
 
                 class PccAddress(Entity):
@@ -11152,7 +11152,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -11428,7 +11428,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', u'headends_swapped', u'cspf_result', u'iterations_done'], name, value)
+                    self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', 'headends_swapped', 'cspf_result', 'iterations_done'], name, value)
 
 
                 class OutputPath(Entity):
@@ -11499,7 +11499,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath, [u'cost'], name, value)
+                        self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath, ['cost'], name, value)
 
 
                     class Source(Entity):
@@ -11559,7 +11559,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -11620,7 +11620,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -11683,7 +11683,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, [u'address_family', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                            self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, ['address_family', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -11870,7 +11870,7 @@ class Pce(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Pce.TopologySummary, [u'nodes', u'lookup_nodes', u'prefixes', u'prefix_sids', u'regular_prefix_sids', u'strict_prefix_sids', u'links', u'epe_links', u'adjacency_sids', u'epesids', u'protected_adjacency_sids', u'un_protected_adjacency_sids', u'topology_consistent'], name, value)
+            self._perform_setattr(Pce.TopologySummary, ['nodes', 'lookup_nodes', 'prefixes', 'prefix_sids', 'regular_prefix_sids', 'strict_prefix_sids', 'links', 'epe_links', 'adjacency_sids', 'epesids', 'protected_adjacency_sids', 'un_protected_adjacency_sids', 'topology_consistent'], name, value)
 
 
         class StatsTopologyUpdate(Entity):
@@ -11966,7 +11966,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
+                self._perform_setattr(Pce.TopologySummary.StatsTopologyUpdate, ['num_nodes_added', 'num_nodes_deleted', 'num_links_added', 'num_links_deleted', 'num_prefixes_added', 'num_prefixes_deleted'], name, value)
 
 
 
@@ -12102,7 +12102,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr'], name, value)
+                self._perform_setattr(Pce.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr'], name, value)
 
 
             class PccAddress(Entity):
@@ -12162,7 +12162,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -12285,7 +12285,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -12345,7 +12345,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -12406,7 +12406,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -12537,7 +12537,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol', u'max_sid_depth'], name, value)
+                self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo, ['peer_address', 'peer_protocol', 'max_sid_depth'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -12597,7 +12597,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -12982,7 +12982,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval', u'max_sid_depth'], name, value)
+                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, ['error', 'speaker_id', 'pcep_up_time', 'keepalives', 'md5_enabled', 'keychain_enabled', 'negotiated_local_keepalive', 'negotiated_remote_keepalive', 'negotiated_dead_time', 'pce_request_rx', 'pce_request_tx', 'pce_reply_rx', 'pce_reply_tx', 'pce_error_rx', 'pce_error_tx', 'pce_open_tx', 'pce_open_rx', 'pce_report_rx', 'pce_report_tx', 'pce_update_rx', 'pce_update_tx', 'pce_initiate_rx', 'pce_initiate_tx', 'pce_keepalive_tx', 'pce_keepalive_rx', 'local_session_id', 'remote_session_id', 'minimum_keepalive_interval', 'maximum_dead_interval', 'max_sid_depth'], name, value)
 
 
                 class BriefPcepInformation(Entity):
@@ -13083,7 +13083,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
+                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
 
 
@@ -13135,7 +13135,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
+                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, ['pc_error_type', 'pc_error_value'], name, value)
 
 
 
@@ -13187,7 +13187,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
+                        self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, ['pc_error_type', 'pc_error_value'], name, value)
 
 
 
@@ -13326,7 +13326,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.TopologyNodes.TopologyNode, ['node_identifier', u'node_identifier_xr', u'overload'], name, value)
+                self._perform_setattr(Pce.TopologyNodes.TopologyNode, ['node_identifier', 'node_identifier_xr', 'overload'], name, value)
 
 
             class NodeProtocolIdentifier(Entity):
@@ -13421,7 +13421,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                 class IgpInformation(Entity):
@@ -13472,7 +13472,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -13534,7 +13534,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -13605,7 +13605,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -13654,7 +13654,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -13706,7 +13706,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -13758,7 +13758,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -13835,7 +13835,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -13897,7 +13897,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -13968,7 +13968,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -14017,7 +14017,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -14069,7 +14069,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -14121,7 +14121,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -14188,7 +14188,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe, [u'domain_identifier'], name, value)
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe, ['domain_identifier'], name, value)
 
 
                 class PfxSid(Entity):
@@ -14302,7 +14302,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -14362,7 +14362,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -14426,7 +14426,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                     class Igp(Entity):
@@ -14497,7 +14497,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, ['igp_id'], name, value)
 
 
                         class Isis(Entity):
@@ -14546,7 +14546,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -14598,7 +14598,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -14650,7 +14650,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -14813,7 +14813,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'administrative_groups', u'srlgs'], name, value)
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'srlgs'], name, value)
 
 
                 class LocalIgpInformation(Entity):
@@ -14864,7 +14864,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -14926,7 +14926,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -14997,7 +14997,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -15046,7 +15046,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -15098,7 +15098,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -15150,7 +15150,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -15249,7 +15249,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                     class IgpInformation(Entity):
@@ -15300,7 +15300,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -15362,7 +15362,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -15433,7 +15433,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -15482,7 +15482,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -15534,7 +15534,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -15586,7 +15586,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -15663,7 +15663,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -15725,7 +15725,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -15796,7 +15796,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -15845,7 +15845,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -15897,7 +15897,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -15949,7 +15949,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -15994,7 +15994,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, ['unidirectional_min_delay'], name, value)
 
 
 
@@ -16109,7 +16109,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -16169,7 +16169,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -16298,7 +16298,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link, [u'local_ipv6_address', u'remote_ipv6_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth'], name, value)
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link, ['local_ipv6_address', 'remote_ipv6_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth'], name, value)
 
 
                 class LocalIgpInformation(Entity):
@@ -16349,7 +16349,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -16411,7 +16411,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -16482,7 +16482,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -16531,7 +16531,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -16583,7 +16583,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -16635,7 +16635,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -16734,7 +16734,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                     class IgpInformation(Entity):
@@ -16785,7 +16785,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -16847,7 +16847,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -16918,7 +16918,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -16967,7 +16967,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -17019,7 +17019,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -17071,7 +17071,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -17148,7 +17148,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                         class NodeId(Entity):
@@ -17210,7 +17210,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                             class Igp(Entity):
@@ -17281,7 +17281,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                                 class Isis(Entity):
@@ -17330,7 +17330,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -17382,7 +17382,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -17434,7 +17434,7 @@ class Pce(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -17553,7 +17553,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -17613,7 +17613,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -17728,7 +17728,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.PrefixInfos.PrefixInfo, ['node_identifier', u'node_identifier_xr'], name, value)
+                self._perform_setattr(Pce.PrefixInfos.PrefixInfo, ['node_identifier', 'node_identifier_xr'], name, value)
 
 
             class NodeProtocolIdentifier(Entity):
@@ -17823,7 +17823,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
+                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
                 class IgpInformation(Entity):
@@ -17874,7 +17874,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -17936,7 +17936,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -18007,7 +18007,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -18056,7 +18056,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -18108,7 +18108,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -18160,7 +18160,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -18237,7 +18237,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
                     class NodeId(Entity):
@@ -18299,7 +18299,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
                         class Igp(Entity):
@@ -18370,7 +18370,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
                             class Isis(Entity):
@@ -18419,7 +18419,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
 
 
@@ -18471,7 +18471,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
 
@@ -18523,7 +18523,7 @@ class Pce(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
 
 
@@ -18627,7 +18627,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -18765,7 +18765,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
+                self._perform_setattr(Pce.LspSummary.AllLsPs, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
 
@@ -18902,7 +18902,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
+                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
 
@@ -18964,7 +18964,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.PeerAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -19083,7 +19083,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.PeerInfos.PeerInfo, ['peer_address', u'peer_protocol'], name, value)
+                self._perform_setattr(Pce.PeerInfos.PeerInfo, ['peer_address', 'peer_protocol'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -19143,7 +19143,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.PeerInfos.PeerInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -19245,7 +19245,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
+                    self._perform_setattr(Pce.PeerInfos.PeerInfo.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
 
 
@@ -19413,7 +19413,7 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr', u'xtc_controlled', u'color'], name, value)
+                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color'], name, value)
 
 
             class PccAddress(Entity):
@@ -19473,7 +19473,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -19571,7 +19571,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, ['event_id', 'event_message', 'time_stamp'], name, value)
 
 
 
@@ -19772,7 +19772,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, [u'signaled_bandwidth_specified', u'signaled_bandwidth', u'actual_bandwidth_specified', u'actual_bandwidth', u'lsp_role', u'computing_pce', u'srlg_info'], name, value)
+                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'srlg_info'], name, value)
 
 
                 class BriefLspInformation(Entity):
@@ -19894,7 +19894,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd'], name, value)
 
 
                     class SourceAddress(Entity):
@@ -19954,7 +19954,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20015,7 +20015,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20134,7 +20134,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, [u'reported_metric_type', u'reported_metric_value', u'computed_metric_type', u'computed_metric_value', u'computed_hop_list_time'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, ['reported_metric_type', 'reported_metric_value', 'computed_metric_type', 'computed_metric_value', 'computed_hop_list_time'], name, value)
 
 
                     class ReportedRsvpPath(Entity):
@@ -20174,7 +20174,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, ['hop_address'], name, value)
 
 
 
@@ -20246,7 +20246,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -20306,7 +20306,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20367,7 +20367,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20409,7 +20409,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, ['hop_address'], name, value)
 
 
 
@@ -20481,7 +20481,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -20541,7 +20541,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20602,7 +20602,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20714,7 +20714,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, [u'pcepid', u'pcep_flag_d', u'pcep_flag_s', u'pcep_flag_r', u'pcep_flag_a', u'pcep_flag_o', u'pcep_flag_c'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
                     class RsvpError(Entity):
@@ -20787,7 +20787,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, ['node_address', 'error_flags', 'error_code', 'error_value'], name, value)
 
 
 
@@ -20851,7 +20851,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, [u'association_type', u'association_id'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, ['association_type', 'association_id'], name, value)
 
 
                     class AssociationSource(Entity):
@@ -20911,7 +20911,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -21006,7 +21006,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, ['affinity_exclude_any', 'affinity_include_any', 'affinity_include_all', 'setup_priority', 'hold_priority', 'local_protection'], name, value)
 
 
 
@@ -21067,7 +21067,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -21128,7 +21128,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -21189,7 +21189,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -21272,7 +21272,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, [u'rro_type', u'ipv4_address', u'mpls_label', u'flags'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, ['rro_type', 'ipv4_address', 'mpls_label', 'flags'], name, value)
 
 
                     class SrRro(Entity):
@@ -21343,7 +21343,7 @@ class Pce(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, [u'sid_type', u'mpls_label'], name, value)
+                            self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, ['sid_type', 'mpls_label'], name, value)
 
 
                         class LocalAddr(Entity):
@@ -21403,7 +21403,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -21464,7 +21464,7 @@ class Pce(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 

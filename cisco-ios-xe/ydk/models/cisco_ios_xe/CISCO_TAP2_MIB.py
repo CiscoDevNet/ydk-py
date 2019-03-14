@@ -162,7 +162,7 @@ class CISCOTAP2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOTAP2MIB.CTap2MediationGroup, ['ctap2mediationnewindex', 'ctap2mediationcapabilities'], name, value)
+            self._perform_setattr(CISCOTAP2MIB.CTap2MediationGroup, [u'ctap2mediationnewindex', u'ctap2mediationcapabilities'], name, value)
 
 
 
@@ -215,7 +215,7 @@ class CISCOTAP2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOTAP2MIB.CTap2DebugGroup, ['ctap2debugage', 'ctap2debugmaxentries'], name, value)
+            self._perform_setattr(CISCOTAP2MIB.CTap2DebugGroup, [u'ctap2debugage', u'ctap2debugmaxentries'], name, value)
 
 
 
@@ -439,7 +439,7 @@ class CISCOTAP2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOTAP2MIB.CTap2MediationTable.CTap2MediationEntry, ['ctap2mediationcontentid', 'ctap2mediationdestaddresstype', 'ctap2mediationdestaddress', 'ctap2mediationdestport', 'ctap2mediationsrcinterface', 'ctap2mediationrtcpport', 'ctap2mediationdscp', 'ctap2mediationdatatype', 'ctap2mediationretransmittype', 'ctap2mediationtimeout', 'ctap2mediationtransport', 'ctap2mediationnotificationenable', 'ctap2mediationstatus', 'ctap2mediationradiuskey'], name, value)
+                self._perform_setattr(CISCOTAP2MIB.CTap2MediationTable.CTap2MediationEntry, [u'ctap2mediationcontentid', u'ctap2mediationdestaddresstype', u'ctap2mediationdestaddress', u'ctap2mediationdestport', u'ctap2mediationsrcinterface', u'ctap2mediationrtcpport', u'ctap2mediationdscp', u'ctap2mediationdatatype', u'ctap2mediationretransmittype', u'ctap2mediationtimeout', u'ctap2mediationtransport', u'ctap2mediationnotificationenable', u'ctap2mediationstatus', u'ctap2mediationradiuskey'], name, value)
 
             class CTap2MediationTransport(Enum):
                 """
@@ -685,7 +685,7 @@ class CISCOTAP2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOTAP2MIB.CTap2StreamTable.CTap2StreamEntry, ['ctap2mediationcontentid', 'ctap2streamindex', 'ctap2streamtype', 'ctap2streaminterceptenable', 'ctap2streaminterceptedpackets', 'ctap2streaminterceptdrops', 'ctap2streamstatus', 'ctap2streaminterceptedhcpackets', 'ctap2streamintercepthcdrops'], name, value)
+                self._perform_setattr(CISCOTAP2MIB.CTap2StreamTable.CTap2StreamEntry, [u'ctap2mediationcontentid', u'ctap2streamindex', u'ctap2streamtype', u'ctap2streaminterceptenable', u'ctap2streaminterceptedpackets', u'ctap2streaminterceptdrops', u'ctap2streamstatus', u'ctap2streaminterceptedhcpackets', u'ctap2streamintercepthcdrops'], name, value)
 
             class CTap2StreamType(Enum):
                 """
@@ -917,7 +917,7 @@ class CISCOTAP2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOTAP2MIB.CTap2DebugTable.CTap2DebugEntry, ['ctap2debugindex', 'ctap2debugmediationid', 'ctap2debugstreamid', 'ctap2debugmessage', 'ctap2debugstatus'], name, value)
+                self._perform_setattr(CISCOTAP2MIB.CTap2DebugTable.CTap2DebugEntry, [u'ctap2debugindex', u'ctap2debugmediationid', u'ctap2debugstreamid', u'ctap2debugmessage', u'ctap2debugstatus'], name, value)
 
 
 
@@ -1049,7 +1049,7 @@ class CISCOTAP2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOTAP2MIB.CTap2DebugUserTable.CTap2DebugUserEntry, ['ctap2mediationcontentid', 'ctap2debugusername', 'ctap2debugusertimeout', 'ctap2debuguserstoragetype', 'ctap2debuguserstatus'], name, value)
+                self._perform_setattr(CISCOTAP2MIB.CTap2DebugUserTable.CTap2DebugUserEntry, [u'ctap2mediationcontentid', u'ctap2debugusername', u'ctap2debugusertimeout', u'ctap2debuguserstoragetype', u'ctap2debuguserstatus'], name, value)
 
 
 

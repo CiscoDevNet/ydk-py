@@ -109,7 +109,7 @@ class VirtualServiceCfgData(Entity):
             	Application name
             	**type**\: str
             
-            	**length:** 1..128
+            	**pattern:** [0\-9a\-zA\-Z]\*
             
             .. attribute:: application_network_resource
             
@@ -175,14 +175,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**length:** 1..2
+                	**pattern:** [0\-9]\*
                 
                 .. attribute:: virtualportgroup_guest_interface_name_1
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**pattern:** [0\-3]\*
                 
                 .. attribute:: virtualportgroup_guest_ip_address_1
                 
@@ -248,14 +248,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**length:** 1..2
+                	**pattern:** [0\-9]\*
                 
                 .. attribute:: virtualportgroup_guest_interface_name_2
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**pattern:** [0\-3]\*
                 
                 .. attribute:: virtualportgroup_guest_ip_address_2
                 
@@ -321,14 +321,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**length:** 1..2
+                	**pattern:** [0\-9]\*
                 
                 .. attribute:: virtualportgroup_guest_interface_name_3
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**pattern:** [0\-3]\*
                 
                 .. attribute:: virtualportgroup_guest_ip_address_3
                 
@@ -394,14 +394,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**length:** 1..2
+                	**pattern:** [0\-9]\*
                 
                 .. attribute:: virtualportgroup_guest_interface_name_4
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**pattern:** [0\-3]\*
                 
                 .. attribute:: virtualportgroup_guest_ip_address_4
                 
@@ -467,7 +467,7 @@ class VirtualServiceCfgData(Entity):
                 	Management port guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**pattern:** [0\-3]\*
                 
                 .. attribute:: management_guest_ip_address
                 
@@ -646,7 +646,7 @@ class VirtualServiceCfgData(Entity):
                     	MAC interface name
                     	**type**\: str
                     
-                    	**length:** 0..32
+                    	**pattern:** [0\-9a\-zA\-Z]\*
                     
                     
 
@@ -688,7 +688,7 @@ class VirtualServiceCfgData(Entity):
                 	Resource profile name
                 	**type**\: str
                 
-                	**length:** 0..64
+                	**pattern:** [0\-9a\-zA\-Z]\*
                 
                 .. attribute:: vcpu
                 
@@ -729,7 +729,7 @@ class VirtualServiceCfgData(Entity):
                 	Resource package profile name
                 	**type**\: str
                 
-                	**length:** 0..64
+                	**pattern:** [0\-9a\-zA\-Z]\*
                 
                 
 
@@ -778,7 +778,7 @@ class VirtualServiceCfgData(Entity):
                 	device name
                 	**type**\: str
                 
-                	**length:** 0..32
+                	**pattern:** [0\-9a\-zA\-Z]\*
                 
                 
 

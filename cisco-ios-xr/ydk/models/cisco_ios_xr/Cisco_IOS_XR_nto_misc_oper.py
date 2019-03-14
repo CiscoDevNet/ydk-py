@@ -318,7 +318,7 @@ class MemorySummary(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MemorySummary.Nodes.Node.Summary, [u'page_size', u'ram_memory', u'free_physical_memory', u'system_ram_memory', u'free_application_memory', u'image_memory', u'boot_ram_size', u'reserved_memory', u'io_memory', u'flash_system'], name, value)
+                    self._perform_setattr(MemorySummary.Nodes.Node.Summary, ['page_size', 'ram_memory', 'free_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system'], name, value)
 
 
 
@@ -567,7 +567,7 @@ class MemorySummary(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, [u'page_size', u'ram_memory', u'free_physical_memory', u'private_physical_memory', u'system_ram_memory', u'free_application_memory', u'image_memory', u'boot_ram_size', u'reserved_memory', u'io_memory', u'flash_system', u'total_shared_window', u'allocated_memory', u'program_text', u'program_data', u'program_stack', u'total_used'], name, value)
+                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, ['page_size', 'ram_memory', 'free_physical_memory', 'private_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system', 'total_shared_window', 'allocated_memory', 'program_text', 'program_data', 'program_stack', 'total_used'], name, value)
 
 
                 class SharedWindow(Entity):
@@ -616,7 +616,7 @@ class MemorySummary(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, [u'shared_window', u'window_size'], name, value)
+                        self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, ['shared_window', 'window_size'], name, value)
 
 
 

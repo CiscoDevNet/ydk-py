@@ -116,6 +116,11 @@ class Components(Entity):
         	Enclosing container for subcomponent references
         	**type**\:  :py:class:`Subcomponents <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents>`
         
+        .. attribute:: optical_port
+        
+        	Top\-level container 
+        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
+        
         .. attribute:: transceiver
         
         	Top\-level container for client port transceiver data
@@ -125,11 +130,6 @@ class Components(Entity):
         
         	Enclosing container for the list of optical channels
         	**type**\:  :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
-        
-        .. attribute:: optical_port
-        
-        	Top\-level container 
-        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
         
         
 
@@ -146,7 +146,7 @@ class Components(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort))])
+            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel))])
             self._leafs = OrderedDict([
                 ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
@@ -168,6 +168,10 @@ class Components(Entity):
             self.subcomponents.parent = self
             self._children_name_map["subcomponents"] = "subcomponents"
 
+            self.optical_port = Components.Component.OpticalPort()
+            self.optical_port.parent = self
+            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
+
             self.transceiver = Components.Component.Transceiver()
             self.transceiver.parent = self
             self._children_name_map["transceiver"] = "openconfig-platform-transceiver:transceiver"
@@ -175,10 +179,6 @@ class Components(Entity):
             self.optical_channel = Components.Component.OpticalChannel()
             self.optical_channel.parent = self
             self._children_name_map["optical_channel"] = "openconfig-terminal-device:optical-channel"
-
-            self.optical_port = Components.Component.OpticalPort()
-            self.optical_port.parent = self
-            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
             self._segment_path = lambda: "component" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-platform:components/%s" % self._segment_path()
             self._is_frozen = True
@@ -728,6 +728,330 @@ class Components(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Components.Component.Subcomponents.Subcomponent.State, [u'name'], name, value)
+
+
+
+
+
+        class OpticalPort(Entity):
+            """
+            Top\-level container 
+            
+            .. attribute:: config
+            
+            	Operational config data for optical line ports
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
+            
+            .. attribute:: state
+            
+            	Operational state data for optical line ports
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'oc-line-com'
+            _revision = '2017-07-08'
+
+            def __init__(self):
+                super(Components.Component.OpticalPort, self).__init__()
+
+                self.yang_name = "optical-port"
+                self.yang_parent_name = "component"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
+                self._leafs = OrderedDict()
+
+                self.config = Components.Component.OpticalPort.Config()
+                self.config.parent = self
+                self._children_name_map["config"] = "config"
+
+                self.state = Components.Component.OpticalPort.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
+
+
+            class Config(Entity):
+                """
+                Operational config data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    super(Components.Component.OpticalPort.Config, self).__init__()
+
+                    self.yang_name = "config"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                    ])
+                    self.admin_state = None
+                    self._segment_path = lambda: "config"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
+
+
+
+            class State(Entity):
+                """
+                Operational state data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                	**config**\: False
+                
+                .. attribute:: optical_port_type
+                
+                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
+                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
+                
+                	**config**\: False
+                
+                .. attribute:: input_power
+                
+                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
+                
+                	**config**\: False
+                
+                .. attribute:: output_power
+                
+                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    super(Components.Component.OpticalPort.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                        ('optical_port_type', (YLeaf(YType.identityref, 'optical-port-type'), [('ydk.models.openconfig.openconfig_transport_line_common', 'OPTICALLINEPORTTYPE')])),
+                    ])
+                    self.admin_state = None
+                    self.optical_port_type = None
+
+                    self.input_power = Components.Component.OpticalPort.State.InputPower()
+                    self.input_power.parent = self
+                    self._children_name_map["input_power"] = "input-power"
+
+                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
+                    self.output_power.parent = self
+                    self._children_name_map["output_power"] = "output-power"
+                    self._segment_path = lambda: "state"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
+
+
+                class InputPower(Entity):
+                    """
+                    The total input optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        super(Components.Component.OpticalPort.State.InputPower, self).__init__()
+
+                        self.yang_name = "input-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "input-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+                class OutputPower(Entity):
+                    """
+                    The total output optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
+
+                        self.yang_name = "output-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "output-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
 
 
 
@@ -2349,330 +2673,6 @@ class Components(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationDependentLoss, [u'instant', u'avg', u'min', u'max'], name, value)
-
-
-
-
-
-        class OpticalPort(Entity):
-            """
-            Top\-level container 
-            
-            .. attribute:: config
-            
-            	Operational config data for optical line ports
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
-            
-            .. attribute:: state
-            
-            	Operational state data for optical line ports
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'oc-line-com'
-            _revision = '2017-07-08'
-
-            def __init__(self):
-                super(Components.Component.OpticalPort, self).__init__()
-
-                self.yang_name = "optical-port"
-                self.yang_parent_name = "component"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
-                self._leafs = OrderedDict()
-
-                self.config = Components.Component.OpticalPort.Config()
-                self.config.parent = self
-                self._children_name_map["config"] = "config"
-
-                self.state = Components.Component.OpticalPort.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
-
-
-            class Config(Entity):
-                """
-                Operational config data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.Config, self).__init__()
-
-                    self.yang_name = "config"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
-                    ])
-                    self.admin_state = None
-                    self._segment_path = lambda: "config"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
-
-
-
-            class State(Entity):
-                """
-                Operational state data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                	**config**\: False
-                
-                .. attribute:: optical_port_type
-                
-                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
-                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
-                
-                	**config**\: False
-                
-                .. attribute:: input_power
-                
-                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
-                
-                	**config**\: False
-                
-                .. attribute:: output_power
-                
-                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
-                    self._leafs = OrderedDict([
-                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
-                        ('optical_port_type', (YLeaf(YType.identityref, 'optical-port-type'), [('ydk.models.openconfig.openconfig_transport_line_common', 'OPTICALLINEPORTTYPE')])),
-                    ])
-                    self.admin_state = None
-                    self.optical_port_type = None
-
-                    self.input_power = Components.Component.OpticalPort.State.InputPower()
-                    self.input_power.parent = self
-                    self._children_name_map["input_power"] = "input-power"
-
-                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
-                    self.output_power.parent = self
-                    self._children_name_map["output_power"] = "output-power"
-                    self._segment_path = lambda: "state"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
-
-
-                class InputPower(Entity):
-                    """
-                    The total input optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.InputPower, self).__init__()
-
-                        self.yang_name = "input-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
-                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
-                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
-                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "input-power"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
-
-
-
-                class OutputPower(Entity):
-                    """
-                    The total output optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**config**\: False
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
-
-                        self.yang_name = "output-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
-                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
-                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
-                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "output-power"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
 
 
 

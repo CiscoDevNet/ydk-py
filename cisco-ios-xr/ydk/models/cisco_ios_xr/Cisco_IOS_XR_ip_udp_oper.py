@@ -2177,7 +2177,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, [u'received_total_packets', u'received_no_port_packets', u'received_bad_checksum_packets', u'received_too_short_packets', u'received_drop_packets', u'sent_total_packets', u'sent_error_packets', u'forward_broadcast_packets', u'cloned_packets', u'failed_clone_packets'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['received_total_packets', 'received_no_port_packets', 'received_bad_checksum_packets', 'received_too_short_packets', 'received_drop_packets', 'sent_total_packets', 'sent_error_packets', 'forward_broadcast_packets', 'cloned_packets', 'failed_clone_packets'], name, value)
 
 
 
@@ -2298,7 +2298,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', u'vrf_id', u'is_paw_socket'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
 
 
                         class Send(Entity):
@@ -2395,7 +2395,7 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, [u'received_application_bytes', u'received_xipc_pulses', u'sent_network_packets', u'sent_net_io_packets', u'failed_queued_network_packets', u'failed_queued_net_io_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['received_application_bytes', 'received_xipc_pulses', 'sent_network_packets', 'sent_net_io_packets', 'failed_queued_network_packets', 'failed_queued_net_io_packets'], name, value)
 
 
 
@@ -2480,7 +2480,7 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, [u'received_network_packets', u'failed_queued_application_packets', u'queued_application_packets', u'failed_queued_application_socket_packets', u'queued_application_socket_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['received_network_packets', 'failed_queued_application_packets', 'queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_socket_packets'], name, value)
 
 
 
@@ -2752,7 +2752,7 @@ class UdpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
+                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', u'l4_protocol', u'local_port', u'foreign_port'], name, value)
 
 
                                 class LocalAddress(Entity):
@@ -2812,7 +2812,7 @@ class UdpConnection(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -2873,7 +2873,7 @@ class UdpConnection(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -2923,7 +2923,7 @@ class UdpConnection(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, ['af_name'], name, value)
+                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, [u'af_name'], name, value)
 
 
                                     class LptsPcb(Entity):
@@ -3016,7 +3016,7 @@ class UdpConnection(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, ['ttl', 'flow_types_info'], name, value)
+                                            self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, [u'ttl', u'flow_types_info'], name, value)
 
 
                                         class Options(Entity):
@@ -3063,7 +3063,7 @@ class UdpConnection(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, [u'is_receive_filter', u'is_ip_sla'], name, value)
 
 
 
@@ -3120,7 +3120,7 @@ class UdpConnection(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, [u'is_pcb_bound', u'is_local_address_ignore', u'is_ignore_vrf_filter'], name, value)
 
 
 
@@ -3204,7 +3204,7 @@ class UdpConnection(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, [u'is_interface', u'is_packet_type', u'is_remote_address', u'is_remote_port', u'is_local_address', u'is_local_port'], name, value)
 
 
 
@@ -3355,7 +3355,7 @@ class UdpConnection(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, ['interface_name', 'remote_length', 'local_length', 'receive_remote_port', 'receive_local_port', 'priority', 'ttl', 'flow_types_info'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, [u'interface_name', u'remote_length', u'local_length', u'receive_remote_port', u'receive_local_port', u'priority', u'ttl', u'flow_types_info'], name, value)
 
 
                                             class PacketType(Entity):
@@ -3431,7 +3431,7 @@ class UdpConnection(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
+                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, [u'type', u'icmp_message_type', u'icm_pv6_message_type', u'igmp_message_type', u'message_id'], name, value)
 
 
 
@@ -3492,7 +3492,7 @@ class UdpConnection(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -3553,7 +3553,7 @@ class UdpConnection(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -3737,7 +3737,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', u'af_name', u'local_process_id', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -3797,7 +3797,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3858,7 +3858,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4024,7 +4024,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', u'af_name', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -4084,7 +4084,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4145,7 +4145,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 

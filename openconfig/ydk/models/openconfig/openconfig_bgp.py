@@ -327,7 +327,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global.State, [u'as_', u'router_id', 'total_paths', 'total_prefixes'], name, value)
+                self._perform_setattr(Bgp.Global.State, [u'as_', u'router_id', u'total_paths', u'total_prefixes'], name, value)
 
 
 
@@ -763,7 +763,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
 
 
 
@@ -834,7 +834,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
 
 
 
@@ -943,7 +943,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.UseMultiplePaths.Config, ['enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -985,7 +985,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.UseMultiplePaths.State, ['enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -1085,7 +1085,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -1140,7 +1140,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -1232,7 +1232,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
 
 
 
@@ -1276,7 +1276,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
 
 
 
@@ -1413,7 +1413,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -1510,7 +1510,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -1840,7 +1840,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', 'total_paths', 'total_prefixes'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', u'total_paths', u'total_prefixes'], name, value)
 
 
 
@@ -2102,7 +2102,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -2198,7 +2198,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -2305,7 +2305,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -2346,7 +2346,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -2444,7 +2444,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -2498,7 +2498,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -2588,7 +2588,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
 
 
 
@@ -2631,7 +2631,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
 
 
 
@@ -5748,7 +5748,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, [u'peer_group', u'neighbor_address', u'enabled', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description'], name, value)
 
 
 
@@ -5970,7 +5970,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', u'session_state', u'last_established', u'established_transitions', u'supported_capabilities', u'dynamically_configured'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, [u'peer_group', u'neighbor_address', u'enabled', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description', u'session_state', u'last_established', u'established_transitions', u'supported_capabilities', u'dynamically_configured'], name, value)
 
                 class SessionState(Enum):
                     """
@@ -6361,7 +6361,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.Config, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.Config, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
 
 
 
@@ -6455,7 +6455,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval', u'negotiated_hold_time'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval', u'negotiated_hold_time'], name, value)
 
 
 
@@ -6579,7 +6579,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.Config, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.Config, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
 
 
 
@@ -6701,7 +6701,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address', u'local_port', u'remote_address', u'remote_port'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address', u'local_port', u'remote_address', u'remote_port'], name, value)
 
 
 
@@ -6792,7 +6792,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.Config, ['treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.Config, [u'treat_as_withdraw'], name, value)
 
 
 
@@ -6845,7 +6845,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, ['treat_as_withdraw', u'erroneous_update_messages'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, [u'treat_as_withdraw', u'erroneous_update_messages'], name, value)
 
 
 
@@ -6956,7 +6956,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
 
 
 
@@ -7064,7 +7064,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only', u'peer_restart_time', u'peer_restarting', u'local_restarting', u'mode'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only', u'peer_restart_time', u'peer_restarting', u'local_restarting', u'mode'], name, value)
 
                     class Mode(Enum):
                         """
@@ -7197,7 +7197,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.Config, ['log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.Config, [u'log_neighbor_state_changes'], name, value)
 
 
 
@@ -7239,7 +7239,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.State, ['log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.State, [u'log_neighbor_state_changes'], name, value)
 
 
 
@@ -7337,7 +7337,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, ['enabled', 'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, [u'enabled', u'multihop_ttl'], name, value)
 
 
 
@@ -7390,7 +7390,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.State, ['enabled', 'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.State, [u'enabled', u'multihop_ttl'], name, value)
 
 
 
@@ -7494,7 +7494,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.Config, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.Config, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
 
 
 
@@ -7553,7 +7553,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.State, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.State, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
 
 
 
@@ -7654,7 +7654,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.Config, ['allow_own_as', 'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.Config, [u'allow_own_as', u'replace_peer_as'], name, value)
 
 
 
@@ -7709,7 +7709,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.State, ['allow_own_as', 'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.State, [u'allow_own_as', u'replace_peer_as'], name, value)
 
 
 
@@ -7816,7 +7816,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.Config, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.Config, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
 
 
 
@@ -7879,7 +7879,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.State, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.State, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
 
 
 
@@ -7977,7 +7977,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, ['enabled'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -8018,7 +8018,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, ['enabled'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -8105,7 +8105,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as'], name, value)
 
 
 
@@ -8146,7 +8146,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, ['allow_multiple_as'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as'], name, value)
 
 
 
@@ -11709,7 +11709,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -11750,7 +11750,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -11837,7 +11837,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as'], name, value)
 
 
 
@@ -11878,7 +11878,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as'], name, value)
 
 
 
@@ -12089,7 +12089,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.PeerGroups.PeerGroup, ['peer_group_name'], name, value)
+                self._perform_setattr(Bgp.PeerGroups.PeerGroup, [u'peer_group_name'], name, value)
 
 
             class Config(Entity):
@@ -12190,7 +12190,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.Config, ['peer_group_name', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
+                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.Config, [u'peer_group_name', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description'], name, value)
 
 
 
@@ -12331,7 +12331,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.State, ['peer_group_name', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', 'total_paths', 'total_prefixes'], name, value)
+                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.State, [u'peer_group_name', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description', u'total_paths', u'total_prefixes'], name, value)
 
 
 
@@ -12454,7 +12454,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.Config, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.Config, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
 
 
 
@@ -12537,7 +12537,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.State, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
 
 
 
@@ -12661,7 +12661,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.Config, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.Config, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
 
 
 
@@ -12744,7 +12744,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.State, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
 
 
 
@@ -12834,7 +12834,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, ['treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, [u'treat_as_withdraw'], name, value)
 
 
 
@@ -12876,7 +12876,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, ['treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, [u'treat_as_withdraw'], name, value)
 
 
 
@@ -12987,7 +12987,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
 
 
 
@@ -13057,7 +13057,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
 
 
 
@@ -13147,7 +13147,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, ['log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, [u'log_neighbor_state_changes'], name, value)
 
 
 
@@ -13189,7 +13189,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, ['log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, [u'log_neighbor_state_changes'], name, value)
 
 
 
@@ -13287,7 +13287,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, ['enabled', 'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, [u'enabled', u'multihop_ttl'], name, value)
 
 
 
@@ -13340,7 +13340,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, ['enabled', 'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, [u'enabled', u'multihop_ttl'], name, value)
 
 
 
@@ -13444,7 +13444,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
 
 
 
@@ -13503,7 +13503,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.State, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.State, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
 
 
 
@@ -13604,7 +13604,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, ['allow_own_as', 'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, [u'allow_own_as', u'replace_peer_as'], name, value)
 
 
 
@@ -13659,7 +13659,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, ['allow_own_as', 'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, [u'allow_own_as', u'replace_peer_as'], name, value)
 
 
 
@@ -13766,7 +13766,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.Config, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.Config, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
 
 
 
@@ -13829,7 +13829,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.State, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.State, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
 
 
 
@@ -13936,7 +13936,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, ['enabled'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -13977,7 +13977,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, ['enabled'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -14075,7 +14075,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -14129,7 +14129,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -14219,7 +14219,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
 
 
 
@@ -14262,7 +14262,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
 
 
 
@@ -14676,7 +14676,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, [u'afi_safi_name'], name, value)
 
 
                     class Config(Entity):
@@ -15033,7 +15033,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -15129,7 +15129,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
 
 
 
@@ -15236,7 +15236,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
 
 
 
@@ -15277,7 +15277,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
 
 
 
@@ -15375,7 +15375,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -15429,7 +15429,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
 
 
 
@@ -15519,7 +15519,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
 
 
 
@@ -15562,7 +15562,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
 
 
 

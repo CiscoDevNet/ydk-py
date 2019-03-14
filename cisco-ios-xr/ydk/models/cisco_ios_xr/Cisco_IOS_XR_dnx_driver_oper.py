@@ -1393,7 +1393,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'admin_state', 'oper_state', 'error_state', 'flags', 'flap_cnt', 'num_admin_shuts', 'correctable_errors', 'uncorrectable_errors'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'admin_state', u'oper_state', u'error_state', u'flags', u'flap_cnt', u'num_admin_shuts', u'correctable_errors', u'uncorrectable_errors'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -1473,7 +1473,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1553,7 +1553,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -1635,7 +1635,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1715,7 +1715,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -1797,7 +1797,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1877,7 +1877,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -1939,7 +1939,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, ['histnum', 'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, [u'histnum', u'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -2015,7 +2015,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
 
 
 
@@ -2568,7 +2568,7 @@ class Fia(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
+                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, [u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
 
 
                 class DeviceInfo(Entity):
@@ -2771,7 +2771,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
 
 
                     class AsicId(Entity):
@@ -2851,7 +2851,7 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -3054,7 +3054,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
 
 
                     class OirCircularBuffer(Entity):
@@ -3125,7 +3125,7 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
 
 
                         class FiaOirInfo(Entity):
@@ -3231,7 +3231,7 @@ class Fia(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
 
 
 
@@ -3863,7 +3863,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'is_power_enabled', 'coeff1', 'coeff2', 'admin_state', 'oper_state', 'error_state', 'num_admin_shuts'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'is_power_enabled', u'coeff1', u'coeff2', u'admin_state', u'oper_state', u'error_state', u'num_admin_shuts'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -3943,7 +3943,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -4023,7 +4023,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -4105,7 +4105,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -4185,7 +4185,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -4227,7 +4227,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, ['dummy'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, [u'dummy'], name, value)
 
 
 
@@ -4288,7 +4288,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, ['histnum', 'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, [u'histnum', u'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -4364,7 +4364,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
 
 
 
@@ -4634,7 +4634,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', u'output_xr'], name, value)
 
 
 
@@ -5358,7 +5358,7 @@ class Fia(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
 
 
                                 class DeviceInfo(Entity):
@@ -5561,7 +5561,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
 
 
                                     class AsicId(Entity):
@@ -5641,7 +5641,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
 
@@ -5844,7 +5844,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
 
 
                                     class OirCircularBuffer(Entity):
@@ -5915,7 +5915,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
 
 
                                         class FiaOirInfo(Entity):
@@ -6021,7 +6021,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
 
 
 
@@ -6299,7 +6299,7 @@ class Fia(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['valid', 'rack_no', 'slot_no', 'asic_instance', 'chip_ver'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, [u'valid', u'rack_no', u'slot_no', u'asic_instance', u'chip_ver'], name, value)
 
 
                                 class StatsInfo(Entity):
@@ -6348,7 +6348,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, ['num_blocks'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, [u'num_blocks'], name, value)
 
 
                                     class BlockInfo(Entity):
@@ -6408,7 +6408,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, ['block_name', 'num_fields'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, [u'block_name', u'num_fields'], name, value)
 
 
                                         class FieldInfo(Entity):
@@ -6468,7 +6468,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_ovf'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_ovf'], name, value)
 
 
 
@@ -6722,7 +6722,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'valid', 'rack_no', 'slot_no', 'asic_instance', 'link_no', 'link_valid'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', u'valid', u'rack_no', u'slot_no', u'asic_instance', u'link_no', u'link_valid'], name, value)
 
 
                                         class AggrStats(Entity):
@@ -6900,7 +6900,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
 
 
 
@@ -7084,7 +7084,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7268,7 +7268,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7448,7 +7448,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
 
 
 
@@ -7632,7 +7632,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7816,7 +7816,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
 

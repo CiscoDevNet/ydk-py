@@ -261,7 +261,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', u'interface_name', u'pae'], name, value)
+                    self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', 'interface_name', 'pae'], name, value)
 
 
                 class Idb(Entity):
@@ -323,7 +323,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
 
 
 
@@ -496,7 +496,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total', u'packet_drop_no_config_received'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
 
 
                     class PortControl(Entity):
@@ -591,7 +591,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, [u'enable_succ', u'enable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+                            self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
 
 
@@ -721,7 +721,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
 
 
 
@@ -828,7 +828,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, [u'requests', u'replies', u'timeout', u'dropped_no_eap', u'dropped', u'success', u'failed'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
 
 
 
@@ -995,7 +995,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, [u'version'], name, value)
+                    self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, ['version'], name, value)
 
 
                 class AuthTimers(Entity):
@@ -1098,7 +1098,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, [u'quiet_period', u'tx_period', u'max_reauth_req', u'supp_timeout', u'max_req', u'reauth_period'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, ['quiet_period', 'tx_period', 'max_reauth_req', 'supp_timeout', 'max_req', 'reauth_period'], name, value)
 
 
 
@@ -1178,7 +1178,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, [u'auth_period', u'held_period', u'start_period', u'max_start'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, ['auth_period', 'held_period', 'start_period', 'max_start'], name, value)
 
 
 
@@ -1312,7 +1312,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, [u'tx_total', u'rx_total', u'rx_no_idb', u'packet_drop_no_config_received'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, ['tx_total', 'rx_total', 'rx_no_idb', 'packet_drop_no_config_received'], name, value)
 
 
                     class PortControl(Entity):
@@ -1429,7 +1429,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, [u'enable_succ', u'enable_fail', u'disable_succ', u'disable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, ['enable_succ', 'enable_fail', 'disable_succ', 'disable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
 
 
@@ -1522,7 +1522,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, [u'interface_name', u'pae'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, ['interface_name', 'pae'], name, value)
 
 
                     class Idb(Entity):
@@ -1584,7 +1584,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
 
 
 
@@ -1757,7 +1757,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total', u'packet_drop_no_config_received'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
 
 
                         class PortControl(Entity):
@@ -1852,7 +1852,7 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, [u'enable_succ', u'enable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+                                self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
 
 
@@ -1982,7 +1982,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
 
 
 
@@ -2089,7 +2089,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, [u'requests', u'replies', u'timeout', u'dropped_no_eap', u'dropped', u'success', u'failed'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
 
 
 
@@ -2280,7 +2280,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', u'interface_name', u'interface_sname', u'if_handle', u'mac', u'ethertype'], name, value)
+                    self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', 'interface_name', 'interface_sname', 'if_handle', 'mac', 'ethertype'], name, value)
 
 
                 class IntfInfo(Entity):
@@ -2367,7 +2367,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, [u'pae', u'port_status', u'dot1x_profile', u'l2_transport'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, ['pae', 'port_status', 'dot1x_profile', 'l2_transport'], name, value)
 
 
                     class AuthInfo(Entity):
@@ -2441,7 +2441,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, [u'port_control', u'reauth', u'config_dependency', u'eap_profile'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, ['port_control', 'reauth', 'config_dependency', 'eap_profile'], name, value)
 
 
                         class Client(Entity):
@@ -2533,7 +2533,7 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, [u'mac', u'auth_sm_state', u'auth_bend_sm_state', u'time_to_next_reauth', u'last_auth_time', u'last_auth_server', u'port_control'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, ['mac', 'auth_sm_state', 'auth_bend_sm_state', 'time_to_next_reauth', 'last_auth_time', 'last_auth_server', 'port_control'], name, value)
 
 
 
@@ -2591,7 +2591,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, [u'eap_profile', u'config_dependency'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, ['eap_profile', 'config_dependency'], name, value)
 
 
                         class Client(Entity):
@@ -2665,7 +2665,7 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, [u'mac', u'eap_method', u'last_auth_time', u'auth_sm_state', u'auth_bend_sm_state'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, ['mac', 'eap_method', 'last_auth_time', 'auth_sm_state', 'auth_bend_sm_state'], name, value)
 
 
 
@@ -2742,7 +2742,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, [u'tie_break_role', u'eap_based_macsec', u'mka_start_time', u'mka_stop_time', u'mka_response_time'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, ['tie_break_role', 'eap_based_macsec', 'mka_start_time', 'mka_stop_time', 'mka_response_time'], name, value)
 
 
 

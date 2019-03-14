@@ -1759,7 +1759,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, [u'neighbor_ip_address', u'vc_id', u'pw_class_template', u'encap_type', u'tag_impose_vlan', u'source_ipv6'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, ['neighbor_ip_address', 'vc_id', 'pw_class_template', 'encap_type', 'tag_impose_vlan', 'source_ipv6'], name, value)
 
 
                         class StaticLabel(Entity):
@@ -1806,7 +1806,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, [u'local_label', u'remote_label'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, ['local_label', 'remote_label'], name, value)
 
 
 
@@ -2484,7 +2484,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, [u'neighbor_ip_address', u'vc_id', u'pw_class_template'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, ['neighbor_ip_address', 'vc_id', 'pw_class_template'], name, value)
 
 
 
@@ -4331,7 +4331,7 @@ class BridgeDomainState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, [u'vc_peer_address', u'vc_id'], name, value)
+                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, ['vc_peer_address', 'vc_id'], name, value)
 
 
                     class Flooding(Entity):

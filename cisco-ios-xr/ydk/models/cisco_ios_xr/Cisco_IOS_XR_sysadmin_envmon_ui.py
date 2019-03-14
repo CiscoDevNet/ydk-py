@@ -3028,7 +3028,7 @@ class Environment(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Environment.Config, [u'raise_fan_speed', u'fan_ctrl_optics', u'graceful_shutdown'], name, value)
+            self._perform_setattr(Environment.Config, ['raise_fan_speed', 'fan_ctrl_optics', 'graceful_shutdown'], name, value)
 
 
         class Router(Entity):

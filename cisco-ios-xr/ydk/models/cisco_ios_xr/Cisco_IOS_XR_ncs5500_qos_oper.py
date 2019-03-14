@@ -14633,7 +14633,7 @@ class PlatformQos(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface, ['interface_name', 'policy_name', 'virtual_output_queue_statistics_handle', 'interface_handle', 'number_of_virtual_output_queues', 'number_of_classes'], name, value)
+                        self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface, ['interface_name', u'policy_name', u'virtual_output_queue_statistics_handle', u'interface_handle', u'number_of_virtual_output_queues', u'number_of_classes'], name, value)
 
 
                     class RemoteClass(Entity):
@@ -14738,7 +14738,7 @@ class PlatformQos(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass, ['class_name', 'class_id', 'cos_q', 'queue_limit', 'hardware_queue_limit'], name, value)
+                            self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass, [u'class_name', u'class_id', u'cos_q', u'queue_limit', u'hardware_queue_limit'], name, value)
 
 
                         class Wred(Entity):
@@ -14800,7 +14800,7 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred, ['min_threshold', 'max_threshold', 'drop_probability'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred, [u'min_threshold', u'max_threshold', u'drop_probability'], name, value)
 
 
 
@@ -14863,7 +14863,7 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred, ['min_threshold', 'max_threshold', 'drop_probability'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred, [u'min_threshold', u'max_threshold', u'drop_probability'], name, value)
 
 
 

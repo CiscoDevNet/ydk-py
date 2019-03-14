@@ -801,7 +801,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'superseded_packages'], name, value)
 
 
 
@@ -927,7 +927,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
 
 
 
@@ -1053,7 +1053,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
 
 
 
@@ -1094,7 +1094,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.InactiveSummary, ['log'], name, value)
+            self._perform_setattr(SoftwareInstall.InactiveSummary, [u'log'], name, value)
 
 
 
@@ -1196,7 +1196,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Prepare, ['no_prepare_done', 'prepared_boot_image', 'prepared_boot_partition', 'restart_type', 'activate_message', 'prepare_clean_message'], name, value)
+            self._perform_setattr(SoftwareInstall.Prepare, [u'no_prepare_done', u'prepared_boot_image', u'prepared_boot_partition', u'restart_type', u'activate_message', u'prepare_clean_message'], name, value)
 
 
         class Rpm(Entity):
@@ -1235,7 +1235,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Rpm, ['package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Rpm, [u'package'], name, value)
 
 
 
@@ -1275,7 +1275,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Package, ['package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Package, [u'package'], name, value)
 
 
 
@@ -1401,7 +1401,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
 
 
 
@@ -1487,7 +1487,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime'], name, value)
+            self._perform_setattr(SoftwareInstall.Version, [u'location', u'label', u'copyright_info', u'hardware_info', u'system_uptime'], name, value)
 
 
         class Package(Entity):
@@ -1571,7 +1571,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Version.Package, ['name', 'version', 'built_by', 'built_on', 'build_host', 'workspace'], name, value)
+                self._perform_setattr(SoftwareInstall.Version.Package, [u'name', u'version', u'built_by', u'built_on', u'build_host', u'workspace'], name, value)
 
 
 
@@ -1612,7 +1612,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Inactive, ['log'], name, value)
+            self._perform_setattr(SoftwareInstall.Inactive, [u'log'], name, value)
 
 
 
@@ -1652,7 +1652,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Request, ['curr_inst_oper'], name, value)
+            self._perform_setattr(SoftwareInstall.Request, [u'curr_inst_oper'], name, value)
 
 
 
@@ -1692,7 +1692,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.SupersededSummary, ['log'], name, value)
+            self._perform_setattr(SoftwareInstall.SupersededSummary, [u'log'], name, value)
 
 
 
@@ -1836,7 +1836,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Issu.Stage, ['state', 'issu_node_cnt', 'issu_ready_node_cnt', 'percentage', 'issu_status', 'issu_error'], name, value)
+                self._perform_setattr(SoftwareInstall.Issu.Stage, [u'state', u'issu_node_cnt', u'issu_ready_node_cnt', u'percentage', u'issu_status', u'issu_error'], name, value)
 
 
 
@@ -1952,7 +1952,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, ['node_id', 'node_type', 'issu_node_role', 'node_state', 'node_role'], name, value)
+                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, [u'node_id', u'node_type', u'issu_node_role', u'node_state', u'node_role'], name, value)
 
 
 
@@ -2079,7 +2079,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
 
 
 
@@ -2194,7 +2194,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, [u'log'], name, value)
 
 
 
@@ -2234,7 +2234,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, [u'log'], name, value)
 
 
 
@@ -2274,7 +2274,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, [u'log'], name, value)
 
 
 
@@ -2314,7 +2314,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, [u'log'], name, value)
 
 
 
@@ -2464,7 +2464,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, ['log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, [u'log'], name, value)
 
 
 
@@ -2503,7 +2503,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, ['log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, [u'log'], name, value)
 
 
 
@@ -2542,7 +2542,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, ['log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, [u'log'], name, value)
 
 
 
@@ -2685,7 +2685,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, ['log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, [u'log'], name, value)
 
 
 
@@ -2725,7 +2725,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, ['log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, [u'log'], name, value)
 
 
 
@@ -2819,7 +2819,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.Xr, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.Xr, [u'log'], name, value)
 
 
 
@@ -2860,7 +2860,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.All, ['log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.All, [u'log'], name, value)
 
 
 

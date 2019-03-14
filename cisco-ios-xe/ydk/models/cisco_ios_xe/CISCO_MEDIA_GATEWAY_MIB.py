@@ -475,7 +475,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, ['cmgwindex', 'cmgwdomainname', 'cmgwphysicalindex', 'cmgwservicestate', 'cmgwadminstate', 'cmgwgracetime', 'cmgwvtmappingmode', 'cmgwsrcfilterenabled', 'cmgwlawinterceptenabled', 'cmgwv23enabled'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, [u'cmgwindex', u'cmgwdomainname', u'cmgwphysicalindex', u'cmgwservicestate', u'cmgwadminstate', u'cmgwgracetime', u'cmgwvtmappingmode', u'cmgwsrcfilterenabled', u'cmgwlawinterceptenabled', u'cmgwv23enabled'], name, value)
 
             class CmgwVtMappingMode(Enum):
                 """
@@ -667,7 +667,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, ['cmgwindex', 'cmgwsignalprotocolindex', 'cmgwsignalprotocol', 'cmgwsignalprotocolversion', 'cmgwsignalprotocolport', 'cmgwsignalmgcprotocolport', 'cmgwsignalprotocolpreference', 'cmgwsignalprotocolconfigver'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, [u'cmgwindex', u'cmgwsignalprotocolindex', u'cmgwsignalprotocol', u'cmgwsignalprotocolversion', u'cmgwsignalprotocolport', u'cmgwsignalmgcprotocolport', u'cmgwsignalprotocolpreference', u'cmgwsignalprotocolconfigver'], name, value)
 
             class CmgwSignalProtocol(Enum):
                 """
@@ -901,7 +901,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, ['cmgwindex', 'cmgwipconfigindex', 'cmgwipconfigifindex', 'cmgwipconfigvpi', 'cmgwipconfigvci', 'cmgwipconfigaddrtype', 'cmgwipconfigaddress', 'cmgwipconfigsubnetmask', 'cmgwipconfigdefaultgwip', 'cmgwipconfigforremotemapping', 'cmgwipconfigrowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, [u'cmgwindex', u'cmgwipconfigindex', u'cmgwipconfigifindex', u'cmgwipconfigvpi', u'cmgwipconfigvci', u'cmgwipconfigaddrtype', u'cmgwipconfigaddress', u'cmgwipconfigsubnetmask', u'cmgwipconfigdefaultgwip', u'cmgwipconfigforremotemapping', u'cmgwipconfigrowstatus'], name, value)
 
 
 
@@ -1033,7 +1033,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, ['cmgwindex', 'cmgwconfigdomainnameindex', 'cmgwconfigdomainnameentity', 'cmgwconfigdomainname', 'cmgwconfigdomainnamerowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, [u'cmgwindex', u'cmgwconfigdomainnameindex', u'cmgwconfigdomainnameentity', u'cmgwconfigdomainname', u'cmgwconfigdomainnamerowstatus'], name, value)
 
             class CmgwConfigDomainNameEntity(Enum):
                 """
@@ -1218,7 +1218,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, ['cmgwindex', 'cmgwdnsipindex', 'cmgwdnsdomainname', 'cmgwdnsiptype', 'cmgwdnsip', 'cmgwdnsiprowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, [u'cmgwindex', u'cmgwdnsipindex', u'cmgwdnsdomainname', u'cmgwdnsiptype', u'cmgwdnsip', u'cmgwdnsiprowstatus'], name, value)
 
 
 
@@ -1344,7 +1344,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, ['cmgwindex', 'cmgwlifnumber', 'cmgwlifpvccount', 'cmgwlifvoiceifcount'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, [u'cmgwindex', u'cmgwlifnumber', u'cmgwlifpvccount', u'cmgwlifvoiceifcount'], name, value)
 
 
 
@@ -1627,7 +1627,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, ['cmgwindex', 'cmediagwcccfgcontroltos', 'cmediagwcccfgbearertos', 'cmediagwcccfgntepayload', 'cmediagwcccfgnsepayload', 'cmediagwcccfgnseresptimer', 'cmediagwcccfgvbdjitterdelaymode', 'cmediagwcccfgvbdjittermaxdelay', 'cmediagwcccfgvbdjitternomdelay', 'cmediagwcccfgvbdjittermindelay', 'cmediagwcccfgdefaulttoneplanid', 'cmediagwcccfgdescrinfoenabled', 'cmediagwcccfgdsnameprefix', 'cmediagwcccfgrtpnameprefix', 'cmediagwcccfgaal1svcnameprefix', 'cmediagwcccfgaal2svcnameprefix', 'cmediagwcccfgclusterenabled', 'cmediagwcccfgdefbearertraffic', 'cmediagwcccfgdefrtpnameprefix'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, [u'cmgwindex', u'cmediagwcccfgcontroltos', u'cmediagwcccfgbearertos', u'cmediagwcccfgntepayload', u'cmediagwcccfgnsepayload', u'cmediagwcccfgnseresptimer', u'cmediagwcccfgvbdjitterdelaymode', u'cmediagwcccfgvbdjittermaxdelay', u'cmediagwcccfgvbdjitternomdelay', u'cmediagwcccfgvbdjittermindelay', u'cmediagwcccfgdefaulttoneplanid', u'cmediagwcccfgdescrinfoenabled', u'cmediagwcccfgdsnameprefix', u'cmediagwcccfgrtpnameprefix', u'cmediagwcccfgaal1svcnameprefix', u'cmediagwcccfgaal2svcnameprefix', u'cmediagwcccfgclusterenabled', u'cmediagwcccfgdefbearertraffic', u'cmediagwcccfgdefrtpnameprefix'], name, value)
 
             class CMediaGwCcCfgClusterEnabled(Enum):
                 """
@@ -1871,7 +1871,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, ['cmgwindex', 'cmgwrscstatsindex', 'cmgwrscmaximumutilization', 'cmgwrscminimumutilization', 'cmgwrscaverageutilization', 'cmgwrscsincelastreset'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, [u'cmgwindex', u'cmgwrscstatsindex', u'cmgwrscmaximumutilization', u'cmgwrscminimumutilization', u'cmgwrscaverageutilization', u'cmgwrscsincelastreset'], name, value)
 
             class CmgwRscStatsIndex(Enum):
                 """

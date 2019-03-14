@@ -278,7 +278,7 @@ class Radius(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.Client, [u'unknown_authentication_responses', u'authentication_nas_id', u'unknown_accounting_responses'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.Client, ['unknown_authentication_responses', 'authentication_nas_id', 'unknown_accounting_responses'], name, value)
 
 
 
@@ -494,7 +494,7 @@ class Radius(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, [u'value', u'is_computed'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, ['value', 'is_computed'], name, value)
 
 
 
@@ -544,7 +544,7 @@ class Radius(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, [u'value', u'is_computed'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, ['value', 'is_computed'], name, value)
 
 
 
@@ -665,7 +665,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
 
 
                     class Authentication_(Entity):
@@ -894,7 +894,7 @@ class Radius(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
 
 
 
@@ -1014,7 +1014,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
 
 
                     class Accounting_(Entity):
@@ -1221,7 +1221,7 @@ class Radius(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
 
 
 
@@ -1563,7 +1563,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, [u'client_address', u'disc_reqs', u'disc_acks', u'disc_naks', u'disc_bad_auth', u'drop_disc_reqs', u'coa_reqs', u'coa_acks', u'coa_naks', u'coa_bad_auth', u'drop_coa_reqs', u'unknown_types', u'internal_error', u'pak_decode_fail', u'vrf_parse_fail_err', u'unknown_vsa_error', u'send_msg_failed', u'radius_to_ch', u'ch_to_radius', u'service_parse_fail', u'multi_subs_error', u'service_not_present', u'send_to_ch_fail', u'vrf_name', u'addr_buf'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, ['client_address', 'disc_reqs', 'disc_acks', 'disc_naks', 'disc_bad_auth', 'drop_disc_reqs', 'coa_reqs', 'coa_acks', 'coa_naks', 'coa_bad_auth', 'drop_coa_reqs', 'unknown_types', 'internal_error', 'pak_decode_fail', 'vrf_parse_fail_err', 'unknown_vsa_error', 'send_msg_failed', 'radius_to_ch', 'ch_to_radius', 'service_parse_fail', 'multi_subs_error', 'service_not_present', 'send_to_ch_fail', 'vrf_name', 'addr_buf'], name, value)
 
 
 
@@ -1695,7 +1695,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', u'groups', u'vrf_name', u'dead_time', u'servers'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', 'groups', 'vrf_name', 'dead_time', 'servers'], name, value)
 
 
                     class ServerGroup_(Entity):
@@ -1828,7 +1828,7 @@ class Radius(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, [u'server_address', u'authentication_port', u'accounting_port', u'is_private', u'ip_address', u'family', u'redirected_requests'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, ['server_address', 'authentication_port', 'accounting_port', 'is_private', 'ip_address', 'family', 'redirected_requests'], name, value)
 
 
                         class Accounting(Entity):
@@ -2035,7 +2035,7 @@ class Radius(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
 
 
 
@@ -2265,7 +2265,7 @@ class Radius(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
 
 
 
@@ -2383,7 +2383,7 @@ class Radius(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, [u'author_requests', u'author_request_timeouts', u'author_unexpected_responses', u'author_server_error_responses', u'author_incorrect_responses', u'author_response_time', u'author_transaction_successess', u'author_transaction_failure'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, ['author_requests', 'author_request_timeouts', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure'], name, value)
 
 
 
@@ -2460,7 +2460,7 @@ class Radius(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, [u'disconnected_invalid_requests', u'invalid_coa_requests', u'radius_context_not_found', u'client_context_not_found'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, ['disconnected_invalid_requests', 'invalid_coa_requests', 'radius_context_not_found', 'client_context_not_found'], name, value)
 
 
 

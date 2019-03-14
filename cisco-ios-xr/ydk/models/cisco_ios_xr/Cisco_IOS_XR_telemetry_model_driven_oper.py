@@ -3324,7 +3324,7 @@ class TelemetryModelDriven(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TelemetryModelDriven.Summary, ['num_of_subscriptions', 'num_of_active_subscriptions', 'num_of_paused_subscriptions', 'num_of_destination_groups', 'num_of_destinations', 'num_of_tcp_dialouts', 'num_of_udp_dialouts', 'num_of_grpc_tls_dialouts', 'num_of_grpc_non_tls_dialouts', 'num_of_dialins', 'num_of_active_destinations', 'num_of_connected_sessions', 'num_of_connecting_sessions', 'num_of_sensor_groups', 'num_of_unique_sensor_paths', 'num_of_sensor_paths', 'num_of_not_resolved_sensor_paths', 'num_of_active_sensor_paths', 'max_sensor_paths', 'max_containers_per_path'], name, value)
+            self._perform_setattr(TelemetryModelDriven.Summary, [u'num_of_subscriptions', u'num_of_active_subscriptions', u'num_of_paused_subscriptions', u'num_of_destination_groups', u'num_of_destinations', u'num_of_tcp_dialouts', u'num_of_udp_dialouts', u'num_of_grpc_tls_dialouts', u'num_of_grpc_non_tls_dialouts', u'num_of_dialins', u'num_of_active_destinations', u'num_of_connected_sessions', u'num_of_connecting_sessions', u'num_of_sensor_groups', u'num_of_unique_sensor_paths', u'num_of_sensor_paths', u'num_of_not_resolved_sensor_paths', u'num_of_active_sensor_paths', u'max_sensor_paths', u'max_containers_per_path'], name, value)
 
 
     def clone_ptr(self):

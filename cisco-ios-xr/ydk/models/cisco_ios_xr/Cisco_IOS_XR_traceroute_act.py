@@ -250,7 +250,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Destination, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -371,7 +371,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv4, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose'], name, value)
 
 
 
@@ -508,7 +508,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv6, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -648,7 +648,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, [u'destination', u'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, ['destination', 'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -746,7 +746,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -849,7 +849,7 @@ class Traceroute(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
 
 
@@ -907,7 +907,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, [u'destination', u'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, ['destination', 'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -1005,7 +1005,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -1108,7 +1108,7 @@ class Traceroute(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
 
 

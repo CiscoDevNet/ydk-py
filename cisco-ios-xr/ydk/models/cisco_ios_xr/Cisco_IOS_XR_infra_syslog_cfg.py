@@ -1160,11 +1160,6 @@ class Syslog(Entity):
     	Suppress consecutive duplicate messages
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: alarm_logger
-    
-    	Alarm Logger Properties
-    	**type**\:  :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
-    
     .. attribute:: correlator
     
     	Configure properties of the event correlator
@@ -1174,6 +1169,11 @@ class Syslog(Entity):
     
     	Configure properties of the syslog/alarm suppression
     	**type**\:  :py:class:`Suppression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression>`
+    
+    .. attribute:: alarm_logger
+    
+    	Alarm Logger Properties
+    	**type**\:  :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
     
     
 
@@ -1191,7 +1191,7 @@ class Syslog(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("monitor-logging", ("monitor_logging", Syslog.MonitorLogging)), ("history-logging", ("history_logging", Syslog.HistoryLogging)), ("logging-facilities", ("logging_facilities", Syslog.LoggingFacilities)), ("trap-logging", ("trap_logging", Syslog.TrapLogging)), ("buffered-logging", ("buffered_logging", Syslog.BufferedLogging)), ("host-server", ("host_server", Syslog.HostServer)), ("console-logging", ("console_logging", Syslog.ConsoleLogging)), ("files", ("files", Syslog.Files)), ("ipv4", ("ipv4", Syslog.Ipv4)), ("archive", ("archive", Syslog.Archive)), ("ipv6", ("ipv6", Syslog.Ipv6)), ("source-interface-table", ("source_interface_table", Syslog.SourceInterfaceTable)), ("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", ("alarm_logger", Syslog.AlarmLogger)), ("Cisco-IOS-XR-infra-correlator-cfg:correlator", ("correlator", Syslog.Correlator)), ("Cisco-IOS-XR-infra-correlator-cfg:suppression", ("suppression", Syslog.Suppression))])
+        self._child_classes = OrderedDict([("monitor-logging", ("monitor_logging", Syslog.MonitorLogging)), ("history-logging", ("history_logging", Syslog.HistoryLogging)), ("logging-facilities", ("logging_facilities", Syslog.LoggingFacilities)), ("trap-logging", ("trap_logging", Syslog.TrapLogging)), ("buffered-logging", ("buffered_logging", Syslog.BufferedLogging)), ("host-server", ("host_server", Syslog.HostServer)), ("console-logging", ("console_logging", Syslog.ConsoleLogging)), ("files", ("files", Syslog.Files)), ("ipv4", ("ipv4", Syslog.Ipv4)), ("archive", ("archive", Syslog.Archive)), ("ipv6", ("ipv6", Syslog.Ipv6)), ("source-interface-table", ("source_interface_table", Syslog.SourceInterfaceTable)), ("Cisco-IOS-XR-infra-correlator-cfg:correlator", ("correlator", Syslog.Correlator)), ("Cisco-IOS-XR-infra-correlator-cfg:suppression", ("suppression", Syslog.Suppression)), ("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", ("alarm_logger", Syslog.AlarmLogger))])
         self._leafs = OrderedDict([
             ('host_name_prefix', (YLeaf(YType.str, 'host-name-prefix'), ['str'])),
             ('local_log_file_size', (YLeaf(YType.uint32, 'local-log-file-size'), ['int'])),
@@ -1251,10 +1251,6 @@ class Syslog(Entity):
         self.source_interface_table.parent = self
         self._children_name_map["source_interface_table"] = "source-interface-table"
 
-        self.alarm_logger = Syslog.AlarmLogger()
-        self.alarm_logger.parent = self
-        self._children_name_map["alarm_logger"] = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
-
         self.correlator = Syslog.Correlator()
         self.correlator.parent = self
         self._children_name_map["correlator"] = "Cisco-IOS-XR-infra-correlator-cfg:correlator"
@@ -1262,6 +1258,10 @@ class Syslog(Entity):
         self.suppression = Syslog.Suppression()
         self.suppression.parent = self
         self._children_name_map["suppression"] = "Cisco-IOS-XR-infra-correlator-cfg:suppression"
+
+        self.alarm_logger = Syslog.AlarmLogger()
+        self.alarm_logger.parent = self
+        self._children_name_map["alarm_logger"] = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog"
         self._is_frozen = True
 
@@ -3651,177 +3651,6 @@ class Syslog(Entity):
 
 
 
-    class AlarmLogger(Entity):
-        """
-        Alarm Logger Properties
-        
-        .. attribute:: alarm_filter_strings
-        
-        	List of filter strings
-        	**type**\:  :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
-        
-        .. attribute:: pre_config_suppression
-        
-        	Suppress events from a card/VM till its configuration is complete
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: severity_level
-        
-        	Log all events with equal or higher (lower level) severity than this
-        	**type**\:  :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
-        
-        .. attribute:: pre_config_suppression_timeout
-        
-        	Timeout (in minutes) for pre\-config events suppression (default 15)
-        	**type**\: int
-        
-        	**range:** 1..60
-        
-        	**units**\: minute
-        
-        	**default value**\: 15
-        
-        .. attribute:: buffer_size
-        
-        	Set size of the local event buffer
-        	**type**\: int
-        
-        	**range:** 1024..1024000
-        
-        .. attribute:: source_location
-        
-        	Enable alarm source location in message text
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: threshold
-        
-        	Configure threshold (%) for capacity alarm
-        	**type**\: int
-        
-        	**range:** 10..100
-        
-        	**default value**\: 90
-        
-        
-
-        """
-
-        _prefix = 'infra-alarm-logger-cfg'
-        _revision = '2017-02-23'
-
-        def __init__(self):
-            super(Syslog.AlarmLogger, self).__init__()
-
-            self.yang_name = "alarm-logger"
-            self.yang_parent_name = "syslog"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("alarm-filter-strings", ("alarm_filter_strings", Syslog.AlarmLogger.AlarmFilterStrings))])
-            self._leafs = OrderedDict([
-                ('pre_config_suppression', (YLeaf(YType.empty, 'pre-config-suppression'), ['Empty'])),
-                ('severity_level', (YLeaf(YType.enumeration, 'severity-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevel', '')])),
-                ('pre_config_suppression_timeout', (YLeaf(YType.uint32, 'pre-config-suppression-timeout'), ['int'])),
-                ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
-                ('source_location', (YLeaf(YType.empty, 'source-location'), ['Empty'])),
-                ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
-            ])
-            self.pre_config_suppression = None
-            self.severity_level = None
-            self.pre_config_suppression_timeout = None
-            self.buffer_size = None
-            self.source_location = None
-            self.threshold = None
-
-            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
-            self.alarm_filter_strings.parent = self
-            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
-            self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.AlarmLogger, ['pre_config_suppression', 'severity_level', 'pre_config_suppression_timeout', 'buffer_size', 'source_location', 'threshold'], name, value)
-
-
-        class AlarmFilterStrings(Entity):
-            """
-            List of filter strings
-            
-            .. attribute:: alarm_filter_string
-            
-            	Match string to filter alarms
-            	**type**\: list of  		 :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
-            
-            
-
-            """
-
-            _prefix = 'infra-alarm-logger-cfg'
-            _revision = '2017-02-23'
-
-            def __init__(self):
-                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
-
-                self.yang_name = "alarm-filter-strings"
-                self.yang_parent_name = "alarm-logger"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("alarm-filter-string", ("alarm_filter_string", Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString))])
-                self._leafs = OrderedDict()
-
-                self.alarm_filter_string = YList(self)
-                self._segment_path = lambda: "alarm-filter-strings"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
-
-
-            class AlarmFilterString(Entity):
-                """
-                Match string to filter alarms
-                
-                .. attribute:: filter_string  (key)
-                
-                	Filter String
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                
-
-                """
-
-                _prefix = 'infra-alarm-logger-cfg'
-                _revision = '2017-02-23'
-
-                def __init__(self):
-                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
-
-                    self.yang_name = "alarm-filter-string"
-                    self.yang_parent_name = "alarm-filter-strings"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['filter_string']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('filter_string', (YLeaf(YType.str, 'filter-string'), ['str'])),
-                    ])
-                    self.filter_string = None
-                    self._segment_path = lambda: "alarm-filter-string" + "[filter-string='" + str(self.filter_string) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
-
-
-
-
-
     class Correlator(Entity):
         """
         Configure properties of the event correlator
@@ -5759,6 +5588,177 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, ['category', 'group', 'code'], name, value)
 
 
+
+
+
+
+
+    class AlarmLogger(Entity):
+        """
+        Alarm Logger Properties
+        
+        .. attribute:: alarm_filter_strings
+        
+        	List of filter strings
+        	**type**\:  :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
+        
+        .. attribute:: pre_config_suppression
+        
+        	Suppress events from a card/VM till its configuration is complete
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: severity_level
+        
+        	Log all events with equal or higher (lower level) severity than this
+        	**type**\:  :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
+        
+        .. attribute:: pre_config_suppression_timeout
+        
+        	Timeout (in minutes) for pre\-config events suppression (default 15)
+        	**type**\: int
+        
+        	**range:** 1..60
+        
+        	**units**\: minute
+        
+        	**default value**\: 15
+        
+        .. attribute:: buffer_size
+        
+        	Set size of the local event buffer
+        	**type**\: int
+        
+        	**range:** 1024..1024000
+        
+        .. attribute:: source_location
+        
+        	Enable alarm source location in message text
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: threshold
+        
+        	Configure threshold (%) for capacity alarm
+        	**type**\: int
+        
+        	**range:** 10..100
+        
+        	**default value**\: 90
+        
+        
+
+        """
+
+        _prefix = 'infra-alarm-logger-cfg'
+        _revision = '2017-02-23'
+
+        def __init__(self):
+            super(Syslog.AlarmLogger, self).__init__()
+
+            self.yang_name = "alarm-logger"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("alarm-filter-strings", ("alarm_filter_strings", Syslog.AlarmLogger.AlarmFilterStrings))])
+            self._leafs = OrderedDict([
+                ('pre_config_suppression', (YLeaf(YType.empty, 'pre-config-suppression'), ['Empty'])),
+                ('severity_level', (YLeaf(YType.enumeration, 'severity-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevel', '')])),
+                ('pre_config_suppression_timeout', (YLeaf(YType.uint32, 'pre-config-suppression-timeout'), ['int'])),
+                ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
+                ('source_location', (YLeaf(YType.empty, 'source-location'), ['Empty'])),
+                ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+            ])
+            self.pre_config_suppression = None
+            self.severity_level = None
+            self.pre_config_suppression_timeout = None
+            self.buffer_size = None
+            self.source_location = None
+            self.threshold = None
+
+            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
+            self.alarm_filter_strings.parent = self
+            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
+            self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.AlarmLogger, ['pre_config_suppression', 'severity_level', 'pre_config_suppression_timeout', 'buffer_size', 'source_location', 'threshold'], name, value)
+
+
+        class AlarmFilterStrings(Entity):
+            """
+            List of filter strings
+            
+            .. attribute:: alarm_filter_string
+            
+            	Match string to filter alarms
+            	**type**\: list of  		 :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
+            
+            
+
+            """
+
+            _prefix = 'infra-alarm-logger-cfg'
+            _revision = '2017-02-23'
+
+            def __init__(self):
+                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
+
+                self.yang_name = "alarm-filter-strings"
+                self.yang_parent_name = "alarm-logger"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("alarm-filter-string", ("alarm_filter_string", Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString))])
+                self._leafs = OrderedDict()
+
+                self.alarm_filter_string = YList(self)
+                self._segment_path = lambda: "alarm-filter-strings"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
+
+
+            class AlarmFilterString(Entity):
+                """
+                Match string to filter alarms
+                
+                .. attribute:: filter_string  (key)
+                
+                	Filter String
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                
+
+                """
+
+                _prefix = 'infra-alarm-logger-cfg'
+                _revision = '2017-02-23'
+
+                def __init__(self):
+                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
+
+                    self.yang_name = "alarm-filter-string"
+                    self.yang_parent_name = "alarm-filter-strings"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['filter_string']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('filter_string', (YLeaf(YType.str, 'filter-string'), ['str'])),
+                    ])
+                    self.filter_string = None
+                    self._segment_path = lambda: "alarm-filter-string" + "[filter-string='" + str(self.filter_string) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
 
 
 

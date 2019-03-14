@@ -1178,7 +1178,7 @@ class FibStatistics(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FibStatistics.Nodes.Node.Drops, ['no_route_packets', 'punt_unreachable_packets', 'df_unreachable_packets', 'encapsulation_failure_packets', 'incomplete_adjacency_packets', 'unresolved_prefix_packets', 'unsupported_feature_packets', 'discard_packets', 'checksum_error_packets', 'fragmenation_consumed_packets', 'fragmenation_failure_packets', 'null_packets', 'rpf_check_failure_packets', 'acl_in_rpf_packets', 'rp_destination_drop_packets', 'total_number_of_drop_packets', 'mpls_disabled_interface', 'gre_lookup_failed_drop', 'gre_error_drop', 'lisp_punt_drops', 'lisp_encap_error_drops', 'lisp_decap_error_drops', 'multi_label_drops', 'unreachable_sr_label_drops', 'ttl_expired_sr_label_drops'], name, value)
+                    self._perform_setattr(FibStatistics.Nodes.Node.Drops, [u'no_route_packets', u'punt_unreachable_packets', u'df_unreachable_packets', u'encapsulation_failure_packets', u'incomplete_adjacency_packets', u'unresolved_prefix_packets', u'unsupported_feature_packets', u'discard_packets', u'checksum_error_packets', u'fragmenation_consumed_packets', u'fragmenation_failure_packets', u'null_packets', u'rpf_check_failure_packets', u'acl_in_rpf_packets', u'rp_destination_drop_packets', u'total_number_of_drop_packets', u'mpls_disabled_interface', u'gre_lookup_failed_drop', u'gre_error_drop', u'lisp_punt_drops', u'lisp_encap_error_drops', u'lisp_decap_error_drops', u'multi_label_drops', u'unreachable_sr_label_drops', u'ttl_expired_sr_label_drops'], name, value)
 
 
 
@@ -1715,7 +1715,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry, ['sdr_id', 'if_index', 'sdrid', 'intf_type', 'intf_index', 'intf_state', 'parent_intf_index', 'parent_intf_type', 'bundle_member_total_weight', 'main_pointer', 'table_pointer', 'hardware_handle', 'intf_name', 'pic'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry, ['sdr_id', 'if_index', u'sdrid', u'intf_type', u'intf_index', u'intf_state', u'parent_intf_index', u'parent_intf_type', u'bundle_member_total_weight', u'main_pointer', u'table_pointer', u'hardware_handle', u'intf_name', u'pic'], name, value)
 
 
                                 class ObjectBase(Entity):
@@ -1884,7 +1884,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry.BundleMemberInfo, ['intf_index', 'unique_id', 'order_num', 'weight', 'pic'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry.BundleMemberInfo, [u'intf_index', u'unique_id', u'order_num', u'weight', u'pic'], name, value)
 
 
 
@@ -2121,7 +2121,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdEntries.FibCofoTableIdEntry, ['sdr_id', 'protocol', 'rd', 'table_id', 'sdrid', 'protocol_type', 'route_distinguisher', 'table_id_xr', 'vrf_name', 'table_pointer'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdEntries.FibCofoTableIdEntry, ['sdr_id', 'protocol', 'rd', 'table_id', u'sdrid', u'protocol_type', u'route_distinguisher', u'table_id_xr', u'vrf_name', u'table_pointer'], name, value)
 
 
                                 class ObjectBase(Entity):
@@ -2323,7 +2323,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdSummary, ['number_of_tbl_id_allocated', 'tbl_id_minimum', 'tbl_id_maximum', 'tbl_id_last_allocated', 'tbl_id_default_v4', 'tbl_id_default_v6', 'number_of_tbl_id_in_gc'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdSummary, [u'number_of_tbl_id_allocated', u'tbl_id_minimum', u'tbl_id_maximum', u'tbl_id_last_allocated', u'tbl_id_default_v4', u'tbl_id_default_v6', u'number_of_tbl_id_in_gc'], name, value)
 
 
                             class PerSdrStat(Entity):
@@ -2396,7 +2396,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdSummary.PerSdrStat, ['sdrid', 'num_ofipv4_tables', 'num_ofipv6_tables', 'num_ofmpls_tables'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdSummary.PerSdrStat, [u'sdrid', u'num_ofipv4_tables', u'num_ofipv6_tables', u'num_ofmpls_tables'], name, value)
 
 
 
@@ -2540,7 +2540,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.CommonInfo, ['count'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.CommonInfo, [u'count'], name, value)
 
 
 
@@ -2609,7 +2609,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters, ['num_retry_timeouts', 'num_retry_ojbects'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters, [u'num_retry_timeouts', u'num_retry_ojbects'], name, value)
 
 
                             class ArrayNumberOfRetry(Entity):
@@ -2660,7 +2660,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters.ArrayNumberOfRetry, ['retry_object_type', 'num_retries'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters.ArrayNumberOfRetry, [u'retry_object_type', u'num_retries'], name, value)
 
 
 
@@ -2712,7 +2712,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters.ArrayNumberOfObject, ['object_type', 'num_objects'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Total.TotalCounters.ArrayNumberOfObject, [u'object_type', u'num_objects'], name, value)
 
 
 
@@ -2852,7 +2852,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.CommonInfo, ['count'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.CommonInfo, [u'count'], name, value)
 
 
 
@@ -2954,7 +2954,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.BaseObject, ['protocol'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.BaseObject, [u'protocol'], name, value)
 
 
 
@@ -3023,7 +3023,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts, ['num_retry_timeouts', 'num_retry_ojbects'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts, [u'num_retry_timeouts', u'num_retry_ojbects'], name, value)
 
 
                                     class ArrayNumberOfRetry(Entity):
@@ -3074,7 +3074,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry, ['retry_object_type', 'num_retries'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry, [u'retry_object_type', u'num_retries'], name, value)
 
 
 
@@ -3126,7 +3126,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject, ['object_type', 'num_objects'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject, [u'object_type', u'num_objects'], name, value)
 
 
 
@@ -3166,7 +3166,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.Health, ['is_retry_db_empty'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.Summary.Protos.Proto.Summary_.Health, [u'is_retry_db_empty'], name, value)
 
 
 
@@ -3347,7 +3347,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject, ['protocol'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject, [u'protocol'], name, value)
 
 
 
@@ -3388,7 +3388,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Global.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_, ['count'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Global.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_, [u'count'], name, value)
 
 
 
@@ -49418,7 +49418,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog, ['event_id', u'protected_frr_interface_name', u'next_hop', u'number_of_rewrites_affected', u'switching_time_nsecs', u'main_processing', u'fast_bundle_member_down_interface', u'frr_event_node_id'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog, ['event_id', 'protected_frr_interface_name', 'next_hop', 'number_of_rewrites_affected', 'switching_time_nsecs', 'main_processing', 'fast_bundle_member_down_interface', 'frr_event_node_id'], name, value)
 
 
                     class StartTime(Entity):
@@ -49474,7 +49474,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -52113,7 +52113,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo, [u'tunnel_interface_name', u'tunnel_local_label', u'tunnel_fwd_class', u'tunnel_load_metric', u'tunnel_is_srte', u'tunnel_resolution_incomplete', u'tunnel_resolution_inconsistent', u'tunnel_is_programmed_to_drop'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo, ['tunnel_interface_name', 'tunnel_local_label', 'tunnel_fwd_class', 'tunnel_load_metric', 'tunnel_is_srte', 'tunnel_resolution_incomplete', 'tunnel_resolution_inconsistent', 'tunnel_is_programmed_to_drop'], name, value)
 
 
 
@@ -53275,7 +53275,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -53399,7 +53399,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary, ['interface_name', u'active', u'ready', u'partial', u'other'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary, ['interface_name', 'active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -53475,7 +53475,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -53748,7 +53748,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp', u'is_multicast_tunnel', u'multicast_tunnel_legs'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp', 'is_multicast_tunnel', 'multicast_tunnel_legs'], name, value)
 
 
                             class FrrEntryId(Entity):
@@ -53808,7 +53808,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId, [u'role'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId, ['role'], name, value)
 
 
                                 class Head(Entity):
@@ -53859,7 +53859,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -53922,7 +53922,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -54059,7 +54059,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp'], name, value)
 
 
                                 class FrrEntryId(Entity):
@@ -54119,7 +54119,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId, [u'role'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId, ['role'], name, value)
 
 
                                     class Head(Entity):
@@ -54170,7 +54170,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -54233,7 +54233,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -54511,7 +54511,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp', u'is_multicast_tunnel', u'multicast_tunnel_legs'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp', 'is_multicast_tunnel', 'multicast_tunnel_legs'], name, value)
 
 
                             class FrrEntryId(Entity):
@@ -54571,7 +54571,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId, [u'role'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId, ['role'], name, value)
 
 
                                 class Head(Entity):
@@ -54622,7 +54622,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -54685,7 +54685,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -54822,7 +54822,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp'], name, value)
 
 
                                 class FrrEntryId(Entity):
@@ -54882,7 +54882,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId, [u'role'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId, ['role'], name, value)
 
 
                                     class Head(Entity):
@@ -54933,7 +54933,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -54996,7 +54996,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -55076,7 +55076,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -55200,7 +55200,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary, ['interface_name', u'active', u'ready', u'partial', u'other'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary, ['interface_name', 'active', 'ready', 'partial', 'other'], name, value)
 
 
 

@@ -95,17 +95,17 @@ class Aaa(Entity):
     
     	**config**\: False
     
-    .. attribute:: radius
-    
-    	RADIUS operational data
-    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
-    
-    	**config**\: False
-    
     .. attribute:: diameter
     
     	Diameter operational data
     	**type**\:  :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter>`
+    
+    	**config**\: False
+    
+    .. attribute:: radius
+    
+    	RADIUS operational data
+    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
     
     	**config**\: False
     
@@ -125,7 +125,7 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter))])
+        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius))])
         self._leafs = OrderedDict()
 
         self.all_tasks = Aaa.AllTasks()
@@ -168,13 +168,13 @@ class Aaa(Entity):
         self.tacacs.parent = self
         self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
 
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-
         self.diameter = Aaa.Diameter()
         self.diameter.parent = self
         self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-oper:diameter"
+
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa"
         self._is_frozen = True
 
@@ -2271,7 +2271,7 @@ class Aaa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
+                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, [u'time_remaining', u'bytes_out', u'out_pak_size', u'bytes_in', u'in_pak_size', u'pak_type', u'session_id', u'sock'], name, value)
 
 
 
@@ -2547,7 +2547,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
+                    self._perform_setattr(Aaa.Tacacs.Servers.Server, [u'addr', u'timeout', u'port', u'bytes_in', u'bytes_out', u'closes', u'opens', u'errors', u'aborts', u'paks_in', u'paks_out', u'replies_expected', u'up', u'conn_up', u'single_connect', u'is_private', u'vrf_name', u'addr_buf', u'family'], name, value)
 
 
 
@@ -2657,7 +2657,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
+                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, [u'group_name', u'sg_map_num', u'vrf_name'], name, value)
 
 
                 class Server(Entity):
@@ -2892,1293 +2892,9 @@ class Aaa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
+                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, [u'addr', u'timeout', u'port', u'bytes_in', u'bytes_out', u'closes', u'opens', u'errors', u'aborts', u'paks_in', u'paks_out', u'replies_expected', u'up', u'conn_up', u'single_connect', u'is_private', u'vrf_name', u'addr_buf', u'family'], name, value)
 
 
-
-
-
-
-    class Radius(Entity):
-        """
-        RADIUS operational data
-        
-        .. attribute:: servers
-        
-        	List of RADIUS servers configured
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
-        
-        	**config**\: False
-        
-        .. attribute:: radius_source_interface
-        
-        	RADIUS source interfaces
-        	**type**\:  :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
-        
-        	**config**\: False
-        
-        .. attribute:: global_
-        
-        	RADIUS Client Information
-        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'aaa-protocol-radius-oper'
-        _revision = '2017-11-13'
-
-        def __init__(self):
-            super(Aaa.Radius, self).__init__()
-
-            self.yang_name = "radius"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("servers", ("servers", Aaa.Radius.Servers)), ("radius-source-interface", ("radius_source_interface", Aaa.Radius.RadiusSourceInterface)), ("global", ("global_", Aaa.Radius.Global))])
-            self._leafs = OrderedDict()
-
-            self.servers = Aaa.Radius.Servers()
-            self.servers.parent = self
-            self._children_name_map["servers"] = "servers"
-
-            self.radius_source_interface = Aaa.Radius.RadiusSourceInterface()
-            self.radius_source_interface.parent = self
-            self._children_name_map["radius_source_interface"] = "radius-source-interface"
-
-            self.global_ = Aaa.Radius.Global()
-            self.global_.parent = self
-            self._children_name_map["global_"] = "global"
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.Radius, [], name, value)
-
-
-        class Servers(Entity):
-            """
-            List of RADIUS servers configured
-            
-            .. attribute:: server
-            
-            	RADIUS Server
-            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-protocol-radius-oper'
-            _revision = '2017-11-13'
-
-            def __init__(self):
-                super(Aaa.Radius.Servers, self).__init__()
-
-                self.yang_name = "servers"
-                self.yang_parent_name = "radius"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("server", ("server", Aaa.Radius.Servers.Server))])
-                self._leafs = OrderedDict()
-
-                self.server = YList(self)
-                self._segment_path = lambda: "servers"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Radius.Servers, [], name, value)
-
-
-            class Server(Entity):
-                """
-                RADIUS Server
-                
-                .. attribute:: ip_address
-                
-                	IP address of RADIUS server
-                	**type**\: union of the below types:
-                
-                		**type**\: str
-                
-                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                		**type**\: str
-                
-                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: auth_port_number
-                
-                	Authentication Port number (standard port 1645)
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                	**config**\: False
-                
-                .. attribute:: acct_port_number
-                
-                	Accounting Port number (standard port 1646)
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                	**config**\: False
-                
-                .. attribute:: ipv4_address
-                
-                	IP address of RADIUS server
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: priority
-                
-                	A number that indicates the priority             of the server
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: timeout_xr
-                
-                	Per\-server timeout in seconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: second
-                
-                .. attribute:: retransmit
-                
-                	Per\-server retransmit
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: dead_time
-                
-                	Per\-server deadtime in minutes
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: minute
-                
-                .. attribute:: dead_detect_time
-                
-                	Per\-server dead\-detect time in seconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: second
-                
-                .. attribute:: dead_detect_tries
-                
-                	Per\-server dead\-detect tries
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authentication_port
-                
-                	Authentication port
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: accounting_port
-                
-                	Accounting port
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: state
-                
-                	State of the server UP/DOWN
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: current_state_duration
-                
-                	Elapsed time the server has been in              current state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: previous_state_duration
-                
-                	Elapsed time the server was been in              previous state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: packets_in
-                
-                	Total number of incoming packets read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: packets_out
-                
-                	Total number of outgoing packets sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: timeouts
-                
-                	Total number of packets timed\-out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: aborts
-                
-                	Total number of requests aborted
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: replies_expected
-                
-                	Number of replies expected to arrive
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: redirected_requests
-                
-                	Number of requests redirected
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authentication_rtt
-                
-                	Round\-trip time for authentication               in milliseconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: millisecond
-                
-                .. attribute:: access_requests
-                
-                	Number of access requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: access_request_retransmits
-                
-                	Number of retransmitted                          access requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: access_accepts
-                
-                	Number of access accepts
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: access_rejects
-                
-                	Number of access rejects
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: access_challenges
-                
-                	Number of access challenges
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: bad_access_responses
-                
-                	Number of bad access responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: bad_access_authenticators
-                
-                	Number of bad access authenticators
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: pending_access_requests
-                
-                	Number of pending access requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: access_timeouts
-                
-                	Number of access packets timed\-out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: unknown_access_types
-                
-                	Number of packets received with unknown          type from authentication server
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: dropped_access_responses
-                
-                	Number of access responses dropped
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_access_reqs
-                
-                	No of throttled access reqs stats
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_timed_out_reqs
-                
-                	No of access reqs that is throttled is timedout
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_dropped_reqs
-                
-                	No of discarded access reqs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: max_throttled_access_reqs
-                
-                	Max throttled access reqs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: currently_throttled_access_reqs
-                
-                	No of currently throttled access reqs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_response_time
-                
-                	Average response time for authentication requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_transaction_successess
-                
-                	Number of succeeded authentication transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_transaction_failure
-                
-                	Number of failed authentication transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_unexpected_responses
-                
-                	Number of unexpected authentication responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_server_error_responses
-                
-                	Number of server error authentication responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: authen_incorrect_responses
-                
-                	Number of incorrect authentication responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_requests
-                
-                	Number of access requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_request_timeouts
-                
-                	Number of access packets timed out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_response_time
-                
-                	Average response time for authorization requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_transaction_successess
-                
-                	Number of succeeded authorization transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_transaction_failure
-                
-                	Number of failed authorization transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_unexpected_responses
-                
-                	Number of unexpected authorization responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_server_error_responses
-                
-                	Number of server error authorization responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: author_incorrect_responses
-                
-                	Number of incorrect authorization responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: accounting_rtt
-                
-                	Round\-trip time for accounting                   in milliseconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: millisecond
-                
-                .. attribute:: accounting_requests
-                
-                	Number of accounting requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: accounting_retransmits
-                
-                	Number of retransmitted                          accounting requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: accounting_responses
-                
-                	Number of accounting responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: bad_accounting_responses
-                
-                	Number of bad accounting responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: bad_accounting_authenticators
-                
-                	Number of bad accounting                         authenticators
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: pending_accounting_requets
-                
-                	Number of pending accounting requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: accounting_timeouts
-                
-                	Number of accounting packets                     timed\-out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: unknown_accounting_types
-                
-                	Number of packets received with unknown          type from accounting server
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: dropped_accounting_responses
-                
-                	Number of accounting responses                   dropped
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: is_a_private_server
-                
-                	Is a private server
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_auth_reqs
-                
-                	Total auth test request
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_auth_timeouts
-                
-                	Total auth test timeouts
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_auth_response
-                
-                	Total auth test response
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_auth_pending
-                
-                	Total auth test pending
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_acct_reqs
-                
-                	 Total acct test req
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_acct_timeouts
-                
-                	Total acct test timeouts
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_acct_response
-                
-                	Total acct test response
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_test_acct_pending
-                
-                	Total acct test pending
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_acct_transactions
-                
-                	No of throttled acct transactions stats
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_acct_timed_out_stats
-                
-                	No of acct transaction that is throttled is timedout
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttled_acct_failures_stats
-                
-                	No of acct discarded transaction
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: max_acct_throttled
-                
-                	Max throttled acct transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: throttleda_acct_transactions
-                
-                	No of currently throttled acct transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_unexpected_responses
-                
-                	Number of unexpected accounting responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_server_error_responses
-                
-                	Number of server error accounting responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_incorrect_responses
-                
-                	Number of incorrect accounting responses
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_response_time
-                
-                	Average response time for authentication requests
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_transaction_successess
-                
-                	Number of succeeded authentication transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: acct_transaction_failure
-                
-                	Number of failed authentication transactions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: total_deadtime
-                
-                	Total time of Server being in DEAD               state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: last_deadtime
-                
-                	Time of Server being in DEAD state,              after last UP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: is_quarantined
-                
-                	flag to indicate Server is quarantined           or not (Automated TEST in progress)
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: group_name
-                
-                	Server group name for private server
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ip_address_xr
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: family
-                
-                	IP address Family
-                	**type**\: str
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-11-13'
-
-                def __init__(self):
-                    super(Aaa.Radius.Servers.Server, self).__init__()
-
-                    self.yang_name = "server"
-                    self.yang_parent_name = "servers"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
-                        ('auth_port_number', (YLeaf(YType.uint32, 'auth-port-number'), ['int'])),
-                        ('acct_port_number', (YLeaf(YType.uint32, 'acct-port-number'), ['int'])),
-                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
-                        ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
-                        ('timeout_xr', (YLeaf(YType.uint32, 'timeout-xr'), ['int'])),
-                        ('retransmit', (YLeaf(YType.uint32, 'retransmit'), ['int'])),
-                        ('dead_time', (YLeaf(YType.uint32, 'dead-time'), ['int'])),
-                        ('dead_detect_time', (YLeaf(YType.uint32, 'dead-detect-time'), ['int'])),
-                        ('dead_detect_tries', (YLeaf(YType.uint32, 'dead-detect-tries'), ['int'])),
-                        ('authentication_port', (YLeaf(YType.uint32, 'authentication-port'), ['int'])),
-                        ('accounting_port', (YLeaf(YType.uint32, 'accounting-port'), ['int'])),
-                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
-                        ('current_state_duration', (YLeaf(YType.uint32, 'current-state-duration'), ['int'])),
-                        ('previous_state_duration', (YLeaf(YType.uint32, 'previous-state-duration'), ['int'])),
-                        ('packets_in', (YLeaf(YType.uint32, 'packets-in'), ['int'])),
-                        ('packets_out', (YLeaf(YType.uint32, 'packets-out'), ['int'])),
-                        ('timeouts', (YLeaf(YType.uint32, 'timeouts'), ['int'])),
-                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
-                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
-                        ('redirected_requests', (YLeaf(YType.uint32, 'redirected-requests'), ['int'])),
-                        ('authentication_rtt', (YLeaf(YType.uint32, 'authentication-rtt'), ['int'])),
-                        ('access_requests', (YLeaf(YType.uint32, 'access-requests'), ['int'])),
-                        ('access_request_retransmits', (YLeaf(YType.uint32, 'access-request-retransmits'), ['int'])),
-                        ('access_accepts', (YLeaf(YType.uint32, 'access-accepts'), ['int'])),
-                        ('access_rejects', (YLeaf(YType.uint32, 'access-rejects'), ['int'])),
-                        ('access_challenges', (YLeaf(YType.uint32, 'access-challenges'), ['int'])),
-                        ('bad_access_responses', (YLeaf(YType.uint32, 'bad-access-responses'), ['int'])),
-                        ('bad_access_authenticators', (YLeaf(YType.uint32, 'bad-access-authenticators'), ['int'])),
-                        ('pending_access_requests', (YLeaf(YType.uint32, 'pending-access-requests'), ['int'])),
-                        ('access_timeouts', (YLeaf(YType.uint32, 'access-timeouts'), ['int'])),
-                        ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
-                        ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
-                        ('throttled_access_reqs', (YLeaf(YType.uint32, 'throttled-access-reqs'), ['int'])),
-                        ('throttled_timed_out_reqs', (YLeaf(YType.uint32, 'throttled-timed-out-reqs'), ['int'])),
-                        ('throttled_dropped_reqs', (YLeaf(YType.uint32, 'throttled-dropped-reqs'), ['int'])),
-                        ('max_throttled_access_reqs', (YLeaf(YType.uint32, 'max-throttled-access-reqs'), ['int'])),
-                        ('currently_throttled_access_reqs', (YLeaf(YType.uint32, 'currently-throttled-access-reqs'), ['int'])),
-                        ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
-                        ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
-                        ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
-                        ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
-                        ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
-                        ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
-                        ('author_requests', (YLeaf(YType.uint32, 'author-requests'), ['int'])),
-                        ('author_request_timeouts', (YLeaf(YType.uint32, 'author-request-timeouts'), ['int'])),
-                        ('author_response_time', (YLeaf(YType.uint32, 'author-response-time'), ['int'])),
-                        ('author_transaction_successess', (YLeaf(YType.uint32, 'author-transaction-successess'), ['int'])),
-                        ('author_transaction_failure', (YLeaf(YType.uint32, 'author-transaction-failure'), ['int'])),
-                        ('author_unexpected_responses', (YLeaf(YType.uint32, 'author-unexpected-responses'), ['int'])),
-                        ('author_server_error_responses', (YLeaf(YType.uint32, 'author-server-error-responses'), ['int'])),
-                        ('author_incorrect_responses', (YLeaf(YType.uint32, 'author-incorrect-responses'), ['int'])),
-                        ('accounting_rtt', (YLeaf(YType.uint32, 'accounting-rtt'), ['int'])),
-                        ('accounting_requests', (YLeaf(YType.uint32, 'accounting-requests'), ['int'])),
-                        ('accounting_retransmits', (YLeaf(YType.uint32, 'accounting-retransmits'), ['int'])),
-                        ('accounting_responses', (YLeaf(YType.uint32, 'accounting-responses'), ['int'])),
-                        ('bad_accounting_responses', (YLeaf(YType.uint32, 'bad-accounting-responses'), ['int'])),
-                        ('bad_accounting_authenticators', (YLeaf(YType.uint32, 'bad-accounting-authenticators'), ['int'])),
-                        ('pending_accounting_requets', (YLeaf(YType.uint32, 'pending-accounting-requets'), ['int'])),
-                        ('accounting_timeouts', (YLeaf(YType.uint32, 'accounting-timeouts'), ['int'])),
-                        ('unknown_accounting_types', (YLeaf(YType.uint32, 'unknown-accounting-types'), ['int'])),
-                        ('dropped_accounting_responses', (YLeaf(YType.uint32, 'dropped-accounting-responses'), ['int'])),
-                        ('is_a_private_server', (YLeaf(YType.boolean, 'is-a-private-server'), ['bool'])),
-                        ('total_test_auth_reqs', (YLeaf(YType.uint32, 'total-test-auth-reqs'), ['int'])),
-                        ('total_test_auth_timeouts', (YLeaf(YType.uint32, 'total-test-auth-timeouts'), ['int'])),
-                        ('total_test_auth_response', (YLeaf(YType.uint32, 'total-test-auth-response'), ['int'])),
-                        ('total_test_auth_pending', (YLeaf(YType.uint32, 'total-test-auth-pending'), ['int'])),
-                        ('total_test_acct_reqs', (YLeaf(YType.uint32, 'total-test-acct-reqs'), ['int'])),
-                        ('total_test_acct_timeouts', (YLeaf(YType.uint32, 'total-test-acct-timeouts'), ['int'])),
-                        ('total_test_acct_response', (YLeaf(YType.uint32, 'total-test-acct-response'), ['int'])),
-                        ('total_test_acct_pending', (YLeaf(YType.uint32, 'total-test-acct-pending'), ['int'])),
-                        ('throttled_acct_transactions', (YLeaf(YType.uint32, 'throttled-acct-transactions'), ['int'])),
-                        ('throttled_acct_timed_out_stats', (YLeaf(YType.uint32, 'throttled-acct-timed-out-stats'), ['int'])),
-                        ('throttled_acct_failures_stats', (YLeaf(YType.uint32, 'throttled-acct-failures-stats'), ['int'])),
-                        ('max_acct_throttled', (YLeaf(YType.uint32, 'max-acct-throttled'), ['int'])),
-                        ('throttleda_acct_transactions', (YLeaf(YType.uint32, 'throttleda-acct-transactions'), ['int'])),
-                        ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
-                        ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
-                        ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
-                        ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
-                        ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
-                        ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
-                        ('total_deadtime', (YLeaf(YType.uint32, 'total-deadtime'), ['int'])),
-                        ('last_deadtime', (YLeaf(YType.uint32, 'last-deadtime'), ['int'])),
-                        ('is_quarantined', (YLeaf(YType.boolean, 'is-quarantined'), ['bool'])),
-                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
-                        ('ip_address_xr', (YLeaf(YType.str, 'ip-address-xr'), ['str'])),
-                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
-                    ])
-                    self.ip_address = None
-                    self.auth_port_number = None
-                    self.acct_port_number = None
-                    self.ipv4_address = None
-                    self.priority = None
-                    self.timeout_xr = None
-                    self.retransmit = None
-                    self.dead_time = None
-                    self.dead_detect_time = None
-                    self.dead_detect_tries = None
-                    self.authentication_port = None
-                    self.accounting_port = None
-                    self.state = None
-                    self.current_state_duration = None
-                    self.previous_state_duration = None
-                    self.packets_in = None
-                    self.packets_out = None
-                    self.timeouts = None
-                    self.aborts = None
-                    self.replies_expected = None
-                    self.redirected_requests = None
-                    self.authentication_rtt = None
-                    self.access_requests = None
-                    self.access_request_retransmits = None
-                    self.access_accepts = None
-                    self.access_rejects = None
-                    self.access_challenges = None
-                    self.bad_access_responses = None
-                    self.bad_access_authenticators = None
-                    self.pending_access_requests = None
-                    self.access_timeouts = None
-                    self.unknown_access_types = None
-                    self.dropped_access_responses = None
-                    self.throttled_access_reqs = None
-                    self.throttled_timed_out_reqs = None
-                    self.throttled_dropped_reqs = None
-                    self.max_throttled_access_reqs = None
-                    self.currently_throttled_access_reqs = None
-                    self.authen_response_time = None
-                    self.authen_transaction_successess = None
-                    self.authen_transaction_failure = None
-                    self.authen_unexpected_responses = None
-                    self.authen_server_error_responses = None
-                    self.authen_incorrect_responses = None
-                    self.author_requests = None
-                    self.author_request_timeouts = None
-                    self.author_response_time = None
-                    self.author_transaction_successess = None
-                    self.author_transaction_failure = None
-                    self.author_unexpected_responses = None
-                    self.author_server_error_responses = None
-                    self.author_incorrect_responses = None
-                    self.accounting_rtt = None
-                    self.accounting_requests = None
-                    self.accounting_retransmits = None
-                    self.accounting_responses = None
-                    self.bad_accounting_responses = None
-                    self.bad_accounting_authenticators = None
-                    self.pending_accounting_requets = None
-                    self.accounting_timeouts = None
-                    self.unknown_accounting_types = None
-                    self.dropped_accounting_responses = None
-                    self.is_a_private_server = None
-                    self.total_test_auth_reqs = None
-                    self.total_test_auth_timeouts = None
-                    self.total_test_auth_response = None
-                    self.total_test_auth_pending = None
-                    self.total_test_acct_reqs = None
-                    self.total_test_acct_timeouts = None
-                    self.total_test_acct_response = None
-                    self.total_test_acct_pending = None
-                    self.throttled_acct_transactions = None
-                    self.throttled_acct_timed_out_stats = None
-                    self.throttled_acct_failures_stats = None
-                    self.max_acct_throttled = None
-                    self.throttleda_acct_transactions = None
-                    self.acct_unexpected_responses = None
-                    self.acct_server_error_responses = None
-                    self.acct_incorrect_responses = None
-                    self.acct_response_time = None
-                    self.acct_transaction_successess = None
-                    self.acct_transaction_failure = None
-                    self.total_deadtime = None
-                    self.last_deadtime = None
-                    self.is_quarantined = None
-                    self.group_name = None
-                    self.ip_address_xr = None
-                    self.family = None
-                    self._segment_path = lambda: "server"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/servers/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Radius.Servers.Server, ['ip_address', 'auth_port_number', 'acct_port_number', u'ipv4_address', u'priority', u'timeout_xr', u'retransmit', u'dead_time', u'dead_detect_time', u'dead_detect_tries', u'authentication_port', u'accounting_port', u'state', u'current_state_duration', u'previous_state_duration', u'packets_in', u'packets_out', u'timeouts', u'aborts', u'replies_expected', u'redirected_requests', u'authentication_rtt', u'access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'bad_access_responses', u'bad_access_authenticators', u'pending_access_requests', u'access_timeouts', u'unknown_access_types', u'dropped_access_responses', u'throttled_access_reqs', u'throttled_timed_out_reqs', u'throttled_dropped_reqs', u'max_throttled_access_reqs', u'currently_throttled_access_reqs', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses', u'author_requests', u'author_request_timeouts', u'author_response_time', u'author_transaction_successess', u'author_transaction_failure', u'author_unexpected_responses', u'author_server_error_responses', u'author_incorrect_responses', u'accounting_rtt', u'accounting_requests', u'accounting_retransmits', u'accounting_responses', u'bad_accounting_responses', u'bad_accounting_authenticators', u'pending_accounting_requets', u'accounting_timeouts', u'unknown_accounting_types', u'dropped_accounting_responses', u'is_a_private_server', u'total_test_auth_reqs', u'total_test_auth_timeouts', u'total_test_auth_response', u'total_test_auth_pending', u'total_test_acct_reqs', u'total_test_acct_timeouts', u'total_test_acct_response', u'total_test_acct_pending', u'throttled_acct_transactions', u'throttled_acct_timed_out_stats', u'throttled_acct_failures_stats', u'max_acct_throttled', u'throttleda_acct_transactions', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure', u'total_deadtime', u'last_deadtime', u'is_quarantined', u'group_name', u'ip_address_xr', u'family'], name, value)
-
-
-
-
-        class RadiusSourceInterface(Entity):
-            """
-            RADIUS source interfaces
-            
-            .. attribute:: list_of_source_interface
-            
-            	List of source interfaces
-            	**type**\: list of  		 :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-protocol-radius-oper'
-            _revision = '2017-11-13'
-
-            def __init__(self):
-                super(Aaa.Radius.RadiusSourceInterface, self).__init__()
-
-                self.yang_name = "radius-source-interface"
-                self.yang_parent_name = "radius"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("list-of-source-interface", ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface))])
-                self._leafs = OrderedDict()
-
-                self.list_of_source_interface = YList(self)
-                self._segment_path = lambda: "radius-source-interface"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Radius.RadiusSourceInterface, [], name, value)
-
-
-            class ListOfSourceInterface(Entity):
-                """
-                List of source interfaces
-                
-                .. attribute:: interface_name
-                
-                	Name of the source interface
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ipaddrv4
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ipaddrv6
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: vrfid
-                
-                	VRF Id
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-11-13'
-
-                def __init__(self):
-                    super(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, self).__init__()
-
-                    self.yang_name = "list-of-source-interface"
-                    self.yang_parent_name = "radius-source-interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                        ('ipaddrv4', (YLeaf(YType.str, 'ipaddrv4'), ['str'])),
-                        ('ipaddrv6', (YLeaf(YType.str, 'ipaddrv6'), ['str'])),
-                        ('vrfid', (YLeaf(YType.uint32, 'vrfid'), ['int'])),
-                    ])
-                    self.interface_name = None
-                    self.ipaddrv4 = None
-                    self.ipaddrv6 = None
-                    self.vrfid = None
-                    self._segment_path = lambda: "list-of-source-interface"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/radius-source-interface/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, [u'interface_name', u'ipaddrv4', u'ipaddrv6', u'vrfid'], name, value)
-
-
-
-
-        class Global(Entity):
-            """
-            RADIUS Client Information
-            
-            .. attribute:: unknown_authentication_response
-            
-            	Number of RADIUS Access\-Responsepackets received from unknownaddresses
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: authentication_nas_id
-            
-            	NAS\-Identifier of the RADIUSauthentication client
-            	**type**\: str
-            
-            	**config**\: False
-            
-            .. attribute:: unknown_accounting_response
-            
-            	Number of RADIUS Accounting\-Responsepackets received from unknownaddresses
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: accounting_nas_id
-            
-            	NAS\-Identifier of the RADIUSaccounting client
-            	**type**\: str
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-protocol-radius-oper'
-            _revision = '2017-11-13'
-
-            def __init__(self):
-                super(Aaa.Radius.Global, self).__init__()
-
-                self.yang_name = "global"
-                self.yang_parent_name = "radius"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('unknown_authentication_response', (YLeaf(YType.uint32, 'unknown-authentication-response'), ['int'])),
-                    ('authentication_nas_id', (YLeaf(YType.str, 'authentication-nas-id'), ['str'])),
-                    ('unknown_accounting_response', (YLeaf(YType.uint32, 'unknown-accounting-response'), ['int'])),
-                    ('accounting_nas_id', (YLeaf(YType.str, 'accounting-nas-id'), ['str'])),
-                ])
-                self.unknown_authentication_response = None
-                self.authentication_nas_id = None
-                self.unknown_accounting_response = None
-                self.accounting_nas_id = None
-                self._segment_path = lambda: "global"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Radius.Global, [u'unknown_authentication_response', u'authentication_nas_id', u'unknown_accounting_response', u'accounting_nas_id'], name, value)
 
 
 
@@ -7303,6 +6019,1290 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.NasSession.ListOfNas, ['aaa_session_id', 'diameter_session_id', 'authentication_status', 'authorization_status', 'accounting_status', 'accounting_status_stop', 'disconnect_status', 'accounting_intrim_in_packets', 'accounting_intrim_out_packets', 'method_list', 'server_used_list'], name, value)
 
+
+
+
+
+    class Radius(Entity):
+        """
+        RADIUS operational data
+        
+        .. attribute:: servers
+        
+        	List of RADIUS servers configured
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
+        
+        	**config**\: False
+        
+        .. attribute:: radius_source_interface
+        
+        	RADIUS source interfaces
+        	**type**\:  :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
+        
+        	**config**\: False
+        
+        .. attribute:: global_
+        
+        	RADIUS Client Information
+        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'aaa-protocol-radius-oper'
+        _revision = '2017-11-13'
+
+        def __init__(self):
+            super(Aaa.Radius, self).__init__()
+
+            self.yang_name = "radius"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("servers", ("servers", Aaa.Radius.Servers)), ("radius-source-interface", ("radius_source_interface", Aaa.Radius.RadiusSourceInterface)), ("global", ("global_", Aaa.Radius.Global))])
+            self._leafs = OrderedDict()
+
+            self.servers = Aaa.Radius.Servers()
+            self.servers.parent = self
+            self._children_name_map["servers"] = "servers"
+
+            self.radius_source_interface = Aaa.Radius.RadiusSourceInterface()
+            self.radius_source_interface.parent = self
+            self._children_name_map["radius_source_interface"] = "radius-source-interface"
+
+            self.global_ = Aaa.Radius.Global()
+            self.global_.parent = self
+            self._children_name_map["global_"] = "global"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Radius, [], name, value)
+
+
+        class Servers(Entity):
+            """
+            List of RADIUS servers configured
+            
+            .. attribute:: server
+            
+            	RADIUS Server
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-oper'
+            _revision = '2017-11-13'
+
+            def __init__(self):
+                super(Aaa.Radius.Servers, self).__init__()
+
+                self.yang_name = "servers"
+                self.yang_parent_name = "radius"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server", ("server", Aaa.Radius.Servers.Server))])
+                self._leafs = OrderedDict()
+
+                self.server = YList(self)
+                self._segment_path = lambda: "servers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.Servers, [], name, value)
+
+
+            class Server(Entity):
+                """
+                RADIUS Server
+                
+                .. attribute:: ip_address
+                
+                	IP address of RADIUS server
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: auth_port_number
+                
+                	Authentication Port number (standard port 1645)
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                	**config**\: False
+                
+                .. attribute:: acct_port_number
+                
+                	Accounting Port number (standard port 1646)
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                	**config**\: False
+                
+                .. attribute:: ipv4_address
+                
+                	IP address of RADIUS server
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: priority
+                
+                	A number that indicates the priority             of the server
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: timeout_xr
+                
+                	Per\-server timeout in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: second
+                
+                .. attribute:: retransmit
+                
+                	Per\-server retransmit
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: dead_time
+                
+                	Per\-server deadtime in minutes
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: minute
+                
+                .. attribute:: dead_detect_time
+                
+                	Per\-server dead\-detect time in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: second
+                
+                .. attribute:: dead_detect_tries
+                
+                	Per\-server dead\-detect tries
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authentication_port
+                
+                	Authentication port
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: accounting_port
+                
+                	Accounting port
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: state
+                
+                	State of the server UP/DOWN
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: current_state_duration
+                
+                	Elapsed time the server has been in              current state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: previous_state_duration
+                
+                	Elapsed time the server was been in              previous state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: packets_in
+                
+                	Total number of incoming packets read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: packets_out
+                
+                	Total number of outgoing packets sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: timeouts
+                
+                	Total number of packets timed\-out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: aborts
+                
+                	Total number of requests aborted
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: replies_expected
+                
+                	Number of replies expected to arrive
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: redirected_requests
+                
+                	Number of requests redirected
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authentication_rtt
+                
+                	Round\-trip time for authentication               in milliseconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: millisecond
+                
+                .. attribute:: access_requests
+                
+                	Number of access requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: access_request_retransmits
+                
+                	Number of retransmitted                          access requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: access_accepts
+                
+                	Number of access accepts
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: access_rejects
+                
+                	Number of access rejects
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: access_challenges
+                
+                	Number of access challenges
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bad_access_responses
+                
+                	Number of bad access responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bad_access_authenticators
+                
+                	Number of bad access authenticators
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: pending_access_requests
+                
+                	Number of pending access requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: access_timeouts
+                
+                	Number of access packets timed\-out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: unknown_access_types
+                
+                	Number of packets received with unknown          type from authentication server
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: dropped_access_responses
+                
+                	Number of access responses dropped
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_access_reqs
+                
+                	No of throttled access reqs stats
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_timed_out_reqs
+                
+                	No of access reqs that is throttled is timedout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_dropped_reqs
+                
+                	No of discarded access reqs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: max_throttled_access_reqs
+                
+                	Max throttled access reqs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: currently_throttled_access_reqs
+                
+                	No of currently throttled access reqs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_response_time
+                
+                	Average response time for authentication requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_transaction_successess
+                
+                	Number of succeeded authentication transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_transaction_failure
+                
+                	Number of failed authentication transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_unexpected_responses
+                
+                	Number of unexpected authentication responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_server_error_responses
+                
+                	Number of server error authentication responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: authen_incorrect_responses
+                
+                	Number of incorrect authentication responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_requests
+                
+                	Number of access requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_request_timeouts
+                
+                	Number of access packets timed out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_response_time
+                
+                	Average response time for authorization requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_transaction_successess
+                
+                	Number of succeeded authorization transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_transaction_failure
+                
+                	Number of failed authorization transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_unexpected_responses
+                
+                	Number of unexpected authorization responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_server_error_responses
+                
+                	Number of server error authorization responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: author_incorrect_responses
+                
+                	Number of incorrect authorization responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: accounting_rtt
+                
+                	Round\-trip time for accounting                   in milliseconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: millisecond
+                
+                .. attribute:: accounting_requests
+                
+                	Number of accounting requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: accounting_retransmits
+                
+                	Number of retransmitted                          accounting requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: accounting_responses
+                
+                	Number of accounting responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bad_accounting_responses
+                
+                	Number of bad accounting responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bad_accounting_authenticators
+                
+                	Number of bad accounting                         authenticators
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: pending_accounting_requets
+                
+                	Number of pending accounting requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: accounting_timeouts
+                
+                	Number of accounting packets                     timed\-out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: unknown_accounting_types
+                
+                	Number of packets received with unknown          type from accounting server
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: dropped_accounting_responses
+                
+                	Number of accounting responses                   dropped
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: is_a_private_server
+                
+                	Is a private server
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_auth_reqs
+                
+                	Total auth test request
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_auth_timeouts
+                
+                	Total auth test timeouts
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_auth_response
+                
+                	Total auth test response
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_auth_pending
+                
+                	Total auth test pending
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_acct_reqs
+                
+                	 Total acct test req
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_acct_timeouts
+                
+                	Total acct test timeouts
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_acct_response
+                
+                	Total acct test response
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_test_acct_pending
+                
+                	Total acct test pending
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_acct_transactions
+                
+                	No of throttled acct transactions stats
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_acct_timed_out_stats
+                
+                	No of acct transaction that is throttled is timedout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttled_acct_failures_stats
+                
+                	No of acct discarded transaction
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: max_acct_throttled
+                
+                	Max throttled acct transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: throttleda_acct_transactions
+                
+                	No of currently throttled acct transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_unexpected_responses
+                
+                	Number of unexpected accounting responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_server_error_responses
+                
+                	Number of server error accounting responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_incorrect_responses
+                
+                	Number of incorrect accounting responses
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_response_time
+                
+                	Average response time for authentication requests
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_transaction_successess
+                
+                	Number of succeeded authentication transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: acct_transaction_failure
+                
+                	Number of failed authentication transactions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: total_deadtime
+                
+                	Total time of Server being in DEAD               state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: last_deadtime
+                
+                	Time of Server being in DEAD state,              after last UP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: is_quarantined
+                
+                	flag to indicate Server is quarantined           or not (Automated TEST in progress)
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: group_name
+                
+                	Server group name for private server
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ip_address_xr
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2017-11-13'
+
+                def __init__(self):
+                    super(Aaa.Radius.Servers.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "servers"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                        ('auth_port_number', (YLeaf(YType.uint32, 'auth-port-number'), ['int'])),
+                        ('acct_port_number', (YLeaf(YType.uint32, 'acct-port-number'), ['int'])),
+                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                        ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                        ('timeout_xr', (YLeaf(YType.uint32, 'timeout-xr'), ['int'])),
+                        ('retransmit', (YLeaf(YType.uint32, 'retransmit'), ['int'])),
+                        ('dead_time', (YLeaf(YType.uint32, 'dead-time'), ['int'])),
+                        ('dead_detect_time', (YLeaf(YType.uint32, 'dead-detect-time'), ['int'])),
+                        ('dead_detect_tries', (YLeaf(YType.uint32, 'dead-detect-tries'), ['int'])),
+                        ('authentication_port', (YLeaf(YType.uint32, 'authentication-port'), ['int'])),
+                        ('accounting_port', (YLeaf(YType.uint32, 'accounting-port'), ['int'])),
+                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                        ('current_state_duration', (YLeaf(YType.uint32, 'current-state-duration'), ['int'])),
+                        ('previous_state_duration', (YLeaf(YType.uint32, 'previous-state-duration'), ['int'])),
+                        ('packets_in', (YLeaf(YType.uint32, 'packets-in'), ['int'])),
+                        ('packets_out', (YLeaf(YType.uint32, 'packets-out'), ['int'])),
+                        ('timeouts', (YLeaf(YType.uint32, 'timeouts'), ['int'])),
+                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
+                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
+                        ('redirected_requests', (YLeaf(YType.uint32, 'redirected-requests'), ['int'])),
+                        ('authentication_rtt', (YLeaf(YType.uint32, 'authentication-rtt'), ['int'])),
+                        ('access_requests', (YLeaf(YType.uint32, 'access-requests'), ['int'])),
+                        ('access_request_retransmits', (YLeaf(YType.uint32, 'access-request-retransmits'), ['int'])),
+                        ('access_accepts', (YLeaf(YType.uint32, 'access-accepts'), ['int'])),
+                        ('access_rejects', (YLeaf(YType.uint32, 'access-rejects'), ['int'])),
+                        ('access_challenges', (YLeaf(YType.uint32, 'access-challenges'), ['int'])),
+                        ('bad_access_responses', (YLeaf(YType.uint32, 'bad-access-responses'), ['int'])),
+                        ('bad_access_authenticators', (YLeaf(YType.uint32, 'bad-access-authenticators'), ['int'])),
+                        ('pending_access_requests', (YLeaf(YType.uint32, 'pending-access-requests'), ['int'])),
+                        ('access_timeouts', (YLeaf(YType.uint32, 'access-timeouts'), ['int'])),
+                        ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
+                        ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
+                        ('throttled_access_reqs', (YLeaf(YType.uint32, 'throttled-access-reqs'), ['int'])),
+                        ('throttled_timed_out_reqs', (YLeaf(YType.uint32, 'throttled-timed-out-reqs'), ['int'])),
+                        ('throttled_dropped_reqs', (YLeaf(YType.uint32, 'throttled-dropped-reqs'), ['int'])),
+                        ('max_throttled_access_reqs', (YLeaf(YType.uint32, 'max-throttled-access-reqs'), ['int'])),
+                        ('currently_throttled_access_reqs', (YLeaf(YType.uint32, 'currently-throttled-access-reqs'), ['int'])),
+                        ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
+                        ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
+                        ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
+                        ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
+                        ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
+                        ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
+                        ('author_requests', (YLeaf(YType.uint32, 'author-requests'), ['int'])),
+                        ('author_request_timeouts', (YLeaf(YType.uint32, 'author-request-timeouts'), ['int'])),
+                        ('author_response_time', (YLeaf(YType.uint32, 'author-response-time'), ['int'])),
+                        ('author_transaction_successess', (YLeaf(YType.uint32, 'author-transaction-successess'), ['int'])),
+                        ('author_transaction_failure', (YLeaf(YType.uint32, 'author-transaction-failure'), ['int'])),
+                        ('author_unexpected_responses', (YLeaf(YType.uint32, 'author-unexpected-responses'), ['int'])),
+                        ('author_server_error_responses', (YLeaf(YType.uint32, 'author-server-error-responses'), ['int'])),
+                        ('author_incorrect_responses', (YLeaf(YType.uint32, 'author-incorrect-responses'), ['int'])),
+                        ('accounting_rtt', (YLeaf(YType.uint32, 'accounting-rtt'), ['int'])),
+                        ('accounting_requests', (YLeaf(YType.uint32, 'accounting-requests'), ['int'])),
+                        ('accounting_retransmits', (YLeaf(YType.uint32, 'accounting-retransmits'), ['int'])),
+                        ('accounting_responses', (YLeaf(YType.uint32, 'accounting-responses'), ['int'])),
+                        ('bad_accounting_responses', (YLeaf(YType.uint32, 'bad-accounting-responses'), ['int'])),
+                        ('bad_accounting_authenticators', (YLeaf(YType.uint32, 'bad-accounting-authenticators'), ['int'])),
+                        ('pending_accounting_requets', (YLeaf(YType.uint32, 'pending-accounting-requets'), ['int'])),
+                        ('accounting_timeouts', (YLeaf(YType.uint32, 'accounting-timeouts'), ['int'])),
+                        ('unknown_accounting_types', (YLeaf(YType.uint32, 'unknown-accounting-types'), ['int'])),
+                        ('dropped_accounting_responses', (YLeaf(YType.uint32, 'dropped-accounting-responses'), ['int'])),
+                        ('is_a_private_server', (YLeaf(YType.boolean, 'is-a-private-server'), ['bool'])),
+                        ('total_test_auth_reqs', (YLeaf(YType.uint32, 'total-test-auth-reqs'), ['int'])),
+                        ('total_test_auth_timeouts', (YLeaf(YType.uint32, 'total-test-auth-timeouts'), ['int'])),
+                        ('total_test_auth_response', (YLeaf(YType.uint32, 'total-test-auth-response'), ['int'])),
+                        ('total_test_auth_pending', (YLeaf(YType.uint32, 'total-test-auth-pending'), ['int'])),
+                        ('total_test_acct_reqs', (YLeaf(YType.uint32, 'total-test-acct-reqs'), ['int'])),
+                        ('total_test_acct_timeouts', (YLeaf(YType.uint32, 'total-test-acct-timeouts'), ['int'])),
+                        ('total_test_acct_response', (YLeaf(YType.uint32, 'total-test-acct-response'), ['int'])),
+                        ('total_test_acct_pending', (YLeaf(YType.uint32, 'total-test-acct-pending'), ['int'])),
+                        ('throttled_acct_transactions', (YLeaf(YType.uint32, 'throttled-acct-transactions'), ['int'])),
+                        ('throttled_acct_timed_out_stats', (YLeaf(YType.uint32, 'throttled-acct-timed-out-stats'), ['int'])),
+                        ('throttled_acct_failures_stats', (YLeaf(YType.uint32, 'throttled-acct-failures-stats'), ['int'])),
+                        ('max_acct_throttled', (YLeaf(YType.uint32, 'max-acct-throttled'), ['int'])),
+                        ('throttleda_acct_transactions', (YLeaf(YType.uint32, 'throttleda-acct-transactions'), ['int'])),
+                        ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
+                        ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
+                        ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
+                        ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
+                        ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
+                        ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
+                        ('total_deadtime', (YLeaf(YType.uint32, 'total-deadtime'), ['int'])),
+                        ('last_deadtime', (YLeaf(YType.uint32, 'last-deadtime'), ['int'])),
+                        ('is_quarantined', (YLeaf(YType.boolean, 'is-quarantined'), ['bool'])),
+                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                        ('ip_address_xr', (YLeaf(YType.str, 'ip-address-xr'), ['str'])),
+                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                    ])
+                    self.ip_address = None
+                    self.auth_port_number = None
+                    self.acct_port_number = None
+                    self.ipv4_address = None
+                    self.priority = None
+                    self.timeout_xr = None
+                    self.retransmit = None
+                    self.dead_time = None
+                    self.dead_detect_time = None
+                    self.dead_detect_tries = None
+                    self.authentication_port = None
+                    self.accounting_port = None
+                    self.state = None
+                    self.current_state_duration = None
+                    self.previous_state_duration = None
+                    self.packets_in = None
+                    self.packets_out = None
+                    self.timeouts = None
+                    self.aborts = None
+                    self.replies_expected = None
+                    self.redirected_requests = None
+                    self.authentication_rtt = None
+                    self.access_requests = None
+                    self.access_request_retransmits = None
+                    self.access_accepts = None
+                    self.access_rejects = None
+                    self.access_challenges = None
+                    self.bad_access_responses = None
+                    self.bad_access_authenticators = None
+                    self.pending_access_requests = None
+                    self.access_timeouts = None
+                    self.unknown_access_types = None
+                    self.dropped_access_responses = None
+                    self.throttled_access_reqs = None
+                    self.throttled_timed_out_reqs = None
+                    self.throttled_dropped_reqs = None
+                    self.max_throttled_access_reqs = None
+                    self.currently_throttled_access_reqs = None
+                    self.authen_response_time = None
+                    self.authen_transaction_successess = None
+                    self.authen_transaction_failure = None
+                    self.authen_unexpected_responses = None
+                    self.authen_server_error_responses = None
+                    self.authen_incorrect_responses = None
+                    self.author_requests = None
+                    self.author_request_timeouts = None
+                    self.author_response_time = None
+                    self.author_transaction_successess = None
+                    self.author_transaction_failure = None
+                    self.author_unexpected_responses = None
+                    self.author_server_error_responses = None
+                    self.author_incorrect_responses = None
+                    self.accounting_rtt = None
+                    self.accounting_requests = None
+                    self.accounting_retransmits = None
+                    self.accounting_responses = None
+                    self.bad_accounting_responses = None
+                    self.bad_accounting_authenticators = None
+                    self.pending_accounting_requets = None
+                    self.accounting_timeouts = None
+                    self.unknown_accounting_types = None
+                    self.dropped_accounting_responses = None
+                    self.is_a_private_server = None
+                    self.total_test_auth_reqs = None
+                    self.total_test_auth_timeouts = None
+                    self.total_test_auth_response = None
+                    self.total_test_auth_pending = None
+                    self.total_test_acct_reqs = None
+                    self.total_test_acct_timeouts = None
+                    self.total_test_acct_response = None
+                    self.total_test_acct_pending = None
+                    self.throttled_acct_transactions = None
+                    self.throttled_acct_timed_out_stats = None
+                    self.throttled_acct_failures_stats = None
+                    self.max_acct_throttled = None
+                    self.throttleda_acct_transactions = None
+                    self.acct_unexpected_responses = None
+                    self.acct_server_error_responses = None
+                    self.acct_incorrect_responses = None
+                    self.acct_response_time = None
+                    self.acct_transaction_successess = None
+                    self.acct_transaction_failure = None
+                    self.total_deadtime = None
+                    self.last_deadtime = None
+                    self.is_quarantined = None
+                    self.group_name = None
+                    self.ip_address_xr = None
+                    self.family = None
+                    self._segment_path = lambda: "server"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/servers/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.Servers.Server, ['ip_address', 'auth_port_number', 'acct_port_number', 'ipv4_address', 'priority', 'timeout_xr', 'retransmit', 'dead_time', 'dead_detect_time', 'dead_detect_tries', 'authentication_port', 'accounting_port', 'state', 'current_state_duration', 'previous_state_duration', 'packets_in', 'packets_out', 'timeouts', 'aborts', 'replies_expected', 'redirected_requests', 'authentication_rtt', 'access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'bad_access_responses', 'bad_access_authenticators', 'pending_access_requests', 'access_timeouts', 'unknown_access_types', 'dropped_access_responses', 'throttled_access_reqs', 'throttled_timed_out_reqs', 'throttled_dropped_reqs', 'max_throttled_access_reqs', 'currently_throttled_access_reqs', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses', 'author_requests', 'author_request_timeouts', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'accounting_rtt', 'accounting_requests', 'accounting_retransmits', 'accounting_responses', 'bad_accounting_responses', 'bad_accounting_authenticators', 'pending_accounting_requets', 'accounting_timeouts', 'unknown_accounting_types', 'dropped_accounting_responses', 'is_a_private_server', 'total_test_auth_reqs', 'total_test_auth_timeouts', 'total_test_auth_response', 'total_test_auth_pending', 'total_test_acct_reqs', 'total_test_acct_timeouts', 'total_test_acct_response', 'total_test_acct_pending', 'throttled_acct_transactions', 'throttled_acct_timed_out_stats', 'throttled_acct_failures_stats', 'max_acct_throttled', 'throttleda_acct_transactions', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure', 'total_deadtime', 'last_deadtime', 'is_quarantined', 'group_name', 'ip_address_xr', 'family'], name, value)
+
+
+
+
+        class RadiusSourceInterface(Entity):
+            """
+            RADIUS source interfaces
+            
+            .. attribute:: list_of_source_interface
+            
+            	List of source interfaces
+            	**type**\: list of  		 :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-oper'
+            _revision = '2017-11-13'
+
+            def __init__(self):
+                super(Aaa.Radius.RadiusSourceInterface, self).__init__()
+
+                self.yang_name = "radius-source-interface"
+                self.yang_parent_name = "radius"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("list-of-source-interface", ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface))])
+                self._leafs = OrderedDict()
+
+                self.list_of_source_interface = YList(self)
+                self._segment_path = lambda: "radius-source-interface"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.RadiusSourceInterface, [], name, value)
+
+
+            class ListOfSourceInterface(Entity):
+                """
+                List of source interfaces
+                
+                .. attribute:: interface_name
+                
+                	Name of the source interface
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ipaddrv4
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ipaddrv6
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: vrfid
+                
+                	VRF Id
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2017-11-13'
+
+                def __init__(self):
+                    super(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, self).__init__()
+
+                    self.yang_name = "list-of-source-interface"
+                    self.yang_parent_name = "radius-source-interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('ipaddrv4', (YLeaf(YType.str, 'ipaddrv4'), ['str'])),
+                        ('ipaddrv6', (YLeaf(YType.str, 'ipaddrv6'), ['str'])),
+                        ('vrfid', (YLeaf(YType.uint32, 'vrfid'), ['int'])),
+                    ])
+                    self.interface_name = None
+                    self.ipaddrv4 = None
+                    self.ipaddrv6 = None
+                    self.vrfid = None
+                    self._segment_path = lambda: "list-of-source-interface"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/radius-source-interface/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, ['interface_name', 'ipaddrv4', 'ipaddrv6', 'vrfid'], name, value)
+
+
+
+
+        class Global(Entity):
+            """
+            RADIUS Client Information
+            
+            .. attribute:: unknown_authentication_response
+            
+            	Number of RADIUS Access\-Responsepackets received from unknownaddresses
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: authentication_nas_id
+            
+            	NAS\-Identifier of the RADIUSauthentication client
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: unknown_accounting_response
+            
+            	Number of RADIUS Accounting\-Responsepackets received from unknownaddresses
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: accounting_nas_id
+            
+            	NAS\-Identifier of the RADIUSaccounting client
+            	**type**\: str
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-oper'
+            _revision = '2017-11-13'
+
+            def __init__(self):
+                super(Aaa.Radius.Global, self).__init__()
+
+                self.yang_name = "global"
+                self.yang_parent_name = "radius"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('unknown_authentication_response', (YLeaf(YType.uint32, 'unknown-authentication-response'), ['int'])),
+                    ('authentication_nas_id', (YLeaf(YType.str, 'authentication-nas-id'), ['str'])),
+                    ('unknown_accounting_response', (YLeaf(YType.uint32, 'unknown-accounting-response'), ['int'])),
+                    ('accounting_nas_id', (YLeaf(YType.str, 'accounting-nas-id'), ['str'])),
+                ])
+                self.unknown_authentication_response = None
+                self.authentication_nas_id = None
+                self.unknown_accounting_response = None
+                self.accounting_nas_id = None
+                self._segment_path = lambda: "global"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.Global, ['unknown_authentication_response', 'authentication_nas_id', 'unknown_accounting_response', 'accounting_nas_id'], name, value)
 
 
 

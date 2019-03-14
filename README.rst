@@ -184,10 +184,44 @@ Please follow `System Requirements` to assure presence of shared Python librarie
 Mac OS
 ======
 
-The developers of Python2 on Mac OS might face an issue ([#837](https://github.com/CiscoDevNet/ydk-gen/issues/837)). 
-This is well know and well documented issue. Each developer might have different approaches for its resolution. 
+The developers of Python2 on Mac OS might face an issue ([#837](https://github.com/CiscoDevNet/ydk-gen/issues/837)).
+This is well known and documented issue. Each developer might have different approaches for its resolution.
 One of them is to use Python2 virtual environment. See section below for details.
+
+In addition it is required properly set CMAKE_LIBRARY_PATH environment variable to assure that `cmake` uses correct Python library.
+Follow these steps to find and set correct library path.
+
+1. Find installations of `libpython2.7` library::
+
+  locate libpython2.7.dylib
+
+Example::
+
+  $ locate libpython2.7.dylib
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
+  /usr/lib/libpython2.7.dylib
+  /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+  /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
+
+2. Choose non-system Python library installation and set CMAKE_LIBRARY_PATH before any YDK component installation. Example::
+
+  export CMAKE_LIBRARY_PATH=/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib
+
+3. Run YDK core package installation with '-v' flag to check that `PythonLibs` points to correct library path. Example::
+
+  $ ./generate.py --core
+  $ pip install -v gen-api/python/ydk/dist/ydk*.tar.gz
   
+  # In 'cmake' log look for 'PythonLibs' and 'found version' settings line:
+  
+  -- Found PythonLibs: /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib (found version "2.7.15")
+
+4. Finally test you YDK core library installation from CLI, making sure there are no errors::
+
+  $ python -c "import ydk.types"
+
+
 How to install
 --------------
 

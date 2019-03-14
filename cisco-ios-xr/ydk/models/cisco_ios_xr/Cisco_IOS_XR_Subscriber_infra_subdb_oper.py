@@ -439,7 +439,7 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', u'interface_name', u'associations', u'varlist_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', 'interface_name', 'associations', 'varlist_id'], name, value)
 
 
                         class Template(Entity):
@@ -536,7 +536,7 @@ class SubscriberDatabase(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, [u'template_type', u'template_name', u'varlist'], name, value)
+                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
 
 
 
@@ -1001,7 +1001,7 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', u'session_state', u'activate_request_id', u'transaction_id', u'produce_done_request_id', u'destroy_req_received', u'destroy_request_id', u'is_config_changed', u'is_creator_gone', u'is_delete_notify_done', u'add_modify_done', u'is_rollback_needed', u'is_rollback_in_progress', u'is_server_restart_apply', u'is_rollback_performed', u'repl_pending', u'activate_timer_running', u'apply_timer_running', u'event_queue_size', u'restarts', u'template_interface_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', 'session_state', 'activate_request_id', 'transaction_id', 'produce_done_request_id', 'destroy_req_received', 'destroy_request_id', 'is_config_changed', 'is_creator_gone', 'is_delete_notify_done', 'add_modify_done', 'is_rollback_needed', 'is_rollback_in_progress', 'is_server_restart_apply', 'is_rollback_performed', 'repl_pending', 'activate_timer_running', 'apply_timer_running', 'event_queue_size', 'restarts', 'template_interface_id'], name, value)
 
 
 

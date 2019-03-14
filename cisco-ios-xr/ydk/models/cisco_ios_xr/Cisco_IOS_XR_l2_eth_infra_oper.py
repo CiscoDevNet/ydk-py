@@ -690,7 +690,7 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.State, ['is_ingress_enabled', 'is_egress_enabled', 'number_available_ingress', 'number_available_egress', 'number_available_on_node'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.State, [u'is_ingress_enabled', u'is_egress_enabled', u'number_available_ingress', u'number_available_egress', u'number_available_on_node'], name, value)
 
 
 
@@ -755,7 +755,7 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
 
 
 
@@ -820,7 +820,7 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
 
 
 
@@ -3759,7 +3759,7 @@ class EthernetEncapsulation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, ['mac_address', 'mode'], name, value)
+                            self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, [u'mac_address', u'mode'], name, value)
 
 
 

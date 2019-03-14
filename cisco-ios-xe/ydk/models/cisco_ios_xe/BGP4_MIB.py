@@ -148,7 +148,7 @@ class BGP4MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BGP4MIB.Bgp, ['bgpversion', 'bgplocalas', 'bgpidentifier'], name, value)
+            self._perform_setattr(BGP4MIB.Bgp, [u'bgpversion', u'bgplocalas', u'bgpidentifier'], name, value)
 
 
 
@@ -576,7 +576,7 @@ class BGP4MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.BgpPeerTable.BgpPeerEntry, ['bgppeerremoteaddr', 'bgppeeridentifier', 'bgppeerstate', 'bgppeeradminstatus', 'bgppeernegotiatedversion', 'bgppeerlocaladdr', 'bgppeerlocalport', 'bgppeerremoteport', 'bgppeerremoteas', 'bgppeerinupdates', 'bgppeeroutupdates', 'bgppeerintotalmessages', 'bgppeerouttotalmessages', 'bgppeerlasterror', 'bgppeerfsmestablishedtransitions', 'bgppeerfsmestablishedtime', 'bgppeerconnectretryinterval', 'bgppeerholdtime', 'bgppeerkeepalive', 'bgppeerholdtimeconfigured', 'bgppeerkeepaliveconfigured', 'bgppeerminasoriginationinterval', 'bgppeerminrouteadvertisementinterval', 'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
+                self._perform_setattr(BGP4MIB.BgpPeerTable.BgpPeerEntry, [u'bgppeerremoteaddr', u'bgppeeridentifier', u'bgppeerstate', u'bgppeeradminstatus', u'bgppeernegotiatedversion', u'bgppeerlocaladdr', u'bgppeerlocalport', u'bgppeerremoteport', u'bgppeerremoteas', u'bgppeerinupdates', u'bgppeeroutupdates', u'bgppeerintotalmessages', u'bgppeerouttotalmessages', u'bgppeerlasterror', u'bgppeerfsmestablishedtransitions', u'bgppeerfsmestablishedtime', u'bgppeerconnectretryinterval', u'bgppeerholdtime', u'bgppeerkeepalive', u'bgppeerholdtimeconfigured', u'bgppeerkeepaliveconfigured', u'bgppeerminasoriginationinterval', u'bgppeerminrouteadvertisementinterval', u'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
 
             class BgpPeerAdminStatus(Enum):
                 """
@@ -830,7 +830,7 @@ class BGP4MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, ['bgppathattrdestnetwork', 'bgppathattrpeer', 'bgppathattrorigin', 'bgppathattraspath', 'bgppathattrnexthop', 'bgppathattrinterasmetric'], name, value)
+                self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, [u'bgppathattrdestnetwork', u'bgppathattrpeer', u'bgppathattrorigin', u'bgppathattraspath', u'bgppathattrnexthop', u'bgppathattrinterasmetric'], name, value)
 
             class BgpPathAttrOrigin(Enum):
                 """
@@ -1072,7 +1072,7 @@ class BGP4MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, ['bgp4pathattripaddrprefix', 'bgp4pathattripaddrprefixlen', 'bgp4pathattrpeer', 'bgp4pathattrorigin', 'bgp4pathattraspathsegment', 'bgp4pathattrnexthop', 'bgp4pathattrmultiexitdisc', 'bgp4pathattrlocalpref', 'bgp4pathattratomicaggregate', 'bgp4pathattraggregatoras', 'bgp4pathattraggregatoraddr', 'bgp4pathattrcalclocalpref', 'bgp4pathattrbest', 'bgp4pathattrunknown'], name, value)
+                self._perform_setattr(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, [u'bgp4pathattripaddrprefix', u'bgp4pathattripaddrprefixlen', u'bgp4pathattrpeer', u'bgp4pathattrorigin', u'bgp4pathattraspathsegment', u'bgp4pathattrnexthop', u'bgp4pathattrmultiexitdisc', u'bgp4pathattrlocalpref', u'bgp4pathattratomicaggregate', u'bgp4pathattraggregatoras', u'bgp4pathattraggregatoraddr', u'bgp4pathattrcalclocalpref', u'bgp4pathattrbest', u'bgp4pathattrunknown'], name, value)
 
             class Bgp4PathAttrAtomicAggregate(Enum):
                 """

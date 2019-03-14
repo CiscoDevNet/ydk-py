@@ -380,7 +380,7 @@ class RMON2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMON2MIB.ProtocolDir, ['protocoldirlastchange'], name, value)
+            self._perform_setattr(RMON2MIB.ProtocolDir, [u'protocoldirlastchange'], name, value)
 
 
 
@@ -444,7 +444,7 @@ class RMON2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMON2MIB.AddressMap, ['addressmapinserts', 'addressmapdeletes', 'addressmapmaxdesiredentries'], name, value)
+            self._perform_setattr(RMON2MIB.AddressMap, [u'addressmapinserts', u'addressmapdeletes', u'addressmapmaxdesiredentries'], name, value)
 
 
 
@@ -579,7 +579,7 @@ class RMON2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMON2MIB.ProbeConfig, ['probecapabilities', 'probesoftwarerev', 'probehardwarerev', 'probedatetime', 'proberesetcontrol', 'probedownloadfile', 'probedownloadtftpserver', 'probedownloadaction', 'probedownloadstatus', 'netdefaultgateway'], name, value)
+            self._perform_setattr(RMON2MIB.ProbeConfig, [u'probecapabilities', u'probesoftwarerev', u'probehardwarerev', u'probedatetime', u'proberesetcontrol', u'probedownloadfile', u'probedownloadtftpserver', u'probedownloadaction', u'probedownloadstatus', u'netdefaultgateway'], name, value)
 
         class ProbeDownloadAction(Enum):
             """
@@ -888,7 +888,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.ProtocolDirTable.ProtocolDirEntry, ['protocoldirid', 'protocoldirparameters', 'protocoldirlocalindex', 'protocoldirdescr', 'protocoldirtype', 'protocoldiraddressmapconfig', 'protocoldirhostconfig', 'protocoldirmatrixconfig', 'protocoldirowner', 'protocoldirstatus'], name, value)
+                self._perform_setattr(RMON2MIB.ProtocolDirTable.ProtocolDirEntry, [u'protocoldirid', u'protocoldirparameters', u'protocoldirlocalindex', u'protocoldirdescr', u'protocoldirtype', u'protocoldiraddressmapconfig', u'protocoldirhostconfig', u'protocoldirmatrixconfig', u'protocoldirowner', u'protocoldirstatus'], name, value)
 
             class ProtocolDirAddressMapConfig(Enum):
                 """
@@ -1297,7 +1297,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.ProtocolDistControlTable.ProtocolDistControlEntry, ['protocoldistcontrolindex', 'protocoldistcontroldatasource', 'protocoldistcontroldroppedframes', 'protocoldistcontrolcreatetime', 'protocoldistcontrolowner', 'protocoldistcontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.ProtocolDistControlTable.ProtocolDistControlEntry, [u'protocoldistcontrolindex', u'protocoldistcontroldatasource', u'protocoldistcontroldroppedframes', u'protocoldistcontrolcreatetime', u'protocoldistcontrolowner', u'protocoldistcontrolstatus'], name, value)
 
 
 
@@ -1437,7 +1437,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.ProtocolDistStatsTable.ProtocolDistStatsEntry, ['protocoldistcontrolindex', 'protocoldirlocalindex', 'protocoldiststatspkts', 'protocoldiststatsoctets'], name, value)
+                self._perform_setattr(RMON2MIB.ProtocolDistStatsTable.ProtocolDistStatsEntry, [u'protocoldistcontrolindex', u'protocoldirlocalindex', u'protocoldiststatspkts', u'protocoldiststatsoctets'], name, value)
 
 
 
@@ -1578,7 +1578,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AddressMapControlTable.AddressMapControlEntry, ['addressmapcontrolindex', 'addressmapcontroldatasource', 'addressmapcontroldroppedframes', 'addressmapcontrolowner', 'addressmapcontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.AddressMapControlTable.AddressMapControlEntry, [u'addressmapcontrolindex', u'addressmapcontroldatasource', u'addressmapcontroldroppedframes', u'addressmapcontrolowner', u'addressmapcontrolstatus'], name, value)
 
 
 
@@ -1730,7 +1730,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AddressMapTable.AddressMapEntry, ['addressmaptimemark', 'protocoldirlocalindex', 'addressmapnetworkaddress', 'addressmapsource', 'addressmapphysicaladdress', 'addressmaplastchange'], name, value)
+                self._perform_setattr(RMON2MIB.AddressMapTable.AddressMapEntry, [u'addressmaptimemark', u'protocoldirlocalindex', u'addressmapnetworkaddress', u'addressmapsource', u'addressmapphysicaladdress', u'addressmaplastchange'], name, value)
 
 
 
@@ -1951,7 +1951,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.HlHostControlTable.HlHostControlEntry, ['hlhostcontrolindex', 'hlhostcontroldatasource', 'hlhostcontrolnldroppedframes', 'hlhostcontrolnlinserts', 'hlhostcontrolnldeletes', 'hlhostcontrolnlmaxdesiredentries', 'hlhostcontrolaldroppedframes', 'hlhostcontrolalinserts', 'hlhostcontrolaldeletes', 'hlhostcontrolalmaxdesiredentries', 'hlhostcontrolowner', 'hlhostcontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.HlHostControlTable.HlHostControlEntry, [u'hlhostcontrolindex', u'hlhostcontroldatasource', u'hlhostcontrolnldroppedframes', u'hlhostcontrolnlinserts', u'hlhostcontrolnldeletes', u'hlhostcontrolnlmaxdesiredentries', u'hlhostcontrolaldroppedframes', u'hlhostcontrolalinserts', u'hlhostcontrolaldeletes', u'hlhostcontrolalmaxdesiredentries', u'hlhostcontrolowner', u'hlhostcontrolstatus'], name, value)
 
 
 
@@ -2154,7 +2154,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NlHostTable.NlHostEntry, ['hlhostcontrolindex', 'nlhosttimemark', 'protocoldirlocalindex', 'nlhostaddress', 'nlhostinpkts', 'nlhostoutpkts', 'nlhostinoctets', 'nlhostoutoctets', 'nlhostoutmacnonunicastpkts', 'nlhostcreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.NlHostTable.NlHostEntry, [u'hlhostcontrolindex', u'nlhosttimemark', u'protocoldirlocalindex', u'nlhostaddress', u'nlhostinpkts', u'nlhostoutpkts', u'nlhostinoctets', u'nlhostoutoctets', u'nlhostoutmacnonunicastpkts', u'nlhostcreatetime'], name, value)
 
 
 
@@ -2374,7 +2374,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.HlMatrixControlTable.HlMatrixControlEntry, ['hlmatrixcontrolindex', 'hlmatrixcontroldatasource', 'hlmatrixcontrolnldroppedframes', 'hlmatrixcontrolnlinserts', 'hlmatrixcontrolnldeletes', 'hlmatrixcontrolnlmaxdesiredentries', 'hlmatrixcontrolaldroppedframes', 'hlmatrixcontrolalinserts', 'hlmatrixcontrolaldeletes', 'hlmatrixcontrolalmaxdesiredentries', 'hlmatrixcontrolowner', 'hlmatrixcontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.HlMatrixControlTable.HlMatrixControlEntry, [u'hlmatrixcontrolindex', u'hlmatrixcontroldatasource', u'hlmatrixcontrolnldroppedframes', u'hlmatrixcontrolnlinserts', u'hlmatrixcontrolnldeletes', u'hlmatrixcontrolnlmaxdesiredentries', u'hlmatrixcontrolaldroppedframes', u'hlmatrixcontrolalinserts', u'hlmatrixcontrolaldeletes', u'hlmatrixcontrolalmaxdesiredentries', u'hlmatrixcontrolowner', u'hlmatrixcontrolstatus'], name, value)
 
 
 
@@ -2564,7 +2564,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NlMatrixSDTable.NlMatrixSDEntry, ['hlmatrixcontrolindex', 'nlmatrixsdtimemark', 'protocoldirlocalindex', 'nlmatrixsdsourceaddress', 'nlmatrixsddestaddress', 'nlmatrixsdpkts', 'nlmatrixsdoctets', 'nlmatrixsdcreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.NlMatrixSDTable.NlMatrixSDEntry, [u'hlmatrixcontrolindex', u'nlmatrixsdtimemark', u'protocoldirlocalindex', u'nlmatrixsdsourceaddress', u'nlmatrixsddestaddress', u'nlmatrixsdpkts', u'nlmatrixsdoctets', u'nlmatrixsdcreatetime'], name, value)
 
 
 
@@ -2755,7 +2755,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NlMatrixDSTable.NlMatrixDSEntry, ['hlmatrixcontrolindex', 'nlmatrixdstimemark', 'protocoldirlocalindex', 'nlmatrixdsdestaddress', 'nlmatrixdssourceaddress', 'nlmatrixdspkts', 'nlmatrixdsoctets', 'nlmatrixdscreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.NlMatrixDSTable.NlMatrixDSEntry, [u'hlmatrixcontrolindex', u'nlmatrixdstimemark', u'protocoldirlocalindex', u'nlmatrixdsdestaddress', u'nlmatrixdssourceaddress', u'nlmatrixdspkts', u'nlmatrixdsoctets', u'nlmatrixdscreatetime'], name, value)
 
 
 
@@ -2947,7 +2947,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NlMatrixTopNControlTable.NlMatrixTopNControlEntry, ['nlmatrixtopncontrolindex', 'nlmatrixtopncontrolmatrixindex', 'nlmatrixtopncontrolratebase', 'nlmatrixtopncontroltimeremaining', 'nlmatrixtopncontrolgeneratedreports', 'nlmatrixtopncontrolduration', 'nlmatrixtopncontrolrequestedsize', 'nlmatrixtopncontrolgrantedsize', 'nlmatrixtopncontrolstarttime', 'nlmatrixtopncontrolowner', 'nlmatrixtopncontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.NlMatrixTopNControlTable.NlMatrixTopNControlEntry, [u'nlmatrixtopncontrolindex', u'nlmatrixtopncontrolmatrixindex', u'nlmatrixtopncontrolratebase', u'nlmatrixtopncontroltimeremaining', u'nlmatrixtopncontrolgeneratedreports', u'nlmatrixtopncontrolduration', u'nlmatrixtopncontrolrequestedsize', u'nlmatrixtopncontrolgrantedsize', u'nlmatrixtopncontrolstarttime', u'nlmatrixtopncontrolowner', u'nlmatrixtopncontrolstatus'], name, value)
 
             class NlMatrixTopNControlRateBase(Enum):
                 """
@@ -3145,7 +3145,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NlMatrixTopNTable.NlMatrixTopNEntry, ['nlmatrixtopncontrolindex', 'nlmatrixtopnindex', 'nlmatrixtopnprotocoldirlocalindex', 'nlmatrixtopnsourceaddress', 'nlmatrixtopndestaddress', 'nlmatrixtopnpktrate', 'nlmatrixtopnreversepktrate', 'nlmatrixtopnoctetrate', 'nlmatrixtopnreverseoctetrate'], name, value)
+                self._perform_setattr(RMON2MIB.NlMatrixTopNTable.NlMatrixTopNEntry, [u'nlmatrixtopncontrolindex', u'nlmatrixtopnindex', u'nlmatrixtopnprotocoldirlocalindex', u'nlmatrixtopnsourceaddress', u'nlmatrixtopndestaddress', u'nlmatrixtopnpktrate', u'nlmatrixtopnreversepktrate', u'nlmatrixtopnoctetrate', u'nlmatrixtopnreverseoctetrate'], name, value)
 
 
 
@@ -3359,7 +3359,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AlHostTable.AlHostEntry, ['hlhostcontrolindex', 'alhosttimemark', 'protocoldirlocalindex', 'nlhostaddress', 'protocoldirlocalindex_2', 'alhostinpkts', 'alhostoutpkts', 'alhostinoctets', 'alhostoutoctets', 'alhostcreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.AlHostTable.AlHostEntry, [u'hlhostcontrolindex', u'alhosttimemark', u'protocoldirlocalindex', u'nlhostaddress', u'protocoldirlocalindex_2', u'alhostinpkts', u'alhostoutpkts', u'alhostinoctets', u'alhostoutoctets', u'alhostcreatetime'], name, value)
 
 
 
@@ -3574,7 +3574,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AlMatrixSDTable.AlMatrixSDEntry, ['hlmatrixcontrolindex', 'almatrixsdtimemark', 'protocoldirlocalindex', 'nlmatrixsdsourceaddress', 'nlmatrixsddestaddress', 'protocoldirlocalindex_2', 'almatrixsdpkts', 'almatrixsdoctets', 'almatrixsdcreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.AlMatrixSDTable.AlMatrixSDEntry, [u'hlmatrixcontrolindex', u'almatrixsdtimemark', u'protocoldirlocalindex', u'nlmatrixsdsourceaddress', u'nlmatrixsddestaddress', u'protocoldirlocalindex_2', u'almatrixsdpkts', u'almatrixsdoctets', u'almatrixsdcreatetime'], name, value)
 
 
 
@@ -3789,7 +3789,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AlMatrixDSTable.AlMatrixDSEntry, ['hlmatrixcontrolindex', 'almatrixdstimemark', 'protocoldirlocalindex', 'nlmatrixdsdestaddress', 'nlmatrixdssourceaddress', 'protocoldirlocalindex_2', 'almatrixdspkts', 'almatrixdsoctets', 'almatrixdscreatetime'], name, value)
+                self._perform_setattr(RMON2MIB.AlMatrixDSTable.AlMatrixDSEntry, [u'hlmatrixcontrolindex', u'almatrixdstimemark', u'protocoldirlocalindex', u'nlmatrixdsdestaddress', u'nlmatrixdssourceaddress', u'protocoldirlocalindex_2', u'almatrixdspkts', u'almatrixdsoctets', u'almatrixdscreatetime'], name, value)
 
 
 
@@ -3981,7 +3981,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AlMatrixTopNControlTable.AlMatrixTopNControlEntry, ['almatrixtopncontrolindex', 'almatrixtopncontrolmatrixindex', 'almatrixtopncontrolratebase', 'almatrixtopncontroltimeremaining', 'almatrixtopncontrolgeneratedreports', 'almatrixtopncontrolduration', 'almatrixtopncontrolrequestedsize', 'almatrixtopncontrolgrantedsize', 'almatrixtopncontrolstarttime', 'almatrixtopncontrolowner', 'almatrixtopncontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.AlMatrixTopNControlTable.AlMatrixTopNControlEntry, [u'almatrixtopncontrolindex', u'almatrixtopncontrolmatrixindex', u'almatrixtopncontrolratebase', u'almatrixtopncontroltimeremaining', u'almatrixtopncontrolgeneratedreports', u'almatrixtopncontrolduration', u'almatrixtopncontrolrequestedsize', u'almatrixtopncontrolgrantedsize', u'almatrixtopncontrolstarttime', u'almatrixtopncontrolowner', u'almatrixtopncontrolstatus'], name, value)
 
             class AlMatrixTopNControlRateBase(Enum):
                 """
@@ -4213,7 +4213,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.AlMatrixTopNTable.AlMatrixTopNEntry, ['almatrixtopncontrolindex', 'almatrixtopnindex', 'almatrixtopnprotocoldirlocalindex', 'almatrixtopnsourceaddress', 'almatrixtopndestaddress', 'almatrixtopnappprotocoldirlocalindex', 'almatrixtopnpktrate', 'almatrixtopnreversepktrate', 'almatrixtopnoctetrate', 'almatrixtopnreverseoctetrate'], name, value)
+                self._perform_setattr(RMON2MIB.AlMatrixTopNTable.AlMatrixTopNEntry, [u'almatrixtopncontrolindex', u'almatrixtopnindex', u'almatrixtopnprotocoldirlocalindex', u'almatrixtopnsourceaddress', u'almatrixtopndestaddress', u'almatrixtopnappprotocoldirlocalindex', u'almatrixtopnpktrate', u'almatrixtopnreversepktrate', u'almatrixtopnoctetrate', u'almatrixtopnreverseoctetrate'], name, value)
 
 
 
@@ -4363,7 +4363,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.UsrHistoryControlTable.UsrHistoryControlEntry, ['usrhistorycontrolindex', 'usrhistorycontrolobjects', 'usrhistorycontrolbucketsrequested', 'usrhistorycontrolbucketsgranted', 'usrhistorycontrolinterval', 'usrhistorycontrolowner', 'usrhistorycontrolstatus'], name, value)
+                self._perform_setattr(RMON2MIB.UsrHistoryControlTable.UsrHistoryControlEntry, [u'usrhistorycontrolindex', u'usrhistorycontrolobjects', u'usrhistorycontrolbucketsrequested', u'usrhistorycontrolbucketsgranted', u'usrhistorycontrolinterval', u'usrhistorycontrolowner', u'usrhistorycontrolstatus'], name, value)
 
 
 
@@ -4486,7 +4486,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.UsrHistoryObjectTable.UsrHistoryObjectEntry, ['usrhistorycontrolindex', 'usrhistoryobjectindex', 'usrhistoryobjectvariable', 'usrhistoryobjectsampletype'], name, value)
+                self._perform_setattr(RMON2MIB.UsrHistoryObjectTable.UsrHistoryObjectEntry, [u'usrhistorycontrolindex', u'usrhistoryobjectindex', u'usrhistoryobjectvariable', u'usrhistoryobjectsampletype'], name, value)
 
             class UsrHistoryObjectSampleType(Enum):
                 """
@@ -4693,7 +4693,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.UsrHistoryTable.UsrHistoryEntry, ['usrhistorycontrolindex', 'usrhistorysampleindex', 'usrhistoryobjectindex', 'usrhistoryintervalstart', 'usrhistoryintervalend', 'usrhistoryabsvalue', 'usrhistoryvalstatus'], name, value)
+                self._perform_setattr(RMON2MIB.UsrHistoryTable.UsrHistoryEntry, [u'usrhistorycontrolindex', u'usrhistorysampleindex', u'usrhistoryobjectindex', u'usrhistoryintervalstart', u'usrhistoryintervalend', u'usrhistoryabsvalue', u'usrhistoryvalstatus'], name, value)
 
             class UsrHistoryValStatus(Enum):
                 """
@@ -4917,7 +4917,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.SerialConfigTable.SerialConfigEntry, ['ifindex', 'serialmode', 'serialprotocol', 'serialtimeout', 'serialmodeminitstring', 'serialmodemhangupstring', 'serialmodemconnectresp', 'serialmodemnoconnectresp', 'serialdialouttimeout', 'serialstatus'], name, value)
+                self._perform_setattr(RMON2MIB.SerialConfigTable.SerialConfigEntry, [u'ifindex', u'serialmode', u'serialprotocol', u'serialtimeout', u'serialmodeminitstring', u'serialmodemhangupstring', u'serialmodemconnectresp', u'serialmodemnoconnectresp', u'serialdialouttimeout', u'serialstatus'], name, value)
 
             class SerialMode(Enum):
                 """
@@ -5078,7 +5078,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.NetConfigTable.NetConfigEntry, ['ifindex', 'netconfigipaddress', 'netconfigsubnetmask', 'netconfigstatus'], name, value)
+                self._perform_setattr(RMON2MIB.NetConfigTable.NetConfigEntry, [u'ifindex', u'netconfigipaddress', u'netconfigsubnetmask', u'netconfigstatus'], name, value)
 
 
 
@@ -5209,7 +5209,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.TrapDestTable.TrapDestEntry, ['trapdestindex', 'trapdestcommunity', 'trapdestprotocol', 'trapdestaddress', 'trapdestowner', 'trapdeststatus'], name, value)
+                self._perform_setattr(RMON2MIB.TrapDestTable.TrapDestEntry, [u'trapdestindex', u'trapdestcommunity', u'trapdestprotocol', u'trapdestaddress', u'trapdestowner', u'trapdeststatus'], name, value)
 
             class TrapDestProtocol(Enum):
                 """
@@ -5391,7 +5391,7 @@ class RMON2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMON2MIB.SerialConnectionTable.SerialConnectionEntry, ['serialconnectindex', 'serialconnectdestipaddress', 'serialconnecttype', 'serialconnectdialstring', 'serialconnectswitchconnectseq', 'serialconnectswitchdisconnectseq', 'serialconnectswitchresetseq', 'serialconnectowner', 'serialconnectstatus'], name, value)
+                self._perform_setattr(RMON2MIB.SerialConnectionTable.SerialConnectionEntry, [u'serialconnectindex', u'serialconnectdestipaddress', u'serialconnecttype', u'serialconnectdialstring', u'serialconnectswitchconnectseq', u'serialconnectswitchdisconnectseq', u'serialconnectswitchresetseq', u'serialconnectowner', u'serialconnectstatus'], name, value)
 
             class SerialConnectType(Enum):
                 """

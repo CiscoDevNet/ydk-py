@@ -901,7 +901,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', u'item_type', u'sequence', u'grant', u'prefix', u'prefix_length', u'operator', u'minimum_length', u'maximum_length', u'hits', u'remark', u'acl_name'], name, value)
+                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', 'item_type', 'sequence', 'grant', 'prefix', 'prefix_length', 'operator', 'minimum_length', 'maximum_length', 'hits', 'remark', 'acl_name'], name, value)
 
 
 
@@ -1676,7 +1676,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', u'item_type', u'sequence', u'grant', u'protocol_operator', u'protocol', u'protocol2', u'source_address', u'source_address_mask', u'destination_address', u'destination_address_mask', u'source_operator', u'source_port1', u'source_port2', u'sorce_operator', u'sorce_port1', u'sorce_port2', u'destination_operator', u'destination_port1', u'destination_port2', u'log_option', u'counter_name', u'capture', u'dscp_present', u'dscp', u'dscp2', u'dscp_operator', u'precedence_present', u'precedence', u'tcp_flags_operator', u'tcp_flags', u'tcp_flags_mask', u'fragments', u'packet_length_operator', u'packet_length1', u'packet_length2', u'ttl_operator', u'ttl1', u'ttl2', u'no_stats', u'hits', u'is_icmp_off', u'qos_group', u'next_hop_type', u'remark', u'dynamic', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'acl_name', u'sequence_str', u'fragment_offset_operator', u'fragment_offset1', u'fragment_offset2', u'set_ttl', u'fragment_flags'], name, value)
+                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'item_type', 'sequence', 'grant', 'protocol_operator', 'protocol', 'protocol2', 'source_address', 'source_address_mask', 'destination_address', 'destination_address_mask', 'source_operator', 'source_port1', 'source_port2', 'sorce_operator', 'sorce_port1', 'sorce_port2', 'destination_operator', 'destination_port1', 'destination_port2', 'log_option', 'counter_name', 'capture', 'dscp_present', 'dscp', 'dscp2', 'dscp_operator', 'precedence_present', 'precedence', 'tcp_flags_operator', 'tcp_flags', 'tcp_flags_mask', 'fragments', 'packet_length_operator', 'packet_length1', 'packet_length2', 'ttl_operator', 'ttl1', 'ttl2', 'no_stats', 'hits', 'is_icmp_off', 'qos_group', 'next_hop_type', 'remark', 'dynamic', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'acl_name', 'sequence_str', 'fragment_offset_operator', 'fragment_offset1', 'fragment_offset2', 'set_ttl', 'fragment_flags'], name, value)
 
 
                         class HwNextHopInfo(Entity):
@@ -1736,7 +1736,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, [u'next_hop', u'type', u'vrf_name'], name, value)
+                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, ['next_hop', 'type', 'vrf_name'], name, value)
 
 
 
@@ -1813,7 +1813,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, [u'next_hop', u'track_name', u'status', u'at_status', u'is_acl_next_hop_exist'], name, value)
+                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, ['next_hop', 'track_name', 'status', 'at_status', 'is_acl_next_hop_exist'], name, value)
 
 
 
@@ -1876,7 +1876,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, [u'udf_name', u'udf_value', u'udf_mask'], name, value)
+                                self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, ['udf_name', 'udf_value', 'udf_mask'], name, value)
 
 
 
@@ -1967,7 +1967,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo, [u'obj_grp_name', u'obj_grp_type'], name, value)
+                            self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo, ['obj_grp_name', 'obj_grp_type'], name, value)
 
 
 
@@ -2286,7 +2286,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4AclAndPrefixList.Oor.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
+                self._perform_setattr(Ipv4AclAndPrefixList.Oor.Details, ['default_max_ac_ls', 'default_max_ac_es', 'current_configured_ac_ls', 'current_configured_ac_es', 'current_max_configurable_ac_ls', 'current_max_configurable_ac_es', 'max_configurable_ac_ls', 'max_configurable_ac_es'], name, value)
 
 
 
@@ -2453,7 +2453,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', 'default_max_ac_ls', 'default_max_ac_es', 'current_configured_ac_ls', 'current_configured_ac_es', 'current_max_configurable_ac_ls', 'current_max_configurable_ac_es', 'max_configurable_ac_ls', 'max_configurable_ac_es'], name, value)
 
 
 
@@ -2621,7 +2621,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', 'default_max_ac_ls', 'default_max_ac_es', 'current_configured_ac_ls', 'current_configured_ac_es', 'current_max_configurable_ac_ls', 'current_max_configurable_ac_es', 'max_configurable_ac_ls', 'max_configurable_ac_es'], name, value)
 
 
 
@@ -2782,7 +2782,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.AccessListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.AccessListSummary.Details, ['default_max_ac_ls', 'default_max_ac_es', 'current_configured_ac_ls', 'current_configured_ac_es', 'current_max_configurable_ac_ls', 'current_max_configurable_ac_es', 'max_configurable_ac_ls', 'max_configurable_ac_es'], name, value)
 
 
 
@@ -2944,7 +2944,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details, ['default_max_ac_ls', 'default_max_ac_es', 'current_configured_ac_ls', 'current_configured_ac_es', 'current_max_configurable_ac_ls', 'current_max_configurable_ac_es', 'max_configurable_ac_ls', 'max_configurable_ac_es'], name, value)
 
 
 

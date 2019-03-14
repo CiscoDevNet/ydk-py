@@ -401,7 +401,7 @@ class LptsPa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', 'location', 'client_id', 'vid', 'cookie', 'l3protocol', 'l4protocol', 'smask', 'ifs', 'ptype', 'local_ip', 'remote_ip', 'local_len', 'remote_len', 'local_port', 'remote_port', 'packet_misc', 'scope', 'client_flags', 'min_ttl', 'lazy_bindq_delay', 'ptq_delay'], name, value)
+                self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', u'location', u'client_id', u'vid', u'cookie', u'l3protocol', u'l4protocol', u'smask', u'ifs', u'ptype', u'local_ip', u'remote_ip', u'local_len', u'remote_len', u'local_port', u'remote_port', u'packet_misc', u'scope', u'client_flags', u'min_ttl', u'lazy_bindq_delay', u'ptq_delay'], name, value)
 
 
             class Ctime(Entity):
@@ -452,7 +452,7 @@ class LptsPa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, ['tv_sec', 'tv_nsec'], name, value)
+                    self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, [u'tv_sec', u'tv_nsec'], name, value)
 
 
 
@@ -504,7 +504,7 @@ class LptsPa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPa.EntryXr.Entry.Utime, ['tv_sec', 'tv_nsec'], name, value)
+                    self._perform_setattr(LptsPa.EntryXr.Entry.Utime, [u'tv_sec', u'tv_nsec'], name, value)
 
 
 
@@ -641,7 +641,7 @@ class LptsPa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LptsPa.Entries.Entry, ['entry', 'flags', 'open_flags', 'location', 'client_id', 'times'], name, value)
+                self._perform_setattr(LptsPa.Entries.Entry, ['entry', u'flags', u'open_flags', u'location', u'client_id', u'times'], name, value)
 
 
 

@@ -166,7 +166,7 @@ class Sr(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Sr, ['enable'], name, value)
+        self._perform_setattr(Sr, [u'enable'], name, value)
 
 
     class LocalBlock(Entity):
@@ -221,7 +221,7 @@ class Sr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sr.LocalBlock, ['lower_bound', 'upper_bound'], name, value)
+            self._perform_setattr(Sr.LocalBlock, [u'lower_bound', u'upper_bound'], name, value)
 
 
 
@@ -344,7 +344,7 @@ class Sr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sr.Mappings.Mapping, ['af', 'ip', 'mask', 'sid_start', 'sid_range', 'flag_attached'], name, value)
+                self._perform_setattr(Sr.Mappings.Mapping, [u'af', u'ip', u'mask', u'sid_start', u'sid_range', u'flag_attached'], name, value)
 
 
 
@@ -468,7 +468,7 @@ class Sr(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface, ['interface'], name, value)
+                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface, [u'interface'], name, value)
 
 
                 class AddressFamilies(Entity):
@@ -550,7 +550,7 @@ class Sr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily, ['address_family'], name, value)
+                            self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily, [u'address_family'], name, value)
 
 
                         class NextHops(Entity):
@@ -642,7 +642,7 @@ class Sr(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop, ['ip_addr'], name, value)
+                                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop, [u'ip_addr'], name, value)
 
 
                                 class L2AdjacencySid(Entity):
@@ -707,7 +707,7 @@ class Sr(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop.L2AdjacencySid, ['sid_type', 'absolute_sid', 'index_sid', 'srlb'], name, value)
+                                        self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop.L2AdjacencySid, [u'sid_type', u'absolute_sid', u'index_sid', u'srlb'], name, value)
 
 
 
@@ -770,7 +770,7 @@ class Sr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sr.GlobalBlock, ['lower_bound', 'upper_bound'], name, value)
+            self._perform_setattr(Sr.GlobalBlock, [u'lower_bound', u'upper_bound'], name, value)
 
 
 

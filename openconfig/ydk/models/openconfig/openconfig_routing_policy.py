@@ -2431,7 +2431,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2485,7 +2485,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, ['interface', 'subinterface'], name, value)
 
 
 

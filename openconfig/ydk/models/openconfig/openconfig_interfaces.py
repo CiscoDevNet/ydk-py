@@ -173,7 +173,7 @@ class Interfaces(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interface, [u'name'], name, value)
+            self._perform_setattr(Interfaces.Interface, ['name'], name, value)
 
 
         class Config(Entity):
@@ -244,7 +244,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Config, [u'type', u'mtu', u'name', u'description', u'enabled'], name, value)
+                self._perform_setattr(Interfaces.Interface.Config, ['type', 'mtu', 'name', 'description', 'enabled'], name, value)
 
 
 
@@ -391,7 +391,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.State, [u'type', u'mtu', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change', u'hardware_port'], name, value)
+                self._perform_setattr(Interfaces.Interface.State, ['type', 'mtu', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change', u'hardware_port'], name, value)
 
             class AdminStatus(Enum):
                 """
@@ -666,7 +666,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
+                    self._perform_setattr(Interfaces.Interface.State.Counters, ['in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'last_clear'], name, value)
 
 
 
@@ -772,7 +772,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.HoldTime.Config, [u'up', u'down'], name, value)
+                    self._perform_setattr(Interfaces.Interface.HoldTime.Config, ['up', 'down'], name, value)
 
 
 
@@ -832,7 +832,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.HoldTime.State, [u'up', u'down'], name, value)
+                    self._perform_setattr(Interfaces.Interface.HoldTime.State, ['up', 'down'], name, value)
 
 
 
@@ -958,7 +958,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface, [u'index'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface, ['index'], name, value)
 
 
                 class Config(Entity):
@@ -1021,7 +1021,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Config, [u'index', u'name', u'description', u'enabled'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Config, ['index', 'name', 'description', 'enabled'], name, value)
 
 
 
@@ -1148,7 +1148,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State, [u'index', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State, ['index', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change'], name, value)
 
                     class AdminStatus(Enum):
                         """
@@ -1423,7 +1423,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, ['in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'last_clear'], name, value)
 
 
 
@@ -1518,7 +1518,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, ['vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, [u'vlan_id'], name, value)
 
 
 
@@ -1565,7 +1565,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, ['vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, [u'vlan_id'], name, value)
 
 
 
@@ -2671,7 +2671,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, ['enabled'], name, value)
 
 
 
@@ -2712,7 +2712,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, [u'enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, ['enabled'], name, value)
 
 
 
@@ -2810,7 +2810,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2864,7 +2864,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -4291,7 +4291,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, ['enabled'], name, value)
 
 
 
@@ -4332,7 +4332,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, [u'enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, ['enabled'], name, value)
 
 
 
@@ -4430,7 +4430,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -4484,7 +4484,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -4755,7 +4755,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -4911,7 +4911,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.State, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'hw_mac_address', u'effective_speed', u'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.State, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', 'hw_mac_address', 'effective_speed', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -5079,7 +5079,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.State.Counters, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.State.Counters, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'in_crc_errors', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
 
 
 
@@ -5224,7 +5224,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
 
@@ -5326,7 +5326,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
 
@@ -5652,7 +5652,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
 
@@ -5754,7 +5754,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
 
@@ -5868,7 +5868,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, ['vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, [u'vlan'], name, value)
 
 
 
@@ -5913,7 +5913,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, ['vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, [u'vlan'], name, value)
 
 
 
@@ -7018,7 +7018,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, ['enabled'], name, value)
 
 
 
@@ -7059,7 +7059,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, [u'enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, ['enabled'], name, value)
 
 
 
@@ -7157,7 +7157,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -7211,7 +7211,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -8638,7 +8638,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, ['enabled'], name, value)
 
 
 
@@ -8679,7 +8679,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, [u'enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, ['enabled'], name, value)
 
 
 
@@ -8777,7 +8777,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -8831,7 +8831,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 

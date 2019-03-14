@@ -1662,7 +1662,7 @@ class SubscriptionConfig(Entity):
                 
                 		**type**\: str
                 
-                			**length:** 1..253
+                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
                 
                 	**mandatory**\: True
                 
@@ -2106,7 +2106,7 @@ class Subscriptions(Entity):
                 
                 		**type**\: str
                 
-                			**length:** 1..253
+                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
                 
                 	**mandatory**\: True
                 

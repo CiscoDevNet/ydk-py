@@ -416,7 +416,7 @@ class OpticalInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OpticalInterface.ConfigStatus.PartialConfig, [u'partial_config'], name, value)
+                self._perform_setattr(OpticalInterface.ConfigStatus.PartialConfig, ['partial_config'], name, value)
 
 
 
@@ -625,7 +625,7 @@ class OpticalInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr, [u'slice', u'prov_status', u'present_config', u'present_timestamp', u'past_config', u'past_timestamp', u'err_str', u'err_timestamp'], name, value)
+                        self._perform_setattr(OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr, ['slice', 'prov_status', 'present_config', 'present_timestamp', 'past_config', 'past_timestamp', 'err_str', 'err_timestamp'], name, value)
 
 
 
@@ -817,7 +817,7 @@ class OpticalInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, [u'name', u'index', u'frequency', u'power', u'oper_mode', u'line_port'], name, value)
+                    self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, ['name', 'index', 'frequency', 'power', 'oper_mode', 'line_port'], name, value)
 
 
 
@@ -914,7 +914,7 @@ class OpticalInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OpticalInterface.Graph.AdjListPath, [u'path'], name, value)
+                self._perform_setattr(OpticalInterface.Graph.AdjListPath, ['path'], name, value)
 
 
 
@@ -957,7 +957,7 @@ class OpticalInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OpticalInterface.Graph.GraphStructurePath, [u'path'], name, value)
+                self._perform_setattr(OpticalInterface.Graph.GraphStructurePath, ['path'], name, value)
 
 
 
@@ -1101,7 +1101,7 @@ class OpticalInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes, [u'description', u'vendor_id'], name, value)
+                    self._perform_setattr(OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes, ['description', 'vendor_id'], name, value)
 
 
 
@@ -1362,7 +1362,7 @@ class OpticalInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr, [u'logical_channel_index', u'logical_channel_ifname', u'type', u'trib_rate_class', u'trib_protocol', u'protocol_type', u'admin_state', u'loopback_mode', u'ingress_client_port', u'ingress_physical_channel', u'tti_transmit', u'tti_expected'], name, value)
+                    self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr, ['logical_channel_index', 'logical_channel_ifname', 'type', 'trib_rate_class', 'trib_protocol', 'protocol_type', 'admin_state', 'loopback_mode', 'ingress_client_port', 'ingress_physical_channel', 'tti_transmit', 'tti_expected'], name, value)
 
 
 
@@ -1558,7 +1558,7 @@ class OpticalInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr, [u'index', u'name', u'is_logical_link', u'logical_channel', u'optical_channel', u'allocation', u'assignment_type'], name, value)
+                            self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr, ['index', 'name', 'is_logical_link', 'logical_channel', 'optical_channel', 'allocation', 'assignment_type'], name, value)
 
 
 

@@ -304,7 +304,7 @@ class QBRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1qBase, ['dot1qvlanversionnumber', 'dot1qmaxvlanid', 'dot1qmaxsupportedvlans', 'dot1qnumvlans', 'dot1qgvrpstatus'], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qBase, [u'dot1qvlanversionnumber', u'dot1qmaxvlanid', u'dot1qmaxsupportedvlans', u'dot1qnumvlans', u'dot1qgvrpstatus'], name, value)
 
         class Dot1qVlanVersionNumber(Enum):
             """
@@ -392,7 +392,7 @@ class QBRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1qVlan, ['dot1qvlannumdeletes', 'dot1qnextfreelocalvlanindex', 'dot1qconstraintsetdefault', 'dot1qconstrainttypedefault'], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qVlan, [u'dot1qvlannumdeletes', u'dot1qnextfreelocalvlanindex', u'dot1qconstraintsetdefault', u'dot1qconstrainttypedefault'], name, value)
 
         class Dot1qConstraintTypeDefault(Enum):
             """
@@ -514,7 +514,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry, ['dot1qfdbid', 'dot1qfdbdynamiccount'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry, [u'dot1qfdbid', u'dot1qfdbdynamiccount'], name, value)
 
 
 
@@ -634,7 +634,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry, ['dot1qfdbid', 'dot1qtpfdbaddress', 'dot1qtpfdbport', 'dot1qtpfdbstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry, [u'dot1qfdbid', u'dot1qtpfdbaddress', u'dot1qtpfdbport', u'dot1qtpfdbstatus'], name, value)
 
             class Dot1qTpFdbStatus(Enum):
                 """
@@ -827,7 +827,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry, ['dot1qvlanindex', 'dot1qtpgroupaddress', 'dot1qtpgroupegressports', 'dot1qtpgrouplearnt'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry, [u'dot1qvlanindex', u'dot1qtpgroupaddress', u'dot1qtpgroupegressports', u'dot1qtpgrouplearnt'], name, value)
 
 
 
@@ -946,7 +946,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry, ['dot1qvlanindex', 'dot1qforwardallports', 'dot1qforwardallstaticports', 'dot1qforwardallforbiddenports'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry, [u'dot1qvlanindex', u'dot1qforwardallports', u'dot1qforwardallstaticports', u'dot1qforwardallforbiddenports'], name, value)
 
 
 
@@ -1066,7 +1066,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry, ['dot1qvlanindex', 'dot1qforwardunregisteredports', 'dot1qforwardunregisteredstaticports', 'dot1qforwardunregisteredforbiddenports'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry, [u'dot1qvlanindex', u'dot1qforwardunregisteredports', u'dot1qforwardunregisteredstaticports', u'dot1qforwardunregisteredforbiddenports'], name, value)
 
 
 
@@ -1205,7 +1205,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry, ['dot1qfdbid', 'dot1qstaticunicastaddress', 'dot1qstaticunicastreceiveport', 'dot1qstaticunicastallowedtogoto', 'dot1qstaticunicaststatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry, [u'dot1qfdbid', u'dot1qstaticunicastaddress', u'dot1qstaticunicastreceiveport', u'dot1qstaticunicastallowedtogoto', u'dot1qstaticunicaststatus'], name, value)
 
             class Dot1qStaticUnicastStatus(Enum):
                 """
@@ -1412,7 +1412,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry, ['dot1qvlanindex', 'dot1qstaticmulticastaddress', 'dot1qstaticmulticastreceiveport', 'dot1qstaticmulticaststaticegressports', 'dot1qstaticmulticastforbiddenegressports', 'dot1qstaticmulticaststatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry, [u'dot1qvlanindex', u'dot1qstaticmulticastaddress', u'dot1qstaticmulticastreceiveport', u'dot1qstaticmulticaststaticegressports', u'dot1qstaticmulticastforbiddenegressports', u'dot1qstaticmulticaststatus'], name, value)
 
             class Dot1qStaticMulticastStatus(Enum):
                 """
@@ -1618,7 +1618,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry, ['dot1qvlantimemark', 'dot1qvlanindex', 'dot1qvlanfdbid', 'dot1qvlancurrentegressports', 'dot1qvlancurrentuntaggedports', 'dot1qvlanstatus', 'dot1qvlancreationtime'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry, [u'dot1qvlantimemark', u'dot1qvlanindex', u'dot1qvlanfdbid', u'dot1qvlancurrentegressports', u'dot1qvlancurrentuntaggedports', u'dot1qvlanstatus', u'dot1qvlancreationtime'], name, value)
 
             class Dot1qVlanStatus(Enum):
                 """
@@ -1799,7 +1799,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry, ['dot1qvlanindex', 'dot1qvlanstaticname', 'dot1qvlanstaticegressports', 'dot1qvlanforbiddenegressports', 'dot1qvlanstaticuntaggedports', 'dot1qvlanstaticrowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry, [u'dot1qvlanindex', u'dot1qvlanstaticname', u'dot1qvlanstaticegressports', u'dot1qvlanforbiddenegressports', u'dot1qvlanstaticuntaggedports', u'dot1qvlanstaticrowstatus'], name, value)
 
 
 
@@ -1976,7 +1976,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry, ['dot1dbaseport', 'dot1qvlanindex', 'dot1qtpvlanportinframes', 'dot1qtpvlanportoutframes', 'dot1qtpvlanportindiscards', 'dot1qtpvlanportinoverflowframes', 'dot1qtpvlanportoutoverflowframes', 'dot1qtpvlanportinoverflowdiscards'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry, [u'dot1dbaseport', u'dot1qvlanindex', u'dot1qtpvlanportinframes', u'dot1qtpvlanportoutframes', u'dot1qtpvlanportindiscards', u'dot1qtpvlanportinoverflowframes', u'dot1qtpvlanportoutoverflowframes', u'dot1qtpvlanportinoverflowdiscards'], name, value)
 
 
 
@@ -2107,7 +2107,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry, ['dot1dbaseport', 'dot1qvlanindex', 'dot1qtpvlanporthcinframes', 'dot1qtpvlanporthcoutframes', 'dot1qtpvlanporthcindiscards'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry, [u'dot1dbaseport', u'dot1qvlanindex', u'dot1qtpvlanporthcinframes', u'dot1qtpvlanporthcoutframes', u'dot1qtpvlanporthcindiscards'], name, value)
 
 
 
@@ -2218,7 +2218,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry, ['dot1qconstraintvlan', 'dot1qconstraintset', 'dot1qconstrainttype', 'dot1qconstraintstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry, [u'dot1qconstraintvlan', u'dot1qconstraintset', u'dot1qconstrainttype', u'dot1qconstraintstatus'], name, value)
 
             class Dot1qConstraintType(Enum):
                 """
@@ -2362,7 +2362,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry, ['dot1vprotocoltemplateframetype', 'dot1vprotocoltemplateprotocolvalue', 'dot1vprotocolgroupid', 'dot1vprotocolgrouprowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry, [u'dot1vprotocoltemplateframetype', u'dot1vprotocoltemplateprotocolvalue', u'dot1vprotocolgroupid', u'dot1vprotocolgrouprowstatus'], name, value)
 
             class Dot1vProtocolTemplateFrameType(Enum):
                 """
@@ -2508,7 +2508,7 @@ class QBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry, ['dot1dbaseport', 'dot1vprotocolportgroupid', 'dot1vprotocolportgroupvid', 'dot1vprotocolportrowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry, [u'dot1dbaseport', u'dot1vprotocolportgroupid', u'dot1vprotocolportgroupvid', u'dot1vprotocolportrowstatus'], name, value)
 
 
 

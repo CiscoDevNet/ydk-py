@@ -5310,7 +5310,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', 'interface_handle', 'interface_type', 'hardware_type_string', 'state', 'line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'is_l2_transport_enabled', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'speed', 'crc_length', 'is_scramble_enabled', 'duplexity', 'media_type', 'link_type', 'in_flow_control', 'out_flow_control', 'bandwidth', 'max_bandwidth', 'keepalive', 'is_l2_looped', 'parent_interface_name', 'loopback_configuration', 'description', 'is_maintenance_enabled', 'is_data_inverted', 'transport_mode', 'fast_shutdown', 'if_index'], name, value)
+                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', u'interface_handle', u'interface_type', u'hardware_type_string', u'state', u'line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'is_l2_transport_enabled', u'state_transition_count', u'last_state_transition_time', u'is_dampening_enabled', u'speed', u'crc_length', u'is_scramble_enabled', u'duplexity', u'media_type', u'link_type', u'in_flow_control', u'out_flow_control', u'bandwidth', u'max_bandwidth', u'keepalive', u'is_l2_looped', u'parent_interface_name', u'loopback_configuration', u'description', u'is_maintenance_enabled', u'is_data_inverted', u'transport_mode', u'fast_shutdown', u'if_index'], name, value)
 
 
             class DampeningInformation(Entity):
@@ -5431,7 +5431,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, [u'penalty', u'is_suppressed_enabled', u'seconds_remaining', u'half_life', u'reuse_threshold', u'suppress_threshold', u'maximum_suppress_time', u'restart_penalty'], name, value)
 
 
 
@@ -5472,7 +5472,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, [u'address'], name, value)
 
 
 
@@ -5513,7 +5513,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, ['address'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, [u'address'], name, value)
 
 
 
@@ -5565,7 +5565,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_up', 'carrier_delay_down'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, [u'carrier_delay_up', u'carrier_delay_down'], name, value)
 
 
 
@@ -5626,7 +5626,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_timeout', 'arp_type_name', 'arp_is_learning_disabled'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, [u'arp_timeout', u'arp_type_name', u'arp_is_learning_disabled'], name, value)
 
 
 
@@ -5678,7 +5678,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, [u'ip_address', u'subnet_mask_length'], name, value)
 
 
 
@@ -5750,7 +5750,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, ['encapsulation_type'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, [u'encapsulation_type'], name, value)
 
 
                 class FrameRelayInformation(Entity):
@@ -5919,7 +5919,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['fr_encapsulation_type', 'lmi_type', 'lmidlci', 'is_nni', 'is_dte', 'is_lmi_up', 'is_lmi_nni_dce_up', 'is_lmi_enabled', 'enquiries_received', 'enquiries_sent', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, [u'fr_encapsulation_type', u'lmi_type', u'lmidlci', u'is_nni', u'is_dte', u'is_lmi_up', u'is_lmi_nni_dce_up', u'is_lmi_enabled', u'enquiries_received', u'enquiries_sent', u'status_received', u'status_sent', u'update_status_received', u'update_status_sent'], name, value)
 
 
 
@@ -6107,7 +6107,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -6158,7 +6158,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
 
 
 
@@ -6291,7 +6291,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -6377,7 +6377,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
 
 
 
@@ -6435,7 +6435,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -6486,7 +6486,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
 
 
 
@@ -6537,7 +6537,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
 
 
 
@@ -6590,7 +6590,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
 
 
 
@@ -6652,7 +6652,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, ['mode', 'access_vlan'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, [u'mode', u'access_vlan'], name, value)
 
 
                         class TrunkVlanRanges(Entity):
@@ -6784,7 +6784,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -6870,7 +6870,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
 
 
 
@@ -6928,7 +6928,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, [u'ethertype', u'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -6979,7 +6979,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
 
 
 
@@ -7030,7 +7030,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, [u'ethertype', u'vlan_id'], name, value)
 
 
 
@@ -7125,7 +7125,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, ['lcp_state', 'is_loopback_detected', 'keepalive_period', 'is_mp_bundle_member', 'is_multilink_open'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, [u'lcp_state', u'is_loopback_detected', u'keepalive_period', u'is_mp_bundle_member', u'is_multilink_open'], name, value)
 
 
                     class NcpInfoArray(Entity):
@@ -7172,7 +7172,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_state', 'ncp_identifier'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, [u'ncp_state', u'ncp_identifier'], name, value)
 
 
 
@@ -7312,7 +7312,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, ['interface_type_info'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, [u'interface_type_info'], name, value)
 
 
                 class SrpInformation(Entity):
@@ -7483,7 +7483,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, [u'is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -7567,7 +7567,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, [u'mac_address', u'is_inter_card_bus_enabled', u'wtr_timer_period'], name, value)
 
 
                                 class SideA(Entity):
@@ -7791,7 +7791,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, [u'mac_address', u'wrap_state', u'packet_sent_timer', u'send_timer_time_remaining', u'wtr_timer_remaining', u'self_detected_request', u'remote_request', u'rx_neighbor_mac_address', u'rx_message_type', u'rx_path_type', u'rx_ttl', u'rx_packet_test', u'tx_neighbor_mac_address', u'tx_message_type', u'tx_path_type', u'tx_ttl', u'tx_packet_test', u'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -7878,7 +7878,7 @@ class Interfaces(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, [u'type', u'reported_state', u'debounced_state', u'current_state', u'stable_time', u'debounced_delay'], name, value)
 
 
 
@@ -8104,7 +8104,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, [u'mac_address', u'wrap_state', u'packet_sent_timer', u'send_timer_time_remaining', u'wtr_timer_remaining', u'self_detected_request', u'remote_request', u'rx_neighbor_mac_address', u'rx_message_type', u'rx_path_type', u'rx_ttl', u'rx_packet_test', u'tx_neighbor_mac_address', u'tx_message_type', u'tx_path_type', u'tx_ttl', u'tx_packet_test', u'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -8191,7 +8191,7 @@ class Interfaces(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, [u'type', u'reported_state', u'debounced_state', u'current_state', u'stable_time', u'debounced_delay'], name, value)
 
 
 
@@ -8244,7 +8244,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, [u'is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -8337,7 +8337,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, [u'topology_timer', u'next_topology_packet_delay', u'time_since_last_topology_packet_received', u'time_since_last_topology_change', u'number_of_nodes_on_ring'], name, value)
 
 
                                 class RingNode(Entity):
@@ -8428,7 +8428,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, [u'hop_count', u'mac_address', u'ipv4_address', u'is_wrapped', u'is_srr_supported', u'node_name'], name, value)
 
 
 
@@ -8491,7 +8491,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, [u'is_admin_down', u'is_srr_enabled'], name, value)
 
 
                             class SrrDetailedInfo(Entity):
@@ -8717,7 +8717,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, [u'version_number', u'is_wrong_version_received', u'last_wrong_version_receive_time', u'mac_address', u'node_state', u'is_outer_ring_in_use', u'is_inner_ring_in_use', u'is_announce', u'outer_fail_type', u'inner_fail_type', u'packet_send_timer', u'next_srr_packet_send_time', u'single_ring_bw', u'wtr_time', u'wtr_timer_remaining_outer_ring', u'wtr_timer_remaining_inner_ring'], name, value)
 
 
                                 class NodesOnRing(Entity):
@@ -8815,7 +8815,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, [u'node_name', u'srr_entry_exits', u'mac_address', u'outer_failure', u'inner_failure', u'is_last_announce_received', u'last_announce_received_time'], name, value)
 
 
 
@@ -8914,7 +8914,7 @@ class Interfaces(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, [u'node_name', u'srr_entry_exits', u'mac_address', u'outer_failure', u'inner_failure', u'is_last_announce_received', u'last_announce_received_time'], name, value)
 
 
 
@@ -8966,7 +8966,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, [u'is_admin_down'], name, value)
 
 
                             class RateLimitDetailedInfo(Entity):
@@ -9006,7 +9006,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, [u'min_priority_value'], name, value)
 
 
 
@@ -9095,7 +9095,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, ['data_rate_interval'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, [u'data_rate_interval'], name, value)
 
 
                         class SideADataRate(Entity):
@@ -9168,7 +9168,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, [u'bit_rate_sent', u'packet_rate_sent', u'bit_rate_received', u'packet_rate_received'], name, value)
 
 
 
@@ -9242,7 +9242,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, [u'bit_rate_sent', u'packet_rate_sent', u'bit_rate_received', u'packet_rate_received'], name, value)
 
 
 
@@ -9371,7 +9371,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, [u'error_packets_received', u'crc_errors', u'input_insufficient_resource_events', u'mac_aborts_received', u'mac_runt_packets_received', u'mac_giant_packets_received', u'framer_runt_packets_received', u'framer_giant_packets_received', u'framer_aborts_received'], name, value)
 
 
 
@@ -9500,7 +9500,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, [u'error_packets_received', u'crc_errors', u'input_insufficient_resource_events', u'mac_aborts_received', u'mac_runt_packets_received', u'mac_giant_packets_received', u'framer_runt_packets_received', u'framer_giant_packets_received', u'framer_aborts_received'], name, value)
 
 
 
@@ -9594,7 +9594,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['source_name', 'source_ipv4_address', 'destination_ipv4_address', 'tunnel_type', 'key', 'ttl'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, [u'source_name', u'source_ipv4_address', u'destination_ipv4_address', u'tunnel_type', u'key', u'ttl'], name, value)
 
 
 
@@ -9811,7 +9811,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, [u'interface_name', u'port_priority', u'port_number', u'underlying_link_id', u'link_order_number', u'iccp_node', u'bandwidth', u'lacp_enabled', u'member_type', u'member_name'], name, value)
 
 
                         class Counters(Entity):
@@ -9961,7 +9961,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['lacpd_us_received', 'lacpd_us_transmitted', 'marker_packets_received', 'marker_responses_transmitted', 'illegal_packets_received', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'defaulted', 'expired', 'last_cleared_sec', 'last_cleared_nsec'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, [u'lacpd_us_received', u'lacpd_us_transmitted', u'marker_packets_received', u'marker_responses_transmitted', u'illegal_packets_received', u'excess_lacpd_us_received', u'excess_marker_packets_received', u'defaulted', u'expired', u'last_cleared_sec', u'last_cleared_nsec'], name, value)
 
 
 
@@ -10156,7 +10156,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['interface_handle', 'actor_system_priority', 'actor_system_mac_address', 'actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'selected_aggregator_id', 'attached_aggregator_id', 'actor_port_id', 'actor_port_priority', 'partner_port_id', 'partner_port_priority', 'actor_port_state', 'partner_port_state'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, [u'interface_handle', u'actor_system_priority', u'actor_system_mac_address', u'actor_operational_key', u'partner_system_priority', u'partner_system_mac_address', u'partner_operational_key', u'selected_aggregator_id', u'attached_aggregator_id', u'actor_port_id', u'actor_port_priority', u'partner_port_id', u'partner_port_priority', u'actor_port_state', u'partner_port_state'], name, value)
 
 
 
@@ -10244,7 +10244,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, ['mux_state', 'error', 'member_mux_state_reason', 'member_state', 'mux_state_reason'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, [u'mux_state', u'error', u'member_mux_state_reason', u'member_state', u'mux_state_reason'], name, value)
 
 
                             class MemberMuxStateReasonData(Entity):
@@ -10292,7 +10292,7 @@ class Interfaces(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, [u'reason_type', u'severity'], name, value)
 
 
 
@@ -10334,7 +10334,7 @@ class Interfaces(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, [u'address'], name, value)
 
 
 
@@ -10375,7 +10375,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, [u'timeslots'], name, value)
 
 
 
@@ -10414,7 +10414,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, [u'aps_state'], name, value)
 
 
 
@@ -10588,7 +10588,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, ['source_name', 'destination_ip_address_length', 'tunnel_tos', 'tunnel_ttl', 'key', 'keepalive_period', 'keepalive_maximum_retry', 'tunnel_mode', 'tunnel_mode_direction', 'keepalive_state', 'df_bit_state', 'key_bit_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, [u'source_name', u'destination_ip_address_length', u'tunnel_tos', u'tunnel_ttl', u'key', u'keepalive_period', u'keepalive_maximum_retry', u'tunnel_mode', u'tunnel_mode_direction', u'keepalive_state', u'df_bit_state', u'key_bit_state'], name, value)
 
 
                     class SourceIpAddress(Entity):
@@ -10648,7 +10648,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, [u'afi', u'ipv4', u'ipv6'], name, value)
 
 
 
@@ -10709,7 +10709,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, [u'afi', u'ipv4', u'ipv6'], name, value)
 
 
 
@@ -10771,7 +10771,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'l2_overhead', 'internal_label'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, [u'interface_list_name', u'l2_overhead', u'internal_label'], name, value)
 
 
 
@@ -10847,7 +10847,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['timeslots', 'payload', 'dejitter_buffer', 'framing'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, [u'timeslots', u'payload', u'dejitter_buffer', u'framing'], name, value)
 
 
 
@@ -10895,7 +10895,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, [u'derived_mode', u'sec_state'], name, value)
 
 
 
@@ -11079,7 +11079,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
 
 
 
@@ -11140,7 +11140,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, ['stats_type'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, [u'stats_type'], name, value)
 
 
                 class FullInterfaceStats(Entity):
@@ -11579,7 +11579,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
 
@@ -11799,7 +11799,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'input_drops', 'input_queue_drops', 'input_errors', 'unknown_protocol_packets_received', 'output_drops', 'output_queue_drops', 'output_errors', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'input_drops', u'input_queue_drops', u'input_errors', u'unknown_protocol_packets_received', u'output_drops', u'output_queue_drops', u'output_errors', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
 
@@ -11878,7 +11878,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, ['stats_type', 'contents'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, [u'stats_type', u'contents'], name, value)
 
 
                 class StatsId(Entity):
@@ -11971,7 +11971,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['id_type', 'unused', 'interface_handle', 'node_id', 'feature_id', 'id'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, [u'id_type', u'unused', u'interface_handle', u'node_id', u'feature_id', u'id'], name, value)
 
 
 
@@ -12032,7 +12032,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['type', 'count', 'data'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, [u'type', u'count', u'data'], name, value)
 
 
 
@@ -12082,7 +12082,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, ['key'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, [u'key'], name, value)
 
 
                     class BlockArray(Entity):
@@ -12142,7 +12142,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['type', 'count', 'data'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, [u'type', u'count', u'data'], name, value)
 
 
 
@@ -13100,7 +13100,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
+                self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', u'interface', u'state', u'line_state', u'description'], name, value)
 
 
 

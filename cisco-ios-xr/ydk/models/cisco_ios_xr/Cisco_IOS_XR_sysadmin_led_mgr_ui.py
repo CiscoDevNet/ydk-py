@@ -104,7 +104,7 @@ class Led(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Led.Location, [u'location'], name, value)
+            self._perform_setattr(Led.Location, ['location'], name, value)
 
 
         class LedAttributes(Entity):
@@ -160,7 +160,7 @@ class Led(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Led.Location.LedAttributes, [u'led_name', u'led_mode', u'led_color'], name, value)
+                self._perform_setattr(Led.Location.LedAttributes, ['led_name', 'led_mode', 'led_color'], name, value)
 
 
 

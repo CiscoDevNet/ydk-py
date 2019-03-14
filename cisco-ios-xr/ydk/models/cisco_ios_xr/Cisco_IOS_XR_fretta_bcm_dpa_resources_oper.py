@@ -402,7 +402,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -451,7 +451,7 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, [u'num_blocks'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, ['num_blocks'], name, value)
 
 
                                 class BlockInfo(Entity):
@@ -511,7 +511,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, [u'block_name', u'num_fields'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, ['block_name', 'num_fields'], name, value)
 
 
                                     class FieldInfo(Entity):
@@ -571,7 +571,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_overflow'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_overflow'], name, value)
 
 
 
@@ -717,7 +717,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -1429,7 +1429,7 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, [u'nbi_rx_total_byte_cnt', u'nbi_rx_total_pkt_cnt', u'ire_cpu_pkt_cnt', u'ire_nif_pkt_cnt', u'ire_oamp_pkt_cnt', u'ire_olp_pkt_cnt', u'ire_rcy_pkt_cnt', u'ire_fdt_if_cnt', u'idr_mmu_if_cnt', u'idr_ocb_if_cnt', u'iqm_enqueue_pkt_cnt', u'iqm_dequeue_pkt_cnt', u'iqm_deleted_pkt_cnt', u'iqm_enq_discarded_pkt_cnt', u'ipt_egq_pkt_cnt', u'ipt_enq_pkt_cnt', u'ipt_fdt_pkt_cnt', u'ipt_cfg_event_cnt', u'ipt_cfg_byte_cnt', u'fdt_ipt_desc_cell_cnt', u'fdt_ire_desc_cell_cnt', u'fdt_transmitted_data_cells_cnt', u'fdr_p1_cell_in_cnt', u'fdr_p2_cell_in_cnt', u'fdr_p3_cell_in_cnt', u'fdr_cell_in_cnt_total', u'fda_cells_in_cnt_p1', u'fda_cells_in_cnt_p2', u'fda_cells_in_cnt_p3', u'fda_cells_in_tdm_cnt', u'fda_cells_in_meshmc_cnt', u'fda_cells_in_ipt_cnt', u'fda_cells_out_cnt_p1', u'fda_cells_out_cnt_p2', u'fda_cells_out_cnt_p3', u'fda_cells_out_tdm_cnt', u'fda_cells_out_meshmc_cnt', u'fda_cells_out_ipt_cnt', u'fda_egq_drop_cnt', u'fda_egq_meshmc_drop_cnt', u'egq_fqp_pkt_cnt', u'egq_pqp_uc_pkt_cnt', u'egq_pqp_discard_uc_pkt_cnt', u'egq_pqp_uc_bytes_cnt', u'egq_pqp_mc_pkt_cnt', u'egq_pqp_discard_mc_pkt_cnt', u'egq_pqp_mc_bytes_cnt', u'egq_ehp_uc_pkt_cnt', u'egq_ehp_mc_high_pkt_cnt', u'egq_ehp_mc_low_pkt_cnt', u'egq_deleted_pkt_cnt', u'egq_ehp_mc_high_discard_cnt', u'egq_ehp_mc_low_discard_cnt', u'egq_erpp_lag_pruning_discard_cnt', u'egq_erpp_pmf_discard_cnt', u'egq_erpp_vlan_mbr_discard_cnt', u'epni_epe_byte_cnt', u'epni_epe_pkt_cnt', u'epni_epe_discard_cnt', u'nbi_tx_total_byte_cnt', u'nbi_tx_total_pkt_cnt'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, ['nbi_rx_total_byte_cnt', 'nbi_rx_total_pkt_cnt', 'ire_cpu_pkt_cnt', 'ire_nif_pkt_cnt', 'ire_oamp_pkt_cnt', 'ire_olp_pkt_cnt', 'ire_rcy_pkt_cnt', 'ire_fdt_if_cnt', 'idr_mmu_if_cnt', 'idr_ocb_if_cnt', 'iqm_enqueue_pkt_cnt', 'iqm_dequeue_pkt_cnt', 'iqm_deleted_pkt_cnt', 'iqm_enq_discarded_pkt_cnt', 'ipt_egq_pkt_cnt', 'ipt_enq_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_cfg_event_cnt', 'ipt_cfg_byte_cnt', 'fdt_ipt_desc_cell_cnt', 'fdt_ire_desc_cell_cnt', 'fdt_transmitted_data_cells_cnt', 'fdr_p1_cell_in_cnt', 'fdr_p2_cell_in_cnt', 'fdr_p3_cell_in_cnt', 'fdr_cell_in_cnt_total', 'fda_cells_in_cnt_p1', 'fda_cells_in_cnt_p2', 'fda_cells_in_cnt_p3', 'fda_cells_in_tdm_cnt', 'fda_cells_in_meshmc_cnt', 'fda_cells_in_ipt_cnt', 'fda_cells_out_cnt_p1', 'fda_cells_out_cnt_p2', 'fda_cells_out_cnt_p3', 'fda_cells_out_tdm_cnt', 'fda_cells_out_meshmc_cnt', 'fda_cells_out_ipt_cnt', 'fda_egq_drop_cnt', 'fda_egq_meshmc_drop_cnt', 'egq_fqp_pkt_cnt', 'egq_pqp_uc_pkt_cnt', 'egq_pqp_discard_uc_pkt_cnt', 'egq_pqp_uc_bytes_cnt', 'egq_pqp_mc_pkt_cnt', 'egq_pqp_discard_mc_pkt_cnt', 'egq_pqp_mc_bytes_cnt', 'egq_ehp_uc_pkt_cnt', 'egq_ehp_mc_high_pkt_cnt', 'egq_ehp_mc_low_pkt_cnt', 'egq_deleted_pkt_cnt', 'egq_ehp_mc_high_discard_cnt', 'egq_ehp_mc_low_discard_cnt', 'egq_erpp_lag_pruning_discard_cnt', 'egq_erpp_pmf_discard_cnt', 'egq_erpp_vlan_mbr_discard_cnt', 'epni_epe_byte_cnt', 'epni_epe_pkt_cnt', 'epni_epe_discard_cnt', 'nbi_tx_total_byte_cnt', 'nbi_tx_total_pkt_cnt'], name, value)
 
 
 
@@ -1822,7 +1822,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', u'trap_strength', u'priority', u'trap_id_xr', u'gport', u'fec_id', u'policer_id', u'stats_id', u'encap_id', u'mc_group', u'trap_string', u'id', u'offset', u'npu_id', u'packet_dropped', u'packet_accepted'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'trap_strength', 'priority', 'trap_id_xr', 'gport', 'fec_id', 'policer_id', 'stats_id', 'encap_id', 'mc_group', 'trap_string', 'id', 'offset', 'npu_id', 'packet_dropped', 'packet_accepted'], name, value)
 
 
 
@@ -2050,7 +2050,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -2128,7 +2128,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
 
 
 
@@ -2356,7 +2356,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -2434,7 +2434,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
 
 
 
@@ -2721,7 +2721,7 @@ class Dpa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData, ['resource', u'sysdb_avail_npu_mask', u'table_id', u'name', u'is_global', u'num_npus', u'table_specific_list'], name, value)
+                            self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData, ['resource', 'sysdb_avail_npu_mask', 'table_id', 'name', 'is_global', 'num_npus', 'table_specific_list'], name, value)
 
 
                         class NpuTblr(Entity):
@@ -2948,7 +2948,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData.NpuTblr, [u'npu_id', u'num_objs', u'create_req', u'create_ok', u'delete_req', u'delete_ok', u'update_req', u'update_ok', u'eod_req', u'eod_ok', u'err_hw_fail', u'err_ref_resolve', u'err_db_notfound', u'err_db_exists', u'err_db_nomem', u'err_id_reserve', u'err_id_release', u'err_id_update'], name, value)
+                                self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData.NpuTblr, ['npu_id', 'num_objs', 'create_req', 'create_ok', 'delete_req', 'delete_ok', 'update_req', 'update_ok', 'eod_req', 'eod_ok', 'err_hw_fail', 'err_ref_resolve', 'err_db_notfound', 'err_db_exists', 'err_db_nomem', 'err_id_reserve', 'err_id_release', 'err_id_update'], name, value)
 
 
 

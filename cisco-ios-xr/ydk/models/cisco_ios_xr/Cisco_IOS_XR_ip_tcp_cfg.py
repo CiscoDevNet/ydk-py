@@ -169,7 +169,7 @@ class IpTcp(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(IpTcp, ['accept_rate', 'selective_ack', 'window_size', 'receive_q', 'maximum_segment_size', 'syn_wait_time', 'timestamp', 'path_mtu_discovery'], name, value)
+        self._perform_setattr(IpTcp, [u'accept_rate', u'selective_ack', u'window_size', u'receive_q', u'maximum_segment_size', u'syn_wait_time', u'timestamp', u'path_mtu_discovery'], name, value)
 
 
     class Directory(Entity):
@@ -233,7 +233,7 @@ class IpTcp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IpTcp.Directory, ['directoryname', 'max_debug_files', 'max_file_size_files'], name, value)
+            self._perform_setattr(IpTcp.Directory, [u'directoryname', u'max_debug_files', u'max_file_size_files'], name, value)
 
 
 
@@ -289,7 +289,7 @@ class IpTcp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IpTcp.Throttle, ['tcpmin_throttle', 'tcpmaxthrottle'], name, value)
+            self._perform_setattr(IpTcp.Throttle, [u'tcpmin_throttle', u'tcpmaxthrottle'], name, value)
 
 
 
@@ -336,7 +336,7 @@ class IpTcp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IpTcp.Ao, ['enable'], name, value)
+            self._perform_setattr(IpTcp.Ao, [u'enable'], name, value)
 
 
         class Keychains(Entity):
@@ -427,7 +427,7 @@ class IpTcp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpTcp.Ao.Keychains.Keychain, ['name', 'create'], name, value)
+                    self._perform_setattr(IpTcp.Ao.Keychains.Keychain, [u'name', u'create'], name, value)
 
 
                 class Keys(Entity):
@@ -522,7 +522,7 @@ class IpTcp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpTcp.Ao.Keychains.Keychain.Keys.Key, ['key_id', 'send_id', 'receive_id'], name, value)
+                            self._perform_setattr(IpTcp.Ao.Keychains.Keychain.Keys.Key, [u'key_id', u'send_id', u'receive_id'], name, value)
 
 
 
@@ -582,7 +582,7 @@ class IpTcp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IpTcp.NumThread, ['tcp_in_q_threads', 'tcp_out_q_threads'], name, value)
+            self._perform_setattr(IpTcp.NumThread, [u'tcp_in_q_threads', u'tcp_out_q_threads'], name, value)
 
 
     def clone_ptr(self):
@@ -884,7 +884,7 @@ class Ip(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+                            self._perform_setattr(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, [u'access_control_list_name', u'small_server'], name, value)
 
                         class SmallServer(Enum):
                             """
@@ -1070,7 +1070,7 @@ class Ip(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf, ['vrf_name'], name, value)
+                        self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf, [u'vrf_name'], name, value)
 
 
                     class Ipv6(Entity):
@@ -1204,7 +1204,7 @@ class Ip(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
+                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, [u'access_list_name', u'maximum_server'], name, value)
 
 
 
@@ -1310,7 +1310,7 @@ class Ip(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
+                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, [u'access_list_name', u'maximum_server', u'home_directory', u'dscp_value'], name, value)
 
 
 
@@ -1447,7 +1447,7 @@ class Ip(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
+                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, [u'access_list_name', u'maximum_server'], name, value)
 
 
 
@@ -1553,7 +1553,7 @@ class Ip(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
+                                    self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, [u'access_list_name', u'maximum_server', u'home_directory', u'dscp_value'], name, value)
 
 
 
@@ -1701,7 +1701,7 @@ class Ip(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+                            self._perform_setattr(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, [u'access_control_list_name', u'small_server'], name, value)
 
                         class SmallServer(Enum):
                             """

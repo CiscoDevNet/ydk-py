@@ -555,7 +555,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServClassifier, ['diffservclfrnextfree', 'diffservclfrelementnextfree', 'diffservmultifieldclfrnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServClassifier, [u'diffservclfrnextfree', u'diffservclfrelementnextfree', u'diffservmultifieldclfrnextfree'], name, value)
 
 
 
@@ -597,7 +597,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServMeter, ['diffservmeternextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServMeter, [u'diffservmeternextfree'], name, value)
 
 
 
@@ -639,7 +639,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServTBParam, ['diffservtbparamnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServTBParam, [u'diffservtbparamnextfree'], name, value)
 
 
 
@@ -692,7 +692,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServAction, ['diffservactionnextfree', 'diffservcountactnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServAction, [u'diffservactionnextfree', u'diffservcountactnextfree'], name, value)
 
 
 
@@ -745,7 +745,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServAlgDrop, ['diffservalgdropnextfree', 'diffservrandomdropnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServAlgDrop, [u'diffservalgdropnextfree', u'diffservrandomdropnextfree'], name, value)
 
 
 
@@ -787,7 +787,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServQueue, ['diffservqnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServQueue, [u'diffservqnextfree'], name, value)
 
 
 
@@ -851,7 +851,7 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServScheduler, ['diffservschedulernextfree', 'diffservminratenextfree', 'diffservmaxratenextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServScheduler, [u'diffservschedulernextfree', u'diffservminratenextfree', u'diffservmaxratenextfree'], name, value)
 
 
 
@@ -986,7 +986,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry, ['ifindex', 'diffservdatapathifdirection', 'diffservdatapathstart', 'diffservdatapathstorage', 'diffservdatapathstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry, [u'ifindex', u'diffservdatapathifdirection', u'diffservdatapathstart', u'diffservdatapathstorage', u'diffservdatapathstatus'], name, value)
 
 
 
@@ -1107,7 +1107,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry, ['diffservclfrid', 'diffservclfrstorage', 'diffservclfrstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry, [u'diffservclfrid', u'diffservclfrstorage', u'diffservclfrstatus'], name, value)
 
 
 
@@ -1272,7 +1272,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry, ['diffservclfrid', 'diffservclfrelementid', 'diffservclfrelementprecedence', 'diffservclfrelementnext', 'diffservclfrelementspecific', 'diffservclfrelementstorage', 'diffservclfrelementstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry, [u'diffservclfrid', u'diffservclfrelementid', u'diffservclfrelementprecedence', u'diffservclfrelementnext', u'diffservclfrelementspecific', u'diffservclfrelementstorage', u'diffservclfrelementstatus'], name, value)
 
 
 
@@ -1509,7 +1509,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry, ['diffservmultifieldclfrid', 'diffservmultifieldclfraddrtype', 'diffservmultifieldclfrdstaddr', 'diffservmultifieldclfrdstprefixlength', 'diffservmultifieldclfrsrcaddr', 'diffservmultifieldclfrsrcprefixlength', 'diffservmultifieldclfrdscp', 'diffservmultifieldclfrflowid', 'diffservmultifieldclfrprotocol', 'diffservmultifieldclfrdstl4portmin', 'diffservmultifieldclfrdstl4portmax', 'diffservmultifieldclfrsrcl4portmin', 'diffservmultifieldclfrsrcl4portmax', 'diffservmultifieldclfrstorage', 'diffservmultifieldclfrstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry, [u'diffservmultifieldclfrid', u'diffservmultifieldclfraddrtype', u'diffservmultifieldclfrdstaddr', u'diffservmultifieldclfrdstprefixlength', u'diffservmultifieldclfrsrcaddr', u'diffservmultifieldclfrsrcprefixlength', u'diffservmultifieldclfrdscp', u'diffservmultifieldclfrflowid', u'diffservmultifieldclfrprotocol', u'diffservmultifieldclfrdstl4portmin', u'diffservmultifieldclfrdstl4portmax', u'diffservmultifieldclfrsrcl4portmin', u'diffservmultifieldclfrsrcl4portmax', u'diffservmultifieldclfrstorage', u'diffservmultifieldclfrstatus'], name, value)
 
 
 
@@ -1650,7 +1650,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry, ['diffservmeterid', 'diffservmetersucceednext', 'diffservmeterfailnext', 'diffservmeterspecific', 'diffservmeterstorage', 'diffservmeterstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry, [u'diffservmeterid', u'diffservmetersucceednext', u'diffservmeterfailnext', u'diffservmeterspecific', u'diffservmeterstorage', u'diffservmeterstatus'], name, value)
 
 
 
@@ -1804,7 +1804,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry, ['diffservtbparamid', 'diffservtbparamtype', 'diffservtbparamrate', 'diffservtbparamburstsize', 'diffservtbparaminterval', 'diffservtbparamstorage', 'diffservtbparamstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry, [u'diffservtbparamid', u'diffservtbparamtype', u'diffservtbparamrate', u'diffservtbparamburstsize', u'diffservtbparaminterval', u'diffservtbparamstorage', u'diffservtbparamstatus'], name, value)
 
 
 
@@ -1944,7 +1944,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServActionTable.DiffServActionEntry, ['diffservactionid', 'diffservactioninterface', 'diffservactionnext', 'diffservactionspecific', 'diffservactionstorage', 'diffservactionstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServActionTable.DiffServActionEntry, [u'diffservactionid', u'diffservactioninterface', u'diffservactionnext', u'diffservactionspecific', u'diffservactionstorage', u'diffservactionstatus'], name, value)
 
 
 
@@ -2028,7 +2028,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry, ['diffservdscpmarkactdscp'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry, [u'diffservdscpmarkactdscp'], name, value)
 
 
 
@@ -2151,7 +2151,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry, ['diffservcountactid', 'diffservcountactoctets', 'diffservcountactpkts', 'diffservcountactstorage', 'diffservcountactstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry, [u'diffservcountactid', u'diffservcountactoctets', u'diffservcountactpkts', u'diffservcountactstorage', u'diffservcountactstatus'], name, value)
 
 
 
@@ -2353,7 +2353,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry, ['diffservalgdropid', 'diffservalgdroptype', 'diffservalgdropnext', 'diffservalgdropqmeasure', 'diffservalgdropqthreshold', 'diffservalgdropspecific', 'diffservalgdropoctets', 'diffservalgdroppkts', 'diffservalgrandomdropoctets', 'diffservalgrandomdroppkts', 'diffservalgdropstorage', 'diffservalgdropstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry, [u'diffservalgdropid', u'diffservalgdroptype', u'diffservalgdropnext', u'diffservalgdropqmeasure', u'diffservalgdropqthreshold', u'diffservalgdropspecific', u'diffservalgdropoctets', u'diffservalgdroppkts', u'diffservalgrandomdropoctets', u'diffservalgrandomdroppkts', u'diffservalgdropstorage', u'diffservalgdropstatus'], name, value)
 
             class DiffServAlgDropType(Enum):
                 """
@@ -2619,7 +2619,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry, ['diffservrandomdropid', 'diffservrandomdropminthreshbytes', 'diffservrandomdropminthreshpkts', 'diffservrandomdropmaxthreshbytes', 'diffservrandomdropmaxthreshpkts', 'diffservrandomdropprobmax', 'diffservrandomdropweight', 'diffservrandomdropsamplingrate', 'diffservrandomdropstorage', 'diffservrandomdropstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry, [u'diffservrandomdropid', u'diffservrandomdropminthreshbytes', u'diffservrandomdropminthreshpkts', u'diffservrandomdropmaxthreshbytes', u'diffservrandomdropmaxthreshpkts', u'diffservrandomdropprobmax', u'diffservrandomdropweight', u'diffservrandomdropsamplingrate', u'diffservrandomdropstorage', u'diffservrandomdropstatus'], name, value)
 
 
 
@@ -2756,7 +2756,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServQTable.DiffServQEntry, ['diffservqid', 'diffservqnext', 'diffservqminrate', 'diffservqmaxrate', 'diffservqstorage', 'diffservqstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServQTable.DiffServQEntry, [u'diffservqid', u'diffservqnext', u'diffservqminrate', u'diffservqmaxrate', u'diffservqstorage', u'diffservqstatus'], name, value)
 
 
 
@@ -2902,7 +2902,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry, ['diffservschedulerid', 'diffservschedulernext', 'diffservschedulermethod', 'diffservschedulerminrate', 'diffservschedulermaxrate', 'diffservschedulerstorage', 'diffservschedulerstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry, [u'diffservschedulerid', u'diffservschedulernext', u'diffservschedulermethod', u'diffservschedulerminrate', u'diffservschedulermaxrate', u'diffservschedulerstorage', u'diffservschedulerstatus'], name, value)
 
 
 
@@ -3040,7 +3040,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry, ['diffservminrateid', 'diffservminratepriority', 'diffservminrateabsolute', 'diffservminraterelative', 'diffservminratestorage', 'diffservminratestatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry, [u'diffservminrateid', u'diffservminratepriority', u'diffservminrateabsolute', u'diffservminraterelative', u'diffservminratestorage', u'diffservminratestatus'], name, value)
 
 
 
@@ -3191,7 +3191,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry, ['diffservmaxrateid', 'diffservmaxratelevel', 'diffservmaxrateabsolute', 'diffservmaxraterelative', 'diffservmaxratethreshold', 'diffservmaxratestorage', 'diffservmaxratestatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry, [u'diffservmaxrateid', u'diffservmaxratelevel', u'diffservmaxrateabsolute', u'diffservmaxraterelative', u'diffservmaxratethreshold', u'diffservmaxratestorage', u'diffservmaxratestatus'], name, value)
 
 
 

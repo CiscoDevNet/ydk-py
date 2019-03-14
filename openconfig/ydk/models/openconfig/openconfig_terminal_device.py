@@ -1346,7 +1346,7 @@ class TerminalDevice(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'in_crc_errors', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
 
 
 

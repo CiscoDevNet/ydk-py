@@ -69,11 +69,6 @@ class ActiveNodes(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: ltrace
-        
-        	Ltrace Memory configuration
-        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
-        
         .. attribute:: clock_interface
         
         	Configuration for a clock interface
@@ -94,6 +89,11 @@ class ActiveNodes(Entity):
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
+        
         
 
         """
@@ -109,15 +109,11 @@ class ActiveNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
-
-            self.ltrace = ActiveNodes.ActiveNode.Ltrace()
-            self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
 
             self.clock_interface = ActiveNodes.ActiveNode.ClockInterface()
             self.clock_interface.parent = self
@@ -134,94 +130,16 @@ class ActiveNodes(Entity):
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
             self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+            self.ltrace = ActiveNodes.ActiveNode.Ltrace()
+            self.ltrace.parent = self
+            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
             self._segment_path = lambda: "active-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ActiveNodes.ActiveNode, [u'node_name'], name, value)
-
-
-        class Ltrace(Entity):
-            """
-            Ltrace Memory configuration
-            
-            .. attribute:: allocation_params
-            
-            	Select Ltrace mode and scale\-factor
-            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
-            
-            
-
-            """
-
-            _prefix = 'infra-ltrace-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ActiveNodes.ActiveNode.Ltrace, self).__init__()
-
-                self.yang_name = "ltrace"
-                self.yang_parent_name = "active-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("allocation-params", ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams))])
-                self._leafs = OrderedDict()
-
-                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
-                self._children_name_map["allocation_params"] = "allocation-params"
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ActiveNodes.ActiveNode.Ltrace, [], name, value)
-
-
-            class AllocationParams(Entity):
-                """
-                Select Ltrace mode and scale\-factor
-                
-                .. attribute:: mode
-                
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
-                
-                .. attribute:: scale_factor
-                
-                	Select a scaling down factor
-                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
-                
-                
-
-                """
-
-                _prefix = 'infra-ltrace-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.Ltrace.AllocationParams, self).__init__()
-
-                    self.yang_name = "allocation-params"
-                    self.yang_parent_name = "ltrace"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceMode', '')])),
-                        ('scale_factor', (YLeaf(YType.enumeration, 'scale-factor'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScale', '')])),
-                    ])
-                    self.mode = None
-                    self.scale_factor = None
-                    self._segment_path = lambda: "allocation-params"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
-
-
 
 
         class ClockInterface(Entity):
@@ -356,7 +274,7 @@ class ActiveNodes(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock, ['clock_type', 'port'], name, value)
+                        self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock, [u'clock_type', u'port'], name, value)
 
 
                     class FrequencySynchronization(Entity):
@@ -450,7 +368,7 @@ class ActiveNodes(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['wait_to_restore_time', 'priority', 'selection_input', 'time_of_day_priority', 'ssm_disable'], name, value)
+                            self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization, [u'wait_to_restore_time', u'priority', u'selection_input', u'time_of_day_priority', u'ssm_disable'], name, value)
 
 
                         class OutputQualityLevel(Entity):
@@ -507,7 +425,7 @@ class ActiveNodes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, [u'quality_level_option', u'exact_quality_level_value', u'min_quality_level_value', u'max_quality_level_value'], name, value)
 
 
 
@@ -565,7 +483,7 @@ class ActiveNodes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, [u'quality_level_option', u'exact_quality_level_value', u'min_quality_level_value', u'max_quality_level_value'], name, value)
 
 
 
@@ -1793,6 +1711,88 @@ class ActiveNodes(Entity):
 
 
 
+        class Ltrace(Entity):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.Ltrace, self).__init__()
+
+                self.yang_name = "ltrace"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("allocation-params", ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams))])
+                self._leafs = OrderedDict()
+
+                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+                self._children_name_map["allocation_params"] = "allocation-params"
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.Ltrace, [], name, value)
+
+
+            class AllocationParams(Entity):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.Ltrace.AllocationParams, self).__init__()
+
+                    self.yang_name = "allocation-params"
+                    self.yang_parent_name = "ltrace"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceMode', '')])),
+                        ('scale_factor', (YLeaf(YType.enumeration, 'scale-factor'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScale', '')])),
+                    ])
+                    self.mode = None
+                    self.scale_factor = None
+                    self._segment_path = lambda: "allocation-params"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ActiveNodes()
         return self._top_entity
@@ -1846,11 +1846,6 @@ class PreconfiguredNodes(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: ltrace
-        
-        	Ltrace Memory configuration
-        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
-        
         .. attribute:: clock_interface
         
         	Configuration for a clock interface
@@ -1865,6 +1860,11 @@ class PreconfiguredNodes(Entity):
         
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
+        
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
         
         
 
@@ -1881,15 +1881,11 @@ class PreconfiguredNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
-
-            self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
-            self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
 
             self.clock_interface = PreconfiguredNodes.PreconfiguredNode.ClockInterface()
             self.clock_interface.parent = self
@@ -1902,94 +1898,16 @@ class PreconfiguredNodes(Entity):
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
             self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+            self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
+            self.ltrace.parent = self
+            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
             self._segment_path = lambda: "preconfigured-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode, [u'node_name'], name, value)
-
-
-        class Ltrace(Entity):
-            """
-            Ltrace Memory configuration
-            
-            .. attribute:: allocation_params
-            
-            	Select Ltrace mode and scale\-factor
-            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
-            
-            
-
-            """
-
-            _prefix = 'infra-ltrace-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.Ltrace, self).__init__()
-
-                self.yang_name = "ltrace"
-                self.yang_parent_name = "preconfigured-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("allocation-params", ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams))])
-                self._leafs = OrderedDict()
-
-                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
-                self._children_name_map["allocation_params"] = "allocation-params"
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace, [], name, value)
-
-
-            class AllocationParams(Entity):
-                """
-                Select Ltrace mode and scale\-factor
-                
-                .. attribute:: mode
-                
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
-                
-                .. attribute:: scale_factor
-                
-                	Select a scaling down factor
-                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
-                
-                
-
-                """
-
-                _prefix = 'infra-ltrace-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, self).__init__()
-
-                    self.yang_name = "allocation-params"
-                    self.yang_parent_name = "ltrace"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceMode', '')])),
-                        ('scale_factor', (YLeaf(YType.enumeration, 'scale-factor'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScale', '')])),
-                    ])
-                    self.mode = None
-                    self.scale_factor = None
-                    self._segment_path = lambda: "allocation-params"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
-
-
 
 
         class ClockInterface(Entity):
@@ -2124,7 +2042,7 @@ class PreconfiguredNodes(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock, ['clock_type', 'port'], name, value)
+                        self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock, [u'clock_type', u'port'], name, value)
 
 
                     class FrequencySynchronization(Entity):
@@ -2218,7 +2136,7 @@ class PreconfiguredNodes(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['wait_to_restore_time', 'priority', 'selection_input', 'time_of_day_priority', 'ssm_disable'], name, value)
+                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization, [u'wait_to_restore_time', u'priority', u'selection_input', u'time_of_day_priority', u'ssm_disable'], name, value)
 
 
                         class OutputQualityLevel(Entity):
@@ -2275,7 +2193,7 @@ class PreconfiguredNodes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, [u'quality_level_option', u'exact_quality_level_value', u'min_quality_level_value', u'max_quality_level_value'], name, value)
 
 
 
@@ -2333,7 +2251,7 @@ class PreconfiguredNodes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, [u'quality_level_option', u'exact_quality_level_value', u'min_quality_level_value', u'max_quality_level_value'], name, value)
 
 
 
@@ -3437,6 +3355,88 @@ class PreconfiguredNodes(Entity):
 
 
 
+
+
+
+
+        class Ltrace(Entity):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.Ltrace, self).__init__()
+
+                self.yang_name = "ltrace"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("allocation-params", ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams))])
+                self._leafs = OrderedDict()
+
+                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+                self._children_name_map["allocation_params"] = "allocation-params"
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace, [], name, value)
+
+
+            class AllocationParams(Entity):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, self).__init__()
+
+                    self.yang_name = "allocation-params"
+                    self.yang_parent_name = "ltrace"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceMode', '')])),
+                        ('scale_factor', (YLeaf(YType.enumeration, 'scale-factor'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScale', '')])),
+                    ])
+                    self.mode = None
+                    self.scale_factor = None
+                    self._segment_path = lambda: "allocation-params"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
 
 
 

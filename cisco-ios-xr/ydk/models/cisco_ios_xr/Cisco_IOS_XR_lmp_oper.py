@@ -702,7 +702,7 @@ class Lmp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Lmp.GlobalStatus, ['local_ouni_lmp_node_id_interface', 'local_ouni_lmp_node_id_type', 'is_ouni_config_exist', 'is_gmpls_nni_config_exist', 'is_gmpls_uni_config_exist'], name, value)
+            self._perform_setattr(Lmp.GlobalStatus, [u'local_ouni_lmp_node_id_interface', u'local_ouni_lmp_node_id_type', u'is_ouni_config_exist', u'is_gmpls_nni_config_exist', u'is_gmpls_uni_config_exist'], name, value)
 
 
         class LocalOuniLmpNodeId(Entity):
@@ -814,7 +814,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -928,7 +928,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -1042,7 +1042,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -1144,7 +1144,7 @@ class Lmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.Clients.Client, ['client_name', 'node_name'], name, value)
+                self._perform_setattr(Lmp.Clients.Client, ['client_name', u'node_name'], name, value)
 
 
             class ConnectedTime(Entity):
@@ -1184,7 +1184,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, ['time_connected'], name, value)
+                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, [u'time_connected'], name, value)
 
 
 
@@ -1594,7 +1594,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', 'interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
 
 
                 class LocalLinkId(Entity):
@@ -1704,7 +1704,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -1816,7 +1816,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -1928,7 +1928,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -2040,7 +2040,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -2152,7 +2152,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -2264,7 +2264,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -2457,7 +2457,7 @@ class Lmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', 'protocol_owner', 'ipcc_id', 'is_lmp_enabled', 'is_lmp_config_disabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', u'protocol_owner', u'ipcc_id', u'is_lmp_enabled', u'is_lmp_config_disabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
 
 
                 class NeighborAddress(Entity):
@@ -2567,7 +2567,7 @@ class Lmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -2875,7 +2875,7 @@ class Lmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, ['interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, [u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
 
 
                     class LocalLinkId(Entity):
@@ -2985,7 +2985,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3097,7 +3097,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3209,7 +3209,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3321,7 +3321,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3433,7 +3433,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3545,7 +3545,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -3800,7 +3800,7 @@ class Lmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, ['ipcc_id', 'ipc_ctype', 'interface_name', 'neighbor_name', 'ipcc_state', 'lmp_hello_interval', 'lmp_hello_interval_minimum', 'lmp_hello_interval_maximum', 'lmp_hello_dead_interval', 'lmp_hello_dead_interval_minimum', 'lmp_hello_dead_interval_maximum', 'lmp_hello_transmit_packets', 'lmp_hello_receive_packets', 'lmp_hello_transmit_packet_sequence_number', 'lmp_hello_receive_packet_sequence_number', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, [u'ipcc_id', u'ipc_ctype', u'interface_name', u'neighbor_name', u'ipcc_state', u'lmp_hello_interval', u'lmp_hello_interval_minimum', u'lmp_hello_interval_maximum', u'lmp_hello_dead_interval', u'lmp_hello_dead_interval_minimum', u'lmp_hello_dead_interval_maximum', u'lmp_hello_transmit_packets', u'lmp_hello_receive_packets', u'lmp_hello_transmit_packet_sequence_number', u'lmp_hello_receive_packet_sequence_number', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
 
 
                     class RemoteIpccAddress(Entity):
@@ -3910,7 +3910,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -4022,7 +4022,7 @@ class Lmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
 
@@ -4119,7 +4119,7 @@ class Lmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', 'component_interface_id'], name, value)
+                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', u'component_interface_id'], name, value)
 
 
 

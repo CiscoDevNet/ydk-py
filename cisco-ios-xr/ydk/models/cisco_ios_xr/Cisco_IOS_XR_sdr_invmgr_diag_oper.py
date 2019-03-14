@@ -1024,7 +1024,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
 
 
                                 class Rma(Entity):
@@ -1086,7 +1086,7 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
 
 
 
@@ -1935,7 +1935,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
 
 
                                 class Rma(Entity):
@@ -1997,7 +1997,7 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
 
 
 
@@ -2230,7 +2230,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, ['node_operational_state'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, [u'node_operational_state'], name, value)
 
 
                                 class CardInstance(Entity):
@@ -2897,7 +2897,7 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
 
 
                                     class Rma(Entity):
@@ -2959,7 +2959,7 @@ class Diag(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
 
 
 
@@ -3633,7 +3633,7 @@ class Diag(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Diag.Racks.Rack.Chassis, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
+                    self._perform_setattr(Diag.Racks.Rack.Chassis, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
 
 
                 class Rma(Entity):
@@ -3695,7 +3695,7 @@ class Diag(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Diag.Racks.Rack.Chassis.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+                        self._perform_setattr(Diag.Racks.Rack.Chassis.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
 
 
 

@@ -478,7 +478,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, ['interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, [u'interfaces'], name, value)
 
 
                     class Initiators(Entity):
@@ -581,7 +581,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
 
@@ -635,7 +635,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
 
@@ -740,7 +740,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
 
@@ -794,7 +794,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
 
@@ -1091,7 +1091,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
 
@@ -1286,7 +1286,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
 
@@ -1532,7 +1532,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
 
@@ -1727,7 +1727,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
 
@@ -1799,7 +1799,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, ['vrf_name', 'ipv6vrf_name', 'interfaces', 'ipv6_interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, [u'vrf_name', u'ipv6vrf_name', u'interfaces', u'ipv6_interfaces'], name, value)
 
 
 
@@ -2079,7 +2079,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', 'access_interface', 'subscriber_ipv4_address', 'subscriber_ipv6_address', 'subscriber_mac_addres', 'subscriber_label', 'interface_creation_time', 'age', 'initiator', 'state', 'old_state', 'last_state_change_time', 'current_change_age', 'ipv6_initiator', 'ipv6_state', 'ipv6_old_state', 'ipv6_last_state_change_time', 'ipv6_current_change_age', 'is_l2_connected', 'session_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', u'access_interface', u'subscriber_ipv4_address', u'subscriber_ipv6_address', u'subscriber_mac_addres', u'subscriber_label', u'interface_creation_time', u'age', u'initiator', u'state', u'old_state', u'last_state_change_time', u'current_change_age', u'ipv6_initiator', u'ipv6_state', u'ipv6_old_state', u'ipv6_last_state_change_time', u'ipv6_current_change_age', u'is_l2_connected', u'session_type'], name, value)
 
 
                     class Vrf(Entity):
@@ -2126,7 +2126,7 @@ class IpSubscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, ['vrf_name', 'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, [u'vrf_name', u'table_name'], name, value)
 
 
 
@@ -2174,7 +2174,7 @@ class IpSubscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, ['vrf_name', 'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, [u'vrf_name', u'table_name'], name, value)
 
 
 
@@ -2341,7 +2341,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', 'interface_creation_time', 'age', 'interface_type', 'state', 'ipv6_state', 'vlan_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', u'interface_creation_time', u'age', u'interface_type', u'state', u'ipv6_state', u'vlan_type'], name, value)
 
 
                     class Initiators(Entity):
@@ -2532,7 +2532,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
 
@@ -2672,7 +2672,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
 
@@ -2865,7 +2865,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
 
@@ -3005,7 +3005,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
 
@@ -3098,7 +3098,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, ['per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, [u'per_vlan'], name, value)
 
 
 
@@ -3139,7 +3139,7 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, ['per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, [u'per_vlan'], name, value)
 
 
 

@@ -354,7 +354,7 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.Config, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.Config, [u'null_label'], name, value)
 
 
 
@@ -396,7 +396,7 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.State, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.State, [u'null_label'], name, value)
 
 
 
@@ -501,7 +501,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, ['interface_id'], name, value)
+                    self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, [u'interface_id'], name, value)
 
 
                 class Config(Entity):
@@ -546,7 +546,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.Config, ['interface_id', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.Config, [u'interface_id', u'mpls_enabled'], name, value)
 
 
 
@@ -596,7 +596,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.State, ['interface_id', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.State, [u'interface_id', u'mpls_enabled'], name, value)
 
 
 
@@ -694,7 +694,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -748,7 +748,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -852,7 +852,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, ['local_id'], name, value)
+                    self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, [u'local_id'], name, value)
 
 
                 class Config(Entity):
@@ -914,7 +914,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, ['local_id', 'lower_bound', 'upper_bound'], name, value)
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
 
 
 
@@ -983,7 +983,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, ['local_id', 'lower_bound', 'upper_bound'], name, value)
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
 
 
 
@@ -1613,7 +1613,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, ['admin_group_name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, [u'admin_group_name'], name, value)
 
 
                 class Config(Entity):
@@ -1658,7 +1658,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, ['admin_group_name', 'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, [u'admin_group_name', u'bit_position'], name, value)
 
 
 
@@ -1708,7 +1708,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, ['admin_group_name', 'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, [u'admin_group_name', u'bit_position'], name, value)
 
 
 
@@ -1825,7 +1825,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
 
 
 
@@ -1895,7 +1895,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
 
 
 
@@ -2012,7 +2012,7 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, ['interface_id'], name, value)
+                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, [u'interface_id'], name, value)
 
 
             class Config(Entity):
@@ -2073,7 +2073,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, ['interface_id', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
 
 
 
@@ -2143,7 +2143,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, ['interface_id', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
 
 
 
@@ -2241,7 +2241,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2295,7 +2295,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2427,7 +2427,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2621,7 +2621,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2951,7 +2951,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, ['local_index'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, [u'local_index'], name, value)
 
 
                     class RecordRouteObjects(Entity):
@@ -3045,7 +3045,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, ['index'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, [u'index'], name, value)
 
 
                             class State(Entity):
@@ -3129,7 +3129,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, ['index', 'address', 'reported_label', 'reported_flags'], name, value)
+                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, [u'index', u'address', u'reported_label', u'reported_flags'], name, value)
 
 
 
@@ -3306,7 +3306,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, ['local_index', 'source_address', 'destination_address', 'tunnel_id', 'lsp_id', 'session_name', 'status', 'type', 'protection_requested', 'label_in', 'label_out'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, [u'local_index', u'source_address', u'destination_address', u'tunnel_id', u'lsp_id', u'session_name', u'status', u'type', u'protection_requested', u'label_in', u'label_out'], name, value)
 
                         class Status(Enum):
                             """
@@ -3400,7 +3400,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, ['rate', 'size', 'peak_data_rate'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, [u'rate', u'size', u'peak_data_rate'], name, value)
 
                             class PeakDataRate(Enum):
                                 """
@@ -3520,7 +3520,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, ['address'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, [u'address'], name, value)
 
 
                     class State(Entity):
@@ -3594,7 +3594,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, ['address', 'detected_interface', 'neighbor_status', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, [u'address', u'detected_interface', u'neighbor_status', u'refresh_reduction'], name, value)
 
                         class NeighborStatus(Enum):
                             """
@@ -3797,7 +3797,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, ['enable', 'restart_time', 'recovery_time'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, [u'enable', u'restart_time', u'recovery_time'], name, value)
 
 
 
@@ -3862,7 +3862,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, ['enable', 'restart_time', 'recovery_time'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, [u'enable', u'restart_time', u'recovery_time'], name, value)
 
 
 
@@ -3965,7 +3965,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, ['enable', 'soft_preemption_timeout'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, [u'enable', u'soft_preemption_timeout'], name, value)
 
 
 
@@ -4021,7 +4021,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, ['enable', 'soft_preemption_timeout'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, [u'enable', u'soft_preemption_timeout'], name, value)
 
 
 
@@ -4125,7 +4125,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, [u'hello_interval', u'refresh_reduction'], name, value)
 
 
 
@@ -4182,7 +4182,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, [u'hello_interval', u'refresh_reduction'], name, value)
 
 
 
@@ -4485,7 +4485,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, ['path_timeouts', 'reservation_timeouts', 'rate_limited_messages', 'in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, [u'path_timeouts', u'reservation_timeouts', u'rate_limited_messages', u'in_path_messages', u'in_path_error_messages', u'in_path_tear_messages', u'in_reservation_messages', u'in_reservation_error_messages', u'in_reservation_tear_messages', u'in_hello_messages', u'in_srefresh_messages', u'in_ack_messages', u'out_path_messages', u'out_path_error_messages', u'out_path_tear_messages', u'out_reservation_messages', u'out_reservation_error_messages', u'out_reservation_tear_messages', u'out_hello_messages', u'out_srefresh_messages', u'out_ack_messages'], name, value)
 
 
 
@@ -4637,7 +4637,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, ['interface_id'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, [u'interface_id'], name, value)
 
 
                     class Config(Entity):
@@ -4673,7 +4673,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, ['interface_id'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, [u'interface_id'], name, value)
 
 
 
@@ -4723,7 +4723,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, ['interface_id'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, [u'interface_id'], name, value)
 
 
                         class Counters(Entity):
@@ -4950,7 +4950,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, ['in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, [u'in_path_messages', u'in_path_error_messages', u'in_path_tear_messages', u'in_reservation_messages', u'in_reservation_error_messages', u'in_reservation_tear_messages', u'in_hello_messages', u'in_srefresh_messages', u'in_ack_messages', u'out_path_messages', u'out_path_error_messages', u'out_path_tear_messages', u'out_reservation_messages', u'out_reservation_error_messages', u'out_reservation_tear_messages', u'out_hello_messages', u'out_srefresh_messages', u'out_ack_messages'], name, value)
 
 
 
@@ -5049,7 +5049,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -5103,7 +5103,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -5200,7 +5200,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, ['priority'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, [u'priority'], name, value)
 
 
                             class State(Entity):
@@ -5289,7 +5289,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, ['priority', 'available_bandwidth', 'reserved_bandwidth', 'active_reservations_count', 'highwater_mark'], name, value)
+                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, [u'priority', u'available_bandwidth', u'reserved_bandwidth', u'active_reservations_count', u'highwater_mark'], name, value)
 
                                 class Priority(Enum):
                                     """
@@ -5411,7 +5411,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, [u'hello_interval', u'refresh_reduction'], name, value)
 
 
 
@@ -5467,7 +5467,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, [u'hello_interval', u'refresh_reduction'], name, value)
 
 
 
@@ -5566,7 +5566,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, ['enable', 'authentication_key'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, [u'enable', u'authentication_key'], name, value)
 
 
 
@@ -5619,7 +5619,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, ['enable', 'authentication_key'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, [u'enable', u'authentication_key'], name, value)
 
 
 
@@ -5709,7 +5709,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, ['subscription'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, [u'subscription'], name, value)
 
 
 
@@ -5764,7 +5764,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, ['subscription', 'calculated_absolute_subscription_bw'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, [u'subscription', u'calculated_absolute_subscription_bw'], name, value)
 
 
 
@@ -5863,7 +5863,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, ['link_protection_style_requested', 'bypass_optimize_interval'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, [u'link_protection_style_requested', u'bypass_optimize_interval'], name, value)
 
 
 
@@ -5917,7 +5917,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, ['link_protection_style_requested', 'bypass_optimize_interval'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, [u'link_protection_style_requested', u'bypass_optimize_interval'], name, value)
 
 
 
@@ -6894,7 +6894,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -6948,7 +6948,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -7855,7 +7855,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', u'source', u'soft_preemption', u'setup_priority', u'hold_priority'], name, value)
 
 
 
@@ -8083,7 +8083,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', u'oper_status', u'role'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', u'source', u'soft_preemption', u'setup_priority', u'hold_priority', u'oper_status', u'role'], name, value)
 
 
                         class Counters(Entity):
@@ -9330,7 +9330,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', u'setup_priority', u'hold_priority', u'retry_timer'], name, value)
 
 
 
@@ -9489,7 +9489,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', u'setup_priority', u'hold_priority', u'retry_timer', u'associated_rsvp_session'], name, value)
 
 
 
@@ -10105,7 +10105,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', u'setup_priority', u'hold_priority', u'retry_timer'], name, value)
 
 
 
@@ -10264,7 +10264,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', u'setup_priority', u'hold_priority', u'retry_timer', u'associated_rsvp_session'], name, value)
 
 
 
@@ -10671,7 +10671,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, [u'name'], name, value)
+                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -10707,7 +10707,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, ['name'], name, value)
 
 
 
@@ -10746,7 +10746,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, ['name'], name, value)
 
 
 
@@ -10866,7 +10866,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -10943,7 +10943,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11064,7 +11064,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11141,7 +11141,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11262,7 +11262,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11339,7 +11339,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 

@@ -236,7 +236,7 @@ class Tty(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Tty.ConsoleNodes.ConsoleNode, ['id'], name, value)
+                self._perform_setattr(Tty.ConsoleNodes.ConsoleNode, [u'id'], name, value)
 
 
             class ConsoleLine(Entity):
@@ -811,7 +811,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, ['name'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, [u'name'], name, value)
 
 
 
@@ -859,7 +859,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, ['operation_', 'general_state'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, [u'operation_', u'general_state'], name, value)
 
 
 
@@ -958,7 +958,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, [u'acl_out', u'acl_in'], name, value)
 
 
                         class TransportInput(Entity):
@@ -1028,7 +1028,7 @@ class Tty(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
+                                self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, [u'select', u'protocol1', u'protocol2', u'none'], name, value)
 
 
 
@@ -1157,7 +1157,7 @@ class Tty(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Tty.VtyLines.VtyLine, ['line_number'], name, value)
+                self._perform_setattr(Tty.VtyLines.VtyLine, [u'line_number'], name, value)
 
 
             class VtyStatistics(Entity):
@@ -1601,7 +1601,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.State.Template, ['name'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.State.Template, [u'name'], name, value)
 
 
 
@@ -1649,7 +1649,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.State.General, ['operation_', 'general_state'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.State.General, [u'operation_', u'general_state'], name, value)
 
 
 
@@ -1748,7 +1748,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, [u'acl_out', u'acl_in'], name, value)
 
 
                     class TransportInput(Entity):
@@ -1818,7 +1818,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
+                            self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, [u'select', u'protocol1', u'protocol2', u'none'], name, value)
 
 
 
@@ -1949,7 +1949,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, ['connection_id', 'host_name', 'transport_protocol', 'is_last_active_session', 'idle_time'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, [u'connection_id', u'host_name', u'transport_protocol', u'is_last_active_session', u'idle_time'], name, value)
 
 
                     class HostAddress(Entity):
@@ -2009,7 +2009,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -2104,7 +2104,7 @@ class Tty(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode, ['id'], name, value)
+                self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode, [u'id'], name, value)
 
 
             class AuxiliaryLine(Entity):
@@ -2679,7 +2679,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, ['name'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, [u'name'], name, value)
 
 
 
@@ -2727,7 +2727,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, ['operation_', 'general_state'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, [u'operation_', u'general_state'], name, value)
 
 
 
@@ -2826,7 +2826,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, [u'acl_out', u'acl_in'], name, value)
 
 
                         class TransportInput(Entity):
@@ -2896,7 +2896,7 @@ class Tty(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
+                                self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, [u'select', u'protocol1', u'protocol2', u'none'], name, value)
 
 
 

@@ -30,7 +30,7 @@ class Hostname(Entity):
     	
     	**type**\: str
     
-    	**length:** 1..255
+    	**pattern:** [a\-zA\-Z0\-9\_.{}+\-]+
     
     
 

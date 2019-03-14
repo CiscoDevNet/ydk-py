@@ -314,7 +314,7 @@ class NetFlow(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, ['ethernet_pkts', 'drops_no_space', 'drops_others', 'unknown_ingress_flows', 'waiting_servers', 'spp_rx_counts', 'flow_packet_counts', 'last_cleared'], name, value)
+                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, [u'ethernet_pkts', u'drops_no_space', u'drops_others', u'unknown_ingress_flows', u'waiting_servers', u'spp_rx_counts', u'flow_packet_counts', u'last_cleared'], name, value)
 
 
 

@@ -1628,7 +1628,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, [u'dwdm_carrier_band', u'dwdm_carrier_min', u'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1701,7 +1701,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, [u'itu_chan_num', u'g694_chan_num', u'frequency', u'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
 
@@ -1813,7 +1813,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, [u'total_spectrum_slice_count', u'spectrum_slice_spacing', u'first_slice_wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
 
 
                     class SpectrumSlicePowerInfo(Entity):
@@ -1919,7 +1919,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, [u'slice_num', u'lower_frequency', u'upper_frequency', u'rx_power', u'tx_power', u'rx_psd', u'tx_psd'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
 
 
 
@@ -1991,7 +1991,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, [u'dwdm_carrier_band', u'dwdm_carrier_min', u'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -2064,7 +2064,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, [u'itu_chan_num', u'g694_chan_num', u'frequency', u'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
 
@@ -3192,7 +3192,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, [u'transport_admin_state', u'optics_present', u'optics_type', u'derived_optics_type', u'optics_module', u'dwdm_carrier_band', u'dwdm_carrier_channel', u'dwdm_carrier_frequency', u'dwdm_carrier_wavelength', u'grey_wavelength', u'rx_low_threshold', u'rx_high_threshold', u'lbc_high_threshold', u'tx_low_threshold', u'tx_high_threshold', u'lbc_th_high_default', u'lbc_th_low_default', u'temp_low_threshold', u'temp_high_threshold', u'volt_low_threshold', u'volt_high_threshold', u'cd', u'cd_min', u'cd_max', u'cd_low_threshold', u'cd_high_threshold', u'osnr_low_threshold', u'dgd_high_threshold', u'polarization_mode_dispersion', u'second_order_polarization_mode_dispersion', u'optical_signal_to_noise_ratio', u'polarization_dependent_loss', u'polarization_change_rate', u'differential_group_delay', u'phase_noise', u'pm_enable', u'laser_state', u'modulation_type', u'led_state', u'controller_state', u'form_factor', u'phy_type', u'cfg_tx_power', u'cfg_tx_power_configurable', u'temperature', u'voltage', u'display_volt_temp', u'cd_configurable', u'optics_fec', u'skip_snmp_pm_table', u'port_type', u'port_status', u'rx_voa_attenuation', u'tx_voa_attenuation', u'ampli_gain', u'ampli_tilt', u'rx_power_th_configurable', u'tx_power_th_configurable', u'rx_voa_attenuation_config_val', u'tx_voa_attenuation_config_val', u'ampli_control_mode_config_val', u'ampli_gain_range_config_val', u'ampli_gain_config_val', u'ampli_tilt_config_val', u'ampli_channel_power_config_val', u'channel_power_max_delta_config_val', u'ampli_gain_thr_deg_low_config_val', u'ampli_gain_thr_deg_high_config_val', u'osri_config_val', u'tx_config_val', u'rx_config_val', u'safety_control_mode_config_val', u'total_rx_power', u'total_tx_power', u'is_bo_configured', u'is_ext_param_valid', u'alarm_detected', u'rx_low_warning_threshold', u'rx_high_warning_threshold', u'tx_low_warning_threshold', u'tx_high_warning_threshold', u'lbc_th_high_warning_default', u'lbc_th_low_warning_default', u'temp_low_warning_threshold', u'temp_high_warning_threshold', u'volt_low_warning_threshold', u'volt_high_warning_threshold', u'description', u'ampli_gain_range', u'safety_control_mode', u'osri', u'tx_enable', u'rx_enable', u'is_optics_type_string_valid', u'optics_type_str', u'rx_low_threshold_current', u'rx_span_loss', u'tx_span_loss', u'baud_rate', u'bits_per_symbol'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'modulation_type', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current', 'rx_span_loss', 'tx_span_loss', 'baud_rate', 'bits_per_symbol'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -3280,7 +3280,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, [u'set_number', u'network_srlg'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
 
 
 
@@ -3887,7 +3887,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -3937,7 +3937,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -3987,7 +3987,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4037,7 +4037,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4087,7 +4087,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4137,7 +4137,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4187,7 +4187,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4237,7 +4237,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4287,7 +4287,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4337,7 +4337,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4387,7 +4387,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4437,7 +4437,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4487,7 +4487,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4537,7 +4537,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4587,7 +4587,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4637,7 +4637,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4687,7 +4687,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4737,7 +4737,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4787,7 +4787,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4837,7 +4837,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4887,7 +4887,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4937,7 +4937,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -4987,7 +4987,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5037,7 +5037,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5087,7 +5087,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5138,7 +5138,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5189,7 +5189,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5240,7 +5240,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5291,7 +5291,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5342,7 +5342,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5393,7 +5393,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5444,7 +5444,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5495,7 +5495,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5545,7 +5545,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5595,7 +5595,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5645,7 +5645,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5695,7 +5695,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5745,7 +5745,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5795,7 +5795,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5845,7 +5845,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5895,7 +5895,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5945,7 +5945,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, ['is_detected', 'counter'], name, value)
 
 
 
@@ -5995,7 +5995,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6045,7 +6045,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6095,7 +6095,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6145,7 +6145,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6195,7 +6195,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6245,7 +6245,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6456,7 +6456,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6506,7 +6506,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6556,7 +6556,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6606,7 +6606,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6656,7 +6656,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6706,7 +6706,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6756,7 +6756,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6806,7 +6806,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6856,7 +6856,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6906,7 +6906,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, ['is_detected', 'counter'], name, value)
 
 
 
@@ -6956,7 +6956,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, ['is_detected', 'counter'], name, value)
 
 
 
@@ -7006,7 +7006,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, ['is_detected', 'counter'], name, value)
 
 
 
@@ -7183,7 +7183,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, [u'vendor_info', u'adapter_vendor_info', u'date', u'optics_vendor_rev', u'optics_serial_no', u'optics_vendor_part', u'optics_type', u'vendor_name', u'oui_no', u'optics_pid', u'optics_vid', u'connector_type', u'otn_application_code', u'sonet_application_code', u'ethernet_compliance_code', u'internal_temperature'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, ['vendor_info', 'adapter_vendor_info', 'date', 'optics_vendor_rev', 'optics_serial_no', 'optics_vendor_part', 'optics_type', 'vendor_name', 'oui_no', 'optics_pid', 'optics_vid', 'connector_type', 'otn_application_code', 'sonet_application_code', 'ethernet_compliance_code', 'internal_temperature'], name, value)
 
 
 
@@ -7455,7 +7455,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, [u'snr_lane1', u'snr_lane2', u'isi_correction_lane1', u'isi_correction_lane2', u'pam_rate_lane1', u'pam_rate_lane2', u'pre_fec_ber', u'uncorrected_ber', u'tec_current_lane1', u'tec_current_lane2', u'laser_diff_frequency_lane1', u'laser_diff_frequency_lane2', u'laser_diff_temperature_lane1', u'laser_diff_temperature_lane2', u'pre_fec_ber_latched_min', u'pre_fec_ber_latched_max', u'pre_fec_ber_accumulated', u'pre_fec_ber_instantaneous', u'uncorrected_ber_latched_min', u'uncorrected_ber_latched_max', u'uncorrected_ber_accumulated', u'uncorrected_ber_instantaneous'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, ['snr_lane1', 'snr_lane2', 'isi_correction_lane1', 'isi_correction_lane2', 'pam_rate_lane1', 'pam_rate_lane2', 'pre_fec_ber', 'uncorrected_ber', 'tec_current_lane1', 'tec_current_lane2', 'laser_diff_frequency_lane1', 'laser_diff_frequency_lane2', 'laser_diff_temperature_lane1', 'laser_diff_temperature_lane2', 'pre_fec_ber_latched_min', 'pre_fec_ber_latched_max', 'pre_fec_ber_accumulated', 'pre_fec_ber_instantaneous', 'uncorrected_ber_latched_min', 'uncorrected_ber_latched_max', 'uncorrected_ber_accumulated', 'uncorrected_ber_instantaneous'], name, value)
 
 
 
@@ -8189,7 +8189,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, [u'snr_alarm_high_threshold', u'snr_alarm_low_threshold', u'snr_warn_high_threshold', u'snr_warn_low_threshold', u'isi_correction_alarm_high_threshold', u'isi_correction_alarm_low_threshold', u'isi_correction_warn_high_threshold', u'isi_correction_warn_low_threshold', u'pam_rate_alarm_high_threshold', u'pam_rate_alarm_low_threshold', u'pam_rate_warn_high_threshold', u'pam_rate_warn_low_threshold', u'pre_fec_ber_alarm_high_threshold', u'pre_fec_ber_alarm_low_threshold', u'pre_fec_ber_warn_high_threshold', u'pre_fec_ber_warn_low_threshold', u'uncorrected_ber_alarm_high_threshold', u'uncorrected_ber_alarm_low_threshold', u'uncorrected_ber_warn_high_threshold', u'uncorrected_ber_warn_low_threshold', u'tec_current_alarm_high_threshold', u'tec_current_alarm_low_threshold', u'tec_current_warn_high_threshold', u'tec_current_warn_low_threshold', u'laser_diff_frequency_alarm_high_threshold', u'laser_diff_frequency_alarm_low_threshold', u'laser_diff_frequency_warn_high_threshold', u'laser_diff_frequency_warn_low_threshold', u'laser_diff_temperature_alarm_high_threshold', u'laser_diff_temperature_alarm_low_threshold', u'laser_diff_temperature_warn_high_threshold', u'laser_diff_temperature_warn_low_threshold', u'pre_fec_ber_latched_min_alarm_high_threshold', u'pre_fec_ber_latched_min_alarm_low_threshold', u'pre_fec_ber_latched_min_warn_high_threshold', u'pre_fec_ber_latched_min_warn_low_threshold', u'pre_fec_ber_latched_max_alarm_high_threshold', u'pre_fec_ber_latched_max_alarm_low_threshold', u'pre_fec_ber_latched_max_warn_high_threshold', u'pre_fec_ber_latched_max_warn_low_threshold', u'pre_fec_ber_accumulated_alarm_high_threshold', u'pre_fec_ber_accumulated_alarm_low_threshold', u'pre_fec_ber_accumulated_warn_high_threshold', u'pre_fec_ber_accumulated_warn_low_threshold', u'pre_fec_ber_instantaneous_alarm_high_threshold', u'pre_fec_ber_instantaneous_alarm_low_threshold', u'pre_fec_ber_instantaneous_warn_high_threshold', u'pre_fec_ber_instantaneous_warn_low_threshold', u'uncorrected_ber_latched_min_alarm_high_threshold', u'uncorrected_ber_latched_min_alarm_low_threshold', u'uncorrected_ber_latched_min_warn_high_threshold', u'uncorrected_ber_latched_min_warn_low_threshold', u'uncorrected_ber_latched_max_alarm_high_threshold', u'uncorrected_ber_latched_max_alarm_low_threshold', u'uncorrected_ber_latched_max_warn_high_threshold', u'uncorrected_ber_latched_max_warn_low_threshold', u'uncorrected_ber_accumulated_alarm_high_threshold', u'uncorrected_ber_accumulated_alarm_low_threshold', u'uncorrected_ber_accumulated_warn_high_threshold', u'uncorrected_ber_accumulated_warn_low_threshold', u'uncorrected_ber_instantaneous_alarm_high_threshold', u'uncorrected_ber_instantaneous_alarm_low_threshold', u'uncorrected_ber_instantaneous_warn_high_threshold', u'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, ['snr_alarm_high_threshold', 'snr_alarm_low_threshold', 'snr_warn_high_threshold', 'snr_warn_low_threshold', 'isi_correction_alarm_high_threshold', 'isi_correction_alarm_low_threshold', 'isi_correction_warn_high_threshold', 'isi_correction_warn_low_threshold', 'pam_rate_alarm_high_threshold', 'pam_rate_alarm_low_threshold', 'pam_rate_warn_high_threshold', 'pam_rate_warn_low_threshold', 'pre_fec_ber_alarm_high_threshold', 'pre_fec_ber_alarm_low_threshold', 'pre_fec_ber_warn_high_threshold', 'pre_fec_ber_warn_low_threshold', 'uncorrected_ber_alarm_high_threshold', 'uncorrected_ber_alarm_low_threshold', 'uncorrected_ber_warn_high_threshold', 'uncorrected_ber_warn_low_threshold', 'tec_current_alarm_high_threshold', 'tec_current_alarm_low_threshold', 'tec_current_warn_high_threshold', 'tec_current_warn_low_threshold', 'laser_diff_frequency_alarm_high_threshold', 'laser_diff_frequency_alarm_low_threshold', 'laser_diff_frequency_warn_high_threshold', 'laser_diff_frequency_warn_low_threshold', 'laser_diff_temperature_alarm_high_threshold', 'laser_diff_temperature_alarm_low_threshold', 'laser_diff_temperature_warn_high_threshold', 'laser_diff_temperature_warn_low_threshold', 'pre_fec_ber_latched_min_alarm_high_threshold', 'pre_fec_ber_latched_min_alarm_low_threshold', 'pre_fec_ber_latched_min_warn_high_threshold', 'pre_fec_ber_latched_min_warn_low_threshold', 'pre_fec_ber_latched_max_alarm_high_threshold', 'pre_fec_ber_latched_max_alarm_low_threshold', 'pre_fec_ber_latched_max_warn_high_threshold', 'pre_fec_ber_latched_max_warn_low_threshold', 'pre_fec_ber_accumulated_alarm_high_threshold', 'pre_fec_ber_accumulated_alarm_low_threshold', 'pre_fec_ber_accumulated_warn_high_threshold', 'pre_fec_ber_accumulated_warn_low_threshold', 'pre_fec_ber_instantaneous_alarm_high_threshold', 'pre_fec_ber_instantaneous_alarm_low_threshold', 'pre_fec_ber_instantaneous_warn_high_threshold', 'pre_fec_ber_instantaneous_warn_low_threshold', 'uncorrected_ber_latched_min_alarm_high_threshold', 'uncorrected_ber_latched_min_alarm_low_threshold', 'uncorrected_ber_latched_min_warn_high_threshold', 'uncorrected_ber_latched_min_warn_low_threshold', 'uncorrected_ber_latched_max_alarm_high_threshold', 'uncorrected_ber_latched_max_alarm_low_threshold', 'uncorrected_ber_latched_max_warn_high_threshold', 'uncorrected_ber_latched_max_warn_low_threshold', 'uncorrected_ber_accumulated_alarm_high_threshold', 'uncorrected_ber_accumulated_alarm_low_threshold', 'uncorrected_ber_accumulated_warn_high_threshold', 'uncorrected_ber_accumulated_warn_low_threshold', 'uncorrected_ber_instantaneous_alarm_high_threshold', 'uncorrected_ber_instantaneous_alarm_low_threshold', 'uncorrected_ber_instantaneous_warn_high_threshold', 'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
 
 
 
@@ -8597,7 +8597,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8647,7 +8647,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8697,7 +8697,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8747,7 +8747,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8797,7 +8797,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8847,7 +8847,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8897,7 +8897,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8947,7 +8947,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -8997,7 +8997,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9047,7 +9047,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9097,7 +9097,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9147,7 +9147,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9197,7 +9197,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9247,7 +9247,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9297,7 +9297,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9347,7 +9347,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9397,7 +9397,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9448,7 +9448,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9498,7 +9498,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9549,7 +9549,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9599,7 +9599,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9649,7 +9649,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9699,7 +9699,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9749,7 +9749,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9799,7 +9799,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9849,7 +9849,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9899,7 +9899,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9949,7 +9949,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, ['is_detected', 'counter'], name, value)
 
 
 
@@ -9999,7 +9999,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10049,7 +10049,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, [u'is_detected', u'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10115,7 +10115,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, [u'ains_state', u'ains_timer_minutes', u'ains_remaining_secs'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
 
 
 
@@ -10257,7 +10257,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, [u'lane_index', u'laser_bias_current_percent', u'laser_bias_current_milli_amps', u'transmit_power', u'receive_power', u'receive_signal_power', u'transmit_signal_power', u'output_frequency', u'frequency_offset'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, ['lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
 
 
                     class LaneAlarmInfo(Entity):
@@ -10389,7 +10389,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10439,7 +10439,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10489,7 +10489,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10539,7 +10539,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10589,7 +10589,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10782,7 +10782,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', u'lane_index', u'laser_bias_current_percent', u'laser_bias_current_milli_amps', u'transmit_power', u'receive_power', u'receive_signal_power', u'transmit_signal_power', u'output_frequency', u'frequency_offset'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', 'lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
 
 
                     class LaneAlarmInfo(Entity):
@@ -10914,7 +10914,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -10964,7 +10964,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -11014,7 +11014,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -11064,7 +11064,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
 
 
@@ -11114,7 +11114,7 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
 
 
@@ -11176,7 +11176,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, [u'transport_admin_state', u'controller_state'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, ['transport_admin_state', 'controller_state'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -11264,7 +11264,7 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, [u'set_number', u'network_srlg'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
 
 
 

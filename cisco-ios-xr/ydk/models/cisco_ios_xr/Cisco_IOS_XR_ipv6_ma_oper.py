@@ -545,7 +545,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'line_state', 'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'line_state', u'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -625,7 +625,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -706,7 +706,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -1008,7 +1008,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -1088,7 +1088,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -1154,7 +1154,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
 
@@ -1246,7 +1246,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, [u'entry'], name, value)
 
 
 
@@ -1285,7 +1285,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, [u'entry'], name, value)
 
 
 
@@ -1324,7 +1324,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, [u'entry'], name, value)
 
 
 
@@ -1393,7 +1393,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
 
@@ -1502,7 +1502,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
 
@@ -1561,7 +1561,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
 
@@ -1733,7 +1733,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, [u'address'], name, value)
 
 
 
@@ -1814,7 +1814,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -1855,7 +1855,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, [u'address'], name, value)
 
 
 
@@ -1977,7 +1977,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', u'line_state', u'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -2057,7 +2057,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -2138,7 +2138,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -2440,7 +2440,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -2520,7 +2520,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -2586,7 +2586,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
 
@@ -2678,7 +2678,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, [u'entry'], name, value)
 
 
 
@@ -2717,7 +2717,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, [u'entry'], name, value)
 
 
 
@@ -2756,7 +2756,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, [u'entry'], name, value)
 
 
 
@@ -2825,7 +2825,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
 
@@ -2934,7 +2934,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
 
@@ -2993,7 +2993,7 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
 
@@ -3165,7 +3165,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'address'], name, value)
 
 
 
@@ -3246,7 +3246,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
 
@@ -3287,7 +3287,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, [u'address'], name, value)
 
 
 
@@ -3377,7 +3377,7 @@ class Ipv6Network(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
+                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
 
 
                     class IfUpUp(Entity):
@@ -3439,7 +3439,7 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
 
@@ -3502,7 +3502,7 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
 
@@ -3565,7 +3565,7 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
 
@@ -3628,7 +3628,7 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
 

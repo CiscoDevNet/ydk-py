@@ -235,7 +235,7 @@ class ManagementPlaneProtection(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, ['vrf_name'], name, value)
+                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, [u'vrf_name'], name, value)
 
 
 
@@ -378,7 +378,7 @@ class ManagementPlaneProtection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -438,7 +438,7 @@ class ManagementPlaneProtection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -626,7 +626,7 @@ class ManagementPlaneProtection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -686,7 +686,7 @@ class ManagementPlaneProtection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 

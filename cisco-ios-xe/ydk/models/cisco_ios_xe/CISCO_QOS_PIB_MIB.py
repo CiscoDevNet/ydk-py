@@ -640,7 +640,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry, ['qosdeviceincarnationid', 'qosdevicepdpname', 'qosdevicepibincarnation', 'qosdevicepibttl'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry, [u'qosdeviceincarnationid', u'qosdevicepdpname', u'qosdevicepibincarnation', u'qosdevicepibttl'], name, value)
 
 
 
@@ -779,7 +779,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry, ['qosdeviceattributeid', 'qosdevicepepdomain', 'qosdeviceprimarypdp', 'qosdevicesecondarypdp', 'qosdevicemaxmessagesize', 'qosdevicecapabilities'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry, [u'qosdeviceattributeid', u'qosdevicepepdomain', u'qosdeviceprimarypdp', u'qosdevicesecondarypdp', u'qosdevicemaxmessagesize', u'qosdevicecapabilities'], name, value)
 
 
 
@@ -893,7 +893,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry, ['qosinterfacetypeid', 'qosinterfacequeuetype', 'qosinterfacetyperoles', 'qosinterfacetypecapabilities'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry, [u'qosinterfacetypeid', u'qosinterfacequeuetype', u'qosinterfacetyperoles', u'qosinterfacetypecapabilities'], name, value)
 
 
 
@@ -1001,7 +1001,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry, ['qosdscp', 'qosmarkeddscp', 'qosl2cos'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry, [u'qosdscp', u'qosmarkeddscp', u'qosl2cos'], name, value)
 
 
 
@@ -1097,7 +1097,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry, ['qoscostodscpcos', 'qoscostodscpdscp'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry, [u'qoscostodscpcos', u'qoscostodscpdscp'], name, value)
 
 
 
@@ -1244,7 +1244,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry, ['qosunmatchedpolicyid', 'qosunmatchedpolicyrole', 'qosunmatchedpolicydirection', 'qosunmatchedpolicydscp', 'qosunmatchedpolicydscptrusted', 'qosunmatchpolmicroflowpolicerid', 'qosunmatchedpolicyaggregateid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry, [u'qosunmatchedpolicyid', u'qosunmatchedpolicyrole', u'qosunmatchedpolicydirection', u'qosunmatchedpolicydscp', u'qosunmatchedpolicydscptrusted', u'qosunmatchpolmicroflowpolicerid', u'qosunmatchedpolicyaggregateid'], name, value)
 
             class QosUnmatchedPolicyDirection(Enum):
                 """
@@ -1390,7 +1390,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry, ['qospolicerid', 'qospolicerrate', 'qospolicernormalburst', 'qospolicerexcessburst', 'qospoliceraction'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry, [u'qospolicerid', u'qospolicerrate', u'qospolicernormalburst', u'qospolicerexcessburst', u'qospoliceraction'], name, value)
 
             class QosPolicerAction(Enum):
                 """
@@ -1509,7 +1509,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry, ['qosaggregateid', 'qosaggregatepolicerid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry, [u'qosaggregateid', u'qosaggregatepolicerid'], name, value)
 
 
 
@@ -1624,7 +1624,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry, ['qosmacclassificationid', 'qosdstmacvlan', 'qosdstmacaddress', 'qosdstmaccos'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry, [u'qosmacclassificationid', u'qosdstmacvlan', u'qosdstmacaddress', u'qosdstmaccos'], name, value)
 
 
 
@@ -1835,7 +1835,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry, ['qosipaceid', 'qosipacedstaddr', 'qosipacedstaddrmask', 'qosipacesrcaddr', 'qosipacesrcaddrmask', 'qosipacedscpmin', 'qosipacedscpmax', 'qosipaceprotocol', 'qosipacedstl4portmin', 'qosipacedstl4portmax', 'qosipacesrcl4portmin', 'qosipacesrcl4portmax', 'qosipacepermit'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry, [u'qosipaceid', u'qosipacedstaddr', u'qosipacedstaddrmask', u'qosipacesrcaddr', u'qosipacesrcaddrmask', u'qosipacedscpmin', u'qosipacedscpmax', u'qosipaceprotocol', u'qosipacedstl4portmin', u'qosipacedstl4portmax', u'qosipacesrcl4portmin', u'qosipacesrcl4portmax', u'qosipacepermit'], name, value)
 
 
 
@@ -1951,7 +1951,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry, ['qosipacldefinitionid', 'qosipaclid', 'qosipaceorder', 'qosipacldefaceid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry, [u'qosipacldefinitionid', u'qosipaclid', u'qosipaceorder', u'qosipacldefaceid'], name, value)
 
 
 
@@ -2124,7 +2124,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry, ['qosipaclactionid', 'qosipaclactaclid', 'qosipaclinterfaceroles', 'qosipaclinterfacedirection', 'qosipaclorder', 'qosipacldscp', 'qosipacldscptrusted', 'qosipaclmicroflowpolicerid', 'qosipaclaggregateid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry, [u'qosipaclactionid', u'qosipaclactaclid', u'qosipaclinterfaceroles', u'qosipaclinterfacedirection', u'qosipaclorder', u'qosipacldscp', u'qosipacldscptrusted', u'qosipaclmicroflowpolicerid', u'qosipaclaggregateid'], name, value)
 
             class QosIpAclInterfaceDirection(Enum):
                 """
@@ -2268,7 +2268,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry, ['qosifschedulingpreferenceid', 'qosifschedulingroles', 'qosifschedulingpreference', 'qosifschedulingdiscipline', 'qosifschedulingqueuetype'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry, [u'qosifschedulingpreferenceid', u'qosifschedulingroles', u'qosifschedulingpreference', u'qosifschedulingdiscipline', u'qosifschedulingqueuetype'], name, value)
 
             class QosIfSchedulingDiscipline(Enum):
                 """
@@ -2425,7 +2425,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry, ['qosifdroppreferenceid', 'qosifdroproles', 'qosifdroppreference', 'qosifdropdiscipline'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry, [u'qosifdroppreferenceid', u'qosifdroproles', u'qosifdroppreference', u'qosifdropdiscipline'], name, value)
 
             class QosIfDropDiscipline(Enum):
                 """
@@ -2579,7 +2579,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry, ['qosifdscpassignmentid', 'qosifdscproles', 'qosifqueuetype', 'qosifdscp', 'qosifqueue', 'qosifthresholdset'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry, [u'qosifdscpassignmentid', u'qosifdscproles', u'qosifqueuetype', u'qosifdscp', u'qosifqueue', u'qosifthresholdset'], name, value)
 
 
 
@@ -2721,7 +2721,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry, ['qosifredid', 'qosifredroles', 'qosifrednumthresholdsets', 'qosifredthresholdset', 'qosifredthresholdsetlower', 'qosifredthresholdsetupper'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry, [u'qosifredid', u'qosifredroles', u'qosifrednumthresholdsets', u'qosifredthresholdset', u'qosifredthresholdsetlower', u'qosifredthresholdsetupper'], name, value)
 
 
 
@@ -2851,7 +2851,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry, ['qosiftaildropid', 'qosiftaildroproles', 'qosiftaildropnumthresholdsets', 'qosiftaildropthresholdset', 'qosiftaildropthresholdsetvalue'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry, [u'qosiftaildropid', u'qosiftaildroproles', u'qosiftaildropnumthresholdsets', u'qosiftaildropthresholdset', u'qosiftaildropthresholdsetvalue'], name, value)
 
 
 
@@ -2992,7 +2992,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry, ['qosifweightsid', 'qosifweightsroles', 'qosifweightsnumqueues', 'qosifweightsqueue', 'qosifweightsdrainsize', 'qosifweightsqueuesize'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry, [u'qosifweightsid', u'qosifweightsroles', u'qosifweightsnumqueues', u'qosifweightsqueue', u'qosifweightsdrainsize', u'qosifweightsqueuesize'], name, value)
 
 
 

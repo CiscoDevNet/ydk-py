@@ -720,7 +720,7 @@ class RedundancyGroupManager(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, [u'system_mac'], name, value)
+                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, ['system_mac'], name, value)
 
 
 

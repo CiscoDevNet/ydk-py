@@ -532,7 +532,7 @@ class Dhcpv6(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Dhcpv6.IssuStatus, ['process_start_time', 'issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'issu_ready_issu_mgr_connection', 'role', 'phase', 'version'], name, value)
+            self._perform_setattr(Dhcpv6.IssuStatus, [u'process_start_time', u'issu_sync_complete_time', u'issu_sync_start_time', u'issu_ready_time', u'big_bang_time', u'primary_role_time', u'issu_ready_issu_mgr_connection', u'role', u'phase', u'version'], name, value)
 
 
 
@@ -1104,7 +1104,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1167,7 +1167,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1230,7 +1230,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1293,7 +1293,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1356,7 +1356,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1419,7 +1419,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1482,7 +1482,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1545,7 +1545,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1608,7 +1608,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1671,7 +1671,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1734,7 +1734,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1797,7 +1797,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1860,7 +1860,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1923,7 +1923,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -1986,7 +1986,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -2049,7 +2049,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -2112,7 +2112,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -2349,7 +2349,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', u'binding_chaddr', u'ifname', u'state', u'time_left'], name, value)
 
 
 
@@ -2461,7 +2461,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, ['class_name', 'class_name_xr', 'profile_helper_address', 'vrf_name'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, ['class_name', u'class_name_xr', u'profile_helper_address', u'vrf_name'], name, value)
 
 
 
@@ -2600,7 +2600,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, ['profile_name', 'remote_id', 'profile_link_address', 'proxy_profile_linkaddress_from_ra_enable', 'profile_helper_address', 'vrf_name', 'interface_name'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, [u'profile_name', u'remote_id', u'profile_link_address', u'proxy_profile_linkaddress_from_ra_enable', u'profile_helper_address', u'vrf_name', u'interface_name'], name, value)
 
 
                             class InterfaceIdReferences(Entity):
@@ -2688,7 +2688,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, ['proxy_iid_interface_name', 'proxy_interface_id'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, [u'proxy_iid_interface_name', u'proxy_interface_id'], name, value)
 
 
 
@@ -2767,7 +2767,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, [u'proxy_reference_vrf_name'], name, value)
 
 
 
@@ -2846,7 +2846,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, [u'proxy_reference_interface_name'], name, value)
 
 
 
@@ -3037,7 +3037,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', 'proxy_vrf_name', 'proxy_interface_mode', 'is_proxy_interface_ambiguous', 'proxy_interface_profile_name', 'proxy_interface_lease_limit_type', 'proxy_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', u'proxy_vrf_name', u'proxy_interface_mode', u'is_proxy_interface_ambiguous', u'proxy_interface_profile_name', u'proxy_interface_lease_limit_type', u'proxy_interface_lease_limits', u'srg_role', u'serg_role', u'mac_throttle', u'srg_vrf_name', u'srgp2p'], name, value)
 
 
 
@@ -3127,7 +3127,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -3189,7 +3189,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -3630,7 +3630,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'duid', u'client_flag', u'subscriber_label', u'vrf_name', u'mac_address', u'ia_id_p_ds', u'interface_name', u'access_vrf_name', u'proxy_binding_tags', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'class_name', u'pool_name', u'rx_remote_id', u'tx_remote_id', u'rx_interface_id', u'tx_interface_id', u'server_ipv6_address', u'profile_name', u'framed_ipv6_prefix', u'framed_prefix_length', u'is_nak_next_renew', u'srg_state', u'srg_intf_role', u'srgp2p', u'srg_vrf_name', u'serg_state', u'serg_intf_role'], name, value)
 
 
                             class IaIdPd(Entity):
@@ -3758,7 +3758,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, [u'ia_type', u'ia_id', u'flags', u'total_address', u'state'], name, value)
 
 
                                     class Addresses(Entity):
@@ -3872,7 +3872,7 @@ class Dhcpv6(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
+                                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, [u'prefix', u'prefix_length', u'lease_time', u'remaining_lease_time'], name, value)
 
 
 
@@ -3940,7 +3940,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, ['clients'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, [u'clients'], name, value)
 
 
                         class Iana(Entity):
@@ -4046,7 +4046,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, [u'initializing_clients', u'dpm_waiting_clients', u'daps_waiting_clients', u'msg_waiting_clients', u'iedge_waiting_clients', u'rib_waiting_clients', u'bound_clients'], name, value)
 
 
 
@@ -4153,7 +4153,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, [u'initializing_clients', u'dpm_waiting_clients', u'daps_waiting_clients', u'msg_waiting_clients', u'iedge_waiting_clients', u'rib_waiting_clients', u'bound_clients'], name, value)
 
 
 
@@ -4414,7 +4414,7 @@ class Dhcpv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
+                        self._perform_setattr(Dhcpv6.Nodes.Node.Base.Database, [u'configured', u'version', u'full_file_write_interval', u'last_full_write_file_name', u'last_full_write_time', u'full_file_write_count', u'failed_full_file_write_count', u'full_file_record_count', u'last_full_file_write_error_timestamp', u'incremental_file_write_interval', u'last_incremental_write_file_name', u'last_incremental_write_time', u'incremental_file_write_count', u'failed_incremental_file_write_count', u'incremental_file_record_count', u'last_incremental_file_write_error_timestamp'], name, value)
 
 
 
@@ -4754,7 +4754,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', 'mac_address', 'vrf_name', 'server_vrf_name', 'ipv6_address', 'server_ipv6_address', 'reply_server_ipv6_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'base_binding_tags', 'base_binding_outer_tag', 'base_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'rx_client_duid', 'tx_client_uid', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', u'mac_address', u'vrf_name', u'server_vrf_name', u'ipv6_address', u'server_ipv6_address', u'reply_server_ipv6_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'base_binding_tags', u'base_binding_outer_tag', u'base_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'rx_client_duid', u'tx_client_uid', u'rx_remote_id', u'tx_remote_id', u'rx_interface_id', u'tx_interface_id'], name, value)
 
 
 
@@ -4963,7 +4963,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary, ['clients'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary, [u'clients'], name, value)
 
 
                         class Iana(Entity):
@@ -5069,7 +5069,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, [u'initializing_clients', u'dpm_waiting_clients', u'daps_waiting_clients', u'request_waiting_clients', u'iedge_waiting_clients', u'rib_waiting_clients', u'bound_clients'], name, value)
 
 
 
@@ -5176,7 +5176,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, [u'initializing_clients', u'dpm_waiting_clients', u'daps_waiting_clients', u'request_waiting_clients', u'iedge_waiting_clients', u'rib_waiting_clients', u'bound_clients'], name, value)
 
 
 
@@ -5588,7 +5588,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'duid', u'client_id_xr', u'client_flag', u'subscriber_label', u'vrf_name', u'mac_address', u'ia_id_p_ds', u'link_local_address', u'interface_name', u'access_vrf_name', u'server_binding_tags', u'server_binding_outer_tag', u'server_binding_inner_tag', u'pool_name', u'profile_name', u'framed_ipv6_prefix', u'framed_prefix_length', u'class_name', u'rx_remote_id', u'rx_interface_id', u'prefix_pool_name', u'address_pool_name', u'dns_server_count', u'is_nak_next_renew', u'srg_state', u'srg_intf_role', u'srgp2p', u'srg_vrf_name', u'sesrg_state', u'serg_intf_role'], name, value)
 
 
                             class IaIdPd(Entity):
@@ -5716,7 +5716,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, [u'ia_type', u'ia_id', u'flags', u'total_address', u'state'], name, value)
 
 
                                     class Addresses(Entity):
@@ -5830,7 +5830,7 @@ class Dhcpv6(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
+                                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, [u'prefix', u'prefix_length', u'lease_time', u'remaining_lease_time'], name, value)
 
 
 
@@ -6202,7 +6202,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6265,7 +6265,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6328,7 +6328,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6391,7 +6391,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6454,7 +6454,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6517,7 +6517,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6580,7 +6580,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6643,7 +6643,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6706,7 +6706,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6769,7 +6769,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6832,7 +6832,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6895,7 +6895,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -6958,7 +6958,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -7021,7 +7021,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -7084,7 +7084,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -7147,7 +7147,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -7210,7 +7210,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -7472,7 +7472,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, ['profile_name', 'profile_allowed_duid_type', 'domain_name', 'profile_dns', 'aftr_name', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'rapid_commit', 'profile_dns_address'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, [u'profile_name', u'profile_allowed_duid_type', u'domain_name', u'profile_dns', u'aftr_name', u'framed_addr_pool_name', u'delegated_prefix_pool_name', u'rapid_commit', u'profile_dns_address'], name, value)
 
 
                             class Lease(Entity):
@@ -7525,7 +7525,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, ['seconds', 'time'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, [u'seconds', u'time'], name, value)
 
 
 
@@ -7603,7 +7603,7 @@ class Dhcpv6(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, ['server_reference_interface_name'], name, value)
+                                        self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, [u'server_reference_interface_name'], name, value)
 
 
 
@@ -7729,7 +7729,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', u'binding_chaddr', u'ifname', u'state', u'time_left'], name, value)
 
 
 
@@ -7874,7 +7874,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, ['class_name', 'class_name_xr', 'domain_name', 'profile_dns', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'profile_dns_address'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, ['class_name', u'class_name_xr', u'domain_name', u'profile_dns', u'framed_addr_pool_name', u'delegated_prefix_pool_name', u'profile_dns_address'], name, value)
 
 
 
@@ -8064,7 +8064,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', 'server_vrf_name', 'server_interface_mode', 'is_server_interface_ambiguous', 'server_interface_profile_name', 'server_interface_lease_limit_type', 'server_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', u'server_vrf_name', u'server_interface_mode', u'is_server_interface_ambiguous', u'server_interface_profile_name', u'server_interface_lease_limit_type', u'server_interface_lease_limits', u'srg_role', u'serg_role', u'mac_throttle', u'srg_vrf_name', u'srgp2p'], name, value)
 
 
 
@@ -8154,7 +8154,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -8216,7 +8216,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -8395,7 +8395,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', u'mac_address_xr', u'duid_xr', u'dns_count', u'opt17', u'dns_address'], name, value)
 
 
 
@@ -8523,7 +8523,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', u'mac_address_xr', u'duid_xr', u'dns_count', u'opt17', u'dns_address'], name, value)
 
 
 
@@ -8676,7 +8676,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -8738,7 +8738,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -8831,7 +8831,7 @@ class Dhcpv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Summary, ['clients'], name, value)
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Summary, [u'clients'], name, value)
 
 
 
@@ -9028,7 +9028,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', u'duid', u'client_id_xr', u'prefix_length', u'prefix', u'vrf_name', u'lifetime', u'rem_life_time', u'interface_name', u'next_hop_addr', u'ia_id', u'relay_profile_name'], name, value)
 
 
 
@@ -9396,7 +9396,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9459,7 +9459,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9522,7 +9522,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9585,7 +9585,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9648,7 +9648,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9711,7 +9711,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9774,7 +9774,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9837,7 +9837,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9900,7 +9900,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -9963,7 +9963,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10026,7 +10026,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10089,7 +10089,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10152,7 +10152,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10215,7 +10215,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10278,7 +10278,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10341,7 +10341,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 
@@ -10404,7 +10404,7 @@ class Dhcpv6(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
 

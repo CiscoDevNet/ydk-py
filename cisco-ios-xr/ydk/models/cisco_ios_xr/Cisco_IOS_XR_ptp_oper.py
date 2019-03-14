@@ -805,7 +805,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Nodes.Node, ['node_name'], name, value)
+                self._perform_setattr(Ptp.Nodes.Node, [u'node_name'], name, value)
 
 
             class NodeInterfaceForeignMasters(Entity):
@@ -904,7 +904,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster, ['interface_name', u'port_number'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster, [u'interface_name', u'port_number'], name, value)
 
 
                     class ForeignClock(Entity):
@@ -2411,7 +2411,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface_name', u'port_state', u'port_number', u'line_state', u'encapsulation', u'ipv6_address', u'ipv4_address', u'two_step', u'communication_model', u'log_sync_interval', u'log_announce_interval', u'announce_timeout', u'log_min_delay_request_interval', u'configured_port_state', u'supports_unicast', u'supports_master', u'supports_one_step', u'supports_two_step', u'supports_ethernet', u'supports_multicast', u'supports_ipv4', u'supports_ipv6', u'supports_slave', u'supports_source_ip', u'max_sync_rate', u'event_cos', u'general_cos', u'event_dscp', u'general_dscp', u'unicast_peers', u'local_priority', u'signal_fail', u'profile_interop', u'interop_domain', u'interop_profile'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, [u'interface_name', u'port_state', u'port_number', u'line_state', u'encapsulation', u'ipv6_address', u'ipv4_address', u'two_step', u'communication_model', u'log_sync_interval', u'log_announce_interval', u'announce_timeout', u'log_min_delay_request_interval', u'configured_port_state', u'supports_unicast', u'supports_master', u'supports_one_step', u'supports_two_step', u'supports_ethernet', u'supports_multicast', u'supports_ipv4', u'supports_ipv6', u'supports_slave', u'supports_source_ip', u'max_sync_rate', u'event_cos', u'general_cos', u'event_dscp', u'general_dscp', u'unicast_peers', u'local_priority', u'signal_fail', u'profile_interop', u'interop_domain', u'interop_profile'], name, value)
 
 
                     class Ipv6AddressArray(Entity):
@@ -3222,7 +3222,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer, ['interface_name', u'name', u'port_number'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer, [u'interface_name', u'name', u'port_number'], name, value)
 
 
                     class Peers(Entity):
@@ -4689,7 +4689,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError, ['interface_name', u'configuration_profile_name', u'clock_profile', u'telecom_clock_type', u'restrict_port_state', u'interop_profile'], name, value)
+                self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError, [u'interface_name', u'configuration_profile_name', u'clock_profile', u'telecom_clock_type', u'restrict_port_state', u'interop_profile'], name, value)
 
 
             class ConfigurationErrors(Entity):
@@ -5225,7 +5225,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster, ['interface_name', u'port_number'], name, value)
+                self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster, [u'interface_name', u'port_number'], name, value)
 
 
             class ForeignClock(Entity):
@@ -6254,7 +6254,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfaceInterops.InterfaceInterop, ['interface_name', u'local_domain', u'interop_domain', u'local_profile', u'interop_profile'], name, value)
+                self._perform_setattr(Ptp.InterfaceInterops.InterfaceInterop, [u'interface_name', u'local_domain', u'interop_domain', u'local_profile', u'interop_profile'], name, value)
 
 
             class EgressInterop(Entity):
@@ -7425,7 +7425,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfacePacketCounters.InterfacePacketCounter, ['interface_name'], name, value)
+                self._perform_setattr(Ptp.InterfacePacketCounters.InterfacePacketCounter, [u'interface_name'], name, value)
 
 
             class Counters(Entity):
@@ -9437,7 +9437,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Interfaces.Interface, ['interface_name', u'port_state', u'port_number', u'line_state', u'encapsulation', u'ipv6_address', u'ipv4_address', u'two_step', u'communication_model', u'log_sync_interval', u'log_announce_interval', u'announce_timeout', u'log_min_delay_request_interval', u'configured_port_state', u'supports_unicast', u'supports_master', u'supports_one_step', u'supports_two_step', u'supports_ethernet', u'supports_multicast', u'supports_ipv4', u'supports_ipv6', u'supports_slave', u'supports_source_ip', u'max_sync_rate', u'event_cos', u'general_cos', u'event_dscp', u'general_dscp', u'unicast_peers', u'local_priority', u'signal_fail', u'profile_interop', u'interop_domain', u'interop_profile'], name, value)
+                self._perform_setattr(Ptp.Interfaces.Interface, [u'interface_name', u'port_state', u'port_number', u'line_state', u'encapsulation', u'ipv6_address', u'ipv4_address', u'two_step', u'communication_model', u'log_sync_interval', u'log_announce_interval', u'announce_timeout', u'log_min_delay_request_interval', u'configured_port_state', u'supports_unicast', u'supports_master', u'supports_one_step', u'supports_two_step', u'supports_ethernet', u'supports_multicast', u'supports_ipv4', u'supports_ipv6', u'supports_slave', u'supports_source_ip', u'max_sync_rate', u'event_cos', u'general_cos', u'event_dscp', u'general_dscp', u'unicast_peers', u'local_priority', u'signal_fail', u'profile_interop', u'interop_domain', u'interop_profile'], name, value)
 
 
             class Ipv6AddressArray(Entity):
@@ -10825,7 +10825,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Dataset.PortDses.PortDs, ['interface_name', u'clock_id', u'port_number', u'port_state', u'log_min_delay_req_interval', u'peer_mean_path_delay', u'log_announce_interval', u'annoucne_receipt_timeout', u'log_sync_interval', u'delay_mechanism', u'log_min_p_delay_req_interval', u'version_number', u'local_priority', u'master_only', u'signal_fail'], name, value)
+                    self._perform_setattr(Ptp.Dataset.PortDses.PortDs, [u'interface_name', u'clock_id', u'port_number', u'port_state', u'log_min_delay_req_interval', u'peer_mean_path_delay', u'log_announce_interval', u'annoucne_receipt_timeout', u'log_sync_interval', u'delay_mechanism', u'log_min_p_delay_req_interval', u'version_number', u'local_priority', u'master_only', u'signal_fail'], name, value)
 
 
 
@@ -11954,7 +11954,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer, ['interface_name', u'name', u'port_number'], name, value)
+                self._perform_setattr(Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer, [u'interface_name', u'name', u'port_number'], name, value)
 
 
             class Peers(Entity):
@@ -13350,7 +13350,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Platform.Servo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay', 'servo_mode'], name, value)
+                self._perform_setattr(Ptp.Platform.Servo, [u'lock_status', u'running', u'device_status', u'log_level', u'phase_accuracy_last', u'num_sync_timestamp', u'num_delay_timestamp', u'num_set_time', u'num_step_time', u'num_adjust_freq', u'num_adjust_freq_time', u'last_adjust_freq', u'last_step_time', u'num_discard_sync_timestamp', u'num_discard_delay_timestamp', u'flagof_last_set_time', u'offset_from_master', u'mean_path_delay', u'servo_mode'], name, value)
 
 
             class LastSetTime(Entity):
@@ -13402,7 +13402,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastSetTime, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.LastSetTime, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13455,7 +13455,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT1, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT1, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13508,7 +13508,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT2, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT2, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13561,7 +13561,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT3, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT3, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13614,7 +13614,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT4, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT4, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13667,7 +13667,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT1, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT1, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13720,7 +13720,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT2, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT2, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13773,7 +13773,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT3, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT3, [u'second', u'nano_second'], name, value)
 
 
 
@@ -13826,7 +13826,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT4, ['second', 'nano_second'], name, value)
+                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT4, [u'second', u'nano_second'], name, value)
 
 
 

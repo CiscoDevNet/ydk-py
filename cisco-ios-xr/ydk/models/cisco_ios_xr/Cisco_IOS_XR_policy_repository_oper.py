@@ -416,7 +416,7 @@ class RoutingPolicy(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingPolicy.Limits, ['maximum_lines_of_policy', 'current_lines_of_policy_limit', 'current_lines_of_policy_used', 'maximum_number_of_policies', 'current_number_of_policies_limit', 'current_number_of_policies_used', 'compiled_policies_length'], name, value)
+            self._perform_setattr(RoutingPolicy.Limits, [u'maximum_lines_of_policy', u'current_lines_of_policy_limit', u'current_lines_of_policy_used', u'maximum_number_of_policies', u'current_number_of_policies_limit', u'current_number_of_policies_used', u'compiled_policies_length'], name, value)
 
 
 
@@ -713,7 +713,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, ['object'], name, value)
+                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, [u'object'], name, value)
 
 
 
@@ -799,7 +799,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, ['set_domain', 'set_name'], name, value)
+                                self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, [u'set_domain', u'set_name'], name, value)
 
 
 
@@ -885,7 +885,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, ['set_domain', 'set_name'], name, value)
+                                self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, [u'set_domain', u'set_name'], name, value)
 
 
 
@@ -926,7 +926,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, ['object'], name, value)
+                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, [u'object'], name, value)
 
 
 
@@ -1023,7 +1023,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -1276,7 +1276,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                            self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -1320,7 +1320,7 @@ class RoutingPolicy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Policies.Unused, ['object'], name, value)
+                self._perform_setattr(RoutingPolicy.Policies.Unused, [u'object'], name, value)
 
 
 
@@ -1361,7 +1361,7 @@ class RoutingPolicy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Policies.Inactive, ['object'], name, value)
+                self._perform_setattr(RoutingPolicy.Policies.Inactive, [u'object'], name, value)
 
 
 
@@ -1402,7 +1402,7 @@ class RoutingPolicy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Policies.Active, ['object'], name, value)
+                self._perform_setattr(RoutingPolicy.Policies.Active, [u'object'], name, value)
 
 
 
@@ -1878,7 +1878,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -2131,7 +2131,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -2175,7 +2175,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Etag.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Etag.Unused, [u'object'], name, value)
 
 
 
@@ -2216,7 +2216,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Etag.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Etag.Inactive, [u'object'], name, value)
 
 
 
@@ -2257,7 +2257,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Etag.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Etag.Active, [u'object'], name, value)
 
 
 
@@ -2528,7 +2528,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -2781,7 +2781,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -2825,7 +2825,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Unused, [u'object'], name, value)
 
 
 
@@ -2866,7 +2866,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Inactive, [u'object'], name, value)
 
 
 
@@ -2907,7 +2907,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Active, [u'object'], name, value)
 
 
 
@@ -3179,7 +3179,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -3432,7 +3432,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -3476,7 +3476,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused, [u'object'], name, value)
 
 
 
@@ -3517,7 +3517,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive, [u'object'], name, value)
 
 
 
@@ -3558,7 +3558,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Active, [u'object'], name, value)
 
 
 
@@ -3829,7 +3829,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -4082,7 +4082,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -4126,7 +4126,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused, [u'object'], name, value)
 
 
 
@@ -4167,7 +4167,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive, [u'object'], name, value)
 
 
 
@@ -4208,7 +4208,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Active, [u'object'], name, value)
 
 
 
@@ -4479,7 +4479,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -4732,7 +4732,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -4776,7 +4776,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Unused, [u'object'], name, value)
 
 
 
@@ -4817,7 +4817,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive, [u'object'], name, value)
 
 
 
@@ -4858,7 +4858,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Active, [u'object'], name, value)
 
 
 
@@ -5129,7 +5129,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -5382,7 +5382,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -5426,7 +5426,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Tag.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Tag.Unused, [u'object'], name, value)
 
 
 
@@ -5467,7 +5467,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Tag.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Tag.Inactive, [u'object'], name, value)
 
 
 
@@ -5508,7 +5508,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Tag.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Tag.Active, [u'object'], name, value)
 
 
 
@@ -5779,7 +5779,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -6032,7 +6032,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -6076,7 +6076,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Unused, [u'object'], name, value)
 
 
 
@@ -6117,7 +6117,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Inactive, [u'object'], name, value)
 
 
 
@@ -6158,7 +6158,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Active, [u'object'], name, value)
 
 
 
@@ -6429,7 +6429,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -6682,7 +6682,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -6726,7 +6726,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Community.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Community.Unused, [u'object'], name, value)
 
 
 
@@ -6767,7 +6767,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Community.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Community.Inactive, [u'object'], name, value)
 
 
 
@@ -6808,7 +6808,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Community.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Community.Active, [u'object'], name, value)
 
 
 
@@ -7079,7 +7079,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -7332,7 +7332,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -7376,7 +7376,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Unused, [u'object'], name, value)
 
 
 
@@ -7417,7 +7417,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Inactive, [u'object'], name, value)
 
 
 
@@ -7458,7 +7458,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Active, [u'object'], name, value)
 
 
 
@@ -7729,7 +7729,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -7982,7 +7982,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -8026,7 +8026,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Unused, [u'object'], name, value)
 
 
 
@@ -8067,7 +8067,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Inactive, [u'object'], name, value)
 
 
 
@@ -8108,7 +8108,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Active, [u'object'], name, value)
 
 
 
@@ -8379,7 +8379,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -8632,7 +8632,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -8676,7 +8676,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Esi.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Esi.Unused, [u'object'], name, value)
 
 
 
@@ -8717,7 +8717,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Esi.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Esi.Inactive, [u'object'], name, value)
 
 
 
@@ -8758,7 +8758,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Esi.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Esi.Active, [u'object'], name, value)
 
 
 
@@ -9019,7 +9019,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -9272,7 +9272,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -9316,7 +9316,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused, [u'object'], name, value)
 
 
 
@@ -9357,7 +9357,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive, [u'object'], name, value)
 
 
 
@@ -9628,7 +9628,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -9881,7 +9881,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -9925,7 +9925,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Unused, [u'object'], name, value)
 
 
 
@@ -9966,7 +9966,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Inactive, [u'object'], name, value)
 
 
 
@@ -10007,7 +10007,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Active, [u'object'], name, value)
 
 
 
@@ -10278,7 +10278,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -10531,7 +10531,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -10575,7 +10575,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Rd.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Rd.Unused, [u'object'], name, value)
 
 
 
@@ -10616,7 +10616,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Rd.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Rd.Inactive, [u'object'], name, value)
 
 
 
@@ -10657,7 +10657,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Rd.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Rd.Active, [u'object'], name, value)
 
 
 
@@ -10928,7 +10928,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -11181,7 +11181,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -11225,7 +11225,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Mac.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Mac.Unused, [u'object'], name, value)
 
 
 
@@ -11266,7 +11266,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Mac.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Mac.Inactive, [u'object'], name, value)
 
 
 
@@ -11307,7 +11307,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Mac.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Mac.Active, [u'object'], name, value)
 
 
 
@@ -11578,7 +11578,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -11831,7 +11831,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -11875,7 +11875,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Unused, [u'object'], name, value)
 
 
 
@@ -11916,7 +11916,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Inactive, [u'object'], name, value)
 
 
 
@@ -11957,7 +11957,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Active, [u'object'], name, value)
 
 
 
@@ -12135,7 +12135,7 @@ class RoutingPolicyShadow(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingPolicyShadow.Limits, ['maximum_lines_of_policy', 'current_lines_of_policy_limit', 'current_lines_of_policy_used', 'maximum_number_of_policies', 'current_number_of_policies_limit', 'current_number_of_policies_used', 'compiled_policies_length'], name, value)
+            self._perform_setattr(RoutingPolicyShadow.Limits, [u'maximum_lines_of_policy', u'current_lines_of_policy_limit', u'current_lines_of_policy_used', u'maximum_number_of_policies', u'current_number_of_policies_limit', u'current_number_of_policies_used', u'compiled_policies_length'], name, value)
 
 
 
@@ -12432,7 +12432,7 @@ class RoutingPolicyShadow(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, ['object'], name, value)
+                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, [u'object'], name, value)
 
 
 
@@ -12518,7 +12518,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, ['set_domain', 'set_name'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, [u'set_domain', u'set_name'], name, value)
 
 
 
@@ -12604,7 +12604,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, ['set_domain', 'set_name'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, [u'set_domain', u'set_name'], name, value)
 
 
 
@@ -12645,7 +12645,7 @@ class RoutingPolicyShadow(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, ['object'], name, value)
+                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, [u'object'], name, value)
 
 
 
@@ -12742,7 +12742,7 @@ class RoutingPolicyShadow(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -12995,7 +12995,7 @@ class RoutingPolicyShadow(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                            self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -13039,7 +13039,7 @@ class RoutingPolicyShadow(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicyShadow.Policies.Unused, ['object'], name, value)
+                self._perform_setattr(RoutingPolicyShadow.Policies.Unused, [u'object'], name, value)
 
 
 
@@ -13080,7 +13080,7 @@ class RoutingPolicyShadow(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicyShadow.Policies.Inactive, ['object'], name, value)
+                self._perform_setattr(RoutingPolicyShadow.Policies.Inactive, [u'object'], name, value)
 
 
 
@@ -13121,7 +13121,7 @@ class RoutingPolicyShadow(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicyShadow.Policies.Active, ['object'], name, value)
+                self._perform_setattr(RoutingPolicyShadow.Policies.Active, [u'object'], name, value)
 
 
 
@@ -13597,7 +13597,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -13850,7 +13850,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -13894,7 +13894,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Unused, [u'object'], name, value)
 
 
 
@@ -13935,7 +13935,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Inactive, [u'object'], name, value)
 
 
 
@@ -13976,7 +13976,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Active, [u'object'], name, value)
 
 
 
@@ -14247,7 +14247,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -14500,7 +14500,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -14544,7 +14544,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Unused, [u'object'], name, value)
 
 
 
@@ -14585,7 +14585,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Inactive, [u'object'], name, value)
 
 
 
@@ -14626,7 +14626,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Active, [u'object'], name, value)
 
 
 
@@ -14898,7 +14898,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -15151,7 +15151,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -15195,7 +15195,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused, [u'object'], name, value)
 
 
 
@@ -15236,7 +15236,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive, [u'object'], name, value)
 
 
 
@@ -15277,7 +15277,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active, [u'object'], name, value)
 
 
 
@@ -15548,7 +15548,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -15801,7 +15801,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -15845,7 +15845,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused, [u'object'], name, value)
 
 
 
@@ -15886,7 +15886,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive, [u'object'], name, value)
 
 
 
@@ -15927,7 +15927,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active, [u'object'], name, value)
 
 
 
@@ -16198,7 +16198,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -16451,7 +16451,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -16495,7 +16495,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused, [u'object'], name, value)
 
 
 
@@ -16536,7 +16536,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive, [u'object'], name, value)
 
 
 
@@ -16577,7 +16577,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active, [u'object'], name, value)
 
 
 
@@ -16848,7 +16848,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -17101,7 +17101,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -17145,7 +17145,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Unused, [u'object'], name, value)
 
 
 
@@ -17186,7 +17186,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Inactive, [u'object'], name, value)
 
 
 
@@ -17227,7 +17227,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Active, [u'object'], name, value)
 
 
 
@@ -17498,7 +17498,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -17751,7 +17751,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -17795,7 +17795,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Unused, [u'object'], name, value)
 
 
 
@@ -17836,7 +17836,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Inactive, [u'object'], name, value)
 
 
 
@@ -17877,7 +17877,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Active, [u'object'], name, value)
 
 
 
@@ -18148,7 +18148,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -18401,7 +18401,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -18445,7 +18445,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Unused, [u'object'], name, value)
 
 
 
@@ -18486,7 +18486,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Inactive, [u'object'], name, value)
 
 
 
@@ -18527,7 +18527,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Community.Active, [u'object'], name, value)
 
 
 
@@ -18798,7 +18798,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -19051,7 +19051,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -19095,7 +19095,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Unused, [u'object'], name, value)
 
 
 
@@ -19136,7 +19136,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Inactive, [u'object'], name, value)
 
 
 
@@ -19177,7 +19177,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Active, [u'object'], name, value)
 
 
 
@@ -19448,7 +19448,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -19701,7 +19701,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -19745,7 +19745,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Unused, [u'object'], name, value)
 
 
 
@@ -19786,7 +19786,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Inactive, [u'object'], name, value)
 
 
 
@@ -19827,7 +19827,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Active, [u'object'], name, value)
 
 
 
@@ -20098,7 +20098,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -20351,7 +20351,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -20395,7 +20395,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Unused, [u'object'], name, value)
 
 
 
@@ -20436,7 +20436,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Inactive, [u'object'], name, value)
 
 
 
@@ -20477,7 +20477,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Active, [u'object'], name, value)
 
 
 
@@ -20738,7 +20738,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -20991,7 +20991,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -21035,7 +21035,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused, [u'object'], name, value)
 
 
 
@@ -21076,7 +21076,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive, [u'object'], name, value)
 
 
 
@@ -21347,7 +21347,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -21600,7 +21600,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -21644,7 +21644,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused, [u'object'], name, value)
 
 
 
@@ -21685,7 +21685,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive, [u'object'], name, value)
 
 
 
@@ -21726,7 +21726,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active, [u'object'], name, value)
 
 
 
@@ -21997,7 +21997,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -22250,7 +22250,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -22294,7 +22294,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Unused, [u'object'], name, value)
 
 
 
@@ -22335,7 +22335,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Inactive, [u'object'], name, value)
 
 
 
@@ -22376,7 +22376,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Active, [u'object'], name, value)
 
 
 
@@ -22647,7 +22647,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -22900,7 +22900,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -22944,7 +22944,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Unused, [u'object'], name, value)
 
 
 
@@ -22985,7 +22985,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Inactive, [u'object'], name, value)
 
 
 
@@ -23026,7 +23026,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Active, [u'object'], name, value)
 
 
 
@@ -23297,7 +23297,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, [u'route_policy_name', u'used_directly', u'status'], name, value)
 
 
 
@@ -23550,7 +23550,7 @@ class RoutingPolicyShadow(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, [u'protocol', u'vrf_name', u'proto_instance', u'af_name', u'saf_name', u'neighbor_address', u'neighbor_af_name', u'group_name', u'direction', u'group', u'source_protocol', u'aggregate_network_address', u'interface_name', u'instance', u'area_id', u'propogate_from', u'propogate_to', u'route_policy_name', u'attached_policy', u'attach_point'], name, value)
 
 
 
@@ -23594,7 +23594,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused, [u'object'], name, value)
 
 
 
@@ -23635,7 +23635,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive, [u'object'], name, value)
 
 
 
@@ -23676,7 +23676,7 @@ class RoutingPolicyShadow(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active, ['object'], name, value)
+                    self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active, [u'object'], name, value)
 
 
 

@@ -231,7 +231,7 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, ['mplsldplsrid', 'mplsldplsrloopdetectioncapable'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, [u'mplsldplsrid', u'mplsldplsrloopdetectioncapable'], name, value)
 
         class MplsLdpLsrLoopDetectionCapable(Enum):
             """
@@ -353,7 +353,7 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, ['mplsldpentitylastchange', 'mplsldpentityindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, [u'mplsldpentitylastchange', u'mplsldpentityindexnext'], name, value)
 
 
 
@@ -406,7 +406,7 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, ['mplsldppeerlastchange', 'mplsldplspfeclastchange'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, [u'mplsldppeerlastchange', u'mplsldplspfeclastchange'], name, value)
 
 
 
@@ -459,7 +459,7 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, ['mplsfeclastchange', 'mplsfecindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, [u'mplsfeclastchange', u'mplsfecindexnext'], name, value)
 
 
 
@@ -913,7 +913,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentityprotocolversion', 'mplsldpentityadminstatus', 'mplsldpentityoperstatus', 'mplsldpentitytcpport', 'mplsldpentityudpdscport', 'mplsldpentitymaxpdulength', 'mplsldpentitykeepaliveholdtimer', 'mplsldpentityhelloholdtimer', 'mplsldpentityinitsessionthreshold', 'mplsldpentitylabeldistmethod', 'mplsldpentitylabelretentionmode', 'mplsldpentitypathvectorlimit', 'mplsldpentityhopcountlimit', 'mplsldpentitytransportaddrkind', 'mplsldpentitytargetpeer', 'mplsldpentitytargetpeeraddrtype', 'mplsldpentitytargetpeeraddr', 'mplsldpentitylabeltype', 'mplsldpentitydiscontinuitytime', 'mplsldpentitystoragetype', 'mplsldpentityrowstatus', 'mplsldpentitystatssessionattempts', 'mplsldpentitystatssessionrejectednohelloerrors', 'mplsldpentitystatssessionrejectedaderrors', 'mplsldpentitystatssessionrejectedmaxpduerrors', 'mplsldpentitystatssessionrejectedlrerrors', 'mplsldpentitystatsbadldpidentifiererrors', 'mplsldpentitystatsbadpdulengtherrors', 'mplsldpentitystatsbadmessagelengtherrors', 'mplsldpentitystatsbadtlvlengtherrors', 'mplsldpentitystatsmalformedtlvvalueerrors', 'mplsldpentitystatskeepalivetimerexperrors', 'mplsldpentitystatsshutdownreceivednotifications', 'mplsldpentitystatsshutdownsentnotifications'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldpentityprotocolversion', u'mplsldpentityadminstatus', u'mplsldpentityoperstatus', u'mplsldpentitytcpport', u'mplsldpentityudpdscport', u'mplsldpentitymaxpdulength', u'mplsldpentitykeepaliveholdtimer', u'mplsldpentityhelloholdtimer', u'mplsldpentityinitsessionthreshold', u'mplsldpentitylabeldistmethod', u'mplsldpentitylabelretentionmode', u'mplsldpentitypathvectorlimit', u'mplsldpentityhopcountlimit', u'mplsldpentitytransportaddrkind', u'mplsldpentitytargetpeer', u'mplsldpentitytargetpeeraddrtype', u'mplsldpentitytargetpeeraddr', u'mplsldpentitylabeltype', u'mplsldpentitydiscontinuitytime', u'mplsldpentitystoragetype', u'mplsldpentityrowstatus', u'mplsldpentitystatssessionattempts', u'mplsldpentitystatssessionrejectednohelloerrors', u'mplsldpentitystatssessionrejectedaderrors', u'mplsldpentitystatssessionrejectedmaxpduerrors', u'mplsldpentitystatssessionrejectedlrerrors', u'mplsldpentitystatsbadldpidentifiererrors', u'mplsldpentitystatsbadpdulengtherrors', u'mplsldpentitystatsbadmessagelengtherrors', u'mplsldpentitystatsbadtlvlengtherrors', u'mplsldpentitystatsmalformedtlvvalueerrors', u'mplsldpentitystatskeepalivetimerexperrors', u'mplsldpentitystatsshutdownreceivednotifications', u'mplsldpentitystatsshutdownsentnotifications'], name, value)
 
             class MplsLdpEntityAdminStatus(Enum):
                 """
@@ -1288,7 +1288,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldppeerlabeldistmethod', 'mplsldppeerpathvectorlimit', 'mplsldppeertransportaddrtype', 'mplsldppeertransportaddr', 'mplsldpsessionstatelastchange', 'mplsldpsessionstate', 'mplsldpsessionrole', 'mplsldpsessionprotocolversion', 'mplsldpsessionkeepaliveholdtimerem', 'mplsldpsessionkeepalivetime', 'mplsldpsessionmaxpdulength', 'mplsldpsessiondiscontinuitytime', 'mplsldpsessionstatsunknownmestypeerrors', 'mplsldpsessionstatsunknowntlverrors'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldppeerlabeldistmethod', u'mplsldppeerpathvectorlimit', u'mplsldppeertransportaddrtype', u'mplsldppeertransportaddr', u'mplsldpsessionstatelastchange', u'mplsldpsessionstate', u'mplsldpsessionrole', u'mplsldpsessionprotocolversion', u'mplsldpsessionkeepaliveholdtimerem', u'mplsldpsessionkeepalivetime', u'mplsldpsessionmaxpdulength', u'mplsldpsessiondiscontinuitytime', u'mplsldpsessionstatsunknownmestypeerrors', u'mplsldpsessionstatsunknowntlverrors'], name, value)
 
             class MplsLdpSessionRole(Enum):
                 """
@@ -1505,7 +1505,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldphelloadjacencyindex', 'mplsldphelloadjacencyholdtimerem', 'mplsldphelloadjacencyholdtime', 'mplsldphelloadjacencytype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldphelloadjacencyindex', u'mplsldphelloadjacencyholdtimerem', u'mplsldphelloadjacencyholdtime', u'mplsldphelloadjacencytype'], name, value)
 
             class MplsLdpHelloAdjacencyType(Enum):
                 """
@@ -1672,7 +1672,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsinsegmentldplspindex', 'mplsinsegmentldplsplabeltype', 'mplsinsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsinsegmentldplspindex', u'mplsinsegmentldplsplabeltype', u'mplsinsegmentldplsptype'], name, value)
 
 
 
@@ -1815,7 +1815,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsoutsegmentldplspindex', 'mplsoutsegmentldplsplabeltype', 'mplsoutsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsoutsegmentldplspindex', u'mplsoutsegmentldplsplabeltype', u'mplsoutsegmentldplsptype'], name, value)
 
 
 
@@ -1956,7 +1956,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, ['mplsfecindex', 'mplsfectype', 'mplsfecaddrprefixlength', 'mplsfecaddrtype', 'mplsfecaddr', 'mplsfecstoragetype', 'mplsfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, [u'mplsfecindex', u'mplsfectype', u'mplsfecaddrprefixlength', u'mplsfecaddrtype', u'mplsfecaddr', u'mplsfecstoragetype', u'mplsfecrowstatus'], name, value)
 
             class MplsFecType(Enum):
                 """
@@ -2138,7 +2138,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldplspfecsegment', 'mplsldplspfecsegmentindex', 'mplsldplspfecindex', 'mplsldplspfecstoragetype', 'mplsldplspfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldplspfecsegment', u'mplsldplspfecsegmentindex', u'mplsldplspfecindex', u'mplsldplspfecstoragetype', u'mplsldplspfecrowstatus'], name, value)
 
             class MplsLdpLspFecSegment(Enum):
                 """
@@ -2321,7 +2321,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldpsessionpeeraddrindex', 'mplsldpsessionpeernexthopaddrtype', 'mplsldpsessionpeernexthopaddr'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldpsessionpeeraddrindex', u'mplsldpsessionpeernexthopaddrtype', u'mplsldpsessionpeernexthopaddr'], name, value)
 
 
 

@@ -312,7 +312,7 @@ class OcniNiIntfbase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, ['id', 'interface', 'subinterface', 'associated_address_family'], name, value)
+                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, [u'id', u'interface', u'subinterface', u'associated_address_family'], name, value)
 
 
 

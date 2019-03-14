@@ -1073,7 +1073,7 @@ class DOCSIF3MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIF3MIB.DocsIf3CmCapabilities, ['docsif3cmcapabilitiesreq', 'docsif3cmcapabilitiesrsp'], name, value)
+            self._perform_setattr(DOCSIF3MIB.DocsIf3CmCapabilities, [u'docsif3cmcapabilitiesreq', u'docsif3cmcapabilitiesrsp'], name, value)
 
 
 
@@ -1157,7 +1157,7 @@ class DOCSIF3MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmCtrl, ['docsif3cmtscmctrlcmdmacaddr', 'docsif3cmtscmctrlcmdmuteuschid', 'docsif3cmtscmctrlcmdmuteinterval', 'docsif3cmtscmctrlcmddisableforwarding', 'docsif3cmtscmctrlcmdcommit'], name, value)
+            self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmCtrl, [u'docsif3cmtscmctrlcmdmacaddr', u'docsif3cmtscmctrlcmdmuteuschid', u'docsif3cmtscmctrlcmdmuteinterval', u'docsif3cmtscmctrlcmddisableforwarding', u'docsif3cmtscmctrlcmdcommit'], name, value)
 
         class DocsIf3CmtsCmCtrlCmdCommit(Enum):
             """
@@ -1239,7 +1239,7 @@ class DOCSIF3MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgtCfg, ['docsif3cmenergymgtcfgfeatureenabled', 'docsif3cmenergymgtcfgcycleperiod'], name, value)
+            self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgtCfg, [u'docsif3cmenergymgtcfgfeatureenabled', u'docsif3cmenergymgtcfgcycleperiod'], name, value)
 
 
 
@@ -1377,7 +1377,7 @@ class DOCSIF3MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisCtrlCmd, ['docsif3cmspectrumanalysisctrlcmdenable', 'docsif3cmspectrumanalysisctrlcmdinactivitytimeout', 'docsif3cmspectrumanalysisctrlcmdfirstsegmentcenterfrequency', 'docsif3cmspectrumanalysisctrlcmdlastsegmentcenterfrequency', 'docsif3cmspectrumanalysisctrlcmdsegmentfrequencyspan', 'docsif3cmspectrumanalysisctrlcmdnumbinspersegment', 'docsif3cmspectrumanalysisctrlcmdequivalentnoisebandwidth', 'docsif3cmspectrumanalysisctrlcmdwindowfunction', 'docsif3cmspectrumanalysisctrlcmdnumberofaverages'], name, value)
+            self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisCtrlCmd, [u'docsif3cmspectrumanalysisctrlcmdenable', u'docsif3cmspectrumanalysisctrlcmdinactivitytimeout', u'docsif3cmspectrumanalysisctrlcmdfirstsegmentcenterfrequency', u'docsif3cmspectrumanalysisctrlcmdlastsegmentcenterfrequency', u'docsif3cmspectrumanalysisctrlcmdsegmentfrequencyspan', u'docsif3cmspectrumanalysisctrlcmdnumbinspersegment', u'docsif3cmspectrumanalysisctrlcmdequivalentnoisebandwidth', u'docsif3cmspectrumanalysisctrlcmdwindowfunction', u'docsif3cmspectrumanalysisctrlcmdnumberofaverages'], name, value)
 
 
 
@@ -1626,7 +1626,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusTable.DocsIf3CmStatusEntry, ['ifindex', 'docsif3cmstatusvalue', 'docsif3cmstatuscode', 'docsif3cmstatusresets', 'docsif3cmstatuslostsyncs', 'docsif3cmstatusinvalidmaps', 'docsif3cmstatusinvaliducds', 'docsif3cmstatusinvalidrangingrsps', 'docsif3cmstatusinvalidregrsps', 'docsif3cmstatust1timeouts', 'docsif3cmstatust2timeouts', 'docsif3cmstatusuccssuccesses', 'docsif3cmstatusuccfails', 'docsif3cmstatusenergymgt1x1operstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusTable.DocsIf3CmStatusEntry, [u'ifindex', u'docsif3cmstatusvalue', u'docsif3cmstatuscode', u'docsif3cmstatusresets', u'docsif3cmstatuslostsyncs', u'docsif3cmstatusinvalidmaps', u'docsif3cmstatusinvaliducds', u'docsif3cmstatusinvalidrangingrsps', u'docsif3cmstatusinvalidregrsps', u'docsif3cmstatust1timeouts', u'docsif3cmstatust2timeouts', u'docsif3cmstatusuccssuccesses', u'docsif3cmstatusuccfails', u'docsif3cmstatusenergymgt1x1operstatus'], name, value)
 
 
 
@@ -1819,7 +1819,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusUsTable.DocsIf3CmStatusUsEntry, ['ifindex', 'docsif3cmstatusustxpower', 'docsif3cmstatusust3timeouts', 'docsif3cmstatusust4timeouts', 'docsif3cmstatususrangingaborteds', 'docsif3cmstatususmodulationtype', 'docsif3cmstatususeqdata', 'docsif3cmstatusust3exceededs', 'docsif3cmstatususismuted', 'docsif3cmstatususrangingstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusUsTable.DocsIf3CmStatusUsEntry, [u'ifindex', u'docsif3cmstatusustxpower', u'docsif3cmstatusust3timeouts', u'docsif3cmstatusust4timeouts', u'docsif3cmstatususrangingaborteds', u'docsif3cmstatususmodulationtype', u'docsif3cmstatususeqdata', u'docsif3cmstatusust3exceededs', u'docsif3cmstatususismuted', u'docsif3cmstatususrangingstatus'], name, value)
 
 
 
@@ -2063,7 +2063,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmregstatusmacaddr', 'docsif3cmtscmregstatusipv6addr', 'docsif3cmtscmregstatusipv6linklocal', 'docsif3cmtscmregstatusipv4addr', 'docsif3cmtscmregstatusvalue', 'docsif3cmtscmregstatusmdifindex', 'docsif3cmtscmregstatusmdcmsgid', 'docsif3cmtscmregstatusrcpid', 'docsif3cmtscmregstatusrccstatusid', 'docsif3cmtscmregstatusrcsid', 'docsif3cmtscmregstatustcsid', 'docsif3cmtscmregstatusqosversion', 'docsif3cmtscmregstatuslastregtime', 'docsif3cmtscmregstatusaddrresolutionreqs', 'docsif3cmtscmregstatusenergymgtenabled', 'docsif3cmtscmregstatusenergymgtoperstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry, [u'docsif3cmtscmregstatusid', u'docsif3cmtscmregstatusmacaddr', u'docsif3cmtscmregstatusipv6addr', u'docsif3cmtscmregstatusipv6linklocal', u'docsif3cmtscmregstatusipv4addr', u'docsif3cmtscmregstatusvalue', u'docsif3cmtscmregstatusmdifindex', u'docsif3cmtscmregstatusmdcmsgid', u'docsif3cmtscmregstatusrcpid', u'docsif3cmtscmregstatusrccstatusid', u'docsif3cmtscmregstatusrcsid', u'docsif3cmtscmregstatustcsid', u'docsif3cmtscmregstatusqosversion', u'docsif3cmtscmregstatuslastregtime', u'docsif3cmtscmregstatusaddrresolutionreqs', u'docsif3cmtscmregstatusenergymgtenabled', u'docsif3cmtscmregstatusenergymgtoperstatus'], name, value)
 
 
 
@@ -2282,7 +2282,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmUsStatusTable.DocsIf3CmtsCmUsStatusEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmusstatuschifindex', 'docsif3cmtscmusstatusmodulationtype', 'docsif3cmtscmusstatusrxpower', 'docsif3cmtscmusstatussignalnoise', 'docsif3cmtscmusstatusmicroreflections', 'docsif3cmtscmusstatuseqdata', 'docsif3cmtscmusstatusunerroreds', 'docsif3cmtscmusstatuscorrecteds', 'docsif3cmtscmusstatusuncorrectables', 'docsif3cmtscmusstatushighresolutiontimingoffset', 'docsif3cmtscmusstatusismuted', 'docsif3cmtscmusstatusrangingstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmUsStatusTable.DocsIf3CmtsCmUsStatusEntry, [u'docsif3cmtscmregstatusid', u'docsif3cmtscmusstatuschifindex', u'docsif3cmtscmusstatusmodulationtype', u'docsif3cmtscmusstatusrxpower', u'docsif3cmtscmusstatussignalnoise', u'docsif3cmtscmusstatusmicroreflections', u'docsif3cmtscmusstatuseqdata', u'docsif3cmtscmusstatusunerroreds', u'docsif3cmtscmusstatuscorrecteds', u'docsif3cmtscmusstatusuncorrectables', u'docsif3cmtscmusstatushighresolutiontimingoffset', u'docsif3cmtscmusstatusismuted', u'docsif3cmtscmusstatusrangingstatus'], name, value)
 
 
 
@@ -2434,7 +2434,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdChCfgTable.DocsIf3MdChCfgEntry, ['ifindex', 'docsif3mdchcfgchifindex', 'docsif3mdchcfgispricapableds', 'docsif3mdchcfgchid', 'docsif3mdchcfgsfprovattrmask', 'docsif3mdchcfgrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdChCfgTable.DocsIf3MdChCfgEntry, [u'ifindex', u'docsif3mdchcfgchifindex', u'docsif3mdchcfgispricapableds', u'docsif3mdchcfgchid', u'docsif3mdchcfgsfprovattrmask', u'docsif3mdchcfgrowstatus'], name, value)
 
 
 
@@ -2592,7 +2592,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rcccfgvendorspecific', 'docsif3rcccfgdescription', 'docsif3rcccfgrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry, [u'ifindex', u'docsif3rcccfgrcpid', u'docsif3rcccfgrcccfgid', u'docsif3rcccfgvendorspecific', u'docsif3rcccfgdescription', u'docsif3rcccfgrowstatus'], name, value)
 
 
 
@@ -2733,7 +2733,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry, ['ifindex', 'docsif3rccstatusrcpid', 'docsif3rccstatusrccstatusid', 'docsif3rccstatusrcccfgid', 'docsif3rccstatusvaliditycode', 'docsif3rccstatusvaliditycodetext'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry, [u'ifindex', u'docsif3rccstatusrcpid', u'docsif3rccstatusrccstatusid', u'docsif3rccstatusrcccfgid', u'docsif3rccstatusvaliditycode', u'docsif3rccstatusvaliditycodetext'], name, value)
 
             class DocsIf3RccStatusValidityCode(Enum):
                 """
@@ -2988,7 +2988,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RxChCfgTable.DocsIf3RxChCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rxchcfgrcid', 'docsif3rxchcfgchifindex', 'docsif3rxchcfgprimarydsindicator', 'docsif3rxchcfgrcrmconnectivityid', 'docsif3rxchcfgrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RxChCfgTable.DocsIf3RxChCfgEntry, [u'ifindex', u'docsif3rcccfgrcpid', u'docsif3rcccfgrcccfgid', u'docsif3rxchcfgrcid', u'docsif3rxchcfgchifindex', u'docsif3rxchcfgprimarydsindicator', u'docsif3rxchcfgrcrmconnectivityid', u'docsif3rxchcfgrowstatus'], name, value)
 
 
 
@@ -3144,7 +3144,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RxChStatusTable.DocsIf3RxChStatusEntry, ['ifindex', 'docsif3rccstatusrcpid', 'docsif3rccstatusrccstatusid', 'docsif3rxchstatusrcid', 'docsif3rxchstatuschifindex', 'docsif3rxchstatusprimarydsindicator', 'docsif3rxchstatusrcrmconnectivityid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RxChStatusTable.DocsIf3RxChStatusEntry, [u'ifindex', u'docsif3rccstatusrcpid', u'docsif3rccstatusrccstatusid', u'docsif3rxchstatusrcid', u'docsif3rxchstatuschifindex', u'docsif3rxchstatusprimarydsindicator', u'docsif3rxchstatusrcrmconnectivityid'], name, value)
 
 
 
@@ -3337,7 +3337,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleCfgTable.DocsIf3RxModuleCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rxmodulecfgrmid', 'docsif3rxmodulecfgrmrmconnectivityid', 'docsif3rxmodulecfgfirstcenterfrequency', 'docsif3rxmodulecfgrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleCfgTable.DocsIf3RxModuleCfgEntry, [u'ifindex', u'docsif3rcccfgrcpid', u'docsif3rcccfgrcccfgid', u'docsif3rxmodulecfgrmid', u'docsif3rxmodulecfgrmrmconnectivityid', u'docsif3rxmodulecfgfirstcenterfrequency', u'docsif3rxmodulecfgrowstatus'], name, value)
 
 
 
@@ -3486,7 +3486,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleStatusTable.DocsIf3RxModuleStatusEntry, ['ifindex', 'docsif3rccstatusrcpid', 'docsif3rccstatusrccstatusid', 'docsif3rxmodulestatusrmid', 'docsif3rxmodulestatusrmrmconnectivityid', 'docsif3rxmodulestatusfirstcenterfrequency'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleStatusTable.DocsIf3RxModuleStatusEntry, [u'ifindex', u'docsif3rccstatusrcpid', u'docsif3rccstatusrccstatusid', u'docsif3rxmodulestatusrmid', u'docsif3rxmodulestatusrmrmconnectivityid', u'docsif3rxmodulestatusfirstcenterfrequency'], name, value)
 
 
 
@@ -3617,7 +3617,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdNodeStatusTable.DocsIf3MdNodeStatusEntry, ['ifindex', 'docsif3mdnodestatusnodename', 'docsif3mdnodestatusmdcmsgid', 'docsif3mdnodestatusmddssgid', 'docsif3mdnodestatusmdussgid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdNodeStatusTable.DocsIf3MdNodeStatusEntry, [u'ifindex', u'docsif3mdnodestatusnodename', u'docsif3mdnodestatusmdcmsgid', u'docsif3mdnodestatusmddssgid', u'docsif3mdnodestatusmdussgid'], name, value)
 
 
 
@@ -3727,7 +3727,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdDsSgStatusTable.DocsIf3MdDsSgStatusEntry, ['ifindex', 'docsif3mddssgstatusmddssgid', 'docsif3mddssgstatuschsetid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdDsSgStatusTable.DocsIf3MdDsSgStatusEntry, [u'ifindex', u'docsif3mddssgstatusmddssgid', u'docsif3mddssgstatuschsetid'], name, value)
 
 
 
@@ -3837,7 +3837,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsSgStatusTable.DocsIf3MdUsSgStatusEntry, ['ifindex', 'docsif3mdussgstatusmdussgid', 'docsif3mdussgstatuschsetid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsSgStatusTable.DocsIf3MdUsSgStatusEntry, [u'ifindex', u'docsif3mdussgstatusmdussgid', u'docsif3mdussgstatuschsetid'], name, value)
 
 
 
@@ -3942,7 +3942,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsToDsChMappingTable.DocsIf3MdUsToDsChMappingEntry, ['docsif3mdustodschmappingusifindex', 'docsif3mdustodschmappingdsifindex', 'docsif3mdustodschmappingmdifindex'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsToDsChMappingTable.DocsIf3MdUsToDsChMappingEntry, [u'docsif3mdustodschmappingusifindex', u'docsif3mdustodschmappingdsifindex', u'docsif3mdustodschmappingmdifindex'], name, value)
 
 
 
@@ -4179,7 +4179,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry, ['ifindex', 'docsif3mdcfgmddinterval', 'docsif3mdcfgipprovmode', 'docsif3mdcfgcmstatusevctlenabled', 'docsif3mdcfgusfreqrange', 'docsif3mdcfgmcastdsidfwdenabled', 'docsif3mdcfgmultrxchmodeenabled', 'docsif3mdcfgmulttxchmodeenabled', 'docsif3mdcfgearlyauthencrctrl', 'docsif3mdcfgtftpproxyenabled', 'docsif3mdcfgsrcaddrverifenabled', 'docsif3mdcfgdownchannelannex', 'docsif3mdcfgcmudcenabled', 'docsif3mdcfgsendudcrulesenabled', 'docsif3mdcfgservicetypeidlist', 'docsif3mdcfgbpi2enforcectrl', 'docsif3mdcfgenergymgt1x1enabled'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry, [u'ifindex', u'docsif3mdcfgmddinterval', u'docsif3mdcfgipprovmode', u'docsif3mdcfgcmstatusevctlenabled', u'docsif3mdcfgusfreqrange', u'docsif3mdcfgmcastdsidfwdenabled', u'docsif3mdcfgmultrxchmodeenabled', u'docsif3mdcfgmulttxchmodeenabled', u'docsif3mdcfgearlyauthencrctrl', u'docsif3mdcfgtftpproxyenabled', u'docsif3mdcfgsrcaddrverifenabled', u'docsif3mdcfgdownchannelannex', u'docsif3mdcfgcmudcenabled', u'docsif3mdcfgsendudcrulesenabled', u'docsif3mdcfgservicetypeidlist', u'docsif3mdcfgbpi2enforcectrl', u'docsif3mdcfgenergymgt1x1enabled'], name, value)
 
             class DocsIf3MdCfgBpi2EnforceCtrl(Enum):
                 """
@@ -4596,7 +4596,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3BondingGrpCfgTable.DocsIf3BondingGrpCfgEntry, ['ifindex', 'docsif3bondinggrpcfgdir', 'docsif3bondinggrpcfgcfgid', 'docsif3bondinggrpcfgchlist', 'docsif3bondinggrpcfgsfprovattrmask', 'docsif3bondinggrpcfgdsidreseqwaittime', 'docsif3bondinggrpcfgdsidreseqwarnthrshld', 'docsif3bondinggrpcfgrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3BondingGrpCfgTable.DocsIf3BondingGrpCfgEntry, [u'ifindex', u'docsif3bondinggrpcfgdir', u'docsif3bondinggrpcfgcfgid', u'docsif3bondinggrpcfgchlist', u'docsif3bondinggrpcfgsfprovattrmask', u'docsif3bondinggrpcfgdsidreseqwaittime', u'docsif3bondinggrpcfgdsidreseqwarnthrshld', u'docsif3bondinggrpcfgrowstatus'], name, value)
 
 
 
@@ -4715,7 +4715,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3DsBondingGrpStatusTable.DocsIf3DsBondingGrpStatusEntry, ['ifindex', 'docsif3dsbondinggrpstatuschsetid', 'docsif3dsbondinggrpstatusmddssgid', 'docsif3dsbondinggrpstatuscfgid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3DsBondingGrpStatusTable.DocsIf3DsBondingGrpStatusEntry, [u'ifindex', u'docsif3dsbondinggrpstatuschsetid', u'docsif3dsbondinggrpstatusmddssgid', u'docsif3dsbondinggrpstatuscfgid'], name, value)
 
 
 
@@ -4834,7 +4834,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3UsBondingGrpStatusTable.DocsIf3UsBondingGrpStatusEntry, ['ifindex', 'docsif3usbondinggrpstatuschsetid', 'docsif3usbondinggrpstatusmdussgid', 'docsif3usbondinggrpstatuscfgid'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3UsBondingGrpStatusTable.DocsIf3UsBondingGrpStatusEntry, [u'ifindex', u'docsif3usbondinggrpstatuschsetid', u'docsif3usbondinggrpstatusmdussgid', u'docsif3usbondinggrpstatuscfgid'], name, value)
 
 
 
@@ -4940,7 +4940,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3UsChExtTable.DocsIf3UsChExtEntry, ['ifindex', 'docsif3uschextsaccodehoppingselectionmode', 'docsif3uschextscdmaselectionstringactivecodes'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3UsChExtTable.DocsIf3UsChExtEntry, [u'ifindex', u'docsif3uschextsaccodehoppingselectionmode', u'docsif3uschextscdmaselectionstringactivecodes'], name, value)
 
             class DocsIf3UsChExtSacCodeHoppingSelectionMode(Enum):
                 """
@@ -5105,7 +5105,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3UsChSetTable.DocsIf3UsChSetEntry, ['ifindex', 'docsif3uschsetid', 'docsif3uschsetchlist'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3UsChSetTable.DocsIf3UsChSetEntry, [u'ifindex', u'docsif3uschsetid', u'docsif3uschsetchlist'], name, value)
 
 
 
@@ -5215,7 +5215,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3DsChSetTable.DocsIf3DsChSetEntry, ['ifindex', 'docsif3dschsetid', 'docsif3dschsetchlist'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3DsChSetTable.DocsIf3DsChSetEntry, [u'ifindex', u'docsif3dschsetid', u'docsif3dschsetchlist'], name, value)
 
 
 
@@ -5331,7 +5331,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3SignalQualityExtTable.DocsIf3SignalQualityExtEntry, ['ifindex', 'docsif3signalqualityextrxmer', 'docsif3signalqualityextrxmersamples'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3SignalQualityExtTable.DocsIf3SignalQualityExtEntry, [u'ifindex', u'docsif3signalqualityextrxmer', u'docsif3signalqualityextrxmersamples'], name, value)
 
 
 
@@ -5442,7 +5442,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSignalQualityExtTable.DocsIf3CmtsSignalQualityExtEntry, ['ifindex', 'docsif3cmtssignalqualityextcnir', 'docsif3cmtssignalqualityextexpectedrxsignalpower'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSignalQualityExtTable.DocsIf3CmtsSignalQualityExtEntry, [u'ifindex', u'docsif3cmtssignalqualityextcnir', u'docsif3cmtssignalqualityextexpectedrxsignalpower'], name, value)
 
 
 
@@ -5564,7 +5564,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSpectrumAnalysisMeasTable.DocsIf3CmtsSpectrumAnalysisMeasEntry, ['ifindex', 'docsif3cmtsspectrumanalysismeasamplitudedata', 'docsif3cmtsspectrumanalysismeastimeinterval', 'docsif3cmtsspectrumanalysismeasrowstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSpectrumAnalysisMeasTable.DocsIf3CmtsSpectrumAnalysisMeasEntry, [u'ifindex', u'docsif3cmtsspectrumanalysismeasamplitudedata', u'docsif3cmtsspectrumanalysismeastimeinterval', u'docsif3cmtsspectrumanalysismeasrowstatus'], name, value)
 
 
 
@@ -5746,7 +5746,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmDpvStatsTable.DocsIf3CmDpvStatsEntry, ['ifindex', 'docsif3cmdpvstatsgrpid', 'docsif3cmdpvstatslastmeaslatency', 'docsif3cmdpvstatslastmeastime', 'docsif3cmdpvstatsminlatency', 'docsif3cmdpvstatsmaxlatency', 'docsif3cmdpvstatsavglatency', 'docsif3cmdpvstatsnummeas', 'docsif3cmdpvstatslastcleartime'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmDpvStatsTable.DocsIf3CmDpvStatsEntry, [u'ifindex', u'docsif3cmdpvstatsgrpid', u'docsif3cmdpvstatslastmeaslatency', u'docsif3cmdpvstatslastmeastime', u'docsif3cmdpvstatsminlatency', u'docsif3cmdpvstatsmaxlatency', u'docsif3cmdpvstatsavglatency', u'docsif3cmdpvstatsnummeas', u'docsif3cmdpvstatslastcleartime'], name, value)
 
 
 
@@ -5850,7 +5850,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEventCtrlTable.DocsIf3CmEventCtrlEntry, ['docsif3cmeventctrleventid', 'docsif3cmeventctrlstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEventCtrlTable.DocsIf3CmEventCtrlEntry, [u'docsif3cmeventctrleventid', u'docsif3cmeventctrlstatus'], name, value)
 
 
 
@@ -5954,7 +5954,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsEventCtrlTable.DocsIf3CmtsEventCtrlEntry, ['docsif3cmtseventctrleventid', 'docsif3cmtseventctrlstatus'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsEventCtrlTable.DocsIf3CmtsEventCtrlEntry, [u'docsif3cmtseventctrleventid', u'docsif3cmtseventctrlstatus'], name, value)
 
 
 
@@ -6079,7 +6079,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmMdCfgTable.DocsIf3CmMdCfgEntry, ['ifindex', 'docsif3cmmdcfgipprovmode', 'docsif3cmmdcfgipprovmoderesetonchange', 'docsif3cmmdcfgipprovmoderesetonchangeholdofftimer', 'docsif3cmmdcfgipprovmodestoragetype'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmMdCfgTable.DocsIf3CmMdCfgEntry, [u'ifindex', u'docsif3cmmdcfgipprovmode', u'docsif3cmmdcfgipprovmoderesetonchange', u'docsif3cmmdcfgipprovmoderesetonchangeholdofftimer', u'docsif3cmmdcfgipprovmodestoragetype'], name, value)
 
             class DocsIf3CmMdCfgIpProvMode(Enum):
                 """
@@ -6252,7 +6252,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgt1x1CfgTable.DocsIf3CmEnergyMgt1x1CfgEntry, ['docsif3cmenergymgt1x1cfgdirection', 'docsif3cmenergymgt1x1cfgentrybitratethrshld', 'docsif3cmenergymgt1x1cfgentrytimethrshld', 'docsif3cmenergymgt1x1cfgexitbitratethrshld', 'docsif3cmenergymgt1x1cfgexittimethrshld'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgt1x1CfgTable.DocsIf3CmEnergyMgt1x1CfgEntry, [u'docsif3cmenergymgt1x1cfgdirection', u'docsif3cmenergymgt1x1cfgentrybitratethrshld', u'docsif3cmenergymgt1x1cfgentrytimethrshld', u'docsif3cmenergymgt1x1cfgexitbitratethrshld', u'docsif3cmenergymgt1x1cfgexittimethrshld'], name, value)
 
 
 
@@ -6359,7 +6359,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisMeasTable.DocsIf3CmSpectrumAnalysisMeasEntry, ['docsif3cmspectrumanalysismeasfrequency', 'docsif3cmspectrumanalysismeasamplitudedata', 'docsif3cmspectrumanalysismeastotalsegmentpower'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisMeasTable.DocsIf3CmSpectrumAnalysisMeasEntry, [u'docsif3cmspectrumanalysismeasfrequency', u'docsif3cmspectrumanalysismeasamplitudedata', u'docsif3cmspectrumanalysismeastotalsegmentpower'], name, value)
 
 
 
@@ -6460,7 +6460,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmEmStatsTable.DocsIf3CmtsCmEmStatsEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmemstatsem1x1modetotalduration'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmEmStatsTable.DocsIf3CmtsCmEmStatsEntry, [u'docsif3cmtscmregstatusid', u'docsif3cmtscmemstatsem1x1modetotalduration'], name, value)
 
 
 
@@ -6624,7 +6624,7 @@ class DOCSIF3MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEm1x1StatsTable.DocsIf3CmEm1x1StatsEntry, ['ifindex', 'docsif3cmem1x1statsnumbertimescrossedbelowusentrythrshlds', 'docsif3cmem1x1statsnumbertimescrossedbelowdsentrythrshlds', 'docsif3cmem1x1statstotalduration', 'docsif3cmem1x1statstotaldurationbelowusthrshlds', 'docsif3cmem1x1statstotaldurationbelowdsthrshlds', 'docsif3cmem1x1statstotaldurationbelowusdsthrshlds'], name, value)
+                self._perform_setattr(DOCSIF3MIB.DocsIf3CmEm1x1StatsTable.DocsIf3CmEm1x1StatsEntry, [u'ifindex', u'docsif3cmem1x1statsnumbertimescrossedbelowusentrythrshlds', u'docsif3cmem1x1statsnumbertimescrossedbelowdsentrythrshlds', u'docsif3cmem1x1statstotalduration', u'docsif3cmem1x1statstotaldurationbelowusthrshlds', u'docsif3cmem1x1statstotaldurationbelowdsthrshlds', u'docsif3cmem1x1statstotaldurationbelowusdsthrshlds'], name, value)
 
 
 
