@@ -6455,7 +6455,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf bitrate {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or 
+                  "../SignalledBandwidthType = ODUflexCBR or
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =
@@ -6470,7 +6470,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf od-uflex-framing-type {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or 
+                  "../SignalledBandwidthType = ODUflexCBR or
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =

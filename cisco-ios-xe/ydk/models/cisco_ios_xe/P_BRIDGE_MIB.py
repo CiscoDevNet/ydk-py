@@ -186,7 +186,7 @@ class PBRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PBRIDGEMIB.Dot1dExtBase, ['dot1ddevicecapabilities', 'dot1dtrafficclassesenabled', 'dot1dgmrpstatus'], name, value)
+            self._perform_setattr(PBRIDGEMIB.Dot1dExtBase, [u'dot1ddevicecapabilities', u'dot1dtrafficclassesenabled', u'dot1dgmrpstatus'], name, value)
 
 
 
@@ -304,7 +304,7 @@ class PBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PBRIDGEMIB.Dot1dTpHCPortTable.Dot1dTpHCPortEntry, ['dot1dtpport', 'dot1dtphcportinframes', 'dot1dtphcportoutframes', 'dot1dtphcportindiscards'], name, value)
+                self._perform_setattr(PBRIDGEMIB.Dot1dTpHCPortTable.Dot1dTpHCPortEntry, [u'dot1dtpport', u'dot1dtphcportinframes', u'dot1dtphcportoutframes', u'dot1dtphcportindiscards'], name, value)
 
 
 
@@ -435,7 +435,7 @@ class PBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PBRIDGEMIB.Dot1dTpPortOverflowTable.Dot1dTpPortOverflowEntry, ['dot1dtpport', 'dot1dtpportinoverflowframes', 'dot1dtpportoutoverflowframes', 'dot1dtpportinoverflowdiscards'], name, value)
+                self._perform_setattr(PBRIDGEMIB.Dot1dTpPortOverflowTable.Dot1dTpPortOverflowEntry, [u'dot1dtpport', u'dot1dtpportinoverflowframes', u'dot1dtpportoutoverflowframes', u'dot1dtpportinoverflowdiscards'], name, value)
 
 
 
@@ -547,7 +547,7 @@ class PBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PBRIDGEMIB.Dot1dUserPriorityRegenTable.Dot1dUserPriorityRegenEntry, ['dot1dbaseport', 'dot1duserpriority', 'dot1dregenuserpriority'], name, value)
+                self._perform_setattr(PBRIDGEMIB.Dot1dUserPriorityRegenTable.Dot1dUserPriorityRegenEntry, [u'dot1dbaseport', u'dot1duserpriority', u'dot1dregenuserpriority'], name, value)
 
 
 
@@ -654,7 +654,7 @@ class PBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PBRIDGEMIB.Dot1dTrafficClassTable.Dot1dTrafficClassEntry, ['dot1dbaseport', 'dot1dtrafficclasspriority', 'dot1dtrafficclass'], name, value)
+                self._perform_setattr(PBRIDGEMIB.Dot1dTrafficClassTable.Dot1dTrafficClassEntry, [u'dot1dbaseport', u'dot1dtrafficclasspriority', u'dot1dtrafficclass'], name, value)
 
 
 
@@ -764,7 +764,7 @@ class PBRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PBRIDGEMIB.Dot1dPortOutboundAccessPriorityTable.Dot1dPortOutboundAccessPriorityEntry, ['dot1dbaseport', 'dot1dregenuserpriority', 'dot1dportoutboundaccesspriority'], name, value)
+                self._perform_setattr(PBRIDGEMIB.Dot1dPortOutboundAccessPriorityTable.Dot1dPortOutboundAccessPriorityEntry, [u'dot1dbaseport', u'dot1dregenuserpriority', u'dot1dportoutboundaccesspriority'], name, value)
 
 
 

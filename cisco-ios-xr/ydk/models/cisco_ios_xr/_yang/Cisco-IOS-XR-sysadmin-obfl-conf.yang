@@ -1,24 +1,32 @@
 module Cisco-IOS-XR-sysadmin-obfl-conf {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-obfl-conf";
   prefix obflconf;
+  organization "Cisco Systems Inc.";
 
-  import tailf-common {
-    prefix tailf;
-  }
+  contact
+    "Cisco Systems, Inc.
+     Customer Service
 
-  organization
-    "Cisco Systems Inc.";
-  description
-    "This module is for setting certain OBFL params.";
+     Postal: 170 West Tasman Drive
+     San Jose, CA 95134
 
+     Tel: +1 800 553-NETS
+
+     E-mail: cs-yang@cisco.com";
+
+  description 
+    "This module contains definitions
+     for the Calvados model objects.
+
+    This module is for setting certain OBFL params.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-07-31 {
     description
       "Changed namespace to Cisco guidelines on naming convention";
   }
-  revision 2011-12-03 {
-    description
-      "Initial revision.";
-  }
+
 
   grouping hw-module-config-group {
     uses hw-module-obfl-config-group;
@@ -27,21 +35,15 @@ module Cisco-IOS-XR-sysadmin-obfl-conf {
   grouping hw-module-obfl-config-group {
     list location {
       key "location";
-      tailf:cli-incomplete-command;
-      tailf:info "Select location";
       leaf location {
         type string;
-        tailf:info "Select target location";
       }
       container logging {
-        tailf:info "OBFL logging";
         container onboard {
-          tailf:info "OBFL onboard logging";
           choice onboard_target {
             case target_disable {
               leaf disable {
                 type empty;
-                tailf:info "OBFL disable logging";
               }
             }
           }
@@ -49,5 +51,4 @@ module Cisco-IOS-XR-sysadmin-obfl-conf {
       }
     }
   }
-  tailf:id "http://www.cisco.com/calvados/obflconf";
 }

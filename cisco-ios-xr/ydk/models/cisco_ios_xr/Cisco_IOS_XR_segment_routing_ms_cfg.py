@@ -122,8 +122,6 @@ class Sr(Entity):
     	Traffic Engineering configuration data
     	**type**\:  :py:class:`TrafficEngineering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering>`
     
-    	**presence node**\: True
-    
     
 
     """
@@ -160,13 +158,14 @@ class Sr(Entity):
         self.global_block = None
         self._children_name_map["global_block"] = "global-block"
 
-        self.traffic_engineering = None
+        self.traffic_engineering = Sr.TrafficEngineering()
+        self.traffic_engineering.parent = self
         self._children_name_map["traffic_engineering"] = "Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering"
         self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr"
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Sr, [u'enable'], name, value)
+        self._perform_setattr(Sr, ['enable'], name, value)
 
 
     class LocalBlock(Entity):
@@ -221,7 +220,7 @@ class Sr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sr.LocalBlock, [u'lower_bound', u'upper_bound'], name, value)
+            self._perform_setattr(Sr.LocalBlock, ['lower_bound', 'upper_bound'], name, value)
 
 
 
@@ -344,7 +343,7 @@ class Sr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sr.Mappings.Mapping, [u'af', u'ip', u'mask', u'sid_start', u'sid_range', u'flag_attached'], name, value)
+                self._perform_setattr(Sr.Mappings.Mapping, ['af', 'ip', 'mask', 'sid_start', 'sid_range', 'flag_attached'], name, value)
 
 
 
@@ -468,7 +467,7 @@ class Sr(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface, [u'interface'], name, value)
+                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface, ['interface'], name, value)
 
 
                 class AddressFamilies(Entity):
@@ -550,7 +549,7 @@ class Sr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily, [u'address_family'], name, value)
+                            self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily, ['address_family'], name, value)
 
 
                         class NextHops(Entity):
@@ -642,7 +641,7 @@ class Sr(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop, [u'ip_addr'], name, value)
+                                    self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop, ['ip_addr'], name, value)
 
 
                                 class L2AdjacencySid(Entity):
@@ -707,7 +706,7 @@ class Sr(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop.L2AdjacencySid, [u'sid_type', u'absolute_sid', u'index_sid', u'srlb'], name, value)
+                                        self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop.L2AdjacencySid, ['sid_type', 'absolute_sid', 'index_sid', 'srlb'], name, value)
 
 
 
@@ -770,13 +769,18 @@ class Sr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sr.GlobalBlock, [u'lower_bound', u'upper_bound'], name, value)
+            self._perform_setattr(Sr.GlobalBlock, ['lower_bound', 'upper_bound'], name, value)
 
 
 
     class TrafficEngineering(Entity):
         """
         Traffic Engineering configuration data
+        
+        .. attribute:: out_of_resources
+        
+        	SR\-TE out\-of\-resources handling configuration
+        	**type**\:  :py:class:`OutOfResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OutOfResources>`
         
         .. attribute:: on_demand_colors
         
@@ -794,6 +798,11 @@ class Sr(Entity):
         	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Logging>`
         
         	**presence node**\: True
+        
+        .. attribute:: timers
+        
+        	SR\-TE timers configuration
+        	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Timers>`
         
         .. attribute:: binding_sid_rules
         
@@ -832,8 +841,6 @@ class Sr(Entity):
         
         	**range:** 1..255
         
-        	**mandatory**\: True
-        
         .. attribute:: enable
         
         	True only
@@ -841,12 +848,10 @@ class Sr(Entity):
         
         
 
-        This class is a :ref:`presence class<presence-class>`
-
         """
 
         _prefix = 'infra-xtc-agent-cfg'
-        _revision = '2018-07-07'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Sr.TrafficEngineering, self).__init__()
@@ -856,8 +861,7 @@ class Sr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("on-demand-colors", ("on_demand_colors", Sr.TrafficEngineering.OnDemandColors)), ("segments", ("segments", Sr.TrafficEngineering.Segments)), ("logging", ("logging", Sr.TrafficEngineering.Logging)), ("binding-sid-rules", ("binding_sid_rules", Sr.TrafficEngineering.BindingSidRules)), ("policies", ("policies", Sr.TrafficEngineering.Policies)), ("srte-interfaces", ("srte_interfaces", Sr.TrafficEngineering.SrteInterfaces)), ("pcc", ("pcc", Sr.TrafficEngineering.Pcc)), ("affinity-maps", ("affinity_maps", Sr.TrafficEngineering.AffinityMaps))])
-            self.is_presence_container = True
+            self._child_classes = OrderedDict([("out-of-resources", ("out_of_resources", Sr.TrafficEngineering.OutOfResources)), ("on-demand-colors", ("on_demand_colors", Sr.TrafficEngineering.OnDemandColors)), ("segments", ("segments", Sr.TrafficEngineering.Segments)), ("logging", ("logging", Sr.TrafficEngineering.Logging)), ("timers", ("timers", Sr.TrafficEngineering.Timers)), ("binding-sid-rules", ("binding_sid_rules", Sr.TrafficEngineering.BindingSidRules)), ("policies", ("policies", Sr.TrafficEngineering.Policies)), ("srte-interfaces", ("srte_interfaces", Sr.TrafficEngineering.SrteInterfaces)), ("pcc", ("pcc", Sr.TrafficEngineering.Pcc)), ("affinity-maps", ("affinity_maps", Sr.TrafficEngineering.AffinityMaps))])
             self._leafs = OrderedDict([
                 ('te_latency', (YLeaf(YType.empty, 'te-latency'), ['Empty'])),
                 ('maximum_sid_depth', (YLeaf(YType.uint32, 'maximum-sid-depth'), ['int'])),
@@ -866,6 +870,10 @@ class Sr(Entity):
             self.te_latency = None
             self.maximum_sid_depth = None
             self.enable = None
+
+            self.out_of_resources = Sr.TrafficEngineering.OutOfResources()
+            self.out_of_resources.parent = self
+            self._children_name_map["out_of_resources"] = "out-of-resources"
 
             self.on_demand_colors = Sr.TrafficEngineering.OnDemandColors()
             self.on_demand_colors.parent = self
@@ -877,6 +885,10 @@ class Sr(Entity):
 
             self.logging = None
             self._children_name_map["logging"] = "logging"
+
+            self.timers = Sr.TrafficEngineering.Timers()
+            self.timers.parent = self
+            self._children_name_map["timers"] = "timers"
 
             self.binding_sid_rules = Sr.TrafficEngineering.BindingSidRules()
             self.binding_sid_rules.parent = self
@@ -905,6 +917,48 @@ class Sr(Entity):
             self._perform_setattr(Sr.TrafficEngineering, ['te_latency', 'maximum_sid_depth', 'enable'], name, value)
 
 
+        class OutOfResources(Entity):
+            """
+            SR\-TE out\-of\-resources handling configuration
+            
+            .. attribute:: maximum_ls_ps
+            
+            	Number of LSPs (0 for no limit; default is 0)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**default value**\: 0
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-agent-cfg'
+            _revision = '2018-11-28'
+
+            def __init__(self):
+                super(Sr.TrafficEngineering.OutOfResources, self).__init__()
+
+                self.yang_name = "out-of-resources"
+                self.yang_parent_name = "traffic-engineering"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('maximum_ls_ps', (YLeaf(YType.uint32, 'maximum-ls-ps'), ['int'])),
+                ])
+                self.maximum_ls_ps = None
+                self._segment_path = lambda: "out-of-resources"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Sr.TrafficEngineering.OutOfResources, ['maximum_ls_ps'], name, value)
+
+
+
         class OnDemandColors(Entity):
             """
             On\-demand color configuration
@@ -919,7 +973,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.OnDemandColors, self).__init__()
@@ -957,14 +1011,19 @@ class Sr(Entity):
                 	Dynamic MPLS path properties
                 	**type**\:  :py:class:`OnDemandColorDynMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls>`
                 
-                	**presence node**\: True
-                
                 .. attribute:: bandwidth
                 
                 	The value of the bandwidth reserved by this policy in kbps
                 	**type**\: int
                 
                 	**range:** 1..4294967295
+                
+                .. attribute:: maximum_sid_depth
+                
+                	Maximum SID Depth Configuration
+                	**type**\: int
+                
+                	**range:** 1..255
                 
                 .. attribute:: enable
                 
@@ -976,7 +1035,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor, self).__init__()
@@ -990,20 +1049,23 @@ class Sr(Entity):
                     self._leafs = OrderedDict([
                         ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
                         ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                        ('maximum_sid_depth', (YLeaf(YType.uint32, 'maximum-sid-depth'), ['int'])),
                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.color = None
                     self.bandwidth = None
+                    self.maximum_sid_depth = None
                     self.enable = None
 
-                    self.on_demand_color_dyn_mpls = None
+                    self.on_demand_color_dyn_mpls = Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls()
+                    self.on_demand_color_dyn_mpls.parent = self
                     self._children_name_map["on_demand_color_dyn_mpls"] = "on-demand-color-dyn-mpls"
                     self._segment_path = lambda: "on-demand-color" + "[color='" + str(self.color) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor, ['color', 'bandwidth', 'enable'], name, value)
+                    self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor, ['color', 'bandwidth', 'maximum_sid_depth', 'enable'], name, value)
 
 
                 class OnDemandColorDynMpls(Entity):
@@ -1014,8 +1076,6 @@ class Sr(Entity):
                     
                     	Metric type
                     	**type**\:  :py:class:`OnDemandColorDynMplsMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric>`
-                    
-                    	**presence node**\: True
                     
                     .. attribute:: on_demand_color_dyn_mpls_pce
                     
@@ -1036,21 +1096,22 @@ class Sr(Entity):
                     
                     	**range:** 128..255
                     
-                    	**mandatory**\: True
-                    
                     .. attribute:: enable
                     
                     	Dynamic MPLS path properties submode Enable
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: affinity_rules
                     
-
-                    This class is a :ref:`presence class<presence-class>`
+                    	SR path computation and verification affinity rules
+                    	**type**\:  :py:class:`AffinityRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules>`
+                    
+                    
 
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls, self).__init__()
@@ -1060,8 +1121,7 @@ class Sr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("on-demand-color-dyn-mpls-metric", ("on_demand_color_dyn_mpls_metric", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric)), ("on-demand-color-dyn-mpls-pce", ("on_demand_color_dyn_mpls_pce", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsPce)), ("disjoint-path", ("disjoint_path", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.DisjointPath))])
-                        self.is_presence_container = True
+                        self._child_classes = OrderedDict([("on-demand-color-dyn-mpls-metric", ("on_demand_color_dyn_mpls_metric", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric)), ("on-demand-color-dyn-mpls-pce", ("on_demand_color_dyn_mpls_pce", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsPce)), ("disjoint-path", ("disjoint_path", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.DisjointPath)), ("affinity-rules", ("affinity_rules", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules))])
                         self._leafs = OrderedDict([
                             ('on_demand_color_dyn_mpls_flex_algorithm', (YLeaf(YType.uint32, 'on-demand-color-dyn-mpls-flex-algorithm'), ['int'])),
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
@@ -1069,7 +1129,8 @@ class Sr(Entity):
                         self.on_demand_color_dyn_mpls_flex_algorithm = None
                         self.enable = None
 
-                        self.on_demand_color_dyn_mpls_metric = None
+                        self.on_demand_color_dyn_mpls_metric = Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric()
+                        self.on_demand_color_dyn_mpls_metric.parent = self
                         self._children_name_map["on_demand_color_dyn_mpls_metric"] = "on-demand-color-dyn-mpls-metric"
 
                         self.on_demand_color_dyn_mpls_pce = Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsPce()
@@ -1078,6 +1139,10 @@ class Sr(Entity):
 
                         self.disjoint_path = None
                         self._children_name_map["disjoint_path"] = "disjoint-path"
+
+                        self.affinity_rules = Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules()
+                        self.affinity_rules.parent = self
+                        self._children_name_map["affinity_rules"] = "affinity-rules"
                         self._segment_path = lambda: "on-demand-color-dyn-mpls"
                         self._is_frozen = True
 
@@ -1094,21 +1159,22 @@ class Sr(Entity):
                         	Metric Type
                         	**type**\:  :py:class:`XtcMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcMetric>`
                         
-                        	**mandatory**\: True
-                        
                         .. attribute:: enable
                         
                         	Metric submode Enable
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
+                        .. attribute:: metric_margin
                         
-
-                        This class is a :ref:`presence class<presence-class>`
+                        	Metric Margin
+                        	**type**\:  :py:class:`MetricMargin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric.MetricMargin>`
+                        
+                        
 
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric, self).__init__()
@@ -1118,19 +1184,77 @@ class Sr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self.is_presence_container = True
+                            self._child_classes = OrderedDict([("metric-margin", ("metric_margin", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric.MetricMargin))])
                             self._leafs = OrderedDict([
                                 ('metric_type', (YLeaf(YType.enumeration, 'metric-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcMetric', '')])),
                                 ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.metric_type = None
                             self.enable = None
+
+                            self.metric_margin = Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric.MetricMargin()
+                            self.metric_margin.parent = self
+                            self._children_name_map["metric_margin"] = "metric-margin"
                             self._segment_path = lambda: "on-demand-color-dyn-mpls-metric"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric, ['metric_type', 'enable'], name, value)
+
+
+                        class MetricMargin(Entity):
+                            """
+                            Metric Margin
+                            
+                            .. attribute:: value_type
+                            
+                            	Metric margin type
+                            	**type**\:  :py:class:`XtcMetricValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcMetricValue>`
+                            
+                            .. attribute:: absolute_value
+                            
+                            	Absolute metric value
+                            	**type**\: int
+                            
+                            	**range:** 0..2147483647
+                            
+                            .. attribute:: relative_value
+                            
+                            	Relative metric value
+                            	**type**\: int
+                            
+                            	**range:** 0..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-cfg'
+                            _revision = '2018-11-28'
+
+                            def __init__(self):
+                                super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric.MetricMargin, self).__init__()
+
+                                self.yang_name = "metric-margin"
+                                self.yang_parent_name = "on-demand-color-dyn-mpls-metric"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('value_type', (YLeaf(YType.enumeration, 'value-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcMetricValue', '')])),
+                                    ('absolute_value', (YLeaf(YType.uint32, 'absolute-value'), ['int'])),
+                                    ('relative_value', (YLeaf(YType.uint32, 'relative-value'), ['int'])),
+                                ])
+                                self.value_type = None
+                                self.absolute_value = None
+                                self.relative_value = None
+                                self._segment_path = lambda: "metric-margin"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric.MetricMargin, ['value_type', 'absolute_value', 'relative_value'], name, value)
+
 
 
 
@@ -1148,7 +1272,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsPce, self).__init__()
@@ -1205,7 +1329,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.DisjointPath, self).__init__()
@@ -1233,6 +1357,127 @@ class Sr(Entity):
 
 
 
+                    class AffinityRules(Entity):
+                        """
+                        SR path computation and verification affinity
+                        rules
+                        
+                        .. attribute:: affinity_rule
+                        
+                        	SR path computation and verification affinity rule
+                        	**type**\: list of  		 :py:class:`AffinityRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-cfg'
+                        _revision = '2018-11-28'
+
+                        def __init__(self):
+                            super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules, self).__init__()
+
+                            self.yang_name = "affinity-rules"
+                            self.yang_parent_name = "on-demand-color-dyn-mpls"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("affinity-rule", ("affinity_rule", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule))])
+                            self._leafs = OrderedDict()
+
+                            self.affinity_rule = YList(self)
+                            self._segment_path = lambda: "affinity-rules"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules, [], name, value)
+
+
+                        class AffinityRule(Entity):
+                            """
+                            SR path computation and verification affinity
+                            rule
+                            
+                            .. attribute:: rule  (key)
+                            
+                            	Affinity rule type
+                            	**type**\:  :py:class:`XtcAffinityRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcAffinityRule>`
+                            
+                            .. attribute:: affinity_name
+                            
+                            	Affinity rule name
+                            	**type**\: list of  		 :py:class:`AffinityName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule.AffinityName>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-cfg'
+                            _revision = '2018-11-28'
+
+                            def __init__(self):
+                                super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule, self).__init__()
+
+                                self.yang_name = "affinity-rule"
+                                self.yang_parent_name = "affinity-rules"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['rule']
+                                self._child_classes = OrderedDict([("affinity-name", ("affinity_name", Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule.AffinityName))])
+                                self._leafs = OrderedDict([
+                                    ('rule', (YLeaf(YType.enumeration, 'rule'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcAffinityRule', '')])),
+                                ])
+                                self.rule = None
+
+                                self.affinity_name = YList(self)
+                                self._segment_path = lambda: "affinity-rule" + "[rule='" + str(self.rule) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule, ['rule'], name, value)
+
+
+                            class AffinityName(Entity):
+                                """
+                                Affinity rule name
+                                
+                                .. attribute:: affinity_name  (key)
+                                
+                                	Affinity name
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-agent-cfg'
+                                _revision = '2018-11-28'
+
+                                def __init__(self):
+                                    super(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule.AffinityName, self).__init__()
+
+                                    self.yang_name = "affinity-name"
+                                    self.yang_parent_name = "affinity-rule"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['affinity_name']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('affinity_name', (YLeaf(YType.str, 'affinity-name'), ['str'])),
+                                    ])
+                                    self.affinity_name = None
+                                    self._segment_path = lambda: "affinity-name" + "[affinity-name='" + str(self.affinity_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.AffinityRules.AffinityRule.AffinityName, ['affinity_name'], name, value)
+
+
+
+
+
 
 
 
@@ -1250,7 +1495,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.Segments, self).__init__()
@@ -1298,7 +1543,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.Segments.Segment, self).__init__()
@@ -1342,7 +1587,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Segments.Segment.Segments_, self).__init__()
@@ -1398,7 +1643,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.Segments.Segment.Segments_.Segment_, self).__init__()
@@ -1448,7 +1693,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.Logging, self).__init__()
@@ -1473,6 +1718,70 @@ class Sr(Entity):
 
 
 
+        class Timers(Entity):
+            """
+            SR\-TE timers configuration
+            
+            .. attribute:: cleanup_delay
+            
+            	Delay before cleaning up previous path
+            	**type**\: int
+            
+            	**range:** 0..300
+            
+            	**default value**\: 10
+            
+            .. attribute:: install_delay
+            
+            	Delay before switching to a reoptimized path
+            	**type**\: int
+            
+            	**range:** 0..300
+            
+            	**default value**\: 10
+            
+            .. attribute:: periodic_reoptimization
+            
+            	How often to perform periodic reoptimization of policies
+            	**type**\: int
+            
+            	**range:** 0..86400
+            
+            	**default value**\: 600
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-agent-cfg'
+            _revision = '2018-11-28'
+
+            def __init__(self):
+                super(Sr.TrafficEngineering.Timers, self).__init__()
+
+                self.yang_name = "timers"
+                self.yang_parent_name = "traffic-engineering"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cleanup_delay', (YLeaf(YType.uint32, 'cleanup-delay'), ['int'])),
+                    ('install_delay', (YLeaf(YType.uint32, 'install-delay'), ['int'])),
+                    ('periodic_reoptimization', (YLeaf(YType.uint32, 'periodic-reoptimization'), ['int'])),
+                ])
+                self.cleanup_delay = None
+                self.install_delay = None
+                self.periodic_reoptimization = None
+                self._segment_path = lambda: "timers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Sr.TrafficEngineering.Timers, ['cleanup_delay', 'install_delay', 'periodic_reoptimization'], name, value)
+
+
+
         class BindingSidRules(Entity):
             """
             Binding sid rules
@@ -1484,12 +1793,19 @@ class Sr(Entity):
             
             	**presence node**\: True
             
+            .. attribute:: dynamic_binding_sid_rules
+            
+            	Dynamic binding SID options
+            	**type**\:  :py:class:`DynamicBindingSidRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.BindingSidRules.DynamicBindingSidRules>`
+            
+            	**presence node**\: True
+            
             
 
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.BindingSidRules, self).__init__()
@@ -1499,11 +1815,14 @@ class Sr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("explicit", ("explicit", Sr.TrafficEngineering.BindingSidRules.Explicit))])
+                self._child_classes = OrderedDict([("explicit", ("explicit", Sr.TrafficEngineering.BindingSidRules.Explicit)), ("dynamic-binding-sid-rules", ("dynamic_binding_sid_rules", Sr.TrafficEngineering.BindingSidRules.DynamicBindingSidRules))])
                 self._leafs = OrderedDict()
 
                 self.explicit = None
                 self._children_name_map["explicit"] = "explicit"
+
+                self.dynamic_binding_sid_rules = None
+                self._children_name_map["dynamic_binding_sid_rules"] = "dynamic-binding-sid-rules"
                 self._segment_path = lambda: "binding-sid-rules"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/%s" % self._segment_path()
                 self._is_frozen = True
@@ -1530,7 +1849,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.BindingSidRules.Explicit, self).__init__()
@@ -1555,6 +1874,49 @@ class Sr(Entity):
 
 
 
+            class DynamicBindingSidRules(Entity):
+                """
+                Dynamic binding SID options
+                
+                .. attribute:: dynamic_binding_sid_rule
+                
+                	Binding SID dynamic rule
+                	**type**\:  :py:class:`XtcBindingSidDynamicRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcBindingSidDynamicRule>`
+                
+                	**mandatory**\: True
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'infra-xtc-agent-cfg'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Sr.TrafficEngineering.BindingSidRules.DynamicBindingSidRules, self).__init__()
+
+                    self.yang_name = "dynamic-binding-sid-rules"
+                    self.yang_parent_name = "binding-sid-rules"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('dynamic_binding_sid_rule', (YLeaf(YType.enumeration, 'dynamic-binding-sid-rule'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcBindingSidDynamicRule', '')])),
+                    ])
+                    self.dynamic_binding_sid_rule = None
+                    self._segment_path = lambda: "dynamic-binding-sid-rules"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/binding-sid-rules/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Sr.TrafficEngineering.BindingSidRules.DynamicBindingSidRules, ['dynamic_binding_sid_rule'], name, value)
+
+
+
 
         class Policies(Entity):
             """
@@ -1570,7 +1932,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.Policies, self).__init__()
@@ -1664,7 +2026,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.Policies.Policy, self).__init__()
@@ -1730,7 +2092,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Policies.Policy.Steering, self).__init__()
@@ -1768,7 +2130,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.Policies.Policy.Steering.Applications, self).__init__()
@@ -1809,7 +2171,7 @@ class Sr(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-cfg'
-                            _revision = '2018-07-07'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Sr.TrafficEngineering.Policies.Policy.Steering.Applications.Application, self).__init__()
@@ -1857,7 +2219,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Policies.Policy.BindingSid, self).__init__()
@@ -1925,7 +2287,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Policies.Policy.PolicyColorEndpoint, self).__init__()
@@ -1967,6 +2329,11 @@ class Sr(Entity):
                     	Autoroute include prefix table configuration
                     	**type**\:  :py:class:`IncludePrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.AutoRoute.IncludePrefixes>`
                     
+                    .. attribute:: force_sr_include
+                    
+                    	Force autoroute policy to be safe for carrying SR labelled traffic
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     .. attribute:: enable
                     
                     	True only
@@ -1977,7 +2344,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Policies.Policy.AutoRoute, self).__init__()
@@ -1989,8 +2356,10 @@ class Sr(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("auto-route-metric", ("auto_route_metric", Sr.TrafficEngineering.Policies.Policy.AutoRoute.AutoRouteMetric)), ("include-prefixes", ("include_prefixes", Sr.TrafficEngineering.Policies.Policy.AutoRoute.IncludePrefixes))])
                         self._leafs = OrderedDict([
+                            ('force_sr_include', (YLeaf(YType.empty, 'force-sr-include'), ['Empty'])),
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
+                        self.force_sr_include = None
                         self.enable = None
 
                         self.auto_route_metric = Sr.TrafficEngineering.Policies.Policy.AutoRoute.AutoRouteMetric()
@@ -2004,7 +2373,7 @@ class Sr(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.AutoRoute, ['enable'], name, value)
+                        self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.AutoRoute, ['force_sr_include', 'enable'], name, value)
 
 
                     class AutoRouteMetric(Entity):
@@ -2035,7 +2404,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.Policies.Policy.AutoRoute.AutoRouteMetric, self).__init__()
@@ -2076,7 +2445,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.Policies.Policy.AutoRoute.IncludePrefixes, self).__init__()
@@ -2131,7 +2500,7 @@ class Sr(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-cfg'
-                            _revision = '2018-07-07'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Sr.TrafficEngineering.Policies.Policy.AutoRoute.IncludePrefixes.IncludePrefix, self).__init__()
@@ -2179,7 +2548,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths, self).__init__()
@@ -2219,7 +2588,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences, self).__init__()
@@ -2271,7 +2640,7 @@ class Sr(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-cfg'
-                            _revision = '2018-07-07'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference, self).__init__()
@@ -2327,17 +2696,12 @@ class Sr(Entity):
                                 	SR path computation and verification affinity rules
                                 	**type**\:  :py:class:`AffinityRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules>`
                                 
-                                .. attribute:: enable
-                                
-                                	True only
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'infra-xtc-agent-cfg'
-                                _revision = '2018-07-07'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints, self).__init__()
@@ -2348,10 +2712,7 @@ class Sr(Entity):
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("disjoint-path", ("disjoint_path", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.DisjointPath)), ("segment-rules", ("segment_rules", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.SegmentRules)), ("affinity-rules", ("affinity_rules", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules))])
-                                    self._leafs = OrderedDict([
-                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                                    ])
-                                    self.enable = None
+                                    self._leafs = OrderedDict()
 
                                     self.disjoint_path = None
                                     self._children_name_map["disjoint_path"] = "disjoint-path"
@@ -2366,7 +2727,7 @@ class Sr(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints, ['enable'], name, value)
+                                    self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints, [], name, value)
 
 
                                 class DisjointPath(Entity):
@@ -2403,7 +2764,7 @@ class Sr(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-agent-cfg'
-                                    _revision = '2018-07-07'
+                                    _revision = '2018-11-28'
 
                                     def __init__(self):
                                         super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.DisjointPath, self).__init__()
@@ -2452,7 +2813,7 @@ class Sr(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-agent-cfg'
-                                    _revision = '2018-07-07'
+                                    _revision = '2018-11-28'
 
                                     def __init__(self):
                                         super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.SegmentRules, self).__init__()
@@ -2478,8 +2839,8 @@ class Sr(Entity):
 
                                 class AffinityRules(Entity):
                                     """
-                                    SR path computation and verification
-                                    affinity rules
+                                    SR path computation and verification affinity
+                                    rules
                                     
                                     .. attribute:: affinity_rule
                                     
@@ -2491,7 +2852,7 @@ class Sr(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-agent-cfg'
-                                    _revision = '2018-07-07'
+                                    _revision = '2018-11-28'
 
                                     def __init__(self):
                                         super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules, self).__init__()
@@ -2514,27 +2875,25 @@ class Sr(Entity):
 
                                     class AffinityRule(Entity):
                                         """
-                                        SR path computation and verification
-                                        affinity rule
+                                        SR path computation and verification affinity
+                                        rule
                                         
                                         .. attribute:: rule  (key)
                                         
-                                        	Path\-option preference
+                                        	Affinity rule type
                                         	**type**\:  :py:class:`XtcAffinityRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcAffinityRule>`
                                         
-                                        .. attribute:: color  (key)
+                                        .. attribute:: affinity_name
                                         
-                                        	The color
-                                        	**type**\: str
-                                        
-                                        	**length:** 1..59
+                                        	Affinity rule name
+                                        	**type**\: list of  		 :py:class:`AffinityName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule.AffinityName>`
                                         
                                         
 
                                         """
 
                                         _prefix = 'infra-xtc-agent-cfg'
-                                        _revision = '2018-07-07'
+                                        _revision = '2018-11-28'
 
                                         def __init__(self):
                                             super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule, self).__init__()
@@ -2543,19 +2902,58 @@ class Sr(Entity):
                                             self.yang_parent_name = "affinity-rules"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self.ylist_key_names = ['rule','color']
-                                            self._child_classes = OrderedDict([])
+                                            self.ylist_key_names = ['rule']
+                                            self._child_classes = OrderedDict([("affinity-name", ("affinity_name", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule.AffinityName))])
                                             self._leafs = OrderedDict([
                                                 ('rule', (YLeaf(YType.enumeration, 'rule'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcAffinityRule', '')])),
-                                                ('color', (YLeaf(YType.str, 'color'), ['str'])),
                                             ])
                                             self.rule = None
-                                            self.color = None
-                                            self._segment_path = lambda: "affinity-rule" + "[rule='" + str(self.rule) + "']" + "[color='" + str(self.color) + "']"
+
+                                            self.affinity_name = YList(self)
+                                            self._segment_path = lambda: "affinity-rule" + "[rule='" + str(self.rule) + "']"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule, ['rule', 'color'], name, value)
+                                            self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule, ['rule'], name, value)
+
+
+                                        class AffinityName(Entity):
+                                            """
+                                            Affinity rule name
+                                            
+                                            .. attribute:: affinity_name  (key)
+                                            
+                                            	Affinity name
+                                            	**type**\: str
+                                            
+                                            	**length:** 1..32
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'infra-xtc-agent-cfg'
+                                            _revision = '2018-11-28'
+
+                                            def __init__(self):
+                                                super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule.AffinityName, self).__init__()
+
+                                                self.yang_name = "affinity-name"
+                                                self.yang_parent_name = "affinity-rule"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['affinity_name']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('affinity_name', (YLeaf(YType.str, 'affinity-name'), ['str'])),
+                                                ])
+                                                self.affinity_name = None
+                                                self._segment_path = lambda: "affinity-name" + "[affinity-name='" + str(self.affinity_name) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule.AffinityName, ['affinity_name'], name, value)
+
 
 
 
@@ -2576,7 +2974,7 @@ class Sr(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-cfg'
-                                _revision = '2018-07-07'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos, self).__init__()
@@ -2623,8 +3021,6 @@ class Sr(Entity):
                                     	Metric configuration, valid only for dynamic path\-options
                                     	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric>`
                                     
-                                    	**presence node**\: True
-                                    
                                     .. attribute:: pcep
                                     
                                     	Path Computation Element Protocol
@@ -2647,7 +3043,7 @@ class Sr(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-agent-cfg'
-                                    _revision = '2018-07-07'
+                                    _revision = '2018-11-28'
 
                                     def __init__(self):
                                         super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo, self).__init__()
@@ -2671,7 +3067,8 @@ class Sr(Entity):
                                         self.weight = None
                                         self.enable = None
 
-                                        self.metric = None
+                                        self.metric = Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric()
+                                        self.metric.parent = self
                                         self._children_name_map["metric"] = "metric"
 
                                         self.pcep = Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Pcep()
@@ -2689,40 +3086,34 @@ class Sr(Entity):
                                         Metric configuration, valid only for
                                         dynamic path\-options
                                         
-                                        .. attribute:: margin
-                                        
-                                        	Metric type
-                                        	**type**\:  :py:class:`Margin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin>`
-                                        
                                         .. attribute:: sid_limit
                                         
                                         	Maximum number of SIDs
                                         	**type**\: int
                                         
-                                        	**range:** 0..255
-                                        
-                                        	**mandatory**\: True
+                                        	**range:** 1..255
                                         
                                         .. attribute:: metric_type
                                         
                                         	Metric type
                                         	**type**\:  :py:class:`XtcMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcMetric>`
                                         
-                                        	**mandatory**\: True
-                                        
                                         .. attribute:: enable
                                         
                                         	True only
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
+                                        .. attribute:: metric_margin
                                         
-
-                                        This class is a :ref:`presence class<presence-class>`
+                                        	Metric Margin
+                                        	**type**\:  :py:class:`MetricMargin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.MetricMargin>`
+                                        
+                                        
 
                                         """
 
                                         _prefix = 'infra-xtc-agent-cfg'
-                                        _revision = '2018-07-07'
+                                        _revision = '2018-11-28'
 
                                         def __init__(self):
                                             super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, self).__init__()
@@ -2732,8 +3123,7 @@ class Sr(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_classes = OrderedDict([("margin", ("margin", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin))])
-                                            self.is_presence_container = True
+                                            self._child_classes = OrderedDict([("metric-margin", ("metric_margin", Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.MetricMargin))])
                                             self._leafs = OrderedDict([
                                                 ('sid_limit', (YLeaf(YType.uint32, 'sid-limit'), ['int'])),
                                                 ('metric_type', (YLeaf(YType.enumeration, 'metric-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg', 'XtcMetric', '')])),
@@ -2743,9 +3133,9 @@ class Sr(Entity):
                                             self.metric_type = None
                                             self.enable = None
 
-                                            self.margin = Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin()
-                                            self.margin.parent = self
-                                            self._children_name_map["margin"] = "margin"
+                                            self.metric_margin = Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.MetricMargin()
+                                            self.metric_margin.parent = self
+                                            self._children_name_map["metric_margin"] = "metric-margin"
                                             self._segment_path = lambda: "metric"
                                             self._is_frozen = True
 
@@ -2753,13 +3143,13 @@ class Sr(Entity):
                                             self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, ['sid_limit', 'metric_type', 'enable'], name, value)
 
 
-                                        class Margin(Entity):
+                                        class MetricMargin(Entity):
                                             """
-                                            Metric type
+                                            Metric Margin
                                             
                                             .. attribute:: value_type
                                             
-                                            	Metric value type
+                                            	Metric margin type
                                             	**type**\:  :py:class:`XtcMetricValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg.XtcMetricValue>`
                                             
                                             .. attribute:: absolute_value
@@ -2774,19 +3164,19 @@ class Sr(Entity):
                                             	Relative metric value
                                             	**type**\: int
                                             
-                                            	**range:** 0..100
+                                            	**range:** 0..2147483647
                                             
                                             
 
                                             """
 
                                             _prefix = 'infra-xtc-agent-cfg'
-                                            _revision = '2018-07-07'
+                                            _revision = '2018-11-28'
 
                                             def __init__(self):
-                                                super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin, self).__init__()
+                                                super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.MetricMargin, self).__init__()
 
-                                                self.yang_name = "margin"
+                                                self.yang_name = "metric-margin"
                                                 self.yang_parent_name = "metric"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
@@ -2800,11 +3190,11 @@ class Sr(Entity):
                                                 self.value_type = None
                                                 self.absolute_value = None
                                                 self.relative_value = None
-                                                self._segment_path = lambda: "margin"
+                                                self._segment_path = lambda: "metric-margin"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin, ['value_type', 'absolute_value', 'relative_value'], name, value)
+                                                self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.MetricMargin, ['value_type', 'absolute_value', 'relative_value'], name, value)
 
 
 
@@ -2823,7 +3213,7 @@ class Sr(Entity):
                                         """
 
                                         _prefix = 'infra-xtc-agent-cfg'
-                                        _revision = '2018-07-07'
+                                        _revision = '2018-11-28'
 
                                         def __init__(self):
                                             super(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Pcep, self).__init__()
@@ -2867,7 +3257,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.SrteInterfaces, self).__init__()
@@ -2922,7 +3312,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.SrteInterfaces.SrteInterface, self).__init__()
@@ -2967,7 +3357,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.SrteInterfaces.SrteInterface.InterfaceAffinities, self).__init__()
@@ -2992,9 +3382,9 @@ class Sr(Entity):
                         """
                         Set user defined interface attribute flags
                         
-                        .. attribute:: color  (key)
+                        .. attribute:: affinity_name  (key)
                         
-                        	Interface affinity colors
+                        	Interface affinity names
                         	**type**\: str
                         
                         	**length:** 1..32
@@ -3004,7 +3394,7 @@ class Sr(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-cfg'
-                        _revision = '2018-07-07'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Sr.TrafficEngineering.SrteInterfaces.SrteInterface.InterfaceAffinities.InterfaceAffinity, self).__init__()
@@ -3013,17 +3403,17 @@ class Sr(Entity):
                             self.yang_parent_name = "interface-affinities"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['color']
+                            self.ylist_key_names = ['affinity_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('color', (YLeaf(YType.str, 'color'), ['str'])),
+                                ('affinity_name', (YLeaf(YType.str, 'affinity-name'), ['str'])),
                             ])
-                            self.color = None
-                            self._segment_path = lambda: "interface-affinity" + "[color='" + str(self.color) + "']"
+                            self.affinity_name = None
+                            self._segment_path = lambda: "interface-affinity" + "[affinity-name='" + str(self.affinity_name) + "']"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sr.TrafficEngineering.SrteInterfaces.SrteInterface.InterfaceAffinities.InterfaceAffinity, ['color'], name, value)
+                            self._perform_setattr(Sr.TrafficEngineering.SrteInterfaces.SrteInterface.InterfaceAffinities.InterfaceAffinity, ['affinity_name'], name, value)
 
 
 
@@ -3088,13 +3478,6 @@ class Sr(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: max_sid_depth
-            
-            	Override the platform Maximum SID Depth value with a user configured explicit value
-            	**type**\: int
-            
-            	**range:** 1..32
-            
             .. attribute:: enable
             
             	PCC Enable
@@ -3119,7 +3502,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.Pcc, self).__init__()
@@ -3137,7 +3520,6 @@ class Sr(Entity):
                     ('keepalive_timer_interval', (YLeaf(YType.uint32, 'keepalive-timer-interval'), ['int'])),
                     ('initiated_state_interval', (YLeaf(YType.uint32, 'initiated-state-interval'), ['int'])),
                     ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
-                    ('max_sid_depth', (YLeaf(YType.uint32, 'max-sid-depth'), ['int'])),
                     ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ('initiated_orphan_interval', (YLeaf(YType.uint32, 'initiated-orphan-interval'), ['int'])),
                     ('delegation_timeout', (YLeaf(YType.uint32, 'delegation-timeout'), ['int'])),
@@ -3148,7 +3530,6 @@ class Sr(Entity):
                 self.keepalive_timer_interval = None
                 self.initiated_state_interval = None
                 self.source_address = None
-                self.max_sid_depth = None
                 self.enable = None
                 self.initiated_orphan_interval = None
                 self.delegation_timeout = None
@@ -3165,7 +3546,7 @@ class Sr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sr.TrafficEngineering.Pcc, ['dead_timer_interval', 'pcc_centric', 'report_all', 'keepalive_timer_interval', 'initiated_state_interval', 'source_address', 'max_sid_depth', 'enable', 'initiated_orphan_interval', 'delegation_timeout'], name, value)
+                self._perform_setattr(Sr.TrafficEngineering.Pcc, ['dead_timer_interval', 'pcc_centric', 'report_all', 'keepalive_timer_interval', 'initiated_state_interval', 'source_address', 'enable', 'initiated_orphan_interval', 'delegation_timeout'], name, value)
 
 
             class PcePeers(Entity):
@@ -3182,7 +3563,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.Pcc.PcePeers, self).__init__()
@@ -3252,7 +3633,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Pcc.PcePeers.PcePeer, self).__init__()
@@ -3299,7 +3680,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.Pcc.PceAddresses, self).__init__()
@@ -3352,7 +3733,7 @@ class Sr(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-cfg'
-                    _revision = '2018-07-07'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Sr.TrafficEngineering.Pcc.PceAddresses.PceAddress, self).__init__()
@@ -3394,7 +3775,7 @@ class Sr(Entity):
             """
 
             _prefix = 'infra-xtc-agent-cfg'
-            _revision = '2018-07-07'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Sr.TrafficEngineering.AffinityMaps, self).__init__()
@@ -3420,7 +3801,7 @@ class Sr(Entity):
                 """
                 Affinity\-map entry
                 
-                .. attribute:: color  (key)
+                .. attribute:: affinity_name  (key)
                 
                 	Affinity\-map bit\-position
                 	**type**\: str
@@ -3441,7 +3822,7 @@ class Sr(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-cfg'
-                _revision = '2018-07-07'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Sr.TrafficEngineering.AffinityMaps.AffinityMap, self).__init__()
@@ -3450,20 +3831,20 @@ class Sr(Entity):
                     self.yang_parent_name = "affinity-maps"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['color']
+                    self.ylist_key_names = ['affinity_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('color', (YLeaf(YType.str, 'color'), ['str'])),
+                        ('affinity_name', (YLeaf(YType.str, 'affinity-name'), ['str'])),
                         ('bit_position', (YLeaf(YType.uint32, 'bit-position'), ['int'])),
                     ])
-                    self.color = None
+                    self.affinity_name = None
                     self.bit_position = None
-                    self._segment_path = lambda: "affinity-map" + "[color='" + str(self.color) + "']"
+                    self._segment_path = lambda: "affinity-map" + "[affinity-name='" + str(self.affinity_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/affinity-maps/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sr.TrafficEngineering.AffinityMaps.AffinityMap, ['color', 'bit_position'], name, value)
+                    self._perform_setattr(Sr.TrafficEngineering.AffinityMaps.AffinityMap, ['affinity_name', 'bit_position'], name, value)
 
 
 

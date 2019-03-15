@@ -2097,7 +2097,7 @@ class InterfaceProperties(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
+                                self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
 
@@ -2401,7 +2401,7 @@ class InterfaceProperties(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
+                                self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
 
@@ -2654,7 +2654,7 @@ class InterfaceProperties(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
+                            self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
 

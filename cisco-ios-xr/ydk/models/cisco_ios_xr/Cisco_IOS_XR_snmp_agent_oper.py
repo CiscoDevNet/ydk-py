@@ -143,17 +143,17 @@ class Snmp(Entity):
     
     	**config**\: False
     
-    .. attribute:: sensor_mib
-    
-    	SNMP sensor MIB information
-    	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
-    
-    	**config**\: False
-    
     .. attribute:: interface_mib
     
     	SNMP IF\-MIB information
     	**type**\:  :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib>`
+    
+    	**config**\: False
+    
+    .. attribute:: sensor_mib
+    
+    	SNMP sensor MIB information
+    	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
     
     	**config**\: False
     
@@ -173,7 +173,7 @@ class Snmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib))])
+        self._child_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib))])
         self._leafs = OrderedDict()
 
         self.trap_servers = Snmp.TrapServers()
@@ -204,13 +204,13 @@ class Snmp(Entity):
         self.entity_mib.parent = self
         self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
 
-        self.sensor_mib = Snmp.SensorMib()
-        self.sensor_mib.parent = self
-        self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
-
         self.interface_mib = Snmp.InterfaceMib()
         self.interface_mib.parent = self
         self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
+
+        self.sensor_mib = Snmp.SensorMib()
+        self.sensor_mib.parent = self
+        self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp"
         self._is_frozen = True
 
@@ -3217,7 +3217,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, [u'packetcount', 'number_of_nmsq_pkts_dropped', 'number_of_pkts_dropped', 'overload_start_time', 'overload_end_time'], name, value)
+                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, [u'packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
 
 
 
@@ -6190,516 +6190,6 @@ class Snmp(Entity):
 
 
 
-    class SensorMib(Entity):
-        """
-        SNMP sensor MIB information
-        
-        .. attribute:: physical_indexes
-        
-        	List of physical index table for threshold value
-        	**type**\:  :py:class:`PhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes>`
-        
-        	**config**\: False
-        
-        .. attribute:: ent_phy_indexes
-        
-        	List of physical index 
-        	**type**\:  :py:class:`EntPhyIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'snmp-sensormib-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Snmp.SensorMib, self).__init__()
-
-            self.yang_name = "sensor-mib"
-            self.yang_parent_name = "snmp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("physical-indexes", ("physical_indexes", Snmp.SensorMib.PhysicalIndexes)), ("ent-phy-indexes", ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes))])
-            self._leafs = OrderedDict()
-
-            self.physical_indexes = Snmp.SensorMib.PhysicalIndexes()
-            self.physical_indexes.parent = self
-            self._children_name_map["physical_indexes"] = "physical-indexes"
-
-            self.ent_phy_indexes = Snmp.SensorMib.EntPhyIndexes()
-            self.ent_phy_indexes.parent = self
-            self._children_name_map["ent_phy_indexes"] = "ent-phy-indexes"
-            self._segment_path = lambda: "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Snmp.SensorMib, [], name, value)
-
-
-        class PhysicalIndexes(Entity):
-            """
-            List of physical index table for threshold
-            value
-            
-            .. attribute:: physical_index
-            
-            	Threshold value for physical index
-            	**type**\: list of  		 :py:class:`PhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-sensormib-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.SensorMib.PhysicalIndexes, self).__init__()
-
-                self.yang_name = "physical-indexes"
-                self.yang_parent_name = "sensor-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("physical-index", ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex))])
-                self._leafs = OrderedDict()
-
-                self.physical_index = YList(self)
-                self._segment_path = lambda: "physical-indexes"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.SensorMib.PhysicalIndexes, [], name, value)
-
-
-            class PhysicalIndex(Entity):
-                """
-                Threshold value for physical index
-                
-                .. attribute:: index  (key)
-                
-                	Physical index
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                	**config**\: False
-                
-                .. attribute:: threshold_indexes
-                
-                	List of threshold index
-                	**type**\:  :py:class:`ThresholdIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-sensormib-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, self).__init__()
-
-                    self.yang_name = "physical-index"
-                    self.yang_parent_name = "physical-indexes"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['index']
-                    self._child_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
-                    self._leafs = OrderedDict([
-                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
-                    ])
-                    self.index = None
-
-                    self.threshold_indexes = Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes()
-                    self.threshold_indexes.parent = self
-                    self._children_name_map["threshold_indexes"] = "threshold-indexes"
-                    self._segment_path = lambda: "physical-index" + "[index='" + str(self.index) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/physical-indexes/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, ['index'], name, value)
-
-
-                class ThresholdIndexes(Entity):
-                    """
-                    List of threshold index
-                    
-                    .. attribute:: threshold_index
-                    
-                    	Threshold value for threshold index
-                    	**type**\: list of  		 :py:class:`ThresholdIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex>`
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'snmp-sensormib-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, self).__init__()
-
-                        self.yang_name = "threshold-indexes"
-                        self.yang_parent_name = "physical-index"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("threshold-index", ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex))])
-                        self._leafs = OrderedDict()
-
-                        self.threshold_index = YList(self)
-                        self._segment_path = lambda: "threshold-indexes"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, [], name, value)
-
-
-                    class ThresholdIndex(Entity):
-                        """
-                        Threshold value for threshold index
-                        
-                        .. attribute:: phy_index
-                        
-                        	Physical Index
-                        	**type**\: str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: thre_index
-                        
-                        	Threshold index
-                        	**type**\: str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: threshold_severity
-                        
-                        	Indicates minor, major, critical severities
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: threshold_relation
-                        
-                        	Indicates relation between sensor value and threshold
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: threshold_value
-                        
-                        	Value of the configured threshold
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: threshold_evaluation
-                        
-                        	Indicates the result of the most recent evaluation of the thresholD
-                        	**type**\: bool
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: threshold_notification_enabled
-                        
-                        	Indicates whether or not a notification should result, in case of threshold violation
-                        	**type**\: bool
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'snmp-sensormib-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, self).__init__()
-
-                            self.yang_name = "threshold-index"
-                            self.yang_parent_name = "threshold-indexes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('phy_index', (YLeaf(YType.str, 'phy-index'), ['str'])),
-                                ('thre_index', (YLeaf(YType.str, 'thre-index'), ['str'])),
-                                ('threshold_severity', (YLeaf(YType.uint32, 'threshold-severity'), ['int'])),
-                                ('threshold_relation', (YLeaf(YType.uint32, 'threshold-relation'), ['int'])),
-                                ('threshold_value', (YLeaf(YType.uint32, 'threshold-value'), ['int'])),
-                                ('threshold_evaluation', (YLeaf(YType.boolean, 'threshold-evaluation'), ['bool'])),
-                                ('threshold_notification_enabled', (YLeaf(YType.boolean, 'threshold-notification-enabled'), ['bool'])),
-                            ])
-                            self.phy_index = None
-                            self.thre_index = None
-                            self.threshold_severity = None
-                            self.threshold_relation = None
-                            self.threshold_value = None
-                            self.threshold_evaluation = None
-                            self.threshold_notification_enabled = None
-                            self._segment_path = lambda: "threshold-index"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
-
-
-
-
-
-
-        class EntPhyIndexes(Entity):
-            """
-            List of physical index 
-            
-            .. attribute:: ent_phy_index
-            
-            	Sensor value for physical index
-            	**type**\: list of  		 :py:class:`EntPhyIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes.EntPhyIndex>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-sensormib-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.SensorMib.EntPhyIndexes, self).__init__()
-
-                self.yang_name = "ent-phy-indexes"
-                self.yang_parent_name = "sensor-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("ent-phy-index", ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex))])
-                self._leafs = OrderedDict()
-
-                self.ent_phy_index = YList(self)
-                self._segment_path = lambda: "ent-phy-indexes"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.SensorMib.EntPhyIndexes, [], name, value)
-
-
-            class EntPhyIndex(Entity):
-                """
-                Sensor value for physical index
-                
-                .. attribute:: index  (key)
-                
-                	Physical index
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                	**config**\: False
-                
-                .. attribute:: field_validity_bitmap
-                
-                	Sensor valid bitmap
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: device_description
-                
-                	Device Name
-                	**type**\: str
-                
-                	**length:** 0..64
-                
-                	**config**\: False
-                
-                .. attribute:: units
-                
-                	Units of variable being read
-                	**type**\: str
-                
-                	**length:** 0..64
-                
-                	**config**\: False
-                
-                .. attribute:: device_id
-                
-                	Identifier for this device
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: value
-                
-                	Current reading of sensor
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: alarm_type
-                
-                	Indicates threshold violation
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: data_type
-                
-                	Sensor data type enums
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: scale
-                
-                	Sensor scale enums
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: precision
-                
-                	Sensor precision range
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: status
-                
-                	Sensor operation state enums
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: age_time_stamp
-                
-                	Age of the sensor value; set to the current time if directly access the value from sensor
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: update_rate
-                
-                	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: measured_entity
-                
-                	physical entity for which the sensor is taking measurements
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-sensormib-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, self).__init__()
-
-                    self.yang_name = "ent-phy-index"
-                    self.yang_parent_name = "ent-phy-indexes"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['index']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
-                        ('field_validity_bitmap', (YLeaf(YType.uint32, 'field-validity-bitmap'), ['int'])),
-                        ('device_description', (YLeaf(YType.str, 'device-description'), ['str'])),
-                        ('units', (YLeaf(YType.str, 'units'), ['str'])),
-                        ('device_id', (YLeaf(YType.uint32, 'device-id'), ['int'])),
-                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
-                        ('alarm_type', (YLeaf(YType.uint32, 'alarm-type'), ['int'])),
-                        ('data_type', (YLeaf(YType.uint32, 'data-type'), ['int'])),
-                        ('scale', (YLeaf(YType.uint32, 'scale'), ['int'])),
-                        ('precision', (YLeaf(YType.uint32, 'precision'), ['int'])),
-                        ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
-                        ('age_time_stamp', (YLeaf(YType.uint32, 'age-time-stamp'), ['int'])),
-                        ('update_rate', (YLeaf(YType.uint32, 'update-rate'), ['int'])),
-                        ('measured_entity', (YLeaf(YType.uint32, 'measured-entity'), ['int'])),
-                    ])
-                    self.index = None
-                    self.field_validity_bitmap = None
-                    self.device_description = None
-                    self.units = None
-                    self.device_id = None
-                    self.value = None
-                    self.alarm_type = None
-                    self.data_type = None
-                    self.scale = None
-                    self.precision = None
-                    self.status = None
-                    self.age_time_stamp = None
-                    self.update_rate = None
-                    self.measured_entity = None
-                    self._segment_path = lambda: "ent-phy-index" + "[index='" + str(self.index) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/ent-phy-indexes/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, ['index', 'field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'measured_entity'], name, value)
-
-
-
-
-
     class InterfaceMib(Entity):
         """
         SNMP IF\-MIB information
@@ -7251,6 +6741,516 @@ class Snmp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', 'if_stack_higher_layer', 'if_stack_lower_layer', 'if_stack_status'], name, value)
+
+
+
+
+
+    class SensorMib(Entity):
+        """
+        SNMP sensor MIB information
+        
+        .. attribute:: physical_indexes
+        
+        	List of physical index table for threshold value
+        	**type**\:  :py:class:`PhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes>`
+        
+        	**config**\: False
+        
+        .. attribute:: ent_phy_indexes
+        
+        	List of physical index 
+        	**type**\:  :py:class:`EntPhyIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'snmp-sensormib-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Snmp.SensorMib, self).__init__()
+
+            self.yang_name = "sensor-mib"
+            self.yang_parent_name = "snmp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("physical-indexes", ("physical_indexes", Snmp.SensorMib.PhysicalIndexes)), ("ent-phy-indexes", ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes))])
+            self._leafs = OrderedDict()
+
+            self.physical_indexes = Snmp.SensorMib.PhysicalIndexes()
+            self.physical_indexes.parent = self
+            self._children_name_map["physical_indexes"] = "physical-indexes"
+
+            self.ent_phy_indexes = Snmp.SensorMib.EntPhyIndexes()
+            self.ent_phy_indexes.parent = self
+            self._children_name_map["ent_phy_indexes"] = "ent-phy-indexes"
+            self._segment_path = lambda: "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.SensorMib, [], name, value)
+
+
+        class PhysicalIndexes(Entity):
+            """
+            List of physical index table for threshold
+            value
+            
+            .. attribute:: physical_index
+            
+            	Threshold value for physical index
+            	**type**\: list of  		 :py:class:`PhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-sensormib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Snmp.SensorMib.PhysicalIndexes, self).__init__()
+
+                self.yang_name = "physical-indexes"
+                self.yang_parent_name = "sensor-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("physical-index", ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex))])
+                self._leafs = OrderedDict()
+
+                self.physical_index = YList(self)
+                self._segment_path = lambda: "physical-indexes"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.SensorMib.PhysicalIndexes, [], name, value)
+
+
+            class PhysicalIndex(Entity):
+                """
+                Threshold value for physical index
+                
+                .. attribute:: index  (key)
+                
+                	Physical index
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
+                
+                .. attribute:: threshold_indexes
+                
+                	List of threshold index
+                	**type**\:  :py:class:`ThresholdIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-sensormib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, self).__init__()
+
+                    self.yang_name = "physical-index"
+                    self.yang_parent_name = "physical-indexes"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['index']
+                    self._child_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
+                    self._leafs = OrderedDict([
+                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                    ])
+                    self.index = None
+
+                    self.threshold_indexes = Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes()
+                    self.threshold_indexes.parent = self
+                    self._children_name_map["threshold_indexes"] = "threshold-indexes"
+                    self._segment_path = lambda: "physical-index" + "[index='" + str(self.index) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/physical-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, ['index'], name, value)
+
+
+                class ThresholdIndexes(Entity):
+                    """
+                    List of threshold index
+                    
+                    .. attribute:: threshold_index
+                    
+                    	Threshold value for threshold index
+                    	**type**\: list of  		 :py:class:`ThresholdIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'snmp-sensormib-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, self).__init__()
+
+                        self.yang_name = "threshold-indexes"
+                        self.yang_parent_name = "physical-index"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("threshold-index", ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex))])
+                        self._leafs = OrderedDict()
+
+                        self.threshold_index = YList(self)
+                        self._segment_path = lambda: "threshold-indexes"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, [], name, value)
+
+
+                    class ThresholdIndex(Entity):
+                        """
+                        Threshold value for threshold index
+                        
+                        .. attribute:: phy_index
+                        
+                        	Physical Index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: thre_index
+                        
+                        	Threshold index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: threshold_severity
+                        
+                        	Indicates minor, major, critical severities
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: threshold_relation
+                        
+                        	Indicates relation between sensor value and threshold
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: threshold_value
+                        
+                        	Value of the configured threshold
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: threshold_evaluation
+                        
+                        	Indicates the result of the most recent evaluation of the thresholD
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: threshold_notification_enabled
+                        
+                        	Indicates whether or not a notification should result, in case of threshold violation
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'snmp-sensormib-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, self).__init__()
+
+                            self.yang_name = "threshold-index"
+                            self.yang_parent_name = "threshold-indexes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('phy_index', (YLeaf(YType.str, 'phy-index'), ['str'])),
+                                ('thre_index', (YLeaf(YType.str, 'thre-index'), ['str'])),
+                                ('threshold_severity', (YLeaf(YType.uint32, 'threshold-severity'), ['int'])),
+                                ('threshold_relation', (YLeaf(YType.uint32, 'threshold-relation'), ['int'])),
+                                ('threshold_value', (YLeaf(YType.uint32, 'threshold-value'), ['int'])),
+                                ('threshold_evaluation', (YLeaf(YType.boolean, 'threshold-evaluation'), ['bool'])),
+                                ('threshold_notification_enabled', (YLeaf(YType.boolean, 'threshold-notification-enabled'), ['bool'])),
+                            ])
+                            self.phy_index = None
+                            self.thre_index = None
+                            self.threshold_severity = None
+                            self.threshold_relation = None
+                            self.threshold_value = None
+                            self.threshold_evaluation = None
+                            self.threshold_notification_enabled = None
+                            self._segment_path = lambda: "threshold-index"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+
+
+
+
+
+
+        class EntPhyIndexes(Entity):
+            """
+            List of physical index 
+            
+            .. attribute:: ent_phy_index
+            
+            	Sensor value for physical index
+            	**type**\: list of  		 :py:class:`EntPhyIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes.EntPhyIndex>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-sensormib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Snmp.SensorMib.EntPhyIndexes, self).__init__()
+
+                self.yang_name = "ent-phy-indexes"
+                self.yang_parent_name = "sensor-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("ent-phy-index", ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex))])
+                self._leafs = OrderedDict()
+
+                self.ent_phy_index = YList(self)
+                self._segment_path = lambda: "ent-phy-indexes"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.SensorMib.EntPhyIndexes, [], name, value)
+
+
+            class EntPhyIndex(Entity):
+                """
+                Sensor value for physical index
+                
+                .. attribute:: index  (key)
+                
+                	Physical index
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
+                
+                .. attribute:: field_validity_bitmap
+                
+                	Sensor valid bitmap
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: device_description
+                
+                	Device Name
+                	**type**\: str
+                
+                	**length:** 0..64
+                
+                	**config**\: False
+                
+                .. attribute:: units
+                
+                	Units of variable being read
+                	**type**\: str
+                
+                	**length:** 0..64
+                
+                	**config**\: False
+                
+                .. attribute:: device_id
+                
+                	Identifier for this device
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: value
+                
+                	Current reading of sensor
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: alarm_type
+                
+                	Indicates threshold violation
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: data_type
+                
+                	Sensor data type enums
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: scale
+                
+                	Sensor scale enums
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: precision
+                
+                	Sensor precision range
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: status
+                
+                	Sensor operation state enums
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: age_time_stamp
+                
+                	Age of the sensor value; set to the current time if directly access the value from sensor
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: update_rate
+                
+                	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: measured_entity
+                
+                	physical entity for which the sensor is taking measurements
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-sensormib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, self).__init__()
+
+                    self.yang_name = "ent-phy-index"
+                    self.yang_parent_name = "ent-phy-indexes"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['index']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                        ('field_validity_bitmap', (YLeaf(YType.uint32, 'field-validity-bitmap'), ['int'])),
+                        ('device_description', (YLeaf(YType.str, 'device-description'), ['str'])),
+                        ('units', (YLeaf(YType.str, 'units'), ['str'])),
+                        ('device_id', (YLeaf(YType.uint32, 'device-id'), ['int'])),
+                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                        ('alarm_type', (YLeaf(YType.uint32, 'alarm-type'), ['int'])),
+                        ('data_type', (YLeaf(YType.uint32, 'data-type'), ['int'])),
+                        ('scale', (YLeaf(YType.uint32, 'scale'), ['int'])),
+                        ('precision', (YLeaf(YType.uint32, 'precision'), ['int'])),
+                        ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
+                        ('age_time_stamp', (YLeaf(YType.uint32, 'age-time-stamp'), ['int'])),
+                        ('update_rate', (YLeaf(YType.uint32, 'update-rate'), ['int'])),
+                        ('measured_entity', (YLeaf(YType.uint32, 'measured-entity'), ['int'])),
+                    ])
+                    self.index = None
+                    self.field_validity_bitmap = None
+                    self.device_description = None
+                    self.units = None
+                    self.device_id = None
+                    self.value = None
+                    self.alarm_type = None
+                    self.data_type = None
+                    self.scale = None
+                    self.precision = None
+                    self.status = None
+                    self.age_time_stamp = None
+                    self.update_rate = None
+                    self.measured_entity = None
+                    self._segment_path = lambda: "ent-phy-index" + "[index='" + str(self.index) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/ent-phy-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, ['index', 'field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'measured_entity'], name, value)
 
 
 

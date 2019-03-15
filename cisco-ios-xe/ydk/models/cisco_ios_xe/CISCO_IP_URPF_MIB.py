@@ -222,7 +222,7 @@ class CISCOIPURPFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.CipUrpfScalar, ['cipurpfdropratewindow', 'cipurpfcomputeinterval', 'cipurpfdropnotifyholddowntime'], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfScalar, [u'cipurpfdropratewindow', u'cipurpfcomputeinterval', u'cipurpfdropnotifyholddowntime'], name, value)
 
 
 
@@ -330,7 +330,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, ['cipurpfipversion', 'cipurpfdrops', 'cipurpfdroprate'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, [u'cipurpfipversion', u'cipurpfdrops', u'cipurpfdroprate'], name, value)
 
             class CipUrpfIpVersion(Enum):
                 """
@@ -564,7 +564,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, ['ifindex', 'cipurpfifipversion', 'cipurpfifdrops', 'cipurpfifsuppresseddrops', 'cipurpfifdroprate', 'cipurpfifdiscontinuitytime', 'cipurpfifdropratenotifyenable', 'cipurpfifnotifydropratethreshold', 'cipurpfifnotifydrholddownreset', 'cipurpfifcheckstrict', 'cipurpfifwhichroutetableid', 'cipurpfifvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, [u'ifindex', u'cipurpfifipversion', u'cipurpfifdrops', u'cipurpfifsuppresseddrops', u'cipurpfifdroprate', u'cipurpfifdiscontinuitytime', u'cipurpfifdropratenotifyenable', u'cipurpfifnotifydropratethreshold', u'cipurpfifnotifydrholddownreset', u'cipurpfifcheckstrict', u'cipurpfifwhichroutetableid', u'cipurpfifvrfname'], name, value)
 
             class CipUrpfIfCheckStrict(Enum):
                 """
@@ -763,7 +763,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, ['cipurpfvrfname', 'ifindex', 'cipurpfvrfifdrops', 'cipurpfvrfifdiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, [u'cipurpfvrfname', u'ifindex', u'cipurpfvrfifdrops', u'cipurpfvrfifdiscontinuitytime'], name, value)
 
 
 
@@ -848,7 +848,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, ['cipurpfvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, [u'cipurpfvrfname'], name, value)
 
 
 

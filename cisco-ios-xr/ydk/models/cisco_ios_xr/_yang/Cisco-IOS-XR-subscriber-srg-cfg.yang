@@ -471,6 +471,14 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
       description
         "Set hold time (in Minutes)";
     }
+    leaf sync-timer {
+      type uint32 {
+        range "1..255";
+      }
+      units "minute";
+      description
+        "Set sync time (in Minutes)";
+    }
     leaf redundancy-disable {
       type empty;
       description

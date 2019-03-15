@@ -710,7 +710,7 @@ class RoutingPolicy(Entity):
             
             .. attribute:: ospf_area_set
             
-            	Information about an individual OSPF area set. Usage\: OSPF area set allows to define named set of area numbers        which can be referenced in the route\-policy. Area sets      may be used during redistribution of the ospf protocol.  Example\: ospf\-area\-set EXAMPLE      1,                                             192.168.1.255                                  end\-set                                        Syntax\: OSPF area number can be entered as 32 bit number or in          the ip address format. See example.                     Semantic\: Area numbers listed in the set will be searched for             a match. In the example these are areas 1 and                  192.168.1.255.                                
+            	Information about an individual OSPF area set. Usage\: OSPF area set allows to define named set of area numbers        which can be referenced in the route\-policy. Area sets may be used during redistribution of the ospf protocol.  Example\: ospf\-area\-set EXAMPLE 1, 192.168.1.255 end\-set Syntax\: OSPF area number can be entered as 32 bit number or in          the ip address format. See example. Semantic\: Area numbers listed in the set will be searched for             a match. In the example these are areas 1 and 192.168.1.255.                                
             	**type**\: list of  		 :py:class:`OspfAreaSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet>`
             
             
@@ -745,18 +745,18 @@ class RoutingPolicy(Entity):
                 Information about an individual OSPF area set.
                 Usage\: OSPF area set allows to define named
                 set of area numbers        which can be
-                referenced in the route\-policy. Area sets     
+                referenced in the route\-policy. Area sets
                 may be used during redistribution of the ospf
-                protocol.  Example\: ospf\-area\-set EXAMPLE     
-                1,                                            
-                192.168.1.255                                 
-                end\-set                                       
+                protocol.  Example\: ospf\-area\-set EXAMPLE
+                1,
+                192.168.1.255
+                end\-set
                 Syntax\: OSPF area number can be entered as 32
                 bit number or in          the ip address
-                format. See example.                    
+                format. See example.
                 Semantic\: Area numbers listed in the set will
                 be searched for             a match. In the
-                example these are areas 1 and                 
+                example these are areas 1 and
                 192.168.1.255.                                
                 
                 .. attribute:: set_name  (key)

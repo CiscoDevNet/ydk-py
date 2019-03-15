@@ -14,6 +14,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import AnalyticsFltType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import SatmOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import MribMultipathMode
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import BfdAuthInterop
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import IgmpsnoopEhType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import StpSimulate
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NwAdminStIfStatIcmpRedirect
@@ -110,6 +111,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import CoppMcast
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import AnalyticsOportSupportT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import IpUrpfT
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NbmNbmOifOrigin
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import OspfAlways
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NgmvpnEhType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import SpanSrcT
@@ -279,6 +281,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L1PacketTimestampState
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import AggregateAfT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import ArpSuppressArpMode
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import EqptcapXcvrT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L1DceMode
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L1OperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import ArpLoggingLevel
@@ -335,6 +338,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import QosPrio
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import IsisOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NbmNbmRcvOwner
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NbmNbmFlowPolicerEn
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import TrackIntfProtocolType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import MsdpOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L1AdminSt
@@ -463,6 +467,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import ArpEventLogSize
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import VpcRole
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import McpOperSt
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import OspfFlagStatus
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import RtdmcAdjOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import BgpPeerGrSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import BgpAdvertL2vpnEvpn
@@ -509,7 +514,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import TunnelAdminSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import QospOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import StpPortState
-        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import CfsIpDistMode
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import BgpLsProtoId
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import FsetOperState
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import DatetimeProvT
@@ -525,7 +529,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L2fmLearning
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import StpAdminSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import AggregateResourceStatus
-        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import EqptcapXcvrT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import ImBreakoutMapT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import IpSwitchPktTarget
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import InstallerStage
@@ -628,6 +631,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import Vrrpv3VrAf
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import RtdmcDfStates
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L1OperStQual_
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import SyslogOriginIdType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import RtmapMatchT
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L3capSubj
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import VpcCompatSt
@@ -653,6 +657,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import ConftmplOperationType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import TrackListObj
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NvoVniStateT
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import InbandTelemetryProfile
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import UdldPktDirection
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import NwOSSum
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import PlatformSwitchingMode
@@ -664,6 +669,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import RelnResolverType
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import L2Mode
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import SisfNonGlobalTracking
+        from ydk.models.cisco_nx_os.Cisco_NX_OS_device import OspfActive
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import SviOperSt
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import PcMode
         from ydk.models.cisco_nx_os.Cisco_NX_OS_device import DatetimeClockFormat

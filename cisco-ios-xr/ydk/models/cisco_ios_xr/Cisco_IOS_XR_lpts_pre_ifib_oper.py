@@ -239,7 +239,7 @@ class LptsPifib_(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LptsPifib_.Nodes.Node, [u'node_name'], name, value)
+                self._perform_setattr(LptsPifib_.Nodes.Node, ['node_name'], name, value)
 
 
             class TypeValues(Entity):
@@ -323,7 +323,7 @@ class LptsPifib_(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue, [u'pifib_type'], name, value)
+                        self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue, ['pifib_type'], name, value)
 
 
                     class Entry(Entity):
@@ -623,7 +623,7 @@ class LptsPifib_(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, [u'entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
+                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
 
 
 

@@ -861,7 +861,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, [u'callactivesetuptime', u'callactiveindex', u'cvcommondccallactiveconnectionid', u'cvcommondccallactivevadenable', u'cvcommondccallactivecodertyperate', u'cvcommondccallactivecodecbytes', u'cvcommondccallactiveinbandsignaling', u'cvcommondccallactivecallingname', u'cvcommondccallactivecalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactiveconnectionid', 'cvcommondccallactivevadenable', 'cvcommondccallactivecodertyperate', 'cvcommondccallactivecodecbytes', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivecallingname', 'cvcommondccallactivecalleridblock'], name, value)
 
 
 
@@ -1024,7 +1024,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, [u'ccallhistoryindex', u'cvcommondccallhistoryconnectionid', u'cvcommondccallhistoryvadenable', u'cvcommondccallhistorycodertyperate', u'cvcommondccallhistorycodecbytes', u'cvcommondccallhistoryinbandsignaling', u'cvcommondccallhistorycallingname', u'cvcommondccallhistorycalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, ['ccallhistoryindex', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryvadenable', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycalleridblock'], name, value)
 
 
 

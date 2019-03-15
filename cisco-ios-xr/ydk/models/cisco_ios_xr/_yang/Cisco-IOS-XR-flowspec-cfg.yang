@@ -141,40 +141,24 @@ module Cisco-IOS-XR-flowspec-cfg {
           description
             "Table of ServicePolicy";
           list service-policy {
-            must "policy-type" {
-              description
-                "policy-type must be
-                 present.";
-            }
-            key "policy-name";
+            key "policy-type policy-name";
             description
               "Service Policy configuration";
-
-            grouping SERVICE-POLICY-CONTENT {
+            leaf policy-type {
+              type Fs-af-p;
               description
-                "Content grouping.";
-              leaf local {
-                type boolean;
-                mandatory true;
-                description
-                  "Set constant integer";
-              }
+                "Choose the Policy type";
             }
             leaf policy-name {
               type xr:Cisco-ios-xr-string;
               description
                 "Policy map name";
             }
-            list policy-type {
-              key "policy-type";
+            leaf local {
+              type boolean;
+              mandatory true;
               description
-                "keys: policy-type";
-              leaf policy-type {
-                type Fs-af-p;
-                description
-                  "Choose the Policy type";
-              }
-              uses SERVICE-POLICY-CONTENT;
+                "Set constant integer";
             }
           }
         }
@@ -208,40 +192,24 @@ module Cisco-IOS-XR-flowspec-cfg {
               description
                 "Table of ServicePolicy";
               list service-policy {
-                must "policy-type" {
-                  description
-                    "policy-type must be
-                     present.";
-                }
-                key "policy-name";
+                key "policy-type policy-name";
                 description
                   "Service Policy configuration";
-
-                grouping SERVICE-POLICY-CONTENT {
+                leaf policy-type {
+                  type Fs-af-p;
                   description
-                    "Content grouping.";
-                  leaf local {
-                    type boolean;
-                    mandatory true;
-                    description
-                      "Set constant integer";
-                  }
+                    "Choose the Policy type";
                 }
                 leaf policy-name {
                   type xr:Cisco-ios-xr-string;
                   description
                     "Policy map name";
                 }
-                list policy-type {
-                  key "policy-type";
+                leaf local {
+                  type boolean;
+                  mandatory true;
                   description
-                    "keys: policy-type";
-                  leaf policy-type {
-                    type Fs-vrf-af-p;
-                    description
-                      "Choose the Policy type";
-                  }
-                  uses SERVICE-POLICY-CONTENT;
+                    "Set constant integer";
                 }
               }
             }

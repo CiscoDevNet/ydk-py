@@ -37,6 +37,14 @@ module Cisco-IOS-XE-ethernet {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-07-25 {
+    description
+      "Remove the must constraints on interface auto-negotiation and speed";
+  }
+  revision 2018-07-18 {
+    description
+      "Validate interface auto-negotiation is not enabled when setting speed";
+  }
   revision 2018-04-09 {
     description
       "Add dependency for bridge-domain";

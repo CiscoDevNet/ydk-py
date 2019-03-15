@@ -1393,7 +1393,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'admin_state', u'oper_state', u'error_state', u'flags', u'flap_cnt', u'num_admin_shuts', u'correctable_errors', u'uncorrectable_errors'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'admin_state', 'oper_state', 'error_state', 'flags', 'flap_cnt', 'num_admin_shuts', 'correctable_errors', 'uncorrectable_errors'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -1473,7 +1473,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1553,7 +1553,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -1635,7 +1635,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1715,7 +1715,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -1797,7 +1797,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1877,7 +1877,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -1939,7 +1939,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, [u'histnum', u'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, ['histnum', 'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -2015,7 +2015,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
 
 
 
@@ -2568,7 +2568,7 @@ class Fia(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, [u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
+                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
 
 
                 class DeviceInfo(Entity):
@@ -2771,7 +2771,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
 
 
                     class AsicId(Entity):
@@ -2851,7 +2851,7 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -3054,7 +3054,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
 
 
                     class OirCircularBuffer(Entity):
@@ -3125,7 +3125,7 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
 
 
                         class FiaOirInfo(Entity):
@@ -3231,7 +3231,7 @@ class Fia(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
+                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
 
 
 
@@ -3863,7 +3863,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'is_power_enabled', u'coeff1', u'coeff2', u'admin_state', u'oper_state', u'error_state', u'num_admin_shuts'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'is_power_enabled', 'coeff1', 'coeff2', 'admin_state', 'oper_state', 'error_state', 'num_admin_shuts'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -3943,7 +3943,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -4023,7 +4023,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -4105,7 +4105,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -4185,7 +4185,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -4227,7 +4227,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, [u'dummy'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, ['dummy'], name, value)
 
 
 
@@ -4288,7 +4288,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, [u'histnum', u'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, ['histnum', 'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -4364,7 +4364,7 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
 
 
 
@@ -4634,7 +4634,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', u'output_xr'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
 
 
 
@@ -5358,7 +5358,7 @@ class Fia(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
 
 
                                 class DeviceInfo(Entity):
@@ -5561,7 +5561,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
 
 
                                     class AsicId(Entity):
@@ -5641,7 +5641,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
 
@@ -5844,7 +5844,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
 
 
                                     class OirCircularBuffer(Entity):
@@ -5915,7 +5915,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
 
 
                                         class FiaOirInfo(Entity):
@@ -6021,7 +6021,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
 
 
 
@@ -6213,10 +6213,17 @@ class Fia(Entity):
                                 """
                                 PBC stats bag
                                 
-                                .. attribute:: stats_info
+                                .. attribute:: aggr_stats
                                 
-                                	stats info
-                                	**type**\:  :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
+                                	aggr stats
+                                	**type**\:  :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ovf_status
+                                
+                                	ovf status
+                                	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.OvfStatus>`
                                 
                                 	**config**\: False
                                 
@@ -6278,7 +6285,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("stats-info", ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo))])
+                                    self._child_classes = OrderedDict([("aggr-stats", ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats)), ("ovf-status", ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.OvfStatus))])
                                     self._leafs = OrderedDict([
                                         ('valid', (YLeaf(YType.boolean, 'valid'), ['bool'])),
                                         ('rack_no', (YLeaf(YType.uint32, 'rack-no'), ['int'])),
@@ -6292,33 +6299,2926 @@ class Fia(Entity):
                                     self.asic_instance = None
                                     self.chip_ver = None
 
-                                    self.stats_info = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo()
-                                    self.stats_info.parent = self
-                                    self._children_name_map["stats_info"] = "stats-info"
+                                    self.aggr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats()
+                                    self.aggr_stats.parent = self
+                                    self._children_name_map["aggr_stats"] = "aggr-stats"
+
+                                    self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.OvfStatus()
+                                    self.ovf_status.parent = self
+                                    self._children_name_map["ovf_status"] = "ovf-status"
                                     self._segment_path = lambda: "pbc-stats"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, [u'valid', u'rack_no', u'slot_no', u'asic_instance', u'chip_ver'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['valid', 'rack_no', 'slot_no', 'asic_instance', 'chip_ver'], name, value)
 
 
-                                class StatsInfo(Entity):
+                                class AggrStats(Entity):
                                     """
-                                    stats info
+                                    aggr stats
                                     
-                                    .. attribute:: num_blocks
+                                    .. attribute:: rx_internal_error
                                     
-                                    	Num Blocks
+                                    	RxInternalError
                                     	**type**\: int
                                     
-                                    	**range:** 0..255
+                                    	**range:** 0..18446744073709551615
                                     
                                     	**config**\: False
                                     
-                                    .. attribute:: block_info
+                                    .. attribute:: rx_internal_drop
                                     
-                                    	block info
-                                    	**type**\: list of  		 :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
+                                    	RxInternalDrop
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: tx_internal_error
+                                    
+                                    	TxInternalError
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: tx_internal_drop
+                                    
+                                    	TxInternalDrop
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cmic_cmc0_pkt_count_tx_pkt
+                                    
+                                    	CMIC Cmc0PktCountTxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cmic_cmc0_pkt_count_rx_pkt
+                                    
+                                    	CMIC Cmc0PktCountRxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_rx_bursts_err_cnt
+                                    
+                                    	NBI StatRxBurstsErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_ecc_1b_err_cnt
+                                    
+                                    	NBI Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_ecc_2b_err_cnt
+                                    
+                                    	NBI Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_parity_err_cnt
+                                    
+                                    	NBI ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn_crc32_err_cnt
+                                    
+                                    	NBI RxIlknCrc32ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn0Crc24ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_burst_err_cnt
+                                    
+                                    	NBI RxIlkn0BurstErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_miss_sop_err_cnt
+                                    
+                                    	NBI RxIlkn0MissSopErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_miss_eop_err_cnt
+                                    
+                                    	NBI RxIlkn0MissEopErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_misaligned_cnt
+                                    
+                                    	NBI RxIlkn0MisalignedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn1Crc24ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_burst_err_cnt
+                                    
+                                    	NBI RxIlkn1BurstErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_miss_sop_err_cnt
+                                    
+                                    	NBI RxIlkn1MissSopErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_miss_eop_err_cnt
+                                    
+                                    	NBI RxIlkn1MissEopErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_misaligned_cnt
+                                    
+                                    	NBI RxIlkn1MisalignedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_tx_ilkn1_flushed_bursts_cnt
+                                    
+                                    	NBI TxIlkn1FlushedBurstsCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransCRC24ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_retry_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransRetryErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wdog_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWdogErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWrapAfterDiscErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWrapB4DiscErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_reached_timeout_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransReachedTimeoutErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransCRC24ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_retry_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransRetryErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wdog_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWdogErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWrapAfterDiscErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWrapB4DiscErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_reached_timeout_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransReachedTimeoutErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_rx_frame_err_cnt
+                                    
+                                    	NBI StatRxFrameErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_frame_err_cnt
+                                    
+                                    	NBI StatTxFrameErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_elk_err_bursts_cnt
+                                    
+                                    	NBI RxElkErrBurstsCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_num_thrown_eops
+                                    
+                                    	NBI RxNumThrownEops
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_num_runts
+                                    
+                                    	NBI RxNumRunts
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_tx_crc_err_bursts_cnt
+                                    
+                                    	NBI BistTxCrcErrBurstsCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_length_bursts_cnt
+                                    
+                                    	NBI BistRxErrLengthBurstsCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_burst_index_cnt
+                                    
+                                    	NBI BistRxErrBurstIndexCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_bct_cnt
+                                    
+                                    	NBI BistRxErrBctCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_data_cnt
+                                    
+                                    	NBI BistRxErrDataCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_in_crc_err_cnt
+                                    
+                                    	NBI BistRxErrInCrcErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_sob_cnt
+                                    
+                                    	NBI BistRxErrSobCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_bursts_cnt
+                                    
+                                    	NBI StatTxBurstsCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_total_leng_cnt
+                                    
+                                    	NBI StatTxTotalLengCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_total_tx_pkt_count
+                                    
+                                    	RXAUI TotalTxPktCount
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_total_rx_pkt_count
+                                    
+                                    	RXAUI TotalRxPktCount
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_bcast_pkt
+                                    
+                                    	RXAUI RxPktCountBcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_bcast_pkt
+                                    
+                                    	RXAUI TxPktCountBcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_mcast_pkt
+                                    
+                                    	RXAUI RxPktCountMcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_mcast_pkt
+                                    
+                                    	RXAUI TxPktCountMcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_ucast_pkt
+                                    
+                                    	RXAUI RxPktCountUcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_ucast_pkt
+                                    
+                                    	RXAUI TxPktCountUcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_err_drop_pkt_cnt
+                                    
+                                    	RXAUI RxErrDropPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_err_drop_pkt_cnt
+                                    
+                                    	RXAUI TxErrDropPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_byte_count_tx_pkt
+                                    
+                                    	RXAUI ByteCountTxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_byte_count_rx_pkt
+                                    
+                                    	RXAUI ByteCountRxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_dscrd_pkt_cnt
+                                    
+                                    	RXAUI RxDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_dscrd_pkt_cnt
+                                    
+                                    	RXAUI TxDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ire_nif_packet_counter
+                                    
+                                    	IRE NifPacketCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_total_rx_pkt_count
+                                    
+                                    	IL TotalRxPktCount
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_total_tx_pkt_count
+                                    
+                                    	IL TotalTxPktCount
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_err_drop_pkt_cnt
+                                    
+                                    	IL RxErrDropPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_err_drop_pkt_cnt
+                                    
+                                    	IL TxErrDropPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_byte_count_tx_pkt
+                                    
+                                    	IL ByteCountTxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_byte_count_rx_pkt
+                                    
+                                    	IL ByteCountRxPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_dscrd_pkt_cnt
+                                    
+                                    	IL RxDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_dscrd_pkt_cnt
+                                    
+                                    	IL TxDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_bcast_pkt
+                                    
+                                    	IL RxPktCountBcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_bcast_pkt
+                                    
+                                    	IL TxPktCountBcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_mcast_pkt
+                                    
+                                    	IL RxPktCountMcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_mcast_pkt
+                                    
+                                    	IL TxPktCountMcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_ucast_pkt
+                                    
+                                    	IL RxPktCountUcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_ucast_pkt
+                                    
+                                    	IL TxPktCountUcastPkt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_enq_pkt_cnt
+                                    
+                                    	IQM EnqPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_enq_byte_cnt
+                                    
+                                    	IQM EnqByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_pkt_cnt
+                                    
+                                    	IQM DeqPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_byte_cnt
+                                    
+                                    	IQM DeqByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_tot_dscrd_pkt_cnt
+                                    
+                                    	IQM TotDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_tot_dscrd_byte_cnt
+                                    
+                                    	IQM TotDscrdByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecc_1b_err_cnt
+                                    
+                                    	IQM Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecc_2b_err_cnt
+                                    
+                                    	IQM Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_parity_err_cnt
+                                    
+                                    	IQM ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_delete_pkt_cnt
+                                    
+                                    	IQM DeqDeletePktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecn_dscrd_msk_pkt_cnt
+                                    
+                                    	IQM EcnDscrdMskPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_q_tot_dscrd_pkt_cnt
+                                    
+                                    	IQM QTotDscrdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_q_deq_delete_pkt_cnt
+                                    
+                                    	IQM QDeqDeletePktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_db_pkt_cnt
+                                    
+                                    	IQM RjctDbPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_bdb_pkt_cnt
+                                    
+                                    	IQM RjctBdbPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_bdb_protct_pkt_cnt
+                                    
+                                    	IQM RjctBdbProtctPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_oc_bd_pkt_cnt
+                                    
+                                    	IQM RjctOcBdPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_sn_err_pkt_cnt
+                                    
+                                    	IQM RjctSnErrPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_mc_err_pkt_cnt
+                                    
+                                    	IQM RjctMcErrPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_rsrc_err_pkt_cnt
+                                    
+                                    	IQM RjctRsrcErrPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_qnvalid_err_pkt_cnt
+                                    
+                                    	IQM RjctQnvalidErrPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_cnm_pkt_cnt
+                                    
+                                    	IQM RjctCnmPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_dyn_space_pkt_cnt
+                                    
+                                    	IQM RjctDynSpacePktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_fdt_pkt_cnt
+                                    
+                                    	IPT FdtPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_ecc_1b_err_cnt
+                                    
+                                    	IPT Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_ecc_2b_err_cnt
+                                    
+                                    	IPT Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_parity_err_cnt
+                                    
+                                    	IPT ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_cnt
+                                    
+                                    	IPT CrcErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_del_buff_cnt
+                                    
+                                    	IPT CrcErrDelBuffCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_cpu_del_buff_cnt
+                                    
+                                    	IPT CpuDelBuffCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_cpu_rel_buff_cnt
+                                    
+                                    	IPT CpuRelBuffCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_buff_fifo_full_cnt
+                                    
+                                    	IPT CrcErrBuffFifoFullCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_data_cell_cnt
+                                    
+                                    	FDT DataCellCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_data_byte_cnt
+                                    
+                                    	FDT DataByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_crc_dropped_pck_cnt
+                                    
+                                    	FDT CrcDroppedPckCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_invalid_destq_drop_cell_cnt
+                                    
+                                    	FDT invalid destq drop cell cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_indirect_command_count
+                                    
+                                    	FDT IndirectCommandCount
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_ecc_1b_err_cnt
+                                    
+                                    	FDT Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_ecc_2b_err_cnt
+                                    
+                                    	FDT Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_parity_err_cnt
+                                    
+                                    	FDT ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_crc_dropped_cell_cnt
+                                    
+                                    	FDT CrcDroppedCellCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_control_cell_cnt
+                                    
+                                    	FCR ControlCellCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_cell_drop_cnt
+                                    
+                                    	FCR CellDropCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_credit_cell_drop_cnt
+                                    
+                                    	FCR CreditCellDropCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_fs_cell_drop_cnt
+                                    
+                                    	FCR FSCellDropCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_rt_cell_drop_cnt
+                                    
+                                    	FCR RTCellDropCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_ecc_1b_err_cnt
+                                    
+                                    	FCR Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_ecc_2b_err_cnt
+                                    
+                                    	FCR Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_data_cell_cnt
+                                    
+                                    	FDR DataCellCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_data_byte_cnt
+                                    
+                                    	FDR DataByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_crc_dropped_pck_cnt
+                                    
+                                    	FDR CrcDroppedPckCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_p_pkt_cnt
+                                    
+                                    	FDR PPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_error_filter_cnt
+                                    
+                                    	FDR PrmErrorFilterCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_error_filter_cnt
+                                    
+                                    	FDR SecErrorFilterCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_ecc_1b_err_cnt
+                                    
+                                    	FDR PrmEcc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_ecc_2b_err_cnt
+                                    
+                                    	FDR PrmEcc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_ecc_1b_err_cnt
+                                    
+                                    	FDR SecEcc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_ecc_2b_err_cnt
+                                    
+                                    	FDR SecEcc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ecc_1b_err_cnt
+                                    
+                                    	EGQ Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ecc_2b_err_cnt
+                                    
+                                    	EGQ Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_parity_err_cnt
+                                    
+                                    	EGQ ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_dbf_ecc_1b_err_cnt
+                                    
+                                    	EGQ DbfEcc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_dbf_ecc_2b_err_cnt
+                                    
+                                    	EGQ DbfEcc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_empty_mcid_counter
+                                    
+                                    	EGQ EmptyMcidCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_rqp_discard_packet_counter
+                                    
+                                    	EGQ RqpDiscardPacketCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ehp_discard_packet_counter
+                                    
+                                    	EGQ EhpDiscardPacketCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ipt_pkt_cnt
+                                    
+                                    	EGQ IptPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_pkt_cnt
+                                    
+                                    	EPNI EpePktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_byte_cnt
+                                    
+                                    	EPNI EpeByteCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_discard_pkt_cnt
+                                    
+                                    	EPNI EpeDiscardPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_ecc_1b_err_cnt
+                                    
+                                    	EPNI Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_ecc_2b_err_cnt
+                                    
+                                    	EPNI Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_parity_err_cnt
+                                    
+                                    	EPNI ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_pkt_cnt
+                                    
+                                    	EGQ PqpUcastPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_h_pkt_cnt
+                                    
+                                    	EGQ PqpUcastHPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_l_pkt_cnt
+                                    
+                                    	EGQ PqpUcastLPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_bytes_cnt
+                                    
+                                    	EGQ PqpUcastBytesCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_discard_pkt_cnt
+                                    
+                                    	EGQ PqpUcastDiscardPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_pkt_cnt
+                                    
+                                    	EGQ PqpMcastPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_h_pkt_cnt
+                                    
+                                    	EGQ PqpMcastHPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_l_pkt_cnt
+                                    
+                                    	EGQ PqpMcastLPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_bytes_cnt
+                                    
+                                    	EGQ PqpMcastBytesCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_discard_pkt_cnt
+                                    
+                                    	EGQ PqpMcastDiscardPktCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fct_control_cell_cnt
+                                    
+                                    	FCT ControlCellCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fct_unrch_crdt_cnt
+                                    
+                                    	FCT UnrchCrdtCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_reassembly_errors
+                                    
+                                    	IDR ReassemblyErrors
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_mmu_ecc_1b_err_cnt
+                                    
+                                    	IDR MmuEcc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_mmu_ecc_2b_err_cnt
+                                    
+                                    	IDR MmuEcc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets0_cnt
+                                    
+                                    	IDR DiscardedPackets0Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets1_cnt
+                                    
+                                    	IDR DiscardedPackets1Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets2_cnt
+                                    
+                                    	IDR DiscardedPackets2Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets3_cnt
+                                    
+                                    	IDR DiscardedPackets3Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets0_cnt
+                                    
+                                    	IDR DiscardedOctets0Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets1_cnt
+                                    
+                                    	IDR DiscardedOctets1Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets2_cnt
+                                    
+                                    	IDR DiscardedOctets2Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets3_cnt
+                                    
+                                    	IDR DiscardedOctets3Cnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: mmu_ecc_1b_err_cnt
+                                    
+                                    	MMU Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: mmu_ecc_2b_err_cnt
+                                    
+                                    	MMU Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_parity_err_cnt
+                                    
+                                    	OAMP ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_ecc_1b_err_cnt
+                                    
+                                    	OAMP Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_ecc_2b_err_cnt
+                                    
+                                    	OAMP Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: crps_parity_err_cnt
+                                    
+                                    	CRPS ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs0TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs1TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs2TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs3TstRxErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst0_err_cnt
+                                    
+                                    	FMAC0 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst0_err_cnt
+                                    
+                                    	FMAC1 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst0_err_cnt
+                                    
+                                    	FMAC2 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst0_err_cnt
+                                    
+                                    	FMAC3 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst0_err_cnt
+                                    
+                                    	FMAC4 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst0_err_cnt
+                                    
+                                    	FMAC5 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst0_err_cnt
+                                    
+                                    	FMAC6 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst0_err_cnt
+                                    
+                                    	FMAC7 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst0_err_cnt
+                                    
+                                    	FMAC8 Tst0ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst1_err_cnt
+                                    
+                                    	FMAC0 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst1_err_cnt
+                                    
+                                    	FMAC1 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst1_err_cnt
+                                    
+                                    	FMAC2 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst1_err_cnt
+                                    
+                                    	FMAC3 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst1_err_cnt
+                                    
+                                    	FMAC4 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst1_err_cnt
+                                    
+                                    	FMAC5 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst1_err_cnt
+                                    
+                                    	FMAC6 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst1_err_cnt
+                                    
+                                    	FMAC7 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst1_err_cnt
+                                    
+                                    	FMAC8 Tst1ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst2_err_cnt
+                                    
+                                    	FMAC0 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst2_err_cnt
+                                    
+                                    	FMAC1 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst2_err_cnt
+                                    
+                                    	FMAC2 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst2_err_cnt
+                                    
+                                    	FMAC3 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst2_err_cnt
+                                    
+                                    	FMAC4 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst2_err_cnt
+                                    
+                                    	FMAC5 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst2_err_cnt
+                                    
+                                    	FMAC6 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst2_err_cnt
+                                    
+                                    	FMAC7 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst2_err_cnt
+                                    
+                                    	FMAC8 Tst2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst3_err_cnt
+                                    
+                                    	FMAC0 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst3_err_cnt
+                                    
+                                    	FMAC1 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst3_err_cnt
+                                    
+                                    	FMAC2 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst3_err_cnt
+                                    
+                                    	FMAC3 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst3_err_cnt
+                                    
+                                    	FMAC4 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst3_err_cnt
+                                    
+                                    	FMAC5 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst3_err_cnt
+                                    
+                                    	FMAC6 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst3_err_cnt
+                                    
+                                    	FMAC7 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst3_err_cnt
+                                    
+                                    	FMAC8 Tst3ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_ecc_1b_err_cnt
+                                    
+                                    	FMAC0 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_ecc_1b_err_cnt
+                                    
+                                    	FMAC1 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_ecc_1b_err_cnt
+                                    
+                                    	FMAC2 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_ecc_1b_err_cnt
+                                    
+                                    	FMAC3 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_ecc_1b_err_cnt
+                                    
+                                    	FMAC4 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_ecc_1b_err_cnt
+                                    
+                                    	FMAC5 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_ecc_1b_err_cnt
+                                    
+                                    	FMAC6 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_ecc_1b_err_cnt
+                                    
+                                    	FMAC7 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_ecc_1b_err_cnt
+                                    
+                                    	FMAC8 Ecc 1bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_ecc_2b_err_cnt
+                                    
+                                    	FMAC0 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_ecc_2b_err_cnt
+                                    
+                                    	FMAC1 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_ecc_2b_err_cnt
+                                    
+                                    	FMAC2 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_ecc_2b_err_cnt
+                                    
+                                    	FMAC3 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_ecc_2b_err_cnt
+                                    
+                                    	FMAC4 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_ecc_2b_err_cnt
+                                    
+                                    	FMAC5 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_ecc_2b_err_cnt
+                                    
+                                    	FMAC6 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_ecc_2b_err_cnt
+                                    
+                                    	FMAC7 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_ecc_2b_err_cnt
+                                    
+                                    	FMAC8 Ecc 2bErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: olp_incoming_bad_identifier_counter
+                                    
+                                    	OLP IncomingBadIdentifierCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: olp_incoming_bad_reassembly_counter
+                                    
+                                    	OLP IncomingBadReassemblyCounter
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_parity_err_cnt
+                                    
+                                    	CFC ParityErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_ilkn0_oob_rx_crc_err_cntr
+                                    
+                                    	CFC Ilkn0OobRxCrcErrCntr
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_ilkn1_oob_rx_crc_err_cntr
+                                    
+                                    	CFC Ilkn1OobRxCrcErrCntr
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx0_frm_err_cnt
+                                    
+                                    	CFC SpiOobRx0FrmErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx0_dip2_err_cnt
+                                    
+                                    	CFC SpiOobRx0Dip2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx1_frm_err_cnt
+                                    
+                                    	CFC SpiOobRx1FrmErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx1_dip2_err_cnt
+                                    
+                                    	CFC SpiOobRx1Dip2ErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_pd_dropped_cnt
+                                    
+                                    	CGM CgmUcPdDroppedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_rep_pd_dropped_cnt
+                                    
+                                    	CGM CgmMcRepPdDroppedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_db_dropped_by_rqp_cnt
+                                    
+                                    	CGM CgmUcDbDroppedByRqpCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_db_dropped_by_pqp_cnt
+                                    
+                                    	CGM CgmUcDbDroppedByPqpCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_rep_db_dropped_cnt
+                                    
+                                    	CGM CgmMcRepDbDroppedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_db_dropped_cnt
+                                    
+                                    	CGM CgmMcDbDroppedCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_full_err_cnt
+                                    
+                                    	DRCA FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_single_err_cnt
+                                    
+                                    	DRCA SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_calib_bist_full_err_cnt
+                                    
+                                    	DRCA CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_loopback_full_err_cnt
+                                    
+                                    	DRCA LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_full_err_cnt
+                                    
+                                    	DRCB FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_single_err_cnt
+                                    
+                                    	DRCB SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_calib_bist_full_err_cnt
+                                    
+                                    	DRCB CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_loopback_full_err_cnt
+                                    
+                                    	DRCB LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_full_err_cnt
+                                    
+                                    	DRCC FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_single_err_cnt
+                                    
+                                    	DRCC SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_calib_bist_full_err_cnt
+                                    
+                                    	DRCC CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_loopback_full_err_cnt
+                                    
+                                    	DRCC LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_full_err_cnt
+                                    
+                                    	DRCD FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_single_err_cnt
+                                    
+                                    	DRCD SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_calib_bist_full_err_cnt
+                                    
+                                    	DRCD CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_loopback_full_err_cnt
+                                    
+                                    	DRCD LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_full_err_cnt
+                                    
+                                    	DRCE FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_single_err_cnt
+                                    
+                                    	DRCE SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_calib_bist_full_err_cnt
+                                    
+                                    	DRCE CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_loopback_full_err_cnt
+                                    
+                                    	DRCE LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_full_err_cnt
+                                    
+                                    	DRCF FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_single_err_cnt
+                                    
+                                    	DRCF SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_calib_bist_full_err_cnt
+                                    
+                                    	DRCF CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_loopback_full_err_cnt
+                                    
+                                    	DRCF LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_full_err_cnt
+                                    
+                                    	DRCG FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_single_err_cnt
+                                    
+                                    	DRCG SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_calib_bist_full_err_cnt
+                                    
+                                    	DRCG CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_loopback_full_err_cnt
+                                    
+                                    	DRCG LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_full_err_cnt
+                                    
+                                    	DRCH FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_single_err_cnt
+                                    
+                                    	DRCH SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_calib_bist_full_err_cnt
+                                    
+                                    	DRCH CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_loopback_full_err_cnt
+                                    
+                                    	DRCH LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_full_err_cnt
+                                    
+                                    	DRCBROADCAST FullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_single_err_cnt
+                                    
+                                    	DRCBROADCAST SingleErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_calib_bist_full_err_cnt
+                                    
+                                    	DRCBROADCAST CalibBistFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_loopback_full_err_cnt
+                                    
+                                    	DRCBROADCAST LoopbackFullErrCnt
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: otn_mode
+                                    
+                                    	otn mode
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: num_ports
+                                    
+                                    	num ports
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: aggr_stats_otn
+                                    
+                                    	aggr stats otn
+                                    	**type**\: list of  		 :py:class:`AggrStatsOtn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats.AggrStatsOtn>`
                                     
                                     	**config**\: False
                                     
@@ -6330,53 +9230,688 @@ class Fia(Entity):
                                     _revision = '2017-08-29'
 
                                     def __init__(self):
-                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, self).__init__()
+                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats, self).__init__()
 
-                                        self.yang_name = "stats-info"
+                                        self.yang_name = "aggr-stats"
                                         self.yang_parent_name = "pbc-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("block-info", ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo))])
+                                        self._child_classes = OrderedDict([("aggr-stats-otn", ("aggr_stats_otn", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats.AggrStatsOtn))])
                                         self._leafs = OrderedDict([
-                                            ('num_blocks', (YLeaf(YType.uint8, 'num-blocks'), ['int'])),
+                                            ('rx_internal_error', (YLeaf(YType.uint64, 'rx-internal-error'), ['int'])),
+                                            ('rx_internal_drop', (YLeaf(YType.uint64, 'rx-internal-drop'), ['int'])),
+                                            ('tx_internal_error', (YLeaf(YType.uint64, 'tx-internal-error'), ['int'])),
+                                            ('tx_internal_drop', (YLeaf(YType.uint64, 'tx-internal-drop'), ['int'])),
+                                            ('cmic_cmc0_pkt_count_tx_pkt', (YLeaf(YType.uint64, 'cmic-cmc0-pkt-count-tx-pkt'), ['int'])),
+                                            ('cmic_cmc0_pkt_count_rx_pkt', (YLeaf(YType.uint64, 'cmic-cmc0-pkt-count-rx-pkt'), ['int'])),
+                                            ('nbi_stat_rx_bursts_err_cnt', (YLeaf(YType.uint64, 'nbi-stat-rx-bursts-err-cnt'), ['int'])),
+                                            ('nbi_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'nbi-ecc-1b-err-cnt'), ['int'])),
+                                            ('nbi_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'nbi-ecc-2b-err-cnt'), ['int'])),
+                                            ('nbi_parity_err_cnt', (YLeaf(YType.uint64, 'nbi-parity-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn_crc32_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn-crc32-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_crc24_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-crc24-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_burst_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-burst-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_miss_sop_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-miss-sop-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_miss_eop_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-miss-eop-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_misaligned_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-misaligned-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_crc24_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-crc24-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_burst_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-burst-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_miss_sop_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-miss-sop-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_miss_eop_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-miss-eop-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_misaligned_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-misaligned-cnt'), ['int'])),
+                                            ('nbi_tx_ilkn1_flushed_bursts_cnt', (YLeaf(YType.uint64, 'nbi-tx-ilkn1-flushed-bursts-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_crc24_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-crc24-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_retry_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-retry-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_wdog_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-wdog-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-wrap-after-disc-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-wrap-b4-disc-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn0_retrans_reached_timeout_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn0-retrans-reached-timeout-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_crc24_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-crc24-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_retry_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-retry-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_wdog_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-wdog-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-wrap-after-disc-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-wrap-b4-disc-err-cnt'), ['int'])),
+                                            ('nbi_rx_ilkn1_retrans_reached_timeout_err_cnt', (YLeaf(YType.uint64, 'nbi-rx-ilkn1-retrans-reached-timeout-err-cnt'), ['int'])),
+                                            ('nbi_stat_rx_frame_err_cnt', (YLeaf(YType.uint64, 'nbi-stat-rx-frame-err-cnt'), ['int'])),
+                                            ('nbi_stat_tx_frame_err_cnt', (YLeaf(YType.uint64, 'nbi-stat-tx-frame-err-cnt'), ['int'])),
+                                            ('nbi_rx_elk_err_bursts_cnt', (YLeaf(YType.uint64, 'nbi-rx-elk-err-bursts-cnt'), ['int'])),
+                                            ('nbi_rx_num_thrown_eops', (YLeaf(YType.uint64, 'nbi-rx-num-thrown-eops'), ['int'])),
+                                            ('nbi_rx_num_runts', (YLeaf(YType.uint64, 'nbi-rx-num-runts'), ['int'])),
+                                            ('nbi_bist_tx_crc_err_bursts_cnt', (YLeaf(YType.uint64, 'nbi-bist-tx-crc-err-bursts-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_length_bursts_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-length-bursts-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_burst_index_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-burst-index-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_bct_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-bct-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_data_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-data-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_in_crc_err_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-in-crc-err-cnt'), ['int'])),
+                                            ('nbi_bist_rx_err_sob_cnt', (YLeaf(YType.uint64, 'nbi-bist-rx-err-sob-cnt'), ['int'])),
+                                            ('nbi_stat_tx_bursts_cnt', (YLeaf(YType.uint64, 'nbi-stat-tx-bursts-cnt'), ['int'])),
+                                            ('nbi_stat_tx_total_leng_cnt', (YLeaf(YType.uint64, 'nbi-stat-tx-total-leng-cnt'), ['int'])),
+                                            ('rxaui_total_tx_pkt_count', (YLeaf(YType.uint64, 'rxaui-total-tx-pkt-count'), ['int'])),
+                                            ('rxaui_total_rx_pkt_count', (YLeaf(YType.uint64, 'rxaui-total-rx-pkt-count'), ['int'])),
+                                            ('rxaui_rx_pkt_count_bcast_pkt', (YLeaf(YType.uint64, 'rxaui-rx-pkt-count-bcast-pkt'), ['int'])),
+                                            ('rxaui_tx_pkt_count_bcast_pkt', (YLeaf(YType.uint64, 'rxaui-tx-pkt-count-bcast-pkt'), ['int'])),
+                                            ('rxaui_rx_pkt_count_mcast_pkt', (YLeaf(YType.uint64, 'rxaui-rx-pkt-count-mcast-pkt'), ['int'])),
+                                            ('rxaui_tx_pkt_count_mcast_pkt', (YLeaf(YType.uint64, 'rxaui-tx-pkt-count-mcast-pkt'), ['int'])),
+                                            ('rxaui_rx_pkt_count_ucast_pkt', (YLeaf(YType.uint64, 'rxaui-rx-pkt-count-ucast-pkt'), ['int'])),
+                                            ('rxaui_tx_pkt_count_ucast_pkt', (YLeaf(YType.uint64, 'rxaui-tx-pkt-count-ucast-pkt'), ['int'])),
+                                            ('rxaui_rx_err_drop_pkt_cnt', (YLeaf(YType.uint64, 'rxaui-rx-err-drop-pkt-cnt'), ['int'])),
+                                            ('rxaui_tx_err_drop_pkt_cnt', (YLeaf(YType.uint64, 'rxaui-tx-err-drop-pkt-cnt'), ['int'])),
+                                            ('rxaui_byte_count_tx_pkt', (YLeaf(YType.uint64, 'rxaui-byte-count-tx-pkt'), ['int'])),
+                                            ('rxaui_byte_count_rx_pkt', (YLeaf(YType.uint64, 'rxaui-byte-count-rx-pkt'), ['int'])),
+                                            ('rxaui_rx_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'rxaui-rx-dscrd-pkt-cnt'), ['int'])),
+                                            ('rxaui_tx_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'rxaui-tx-dscrd-pkt-cnt'), ['int'])),
+                                            ('ire_nif_packet_counter', (YLeaf(YType.uint64, 'ire-nif-packet-counter'), ['int'])),
+                                            ('il_total_rx_pkt_count', (YLeaf(YType.uint64, 'il-total-rx-pkt-count'), ['int'])),
+                                            ('il_total_tx_pkt_count', (YLeaf(YType.uint64, 'il-total-tx-pkt-count'), ['int'])),
+                                            ('il_rx_err_drop_pkt_cnt', (YLeaf(YType.uint64, 'il-rx-err-drop-pkt-cnt'), ['int'])),
+                                            ('il_tx_err_drop_pkt_cnt', (YLeaf(YType.uint64, 'il-tx-err-drop-pkt-cnt'), ['int'])),
+                                            ('il_byte_count_tx_pkt', (YLeaf(YType.uint64, 'il-byte-count-tx-pkt'), ['int'])),
+                                            ('il_byte_count_rx_pkt', (YLeaf(YType.uint64, 'il-byte-count-rx-pkt'), ['int'])),
+                                            ('il_rx_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'il-rx-dscrd-pkt-cnt'), ['int'])),
+                                            ('il_tx_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'il-tx-dscrd-pkt-cnt'), ['int'])),
+                                            ('il_rx_pkt_count_bcast_pkt', (YLeaf(YType.uint64, 'il-rx-pkt-count-bcast-pkt'), ['int'])),
+                                            ('il_tx_pkt_count_bcast_pkt', (YLeaf(YType.uint64, 'il-tx-pkt-count-bcast-pkt'), ['int'])),
+                                            ('il_rx_pkt_count_mcast_pkt', (YLeaf(YType.uint64, 'il-rx-pkt-count-mcast-pkt'), ['int'])),
+                                            ('il_tx_pkt_count_mcast_pkt', (YLeaf(YType.uint64, 'il-tx-pkt-count-mcast-pkt'), ['int'])),
+                                            ('il_rx_pkt_count_ucast_pkt', (YLeaf(YType.uint64, 'il-rx-pkt-count-ucast-pkt'), ['int'])),
+                                            ('il_tx_pkt_count_ucast_pkt', (YLeaf(YType.uint64, 'il-tx-pkt-count-ucast-pkt'), ['int'])),
+                                            ('iqm_enq_pkt_cnt', (YLeaf(YType.uint64, 'iqm-enq-pkt-cnt'), ['int'])),
+                                            ('iqm_enq_byte_cnt', (YLeaf(YType.uint64, 'iqm-enq-byte-cnt'), ['int'])),
+                                            ('iqm_deq_pkt_cnt', (YLeaf(YType.uint64, 'iqm-deq-pkt-cnt'), ['int'])),
+                                            ('iqm_deq_byte_cnt', (YLeaf(YType.uint64, 'iqm-deq-byte-cnt'), ['int'])),
+                                            ('iqm_tot_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'iqm-tot-dscrd-pkt-cnt'), ['int'])),
+                                            ('iqm_tot_dscrd_byte_cnt', (YLeaf(YType.uint64, 'iqm-tot-dscrd-byte-cnt'), ['int'])),
+                                            ('iqm_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'iqm-ecc-1b-err-cnt'), ['int'])),
+                                            ('iqm_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'iqm-ecc-2b-err-cnt'), ['int'])),
+                                            ('iqm_parity_err_cnt', (YLeaf(YType.uint64, 'iqm-parity-err-cnt'), ['int'])),
+                                            ('iqm_deq_delete_pkt_cnt', (YLeaf(YType.uint64, 'iqm-deq-delete-pkt-cnt'), ['int'])),
+                                            ('iqm_ecn_dscrd_msk_pkt_cnt', (YLeaf(YType.uint64, 'iqm-ecn-dscrd-msk-pkt-cnt'), ['int'])),
+                                            ('iqm_q_tot_dscrd_pkt_cnt', (YLeaf(YType.uint64, 'iqm-q-tot-dscrd-pkt-cnt'), ['int'])),
+                                            ('iqm_q_deq_delete_pkt_cnt', (YLeaf(YType.uint64, 'iqm-q-deq-delete-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_db_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-db-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_bdb_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-bdb-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_bdb_protct_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-bdb-protct-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_oc_bd_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-oc-bd-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_sn_err_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-sn-err-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_mc_err_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-mc-err-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_rsrc_err_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-rsrc-err-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_qnvalid_err_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-qnvalid-err-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_cnm_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-cnm-pkt-cnt'), ['int'])),
+                                            ('iqm_rjct_dyn_space_pkt_cnt', (YLeaf(YType.uint64, 'iqm-rjct-dyn-space-pkt-cnt'), ['int'])),
+                                            ('ipt_fdt_pkt_cnt', (YLeaf(YType.uint64, 'ipt-fdt-pkt-cnt'), ['int'])),
+                                            ('ipt_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'ipt-ecc-1b-err-cnt'), ['int'])),
+                                            ('ipt_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'ipt-ecc-2b-err-cnt'), ['int'])),
+                                            ('ipt_parity_err_cnt', (YLeaf(YType.uint64, 'ipt-parity-err-cnt'), ['int'])),
+                                            ('ipt_crc_err_cnt', (YLeaf(YType.uint64, 'ipt-crc-err-cnt'), ['int'])),
+                                            ('ipt_crc_err_del_buff_cnt', (YLeaf(YType.uint64, 'ipt-crc-err-del-buff-cnt'), ['int'])),
+                                            ('ipt_cpu_del_buff_cnt', (YLeaf(YType.uint64, 'ipt-cpu-del-buff-cnt'), ['int'])),
+                                            ('ipt_cpu_rel_buff_cnt', (YLeaf(YType.uint64, 'ipt-cpu-rel-buff-cnt'), ['int'])),
+                                            ('ipt_crc_err_buff_fifo_full_cnt', (YLeaf(YType.uint64, 'ipt-crc-err-buff-fifo-full-cnt'), ['int'])),
+                                            ('fdt_data_cell_cnt', (YLeaf(YType.uint64, 'fdt-data-cell-cnt'), ['int'])),
+                                            ('fdt_data_byte_cnt', (YLeaf(YType.uint64, 'fdt-data-byte-cnt'), ['int'])),
+                                            ('fdt_crc_dropped_pck_cnt', (YLeaf(YType.uint64, 'fdt-crc-dropped-pck-cnt'), ['int'])),
+                                            ('fdt_invalid_destq_drop_cell_cnt', (YLeaf(YType.uint64, 'fdt-invalid-destq-drop-cell-cnt'), ['int'])),
+                                            ('fdt_indirect_command_count', (YLeaf(YType.uint64, 'fdt-indirect-command-count'), ['int'])),
+                                            ('fdt_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fdt-ecc-1b-err-cnt'), ['int'])),
+                                            ('fdt_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fdt-ecc-2b-err-cnt'), ['int'])),
+                                            ('fdt_parity_err_cnt', (YLeaf(YType.uint64, 'fdt-parity-err-cnt'), ['int'])),
+                                            ('fdt_crc_dropped_cell_cnt', (YLeaf(YType.uint64, 'fdt-crc-dropped-cell-cnt'), ['int'])),
+                                            ('fcr_control_cell_cnt', (YLeaf(YType.uint64, 'fcr-control-cell-cnt'), ['int'])),
+                                            ('fcr_cell_drop_cnt', (YLeaf(YType.uint64, 'fcr-cell-drop-cnt'), ['int'])),
+                                            ('fcr_credit_cell_drop_cnt', (YLeaf(YType.uint64, 'fcr-credit-cell-drop-cnt'), ['int'])),
+                                            ('fcr_fs_cell_drop_cnt', (YLeaf(YType.uint64, 'fcr-fs-cell-drop-cnt'), ['int'])),
+                                            ('fcr_rt_cell_drop_cnt', (YLeaf(YType.uint64, 'fcr-rt-cell-drop-cnt'), ['int'])),
+                                            ('fcr_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fcr-ecc-1b-err-cnt'), ['int'])),
+                                            ('fcr_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fcr-ecc-2b-err-cnt'), ['int'])),
+                                            ('fdr_data_cell_cnt', (YLeaf(YType.uint64, 'fdr-data-cell-cnt'), ['int'])),
+                                            ('fdr_data_byte_cnt', (YLeaf(YType.uint64, 'fdr-data-byte-cnt'), ['int'])),
+                                            ('fdr_crc_dropped_pck_cnt', (YLeaf(YType.uint64, 'fdr-crc-dropped-pck-cnt'), ['int'])),
+                                            ('fdr_p_pkt_cnt', (YLeaf(YType.uint64, 'fdr-p-pkt-cnt'), ['int'])),
+                                            ('fdr_prm_error_filter_cnt', (YLeaf(YType.uint64, 'fdr-prm-error-filter-cnt'), ['int'])),
+                                            ('fdr_sec_error_filter_cnt', (YLeaf(YType.uint64, 'fdr-sec-error-filter-cnt'), ['int'])),
+                                            ('fdr_prm_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fdr-prm-ecc-1b-err-cnt'), ['int'])),
+                                            ('fdr_prm_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fdr-prm-ecc-2b-err-cnt'), ['int'])),
+                                            ('fdr_sec_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fdr-sec-ecc-1b-err-cnt'), ['int'])),
+                                            ('fdr_sec_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fdr-sec-ecc-2b-err-cnt'), ['int'])),
+                                            ('egq_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'egq-ecc-1b-err-cnt'), ['int'])),
+                                            ('egq_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'egq-ecc-2b-err-cnt'), ['int'])),
+                                            ('egq_parity_err_cnt', (YLeaf(YType.uint64, 'egq-parity-err-cnt'), ['int'])),
+                                            ('egq_dbf_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'egq-dbf-ecc-1b-err-cnt'), ['int'])),
+                                            ('egq_dbf_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'egq-dbf-ecc-2b-err-cnt'), ['int'])),
+                                            ('egq_empty_mcid_counter', (YLeaf(YType.uint64, 'egq-empty-mcid-counter'), ['int'])),
+                                            ('egq_rqp_discard_packet_counter', (YLeaf(YType.uint64, 'egq-rqp-discard-packet-counter'), ['int'])),
+                                            ('egq_ehp_discard_packet_counter', (YLeaf(YType.uint64, 'egq-ehp-discard-packet-counter'), ['int'])),
+                                            ('egq_ipt_pkt_cnt', (YLeaf(YType.uint64, 'egq-ipt-pkt-cnt'), ['int'])),
+                                            ('epni_epe_pkt_cnt', (YLeaf(YType.uint64, 'epni-epe-pkt-cnt'), ['int'])),
+                                            ('epni_epe_byte_cnt', (YLeaf(YType.uint64, 'epni-epe-byte-cnt'), ['int'])),
+                                            ('epni_epe_discard_pkt_cnt', (YLeaf(YType.uint64, 'epni-epe-discard-pkt-cnt'), ['int'])),
+                                            ('epni_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'epni-ecc-1b-err-cnt'), ['int'])),
+                                            ('epni_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'epni-ecc-2b-err-cnt'), ['int'])),
+                                            ('epni_parity_err_cnt', (YLeaf(YType.uint64, 'epni-parity-err-cnt'), ['int'])),
+                                            ('egq_pqp_ucast_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-ucast-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_ucast_h_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-ucast-h-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_ucast_l_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-ucast-l-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_ucast_bytes_cnt', (YLeaf(YType.uint64, 'egq-pqp-ucast-bytes-cnt'), ['int'])),
+                                            ('egq_pqp_ucast_discard_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-ucast-discard-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_mcast_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-mcast-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_mcast_h_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-mcast-h-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_mcast_l_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-mcast-l-pkt-cnt'), ['int'])),
+                                            ('egq_pqp_mcast_bytes_cnt', (YLeaf(YType.uint64, 'egq-pqp-mcast-bytes-cnt'), ['int'])),
+                                            ('egq_pqp_mcast_discard_pkt_cnt', (YLeaf(YType.uint64, 'egq-pqp-mcast-discard-pkt-cnt'), ['int'])),
+                                            ('fct_control_cell_cnt', (YLeaf(YType.uint64, 'fct-control-cell-cnt'), ['int'])),
+                                            ('fct_unrch_crdt_cnt', (YLeaf(YType.uint64, 'fct-unrch-crdt-cnt'), ['int'])),
+                                            ('idr_reassembly_errors', (YLeaf(YType.uint64, 'idr-reassembly-errors'), ['int'])),
+                                            ('idr_mmu_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'idr-mmu-ecc-1b-err-cnt'), ['int'])),
+                                            ('idr_mmu_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'idr-mmu-ecc-2b-err-cnt'), ['int'])),
+                                            ('idr_discarded_packets0_cnt', (YLeaf(YType.uint64, 'idr-discarded-packets0-cnt'), ['int'])),
+                                            ('idr_discarded_packets1_cnt', (YLeaf(YType.uint64, 'idr-discarded-packets1-cnt'), ['int'])),
+                                            ('idr_discarded_packets2_cnt', (YLeaf(YType.uint64, 'idr-discarded-packets2-cnt'), ['int'])),
+                                            ('idr_discarded_packets3_cnt', (YLeaf(YType.uint64, 'idr-discarded-packets3-cnt'), ['int'])),
+                                            ('idr_discarded_octets0_cnt', (YLeaf(YType.uint64, 'idr-discarded-octets0-cnt'), ['int'])),
+                                            ('idr_discarded_octets1_cnt', (YLeaf(YType.uint64, 'idr-discarded-octets1-cnt'), ['int'])),
+                                            ('idr_discarded_octets2_cnt', (YLeaf(YType.uint64, 'idr-discarded-octets2-cnt'), ['int'])),
+                                            ('idr_discarded_octets3_cnt', (YLeaf(YType.uint64, 'idr-discarded-octets3-cnt'), ['int'])),
+                                            ('mmu_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'mmu-ecc-1b-err-cnt'), ['int'])),
+                                            ('mmu_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'mmu-ecc-2b-err-cnt'), ['int'])),
+                                            ('oamp_parity_err_cnt', (YLeaf(YType.uint64, 'oamp-parity-err-cnt'), ['int'])),
+                                            ('oamp_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'oamp-ecc-1b-err-cnt'), ['int'])),
+                                            ('oamp_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'oamp-ecc-2b-err-cnt'), ['int'])),
+                                            ('crps_parity_err_cnt', (YLeaf(YType.uint64, 'crps-parity-err-cnt'), ['int'])),
+                                            ('fmac0_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac0-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac1_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac1-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac2_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac2-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac3_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac3-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac4_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac4-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac5_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac5-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac6_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac6-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac7_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac7-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac8_kpcs0_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac8-kpcs0-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac0_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac0-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac1_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac1-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac2_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac2-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac3_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac3-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac4_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac4-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac5_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac5-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac6_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac6-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac7_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac7-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac8_kpcs1_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac8-kpcs1-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac0_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac0-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac1_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac1-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac2_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac2-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac3_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac3-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac4_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac4-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac5_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac5-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac6_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac6-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac7_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac7-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac8_kpcs2_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac8-kpcs2-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac0_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac0-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac1_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac1-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac2_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac2-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac3_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac3-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac4_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac4-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac5_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac5-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac6_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac6-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac7_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac7-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac8_kpcs3_tst_rx_err_cnt', (YLeaf(YType.uint64, 'fmac8-kpcs3-tst-rx-err-cnt'), ['int'])),
+                                            ('fmac0_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac0-tst0-err-cnt'), ['int'])),
+                                            ('fmac1_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac1-tst0-err-cnt'), ['int'])),
+                                            ('fmac2_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac2-tst0-err-cnt'), ['int'])),
+                                            ('fmac3_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac3-tst0-err-cnt'), ['int'])),
+                                            ('fmac4_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac4-tst0-err-cnt'), ['int'])),
+                                            ('fmac5_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac5-tst0-err-cnt'), ['int'])),
+                                            ('fmac6_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac6-tst0-err-cnt'), ['int'])),
+                                            ('fmac7_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac7-tst0-err-cnt'), ['int'])),
+                                            ('fmac8_tst0_err_cnt', (YLeaf(YType.uint64, 'fmac8-tst0-err-cnt'), ['int'])),
+                                            ('fmac0_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac0-tst1-err-cnt'), ['int'])),
+                                            ('fmac1_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac1-tst1-err-cnt'), ['int'])),
+                                            ('fmac2_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac2-tst1-err-cnt'), ['int'])),
+                                            ('fmac3_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac3-tst1-err-cnt'), ['int'])),
+                                            ('fmac4_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac4-tst1-err-cnt'), ['int'])),
+                                            ('fmac5_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac5-tst1-err-cnt'), ['int'])),
+                                            ('fmac6_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac6-tst1-err-cnt'), ['int'])),
+                                            ('fmac7_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac7-tst1-err-cnt'), ['int'])),
+                                            ('fmac8_tst1_err_cnt', (YLeaf(YType.uint64, 'fmac8-tst1-err-cnt'), ['int'])),
+                                            ('fmac0_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac0-tst2-err-cnt'), ['int'])),
+                                            ('fmac1_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac1-tst2-err-cnt'), ['int'])),
+                                            ('fmac2_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac2-tst2-err-cnt'), ['int'])),
+                                            ('fmac3_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac3-tst2-err-cnt'), ['int'])),
+                                            ('fmac4_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac4-tst2-err-cnt'), ['int'])),
+                                            ('fmac5_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac5-tst2-err-cnt'), ['int'])),
+                                            ('fmac6_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac6-tst2-err-cnt'), ['int'])),
+                                            ('fmac7_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac7-tst2-err-cnt'), ['int'])),
+                                            ('fmac8_tst2_err_cnt', (YLeaf(YType.uint64, 'fmac8-tst2-err-cnt'), ['int'])),
+                                            ('fmac0_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac0-tst3-err-cnt'), ['int'])),
+                                            ('fmac1_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac1-tst3-err-cnt'), ['int'])),
+                                            ('fmac2_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac2-tst3-err-cnt'), ['int'])),
+                                            ('fmac3_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac3-tst3-err-cnt'), ['int'])),
+                                            ('fmac4_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac4-tst3-err-cnt'), ['int'])),
+                                            ('fmac5_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac5-tst3-err-cnt'), ['int'])),
+                                            ('fmac6_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac6-tst3-err-cnt'), ['int'])),
+                                            ('fmac7_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac7-tst3-err-cnt'), ['int'])),
+                                            ('fmac8_tst3_err_cnt', (YLeaf(YType.uint64, 'fmac8-tst3-err-cnt'), ['int'])),
+                                            ('fmac0_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac0-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac1_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac1-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac2_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac2-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac3_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac3-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac4_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac4-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac5_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac5-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac6_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac6-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac7_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac7-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac8_ecc_1b_err_cnt', (YLeaf(YType.uint64, 'fmac8-ecc-1b-err-cnt'), ['int'])),
+                                            ('fmac0_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac0-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac1_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac1-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac2_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac2-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac3_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac3-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac4_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac4-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac5_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac5-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac6_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac6-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac7_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac7-ecc-2b-err-cnt'), ['int'])),
+                                            ('fmac8_ecc_2b_err_cnt', (YLeaf(YType.uint64, 'fmac8-ecc-2b-err-cnt'), ['int'])),
+                                            ('olp_incoming_bad_identifier_counter', (YLeaf(YType.uint64, 'olp-incoming-bad-identifier-counter'), ['int'])),
+                                            ('olp_incoming_bad_reassembly_counter', (YLeaf(YType.uint64, 'olp-incoming-bad-reassembly-counter'), ['int'])),
+                                            ('cfc_parity_err_cnt', (YLeaf(YType.uint64, 'cfc-parity-err-cnt'), ['int'])),
+                                            ('cfc_ilkn0_oob_rx_crc_err_cntr', (YLeaf(YType.uint64, 'cfc-ilkn0-oob-rx-crc-err-cntr'), ['int'])),
+                                            ('cfc_ilkn1_oob_rx_crc_err_cntr', (YLeaf(YType.uint64, 'cfc-ilkn1-oob-rx-crc-err-cntr'), ['int'])),
+                                            ('cfc_spi_oob_rx0_frm_err_cnt', (YLeaf(YType.uint64, 'cfc-spi-oob-rx0-frm-err-cnt'), ['int'])),
+                                            ('cfc_spi_oob_rx0_dip2_err_cnt', (YLeaf(YType.uint64, 'cfc-spi-oob-rx0-dip2-err-cnt'), ['int'])),
+                                            ('cfc_spi_oob_rx1_frm_err_cnt', (YLeaf(YType.uint64, 'cfc-spi-oob-rx1-frm-err-cnt'), ['int'])),
+                                            ('cfc_spi_oob_rx1_dip2_err_cnt', (YLeaf(YType.uint64, 'cfc-spi-oob-rx1-dip2-err-cnt'), ['int'])),
+                                            ('cgm_cgm_uc_pd_dropped_cnt', (YLeaf(YType.uint64, 'cgm-cgm-uc-pd-dropped-cnt'), ['int'])),
+                                            ('cgm_cgm_mc_rep_pd_dropped_cnt', (YLeaf(YType.uint64, 'cgm-cgm-mc-rep-pd-dropped-cnt'), ['int'])),
+                                            ('cgm_cgm_uc_db_dropped_by_rqp_cnt', (YLeaf(YType.uint64, 'cgm-cgm-uc-db-dropped-by-rqp-cnt'), ['int'])),
+                                            ('cgm_cgm_uc_db_dropped_by_pqp_cnt', (YLeaf(YType.uint64, 'cgm-cgm-uc-db-dropped-by-pqp-cnt'), ['int'])),
+                                            ('cgm_cgm_mc_rep_db_dropped_cnt', (YLeaf(YType.uint64, 'cgm-cgm-mc-rep-db-dropped-cnt'), ['int'])),
+                                            ('cgm_cgm_mc_db_dropped_cnt', (YLeaf(YType.uint64, 'cgm-cgm-mc-db-dropped-cnt'), ['int'])),
+                                            ('drca_full_err_cnt', (YLeaf(YType.uint64, 'drca-full-err-cnt'), ['int'])),
+                                            ('drca_single_err_cnt', (YLeaf(YType.uint64, 'drca-single-err-cnt'), ['int'])),
+                                            ('drca_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drca-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drca_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drca-loopback-full-err-cnt'), ['int'])),
+                                            ('drcb_full_err_cnt', (YLeaf(YType.uint64, 'drcb-full-err-cnt'), ['int'])),
+                                            ('drcb_single_err_cnt', (YLeaf(YType.uint64, 'drcb-single-err-cnt'), ['int'])),
+                                            ('drcb_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcb-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcb_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcb-loopback-full-err-cnt'), ['int'])),
+                                            ('drcc_full_err_cnt', (YLeaf(YType.uint64, 'drcc-full-err-cnt'), ['int'])),
+                                            ('drcc_single_err_cnt', (YLeaf(YType.uint64, 'drcc-single-err-cnt'), ['int'])),
+                                            ('drcc_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcc-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcc_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcc-loopback-full-err-cnt'), ['int'])),
+                                            ('drcd_full_err_cnt', (YLeaf(YType.uint64, 'drcd-full-err-cnt'), ['int'])),
+                                            ('drcd_single_err_cnt', (YLeaf(YType.uint64, 'drcd-single-err-cnt'), ['int'])),
+                                            ('drcd_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcd-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcd_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcd-loopback-full-err-cnt'), ['int'])),
+                                            ('drce_full_err_cnt', (YLeaf(YType.uint64, 'drce-full-err-cnt'), ['int'])),
+                                            ('drce_single_err_cnt', (YLeaf(YType.uint64, 'drce-single-err-cnt'), ['int'])),
+                                            ('drce_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drce-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drce_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drce-loopback-full-err-cnt'), ['int'])),
+                                            ('drcf_full_err_cnt', (YLeaf(YType.uint64, 'drcf-full-err-cnt'), ['int'])),
+                                            ('drcf_single_err_cnt', (YLeaf(YType.uint64, 'drcf-single-err-cnt'), ['int'])),
+                                            ('drcf_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcf-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcf_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcf-loopback-full-err-cnt'), ['int'])),
+                                            ('drcg_full_err_cnt', (YLeaf(YType.uint64, 'drcg-full-err-cnt'), ['int'])),
+                                            ('drcg_single_err_cnt', (YLeaf(YType.uint64, 'drcg-single-err-cnt'), ['int'])),
+                                            ('drcg_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcg-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcg_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcg-loopback-full-err-cnt'), ['int'])),
+                                            ('drch_full_err_cnt', (YLeaf(YType.uint64, 'drch-full-err-cnt'), ['int'])),
+                                            ('drch_single_err_cnt', (YLeaf(YType.uint64, 'drch-single-err-cnt'), ['int'])),
+                                            ('drch_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drch-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drch_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drch-loopback-full-err-cnt'), ['int'])),
+                                            ('drcbroadcast_full_err_cnt', (YLeaf(YType.uint64, 'drcbroadcast-full-err-cnt'), ['int'])),
+                                            ('drcbroadcast_single_err_cnt', (YLeaf(YType.uint64, 'drcbroadcast-single-err-cnt'), ['int'])),
+                                            ('drcbroadcast_calib_bist_full_err_cnt', (YLeaf(YType.uint64, 'drcbroadcast-calib-bist-full-err-cnt'), ['int'])),
+                                            ('drcbroadcast_loopback_full_err_cnt', (YLeaf(YType.uint64, 'drcbroadcast-loopback-full-err-cnt'), ['int'])),
+                                            ('otn_mode', (YLeaf(YType.uint32, 'otn-mode'), ['int'])),
+                                            ('num_ports', (YLeaf(YType.uint32, 'num-ports'), ['int'])),
                                         ])
-                                        self.num_blocks = None
+                                        self.rx_internal_error = None
+                                        self.rx_internal_drop = None
+                                        self.tx_internal_error = None
+                                        self.tx_internal_drop = None
+                                        self.cmic_cmc0_pkt_count_tx_pkt = None
+                                        self.cmic_cmc0_pkt_count_rx_pkt = None
+                                        self.nbi_stat_rx_bursts_err_cnt = None
+                                        self.nbi_ecc_1b_err_cnt = None
+                                        self.nbi_ecc_2b_err_cnt = None
+                                        self.nbi_parity_err_cnt = None
+                                        self.nbi_rx_ilkn_crc32_err_cnt = None
+                                        self.nbi_rx_ilkn0_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn0_burst_err_cnt = None
+                                        self.nbi_rx_ilkn0_miss_sop_err_cnt = None
+                                        self.nbi_rx_ilkn0_miss_eop_err_cnt = None
+                                        self.nbi_rx_ilkn0_misaligned_cnt = None
+                                        self.nbi_rx_ilkn1_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn1_burst_err_cnt = None
+                                        self.nbi_rx_ilkn1_miss_sop_err_cnt = None
+                                        self.nbi_rx_ilkn1_miss_eop_err_cnt = None
+                                        self.nbi_rx_ilkn1_misaligned_cnt = None
+                                        self.nbi_tx_ilkn1_flushed_bursts_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_retry_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wdog_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_reached_timeout_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_retry_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wdog_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_reached_timeout_err_cnt = None
+                                        self.nbi_stat_rx_frame_err_cnt = None
+                                        self.nbi_stat_tx_frame_err_cnt = None
+                                        self.nbi_rx_elk_err_bursts_cnt = None
+                                        self.nbi_rx_num_thrown_eops = None
+                                        self.nbi_rx_num_runts = None
+                                        self.nbi_bist_tx_crc_err_bursts_cnt = None
+                                        self.nbi_bist_rx_err_length_bursts_cnt = None
+                                        self.nbi_bist_rx_err_burst_index_cnt = None
+                                        self.nbi_bist_rx_err_bct_cnt = None
+                                        self.nbi_bist_rx_err_data_cnt = None
+                                        self.nbi_bist_rx_err_in_crc_err_cnt = None
+                                        self.nbi_bist_rx_err_sob_cnt = None
+                                        self.nbi_stat_tx_bursts_cnt = None
+                                        self.nbi_stat_tx_total_leng_cnt = None
+                                        self.rxaui_total_tx_pkt_count = None
+                                        self.rxaui_total_rx_pkt_count = None
+                                        self.rxaui_rx_pkt_count_bcast_pkt = None
+                                        self.rxaui_tx_pkt_count_bcast_pkt = None
+                                        self.rxaui_rx_pkt_count_mcast_pkt = None
+                                        self.rxaui_tx_pkt_count_mcast_pkt = None
+                                        self.rxaui_rx_pkt_count_ucast_pkt = None
+                                        self.rxaui_tx_pkt_count_ucast_pkt = None
+                                        self.rxaui_rx_err_drop_pkt_cnt = None
+                                        self.rxaui_tx_err_drop_pkt_cnt = None
+                                        self.rxaui_byte_count_tx_pkt = None
+                                        self.rxaui_byte_count_rx_pkt = None
+                                        self.rxaui_rx_dscrd_pkt_cnt = None
+                                        self.rxaui_tx_dscrd_pkt_cnt = None
+                                        self.ire_nif_packet_counter = None
+                                        self.il_total_rx_pkt_count = None
+                                        self.il_total_tx_pkt_count = None
+                                        self.il_rx_err_drop_pkt_cnt = None
+                                        self.il_tx_err_drop_pkt_cnt = None
+                                        self.il_byte_count_tx_pkt = None
+                                        self.il_byte_count_rx_pkt = None
+                                        self.il_rx_dscrd_pkt_cnt = None
+                                        self.il_tx_dscrd_pkt_cnt = None
+                                        self.il_rx_pkt_count_bcast_pkt = None
+                                        self.il_tx_pkt_count_bcast_pkt = None
+                                        self.il_rx_pkt_count_mcast_pkt = None
+                                        self.il_tx_pkt_count_mcast_pkt = None
+                                        self.il_rx_pkt_count_ucast_pkt = None
+                                        self.il_tx_pkt_count_ucast_pkt = None
+                                        self.iqm_enq_pkt_cnt = None
+                                        self.iqm_enq_byte_cnt = None
+                                        self.iqm_deq_pkt_cnt = None
+                                        self.iqm_deq_byte_cnt = None
+                                        self.iqm_tot_dscrd_pkt_cnt = None
+                                        self.iqm_tot_dscrd_byte_cnt = None
+                                        self.iqm_ecc_1b_err_cnt = None
+                                        self.iqm_ecc_2b_err_cnt = None
+                                        self.iqm_parity_err_cnt = None
+                                        self.iqm_deq_delete_pkt_cnt = None
+                                        self.iqm_ecn_dscrd_msk_pkt_cnt = None
+                                        self.iqm_q_tot_dscrd_pkt_cnt = None
+                                        self.iqm_q_deq_delete_pkt_cnt = None
+                                        self.iqm_rjct_db_pkt_cnt = None
+                                        self.iqm_rjct_bdb_pkt_cnt = None
+                                        self.iqm_rjct_bdb_protct_pkt_cnt = None
+                                        self.iqm_rjct_oc_bd_pkt_cnt = None
+                                        self.iqm_rjct_sn_err_pkt_cnt = None
+                                        self.iqm_rjct_mc_err_pkt_cnt = None
+                                        self.iqm_rjct_rsrc_err_pkt_cnt = None
+                                        self.iqm_rjct_qnvalid_err_pkt_cnt = None
+                                        self.iqm_rjct_cnm_pkt_cnt = None
+                                        self.iqm_rjct_dyn_space_pkt_cnt = None
+                                        self.ipt_fdt_pkt_cnt = None
+                                        self.ipt_ecc_1b_err_cnt = None
+                                        self.ipt_ecc_2b_err_cnt = None
+                                        self.ipt_parity_err_cnt = None
+                                        self.ipt_crc_err_cnt = None
+                                        self.ipt_crc_err_del_buff_cnt = None
+                                        self.ipt_cpu_del_buff_cnt = None
+                                        self.ipt_cpu_rel_buff_cnt = None
+                                        self.ipt_crc_err_buff_fifo_full_cnt = None
+                                        self.fdt_data_cell_cnt = None
+                                        self.fdt_data_byte_cnt = None
+                                        self.fdt_crc_dropped_pck_cnt = None
+                                        self.fdt_invalid_destq_drop_cell_cnt = None
+                                        self.fdt_indirect_command_count = None
+                                        self.fdt_ecc_1b_err_cnt = None
+                                        self.fdt_ecc_2b_err_cnt = None
+                                        self.fdt_parity_err_cnt = None
+                                        self.fdt_crc_dropped_cell_cnt = None
+                                        self.fcr_control_cell_cnt = None
+                                        self.fcr_cell_drop_cnt = None
+                                        self.fcr_credit_cell_drop_cnt = None
+                                        self.fcr_fs_cell_drop_cnt = None
+                                        self.fcr_rt_cell_drop_cnt = None
+                                        self.fcr_ecc_1b_err_cnt = None
+                                        self.fcr_ecc_2b_err_cnt = None
+                                        self.fdr_data_cell_cnt = None
+                                        self.fdr_data_byte_cnt = None
+                                        self.fdr_crc_dropped_pck_cnt = None
+                                        self.fdr_p_pkt_cnt = None
+                                        self.fdr_prm_error_filter_cnt = None
+                                        self.fdr_sec_error_filter_cnt = None
+                                        self.fdr_prm_ecc_1b_err_cnt = None
+                                        self.fdr_prm_ecc_2b_err_cnt = None
+                                        self.fdr_sec_ecc_1b_err_cnt = None
+                                        self.fdr_sec_ecc_2b_err_cnt = None
+                                        self.egq_ecc_1b_err_cnt = None
+                                        self.egq_ecc_2b_err_cnt = None
+                                        self.egq_parity_err_cnt = None
+                                        self.egq_dbf_ecc_1b_err_cnt = None
+                                        self.egq_dbf_ecc_2b_err_cnt = None
+                                        self.egq_empty_mcid_counter = None
+                                        self.egq_rqp_discard_packet_counter = None
+                                        self.egq_ehp_discard_packet_counter = None
+                                        self.egq_ipt_pkt_cnt = None
+                                        self.epni_epe_pkt_cnt = None
+                                        self.epni_epe_byte_cnt = None
+                                        self.epni_epe_discard_pkt_cnt = None
+                                        self.epni_ecc_1b_err_cnt = None
+                                        self.epni_ecc_2b_err_cnt = None
+                                        self.epni_parity_err_cnt = None
+                                        self.egq_pqp_ucast_pkt_cnt = None
+                                        self.egq_pqp_ucast_h_pkt_cnt = None
+                                        self.egq_pqp_ucast_l_pkt_cnt = None
+                                        self.egq_pqp_ucast_bytes_cnt = None
+                                        self.egq_pqp_ucast_discard_pkt_cnt = None
+                                        self.egq_pqp_mcast_pkt_cnt = None
+                                        self.egq_pqp_mcast_h_pkt_cnt = None
+                                        self.egq_pqp_mcast_l_pkt_cnt = None
+                                        self.egq_pqp_mcast_bytes_cnt = None
+                                        self.egq_pqp_mcast_discard_pkt_cnt = None
+                                        self.fct_control_cell_cnt = None
+                                        self.fct_unrch_crdt_cnt = None
+                                        self.idr_reassembly_errors = None
+                                        self.idr_mmu_ecc_1b_err_cnt = None
+                                        self.idr_mmu_ecc_2b_err_cnt = None
+                                        self.idr_discarded_packets0_cnt = None
+                                        self.idr_discarded_packets1_cnt = None
+                                        self.idr_discarded_packets2_cnt = None
+                                        self.idr_discarded_packets3_cnt = None
+                                        self.idr_discarded_octets0_cnt = None
+                                        self.idr_discarded_octets1_cnt = None
+                                        self.idr_discarded_octets2_cnt = None
+                                        self.idr_discarded_octets3_cnt = None
+                                        self.mmu_ecc_1b_err_cnt = None
+                                        self.mmu_ecc_2b_err_cnt = None
+                                        self.oamp_parity_err_cnt = None
+                                        self.oamp_ecc_1b_err_cnt = None
+                                        self.oamp_ecc_2b_err_cnt = None
+                                        self.crps_parity_err_cnt = None
+                                        self.fmac0_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac0_tst0_err_cnt = None
+                                        self.fmac1_tst0_err_cnt = None
+                                        self.fmac2_tst0_err_cnt = None
+                                        self.fmac3_tst0_err_cnt = None
+                                        self.fmac4_tst0_err_cnt = None
+                                        self.fmac5_tst0_err_cnt = None
+                                        self.fmac6_tst0_err_cnt = None
+                                        self.fmac7_tst0_err_cnt = None
+                                        self.fmac8_tst0_err_cnt = None
+                                        self.fmac0_tst1_err_cnt = None
+                                        self.fmac1_tst1_err_cnt = None
+                                        self.fmac2_tst1_err_cnt = None
+                                        self.fmac3_tst1_err_cnt = None
+                                        self.fmac4_tst1_err_cnt = None
+                                        self.fmac5_tst1_err_cnt = None
+                                        self.fmac6_tst1_err_cnt = None
+                                        self.fmac7_tst1_err_cnt = None
+                                        self.fmac8_tst1_err_cnt = None
+                                        self.fmac0_tst2_err_cnt = None
+                                        self.fmac1_tst2_err_cnt = None
+                                        self.fmac2_tst2_err_cnt = None
+                                        self.fmac3_tst2_err_cnt = None
+                                        self.fmac4_tst2_err_cnt = None
+                                        self.fmac5_tst2_err_cnt = None
+                                        self.fmac6_tst2_err_cnt = None
+                                        self.fmac7_tst2_err_cnt = None
+                                        self.fmac8_tst2_err_cnt = None
+                                        self.fmac0_tst3_err_cnt = None
+                                        self.fmac1_tst3_err_cnt = None
+                                        self.fmac2_tst3_err_cnt = None
+                                        self.fmac3_tst3_err_cnt = None
+                                        self.fmac4_tst3_err_cnt = None
+                                        self.fmac5_tst3_err_cnt = None
+                                        self.fmac6_tst3_err_cnt = None
+                                        self.fmac7_tst3_err_cnt = None
+                                        self.fmac8_tst3_err_cnt = None
+                                        self.fmac0_ecc_1b_err_cnt = None
+                                        self.fmac1_ecc_1b_err_cnt = None
+                                        self.fmac2_ecc_1b_err_cnt = None
+                                        self.fmac3_ecc_1b_err_cnt = None
+                                        self.fmac4_ecc_1b_err_cnt = None
+                                        self.fmac5_ecc_1b_err_cnt = None
+                                        self.fmac6_ecc_1b_err_cnt = None
+                                        self.fmac7_ecc_1b_err_cnt = None
+                                        self.fmac8_ecc_1b_err_cnt = None
+                                        self.fmac0_ecc_2b_err_cnt = None
+                                        self.fmac1_ecc_2b_err_cnt = None
+                                        self.fmac2_ecc_2b_err_cnt = None
+                                        self.fmac3_ecc_2b_err_cnt = None
+                                        self.fmac4_ecc_2b_err_cnt = None
+                                        self.fmac5_ecc_2b_err_cnt = None
+                                        self.fmac6_ecc_2b_err_cnt = None
+                                        self.fmac7_ecc_2b_err_cnt = None
+                                        self.fmac8_ecc_2b_err_cnt = None
+                                        self.olp_incoming_bad_identifier_counter = None
+                                        self.olp_incoming_bad_reassembly_counter = None
+                                        self.cfc_parity_err_cnt = None
+                                        self.cfc_ilkn0_oob_rx_crc_err_cntr = None
+                                        self.cfc_ilkn1_oob_rx_crc_err_cntr = None
+                                        self.cfc_spi_oob_rx0_frm_err_cnt = None
+                                        self.cfc_spi_oob_rx0_dip2_err_cnt = None
+                                        self.cfc_spi_oob_rx1_frm_err_cnt = None
+                                        self.cfc_spi_oob_rx1_dip2_err_cnt = None
+                                        self.cgm_cgm_uc_pd_dropped_cnt = None
+                                        self.cgm_cgm_mc_rep_pd_dropped_cnt = None
+                                        self.cgm_cgm_uc_db_dropped_by_rqp_cnt = None
+                                        self.cgm_cgm_uc_db_dropped_by_pqp_cnt = None
+                                        self.cgm_cgm_mc_rep_db_dropped_cnt = None
+                                        self.cgm_cgm_mc_db_dropped_cnt = None
+                                        self.drca_full_err_cnt = None
+                                        self.drca_single_err_cnt = None
+                                        self.drca_calib_bist_full_err_cnt = None
+                                        self.drca_loopback_full_err_cnt = None
+                                        self.drcb_full_err_cnt = None
+                                        self.drcb_single_err_cnt = None
+                                        self.drcb_calib_bist_full_err_cnt = None
+                                        self.drcb_loopback_full_err_cnt = None
+                                        self.drcc_full_err_cnt = None
+                                        self.drcc_single_err_cnt = None
+                                        self.drcc_calib_bist_full_err_cnt = None
+                                        self.drcc_loopback_full_err_cnt = None
+                                        self.drcd_full_err_cnt = None
+                                        self.drcd_single_err_cnt = None
+                                        self.drcd_calib_bist_full_err_cnt = None
+                                        self.drcd_loopback_full_err_cnt = None
+                                        self.drce_full_err_cnt = None
+                                        self.drce_single_err_cnt = None
+                                        self.drce_calib_bist_full_err_cnt = None
+                                        self.drce_loopback_full_err_cnt = None
+                                        self.drcf_full_err_cnt = None
+                                        self.drcf_single_err_cnt = None
+                                        self.drcf_calib_bist_full_err_cnt = None
+                                        self.drcf_loopback_full_err_cnt = None
+                                        self.drcg_full_err_cnt = None
+                                        self.drcg_single_err_cnt = None
+                                        self.drcg_calib_bist_full_err_cnt = None
+                                        self.drcg_loopback_full_err_cnt = None
+                                        self.drch_full_err_cnt = None
+                                        self.drch_single_err_cnt = None
+                                        self.drch_calib_bist_full_err_cnt = None
+                                        self.drch_loopback_full_err_cnt = None
+                                        self.drcbroadcast_full_err_cnt = None
+                                        self.drcbroadcast_single_err_cnt = None
+                                        self.drcbroadcast_calib_bist_full_err_cnt = None
+                                        self.drcbroadcast_loopback_full_err_cnt = None
+                                        self.otn_mode = None
+                                        self.num_ports = None
 
-                                        self.block_info = YList(self)
-                                        self._segment_path = lambda: "stats-info"
+                                        self.aggr_stats_otn = YList(self)
+                                        self._segment_path = lambda: "aggr-stats"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, [u'num_blocks'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats, ['rx_internal_error', 'rx_internal_drop', 'tx_internal_error', 'tx_internal_drop', 'cmic_cmc0_pkt_count_tx_pkt', 'cmic_cmc0_pkt_count_rx_pkt', 'nbi_stat_rx_bursts_err_cnt', 'nbi_ecc_1b_err_cnt', 'nbi_ecc_2b_err_cnt', 'nbi_parity_err_cnt', 'nbi_rx_ilkn_crc32_err_cnt', 'nbi_rx_ilkn0_crc24_err_cnt', 'nbi_rx_ilkn0_burst_err_cnt', 'nbi_rx_ilkn0_miss_sop_err_cnt', 'nbi_rx_ilkn0_miss_eop_err_cnt', 'nbi_rx_ilkn0_misaligned_cnt', 'nbi_rx_ilkn1_crc24_err_cnt', 'nbi_rx_ilkn1_burst_err_cnt', 'nbi_rx_ilkn1_miss_sop_err_cnt', 'nbi_rx_ilkn1_miss_eop_err_cnt', 'nbi_rx_ilkn1_misaligned_cnt', 'nbi_tx_ilkn1_flushed_bursts_cnt', 'nbi_rx_ilkn0_retrans_crc24_err_cnt', 'nbi_rx_ilkn0_retrans_retry_err_cnt', 'nbi_rx_ilkn0_retrans_wdog_err_cnt', 'nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt', 'nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt', 'nbi_rx_ilkn0_retrans_reached_timeout_err_cnt', 'nbi_rx_ilkn1_retrans_crc24_err_cnt', 'nbi_rx_ilkn1_retrans_retry_err_cnt', 'nbi_rx_ilkn1_retrans_wdog_err_cnt', 'nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt', 'nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt', 'nbi_rx_ilkn1_retrans_reached_timeout_err_cnt', 'nbi_stat_rx_frame_err_cnt', 'nbi_stat_tx_frame_err_cnt', 'nbi_rx_elk_err_bursts_cnt', 'nbi_rx_num_thrown_eops', 'nbi_rx_num_runts', 'nbi_bist_tx_crc_err_bursts_cnt', 'nbi_bist_rx_err_length_bursts_cnt', 'nbi_bist_rx_err_burst_index_cnt', 'nbi_bist_rx_err_bct_cnt', 'nbi_bist_rx_err_data_cnt', 'nbi_bist_rx_err_in_crc_err_cnt', 'nbi_bist_rx_err_sob_cnt', 'nbi_stat_tx_bursts_cnt', 'nbi_stat_tx_total_leng_cnt', 'rxaui_total_tx_pkt_count', 'rxaui_total_rx_pkt_count', 'rxaui_rx_pkt_count_bcast_pkt', 'rxaui_tx_pkt_count_bcast_pkt', 'rxaui_rx_pkt_count_mcast_pkt', 'rxaui_tx_pkt_count_mcast_pkt', 'rxaui_rx_pkt_count_ucast_pkt', 'rxaui_tx_pkt_count_ucast_pkt', 'rxaui_rx_err_drop_pkt_cnt', 'rxaui_tx_err_drop_pkt_cnt', 'rxaui_byte_count_tx_pkt', 'rxaui_byte_count_rx_pkt', 'rxaui_rx_dscrd_pkt_cnt', 'rxaui_tx_dscrd_pkt_cnt', 'ire_nif_packet_counter', 'il_total_rx_pkt_count', 'il_total_tx_pkt_count', 'il_rx_err_drop_pkt_cnt', 'il_tx_err_drop_pkt_cnt', 'il_byte_count_tx_pkt', 'il_byte_count_rx_pkt', 'il_rx_dscrd_pkt_cnt', 'il_tx_dscrd_pkt_cnt', 'il_rx_pkt_count_bcast_pkt', 'il_tx_pkt_count_bcast_pkt', 'il_rx_pkt_count_mcast_pkt', 'il_tx_pkt_count_mcast_pkt', 'il_rx_pkt_count_ucast_pkt', 'il_tx_pkt_count_ucast_pkt', 'iqm_enq_pkt_cnt', 'iqm_enq_byte_cnt', 'iqm_deq_pkt_cnt', 'iqm_deq_byte_cnt', 'iqm_tot_dscrd_pkt_cnt', 'iqm_tot_dscrd_byte_cnt', 'iqm_ecc_1b_err_cnt', 'iqm_ecc_2b_err_cnt', 'iqm_parity_err_cnt', 'iqm_deq_delete_pkt_cnt', 'iqm_ecn_dscrd_msk_pkt_cnt', 'iqm_q_tot_dscrd_pkt_cnt', 'iqm_q_deq_delete_pkt_cnt', 'iqm_rjct_db_pkt_cnt', 'iqm_rjct_bdb_pkt_cnt', 'iqm_rjct_bdb_protct_pkt_cnt', 'iqm_rjct_oc_bd_pkt_cnt', 'iqm_rjct_sn_err_pkt_cnt', 'iqm_rjct_mc_err_pkt_cnt', 'iqm_rjct_rsrc_err_pkt_cnt', 'iqm_rjct_qnvalid_err_pkt_cnt', 'iqm_rjct_cnm_pkt_cnt', 'iqm_rjct_dyn_space_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_ecc_1b_err_cnt', 'ipt_ecc_2b_err_cnt', 'ipt_parity_err_cnt', 'ipt_crc_err_cnt', 'ipt_crc_err_del_buff_cnt', 'ipt_cpu_del_buff_cnt', 'ipt_cpu_rel_buff_cnt', 'ipt_crc_err_buff_fifo_full_cnt', 'fdt_data_cell_cnt', 'fdt_data_byte_cnt', 'fdt_crc_dropped_pck_cnt', 'fdt_invalid_destq_drop_cell_cnt', 'fdt_indirect_command_count', 'fdt_ecc_1b_err_cnt', 'fdt_ecc_2b_err_cnt', 'fdt_parity_err_cnt', 'fdt_crc_dropped_cell_cnt', 'fcr_control_cell_cnt', 'fcr_cell_drop_cnt', 'fcr_credit_cell_drop_cnt', 'fcr_fs_cell_drop_cnt', 'fcr_rt_cell_drop_cnt', 'fcr_ecc_1b_err_cnt', 'fcr_ecc_2b_err_cnt', 'fdr_data_cell_cnt', 'fdr_data_byte_cnt', 'fdr_crc_dropped_pck_cnt', 'fdr_p_pkt_cnt', 'fdr_prm_error_filter_cnt', 'fdr_sec_error_filter_cnt', 'fdr_prm_ecc_1b_err_cnt', 'fdr_prm_ecc_2b_err_cnt', 'fdr_sec_ecc_1b_err_cnt', 'fdr_sec_ecc_2b_err_cnt', 'egq_ecc_1b_err_cnt', 'egq_ecc_2b_err_cnt', 'egq_parity_err_cnt', 'egq_dbf_ecc_1b_err_cnt', 'egq_dbf_ecc_2b_err_cnt', 'egq_empty_mcid_counter', 'egq_rqp_discard_packet_counter', 'egq_ehp_discard_packet_counter', 'egq_ipt_pkt_cnt', 'epni_epe_pkt_cnt', 'epni_epe_byte_cnt', 'epni_epe_discard_pkt_cnt', 'epni_ecc_1b_err_cnt', 'epni_ecc_2b_err_cnt', 'epni_parity_err_cnt', 'egq_pqp_ucast_pkt_cnt', 'egq_pqp_ucast_h_pkt_cnt', 'egq_pqp_ucast_l_pkt_cnt', 'egq_pqp_ucast_bytes_cnt', 'egq_pqp_ucast_discard_pkt_cnt', 'egq_pqp_mcast_pkt_cnt', 'egq_pqp_mcast_h_pkt_cnt', 'egq_pqp_mcast_l_pkt_cnt', 'egq_pqp_mcast_bytes_cnt', 'egq_pqp_mcast_discard_pkt_cnt', 'fct_control_cell_cnt', 'fct_unrch_crdt_cnt', 'idr_reassembly_errors', 'idr_mmu_ecc_1b_err_cnt', 'idr_mmu_ecc_2b_err_cnt', 'idr_discarded_packets0_cnt', 'idr_discarded_packets1_cnt', 'idr_discarded_packets2_cnt', 'idr_discarded_packets3_cnt', 'idr_discarded_octets0_cnt', 'idr_discarded_octets1_cnt', 'idr_discarded_octets2_cnt', 'idr_discarded_octets3_cnt', 'mmu_ecc_1b_err_cnt', 'mmu_ecc_2b_err_cnt', 'oamp_parity_err_cnt', 'oamp_ecc_1b_err_cnt', 'oamp_ecc_2b_err_cnt', 'crps_parity_err_cnt', 'fmac0_kpcs0_tst_rx_err_cnt', 'fmac1_kpcs0_tst_rx_err_cnt', 'fmac2_kpcs0_tst_rx_err_cnt', 'fmac3_kpcs0_tst_rx_err_cnt', 'fmac4_kpcs0_tst_rx_err_cnt', 'fmac5_kpcs0_tst_rx_err_cnt', 'fmac6_kpcs0_tst_rx_err_cnt', 'fmac7_kpcs0_tst_rx_err_cnt', 'fmac8_kpcs0_tst_rx_err_cnt', 'fmac0_kpcs1_tst_rx_err_cnt', 'fmac1_kpcs1_tst_rx_err_cnt', 'fmac2_kpcs1_tst_rx_err_cnt', 'fmac3_kpcs1_tst_rx_err_cnt', 'fmac4_kpcs1_tst_rx_err_cnt', 'fmac5_kpcs1_tst_rx_err_cnt', 'fmac6_kpcs1_tst_rx_err_cnt', 'fmac7_kpcs1_tst_rx_err_cnt', 'fmac8_kpcs1_tst_rx_err_cnt', 'fmac0_kpcs2_tst_rx_err_cnt', 'fmac1_kpcs2_tst_rx_err_cnt', 'fmac2_kpcs2_tst_rx_err_cnt', 'fmac3_kpcs2_tst_rx_err_cnt', 'fmac4_kpcs2_tst_rx_err_cnt', 'fmac5_kpcs2_tst_rx_err_cnt', 'fmac6_kpcs2_tst_rx_err_cnt', 'fmac7_kpcs2_tst_rx_err_cnt', 'fmac8_kpcs2_tst_rx_err_cnt', 'fmac0_kpcs3_tst_rx_err_cnt', 'fmac1_kpcs3_tst_rx_err_cnt', 'fmac2_kpcs3_tst_rx_err_cnt', 'fmac3_kpcs3_tst_rx_err_cnt', 'fmac4_kpcs3_tst_rx_err_cnt', 'fmac5_kpcs3_tst_rx_err_cnt', 'fmac6_kpcs3_tst_rx_err_cnt', 'fmac7_kpcs3_tst_rx_err_cnt', 'fmac8_kpcs3_tst_rx_err_cnt', 'fmac0_tst0_err_cnt', 'fmac1_tst0_err_cnt', 'fmac2_tst0_err_cnt', 'fmac3_tst0_err_cnt', 'fmac4_tst0_err_cnt', 'fmac5_tst0_err_cnt', 'fmac6_tst0_err_cnt', 'fmac7_tst0_err_cnt', 'fmac8_tst0_err_cnt', 'fmac0_tst1_err_cnt', 'fmac1_tst1_err_cnt', 'fmac2_tst1_err_cnt', 'fmac3_tst1_err_cnt', 'fmac4_tst1_err_cnt', 'fmac5_tst1_err_cnt', 'fmac6_tst1_err_cnt', 'fmac7_tst1_err_cnt', 'fmac8_tst1_err_cnt', 'fmac0_tst2_err_cnt', 'fmac1_tst2_err_cnt', 'fmac2_tst2_err_cnt', 'fmac3_tst2_err_cnt', 'fmac4_tst2_err_cnt', 'fmac5_tst2_err_cnt', 'fmac6_tst2_err_cnt', 'fmac7_tst2_err_cnt', 'fmac8_tst2_err_cnt', 'fmac0_tst3_err_cnt', 'fmac1_tst3_err_cnt', 'fmac2_tst3_err_cnt', 'fmac3_tst3_err_cnt', 'fmac4_tst3_err_cnt', 'fmac5_tst3_err_cnt', 'fmac6_tst3_err_cnt', 'fmac7_tst3_err_cnt', 'fmac8_tst3_err_cnt', 'fmac0_ecc_1b_err_cnt', 'fmac1_ecc_1b_err_cnt', 'fmac2_ecc_1b_err_cnt', 'fmac3_ecc_1b_err_cnt', 'fmac4_ecc_1b_err_cnt', 'fmac5_ecc_1b_err_cnt', 'fmac6_ecc_1b_err_cnt', 'fmac7_ecc_1b_err_cnt', 'fmac8_ecc_1b_err_cnt', 'fmac0_ecc_2b_err_cnt', 'fmac1_ecc_2b_err_cnt', 'fmac2_ecc_2b_err_cnt', 'fmac3_ecc_2b_err_cnt', 'fmac4_ecc_2b_err_cnt', 'fmac5_ecc_2b_err_cnt', 'fmac6_ecc_2b_err_cnt', 'fmac7_ecc_2b_err_cnt', 'fmac8_ecc_2b_err_cnt', 'olp_incoming_bad_identifier_counter', 'olp_incoming_bad_reassembly_counter', 'cfc_parity_err_cnt', 'cfc_ilkn0_oob_rx_crc_err_cntr', 'cfc_ilkn1_oob_rx_crc_err_cntr', 'cfc_spi_oob_rx0_frm_err_cnt', 'cfc_spi_oob_rx0_dip2_err_cnt', 'cfc_spi_oob_rx1_frm_err_cnt', 'cfc_spi_oob_rx1_dip2_err_cnt', 'cgm_cgm_uc_pd_dropped_cnt', 'cgm_cgm_mc_rep_pd_dropped_cnt', 'cgm_cgm_uc_db_dropped_by_rqp_cnt', 'cgm_cgm_uc_db_dropped_by_pqp_cnt', 'cgm_cgm_mc_rep_db_dropped_cnt', 'cgm_cgm_mc_db_dropped_cnt', 'drca_full_err_cnt', 'drca_single_err_cnt', 'drca_calib_bist_full_err_cnt', 'drca_loopback_full_err_cnt', 'drcb_full_err_cnt', 'drcb_single_err_cnt', 'drcb_calib_bist_full_err_cnt', 'drcb_loopback_full_err_cnt', 'drcc_full_err_cnt', 'drcc_single_err_cnt', 'drcc_calib_bist_full_err_cnt', 'drcc_loopback_full_err_cnt', 'drcd_full_err_cnt', 'drcd_single_err_cnt', 'drcd_calib_bist_full_err_cnt', 'drcd_loopback_full_err_cnt', 'drce_full_err_cnt', 'drce_single_err_cnt', 'drce_calib_bist_full_err_cnt', 'drce_loopback_full_err_cnt', 'drcf_full_err_cnt', 'drcf_single_err_cnt', 'drcf_calib_bist_full_err_cnt', 'drcf_loopback_full_err_cnt', 'drcg_full_err_cnt', 'drcg_single_err_cnt', 'drcg_calib_bist_full_err_cnt', 'drcg_loopback_full_err_cnt', 'drch_full_err_cnt', 'drch_single_err_cnt', 'drch_calib_bist_full_err_cnt', 'drch_loopback_full_err_cnt', 'drcbroadcast_full_err_cnt', 'drcbroadcast_single_err_cnt', 'drcbroadcast_calib_bist_full_err_cnt', 'drcbroadcast_loopback_full_err_cnt', 'otn_mode', 'num_ports'], name, value)
 
 
-                                    class BlockInfo(Entity):
+                                    class AggrStatsOtn(Entity):
                                         """
-                                        block info
+                                        aggr stats otn
                                         
-                                        .. attribute:: block_name
+                                        .. attribute:: il_total_rx_pkt_count
                                         
-                                        	Block Name
-                                        	**type**\: str
-                                        
-                                        	**length:** 0..10
-                                        
-                                        	**config**\: False
-                                        
-                                        .. attribute:: num_fields
-                                        
-                                        	Num Fields
+                                        	IL TotalRxPktCount
                                         	**type**\: int
                                         
-                                        	**range:** 0..255
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
-                                        .. attribute:: field_info
+                                        .. attribute:: il_total_tx_pkt_count
                                         
-                                        	field info
-                                        	**type**\: list of  		 :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        	IL TotalTxPktCount
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -6388,89 +9923,3532 @@ class Fia(Entity):
                                         _revision = '2017-08-29'
 
                                         def __init__(self):
-                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, self).__init__()
+                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats.AggrStatsOtn, self).__init__()
 
-                                            self.yang_name = "block-info"
-                                            self.yang_parent_name = "stats-info"
+                                            self.yang_name = "aggr-stats-otn"
+                                            self.yang_parent_name = "aggr-stats"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_classes = OrderedDict([("field-info", ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo))])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('block_name', (YLeaf(YType.str, 'block-name'), ['str'])),
-                                                ('num_fields', (YLeaf(YType.uint8, 'num-fields'), ['int'])),
+                                                ('il_total_rx_pkt_count', (YLeaf(YType.uint64, 'il-total-rx-pkt-count'), ['int'])),
+                                                ('il_total_tx_pkt_count', (YLeaf(YType.uint64, 'il-total-tx-pkt-count'), ['int'])),
                                             ])
-                                            self.block_name = None
-                                            self.num_fields = None
-
-                                            self.field_info = YList(self)
-                                            self._segment_path = lambda: "block-info"
+                                            self.il_total_rx_pkt_count = None
+                                            self.il_total_tx_pkt_count = None
+                                            self._segment_path = lambda: "aggr-stats-otn"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, [u'block_name', u'num_fields'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.AggrStats.AggrStatsOtn, ['il_total_rx_pkt_count', 'il_total_tx_pkt_count'], name, value)
 
 
-                                        class FieldInfo(Entity):
-                                            """
-                                            field info
-                                            
-                                            .. attribute:: field_name
-                                            
-                                            	Field Name
-                                            	**type**\: str
-                                            
-                                            	**length:** 0..80
-                                            
-                                            	**config**\: False
-                                            
-                                            .. attribute:: field_value
-                                            
-                                            	Field Value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..18446744073709551615
-                                            
-                                            	**config**\: False
-                                            
-                                            .. attribute:: is_ovf
-                                            
-                                            	Is Ovf
-                                            	**type**\: bool
-                                            
-                                            	**config**\: False
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
-
-                                            def __init__(self):
-                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, self).__init__()
-
-                                                self.yang_name = "field-info"
-                                                self.yang_parent_name = "block-info"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self.ylist_key_names = []
-                                                self._child_classes = OrderedDict([])
-                                                self._leafs = OrderedDict([
-                                                    ('field_name', (YLeaf(YType.str, 'field-name'), ['str'])),
-                                                    ('field_value', (YLeaf(YType.uint64, 'field-value'), ['int'])),
-                                                    ('is_ovf', (YLeaf(YType.boolean, 'is-ovf'), ['bool'])),
-                                                ])
-                                                self.field_name = None
-                                                self.field_value = None
-                                                self.is_ovf = None
-                                                self._segment_path = lambda: "field-info"
-                                                self._is_frozen = True
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_ovf'], name, value)
 
 
+                                class OvfStatus(Entity):
+                                    """
+                                    ovf status
+                                    
+                                    .. attribute:: cmic_cmc0_pkt_count_tx_pkt
+                                    
+                                    	CMIC Cmc0PktCountTxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cmic_cmc0_pkt_count_rx_pkt
+                                    
+                                    	CMIC Cmc0PktCountRxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_rx_bursts_err_cnt
+                                    
+                                    	NBI StatRxBurstsErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_ecc_1b_err_cnt
+                                    
+                                    	NBI Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_ecc_2b_err_cnt
+                                    
+                                    	NBI Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_parity_err_cnt
+                                    
+                                    	NBI ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn_crc32_err_cnt
+                                    
+                                    	NBI RxIlknCrc32ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn0Crc24ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_burst_err_cnt
+                                    
+                                    	NBI RxIlkn0BurstErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_miss_sop_err_cnt
+                                    
+                                    	NBI RxIlkn0MissSopErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_miss_eop_err_cnt
+                                    
+                                    	NBI RxIlkn0MissEopErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_misaligned_cnt
+                                    
+                                    	NBI RxIlkn0MisalignedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn1Crc24ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_burst_err_cnt
+                                    
+                                    	NBI RxIlkn1BurstErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_miss_sop_err_cnt
+                                    
+                                    	NBI RxIlkn1MissSopErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_miss_eop_err_cnt
+                                    
+                                    	NBI RxIlkn1MissEopErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_misaligned_cnt
+                                    
+                                    	NBI RxIlkn1MisalignedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_tx_ilkn1_flushed_bursts_cnt
+                                    
+                                    	NBI TxIlkn1FlushedBurstsCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransCRC24ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_retry_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransRetryErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wdog_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWdogErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWrapAfterDiscErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransWrapB4DiscErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn0_retrans_reached_timeout_err_cnt
+                                    
+                                    	NBI RxIlkn0RetransReachedTimeoutErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_crc24_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransCRC24ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_retry_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransRetryErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wdog_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWdogErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWrapAfterDiscErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransWrapB4DiscErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_ilkn1_retrans_reached_timeout_err_cnt
+                                    
+                                    	NBI RxIlkn1RetransReachedTimeoutErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_rx_frame_err_cnt
+                                    
+                                    	NBI StatRxFrameErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_frame_err_cnt
+                                    
+                                    	NBI StatTxFrameErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_elk_err_bursts_cnt
+                                    
+                                    	NBI RxElkErrBurstsCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_num_thrown_eops
+                                    
+                                    	NBI RxNumThrownEops
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_rx_num_runts
+                                    
+                                    	NBI RxNumRunts
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_tx_crc_err_bursts_cnt
+                                    
+                                    	NBI BistTxCrcErrBurstsCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_length_bursts_cnt
+                                    
+                                    	NBI BistRxErrLengthBurstsCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_burst_index_cnt
+                                    
+                                    	NBI BistRxErrBurstIndexCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_bct_cnt
+                                    
+                                    	NBI BistRxErrBctCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_data_cnt
+                                    
+                                    	NBI BistRxErrDataCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_in_crc_err_cnt
+                                    
+                                    	NBI BistRxErrInCrcErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_bist_rx_err_sob_cnt
+                                    
+                                    	NBI BistRxErrSobCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_bursts_cnt
+                                    
+                                    	NBI StatTxBurstsCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: nbi_stat_tx_total_leng_cnt
+                                    
+                                    	NBI StatTxTotalLengCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_total_tx_pkt_count
+                                    
+                                    	RXAUI TotalTxPktCount
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_total_rx_pkt_count
+                                    
+                                    	RXAUI TotalRxPktCount
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_bcast_pkt
+                                    
+                                    	RXAUI RxPktCountBcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_bcast_pkt
+                                    
+                                    	RXAUI TxPktCountBcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_mcast_pkt
+                                    
+                                    	RXAUI RxPktCountMcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_mcast_pkt
+                                    
+                                    	RXAUI TxPktCountMcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_pkt_count_ucast_pkt
+                                    
+                                    	RXAUI RxPktCountUcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_pkt_count_ucast_pkt
+                                    
+                                    	RXAUI TxPktCountUcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_err_drop_pkt_cnt
+                                    
+                                    	RXAUI RxErrDropPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_err_drop_pkt_cnt
+                                    
+                                    	RXAUI TxErrDropPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_byte_count_tx_pkt
+                                    
+                                    	RXAUI ByteCountTxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_byte_count_rx_pkt
+                                    
+                                    	RXAUI ByteCountRxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_rx_dscrd_pkt_cnt
+                                    
+                                    	RXAUI RxDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: rxaui_tx_dscrd_pkt_cnt
+                                    
+                                    	RXAUI TxDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ire_nif_packet_counter
+                                    
+                                    	IRE NifPacketCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_total_rx_pkt_count
+                                    
+                                    	IL TotalRxPktCount
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_total_tx_pkt_count
+                                    
+                                    	IL TotalTxPktCount
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_err_drop_pkt_cnt
+                                    
+                                    	IL RxErrDropPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_err_drop_pkt_cnt
+                                    
+                                    	IL TxErrDropPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_byte_count_tx_pkt
+                                    
+                                    	IL ByteCountTxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_byte_count_rx_pkt
+                                    
+                                    	IL ByteCountRxPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_dscrd_pkt_cnt
+                                    
+                                    	IL RxDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_dscrd_pkt_cnt
+                                    
+                                    	IL TxDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_bcast_pkt
+                                    
+                                    	IL RxPktCountBcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_bcast_pkt
+                                    
+                                    	IL TxPktCountBcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_mcast_pkt
+                                    
+                                    	IL RxPktCountMcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_mcast_pkt
+                                    
+                                    	IL TxPktCountMcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_rx_pkt_count_ucast_pkt
+                                    
+                                    	IL RxPktCountUcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: il_tx_pkt_count_ucast_pkt
+                                    
+                                    	IL TxPktCountUcastPkt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_enq_pkt_cnt
+                                    
+                                    	IQM EnqPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_enq_byte_cnt
+                                    
+                                    	IQM EnqByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_pkt_cnt
+                                    
+                                    	IQM DeqPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_byte_cnt
+                                    
+                                    	IQM DeqByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_tot_dscrd_pkt_cnt
+                                    
+                                    	IQM TotDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_tot_dscrd_byte_cnt
+                                    
+                                    	IQM TotDscrdByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecc_1b_err_cnt
+                                    
+                                    	IQM Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecc_2b_err_cnt
+                                    
+                                    	IQM Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_parity_err_cnt
+                                    
+                                    	IQM ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_deq_delete_pkt_cnt
+                                    
+                                    	IQM DeqDeletePktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_ecn_dscrd_msk_pkt_cnt
+                                    
+                                    	IQM EcnDscrdMskPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_q_tot_dscrd_pkt_cnt
+                                    
+                                    	IQM QTotDscrdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_q_deq_delete_pkt_cnt
+                                    
+                                    	IQM QDeqDeletePktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_db_pkt_cnt
+                                    
+                                    	IQM RjctDbPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_bdb_pkt_cnt
+                                    
+                                    	IQM RjctBdbPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_bdb_protct_pkt_cnt
+                                    
+                                    	IQM RjctBdbProtctPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_oc_bd_pkt_cnt
+                                    
+                                    	IQM RjctOcBdPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_sn_err_pkt_cnt
+                                    
+                                    	IQM RjctSnErrPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_mc_err_pkt_cnt
+                                    
+                                    	IQM RjctMcErrPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_rsrc_err_pkt_cnt
+                                    
+                                    	IQM RjctRsrcErrPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_qnvalid_err_pkt_cnt
+                                    
+                                    	IQM RjctQnvalidErrPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_cnm_pkt_cnt
+                                    
+                                    	IQM RjctCnmPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: iqm_rjct_dyn_space_pkt_cnt
+                                    
+                                    	IQM RjctDynSpacePktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_fdt_pkt_cnt
+                                    
+                                    	IPT FdtPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_ecc_1b_err_cnt
+                                    
+                                    	IPT Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_ecc_2b_err_cnt
+                                    
+                                    	IPT Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_parity_err_cnt
+                                    
+                                    	IPT ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_cnt
+                                    
+                                    	IPT CrcErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_del_buff_cnt
+                                    
+                                    	IPT CrcErrDelBuffCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_cpu_del_buff_cnt
+                                    
+                                    	IPT CpuDelBuffCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_cpu_rel_buff_cnt
+                                    
+                                    	IPT CpuRelBuffCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipt_crc_err_buff_fifo_full_cnt
+                                    
+                                    	IPT CrcErrBuffFifoFullCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_data_cell_cnt
+                                    
+                                    	FDT DataCellCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_data_byte_cnt
+                                    
+                                    	FDT DataByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_crc_dropped_pck_cnt
+                                    
+                                    	FDT CrcDroppedPckCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_invalid_destq_drop_cell_cnt
+                                    
+                                    	FDT invalid destq drop cell cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_indirect_command_count
+                                    
+                                    	FDT IndirectCommandCount
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_ecc_1b_err_cnt
+                                    
+                                    	FDT Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_ecc_2b_err_cnt
+                                    
+                                    	FDT Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_parity_err_cnt
+                                    
+                                    	FDT ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdt_crc_dropped_cell_cnt
+                                    
+                                    	FDT CrcDroppedCellCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_control_cell_cnt
+                                    
+                                    	FCR ControlCellCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_cell_drop_cnt
+                                    
+                                    	FCR CellDropCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_credit_cell_drop_cnt
+                                    
+                                    	FCR CreditCellDropCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_fs_cell_drop_cnt
+                                    
+                                    	FCR FSCellDropCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_rt_cell_drop_cnt
+                                    
+                                    	FCR RTCellDropCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_ecc_1b_err_cnt
+                                    
+                                    	FCR Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fcr_ecc_2b_err_cnt
+                                    
+                                    	FCR Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_data_cell_cnt
+                                    
+                                    	FDR DataCellCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_data_byte_cnt
+                                    
+                                    	FDR DataByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_crc_dropped_pck_cnt
+                                    
+                                    	FDR CrcDroppedPckCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_p_pkt_cnt
+                                    
+                                    	FDR PPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_error_filter_cnt
+                                    
+                                    	FDR PrmErrorFilterCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_error_filter_cnt
+                                    
+                                    	FDR SecErrorFilterCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_ecc_1b_err_cnt
+                                    
+                                    	FDR PrmEcc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_prm_ecc_2b_err_cnt
+                                    
+                                    	FDR PrmEcc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_ecc_1b_err_cnt
+                                    
+                                    	FDR SecEcc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fdr_sec_ecc_2b_err_cnt
+                                    
+                                    	FDR SecEcc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ecc_1b_err_cnt
+                                    
+                                    	EGQ Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ecc_2b_err_cnt
+                                    
+                                    	EGQ Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_parity_err_cnt
+                                    
+                                    	EGQ ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_dbf_ecc_1b_err_cnt
+                                    
+                                    	EGQ DbfEcc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_dbf_ecc_2b_err_cnt
+                                    
+                                    	EGQ DbfEcc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_empty_mcid_counter
+                                    
+                                    	EGQ EmptyMcidCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_rqp_discard_packet_counter
+                                    
+                                    	EGQ RqpDiscardPacketCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ehp_discard_packet_counter
+                                    
+                                    	EGQ EhpDiscardPacketCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_ipt_pkt_cnt
+                                    
+                                    	EGQ IptPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_pkt_cnt
+                                    
+                                    	EPNI EpePktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_byte_cnt
+                                    
+                                    	EPNI EpeByteCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_epe_discard_pkt_cnt
+                                    
+                                    	EPNI EpeDiscardPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_ecc_1b_err_cnt
+                                    
+                                    	EPNI Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_ecc_2b_err_cnt
+                                    
+                                    	EPNI Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: epni_parity_err_cnt
+                                    
+                                    	EPNI ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_pkt_cnt
+                                    
+                                    	EGQ PqpUcastPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_h_pkt_cnt
+                                    
+                                    	EGQ PqpUcastHPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_l_pkt_cnt
+                                    
+                                    	EGQ PqpUcastLPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_bytes_cnt
+                                    
+                                    	EGQ PqpUcastBytesCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_ucast_discard_pkt_cnt
+                                    
+                                    	EGQ PqpUcastDiscardPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_pkt_cnt
+                                    
+                                    	EGQ PqpMcastPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_h_pkt_cnt
+                                    
+                                    	EGQ PqpMcastHPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_l_pkt_cnt
+                                    
+                                    	EGQ PqpMcastLPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_bytes_cnt
+                                    
+                                    	EGQ PqpMcastBytesCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: egq_pqp_mcast_discard_pkt_cnt
+                                    
+                                    	EGQ PqpMcastDiscardPktCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fct_control_cell_cnt
+                                    
+                                    	FCT ControlCellCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fct_unrch_crdt_cnt
+                                    
+                                    	FCT UnrchCrdtCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_reassembly_errors
+                                    
+                                    	IDR ReassemblyErrors
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_mmu_ecc_1b_err_cnt
+                                    
+                                    	IDR MmuEcc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_mmu_ecc_2b_err_cnt
+                                    
+                                    	IDR MmuEcc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets0_cnt
+                                    
+                                    	IDR DiscardedPackets0Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets1_cnt
+                                    
+                                    	IDR DiscardedPackets1Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets2_cnt
+                                    
+                                    	IDR DiscardedPackets2Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_packets3_cnt
+                                    
+                                    	IDR DiscardedPackets3Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets0_cnt
+                                    
+                                    	IDR DiscardedOctets0Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets1_cnt
+                                    
+                                    	IDR DiscardedOctets1Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets2_cnt
+                                    
+                                    	IDR DiscardedOctets2Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idr_discarded_octets3_cnt
+                                    
+                                    	IDR DiscardedOctets3Cnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: mmu_ecc_1b_err_cnt
+                                    
+                                    	MMU Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: mmu_ecc_2b_err_cnt
+                                    
+                                    	MMU Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_parity_err_cnt
+                                    
+                                    	OAMP ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_ecc_1b_err_cnt
+                                    
+                                    	OAMP Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: oamp_ecc_2b_err_cnt
+                                    
+                                    	OAMP Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: crps_parity_err_cnt
+                                    
+                                    	CRPS ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs0_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs0TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs1_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs1TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs2_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs2TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC0 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC1 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC2 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC3 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC4 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC5 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC6 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC7 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_kpcs3_tst_rx_err_cnt
+                                    
+                                    	FMAC8 Kpcs3TstRxErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst0_err_cnt
+                                    
+                                    	FMAC0 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst0_err_cnt
+                                    
+                                    	FMAC1 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst0_err_cnt
+                                    
+                                    	FMAC2 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst0_err_cnt
+                                    
+                                    	FMAC3 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst0_err_cnt
+                                    
+                                    	FMAC4 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst0_err_cnt
+                                    
+                                    	FMAC5 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst0_err_cnt
+                                    
+                                    	FMAC6 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst0_err_cnt
+                                    
+                                    	FMAC7 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst0_err_cnt
+                                    
+                                    	FMAC8 Tst0ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst1_err_cnt
+                                    
+                                    	FMAC0 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst1_err_cnt
+                                    
+                                    	FMAC1 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst1_err_cnt
+                                    
+                                    	FMAC2 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst1_err_cnt
+                                    
+                                    	FMAC3 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst1_err_cnt
+                                    
+                                    	FMAC4 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst1_err_cnt
+                                    
+                                    	FMAC5 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst1_err_cnt
+                                    
+                                    	FMAC6 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst1_err_cnt
+                                    
+                                    	FMAC7 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst1_err_cnt
+                                    
+                                    	FMAC8 Tst1ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst2_err_cnt
+                                    
+                                    	FMAC0 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst2_err_cnt
+                                    
+                                    	FMAC1 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst2_err_cnt
+                                    
+                                    	FMAC2 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst2_err_cnt
+                                    
+                                    	FMAC3 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst2_err_cnt
+                                    
+                                    	FMAC4 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst2_err_cnt
+                                    
+                                    	FMAC5 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst2_err_cnt
+                                    
+                                    	FMAC6 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst2_err_cnt
+                                    
+                                    	FMAC7 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst2_err_cnt
+                                    
+                                    	FMAC8 Tst2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_tst3_err_cnt
+                                    
+                                    	FMAC0 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_tst3_err_cnt
+                                    
+                                    	FMAC1 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_tst3_err_cnt
+                                    
+                                    	FMAC2 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_tst3_err_cnt
+                                    
+                                    	FMAC3 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_tst3_err_cnt
+                                    
+                                    	FMAC4 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_tst3_err_cnt
+                                    
+                                    	FMAC5 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_tst3_err_cnt
+                                    
+                                    	FMAC6 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_tst3_err_cnt
+                                    
+                                    	FMAC7 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_tst3_err_cnt
+                                    
+                                    	FMAC8 Tst3ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_ecc_1b_err_cnt
+                                    
+                                    	FMAC0 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_ecc_1b_err_cnt
+                                    
+                                    	FMAC1 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_ecc_1b_err_cnt
+                                    
+                                    	FMAC2 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_ecc_1b_err_cnt
+                                    
+                                    	FMAC3 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_ecc_1b_err_cnt
+                                    
+                                    	FMAC4 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_ecc_1b_err_cnt
+                                    
+                                    	FMAC5 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_ecc_1b_err_cnt
+                                    
+                                    	FMAC6 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_ecc_1b_err_cnt
+                                    
+                                    	FMAC7 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_ecc_1b_err_cnt
+                                    
+                                    	FMAC8 Ecc 1bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac0_ecc_2b_err_cnt
+                                    
+                                    	FMAC0 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac1_ecc_2b_err_cnt
+                                    
+                                    	FMAC1 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac2_ecc_2b_err_cnt
+                                    
+                                    	FMAC2 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac3_ecc_2b_err_cnt
+                                    
+                                    	FMAC3 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac4_ecc_2b_err_cnt
+                                    
+                                    	FMAC4 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac5_ecc_2b_err_cnt
+                                    
+                                    	FMAC5 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac6_ecc_2b_err_cnt
+                                    
+                                    	FMAC6 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac7_ecc_2b_err_cnt
+                                    
+                                    	FMAC7 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: fmac8_ecc_2b_err_cnt
+                                    
+                                    	FMAC8 Ecc 2bErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: olp_incoming_bad_identifier_counter
+                                    
+                                    	OLP IncomingBadIdentifierCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: olp_incoming_bad_reassembly_counter
+                                    
+                                    	OLP IncomingBadReassemblyCounter
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_parity_err_cnt
+                                    
+                                    	CFC ParityErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_ilkn0_oob_rx_crc_err_cntr
+                                    
+                                    	CFC Ilkn0OobRxCrcErrCntr
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_ilkn1_oob_rx_crc_err_cntr
+                                    
+                                    	CFC Ilkn1OobRxCrcErrCntr
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx0_frm_err_cnt
+                                    
+                                    	CFC SpiOobRx0FrmErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx0_dip2_err_cnt
+                                    
+                                    	CFC SpiOobRx0Dip2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx1_frm_err_cnt
+                                    
+                                    	CFC SpiOobRx1FrmErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cfc_spi_oob_rx1_dip2_err_cnt
+                                    
+                                    	CFC SpiOobRx1Dip2ErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_pd_dropped_cnt
+                                    
+                                    	CGM CgmUcPdDroppedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_rep_pd_dropped_cnt
+                                    
+                                    	CGM CgmMcRepPdDroppedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_db_dropped_by_rqp_cnt
+                                    
+                                    	CGM CgmUcDbDroppedByRqpCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_uc_db_dropped_by_pqp_cnt
+                                    
+                                    	CGM CgmUcDbDroppedByPqpCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_rep_db_dropped_cnt
+                                    
+                                    	CGM CgmMcRepDbDroppedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: cgm_cgm_mc_db_dropped_cnt
+                                    
+                                    	CGM CgmMcDbDroppedCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_full_err_cnt
+                                    
+                                    	DRCA FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_single_err_cnt
+                                    
+                                    	DRCA SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_calib_bist_full_err_cnt
+                                    
+                                    	DRCA CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drca_loopback_full_err_cnt
+                                    
+                                    	DRCA LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_full_err_cnt
+                                    
+                                    	DRCB FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_single_err_cnt
+                                    
+                                    	DRCB SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_calib_bist_full_err_cnt
+                                    
+                                    	DRCB CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcb_loopback_full_err_cnt
+                                    
+                                    	DRCB LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_full_err_cnt
+                                    
+                                    	DRCC FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_single_err_cnt
+                                    
+                                    	DRCC SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_calib_bist_full_err_cnt
+                                    
+                                    	DRCC CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcc_loopback_full_err_cnt
+                                    
+                                    	DRCC LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_full_err_cnt
+                                    
+                                    	DRCD FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_single_err_cnt
+                                    
+                                    	DRCD SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_calib_bist_full_err_cnt
+                                    
+                                    	DRCD CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcd_loopback_full_err_cnt
+                                    
+                                    	DRCD LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_full_err_cnt
+                                    
+                                    	DRCE FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_single_err_cnt
+                                    
+                                    	DRCE SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_calib_bist_full_err_cnt
+                                    
+                                    	DRCE CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drce_loopback_full_err_cnt
+                                    
+                                    	DRCE LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_full_err_cnt
+                                    
+                                    	DRCF FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_single_err_cnt
+                                    
+                                    	DRCF SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_calib_bist_full_err_cnt
+                                    
+                                    	DRCF CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcf_loopback_full_err_cnt
+                                    
+                                    	DRCF LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_full_err_cnt
+                                    
+                                    	DRCG FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_single_err_cnt
+                                    
+                                    	DRCG SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_calib_bist_full_err_cnt
+                                    
+                                    	DRCG CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcg_loopback_full_err_cnt
+                                    
+                                    	DRCG LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_full_err_cnt
+                                    
+                                    	DRCH FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_single_err_cnt
+                                    
+                                    	DRCH SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_calib_bist_full_err_cnt
+                                    
+                                    	DRCH CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drch_loopback_full_err_cnt
+                                    
+                                    	DRCH LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_full_err_cnt
+                                    
+                                    	DRCBROADCAST FullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_single_err_cnt
+                                    
+                                    	DRCBROADCAST SingleErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_calib_bist_full_err_cnt
+                                    
+                                    	DRCBROADCAST CalibBistFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: drcbroadcast_loopback_full_err_cnt
+                                    
+                                    	DRCBROADCAST LoopbackFullErrCnt
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..6
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2017-08-29'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.OvfStatus, self).__init__()
+
+                                        self.yang_name = "ovf-status"
+                                        self.yang_parent_name = "pbc-stats"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('cmic_cmc0_pkt_count_tx_pkt', (YLeaf(YType.str, 'cmic-cmc0-pkt-count-tx-pkt'), ['str'])),
+                                            ('cmic_cmc0_pkt_count_rx_pkt', (YLeaf(YType.str, 'cmic-cmc0-pkt-count-rx-pkt'), ['str'])),
+                                            ('nbi_stat_rx_bursts_err_cnt', (YLeaf(YType.str, 'nbi-stat-rx-bursts-err-cnt'), ['str'])),
+                                            ('nbi_ecc_1b_err_cnt', (YLeaf(YType.str, 'nbi-ecc-1b-err-cnt'), ['str'])),
+                                            ('nbi_ecc_2b_err_cnt', (YLeaf(YType.str, 'nbi-ecc-2b-err-cnt'), ['str'])),
+                                            ('nbi_parity_err_cnt', (YLeaf(YType.str, 'nbi-parity-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn_crc32_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn-crc32-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_crc24_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-crc24-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_burst_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-burst-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_miss_sop_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-miss-sop-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_miss_eop_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-miss-eop-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_misaligned_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-misaligned-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_crc24_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-crc24-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_burst_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-burst-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_miss_sop_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-miss-sop-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_miss_eop_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-miss-eop-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_misaligned_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-misaligned-cnt'), ['str'])),
+                                            ('nbi_tx_ilkn1_flushed_bursts_cnt', (YLeaf(YType.str, 'nbi-tx-ilkn1-flushed-bursts-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_crc24_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-crc24-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_retry_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-retry-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_wdog_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-wdog-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-wrap-after-disc-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-wrap-b4-disc-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn0_retrans_reached_timeout_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn0-retrans-reached-timeout-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_crc24_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-crc24-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_retry_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-retry-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_wdog_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-wdog-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-wrap-after-disc-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-wrap-b4-disc-err-cnt'), ['str'])),
+                                            ('nbi_rx_ilkn1_retrans_reached_timeout_err_cnt', (YLeaf(YType.str, 'nbi-rx-ilkn1-retrans-reached-timeout-err-cnt'), ['str'])),
+                                            ('nbi_stat_rx_frame_err_cnt', (YLeaf(YType.str, 'nbi-stat-rx-frame-err-cnt'), ['str'])),
+                                            ('nbi_stat_tx_frame_err_cnt', (YLeaf(YType.str, 'nbi-stat-tx-frame-err-cnt'), ['str'])),
+                                            ('nbi_rx_elk_err_bursts_cnt', (YLeaf(YType.str, 'nbi-rx-elk-err-bursts-cnt'), ['str'])),
+                                            ('nbi_rx_num_thrown_eops', (YLeaf(YType.str, 'nbi-rx-num-thrown-eops'), ['str'])),
+                                            ('nbi_rx_num_runts', (YLeaf(YType.str, 'nbi-rx-num-runts'), ['str'])),
+                                            ('nbi_bist_tx_crc_err_bursts_cnt', (YLeaf(YType.str, 'nbi-bist-tx-crc-err-bursts-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_length_bursts_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-length-bursts-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_burst_index_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-burst-index-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_bct_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-bct-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_data_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-data-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_in_crc_err_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-in-crc-err-cnt'), ['str'])),
+                                            ('nbi_bist_rx_err_sob_cnt', (YLeaf(YType.str, 'nbi-bist-rx-err-sob-cnt'), ['str'])),
+                                            ('nbi_stat_tx_bursts_cnt', (YLeaf(YType.str, 'nbi-stat-tx-bursts-cnt'), ['str'])),
+                                            ('nbi_stat_tx_total_leng_cnt', (YLeaf(YType.str, 'nbi-stat-tx-total-leng-cnt'), ['str'])),
+                                            ('rxaui_total_tx_pkt_count', (YLeaf(YType.str, 'rxaui-total-tx-pkt-count'), ['str'])),
+                                            ('rxaui_total_rx_pkt_count', (YLeaf(YType.str, 'rxaui-total-rx-pkt-count'), ['str'])),
+                                            ('rxaui_rx_pkt_count_bcast_pkt', (YLeaf(YType.str, 'rxaui-rx-pkt-count-bcast-pkt'), ['str'])),
+                                            ('rxaui_tx_pkt_count_bcast_pkt', (YLeaf(YType.str, 'rxaui-tx-pkt-count-bcast-pkt'), ['str'])),
+                                            ('rxaui_rx_pkt_count_mcast_pkt', (YLeaf(YType.str, 'rxaui-rx-pkt-count-mcast-pkt'), ['str'])),
+                                            ('rxaui_tx_pkt_count_mcast_pkt', (YLeaf(YType.str, 'rxaui-tx-pkt-count-mcast-pkt'), ['str'])),
+                                            ('rxaui_rx_pkt_count_ucast_pkt', (YLeaf(YType.str, 'rxaui-rx-pkt-count-ucast-pkt'), ['str'])),
+                                            ('rxaui_tx_pkt_count_ucast_pkt', (YLeaf(YType.str, 'rxaui-tx-pkt-count-ucast-pkt'), ['str'])),
+                                            ('rxaui_rx_err_drop_pkt_cnt', (YLeaf(YType.str, 'rxaui-rx-err-drop-pkt-cnt'), ['str'])),
+                                            ('rxaui_tx_err_drop_pkt_cnt', (YLeaf(YType.str, 'rxaui-tx-err-drop-pkt-cnt'), ['str'])),
+                                            ('rxaui_byte_count_tx_pkt', (YLeaf(YType.str, 'rxaui-byte-count-tx-pkt'), ['str'])),
+                                            ('rxaui_byte_count_rx_pkt', (YLeaf(YType.str, 'rxaui-byte-count-rx-pkt'), ['str'])),
+                                            ('rxaui_rx_dscrd_pkt_cnt', (YLeaf(YType.str, 'rxaui-rx-dscrd-pkt-cnt'), ['str'])),
+                                            ('rxaui_tx_dscrd_pkt_cnt', (YLeaf(YType.str, 'rxaui-tx-dscrd-pkt-cnt'), ['str'])),
+                                            ('ire_nif_packet_counter', (YLeaf(YType.str, 'ire-nif-packet-counter'), ['str'])),
+                                            ('il_total_rx_pkt_count', (YLeaf(YType.str, 'il-total-rx-pkt-count'), ['str'])),
+                                            ('il_total_tx_pkt_count', (YLeaf(YType.str, 'il-total-tx-pkt-count'), ['str'])),
+                                            ('il_rx_err_drop_pkt_cnt', (YLeaf(YType.str, 'il-rx-err-drop-pkt-cnt'), ['str'])),
+                                            ('il_tx_err_drop_pkt_cnt', (YLeaf(YType.str, 'il-tx-err-drop-pkt-cnt'), ['str'])),
+                                            ('il_byte_count_tx_pkt', (YLeaf(YType.str, 'il-byte-count-tx-pkt'), ['str'])),
+                                            ('il_byte_count_rx_pkt', (YLeaf(YType.str, 'il-byte-count-rx-pkt'), ['str'])),
+                                            ('il_rx_dscrd_pkt_cnt', (YLeaf(YType.str, 'il-rx-dscrd-pkt-cnt'), ['str'])),
+                                            ('il_tx_dscrd_pkt_cnt', (YLeaf(YType.str, 'il-tx-dscrd-pkt-cnt'), ['str'])),
+                                            ('il_rx_pkt_count_bcast_pkt', (YLeaf(YType.str, 'il-rx-pkt-count-bcast-pkt'), ['str'])),
+                                            ('il_tx_pkt_count_bcast_pkt', (YLeaf(YType.str, 'il-tx-pkt-count-bcast-pkt'), ['str'])),
+                                            ('il_rx_pkt_count_mcast_pkt', (YLeaf(YType.str, 'il-rx-pkt-count-mcast-pkt'), ['str'])),
+                                            ('il_tx_pkt_count_mcast_pkt', (YLeaf(YType.str, 'il-tx-pkt-count-mcast-pkt'), ['str'])),
+                                            ('il_rx_pkt_count_ucast_pkt', (YLeaf(YType.str, 'il-rx-pkt-count-ucast-pkt'), ['str'])),
+                                            ('il_tx_pkt_count_ucast_pkt', (YLeaf(YType.str, 'il-tx-pkt-count-ucast-pkt'), ['str'])),
+                                            ('iqm_enq_pkt_cnt', (YLeaf(YType.str, 'iqm-enq-pkt-cnt'), ['str'])),
+                                            ('iqm_enq_byte_cnt', (YLeaf(YType.str, 'iqm-enq-byte-cnt'), ['str'])),
+                                            ('iqm_deq_pkt_cnt', (YLeaf(YType.str, 'iqm-deq-pkt-cnt'), ['str'])),
+                                            ('iqm_deq_byte_cnt', (YLeaf(YType.str, 'iqm-deq-byte-cnt'), ['str'])),
+                                            ('iqm_tot_dscrd_pkt_cnt', (YLeaf(YType.str, 'iqm-tot-dscrd-pkt-cnt'), ['str'])),
+                                            ('iqm_tot_dscrd_byte_cnt', (YLeaf(YType.str, 'iqm-tot-dscrd-byte-cnt'), ['str'])),
+                                            ('iqm_ecc_1b_err_cnt', (YLeaf(YType.str, 'iqm-ecc-1b-err-cnt'), ['str'])),
+                                            ('iqm_ecc_2b_err_cnt', (YLeaf(YType.str, 'iqm-ecc-2b-err-cnt'), ['str'])),
+                                            ('iqm_parity_err_cnt', (YLeaf(YType.str, 'iqm-parity-err-cnt'), ['str'])),
+                                            ('iqm_deq_delete_pkt_cnt', (YLeaf(YType.str, 'iqm-deq-delete-pkt-cnt'), ['str'])),
+                                            ('iqm_ecn_dscrd_msk_pkt_cnt', (YLeaf(YType.str, 'iqm-ecn-dscrd-msk-pkt-cnt'), ['str'])),
+                                            ('iqm_q_tot_dscrd_pkt_cnt', (YLeaf(YType.str, 'iqm-q-tot-dscrd-pkt-cnt'), ['str'])),
+                                            ('iqm_q_deq_delete_pkt_cnt', (YLeaf(YType.str, 'iqm-q-deq-delete-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_db_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-db-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_bdb_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-bdb-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_bdb_protct_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-bdb-protct-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_oc_bd_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-oc-bd-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_sn_err_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-sn-err-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_mc_err_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-mc-err-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_rsrc_err_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-rsrc-err-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_qnvalid_err_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-qnvalid-err-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_cnm_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-cnm-pkt-cnt'), ['str'])),
+                                            ('iqm_rjct_dyn_space_pkt_cnt', (YLeaf(YType.str, 'iqm-rjct-dyn-space-pkt-cnt'), ['str'])),
+                                            ('ipt_fdt_pkt_cnt', (YLeaf(YType.str, 'ipt-fdt-pkt-cnt'), ['str'])),
+                                            ('ipt_ecc_1b_err_cnt', (YLeaf(YType.str, 'ipt-ecc-1b-err-cnt'), ['str'])),
+                                            ('ipt_ecc_2b_err_cnt', (YLeaf(YType.str, 'ipt-ecc-2b-err-cnt'), ['str'])),
+                                            ('ipt_parity_err_cnt', (YLeaf(YType.str, 'ipt-parity-err-cnt'), ['str'])),
+                                            ('ipt_crc_err_cnt', (YLeaf(YType.str, 'ipt-crc-err-cnt'), ['str'])),
+                                            ('ipt_crc_err_del_buff_cnt', (YLeaf(YType.str, 'ipt-crc-err-del-buff-cnt'), ['str'])),
+                                            ('ipt_cpu_del_buff_cnt', (YLeaf(YType.str, 'ipt-cpu-del-buff-cnt'), ['str'])),
+                                            ('ipt_cpu_rel_buff_cnt', (YLeaf(YType.str, 'ipt-cpu-rel-buff-cnt'), ['str'])),
+                                            ('ipt_crc_err_buff_fifo_full_cnt', (YLeaf(YType.str, 'ipt-crc-err-buff-fifo-full-cnt'), ['str'])),
+                                            ('fdt_data_cell_cnt', (YLeaf(YType.str, 'fdt-data-cell-cnt'), ['str'])),
+                                            ('fdt_data_byte_cnt', (YLeaf(YType.str, 'fdt-data-byte-cnt'), ['str'])),
+                                            ('fdt_crc_dropped_pck_cnt', (YLeaf(YType.str, 'fdt-crc-dropped-pck-cnt'), ['str'])),
+                                            ('fdt_invalid_destq_drop_cell_cnt', (YLeaf(YType.str, 'fdt-invalid-destq-drop-cell-cnt'), ['str'])),
+                                            ('fdt_indirect_command_count', (YLeaf(YType.str, 'fdt-indirect-command-count'), ['str'])),
+                                            ('fdt_ecc_1b_err_cnt', (YLeaf(YType.str, 'fdt-ecc-1b-err-cnt'), ['str'])),
+                                            ('fdt_ecc_2b_err_cnt', (YLeaf(YType.str, 'fdt-ecc-2b-err-cnt'), ['str'])),
+                                            ('fdt_parity_err_cnt', (YLeaf(YType.str, 'fdt-parity-err-cnt'), ['str'])),
+                                            ('fdt_crc_dropped_cell_cnt', (YLeaf(YType.str, 'fdt-crc-dropped-cell-cnt'), ['str'])),
+                                            ('fcr_control_cell_cnt', (YLeaf(YType.str, 'fcr-control-cell-cnt'), ['str'])),
+                                            ('fcr_cell_drop_cnt', (YLeaf(YType.str, 'fcr-cell-drop-cnt'), ['str'])),
+                                            ('fcr_credit_cell_drop_cnt', (YLeaf(YType.str, 'fcr-credit-cell-drop-cnt'), ['str'])),
+                                            ('fcr_fs_cell_drop_cnt', (YLeaf(YType.str, 'fcr-fs-cell-drop-cnt'), ['str'])),
+                                            ('fcr_rt_cell_drop_cnt', (YLeaf(YType.str, 'fcr-rt-cell-drop-cnt'), ['str'])),
+                                            ('fcr_ecc_1b_err_cnt', (YLeaf(YType.str, 'fcr-ecc-1b-err-cnt'), ['str'])),
+                                            ('fcr_ecc_2b_err_cnt', (YLeaf(YType.str, 'fcr-ecc-2b-err-cnt'), ['str'])),
+                                            ('fdr_data_cell_cnt', (YLeaf(YType.str, 'fdr-data-cell-cnt'), ['str'])),
+                                            ('fdr_data_byte_cnt', (YLeaf(YType.str, 'fdr-data-byte-cnt'), ['str'])),
+                                            ('fdr_crc_dropped_pck_cnt', (YLeaf(YType.str, 'fdr-crc-dropped-pck-cnt'), ['str'])),
+                                            ('fdr_p_pkt_cnt', (YLeaf(YType.str, 'fdr-p-pkt-cnt'), ['str'])),
+                                            ('fdr_prm_error_filter_cnt', (YLeaf(YType.str, 'fdr-prm-error-filter-cnt'), ['str'])),
+                                            ('fdr_sec_error_filter_cnt', (YLeaf(YType.str, 'fdr-sec-error-filter-cnt'), ['str'])),
+                                            ('fdr_prm_ecc_1b_err_cnt', (YLeaf(YType.str, 'fdr-prm-ecc-1b-err-cnt'), ['str'])),
+                                            ('fdr_prm_ecc_2b_err_cnt', (YLeaf(YType.str, 'fdr-prm-ecc-2b-err-cnt'), ['str'])),
+                                            ('fdr_sec_ecc_1b_err_cnt', (YLeaf(YType.str, 'fdr-sec-ecc-1b-err-cnt'), ['str'])),
+                                            ('fdr_sec_ecc_2b_err_cnt', (YLeaf(YType.str, 'fdr-sec-ecc-2b-err-cnt'), ['str'])),
+                                            ('egq_ecc_1b_err_cnt', (YLeaf(YType.str, 'egq-ecc-1b-err-cnt'), ['str'])),
+                                            ('egq_ecc_2b_err_cnt', (YLeaf(YType.str, 'egq-ecc-2b-err-cnt'), ['str'])),
+                                            ('egq_parity_err_cnt', (YLeaf(YType.str, 'egq-parity-err-cnt'), ['str'])),
+                                            ('egq_dbf_ecc_1b_err_cnt', (YLeaf(YType.str, 'egq-dbf-ecc-1b-err-cnt'), ['str'])),
+                                            ('egq_dbf_ecc_2b_err_cnt', (YLeaf(YType.str, 'egq-dbf-ecc-2b-err-cnt'), ['str'])),
+                                            ('egq_empty_mcid_counter', (YLeaf(YType.str, 'egq-empty-mcid-counter'), ['str'])),
+                                            ('egq_rqp_discard_packet_counter', (YLeaf(YType.str, 'egq-rqp-discard-packet-counter'), ['str'])),
+                                            ('egq_ehp_discard_packet_counter', (YLeaf(YType.str, 'egq-ehp-discard-packet-counter'), ['str'])),
+                                            ('egq_ipt_pkt_cnt', (YLeaf(YType.str, 'egq-ipt-pkt-cnt'), ['str'])),
+                                            ('epni_epe_pkt_cnt', (YLeaf(YType.str, 'epni-epe-pkt-cnt'), ['str'])),
+                                            ('epni_epe_byte_cnt', (YLeaf(YType.str, 'epni-epe-byte-cnt'), ['str'])),
+                                            ('epni_epe_discard_pkt_cnt', (YLeaf(YType.str, 'epni-epe-discard-pkt-cnt'), ['str'])),
+                                            ('epni_ecc_1b_err_cnt', (YLeaf(YType.str, 'epni-ecc-1b-err-cnt'), ['str'])),
+                                            ('epni_ecc_2b_err_cnt', (YLeaf(YType.str, 'epni-ecc-2b-err-cnt'), ['str'])),
+                                            ('epni_parity_err_cnt', (YLeaf(YType.str, 'epni-parity-err-cnt'), ['str'])),
+                                            ('egq_pqp_ucast_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-ucast-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_ucast_h_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-ucast-h-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_ucast_l_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-ucast-l-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_ucast_bytes_cnt', (YLeaf(YType.str, 'egq-pqp-ucast-bytes-cnt'), ['str'])),
+                                            ('egq_pqp_ucast_discard_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-ucast-discard-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_mcast_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-mcast-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_mcast_h_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-mcast-h-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_mcast_l_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-mcast-l-pkt-cnt'), ['str'])),
+                                            ('egq_pqp_mcast_bytes_cnt', (YLeaf(YType.str, 'egq-pqp-mcast-bytes-cnt'), ['str'])),
+                                            ('egq_pqp_mcast_discard_pkt_cnt', (YLeaf(YType.str, 'egq-pqp-mcast-discard-pkt-cnt'), ['str'])),
+                                            ('fct_control_cell_cnt', (YLeaf(YType.str, 'fct-control-cell-cnt'), ['str'])),
+                                            ('fct_unrch_crdt_cnt', (YLeaf(YType.str, 'fct-unrch-crdt-cnt'), ['str'])),
+                                            ('idr_reassembly_errors', (YLeaf(YType.str, 'idr-reassembly-errors'), ['str'])),
+                                            ('idr_mmu_ecc_1b_err_cnt', (YLeaf(YType.str, 'idr-mmu-ecc-1b-err-cnt'), ['str'])),
+                                            ('idr_mmu_ecc_2b_err_cnt', (YLeaf(YType.str, 'idr-mmu-ecc-2b-err-cnt'), ['str'])),
+                                            ('idr_discarded_packets0_cnt', (YLeaf(YType.str, 'idr-discarded-packets0-cnt'), ['str'])),
+                                            ('idr_discarded_packets1_cnt', (YLeaf(YType.str, 'idr-discarded-packets1-cnt'), ['str'])),
+                                            ('idr_discarded_packets2_cnt', (YLeaf(YType.str, 'idr-discarded-packets2-cnt'), ['str'])),
+                                            ('idr_discarded_packets3_cnt', (YLeaf(YType.str, 'idr-discarded-packets3-cnt'), ['str'])),
+                                            ('idr_discarded_octets0_cnt', (YLeaf(YType.str, 'idr-discarded-octets0-cnt'), ['str'])),
+                                            ('idr_discarded_octets1_cnt', (YLeaf(YType.str, 'idr-discarded-octets1-cnt'), ['str'])),
+                                            ('idr_discarded_octets2_cnt', (YLeaf(YType.str, 'idr-discarded-octets2-cnt'), ['str'])),
+                                            ('idr_discarded_octets3_cnt', (YLeaf(YType.str, 'idr-discarded-octets3-cnt'), ['str'])),
+                                            ('mmu_ecc_1b_err_cnt', (YLeaf(YType.str, 'mmu-ecc-1b-err-cnt'), ['str'])),
+                                            ('mmu_ecc_2b_err_cnt', (YLeaf(YType.str, 'mmu-ecc-2b-err-cnt'), ['str'])),
+                                            ('oamp_parity_err_cnt', (YLeaf(YType.str, 'oamp-parity-err-cnt'), ['str'])),
+                                            ('oamp_ecc_1b_err_cnt', (YLeaf(YType.str, 'oamp-ecc-1b-err-cnt'), ['str'])),
+                                            ('oamp_ecc_2b_err_cnt', (YLeaf(YType.str, 'oamp-ecc-2b-err-cnt'), ['str'])),
+                                            ('crps_parity_err_cnt', (YLeaf(YType.str, 'crps-parity-err-cnt'), ['str'])),
+                                            ('fmac0_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac0-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac1_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac1-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac2_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac2-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac3_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac3-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac4_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac4-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac5_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac5-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac6_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac6-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac7_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac7-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac8_kpcs0_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac8-kpcs0-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac0_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac0-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac1_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac1-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac2_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac2-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac3_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac3-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac4_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac4-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac5_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac5-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac6_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac6-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac7_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac7-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac8_kpcs1_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac8-kpcs1-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac0_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac0-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac1_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac1-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac2_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac2-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac3_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac3-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac4_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac4-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac5_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac5-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac6_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac6-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac7_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac7-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac8_kpcs2_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac8-kpcs2-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac0_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac0-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac1_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac1-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac2_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac2-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac3_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac3-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac4_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac4-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac5_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac5-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac6_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac6-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac7_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac7-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac8_kpcs3_tst_rx_err_cnt', (YLeaf(YType.str, 'fmac8-kpcs3-tst-rx-err-cnt'), ['str'])),
+                                            ('fmac0_tst0_err_cnt', (YLeaf(YType.str, 'fmac0-tst0-err-cnt'), ['str'])),
+                                            ('fmac1_tst0_err_cnt', (YLeaf(YType.str, 'fmac1-tst0-err-cnt'), ['str'])),
+                                            ('fmac2_tst0_err_cnt', (YLeaf(YType.str, 'fmac2-tst0-err-cnt'), ['str'])),
+                                            ('fmac3_tst0_err_cnt', (YLeaf(YType.str, 'fmac3-tst0-err-cnt'), ['str'])),
+                                            ('fmac4_tst0_err_cnt', (YLeaf(YType.str, 'fmac4-tst0-err-cnt'), ['str'])),
+                                            ('fmac5_tst0_err_cnt', (YLeaf(YType.str, 'fmac5-tst0-err-cnt'), ['str'])),
+                                            ('fmac6_tst0_err_cnt', (YLeaf(YType.str, 'fmac6-tst0-err-cnt'), ['str'])),
+                                            ('fmac7_tst0_err_cnt', (YLeaf(YType.str, 'fmac7-tst0-err-cnt'), ['str'])),
+                                            ('fmac8_tst0_err_cnt', (YLeaf(YType.str, 'fmac8-tst0-err-cnt'), ['str'])),
+                                            ('fmac0_tst1_err_cnt', (YLeaf(YType.str, 'fmac0-tst1-err-cnt'), ['str'])),
+                                            ('fmac1_tst1_err_cnt', (YLeaf(YType.str, 'fmac1-tst1-err-cnt'), ['str'])),
+                                            ('fmac2_tst1_err_cnt', (YLeaf(YType.str, 'fmac2-tst1-err-cnt'), ['str'])),
+                                            ('fmac3_tst1_err_cnt', (YLeaf(YType.str, 'fmac3-tst1-err-cnt'), ['str'])),
+                                            ('fmac4_tst1_err_cnt', (YLeaf(YType.str, 'fmac4-tst1-err-cnt'), ['str'])),
+                                            ('fmac5_tst1_err_cnt', (YLeaf(YType.str, 'fmac5-tst1-err-cnt'), ['str'])),
+                                            ('fmac6_tst1_err_cnt', (YLeaf(YType.str, 'fmac6-tst1-err-cnt'), ['str'])),
+                                            ('fmac7_tst1_err_cnt', (YLeaf(YType.str, 'fmac7-tst1-err-cnt'), ['str'])),
+                                            ('fmac8_tst1_err_cnt', (YLeaf(YType.str, 'fmac8-tst1-err-cnt'), ['str'])),
+                                            ('fmac0_tst2_err_cnt', (YLeaf(YType.str, 'fmac0-tst2-err-cnt'), ['str'])),
+                                            ('fmac1_tst2_err_cnt', (YLeaf(YType.str, 'fmac1-tst2-err-cnt'), ['str'])),
+                                            ('fmac2_tst2_err_cnt', (YLeaf(YType.str, 'fmac2-tst2-err-cnt'), ['str'])),
+                                            ('fmac3_tst2_err_cnt', (YLeaf(YType.str, 'fmac3-tst2-err-cnt'), ['str'])),
+                                            ('fmac4_tst2_err_cnt', (YLeaf(YType.str, 'fmac4-tst2-err-cnt'), ['str'])),
+                                            ('fmac5_tst2_err_cnt', (YLeaf(YType.str, 'fmac5-tst2-err-cnt'), ['str'])),
+                                            ('fmac6_tst2_err_cnt', (YLeaf(YType.str, 'fmac6-tst2-err-cnt'), ['str'])),
+                                            ('fmac7_tst2_err_cnt', (YLeaf(YType.str, 'fmac7-tst2-err-cnt'), ['str'])),
+                                            ('fmac8_tst2_err_cnt', (YLeaf(YType.str, 'fmac8-tst2-err-cnt'), ['str'])),
+                                            ('fmac0_tst3_err_cnt', (YLeaf(YType.str, 'fmac0-tst3-err-cnt'), ['str'])),
+                                            ('fmac1_tst3_err_cnt', (YLeaf(YType.str, 'fmac1-tst3-err-cnt'), ['str'])),
+                                            ('fmac2_tst3_err_cnt', (YLeaf(YType.str, 'fmac2-tst3-err-cnt'), ['str'])),
+                                            ('fmac3_tst3_err_cnt', (YLeaf(YType.str, 'fmac3-tst3-err-cnt'), ['str'])),
+                                            ('fmac4_tst3_err_cnt', (YLeaf(YType.str, 'fmac4-tst3-err-cnt'), ['str'])),
+                                            ('fmac5_tst3_err_cnt', (YLeaf(YType.str, 'fmac5-tst3-err-cnt'), ['str'])),
+                                            ('fmac6_tst3_err_cnt', (YLeaf(YType.str, 'fmac6-tst3-err-cnt'), ['str'])),
+                                            ('fmac7_tst3_err_cnt', (YLeaf(YType.str, 'fmac7-tst3-err-cnt'), ['str'])),
+                                            ('fmac8_tst3_err_cnt', (YLeaf(YType.str, 'fmac8-tst3-err-cnt'), ['str'])),
+                                            ('fmac0_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac0-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac1_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac1-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac2_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac2-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac3_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac3-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac4_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac4-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac5_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac5-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac6_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac6-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac7_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac7-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac8_ecc_1b_err_cnt', (YLeaf(YType.str, 'fmac8-ecc-1b-err-cnt'), ['str'])),
+                                            ('fmac0_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac0-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac1_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac1-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac2_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac2-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac3_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac3-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac4_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac4-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac5_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac5-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac6_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac6-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac7_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac7-ecc-2b-err-cnt'), ['str'])),
+                                            ('fmac8_ecc_2b_err_cnt', (YLeaf(YType.str, 'fmac8-ecc-2b-err-cnt'), ['str'])),
+                                            ('olp_incoming_bad_identifier_counter', (YLeaf(YType.str, 'olp-incoming-bad-identifier-counter'), ['str'])),
+                                            ('olp_incoming_bad_reassembly_counter', (YLeaf(YType.str, 'olp-incoming-bad-reassembly-counter'), ['str'])),
+                                            ('cfc_parity_err_cnt', (YLeaf(YType.str, 'cfc-parity-err-cnt'), ['str'])),
+                                            ('cfc_ilkn0_oob_rx_crc_err_cntr', (YLeaf(YType.str, 'cfc-ilkn0-oob-rx-crc-err-cntr'), ['str'])),
+                                            ('cfc_ilkn1_oob_rx_crc_err_cntr', (YLeaf(YType.str, 'cfc-ilkn1-oob-rx-crc-err-cntr'), ['str'])),
+                                            ('cfc_spi_oob_rx0_frm_err_cnt', (YLeaf(YType.str, 'cfc-spi-oob-rx0-frm-err-cnt'), ['str'])),
+                                            ('cfc_spi_oob_rx0_dip2_err_cnt', (YLeaf(YType.str, 'cfc-spi-oob-rx0-dip2-err-cnt'), ['str'])),
+                                            ('cfc_spi_oob_rx1_frm_err_cnt', (YLeaf(YType.str, 'cfc-spi-oob-rx1-frm-err-cnt'), ['str'])),
+                                            ('cfc_spi_oob_rx1_dip2_err_cnt', (YLeaf(YType.str, 'cfc-spi-oob-rx1-dip2-err-cnt'), ['str'])),
+                                            ('cgm_cgm_uc_pd_dropped_cnt', (YLeaf(YType.str, 'cgm-cgm-uc-pd-dropped-cnt'), ['str'])),
+                                            ('cgm_cgm_mc_rep_pd_dropped_cnt', (YLeaf(YType.str, 'cgm-cgm-mc-rep-pd-dropped-cnt'), ['str'])),
+                                            ('cgm_cgm_uc_db_dropped_by_rqp_cnt', (YLeaf(YType.str, 'cgm-cgm-uc-db-dropped-by-rqp-cnt'), ['str'])),
+                                            ('cgm_cgm_uc_db_dropped_by_pqp_cnt', (YLeaf(YType.str, 'cgm-cgm-uc-db-dropped-by-pqp-cnt'), ['str'])),
+                                            ('cgm_cgm_mc_rep_db_dropped_cnt', (YLeaf(YType.str, 'cgm-cgm-mc-rep-db-dropped-cnt'), ['str'])),
+                                            ('cgm_cgm_mc_db_dropped_cnt', (YLeaf(YType.str, 'cgm-cgm-mc-db-dropped-cnt'), ['str'])),
+                                            ('drca_full_err_cnt', (YLeaf(YType.str, 'drca-full-err-cnt'), ['str'])),
+                                            ('drca_single_err_cnt', (YLeaf(YType.str, 'drca-single-err-cnt'), ['str'])),
+                                            ('drca_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drca-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drca_loopback_full_err_cnt', (YLeaf(YType.str, 'drca-loopback-full-err-cnt'), ['str'])),
+                                            ('drcb_full_err_cnt', (YLeaf(YType.str, 'drcb-full-err-cnt'), ['str'])),
+                                            ('drcb_single_err_cnt', (YLeaf(YType.str, 'drcb-single-err-cnt'), ['str'])),
+                                            ('drcb_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcb-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcb_loopback_full_err_cnt', (YLeaf(YType.str, 'drcb-loopback-full-err-cnt'), ['str'])),
+                                            ('drcc_full_err_cnt', (YLeaf(YType.str, 'drcc-full-err-cnt'), ['str'])),
+                                            ('drcc_single_err_cnt', (YLeaf(YType.str, 'drcc-single-err-cnt'), ['str'])),
+                                            ('drcc_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcc-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcc_loopback_full_err_cnt', (YLeaf(YType.str, 'drcc-loopback-full-err-cnt'), ['str'])),
+                                            ('drcd_full_err_cnt', (YLeaf(YType.str, 'drcd-full-err-cnt'), ['str'])),
+                                            ('drcd_single_err_cnt', (YLeaf(YType.str, 'drcd-single-err-cnt'), ['str'])),
+                                            ('drcd_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcd-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcd_loopback_full_err_cnt', (YLeaf(YType.str, 'drcd-loopback-full-err-cnt'), ['str'])),
+                                            ('drce_full_err_cnt', (YLeaf(YType.str, 'drce-full-err-cnt'), ['str'])),
+                                            ('drce_single_err_cnt', (YLeaf(YType.str, 'drce-single-err-cnt'), ['str'])),
+                                            ('drce_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drce-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drce_loopback_full_err_cnt', (YLeaf(YType.str, 'drce-loopback-full-err-cnt'), ['str'])),
+                                            ('drcf_full_err_cnt', (YLeaf(YType.str, 'drcf-full-err-cnt'), ['str'])),
+                                            ('drcf_single_err_cnt', (YLeaf(YType.str, 'drcf-single-err-cnt'), ['str'])),
+                                            ('drcf_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcf-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcf_loopback_full_err_cnt', (YLeaf(YType.str, 'drcf-loopback-full-err-cnt'), ['str'])),
+                                            ('drcg_full_err_cnt', (YLeaf(YType.str, 'drcg-full-err-cnt'), ['str'])),
+                                            ('drcg_single_err_cnt', (YLeaf(YType.str, 'drcg-single-err-cnt'), ['str'])),
+                                            ('drcg_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcg-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcg_loopback_full_err_cnt', (YLeaf(YType.str, 'drcg-loopback-full-err-cnt'), ['str'])),
+                                            ('drch_full_err_cnt', (YLeaf(YType.str, 'drch-full-err-cnt'), ['str'])),
+                                            ('drch_single_err_cnt', (YLeaf(YType.str, 'drch-single-err-cnt'), ['str'])),
+                                            ('drch_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drch-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drch_loopback_full_err_cnt', (YLeaf(YType.str, 'drch-loopback-full-err-cnt'), ['str'])),
+                                            ('drcbroadcast_full_err_cnt', (YLeaf(YType.str, 'drcbroadcast-full-err-cnt'), ['str'])),
+                                            ('drcbroadcast_single_err_cnt', (YLeaf(YType.str, 'drcbroadcast-single-err-cnt'), ['str'])),
+                                            ('drcbroadcast_calib_bist_full_err_cnt', (YLeaf(YType.str, 'drcbroadcast-calib-bist-full-err-cnt'), ['str'])),
+                                            ('drcbroadcast_loopback_full_err_cnt', (YLeaf(YType.str, 'drcbroadcast-loopback-full-err-cnt'), ['str'])),
+                                        ])
+                                        self.cmic_cmc0_pkt_count_tx_pkt = None
+                                        self.cmic_cmc0_pkt_count_rx_pkt = None
+                                        self.nbi_stat_rx_bursts_err_cnt = None
+                                        self.nbi_ecc_1b_err_cnt = None
+                                        self.nbi_ecc_2b_err_cnt = None
+                                        self.nbi_parity_err_cnt = None
+                                        self.nbi_rx_ilkn_crc32_err_cnt = None
+                                        self.nbi_rx_ilkn0_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn0_burst_err_cnt = None
+                                        self.nbi_rx_ilkn0_miss_sop_err_cnt = None
+                                        self.nbi_rx_ilkn0_miss_eop_err_cnt = None
+                                        self.nbi_rx_ilkn0_misaligned_cnt = None
+                                        self.nbi_rx_ilkn1_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn1_burst_err_cnt = None
+                                        self.nbi_rx_ilkn1_miss_sop_err_cnt = None
+                                        self.nbi_rx_ilkn1_miss_eop_err_cnt = None
+                                        self.nbi_rx_ilkn1_misaligned_cnt = None
+                                        self.nbi_tx_ilkn1_flushed_bursts_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_retry_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wdog_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt = None
+                                        self.nbi_rx_ilkn0_retrans_reached_timeout_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_crc24_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_retry_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wdog_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt = None
+                                        self.nbi_rx_ilkn1_retrans_reached_timeout_err_cnt = None
+                                        self.nbi_stat_rx_frame_err_cnt = None
+                                        self.nbi_stat_tx_frame_err_cnt = None
+                                        self.nbi_rx_elk_err_bursts_cnt = None
+                                        self.nbi_rx_num_thrown_eops = None
+                                        self.nbi_rx_num_runts = None
+                                        self.nbi_bist_tx_crc_err_bursts_cnt = None
+                                        self.nbi_bist_rx_err_length_bursts_cnt = None
+                                        self.nbi_bist_rx_err_burst_index_cnt = None
+                                        self.nbi_bist_rx_err_bct_cnt = None
+                                        self.nbi_bist_rx_err_data_cnt = None
+                                        self.nbi_bist_rx_err_in_crc_err_cnt = None
+                                        self.nbi_bist_rx_err_sob_cnt = None
+                                        self.nbi_stat_tx_bursts_cnt = None
+                                        self.nbi_stat_tx_total_leng_cnt = None
+                                        self.rxaui_total_tx_pkt_count = None
+                                        self.rxaui_total_rx_pkt_count = None
+                                        self.rxaui_rx_pkt_count_bcast_pkt = None
+                                        self.rxaui_tx_pkt_count_bcast_pkt = None
+                                        self.rxaui_rx_pkt_count_mcast_pkt = None
+                                        self.rxaui_tx_pkt_count_mcast_pkt = None
+                                        self.rxaui_rx_pkt_count_ucast_pkt = None
+                                        self.rxaui_tx_pkt_count_ucast_pkt = None
+                                        self.rxaui_rx_err_drop_pkt_cnt = None
+                                        self.rxaui_tx_err_drop_pkt_cnt = None
+                                        self.rxaui_byte_count_tx_pkt = None
+                                        self.rxaui_byte_count_rx_pkt = None
+                                        self.rxaui_rx_dscrd_pkt_cnt = None
+                                        self.rxaui_tx_dscrd_pkt_cnt = None
+                                        self.ire_nif_packet_counter = None
+                                        self.il_total_rx_pkt_count = None
+                                        self.il_total_tx_pkt_count = None
+                                        self.il_rx_err_drop_pkt_cnt = None
+                                        self.il_tx_err_drop_pkt_cnt = None
+                                        self.il_byte_count_tx_pkt = None
+                                        self.il_byte_count_rx_pkt = None
+                                        self.il_rx_dscrd_pkt_cnt = None
+                                        self.il_tx_dscrd_pkt_cnt = None
+                                        self.il_rx_pkt_count_bcast_pkt = None
+                                        self.il_tx_pkt_count_bcast_pkt = None
+                                        self.il_rx_pkt_count_mcast_pkt = None
+                                        self.il_tx_pkt_count_mcast_pkt = None
+                                        self.il_rx_pkt_count_ucast_pkt = None
+                                        self.il_tx_pkt_count_ucast_pkt = None
+                                        self.iqm_enq_pkt_cnt = None
+                                        self.iqm_enq_byte_cnt = None
+                                        self.iqm_deq_pkt_cnt = None
+                                        self.iqm_deq_byte_cnt = None
+                                        self.iqm_tot_dscrd_pkt_cnt = None
+                                        self.iqm_tot_dscrd_byte_cnt = None
+                                        self.iqm_ecc_1b_err_cnt = None
+                                        self.iqm_ecc_2b_err_cnt = None
+                                        self.iqm_parity_err_cnt = None
+                                        self.iqm_deq_delete_pkt_cnt = None
+                                        self.iqm_ecn_dscrd_msk_pkt_cnt = None
+                                        self.iqm_q_tot_dscrd_pkt_cnt = None
+                                        self.iqm_q_deq_delete_pkt_cnt = None
+                                        self.iqm_rjct_db_pkt_cnt = None
+                                        self.iqm_rjct_bdb_pkt_cnt = None
+                                        self.iqm_rjct_bdb_protct_pkt_cnt = None
+                                        self.iqm_rjct_oc_bd_pkt_cnt = None
+                                        self.iqm_rjct_sn_err_pkt_cnt = None
+                                        self.iqm_rjct_mc_err_pkt_cnt = None
+                                        self.iqm_rjct_rsrc_err_pkt_cnt = None
+                                        self.iqm_rjct_qnvalid_err_pkt_cnt = None
+                                        self.iqm_rjct_cnm_pkt_cnt = None
+                                        self.iqm_rjct_dyn_space_pkt_cnt = None
+                                        self.ipt_fdt_pkt_cnt = None
+                                        self.ipt_ecc_1b_err_cnt = None
+                                        self.ipt_ecc_2b_err_cnt = None
+                                        self.ipt_parity_err_cnt = None
+                                        self.ipt_crc_err_cnt = None
+                                        self.ipt_crc_err_del_buff_cnt = None
+                                        self.ipt_cpu_del_buff_cnt = None
+                                        self.ipt_cpu_rel_buff_cnt = None
+                                        self.ipt_crc_err_buff_fifo_full_cnt = None
+                                        self.fdt_data_cell_cnt = None
+                                        self.fdt_data_byte_cnt = None
+                                        self.fdt_crc_dropped_pck_cnt = None
+                                        self.fdt_invalid_destq_drop_cell_cnt = None
+                                        self.fdt_indirect_command_count = None
+                                        self.fdt_ecc_1b_err_cnt = None
+                                        self.fdt_ecc_2b_err_cnt = None
+                                        self.fdt_parity_err_cnt = None
+                                        self.fdt_crc_dropped_cell_cnt = None
+                                        self.fcr_control_cell_cnt = None
+                                        self.fcr_cell_drop_cnt = None
+                                        self.fcr_credit_cell_drop_cnt = None
+                                        self.fcr_fs_cell_drop_cnt = None
+                                        self.fcr_rt_cell_drop_cnt = None
+                                        self.fcr_ecc_1b_err_cnt = None
+                                        self.fcr_ecc_2b_err_cnt = None
+                                        self.fdr_data_cell_cnt = None
+                                        self.fdr_data_byte_cnt = None
+                                        self.fdr_crc_dropped_pck_cnt = None
+                                        self.fdr_p_pkt_cnt = None
+                                        self.fdr_prm_error_filter_cnt = None
+                                        self.fdr_sec_error_filter_cnt = None
+                                        self.fdr_prm_ecc_1b_err_cnt = None
+                                        self.fdr_prm_ecc_2b_err_cnt = None
+                                        self.fdr_sec_ecc_1b_err_cnt = None
+                                        self.fdr_sec_ecc_2b_err_cnt = None
+                                        self.egq_ecc_1b_err_cnt = None
+                                        self.egq_ecc_2b_err_cnt = None
+                                        self.egq_parity_err_cnt = None
+                                        self.egq_dbf_ecc_1b_err_cnt = None
+                                        self.egq_dbf_ecc_2b_err_cnt = None
+                                        self.egq_empty_mcid_counter = None
+                                        self.egq_rqp_discard_packet_counter = None
+                                        self.egq_ehp_discard_packet_counter = None
+                                        self.egq_ipt_pkt_cnt = None
+                                        self.epni_epe_pkt_cnt = None
+                                        self.epni_epe_byte_cnt = None
+                                        self.epni_epe_discard_pkt_cnt = None
+                                        self.epni_ecc_1b_err_cnt = None
+                                        self.epni_ecc_2b_err_cnt = None
+                                        self.epni_parity_err_cnt = None
+                                        self.egq_pqp_ucast_pkt_cnt = None
+                                        self.egq_pqp_ucast_h_pkt_cnt = None
+                                        self.egq_pqp_ucast_l_pkt_cnt = None
+                                        self.egq_pqp_ucast_bytes_cnt = None
+                                        self.egq_pqp_ucast_discard_pkt_cnt = None
+                                        self.egq_pqp_mcast_pkt_cnt = None
+                                        self.egq_pqp_mcast_h_pkt_cnt = None
+                                        self.egq_pqp_mcast_l_pkt_cnt = None
+                                        self.egq_pqp_mcast_bytes_cnt = None
+                                        self.egq_pqp_mcast_discard_pkt_cnt = None
+                                        self.fct_control_cell_cnt = None
+                                        self.fct_unrch_crdt_cnt = None
+                                        self.idr_reassembly_errors = None
+                                        self.idr_mmu_ecc_1b_err_cnt = None
+                                        self.idr_mmu_ecc_2b_err_cnt = None
+                                        self.idr_discarded_packets0_cnt = None
+                                        self.idr_discarded_packets1_cnt = None
+                                        self.idr_discarded_packets2_cnt = None
+                                        self.idr_discarded_packets3_cnt = None
+                                        self.idr_discarded_octets0_cnt = None
+                                        self.idr_discarded_octets1_cnt = None
+                                        self.idr_discarded_octets2_cnt = None
+                                        self.idr_discarded_octets3_cnt = None
+                                        self.mmu_ecc_1b_err_cnt = None
+                                        self.mmu_ecc_2b_err_cnt = None
+                                        self.oamp_parity_err_cnt = None
+                                        self.oamp_ecc_1b_err_cnt = None
+                                        self.oamp_ecc_2b_err_cnt = None
+                                        self.crps_parity_err_cnt = None
+                                        self.fmac0_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs0_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs1_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs2_tst_rx_err_cnt = None
+                                        self.fmac0_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac1_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac2_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac3_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac4_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac5_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac6_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac7_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac8_kpcs3_tst_rx_err_cnt = None
+                                        self.fmac0_tst0_err_cnt = None
+                                        self.fmac1_tst0_err_cnt = None
+                                        self.fmac2_tst0_err_cnt = None
+                                        self.fmac3_tst0_err_cnt = None
+                                        self.fmac4_tst0_err_cnt = None
+                                        self.fmac5_tst0_err_cnt = None
+                                        self.fmac6_tst0_err_cnt = None
+                                        self.fmac7_tst0_err_cnt = None
+                                        self.fmac8_tst0_err_cnt = None
+                                        self.fmac0_tst1_err_cnt = None
+                                        self.fmac1_tst1_err_cnt = None
+                                        self.fmac2_tst1_err_cnt = None
+                                        self.fmac3_tst1_err_cnt = None
+                                        self.fmac4_tst1_err_cnt = None
+                                        self.fmac5_tst1_err_cnt = None
+                                        self.fmac6_tst1_err_cnt = None
+                                        self.fmac7_tst1_err_cnt = None
+                                        self.fmac8_tst1_err_cnt = None
+                                        self.fmac0_tst2_err_cnt = None
+                                        self.fmac1_tst2_err_cnt = None
+                                        self.fmac2_tst2_err_cnt = None
+                                        self.fmac3_tst2_err_cnt = None
+                                        self.fmac4_tst2_err_cnt = None
+                                        self.fmac5_tst2_err_cnt = None
+                                        self.fmac6_tst2_err_cnt = None
+                                        self.fmac7_tst2_err_cnt = None
+                                        self.fmac8_tst2_err_cnt = None
+                                        self.fmac0_tst3_err_cnt = None
+                                        self.fmac1_tst3_err_cnt = None
+                                        self.fmac2_tst3_err_cnt = None
+                                        self.fmac3_tst3_err_cnt = None
+                                        self.fmac4_tst3_err_cnt = None
+                                        self.fmac5_tst3_err_cnt = None
+                                        self.fmac6_tst3_err_cnt = None
+                                        self.fmac7_tst3_err_cnt = None
+                                        self.fmac8_tst3_err_cnt = None
+                                        self.fmac0_ecc_1b_err_cnt = None
+                                        self.fmac1_ecc_1b_err_cnt = None
+                                        self.fmac2_ecc_1b_err_cnt = None
+                                        self.fmac3_ecc_1b_err_cnt = None
+                                        self.fmac4_ecc_1b_err_cnt = None
+                                        self.fmac5_ecc_1b_err_cnt = None
+                                        self.fmac6_ecc_1b_err_cnt = None
+                                        self.fmac7_ecc_1b_err_cnt = None
+                                        self.fmac8_ecc_1b_err_cnt = None
+                                        self.fmac0_ecc_2b_err_cnt = None
+                                        self.fmac1_ecc_2b_err_cnt = None
+                                        self.fmac2_ecc_2b_err_cnt = None
+                                        self.fmac3_ecc_2b_err_cnt = None
+                                        self.fmac4_ecc_2b_err_cnt = None
+                                        self.fmac5_ecc_2b_err_cnt = None
+                                        self.fmac6_ecc_2b_err_cnt = None
+                                        self.fmac7_ecc_2b_err_cnt = None
+                                        self.fmac8_ecc_2b_err_cnt = None
+                                        self.olp_incoming_bad_identifier_counter = None
+                                        self.olp_incoming_bad_reassembly_counter = None
+                                        self.cfc_parity_err_cnt = None
+                                        self.cfc_ilkn0_oob_rx_crc_err_cntr = None
+                                        self.cfc_ilkn1_oob_rx_crc_err_cntr = None
+                                        self.cfc_spi_oob_rx0_frm_err_cnt = None
+                                        self.cfc_spi_oob_rx0_dip2_err_cnt = None
+                                        self.cfc_spi_oob_rx1_frm_err_cnt = None
+                                        self.cfc_spi_oob_rx1_dip2_err_cnt = None
+                                        self.cgm_cgm_uc_pd_dropped_cnt = None
+                                        self.cgm_cgm_mc_rep_pd_dropped_cnt = None
+                                        self.cgm_cgm_uc_db_dropped_by_rqp_cnt = None
+                                        self.cgm_cgm_uc_db_dropped_by_pqp_cnt = None
+                                        self.cgm_cgm_mc_rep_db_dropped_cnt = None
+                                        self.cgm_cgm_mc_db_dropped_cnt = None
+                                        self.drca_full_err_cnt = None
+                                        self.drca_single_err_cnt = None
+                                        self.drca_calib_bist_full_err_cnt = None
+                                        self.drca_loopback_full_err_cnt = None
+                                        self.drcb_full_err_cnt = None
+                                        self.drcb_single_err_cnt = None
+                                        self.drcb_calib_bist_full_err_cnt = None
+                                        self.drcb_loopback_full_err_cnt = None
+                                        self.drcc_full_err_cnt = None
+                                        self.drcc_single_err_cnt = None
+                                        self.drcc_calib_bist_full_err_cnt = None
+                                        self.drcc_loopback_full_err_cnt = None
+                                        self.drcd_full_err_cnt = None
+                                        self.drcd_single_err_cnt = None
+                                        self.drcd_calib_bist_full_err_cnt = None
+                                        self.drcd_loopback_full_err_cnt = None
+                                        self.drce_full_err_cnt = None
+                                        self.drce_single_err_cnt = None
+                                        self.drce_calib_bist_full_err_cnt = None
+                                        self.drce_loopback_full_err_cnt = None
+                                        self.drcf_full_err_cnt = None
+                                        self.drcf_single_err_cnt = None
+                                        self.drcf_calib_bist_full_err_cnt = None
+                                        self.drcf_loopback_full_err_cnt = None
+                                        self.drcg_full_err_cnt = None
+                                        self.drcg_single_err_cnt = None
+                                        self.drcg_calib_bist_full_err_cnt = None
+                                        self.drcg_loopback_full_err_cnt = None
+                                        self.drch_full_err_cnt = None
+                                        self.drch_single_err_cnt = None
+                                        self.drch_calib_bist_full_err_cnt = None
+                                        self.drch_loopback_full_err_cnt = None
+                                        self.drcbroadcast_full_err_cnt = None
+                                        self.drcbroadcast_single_err_cnt = None
+                                        self.drcbroadcast_calib_bist_full_err_cnt = None
+                                        self.drcbroadcast_loopback_full_err_cnt = None
+                                        self._segment_path = lambda: "ovf-status"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.OvfStatus, ['cmic_cmc0_pkt_count_tx_pkt', 'cmic_cmc0_pkt_count_rx_pkt', 'nbi_stat_rx_bursts_err_cnt', 'nbi_ecc_1b_err_cnt', 'nbi_ecc_2b_err_cnt', 'nbi_parity_err_cnt', 'nbi_rx_ilkn_crc32_err_cnt', 'nbi_rx_ilkn0_crc24_err_cnt', 'nbi_rx_ilkn0_burst_err_cnt', 'nbi_rx_ilkn0_miss_sop_err_cnt', 'nbi_rx_ilkn0_miss_eop_err_cnt', 'nbi_rx_ilkn0_misaligned_cnt', 'nbi_rx_ilkn1_crc24_err_cnt', 'nbi_rx_ilkn1_burst_err_cnt', 'nbi_rx_ilkn1_miss_sop_err_cnt', 'nbi_rx_ilkn1_miss_eop_err_cnt', 'nbi_rx_ilkn1_misaligned_cnt', 'nbi_tx_ilkn1_flushed_bursts_cnt', 'nbi_rx_ilkn0_retrans_crc24_err_cnt', 'nbi_rx_ilkn0_retrans_retry_err_cnt', 'nbi_rx_ilkn0_retrans_wdog_err_cnt', 'nbi_rx_ilkn0_retrans_wrap_after_disc_err_cnt', 'nbi_rx_ilkn0_retrans_wrap_b4_disc_err_cnt', 'nbi_rx_ilkn0_retrans_reached_timeout_err_cnt', 'nbi_rx_ilkn1_retrans_crc24_err_cnt', 'nbi_rx_ilkn1_retrans_retry_err_cnt', 'nbi_rx_ilkn1_retrans_wdog_err_cnt', 'nbi_rx_ilkn1_retrans_wrap_after_disc_err_cnt', 'nbi_rx_ilkn1_retrans_wrap_b4_disc_err_cnt', 'nbi_rx_ilkn1_retrans_reached_timeout_err_cnt', 'nbi_stat_rx_frame_err_cnt', 'nbi_stat_tx_frame_err_cnt', 'nbi_rx_elk_err_bursts_cnt', 'nbi_rx_num_thrown_eops', 'nbi_rx_num_runts', 'nbi_bist_tx_crc_err_bursts_cnt', 'nbi_bist_rx_err_length_bursts_cnt', 'nbi_bist_rx_err_burst_index_cnt', 'nbi_bist_rx_err_bct_cnt', 'nbi_bist_rx_err_data_cnt', 'nbi_bist_rx_err_in_crc_err_cnt', 'nbi_bist_rx_err_sob_cnt', 'nbi_stat_tx_bursts_cnt', 'nbi_stat_tx_total_leng_cnt', 'rxaui_total_tx_pkt_count', 'rxaui_total_rx_pkt_count', 'rxaui_rx_pkt_count_bcast_pkt', 'rxaui_tx_pkt_count_bcast_pkt', 'rxaui_rx_pkt_count_mcast_pkt', 'rxaui_tx_pkt_count_mcast_pkt', 'rxaui_rx_pkt_count_ucast_pkt', 'rxaui_tx_pkt_count_ucast_pkt', 'rxaui_rx_err_drop_pkt_cnt', 'rxaui_tx_err_drop_pkt_cnt', 'rxaui_byte_count_tx_pkt', 'rxaui_byte_count_rx_pkt', 'rxaui_rx_dscrd_pkt_cnt', 'rxaui_tx_dscrd_pkt_cnt', 'ire_nif_packet_counter', 'il_total_rx_pkt_count', 'il_total_tx_pkt_count', 'il_rx_err_drop_pkt_cnt', 'il_tx_err_drop_pkt_cnt', 'il_byte_count_tx_pkt', 'il_byte_count_rx_pkt', 'il_rx_dscrd_pkt_cnt', 'il_tx_dscrd_pkt_cnt', 'il_rx_pkt_count_bcast_pkt', 'il_tx_pkt_count_bcast_pkt', 'il_rx_pkt_count_mcast_pkt', 'il_tx_pkt_count_mcast_pkt', 'il_rx_pkt_count_ucast_pkt', 'il_tx_pkt_count_ucast_pkt', 'iqm_enq_pkt_cnt', 'iqm_enq_byte_cnt', 'iqm_deq_pkt_cnt', 'iqm_deq_byte_cnt', 'iqm_tot_dscrd_pkt_cnt', 'iqm_tot_dscrd_byte_cnt', 'iqm_ecc_1b_err_cnt', 'iqm_ecc_2b_err_cnt', 'iqm_parity_err_cnt', 'iqm_deq_delete_pkt_cnt', 'iqm_ecn_dscrd_msk_pkt_cnt', 'iqm_q_tot_dscrd_pkt_cnt', 'iqm_q_deq_delete_pkt_cnt', 'iqm_rjct_db_pkt_cnt', 'iqm_rjct_bdb_pkt_cnt', 'iqm_rjct_bdb_protct_pkt_cnt', 'iqm_rjct_oc_bd_pkt_cnt', 'iqm_rjct_sn_err_pkt_cnt', 'iqm_rjct_mc_err_pkt_cnt', 'iqm_rjct_rsrc_err_pkt_cnt', 'iqm_rjct_qnvalid_err_pkt_cnt', 'iqm_rjct_cnm_pkt_cnt', 'iqm_rjct_dyn_space_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_ecc_1b_err_cnt', 'ipt_ecc_2b_err_cnt', 'ipt_parity_err_cnt', 'ipt_crc_err_cnt', 'ipt_crc_err_del_buff_cnt', 'ipt_cpu_del_buff_cnt', 'ipt_cpu_rel_buff_cnt', 'ipt_crc_err_buff_fifo_full_cnt', 'fdt_data_cell_cnt', 'fdt_data_byte_cnt', 'fdt_crc_dropped_pck_cnt', 'fdt_invalid_destq_drop_cell_cnt', 'fdt_indirect_command_count', 'fdt_ecc_1b_err_cnt', 'fdt_ecc_2b_err_cnt', 'fdt_parity_err_cnt', 'fdt_crc_dropped_cell_cnt', 'fcr_control_cell_cnt', 'fcr_cell_drop_cnt', 'fcr_credit_cell_drop_cnt', 'fcr_fs_cell_drop_cnt', 'fcr_rt_cell_drop_cnt', 'fcr_ecc_1b_err_cnt', 'fcr_ecc_2b_err_cnt', 'fdr_data_cell_cnt', 'fdr_data_byte_cnt', 'fdr_crc_dropped_pck_cnt', 'fdr_p_pkt_cnt', 'fdr_prm_error_filter_cnt', 'fdr_sec_error_filter_cnt', 'fdr_prm_ecc_1b_err_cnt', 'fdr_prm_ecc_2b_err_cnt', 'fdr_sec_ecc_1b_err_cnt', 'fdr_sec_ecc_2b_err_cnt', 'egq_ecc_1b_err_cnt', 'egq_ecc_2b_err_cnt', 'egq_parity_err_cnt', 'egq_dbf_ecc_1b_err_cnt', 'egq_dbf_ecc_2b_err_cnt', 'egq_empty_mcid_counter', 'egq_rqp_discard_packet_counter', 'egq_ehp_discard_packet_counter', 'egq_ipt_pkt_cnt', 'epni_epe_pkt_cnt', 'epni_epe_byte_cnt', 'epni_epe_discard_pkt_cnt', 'epni_ecc_1b_err_cnt', 'epni_ecc_2b_err_cnt', 'epni_parity_err_cnt', 'egq_pqp_ucast_pkt_cnt', 'egq_pqp_ucast_h_pkt_cnt', 'egq_pqp_ucast_l_pkt_cnt', 'egq_pqp_ucast_bytes_cnt', 'egq_pqp_ucast_discard_pkt_cnt', 'egq_pqp_mcast_pkt_cnt', 'egq_pqp_mcast_h_pkt_cnt', 'egq_pqp_mcast_l_pkt_cnt', 'egq_pqp_mcast_bytes_cnt', 'egq_pqp_mcast_discard_pkt_cnt', 'fct_control_cell_cnt', 'fct_unrch_crdt_cnt', 'idr_reassembly_errors', 'idr_mmu_ecc_1b_err_cnt', 'idr_mmu_ecc_2b_err_cnt', 'idr_discarded_packets0_cnt', 'idr_discarded_packets1_cnt', 'idr_discarded_packets2_cnt', 'idr_discarded_packets3_cnt', 'idr_discarded_octets0_cnt', 'idr_discarded_octets1_cnt', 'idr_discarded_octets2_cnt', 'idr_discarded_octets3_cnt', 'mmu_ecc_1b_err_cnt', 'mmu_ecc_2b_err_cnt', 'oamp_parity_err_cnt', 'oamp_ecc_1b_err_cnt', 'oamp_ecc_2b_err_cnt', 'crps_parity_err_cnt', 'fmac0_kpcs0_tst_rx_err_cnt', 'fmac1_kpcs0_tst_rx_err_cnt', 'fmac2_kpcs0_tst_rx_err_cnt', 'fmac3_kpcs0_tst_rx_err_cnt', 'fmac4_kpcs0_tst_rx_err_cnt', 'fmac5_kpcs0_tst_rx_err_cnt', 'fmac6_kpcs0_tst_rx_err_cnt', 'fmac7_kpcs0_tst_rx_err_cnt', 'fmac8_kpcs0_tst_rx_err_cnt', 'fmac0_kpcs1_tst_rx_err_cnt', 'fmac1_kpcs1_tst_rx_err_cnt', 'fmac2_kpcs1_tst_rx_err_cnt', 'fmac3_kpcs1_tst_rx_err_cnt', 'fmac4_kpcs1_tst_rx_err_cnt', 'fmac5_kpcs1_tst_rx_err_cnt', 'fmac6_kpcs1_tst_rx_err_cnt', 'fmac7_kpcs1_tst_rx_err_cnt', 'fmac8_kpcs1_tst_rx_err_cnt', 'fmac0_kpcs2_tst_rx_err_cnt', 'fmac1_kpcs2_tst_rx_err_cnt', 'fmac2_kpcs2_tst_rx_err_cnt', 'fmac3_kpcs2_tst_rx_err_cnt', 'fmac4_kpcs2_tst_rx_err_cnt', 'fmac5_kpcs2_tst_rx_err_cnt', 'fmac6_kpcs2_tst_rx_err_cnt', 'fmac7_kpcs2_tst_rx_err_cnt', 'fmac8_kpcs2_tst_rx_err_cnt', 'fmac0_kpcs3_tst_rx_err_cnt', 'fmac1_kpcs3_tst_rx_err_cnt', 'fmac2_kpcs3_tst_rx_err_cnt', 'fmac3_kpcs3_tst_rx_err_cnt', 'fmac4_kpcs3_tst_rx_err_cnt', 'fmac5_kpcs3_tst_rx_err_cnt', 'fmac6_kpcs3_tst_rx_err_cnt', 'fmac7_kpcs3_tst_rx_err_cnt', 'fmac8_kpcs3_tst_rx_err_cnt', 'fmac0_tst0_err_cnt', 'fmac1_tst0_err_cnt', 'fmac2_tst0_err_cnt', 'fmac3_tst0_err_cnt', 'fmac4_tst0_err_cnt', 'fmac5_tst0_err_cnt', 'fmac6_tst0_err_cnt', 'fmac7_tst0_err_cnt', 'fmac8_tst0_err_cnt', 'fmac0_tst1_err_cnt', 'fmac1_tst1_err_cnt', 'fmac2_tst1_err_cnt', 'fmac3_tst1_err_cnt', 'fmac4_tst1_err_cnt', 'fmac5_tst1_err_cnt', 'fmac6_tst1_err_cnt', 'fmac7_tst1_err_cnt', 'fmac8_tst1_err_cnt', 'fmac0_tst2_err_cnt', 'fmac1_tst2_err_cnt', 'fmac2_tst2_err_cnt', 'fmac3_tst2_err_cnt', 'fmac4_tst2_err_cnt', 'fmac5_tst2_err_cnt', 'fmac6_tst2_err_cnt', 'fmac7_tst2_err_cnt', 'fmac8_tst2_err_cnt', 'fmac0_tst3_err_cnt', 'fmac1_tst3_err_cnt', 'fmac2_tst3_err_cnt', 'fmac3_tst3_err_cnt', 'fmac4_tst3_err_cnt', 'fmac5_tst3_err_cnt', 'fmac6_tst3_err_cnt', 'fmac7_tst3_err_cnt', 'fmac8_tst3_err_cnt', 'fmac0_ecc_1b_err_cnt', 'fmac1_ecc_1b_err_cnt', 'fmac2_ecc_1b_err_cnt', 'fmac3_ecc_1b_err_cnt', 'fmac4_ecc_1b_err_cnt', 'fmac5_ecc_1b_err_cnt', 'fmac6_ecc_1b_err_cnt', 'fmac7_ecc_1b_err_cnt', 'fmac8_ecc_1b_err_cnt', 'fmac0_ecc_2b_err_cnt', 'fmac1_ecc_2b_err_cnt', 'fmac2_ecc_2b_err_cnt', 'fmac3_ecc_2b_err_cnt', 'fmac4_ecc_2b_err_cnt', 'fmac5_ecc_2b_err_cnt', 'fmac6_ecc_2b_err_cnt', 'fmac7_ecc_2b_err_cnt', 'fmac8_ecc_2b_err_cnt', 'olp_incoming_bad_identifier_counter', 'olp_incoming_bad_reassembly_counter', 'cfc_parity_err_cnt', 'cfc_ilkn0_oob_rx_crc_err_cntr', 'cfc_ilkn1_oob_rx_crc_err_cntr', 'cfc_spi_oob_rx0_frm_err_cnt', 'cfc_spi_oob_rx0_dip2_err_cnt', 'cfc_spi_oob_rx1_frm_err_cnt', 'cfc_spi_oob_rx1_dip2_err_cnt', 'cgm_cgm_uc_pd_dropped_cnt', 'cgm_cgm_mc_rep_pd_dropped_cnt', 'cgm_cgm_uc_db_dropped_by_rqp_cnt', 'cgm_cgm_uc_db_dropped_by_pqp_cnt', 'cgm_cgm_mc_rep_db_dropped_cnt', 'cgm_cgm_mc_db_dropped_cnt', 'drca_full_err_cnt', 'drca_single_err_cnt', 'drca_calib_bist_full_err_cnt', 'drca_loopback_full_err_cnt', 'drcb_full_err_cnt', 'drcb_single_err_cnt', 'drcb_calib_bist_full_err_cnt', 'drcb_loopback_full_err_cnt', 'drcc_full_err_cnt', 'drcc_single_err_cnt', 'drcc_calib_bist_full_err_cnt', 'drcc_loopback_full_err_cnt', 'drcd_full_err_cnt', 'drcd_single_err_cnt', 'drcd_calib_bist_full_err_cnt', 'drcd_loopback_full_err_cnt', 'drce_full_err_cnt', 'drce_single_err_cnt', 'drce_calib_bist_full_err_cnt', 'drce_loopback_full_err_cnt', 'drcf_full_err_cnt', 'drcf_single_err_cnt', 'drcf_calib_bist_full_err_cnt', 'drcf_loopback_full_err_cnt', 'drcg_full_err_cnt', 'drcg_single_err_cnt', 'drcg_calib_bist_full_err_cnt', 'drcg_loopback_full_err_cnt', 'drch_full_err_cnt', 'drch_single_err_cnt', 'drch_calib_bist_full_err_cnt', 'drch_loopback_full_err_cnt', 'drcbroadcast_full_err_cnt', 'drcbroadcast_single_err_cnt', 'drcbroadcast_calib_bist_full_err_cnt', 'drcbroadcast_loopback_full_err_cnt'], name, value)
 
 
 
@@ -6722,7 +13700,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', u'valid', u'rack_no', u'slot_no', u'asic_instance', u'link_no', u'link_valid'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'valid', 'rack_no', 'slot_no', 'asic_instance', 'link_no', 'link_valid'], name, value)
 
 
                                         class AggrStats(Entity):
@@ -6900,7 +13878,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
 
 
 
@@ -7084,7 +14062,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7268,7 +14246,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7448,7 +14426,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
 
 
 
@@ -7632,7 +14610,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
 
 
 
@@ -7816,7 +14794,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
 
 
 

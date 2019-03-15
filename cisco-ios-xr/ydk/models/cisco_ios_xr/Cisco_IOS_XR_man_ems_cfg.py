@@ -191,6 +191,11 @@ class Grpc(Entity):
     	TLS ciphers
     	**type**\:  :py:class:`TlsCipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.TlsCipher>`
     
+    .. attribute:: tls
+    
+    	Transport Layer Security (TLS)
+    	**type**\:  :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
+    
     .. attribute:: port
     
     	Server listening port
@@ -216,6 +221,8 @@ class Grpc(Entity):
     
     	Enable GRPC
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
+    	**status**\: deprecated
     
     .. attribute:: max_streams_per_user
     
@@ -287,7 +294,7 @@ class Grpc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("service-layer", ("service_layer", Grpc.ServiceLayer)), ("tls-cipher", ("tls_cipher", Grpc.TlsCipher))])
+        self._child_classes = OrderedDict([("service-layer", ("service_layer", Grpc.ServiceLayer)), ("tls-cipher", ("tls_cipher", Grpc.TlsCipher)), ("tls", ("tls", Grpc.Tls))])
         self._leafs = OrderedDict([
             ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
             ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
@@ -322,6 +329,10 @@ class Grpc(Entity):
         self.tls_cipher = Grpc.TlsCipher()
         self.tls_cipher.parent = self
         self._children_name_map["tls_cipher"] = "tls-cipher"
+
+        self.tls = Grpc.Tls()
+        self.tls.parent = self
+        self._children_name_map["tls"] = "tls"
         self._segment_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc"
         self._is_frozen = True
 
@@ -416,6 +427,46 @@ class Grpc(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.TlsCipher, ['default', 'enable', 'disable'], name, value)
+
+
+
+    class Tls(Entity):
+        """
+        Transport Layer Security (TLS)
+        
+        .. attribute:: enable
+        
+        	Enable TLS
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**status**\: deprecated
+        
+        
+
+        """
+
+        _prefix = 'man-ems-cfg'
+        _revision = '2018-04-16'
+
+        def __init__(self):
+            super(Grpc.Tls, self).__init__()
+
+            self.yang_name = "tls"
+            self.yang_parent_name = "grpc"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ])
+            self.enable = None
+            self._segment_path = lambda: "tls"
+            self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Grpc.Tls, ['enable'], name, value)
 
 
     def clone_ptr(self):

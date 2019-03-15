@@ -232,7 +232,7 @@ class TrafficCollector(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', u'interface_name_xr', u'interface_handle', u'vrfid', u'is_interface_enabled'], name, value)
+                self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_interface_enabled'], name, value)
 
 
 
@@ -355,7 +355,7 @@ class TrafficCollector(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TrafficCollector.Summary, [u'collection_interval', u'collection_timer_is_running', u'timeout_interval', u'timeout_timer_is_running', u'history_size'], name, value)
+            self._perform_setattr(TrafficCollector.Summary, ['collection_interval', 'collection_timer_is_running', 'timeout_interval', 'timeout_timer_is_running', 'history_size'], name, value)
 
 
         class DatabaseStatisticsExternalInterface(Entity):
@@ -429,7 +429,7 @@ class TrafficCollector(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, [u'number_of_entries', u'number_of_stale_entries', u'number_of_add_o_perations', u'number_of_delete_o_perations'], name, value)
+                self._perform_setattr(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
 
 
@@ -491,7 +491,7 @@ class TrafficCollector(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.VrfStatistic, [u'vrf_name'], name, value)
+                self._perform_setattr(TrafficCollector.Summary.VrfStatistic, ['vrf_name'], name, value)
 
 
             class DatabaseStatisticsIpv4(Entity):
@@ -565,7 +565,7 @@ class TrafficCollector(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, [u'number_of_entries', u'number_of_stale_entries', u'number_of_add_o_perations', u'number_of_delete_o_perations'], name, value)
+                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
 
 
@@ -640,7 +640,7 @@ class TrafficCollector(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, [u'number_of_entries', u'number_of_stale_entries', u'number_of_add_o_perations', u'number_of_delete_o_perations'], name, value)
+                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
 
 
@@ -742,7 +742,7 @@ class TrafficCollector(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.CollectionMessageStatistic, [u'packet_sent', u'byte_sent', u'packet_received', u'byte_received', u'maximum_roundtrip_latency', u'maimum_latency_timestamp'], name, value)
+                self._perform_setattr(TrafficCollector.Summary.CollectionMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
 
 
 
@@ -843,7 +843,7 @@ class TrafficCollector(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.CheckpointMessageStatistic, [u'packet_sent', u'byte_sent', u'packet_received', u'byte_received', u'maximum_roundtrip_latency', u'maimum_latency_timestamp'], name, value)
+                self._perform_setattr(TrafficCollector.Summary.CheckpointMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
 
 
 
@@ -1224,7 +1224,7 @@ class TrafficCollector(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', u'prefix', u'label_xr', u'ldp_label', u'is_active'], name, value)
+                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'ldp_label', 'is_active'], name, value)
 
 
                                 class BaseCounterStatistics(Entity):
@@ -1288,7 +1288,7 @@ class TrafficCollector(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
@@ -1372,7 +1372,7 @@ class TrafficCollector(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 
@@ -1438,7 +1438,7 @@ class TrafficCollector(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
@@ -1522,7 +1522,7 @@ class TrafficCollector(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 
@@ -1654,7 +1654,7 @@ class TrafficCollector(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', u'interface_name_xr', u'interface_handle', u'vrfid', u'is_active'], name, value)
+                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
 
 
                                 class BaseCounterStatistics(Entity):
@@ -1718,7 +1718,7 @@ class TrafficCollector(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
@@ -1802,7 +1802,7 @@ class TrafficCollector(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 
@@ -2110,7 +2110,7 @@ class TrafficCollector(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', u'prefix', u'label_xr', u'ldp_label', u'is_active'], name, value)
+                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'ldp_label', 'is_active'], name, value)
 
 
                         class BaseCounterStatistics(Entity):
@@ -2174,7 +2174,7 @@ class TrafficCollector(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                             class CountHistory(Entity):
@@ -2258,7 +2258,7 @@ class TrafficCollector(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 
@@ -2324,7 +2324,7 @@ class TrafficCollector(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                             class CountHistory(Entity):
@@ -2408,7 +2408,7 @@ class TrafficCollector(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 
@@ -2540,7 +2540,7 @@ class TrafficCollector(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', u'interface_name_xr', u'interface_handle', u'vrfid', u'is_active'], name, value)
+                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
 
 
                         class BaseCounterStatistics(Entity):
@@ -2604,7 +2604,7 @@ class TrafficCollector(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, [u'transmit_packets_per_second_switched', u'transmit_bytes_per_second_switched'], name, value)
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                             class CountHistory(Entity):
@@ -2688,7 +2688,7 @@ class TrafficCollector(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, [u'event_start_timestamp', u'event_end_timestamp', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'is_valid'], name, value)
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
 

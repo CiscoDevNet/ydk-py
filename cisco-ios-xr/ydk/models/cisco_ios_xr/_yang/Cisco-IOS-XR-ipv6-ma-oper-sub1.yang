@@ -29,6 +29,14 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-02 {
+    description
+      "IPV6 MA added new fields to bag.";
+  }
+  revision 2018-05-16 {
+    description
+      "IPV6 MA added new fields to bag.";
+  }
   revision 2017-08-09 {
     description
       "IPV6 MA schema file has all the latest changes.";
@@ -407,6 +415,21 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
       description
         "Is BGP Flow Tag Destination is enable";
     }
+    leaf ipv6-config-flag {
+      type uint32;
+      description
+        "Interface Configured Flags";
+    }
+    leaf ipv6-oper-flag {
+      type uint32;
+      description
+        "Interface Operational Flags";
+    }
+    leaf idb-pointer {
+      type uint64;
+      description
+        "idb pointer value";
+    }
     list multicast-group {
       description
         "IPv6 Multicast Group";
@@ -453,6 +476,11 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
       type uint32;
       description
         "Route-tag of the Address";
+    }
+    leaf arm-flags {
+      type uint32;
+      description
+        "Bitmap for ARM flags";
     }
   }
 

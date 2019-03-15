@@ -203,6 +203,28 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       "Isis nsf flavor";
   }
 
+  typedef Isis-edm-label-type-enum {
+    type enumeration {
+      enum "isis-edm-label-alloc-prefix-sid" {
+        value 0;
+        description
+          "isis edm label alloc prefix sid";
+      }
+      enum "isis-edm-label-alloc-local-sid" {
+        value 1;
+        description
+          "isis edm label alloc local sid";
+      }
+      enum "isis-edm-label-alloc-max" {
+        value 2;
+        description
+          "isis edm label alloc max";
+      }
+    }
+    description
+      "isislabeltype";
+  }
+
   typedef Isis-err-log-level {
     type enumeration {
       enum "isis-err-log-level-info" {
@@ -2537,6 +2559,56 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
+  grouping ISIS-SH-LABEL {
+    description
+      "Label data";
+    container label-prefix {
+      description
+        "label prefix";
+      uses ISIS-IP-PREFIX-TYPE;
+    }
+    leaf label-type {
+      type Isis-edm-label-type-enum;
+      description
+        "label type";
+    }
+    leaf label-flags {
+      type uint8;
+      description
+        "label flags";
+    }
+    leaf label-refcount {
+      type uint8;
+      description
+        "label refcount";
+    }
+    leaf label-value {
+      type uint32;
+      description
+        "label value";
+    }
+    leaf label-interface {
+      type Isis-sh-interface-name;
+      description
+        "label interface";
+    }
+    leaf label-ifh {
+      type xr:Interface-name;
+      description
+        "label ifh";
+    }
+    leaf label-table-id {
+      type uint32;
+      description
+        "label table id";
+    }
+    leaf label-af-id {
+      type Isis-af-id;
+      description
+        "label af id";
+    }
+  }
+
   grouping ISIS-SH-CHKPT-IDB {
     description
       "Checkpointed interface";
@@ -3175,6 +3247,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type uint8;
       description
         "MPLS maximum number of srte labels supported";
+    }
+    leaf max-srat-label-supported {
+      type uint8;
+      description
+        "MPLS maximum number of sr auto-tunnel labels
+         supported";
     }
     leaf level1ldp-sync-enabled {
       type boolean;
@@ -4566,6 +4644,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Is path via an SR-exclude TE tunnel";
     }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
+    }
   }
 
   grouping ISIS-SH-IPV4-ROUTE-NATIVE-PREFERENCE {
@@ -4646,6 +4729,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type Isis-prefix-priority;
       description
         "Relative importance of the prefix";
+    }
+    leaf local-label {
+      type uint32;
+      description
+        "Prefix local label for SR-MPLS";
     }
     list backup {
       description
@@ -4972,6 +5060,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Weight configured on the interface";
     }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
+    }
     list segment-routing-sid-value-entry {
       max-elements "3";
       description
@@ -5045,6 +5138,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type boolean;
       description
         "Is path via an SR-exclude TE tunnel";
+    }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
     }
     list uloop-explicit {
       description
@@ -6128,6 +6226,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Is path via an SR-exclude TE tunnel";
     }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
+    }
   }
 
   grouping ISIS-SH-NNH {
@@ -6320,6 +6423,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Weight configured on the interface";
     }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
+    }
     list segment-routing-sid-value-entry {
       max-elements "3";
       description
@@ -6393,6 +6501,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type boolean;
       description
         "Is path via an SR-exclude TE tunnel";
+    }
+    leaf outgoing-label {
+      type uint32;
+      description
+        "SR-MPLS label";
     }
     list uloop-explicit {
       description
@@ -6484,6 +6597,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type Isis-prefix-priority;
       description
         "Relative importance of the prefix";
+    }
+    leaf local-label {
+      type uint32;
+      description
+        "Prefix local label for SR-MPLS";
     }
     list backup {
       description

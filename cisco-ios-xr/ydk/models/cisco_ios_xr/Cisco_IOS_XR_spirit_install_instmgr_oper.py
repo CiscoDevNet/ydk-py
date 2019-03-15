@@ -607,7 +607,7 @@ class SoftwareInstall(Entity):
     """
 
     _prefix = 'spirit-install-instmgr-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-08-24'
 
     def __init__(self):
         super(SoftwareInstall, self).__init__()
@@ -707,7 +707,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Superseded, self).__init__()
@@ -773,7 +773,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Superseded.SupersededPackageInfo, self).__init__()
@@ -801,7 +801,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'superseded_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages'], name, value)
 
 
 
@@ -822,7 +822,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.CommittedSummary, self).__init__()
@@ -897,7 +897,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.CommittedSummary.CommittedPackageInfo, self).__init__()
@@ -927,7 +927,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
 
 
 
@@ -948,7 +948,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.ActiveSummary, self).__init__()
@@ -1023,7 +1023,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.ActiveSummary.ActivePackageInfo, self).__init__()
@@ -1053,7 +1053,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
 
 
 
@@ -1074,7 +1074,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.InactiveSummary, self).__init__()
@@ -1094,7 +1094,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.InactiveSummary, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.InactiveSummary, ['log'], name, value)
 
 
 
@@ -1163,7 +1163,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Prepare, self).__init__()
@@ -1196,7 +1196,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Prepare, [u'no_prepare_done', u'prepared_boot_image', u'prepared_boot_partition', u'restart_type', u'activate_message', u'prepare_clean_message'], name, value)
+            self._perform_setattr(SoftwareInstall.Prepare, ['no_prepare_done', 'prepared_boot_image', 'prepared_boot_partition', 'restart_type', 'activate_message', 'prepare_clean_message'], name, value)
 
 
         class Rpm(Entity):
@@ -1215,7 +1215,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Prepare.Rpm, self).__init__()
@@ -1235,7 +1235,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Rpm, [u'package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Rpm, ['package'], name, value)
 
 
 
@@ -1255,7 +1255,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Prepare.Package, self).__init__()
@@ -1275,7 +1275,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Package, [u'package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Package, ['package'], name, value)
 
 
 
@@ -1296,7 +1296,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Active, self).__init__()
@@ -1371,7 +1371,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Active.ActivePackageInfo, self).__init__()
@@ -1401,7 +1401,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
 
 
 
@@ -1445,6 +1445,13 @@ class SoftwareInstall(Entity):
         
         	**config**\: False
         
+        .. attribute:: img_info
+        
+        	this tag is deprecated
+        	**type**\: str
+        
+        	**config**\: False
+        
         .. attribute:: package
         
         	package
@@ -1457,7 +1464,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Version, self).__init__()
@@ -1474,12 +1481,14 @@ class SoftwareInstall(Entity):
                 ('copyright_info', (YLeaf(YType.str, 'copyright-info'), ['str'])),
                 ('hardware_info', (YLeaf(YType.str, 'hardware-info'), ['str'])),
                 ('system_uptime', (YLeaf(YType.str, 'system-uptime'), ['str'])),
+                ('img_info', (YLeaf(YType.str, 'img-info'), ['str'])),
             ])
             self.location = None
             self.label = None
             self.copyright_info = None
             self.hardware_info = None
             self.system_uptime = None
+            self.img_info = None
 
             self.package = YList(self)
             self._segment_path = lambda: "version"
@@ -1487,7 +1496,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Version, [u'location', u'label', u'copyright_info', u'hardware_info', u'system_uptime'], name, value)
+            self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime', 'img_info'], name, value)
 
 
         class Package(Entity):
@@ -1541,7 +1550,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Version.Package, self).__init__()
@@ -1571,7 +1580,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Version.Package, [u'name', u'version', u'built_by', u'built_on', u'build_host', u'workspace'], name, value)
+                self._perform_setattr(SoftwareInstall.Version.Package, ['name', 'version', 'built_by', 'built_on', 'build_host', 'workspace'], name, value)
 
 
 
@@ -1592,7 +1601,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Inactive, self).__init__()
@@ -1612,7 +1621,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Inactive, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.Inactive, ['log'], name, value)
 
 
 
@@ -1632,7 +1641,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Request, self).__init__()
@@ -1652,7 +1661,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Request, [u'curr_inst_oper'], name, value)
+            self._perform_setattr(SoftwareInstall.Request, ['curr_inst_oper'], name, value)
 
 
 
@@ -1672,7 +1681,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.SupersededSummary, self).__init__()
@@ -1692,7 +1701,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.SupersededSummary, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.SupersededSummary, ['log'], name, value)
 
 
 
@@ -1719,7 +1728,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Issu, self).__init__()
@@ -1806,7 +1815,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Issu.Stage, self).__init__()
@@ -1836,7 +1845,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Issu.Stage, [u'state', u'issu_node_cnt', u'issu_ready_node_cnt', u'percentage', u'issu_status', u'issu_error'], name, value)
+                self._perform_setattr(SoftwareInstall.Issu.Stage, ['state', 'issu_node_cnt', 'issu_ready_node_cnt', 'percentage', 'issu_status', 'issu_error'], name, value)
 
 
 
@@ -1856,7 +1865,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Issu.Inventory, self).__init__()
@@ -1924,7 +1933,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Issu.Inventory.Invinfo, self).__init__()
@@ -1952,7 +1961,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, [u'node_id', u'node_type', u'issu_node_role', u'node_state', u'node_role'], name, value)
+                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, ['node_id', 'node_type', 'issu_node_role', 'node_state', 'node_role'], name, value)
 
 
 
@@ -1974,7 +1983,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Committed, self).__init__()
@@ -2049,7 +2058,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Committed.CommittedPackageInfo, self).__init__()
@@ -2079,7 +2088,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
 
 
 
@@ -2121,7 +2130,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.AllOperationsLog, self).__init__()
@@ -2174,7 +2183,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.ReverseDetail, self).__init__()
@@ -2194,7 +2203,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, ['log'], name, value)
 
 
 
@@ -2214,7 +2223,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Reverse, self).__init__()
@@ -2234,7 +2243,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, ['log'], name, value)
 
 
 
@@ -2254,7 +2263,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Summary, self).__init__()
@@ -2274,7 +2283,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, ['log'], name, value)
 
 
 
@@ -2294,7 +2303,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Detail, self).__init__()
@@ -2314,7 +2323,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, ['log'], name, value)
 
 
 
@@ -2335,7 +2344,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Packages, self).__init__()
@@ -2394,7 +2403,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Packages.Package, self).__init__()
@@ -2445,7 +2454,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Verbose, self).__init__()
@@ -2464,7 +2473,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, ['log'], name, value)
 
 
 
@@ -2484,7 +2493,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Brief, self).__init__()
@@ -2503,7 +2512,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, ['log'], name, value)
 
 
 
@@ -2523,7 +2532,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Detail, self).__init__()
@@ -2542,7 +2551,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, ['log'], name, value)
 
 
 
@@ -2564,7 +2573,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.OperationLogs, self).__init__()
@@ -2618,7 +2627,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.OperationLogs.OperationLog, self).__init__()
@@ -2666,7 +2675,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.OperationLogs.OperationLog.Summary, self).__init__()
@@ -2685,7 +2694,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, ['log'], name, value)
 
 
 
@@ -2706,7 +2715,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.OperationLogs.OperationLog.Detail, self).__init__()
@@ -2725,7 +2734,7 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, ['log'], name, value)
 
 
 
@@ -2755,7 +2764,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Repository, self).__init__()
@@ -2799,7 +2808,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Repository.Xr, self).__init__()
@@ -2819,7 +2828,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.Xr, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.Xr, ['log'], name, value)
 
 
 
@@ -2840,7 +2849,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Repository.All, self).__init__()
@@ -2860,7 +2869,7 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.All, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.All, ['log'], name, value)
 
 
 

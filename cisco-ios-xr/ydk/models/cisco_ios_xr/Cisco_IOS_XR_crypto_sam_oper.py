@@ -403,7 +403,7 @@ class Sam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.SystemInformation, [u'is_running', u'prompt_interval', u'is_default_response'], name, value)
+            self._perform_setattr(Sam.SystemInformation, ['is_running', 'prompt_interval', 'is_default_response'], name, value)
 
 
 
@@ -514,7 +514,7 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', u'total_entries', u'entries_shown'], name, value)
+                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', 'total_entries', 'entries_shown'], name, value)
 
 
             class Logs(Entity):
@@ -646,7 +646,7 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.LogContents.LogContent.Logs, [u'time', u'code', u'target_device', u'index', u'error', u'issuer', u'serial_no', u'sam_table_index', u'update_time', u'source_device', u'table'], name, value)
+                    self._perform_setattr(Sam.LogContents.LogContent.Logs, ['time', 'code', 'target_device', 'index', 'error', 'issuer', 'serial_no', 'sam_table_index', 'update_time', 'source_device', 'table'], name, value)
 
 
 
@@ -849,7 +849,7 @@ class Sam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, [u'location', u'certificate_index'], name, value)
+                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, ['location', 'certificate_index'], name, value)
 
 
                     class CertificateFlags(Entity):
@@ -914,7 +914,7 @@ class Sam(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
 
 
@@ -1064,7 +1064,7 @@ class Sam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, [u'location', u'certificate_index'], name, value)
+                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, ['location', 'certificate_index'], name, value)
 
 
                             class CertificateFlags(Entity):
@@ -1129,7 +1129,7 @@ class Sam(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
 
 
@@ -1245,7 +1245,7 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.Packages.Package, ['package_name', u'location', u'certificate_index'], name, value)
+                self._perform_setattr(Sam.Packages.Package, ['package_name', 'location', 'certificate_index'], name, value)
 
 
             class CertificateFlags(Entity):
@@ -1310,7 +1310,7 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
 
 
@@ -1464,7 +1464,7 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, [u'crl_index', u'updates'], name, value)
+                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, ['crl_index', 'updates'], name, value)
 
 
                 class Issuer(Entity):
@@ -1520,7 +1520,7 @@ class Sam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, [u'common_name', u'organization', u'country'], name, value)
+                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, ['common_name', 'organization', 'country'], name, value)
 
 
 
@@ -1585,7 +1585,7 @@ class Sam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.CertificateRevocationListSummary, [u'crl_index', u'updates'], name, value)
+            self._perform_setattr(Sam.CertificateRevocationListSummary, ['crl_index', 'updates'], name, value)
 
 
         class Issuer(Entity):
@@ -1642,7 +1642,7 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, [u'common_name', u'organization', u'country'], name, value)
+                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, ['common_name', 'organization', 'country'], name, value)
 
 
 

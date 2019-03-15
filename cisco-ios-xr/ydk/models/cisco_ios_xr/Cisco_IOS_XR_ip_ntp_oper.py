@@ -451,7 +451,7 @@ class Ntp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail, [u'is_ntp_enabled', u'sys_leap'], name, value)
+                    self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
                 class PeerDetailInfo(Entity):
@@ -662,7 +662,7 @@ class Ntp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo, [u'leap', u'peer_mode', u'poll_interval', u'is_ref_clock', u'is_authenticated', u'root_delay', u'root_dispersion', u'synch_distance', u'precision', u'version', u'filter_index', u'cast_flags'], name, value)
+                        self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo, ['leap', 'peer_mode', 'poll_interval', 'is_ref_clock', 'is_authenticated', 'root_delay', 'root_dispersion', 'synch_distance', 'precision', 'version', 'filter_index', 'cast_flags'], name, value)
 
 
                     class PeerInfoCommon(Entity):
@@ -807,7 +807,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, [u'host_mode', u'is_configured', u'address', u'reference_id', u'host_poll', u'reachability', u'stratum', u'status', u'delay', u'offset', u'dispersion', u'is_sys_peer'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
 
@@ -898,7 +898,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec, [u'int'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
 
 
 
@@ -939,7 +939,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, [u'frac'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
 
 
 
@@ -1031,7 +1031,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, [u'int'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
 
 
 
@@ -1072,7 +1072,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, [u'frac'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
 
 
 
@@ -1164,7 +1164,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, [u'int'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
 
 
 
@@ -1205,7 +1205,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, [u'frac'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
 
 
 
@@ -1297,7 +1297,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, [u'int'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
 
 
 
@@ -1338,7 +1338,7 @@ class Ntp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, [u'frac'], name, value)
+                                self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
 
 
 
@@ -1396,7 +1396,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail, [u'filter_delay', u'filter_offset', u'filter_disp'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
 
 
 
@@ -1599,7 +1599,7 @@ class Ntp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Nodes.Node.Status, [u'is_ntp_enabled', u'sys_dispersion', u'sys_offset', u'clock_period', u'sys_leap', u'sys_precision', u'sys_stratum', u'sys_ref_id', u'sys_root_delay', u'sys_root_dispersion', u'loop_filter_state', u'poll_interval', u'is_updated', u'last_update', u'is_auth_enabled'], name, value)
+                    self._perform_setattr(Ntp.Nodes.Node.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update', 'is_auth_enabled'], name, value)
 
 
                 class SysRefTime(Entity):
@@ -1689,7 +1689,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.Sec, [u'int'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.Sec, ['int'], name, value)
 
 
 
@@ -1730,7 +1730,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.FracSecs, [u'frac'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.FracSecs, ['frac'], name, value)
 
 
 
@@ -1822,7 +1822,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.Sec, [u'int'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.Sec, ['int'], name, value)
 
 
 
@@ -1863,7 +1863,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.FracSecs, [u'frac'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.FracSecs, ['frac'], name, value)
 
 
 
@@ -1922,7 +1922,7 @@ class Ntp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Nodes.Node.Associations, [u'is_ntp_enabled', u'sys_leap'], name, value)
+                    self._perform_setattr(Ntp.Nodes.Node.Associations, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
                 class PeerSummaryInfo(Entity):
@@ -1973,7 +1973,7 @@ class Ntp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo, [u'time_since'], name, value)
+                        self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo, ['time_since'], name, value)
 
 
                     class PeerInfoCommon(Entity):
@@ -2118,7 +2118,7 @@ class Ntp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon, [u'host_mode', u'is_configured', u'address', u'reference_id', u'host_poll', u'reachability', u'stratum', u'status', u'delay', u'offset', u'dispersion', u'is_sys_peer'], name, value)
+                            self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
 

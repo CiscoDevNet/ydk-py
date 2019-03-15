@@ -6,10 +6,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-dhcpd-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-20;
   }
   include Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-20;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixing yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -208,6 +212,21 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
               "DHCP proxy statistics";
             uses IPV4-DHCPD-PROXY-STATS;
           }
+          container disconnect-histories {
+            description
+              "DHCP proxy disconnect history";
+            list disconnect-history {
+              key "index";
+              description
+                "Single DHCP proxy disconnect history";
+              leaf index {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Index";
+              }
+              uses IPV4-DHCPD-DISC-HISTORY;
+            }
+          }
           container binding {
             description
               "DHCP proxy bindings";
@@ -346,6 +365,21 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
                 }
                 uses IPV4-DHCPD-PROXY-BINDING;
               }
+            }
+          }
+          container disconnect-histories {
+            description
+              "DHCP server disconnect history";
+            list disconnect-history {
+              key "index";
+              description
+                "Single DHCP server disconnect history";
+              leaf index {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Index";
+              }
+              uses IPV4-DHCPD-DISC-HISTORY;
             }
           }
           container statistics-info {

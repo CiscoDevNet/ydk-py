@@ -87,37 +87,37 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       type uint16;
       description
         "Parsed EtherType to match could be 0 if
-         Ethertype should'nt                             
+         Ethertype should'nt
          be matched can be 0x88E5 for MACSec tag";
     }
     leaf outer-vlan-id {
       type uint16;
       description
-        " VLAN ID for outer tag use this when            
+        " VLAN ID for outer tag use this when
          only one tag should be matched";
     }
     leaf outer-vlan-user-pri {
       type uint8;
       description
-        "VLAN User Priority for outer tag  use           
+        "VLAN User Priority for outer tag  use
          this when only one tag should be matched";
     }
     leaf inner-vlan-id {
       type uint16;
       description
-        "VLAN ID for inner tag used when two             
+        "VLAN ID for inner tag used when two
          VLAN Tags should be matched";
     }
     leaf inner-vlan-user-pri {
       type uint8;
       description
-        " VLAN User priority for inner tag use           
+        " VLAN User priority for inner tag use
          when matching two VLAN tags";
     }
     leaf psci {
       type uint64;
       description
-        " SCI to be matched value required for           
+        " SCI to be matched value required for
          ingress only, pass NULL for egress";
     }
     leaf match-priority {
@@ -158,8 +158,8 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
     leaf tci-chk {
       type boolean;
       description
-        "TCI bits will be checked only when this         
-         bit is enabled. All the values of TCI bits      
+        "TCI bits will be checked only when this
+         bit is enabled. All the values of TCI bits
          are mandatory when TCI check is used";
     }
     leaf pkt-type {
@@ -236,14 +236,14 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       type uint64;
       units "bit";
       description
-        "Plain bits to compare. Max values:              
-         untagged pkt - 40 bits after EthType            
-         1 VLAN tag - 24 bits after parsed EthType       
-         2 VLAN tags- 8 bits after parsed EthType        
-         1 MPLS tag - 32 bits after 1st tag              
-         2 MPLS tags- 8 bits following after 2nd         
-         or atmost 5th MPLS tag                          
-         PBB - 16 bits after C-SA                        
+        "Plain bits to compare. Max values:
+         untagged pkt - 40 bits after EthType
+         1 VLAN tag - 24 bits after parsed EthType
+         2 VLAN tags- 8 bits after parsed EthType
+         1 MPLS tag - 32 bits after 1st tag
+         2 MPLS tags- 8 bits following after 2nd
+         or atmost 5th MPLS tag
+         PBB - 16 bits after C-SA
          PBB with VLAN tag - 16 bits of VLAN tag ";
     }
     leaf plain-bits-size {
@@ -254,7 +254,7 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
     leaf force-ctrl {
       type boolean;
       description
-        "Force the pkt as control pkt irrepective        
+        "Force the pkt as control pkt irrepective
          of the results of control packet detector";
     }
     leaf drop {
@@ -624,6 +624,11 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       description
         "octets validated";
     }
+    leaf conf-offset {
+      type uint16;
+      description
+        "Confidentiality Offset";
+    }
   }
 
   grouping PL-ES200-XFORM-PARAMS {
@@ -664,7 +669,7 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       type boolean;
       description
         "TRUE to generate the authKey, so authKey in this
-         struct not used                                 
+         struct not used
          APM_FALSE to use provided authKey";
     }
   }
@@ -721,6 +726,11 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       type uint64;
       description
         "Maximum packet Number";
+    }
+    leaf conf-offset {
+      type uint16;
+      description
+        "Confidentiality Offset";
     }
   }
 
@@ -1145,28 +1155,28 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
     leaf in-pkts-untagged {
       type uint64;
       description
-        "ingress packet untagged & validateFrames is 
+        "ingress packet untagged & validateFrames is
          !strict";
     }
     leaf in-pkt-bad-tag {
       type uint64;
       description
         "ingress frames received with an invalid MACSec
-         tag or ICV                                      
+         tag or ICV
          added with next one gives InPktsSCIMiss";
     }
     leaf in-pkt-no-sci {
       type uint64;
       description
         "correctly tagged ingress frames for which no
-         valid SC found &                                
+         valid SC found &
          validateFrames is strict";
     }
     leaf in-pkts-unknown-sci {
       type uint64;
       description
         "correctly tagged ingress frames for which no
-         valid SC found &                                
+         valid SC found &
          validateFrames is !strict";
     }
     leaf in-pkts-tagged-ctrl {

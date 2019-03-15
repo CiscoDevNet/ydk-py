@@ -2161,6 +2161,21 @@ module Cisco-IOS-XR-l2vpn-oper {
             uses L2FIB-EVPN-IPMAC-INFO;
           }
         }
+        container l2fib-pwhe-main-port-hardware-egresses {
+          description
+            "PWHE Main-port Hardware Egress Table";
+          list l2fib-pwhe-main-port-hardware-egress {
+            key "interface-name";
+            description
+              "PWHE Main-port H/W Egress Info";
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "PWHE Main-port";
+            }
+            uses L2FIB-PWHE-MP-SHOW-INFO;
+          }
+        }
         container l2fib-dhcp-binding-summaries {
           description
             "DHCP binding forwarding summary";
@@ -2174,6 +2189,21 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "XConnect ID";
             }
             uses L2FIB-DHCP-BINDING-SUMMARY-INFO;
+          }
+        }
+        container l2fib-pwhe-main-port-hardware-ingresses {
+          description
+            "PWHE Main-port Hardware Ingress Table";
+          list l2fib-pwhe-main-port-hardware-ingress {
+            key "interface-name";
+            description
+              "PWHE Main-port H/W Ingress Info";
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "PWHE Main-port";
+            }
+            uses L2FIB-PWHE-MP-SHOW-INFO;
           }
         }
         container l2fib-evpn-incl-m-casts {

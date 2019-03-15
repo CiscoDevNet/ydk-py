@@ -869,7 +869,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'code_rej_sent', u'code_rej_rcvd', u'proto_rej_sent', u'proto_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
 
 
 
@@ -1064,7 +1064,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
 
 
 
@@ -1257,7 +1257,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'proto_rej_sent', u'proto_rej_rcvd'], name, value)
 
 
 
@@ -2787,7 +2787,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['is_error', 'error', 'context'], name, value)
 
 
 
@@ -2848,7 +2848,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['is_error', 'error', 'context'], name, value)
 
 
 
@@ -2909,7 +2909,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['is_error', 'error', 'context'], name, value)
 
 
 
@@ -2970,7 +2970,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['is_error', 'error', 'context'], name, value)
 
 
 
@@ -3287,7 +3287,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
 
 
 
@@ -3482,7 +3482,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
 
 
 
@@ -3609,7 +3609,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd'], name, value)
 
 
 
@@ -3735,7 +3735,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['total', 'count'], name, value)
 
 
 
@@ -3787,7 +3787,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['total', 'count'], name, value)
 
 
 
@@ -3839,7 +3839,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['total', 'count'], name, value)
 
 
 
@@ -3891,7 +3891,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['total', 'count'], name, value)
 
 
 
@@ -4125,7 +4125,7 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', u'session_id_xr', u'interface'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'session_id_xr', 'interface'], name, value)
 
 
                             class LcpState(Entity):
@@ -4172,7 +4172,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, ['is_running', 'state'], name, value)
 
 
 
@@ -4220,7 +4220,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, ['is_running', 'state'], name, value)
 
 
 
@@ -4268,7 +4268,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
 
 
 
@@ -4316,7 +4316,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
 
 
 
@@ -4488,7 +4488,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, [u'pos_count', u'serial_count', u'pppoe_count', u'multilink_bundle_count', u'gcc0_count', u'gcc1_count', u'total'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['pos_count', 'serial_count', 'pppoe_count', 'multilink_bundle_count', 'gcc0_count', 'gcc1_count', 'total'], name, value)
 
 
 
@@ -4588,7 +4588,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, [u'total', u'count'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['total', 'count'], name, value)
 
 
 
@@ -4649,7 +4649,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, [u'ncp_identifier', u'total', u'count'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['ncp_identifier', 'total', 'count'], name, value)
 
 
 
@@ -4746,7 +4746,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, [u'lcp_not_negotiated', u'authenticating', u'line_held_down', u'up_local_term', u'up_l2_fwded', u'up_tunneled'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['lcp_not_negotiated', 'authenticating', 'line_held_down', 'up_local_term', 'up_l2_fwded', 'up_tunneled'], name, value)
 
 
 

@@ -3,7 +3,7 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ping action package configuration.
 
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -36,7 +36,7 @@ class Traceroute(Entity):
     """
 
     _prefix = 'traceroute-act'
-    _revision = '2016-09-28'
+    _revision = '2018-10-01'
 
     def __init__(self):
         super(Traceroute, self).__init__()
@@ -70,22 +70,28 @@ class Traceroute(Entity):
         	
         	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Destination>`
         
+        	**presence node**\: True
+        
         .. attribute:: ipv4
         
         	
         	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv4>`
+        
+        	**presence node**\: True
         
         .. attribute:: ipv6
         
         	
         	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv6>`
         
+        	**presence node**\: True
+        
         
 
         """
 
         _prefix = 'traceroute-act'
-        _revision = '2016-09-28'
+        _revision = '2018-10-01'
 
         def __init__(self):
             super(Traceroute.Input, self).__init__()
@@ -98,16 +104,13 @@ class Traceroute(Entity):
             self._child_classes = OrderedDict([("destination", ("destination", Traceroute.Input.Destination)), ("ipv4", ("ipv4", Traceroute.Input.Ipv4)), ("ipv6", ("ipv6", Traceroute.Input.Ipv6))])
             self._leafs = OrderedDict()
 
-            self.destination = Traceroute.Input.Destination()
-            self.destination.parent = self
+            self.destination = None
             self._children_name_map["destination"] = "destination"
 
-            self.ipv4 = Traceroute.Input.Ipv4()
-            self.ipv4.parent = self
+            self.ipv4 = None
             self._children_name_map["ipv4"] = "ipv4"
 
-            self.ipv6 = Traceroute.Input.Ipv6()
-            self.ipv6.parent = self
+            self.ipv6 = None
             self._children_name_map["ipv6"] = "ipv6"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/%s" % self._segment_path()
@@ -205,10 +208,12 @@ class Traceroute(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'traceroute-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Traceroute.Input.Destination, self).__init__()
@@ -219,6 +224,7 @@ class Traceroute(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                     ('source', (YLeaf(YType.str, 'source'), ['str'])),
@@ -250,7 +256,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Destination, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -330,10 +336,12 @@ class Traceroute(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'traceroute-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Traceroute.Input.Ipv4, self).__init__()
@@ -344,6 +352,7 @@ class Traceroute(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                     ('source', (YLeaf(YType.str, 'source'), ['str'])),
@@ -371,7 +380,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv4, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose'], name, value)
 
 
 
@@ -463,10 +472,12 @@ class Traceroute(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'traceroute-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Traceroute.Input.Ipv6, self).__init__()
@@ -477,6 +488,7 @@ class Traceroute(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                     ('source', (YLeaf(YType.str, 'source'), ['str'])),
@@ -508,7 +520,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv6, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -527,7 +539,7 @@ class Traceroute(Entity):
         """
 
         _prefix = 'traceroute-act'
-        _revision = '2016-09-28'
+        _revision = '2018-10-01'
 
         def __init__(self):
             super(Traceroute.Output, self).__init__()
@@ -560,17 +572,21 @@ class Traceroute(Entity):
             	
             	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4>`
             
+            	**presence node**\: True
+            
             .. attribute:: ipv6
             
             	
             	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6>`
+            
+            	**presence node**\: True
             
             
 
             """
 
             _prefix = 'traceroute-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Traceroute.Output.TracerouteResponse, self).__init__()
@@ -583,12 +599,10 @@ class Traceroute(Entity):
                 self._child_classes = OrderedDict([("ipv4", ("ipv4", Traceroute.Output.TracerouteResponse.Ipv4)), ("ipv6", ("ipv6", Traceroute.Output.TracerouteResponse.Ipv6))])
                 self._leafs = OrderedDict()
 
-                self.ipv4 = Traceroute.Output.TracerouteResponse.Ipv4()
-                self.ipv4.parent = self
+                self.ipv4 = None
                 self._children_name_map["ipv4"] = "ipv4"
 
-                self.ipv6 = Traceroute.Output.TracerouteResponse.Ipv6()
-                self.ipv6.parent = self
+                self.ipv6 = None
                 self._children_name_map["ipv6"] = "ipv6"
                 self._segment_path = lambda: "traceroute-response"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/%s" % self._segment_path()
@@ -619,10 +633,12 @@ class Traceroute(Entity):
                 
                 
 
+                This class is a :ref:`presence class<presence-class>`
+
                 """
 
                 _prefix = 'traceroute-act'
-                _revision = '2016-09-28'
+                _revision = '2018-10-01'
 
                 def __init__(self):
                     super(Traceroute.Output.TracerouteResponse.Ipv4, self).__init__()
@@ -633,6 +649,7 @@ class Traceroute(Entity):
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv4.Hops))])
+                    self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                         ('verbose_output', (YLeaf(YType.str, 'verbose-output'), ['str'])),
@@ -648,7 +665,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, ['destination', 'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, [u'destination', u'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -665,7 +682,7 @@ class Traceroute(Entity):
                     """
 
                     _prefix = 'traceroute-act'
-                    _revision = '2016-09-28'
+                    _revision = '2018-10-01'
 
                     def __init__(self):
                         super(Traceroute.Output.TracerouteResponse.Ipv4.Hops, self).__init__()
@@ -718,7 +735,7 @@ class Traceroute(Entity):
                         """
 
                         _prefix = 'traceroute-act'
-                        _revision = '2016-09-28'
+                        _revision = '2018-10-01'
 
                         def __init__(self):
                             super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, self).__init__()
@@ -746,7 +763,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -763,7 +780,7 @@ class Traceroute(Entity):
                             """
 
                             _prefix = 'traceroute-act'
-                            _revision = '2016-09-28'
+                            _revision = '2018-10-01'
 
                             def __init__(self):
                                 super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes, self).__init__()
@@ -822,7 +839,7 @@ class Traceroute(Entity):
                                 """
 
                                 _prefix = 'traceroute-act'
-                                _revision = '2016-09-28'
+                                _revision = '2018-10-01'
 
                                 def __init__(self):
                                     super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, self).__init__()
@@ -849,7 +866,7 @@ class Traceroute(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
 
 
@@ -878,10 +895,12 @@ class Traceroute(Entity):
                 
                 
 
+                This class is a :ref:`presence class<presence-class>`
+
                 """
 
                 _prefix = 'traceroute-act'
-                _revision = '2016-09-28'
+                _revision = '2018-10-01'
 
                 def __init__(self):
                     super(Traceroute.Output.TracerouteResponse.Ipv6, self).__init__()
@@ -892,6 +911,7 @@ class Traceroute(Entity):
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv6.Hops))])
+                    self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                         ('verbose_output', (YLeaf(YType.str, 'verbose-output'), ['str'])),
@@ -907,7 +927,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, ['destination', 'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, [u'destination', u'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -924,7 +944,7 @@ class Traceroute(Entity):
                     """
 
                     _prefix = 'traceroute-act'
-                    _revision = '2016-09-28'
+                    _revision = '2018-10-01'
 
                     def __init__(self):
                         super(Traceroute.Output.TracerouteResponse.Ipv6.Hops, self).__init__()
@@ -977,7 +997,7 @@ class Traceroute(Entity):
                         """
 
                         _prefix = 'traceroute-act'
-                        _revision = '2016-09-28'
+                        _revision = '2018-10-01'
 
                         def __init__(self):
                             super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, self).__init__()
@@ -1005,7 +1025,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -1022,7 +1042,7 @@ class Traceroute(Entity):
                             """
 
                             _prefix = 'traceroute-act'
-                            _revision = '2016-09-28'
+                            _revision = '2018-10-01'
 
                             def __init__(self):
                                 super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes, self).__init__()
@@ -1081,7 +1101,7 @@ class Traceroute(Entity):
                                 """
 
                                 _prefix = 'traceroute-act'
-                                _revision = '2016-09-28'
+                                _revision = '2018-10-01'
 
                                 def __init__(self):
                                     super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, self).__init__()
@@ -1108,7 +1128,7 @@ class Traceroute(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
 
 

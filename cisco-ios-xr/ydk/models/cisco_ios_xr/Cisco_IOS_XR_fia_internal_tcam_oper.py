@@ -285,7 +285,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam, ['npu_id'], name, value)
+                            self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam, [u'npu_id'], name, value)
 
 
                         class TcamBank(Entity):
@@ -383,7 +383,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, [u'bank_id', u'bank_key_size', u'bank_free_entries', u'bank_inuse_entries', u'owner', u'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):
@@ -443,7 +443,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)
+                                    self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb, [u'db_id', u'db_inuse_entries', u'db_prefix'], name, value)
 
 
 
@@ -533,7 +533,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam, ['npu_id'], name, value)
+                            self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam, [u'npu_id'], name, value)
 
 
                         class TcamBank(Entity):
@@ -631,7 +631,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, [u'bank_id', u'bank_key_size', u'bank_free_entries', u'bank_inuse_entries', u'owner', u'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):
@@ -691,7 +691,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)
+                                    self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb, [u'db_id', u'db_inuse_entries', u'db_prefix'], name, value)
 
 
 

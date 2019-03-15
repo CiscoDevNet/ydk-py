@@ -219,7 +219,7 @@ class CISCOVOICEDNISMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, [u'cvdnismappingname', u'cvdnismappingurl', u'cvdnismappingrefresh', u'cvdnismappingurlaccesserror', u'cvdnismappingstatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, ['cvdnismappingname', 'cvdnismappingurl', 'cvdnismappingrefresh', 'cvdnismappingurlaccesserror', 'cvdnismappingstatus'], name, value)
 
             class CvDnisMappingRefresh(Enum):
                 """
@@ -391,7 +391,7 @@ class CISCOVOICEDNISMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, [u'cvdnismappingname', u'cvdnisnumber', u'cvdnisnodeurl', u'cvdnisnodemodifiable', u'cvdnisnodestatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodeurl', 'cvdnisnodemodifiable', 'cvdnisnodestatus'], name, value)
 
 
 

@@ -465,6 +465,11 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           description
             "Entity name";
         }
+        leaf length {
+          type uint32;
+          description
+            "Neighbor addr prefix length";
+        }
         uses BGP-CONFIG-ENTITY-BAG;
       }
     }
@@ -571,6 +576,11 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           type xr:Cisco-ios-xr-string;
           description
             "Entity name";
+        }
+        leaf length {
+          type uint32;
+          description
+            "Neighbor addr prefix length";
         }
         uses BGP-CONFIG-RELATIVES-BAG;
       }
@@ -1292,6 +1302,11 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           type xr:Cisco-ios-xr-string;
           description
             "Entity name";
+        }
+        leaf length {
+          type uint32;
+          description
+            "Neighbor addr prefix length";
         }
         uses BGP-CONFIG-RELATIVES-BAG;
       }

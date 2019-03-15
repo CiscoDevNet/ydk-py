@@ -20,6 +20,129 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class ImStateEnum(Enum):
+    """
+    ImStateEnum (Enum Class)
+
+    Im state enum
+
+    .. data:: im_state_not_ready = 0
+
+    	im state not ready
+
+    .. data:: im_state_admin_down = 1
+
+    	im state admin down
+
+    .. data:: im_state_down = 2
+
+    	im state down
+
+    .. data:: im_state_up = 3
+
+    	im state up
+
+    .. data:: im_state_shutdown = 4
+
+    	im state shutdown
+
+    .. data:: im_state_err_disable = 5
+
+    	im state err disable
+
+    .. data:: im_state_down_immediate = 6
+
+    	im state down immediate
+
+    .. data:: im_state_down_immediate_admin = 7
+
+    	im state down immediate admin
+
+    .. data:: im_state_down_graceful = 8
+
+    	im state down graceful
+
+    .. data:: im_state_begin_shutdown = 9
+
+    	im state begin shutdown
+
+    .. data:: im_state_end_shutdown = 10
+
+    	im state end shutdown
+
+    .. data:: im_state_begin_error_disable = 11
+
+    	im state begin error disable
+
+    .. data:: im_state_end_error_disable = 12
+
+    	im state end error disable
+
+    .. data:: im_state_begin_down_graceful = 13
+
+    	im state begin down graceful
+
+    .. data:: im_state_reset = 14
+
+    	im state reset
+
+    .. data:: im_state_operational = 15
+
+    	im state operational
+
+    .. data:: im_state_not_operational = 16
+
+    	im state not operational
+
+    .. data:: im_state_unknown = 17
+
+    	im state unknown
+
+    .. data:: im_state_last = 18
+
+    	im state last
+
+    """
+
+    im_state_not_ready = Enum.YLeaf(0, "im-state-not-ready")
+
+    im_state_admin_down = Enum.YLeaf(1, "im-state-admin-down")
+
+    im_state_down = Enum.YLeaf(2, "im-state-down")
+
+    im_state_up = Enum.YLeaf(3, "im-state-up")
+
+    im_state_shutdown = Enum.YLeaf(4, "im-state-shutdown")
+
+    im_state_err_disable = Enum.YLeaf(5, "im-state-err-disable")
+
+    im_state_down_immediate = Enum.YLeaf(6, "im-state-down-immediate")
+
+    im_state_down_immediate_admin = Enum.YLeaf(7, "im-state-down-immediate-admin")
+
+    im_state_down_graceful = Enum.YLeaf(8, "im-state-down-graceful")
+
+    im_state_begin_shutdown = Enum.YLeaf(9, "im-state-begin-shutdown")
+
+    im_state_end_shutdown = Enum.YLeaf(10, "im-state-end-shutdown")
+
+    im_state_begin_error_disable = Enum.YLeaf(11, "im-state-begin-error-disable")
+
+    im_state_end_error_disable = Enum.YLeaf(12, "im-state-end-error-disable")
+
+    im_state_begin_down_graceful = Enum.YLeaf(13, "im-state-begin-down-graceful")
+
+    im_state_reset = Enum.YLeaf(14, "im-state-reset")
+
+    im_state_operational = Enum.YLeaf(15, "im-state-operational")
+
+    im_state_not_operational = Enum.YLeaf(16, "im-state-not-operational")
+
+    im_state_unknown = Enum.YLeaf(17, "im-state-unknown")
+
+    im_state_last = Enum.YLeaf(18, "im-state-last")
+
+
 class Ipv4MaOperConfig(Enum):
     """
     Ipv4MaOperConfig (Enum Class)
@@ -751,7 +874,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: next_unnumbered_interface_name
                                 
-                                	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                                	Name of interface which is also unnum to same interface where this intf is unnumbered
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -806,7 +929,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: state_recvd_frm_im
                                 
-                                	state as recieved                                from IM
+                                	state as recieved from IM
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
                                 
                                 	**config**\: False
@@ -837,7 +960,7 @@ class Ipv4Network(Entity):
                                 .. attribute:: or_im_state
                                 
                                 	OR IM state type
-                                	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.ImStateEnum>`
                                 
                                 	**config**\: False
                                 
@@ -906,7 +1029,7 @@ class Ipv4Network(Entity):
                                         ('cflct_address', (YLeaf(YType.str, 'cflct-address'), ['str'])),
                                         ('client_type', (YLeaf(YType.enumeration, 'client-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperConfig', '')])),
                                         ('is_or_event', (YLeaf(YType.boolean, 'is-or-event'), ['bool'])),
-                                        ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineState', '')])),
+                                        ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'ImStateEnum', '')])),
                                         ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                                     ])
                                     self.interface_name = None
@@ -3533,7 +3656,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: next_unnumbered_interface_name
                         
-                        	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                        	Name of interface which is also unnum to same interface where this intf is unnumbered
                         	**type**\: str
                         
                         	**config**\: False
@@ -3588,7 +3711,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: state_recvd_frm_im
                         
-                        	state as recieved                                from IM
+                        	state as recieved from IM
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
                         
                         	**config**\: False
@@ -3619,7 +3742,7 @@ class Ipv4Network(Entity):
                         .. attribute:: or_im_state
                         
                         	OR IM state type
-                        	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.ImStateEnum>`
                         
                         	**config**\: False
                         
@@ -3687,7 +3810,7 @@ class Ipv4Network(Entity):
                                 ('cflct_address', (YLeaf(YType.str, 'cflct-address'), ['str'])),
                                 ('client_type', (YLeaf(YType.enumeration, 'client-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperConfig', '')])),
                                 ('is_or_event', (YLeaf(YType.boolean, 'is-or-event'), ['bool'])),
-                                ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineState', '')])),
+                                ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'ImStateEnum', '')])),
                                 ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                             ])
                             self.primary_address = None

@@ -3,10 +3,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
     prefix Cisco-IOS-XR-aaa-protocol-radius-oper;
   }
 
-  import ietf-inet-types {
-    prefix inet;
-  }
-
   organization
     "Cisco Systems, Inc.";
   contact
@@ -127,11 +123,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
         "Authorization data";
       uses RADIUS-AUTHORIZATION-DATA;
     }
-    leaf server-address {
-      type inet:ipv4-address;
-      description
-        "Server address";
-    }
     leaf authentication-port {
       type uint32;
       description
@@ -198,11 +189,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
   grouping RADIUS-DYNAMIC-CLIENT-DATA {
     description
       "RADIUS dynamic authorization client";
-    leaf client-address {
-      type inet:ipv4-address;
-      description
-        "Client's Internet address";
-    }
     leaf disc-reqs {
       type uint32;
       description
@@ -337,10 +323,8 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "VRF of RADIUS dynamic authorization client";
     }
-    leaf addr-buf {
-      type string {
-        length "0..46";
-      }
+    leaf client-address {
+      type string;
       description
         "Address Buffer";
     }
@@ -416,22 +400,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Number of unexpected accounting responses";
     }
-    leaf acct-server-error-responses {
-      type uint32;
-      description
-        "Number of server error accounting responses";
-    }
-    leaf acct-incorrect-responses {
-      type uint32;
-      description
-        "Number of incorrect accounting responses";
-    }
-    leaf acct-response-time {
-      type uint32;
-      description
-        "Average response time for authentication
-         requests";
-    }
     leaf acct-transaction-successess {
       type uint32;
       description
@@ -442,6 +410,36 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Number of failed authentication transactions";
     }
+    leaf acct-throttled-transactions {
+      type uint32;
+      description
+        "Estimated Throttled Accounting Transactions";
+    }
+    leaf acct-max-throttle-trans {
+      type uint32;
+      description
+        "Maximum Throttled Accounting Transactions";
+    }
+    leaf total-test-acct-reqs {
+      type uint32;
+      description
+        "Automated Test Stats for accounting requests";
+    }
+    leaf total-test-acct-timeouts {
+      type uint32;
+      description
+        "Automated Test Stats for accounting timeouts";
+    }
+    leaf total-test-acct-response {
+      type uint32;
+      description
+        "Automated Test Stats for accounting response";
+    }
+    leaf total-test-acct-pending {
+      type uint32;
+      description
+        "Automated Test Stats for accounting pending";
+    }
   }
 
   grouping RADIUS-ACCOUNTING {
@@ -451,11 +449,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Accounting data";
       uses RADIUS-ACCOUNTING-DATA;
-    }
-    leaf server-address {
-      type inet:ipv4-address;
-      description
-        "IP address of RADIUS server";
     }
     leaf port {
       type uint32;
@@ -550,12 +543,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
         "Round trip time for authentication in
          milliseconds";
     }
-    leaf authen-response-time {
-      type uint32;
-      description
-        "Average response time for authentication
-         requests";
-    }
     leaf authen-transaction-successess {
       type uint32;
       description
@@ -581,6 +568,36 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Number of incorrect authentication responses";
     }
+    leaf auth-throttled-transactions {
+      type uint32;
+      description
+        "Estimated Throttled Authentication Transactions";
+    }
+    leaf auth-max-transactions {
+      type uint32;
+      description
+        "Maximum Throttled Authentication Transactions";
+    }
+    leaf total-test-auth-reqs {
+      type uint32;
+      description
+        "Automated Test Stats for authentication requests";
+    }
+    leaf total-test-auth-timeouts {
+      type uint32;
+      description
+        "Automated Test Stats for authentication timeouts";
+    }
+    leaf total-test-auth-response {
+      type uint32;
+      description
+        "Automated Test Stats for authentication response";
+    }
+    leaf total-test-auth-pending {
+      type uint32;
+      description
+        "Automated Test Stats for authentication pending";
+    }
   }
 
   grouping RADIUS-AUTHENTICATION {
@@ -590,11 +607,6 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Authentication data";
       uses RADIUS-AUTHENTICATION-DATA;
-    }
-    leaf server-address {
-      type inet:ipv4-address;
-      description
-        "IP address of RADIUS server";
     }
     leaf port {
       type uint32;

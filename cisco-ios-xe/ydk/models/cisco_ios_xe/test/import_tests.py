@@ -1050,28 +1050,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_common_oper import IosEncapsType
 
 
-    def test_Cisco_IOS_XE_ios_events_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import HardwareSensorType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import InterfaceNotifState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import NotificationModuleState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import UtdIpsAlertPriorityVal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import OspfIntfState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import UtdIpsAlertActionVal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import BgpPstate
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import DhcpServerStateVal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import NotificationSeverity
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import VrrpIpAddrType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import NotificationSensorState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import UtdUpdateTypeVal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import NotificationFailureState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import IntfAdminState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import VrrpNotifProtoState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import OspfNbrState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import UtdIpsAlertClassificationVal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import FibUpdatesAfType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_events_oper import IosEvents
-
-
     def test_Cisco_IOS_XE_ip(self):
         pass
 
@@ -1309,6 +1287,10 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XE_platform_software_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper import BFru
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper import CiscoPlatformSoftware
+
+
+    def test_Cisco_IOS_XE_pnp(self):
+        pass
 
 
     def test_Cisco_IOS_XE_poe_oper(self):
@@ -1991,6 +1973,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.cisco_ia import CiaLogLevel
         from ydk.models.cisco_ios_xe.cisco_ia import CiaSyncType
         from ydk.models.cisco_ios_xe.cisco_ia import SyslogSeverity
+        from ydk.models.cisco_ios_xe.cisco_ia import ParserMsgProcessingMethod
         from ydk.models.cisco_ios_xe.cisco_ia import OnepLogLevel
         from ydk.models.cisco_ios_xe.cisco_ia import SyncFrom
         from ydk.models.cisco_ios_xe.cisco_ia import SaveConfig
@@ -2134,113 +2117,113 @@ class ImportTest(unittest.TestCase):
 
 
     def test_policy_types(self):
-        from ydk.models.cisco_ios_xe.policy_types import Control
-        from ydk.models.cisco_ios_xe.policy_types import InputInterface
-        from ydk.models.cisco_ios_xe.policy_types import SrcMac
-        from ydk.models.cisco_ios_xe.policy_types import Qos
-        from ydk.models.cisco_ios_xe.policy_types import PerfMon
-        from ydk.models.cisco_ios_xe.policy_types import Application
-        from ydk.models.cisco_ios_xe.policy_types import SecurityGroupName
-        from ydk.models.cisco_ios_xe.policy_types import PacketService
-        from ydk.models.cisco_ios_xe.policy_types import QosClass
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
-        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
-        from ydk.models.cisco_ios_xe.policy_types import ControlClass
-        from ydk.models.cisco_ios_xe.policy_types import InspectClass
-        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
-        from ydk.models.cisco_ios_xe.policy_types import Service
-        from ydk.models.cisco_ios_xe.policy_types import Dei
-        from ydk.models.cisco_ios_xe.policy_types import Prec
-        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
-        from ydk.models.cisco_ios_xe.policy_types import PacketLength
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
-        from ydk.models.cisco_ios_xe.policy_types import FlowDe
-        from ydk.models.cisco_ios_xe.policy_types import FlowIp
-        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
-        from ydk.models.cisco_ios_xe.policy_types import VlanInner
-        from ydk.models.cisco_ios_xe.policy_types import AccessControl
-        from ydk.models.cisco_ios_xe.policy_types import Metadata
-        from ydk.models.cisco_ios_xe.policy_types import Vlan
-        from ydk.models.cisco_ios_xe.policy_types import AtmVci
-        from ydk.models.cisco_ios_xe.policy_types import Appnav
-        from ydk.models.cisco_ios_xe.policy_types import Inspect
-        from ydk.models.cisco_ios_xe.policy_types import ClassMap
-        from ydk.models.cisco_ios_xe.policy_types import QosGroup
-        from ydk.models.cisco_ios_xe.policy_types import WlanUserPriority
-        from ydk.models.cisco_ios_xe.policy_types import IpRtp
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
-        from ydk.models.cisco_ios_xe.policy_types import AtmClp
-        from ydk.models.cisco_ios_xe.policy_types import DstMac
-        from ydk.models.cisco_ios_xe.policy_types import Cos
-        from ydk.models.cisco_ios_xe.policy_types import Pbr
-        from ydk.models.cisco_ios_xe.policy_types import DeiInner
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
-        from ydk.models.cisco_ios_xe.policy_types import CosInner
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
-        from ydk.models.cisco_ios_xe.policy_types import SecurityGroupTag
-        from ydk.models.cisco_ios_xe.policy_types import ClassType
-        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
-        from ydk.models.cisco_ios_xe.policy_types import Vpls
-        from ydk.models.cisco_ios_xe.policy_types import PolicyType
-        from ydk.models.cisco_ios_xe.policy_types import Metric
-        from ydk.models.cisco_ios_xe.policy_types import Direction
-        from ydk.models.cisco_ios_xe.policy_types import RateUnit
+        from ydk.models.ietf.policy_types import Control
+        from ydk.models.ietf.policy_types import InputInterface
+        from ydk.models.ietf.policy_types import SrcMac
+        from ydk.models.ietf.policy_types import Qos
+        from ydk.models.ietf.policy_types import PerfMon
+        from ydk.models.ietf.policy_types import Application
+        from ydk.models.ietf.policy_types import SecurityGroupName
+        from ydk.models.ietf.policy_types import PacketService
+        from ydk.models.ietf.policy_types import QosClass
+        from ydk.models.ietf.policy_types import Ipv4AclName
+        from ydk.models.ietf.policy_types import FlowDlci
+        from ydk.models.ietf.policy_types import ControlClass
+        from ydk.models.ietf.policy_types import InspectClass
+        from ydk.models.ietf.policy_types import AppnavClass
+        from ydk.models.ietf.policy_types import Service
+        from ydk.models.ietf.policy_types import Dei
+        from ydk.models.ietf.policy_types import Prec
+        from ydk.models.ietf.policy_types import AccessControlClass
+        from ydk.models.ietf.policy_types import PacketLength
+        from ydk.models.ietf.policy_types import Ipv4Acl
+        from ydk.models.ietf.policy_types import FlowDe
+        from ydk.models.ietf.policy_types import FlowIp
+        from ydk.models.ietf.policy_types import FlowRecord
+        from ydk.models.ietf.policy_types import VlanInner
+        from ydk.models.ietf.policy_types import AccessControl
+        from ydk.models.ietf.policy_types import Metadata
+        from ydk.models.ietf.policy_types import Vlan
+        from ydk.models.ietf.policy_types import AtmVci
+        from ydk.models.ietf.policy_types import Appnav
+        from ydk.models.ietf.policy_types import Inspect
+        from ydk.models.ietf.policy_types import ClassMap
+        from ydk.models.ietf.policy_types import QosGroup
+        from ydk.models.ietf.policy_types import WlanUserPriority
+        from ydk.models.ietf.policy_types import IpRtp
+        from ydk.models.ietf.policy_types import Ipv6Acl
+        from ydk.models.ietf.policy_types import AtmClp
+        from ydk.models.ietf.policy_types import DstMac
+        from ydk.models.ietf.policy_types import Cos
+        from ydk.models.ietf.policy_types import Pbr
+        from ydk.models.ietf.policy_types import DeiInner
+        from ydk.models.ietf.policy_types import MplsExpTop
+        from ydk.models.ietf.policy_types import CosInner
+        from ydk.models.ietf.policy_types import Ipv6AclName
+        from ydk.models.ietf.policy_types import MplsExpImp
+        from ydk.models.ietf.policy_types import SecurityGroupTag
+        from ydk.models.ietf.policy_types import ClassType
+        from ydk.models.ietf.policy_types import DiscardClass
+        from ydk.models.ietf.policy_types import Vpls
+        from ydk.models.ietf.policy_types import PolicyType
+        from ydk.models.ietf.policy_types import Metric
+        from ydk.models.ietf.policy_types import Direction
+        from ydk.models.ietf.policy_types import RateUnit
 
 
     def test_policy_types(self):
-        from ydk.models.cisco_ios_xe.policy_types import Control
-        from ydk.models.cisco_ios_xe.policy_types import InputInterface
-        from ydk.models.cisco_ios_xe.policy_types import SrcMac
-        from ydk.models.cisco_ios_xe.policy_types import Qos
-        from ydk.models.cisco_ios_xe.policy_types import PerfMon
-        from ydk.models.cisco_ios_xe.policy_types import Application
-        from ydk.models.cisco_ios_xe.policy_types import SecurityGroupName
-        from ydk.models.cisco_ios_xe.policy_types import PacketService
-        from ydk.models.cisco_ios_xe.policy_types import QosClass
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
-        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
-        from ydk.models.cisco_ios_xe.policy_types import ControlClass
-        from ydk.models.cisco_ios_xe.policy_types import InspectClass
-        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
-        from ydk.models.cisco_ios_xe.policy_types import Service
-        from ydk.models.cisco_ios_xe.policy_types import Dei
-        from ydk.models.cisco_ios_xe.policy_types import Prec
-        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
-        from ydk.models.cisco_ios_xe.policy_types import PacketLength
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
-        from ydk.models.cisco_ios_xe.policy_types import FlowDe
-        from ydk.models.cisco_ios_xe.policy_types import FlowIp
-        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
-        from ydk.models.cisco_ios_xe.policy_types import VlanInner
-        from ydk.models.cisco_ios_xe.policy_types import AccessControl
-        from ydk.models.cisco_ios_xe.policy_types import Metadata
-        from ydk.models.cisco_ios_xe.policy_types import Vlan
-        from ydk.models.cisco_ios_xe.policy_types import AtmVci
-        from ydk.models.cisco_ios_xe.policy_types import Appnav
-        from ydk.models.cisco_ios_xe.policy_types import Inspect
-        from ydk.models.cisco_ios_xe.policy_types import ClassMap
-        from ydk.models.cisco_ios_xe.policy_types import QosGroup
-        from ydk.models.cisco_ios_xe.policy_types import WlanUserPriority
-        from ydk.models.cisco_ios_xe.policy_types import IpRtp
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
-        from ydk.models.cisco_ios_xe.policy_types import AtmClp
-        from ydk.models.cisco_ios_xe.policy_types import DstMac
-        from ydk.models.cisco_ios_xe.policy_types import Cos
-        from ydk.models.cisco_ios_xe.policy_types import Pbr
-        from ydk.models.cisco_ios_xe.policy_types import DeiInner
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
-        from ydk.models.cisco_ios_xe.policy_types import CosInner
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
-        from ydk.models.cisco_ios_xe.policy_types import SecurityGroupTag
-        from ydk.models.cisco_ios_xe.policy_types import ClassType
-        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
-        from ydk.models.cisco_ios_xe.policy_types import Vpls
-        from ydk.models.cisco_ios_xe.policy_types import PolicyType
-        from ydk.models.cisco_ios_xe.policy_types import Metric
-        from ydk.models.cisco_ios_xe.policy_types import Direction
-        from ydk.models.cisco_ios_xe.policy_types import RateUnit
+        from ydk.models.ietf.policy_types import Control
+        from ydk.models.ietf.policy_types import InputInterface
+        from ydk.models.ietf.policy_types import SrcMac
+        from ydk.models.ietf.policy_types import Qos
+        from ydk.models.ietf.policy_types import PerfMon
+        from ydk.models.ietf.policy_types import Application
+        from ydk.models.ietf.policy_types import SecurityGroupName
+        from ydk.models.ietf.policy_types import PacketService
+        from ydk.models.ietf.policy_types import QosClass
+        from ydk.models.ietf.policy_types import Ipv4AclName
+        from ydk.models.ietf.policy_types import FlowDlci
+        from ydk.models.ietf.policy_types import ControlClass
+        from ydk.models.ietf.policy_types import InspectClass
+        from ydk.models.ietf.policy_types import AppnavClass
+        from ydk.models.ietf.policy_types import Service
+        from ydk.models.ietf.policy_types import Dei
+        from ydk.models.ietf.policy_types import Prec
+        from ydk.models.ietf.policy_types import AccessControlClass
+        from ydk.models.ietf.policy_types import PacketLength
+        from ydk.models.ietf.policy_types import Ipv4Acl
+        from ydk.models.ietf.policy_types import FlowDe
+        from ydk.models.ietf.policy_types import FlowIp
+        from ydk.models.ietf.policy_types import FlowRecord
+        from ydk.models.ietf.policy_types import VlanInner
+        from ydk.models.ietf.policy_types import AccessControl
+        from ydk.models.ietf.policy_types import Metadata
+        from ydk.models.ietf.policy_types import Vlan
+        from ydk.models.ietf.policy_types import AtmVci
+        from ydk.models.ietf.policy_types import Appnav
+        from ydk.models.ietf.policy_types import Inspect
+        from ydk.models.ietf.policy_types import ClassMap
+        from ydk.models.ietf.policy_types import QosGroup
+        from ydk.models.ietf.policy_types import WlanUserPriority
+        from ydk.models.ietf.policy_types import IpRtp
+        from ydk.models.ietf.policy_types import Ipv6Acl
+        from ydk.models.ietf.policy_types import AtmClp
+        from ydk.models.ietf.policy_types import DstMac
+        from ydk.models.ietf.policy_types import Cos
+        from ydk.models.ietf.policy_types import Pbr
+        from ydk.models.ietf.policy_types import DeiInner
+        from ydk.models.ietf.policy_types import MplsExpTop
+        from ydk.models.ietf.policy_types import CosInner
+        from ydk.models.ietf.policy_types import Ipv6AclName
+        from ydk.models.ietf.policy_types import MplsExpImp
+        from ydk.models.ietf.policy_types import SecurityGroupTag
+        from ydk.models.ietf.policy_types import ClassType
+        from ydk.models.ietf.policy_types import DiscardClass
+        from ydk.models.ietf.policy_types import Vpls
+        from ydk.models.ietf.policy_types import PolicyType
+        from ydk.models.ietf.policy_types import Metric
+        from ydk.models.ietf.policy_types import Direction
+        from ydk.models.ietf.policy_types import RateUnit
 
 
     def test_tailf_cli_extensions(self):

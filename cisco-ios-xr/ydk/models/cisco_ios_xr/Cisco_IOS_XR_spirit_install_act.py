@@ -26,12 +26,17 @@ class InstallAdd(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallAdd.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallAdd.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallAdd, self).__init__()
@@ -48,6 +53,10 @@ class InstallAdd(Entity):
         self.input = InstallAdd.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallAdd.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-add"
         self._is_frozen = True
 
@@ -71,7 +80,7 @@ class InstallAdd(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallAdd.Input, self).__init__()
@@ -96,6 +105,51 @@ class InstallAdd(Entity):
             self._perform_setattr(InstallAdd.Input, ['packagepath', 'packagename'], name, value)
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallAdd.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-add"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-add/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallAdd.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallAdd()
         return self._top_entity
@@ -111,12 +165,17 @@ class InstallCommit(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallCommit.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallCommit.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallCommit, self).__init__()
@@ -133,6 +192,10 @@ class InstallCommit(Entity):
         self.input = InstallCommit.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallCommit.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-commit"
         self._is_frozen = True
 
@@ -151,7 +214,7 @@ class InstallCommit(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallCommit.Input, self).__init__()
@@ -174,6 +237,51 @@ class InstallCommit(Entity):
             self._perform_setattr(InstallCommit.Input, ['sdr'], name, value)
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallCommit.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-commit"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-commit/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallCommit.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallCommit()
         return self._top_entity
@@ -189,12 +297,17 @@ class InstallRemove(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallRemove.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallRemove.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallRemove, self).__init__()
@@ -211,6 +324,10 @@ class InstallRemove(Entity):
         self.input = InstallRemove.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallRemove.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-remove"
         self._is_frozen = True
 
@@ -244,7 +361,7 @@ class InstallRemove(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallRemove.Input, self).__init__()
@@ -291,7 +408,7 @@ class InstallRemove(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallRemove.Input.Packages, self).__init__()
@@ -329,7 +446,7 @@ class InstallRemove(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallRemove.Input.Ids, self).__init__()
@@ -353,6 +470,51 @@ class InstallRemove(Entity):
 
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallRemove.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-remove"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-remove/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallRemove.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallRemove()
         return self._top_entity
@@ -368,12 +530,17 @@ class InstallPrepare(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallPrepare.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallPrepare.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallPrepare, self).__init__()
@@ -390,6 +557,10 @@ class InstallPrepare(Entity):
         self.input = InstallPrepare.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallPrepare.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-prepare"
         self._is_frozen = True
 
@@ -423,7 +594,7 @@ class InstallPrepare(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallPrepare.Input, self).__init__()
@@ -472,7 +643,7 @@ class InstallPrepare(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallPrepare.Input.Packages, self).__init__()
@@ -510,7 +681,7 @@ class InstallPrepare(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallPrepare.Input.Ids, self).__init__()
@@ -553,7 +724,7 @@ class InstallPrepare(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallPrepare.Input.PrepareForce, self).__init__()
@@ -579,6 +750,51 @@ class InstallPrepare(Entity):
 
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallPrepare.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-prepare"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-prepare/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallPrepare.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallPrepare()
         return self._top_entity
@@ -594,12 +810,17 @@ class InstallActivate(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallActivate.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallActivate.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallActivate, self).__init__()
@@ -616,6 +837,10 @@ class InstallActivate(Entity):
         self.input = InstallActivate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallActivate.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-activate"
         self._is_frozen = True
 
@@ -724,7 +949,7 @@ class InstallActivate(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallActivate.Input, self).__init__()
@@ -824,7 +1049,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.Warm, self).__init__()
@@ -869,7 +1094,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.WarmForce, self).__init__()
@@ -914,7 +1139,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.WarmReplace, self).__init__()
@@ -959,7 +1184,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.WarmReplaceForce, self).__init__()
@@ -1004,7 +1229,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.Reload, self).__init__()
@@ -1049,7 +1274,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.ReloadForce, self).__init__()
@@ -1094,7 +1319,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.Replace, self).__init__()
@@ -1139,7 +1364,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.ReplaceForce, self).__init__()
@@ -1184,7 +1409,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.ActivateForce, self).__init__()
@@ -1224,7 +1449,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.Packages, self).__init__()
@@ -1262,7 +1487,7 @@ class InstallActivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallActivate.Input.Ids, self).__init__()
@@ -1286,6 +1511,51 @@ class InstallActivate(Entity):
 
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallActivate.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-activate"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-activate/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallActivate.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallActivate()
         return self._top_entity
@@ -1301,12 +1571,17 @@ class InstallDeactivate(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallDeactivate.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallDeactivate.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallDeactivate, self).__init__()
@@ -1323,6 +1598,10 @@ class InstallDeactivate(Entity):
         self.input = InstallDeactivate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallDeactivate.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-deactivate"
         self._is_frozen = True
 
@@ -1356,7 +1635,7 @@ class InstallDeactivate(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallDeactivate.Input, self).__init__()
@@ -1410,7 +1689,7 @@ class InstallDeactivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallDeactivate.Input.Reload, self).__init__()
@@ -1450,7 +1729,7 @@ class InstallDeactivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallDeactivate.Input.Packages, self).__init__()
@@ -1488,7 +1767,7 @@ class InstallDeactivate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallDeactivate.Input.Ids, self).__init__()
@@ -1512,6 +1791,51 @@ class InstallDeactivate(Entity):
 
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallDeactivate.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-deactivate"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-deactivate/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallDeactivate.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallDeactivate()
         return self._top_entity
@@ -1527,12 +1851,17 @@ class InstallExtract(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallExtract.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallExtract.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallExtract, self).__init__()
@@ -1549,6 +1878,10 @@ class InstallExtract(Entity):
         self.input = InstallExtract.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallExtract.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-extract"
         self._is_frozen = True
 
@@ -1567,7 +1900,7 @@ class InstallExtract(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallExtract.Input, self).__init__()
@@ -1605,7 +1938,7 @@ class InstallExtract(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallExtract.Input.Packages, self).__init__()
@@ -1629,6 +1962,51 @@ class InstallExtract(Entity):
 
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallExtract.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-extract"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-extract/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallExtract.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallExtract()
         return self._top_entity
@@ -1644,12 +2022,17 @@ class InstallVerify(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallVerify.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallVerify.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallVerify, self).__init__()
@@ -1666,6 +2049,10 @@ class InstallVerify(Entity):
         self.input = InstallVerify.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallVerify.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-verify"
         self._is_frozen = True
 
@@ -1684,7 +2071,7 @@ class InstallVerify(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallVerify.Input, self).__init__()
@@ -1707,6 +2094,51 @@ class InstallVerify(Entity):
             self._perform_setattr(InstallVerify.Input, ['location'], name, value)
 
 
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallVerify.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-verify"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-verify/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallVerify.Output, ['op_id', 'error'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = InstallVerify()
         return self._top_entity
@@ -1722,12 +2154,17 @@ class InstallUpdate(Entity):
     	
     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallUpdate.Input>`
     
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act.InstallUpdate.Output>`
+    
     
 
     """
 
     _prefix = 'install-act'
-    _revision = '2017-10-23'
+    _revision = '2018-09-10'
 
     def __init__(self):
         super(InstallUpdate, self).__init__()
@@ -1744,6 +2181,10 @@ class InstallUpdate(Entity):
         self.input = InstallUpdate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
+
+        self.output = InstallUpdate.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-update"
         self._is_frozen = True
 
@@ -1812,7 +2253,7 @@ class InstallUpdate(Entity):
         """
 
         _prefix = 'install-act'
-        _revision = '2017-10-23'
+        _revision = '2018-09-10'
 
         def __init__(self):
             super(InstallUpdate.Input, self).__init__()
@@ -1892,7 +2333,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.Warm, self).__init__()
@@ -1937,7 +2378,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.WarmForce, self).__init__()
@@ -1982,7 +2423,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.WarmReplace, self).__init__()
@@ -2027,7 +2468,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.WarmReplaceForce, self).__init__()
@@ -2072,7 +2513,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.Force, self).__init__()
@@ -2117,7 +2558,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.Replace, self).__init__()
@@ -2162,7 +2603,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.ReplaceForce, self).__init__()
@@ -2207,7 +2648,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.ReplaceCommit, self).__init__()
@@ -2252,7 +2693,7 @@ class InstallUpdate(Entity):
             """
 
             _prefix = 'install-act'
-            _revision = '2017-10-23'
+            _revision = '2018-09-10'
 
             def __init__(self):
                 super(InstallUpdate.Input.ReplaceCommitForce, self).__init__()
@@ -2276,6 +2717,51 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceCommitForce, ['packagepath', 'packagename'], name, value)
 
+
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: op_id
+        
+        	operation id of the triggered action
+        	**type**\: str
+        
+        .. attribute:: error
+        
+        	case when op\-id is not triggered
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'install-act'
+        _revision = '2018-09-10'
+
+        def __init__(self):
+            super(InstallUpdate.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "install-update"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('op_id', (YLeaf(YType.str, 'op-id'), ['str'])),
+                ('error', (YLeaf(YType.str, 'Error'), ['str'])),
+            ])
+            self.op_id = None
+            self.error = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-act:install-update/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(InstallUpdate.Output, ['op_id', 'error'], name, value)
 
 
     def clone_ptr(self):

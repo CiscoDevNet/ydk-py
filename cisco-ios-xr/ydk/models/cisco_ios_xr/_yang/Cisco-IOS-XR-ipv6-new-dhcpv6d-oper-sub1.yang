@@ -32,6 +32,14 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-10-09 {
+    description
+      "Added dhcpv6 server disconnect-history class";
+  }
+  revision 2018-09-17 {
+    description
+      "Added dhcpv6 proxy disconnect-history class";
+  }
   revision 2017-12-06 {
     description
       "Added proxy class and server class oper for class and server profile";
@@ -1557,6 +1565,59 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       type boolean;
       description
         "SRG P2P Status";
+    }
+  }
+
+  grouping IPV6-DHCPV6D-DISC-HISTORY {
+    description
+      "DHCP IPv6 disconnect history entry";
+    leaf session-start-time-epoch {
+      type uint64;
+      description
+        "session start time epoch";
+    }
+    leaf session-end-time-epoch {
+      type uint64;
+      description
+        "session end time epoch";
+    }
+    leaf disc-reason {
+      type string {
+        length "0..256";
+      }
+      description
+        "DiscReason";
+    }
+    leaf sub-label {
+      type uint32;
+      description
+        "sub label";
+    }
+    leaf duid {
+      type string {
+        length "0..131";
+      }
+      description
+        "Client DUID";
+    }
+    leaf ia-type {
+      type string {
+        length "0..6";
+      }
+      description
+        "IAType";
+    }
+    leaf ia-id {
+      type uint32;
+      description
+        "ia id";
+    }
+    leaf mac-address {
+      type string {
+        length "0..17";
+      }
+      description
+        "MACAddress";
     }
   }
 

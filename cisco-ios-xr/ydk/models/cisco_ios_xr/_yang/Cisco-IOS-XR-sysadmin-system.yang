@@ -1,16 +1,13 @@
 module Cisco-IOS-XR-sysadmin-system {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-system";
   prefix calvados_system;
-
   import tailf-common {
     prefix tailf;
   }
   import ietf-inet-types {
     prefix inet;
   }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -21,30 +18,48 @@ module Cisco-IOS-XR-sysadmin-system {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     This module contains a collection of YANG
-     definitions for Cisco IOS-XR SysAdmin configuration.
-     
-     This module defines the system users authentication 
-     credentials and virtual IP that can be modified in
-     runtime. 
-     
-     Copyright(c) 2011-2017 by Cisco Systems, Inc.
-     All rights reserved.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
+    This module contains a collection of YANG
+definitions for Cisco IOS-XR SysAdmin configuration.
+
+This module defines the system users authentication 
+credentials and virtual IP that can be modified in
+runtime. 
+
+Copyright(c) 2011-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-10-31 {
     description
       "Allow loading of errorLog config changes during OCU";
   }
 
+
   typedef file-name-type {
     type string;
+  }
+
+  grouping config_sync_clear_inconsistency {
+    container configuration {
+      tailf:action "inconsistencies" {
+        output {
+          list node {
+            leaf ip {
+              type string;
+            }
+            leaf status {
+              type string;
+            }
+          }
+        }
+      }
+    }
   }
 
   typedef screen-length {
@@ -89,24 +104,6 @@ module Cisco-IOS-XR-sysadmin-system {
        The prefix length is given by the number following the
        slash character and must be less than or equal 128.";
   }
-
-  grouping config_sync_clear_inconsistency {
-    container configuration {
-      tailf:action "inconsistencies" {
-        output {
-          list node {
-            leaf ip {
-              type string;
-            }
-            leaf status {
-              type string;
-            }
-          }
-        }
-      }
-    }
-  }
-
   container mgmt {
     container ipv4 {
       leaf address {

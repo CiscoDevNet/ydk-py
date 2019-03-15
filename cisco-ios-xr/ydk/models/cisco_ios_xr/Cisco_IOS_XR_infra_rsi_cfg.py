@@ -205,15 +205,15 @@ class Vrfs(Entity):
         	VRF address family configuration
         	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
         
-        .. attribute:: bgp_global
-        
-        	BGP related VRF Global config
-        	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
-        
         .. attribute:: multicast_host
         
         	Multicast host stack configuration
         	**type**\:  :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost>`
+        
+        .. attribute:: bgp_global
+        
+        	BGP related VRF Global config
+        	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
         
         
 
@@ -230,7 +230,7 @@ class Vrfs(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_name']
-            self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost))])
+            self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal))])
             self._leafs = OrderedDict([
                 ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ('fallback_vrf', (YLeaf(YType.str, 'fallback-vrf'), ['str'])),
@@ -253,13 +253,13 @@ class Vrfs(Entity):
             self.afs.parent = self
             self._children_name_map["afs"] = "afs"
 
-            self.bgp_global = Vrfs.Vrf.BgpGlobal()
-            self.bgp_global.parent = self
-            self._children_name_map["bgp_global"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
-
             self.multicast_host = Vrfs.Vrf.MulticastHost()
             self.multicast_host.parent = self
             self._children_name_map["multicast_host"] = "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
+
+            self.bgp_global = Vrfs.Vrf.BgpGlobal()
+            self.bgp_global.parent = self
+            self._children_name_map["bgp_global"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrfs/%s" % self._segment_path()
             self._is_frozen = True
@@ -384,17 +384,17 @@ class Vrfs(Entity):
                 	VRF configuration for a particular address family
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: bgp
-                
-                	BGP AF VRF config
-                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
-                
                 .. attribute:: maximum_prefix
                 
                 	Set maximum prefix limits
                 	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
                 
                 	**presence node**\: True
+                
+                .. attribute:: bgp
+                
+                	BGP AF VRF config
+                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
                 
                 
 
@@ -411,7 +411,7 @@ class Vrfs(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['af_name','saf_name','topology_name']
-                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix))])
+                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp))])
                     self._leafs = OrderedDict([
                         ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
                         ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
@@ -423,17 +423,70 @@ class Vrfs(Entity):
                     self.topology_name = None
                     self.create = None
 
+                    self.maximum_prefix = None
+                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
                     self.bgp = Vrfs.Vrf.Afs.Af.Bgp()
                     self.bgp.parent = self
                     self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-
-                    self.maximum_prefix = None
-                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                     self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+
+
+                class MaximumPrefix(Entity):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\: int
+                    
+                    	**range:** 32..10000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\: int
+                    
+                    	**range:** 1..100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2017-07-31'
+
+                    def __init__(self):
+                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
+
+                        self.yang_name = "maximum-prefix"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                            ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                        ])
+                        self.prefix_limit = None
+                        self.mid_threshold = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
 
 
                 class Bgp(Entity):
@@ -1170,179 +1223,6 @@ class Vrfs(Entity):
 
 
 
-                class MaximumPrefix(Entity):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\: int
-                    
-                    	**range:** 32..10000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\: int
-                    
-                    	**range:** 1..100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2017-07-31'
-
-                    def __init__(self):
-                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
-
-                        self.yang_name = "maximum-prefix"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self.is_presence_container = True
-                        self._leafs = OrderedDict([
-                            ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
-                            ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
-                        ])
-                        self.prefix_limit = None
-                        self.mid_threshold = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
-
-
-
-
-
-        class BgpGlobal(Entity):
-            """
-            BGP related VRF Global config
-            
-            .. attribute:: route_distinguisher
-            
-            	Route distinguisher
-            	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal.RouteDistinguisher>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
-
-            def __init__(self):
-                super(Vrfs.Vrf.BgpGlobal, self).__init__()
-
-                self.yang_name = "bgp-global"
-                self.yang_parent_name = "vrf"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", Vrfs.Vrf.BgpGlobal.RouteDistinguisher))])
-                self._leafs = OrderedDict()
-
-                self.route_distinguisher = Vrfs.Vrf.BgpGlobal.RouteDistinguisher()
-                self.route_distinguisher.parent = self
-                self._children_name_map["route_distinguisher"] = "route-distinguisher"
-                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vrfs.Vrf.BgpGlobal, [], name, value)
-
-
-            class RouteDistinguisher(Entity):
-                """
-                Route distinguisher
-                
-                .. attribute:: type
-                
-                	Type of RD
-                	**type**\:  :py:class:`BgpGlobalRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpGlobalRouteDistinguisher>`
-                
-                .. attribute:: as_xx
-                
-                	AS number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: as_
-                
-                	AS number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: as_index
-                
-                	ASN Index
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: address
-                
-                	IP address
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: address_index
-                
-                	IP address index
-                	**type**\: int
-                
-                	**range:** 0..65535
-                
-                
-
-                """
-
-                _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-01-18'
-
-                def __init__(self):
-                    super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
-
-                    self.yang_name = "route-distinguisher"
-                    self.yang_parent_name = "bgp-global"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpGlobalRouteDistinguisher', '')])),
-                        ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
-                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
-                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
-                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
-                        ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
-                    ])
-                    self.type = None
-                    self.as_xx = None
-                    self.as_ = None
-                    self.as_index = None
-                    self.address = None
-                    self.address_index = None
-                    self._segment_path = lambda: "route-distinguisher"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
-
-
 
 
         class MulticastHost(Entity):
@@ -1470,6 +1350,126 @@ class Vrfs(Entity):
 
 
 
+        class BgpGlobal(Entity):
+            """
+            BGP related VRF Global config
+            
+            .. attribute:: route_distinguisher
+            
+            	Route distinguisher
+            	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal.RouteDistinguisher>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-bgp-cfg'
+            _revision = '2018-01-18'
+
+            def __init__(self):
+                super(Vrfs.Vrf.BgpGlobal, self).__init__()
+
+                self.yang_name = "bgp-global"
+                self.yang_parent_name = "vrf"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", Vrfs.Vrf.BgpGlobal.RouteDistinguisher))])
+                self._leafs = OrderedDict()
+
+                self.route_distinguisher = Vrfs.Vrf.BgpGlobal.RouteDistinguisher()
+                self.route_distinguisher.parent = self
+                self._children_name_map["route_distinguisher"] = "route-distinguisher"
+                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrfs.Vrf.BgpGlobal, [], name, value)
+
+
+            class RouteDistinguisher(Entity):
+                """
+                Route distinguisher
+                
+                .. attribute:: type
+                
+                	Type of RD
+                	**type**\:  :py:class:`BgpGlobalRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpGlobalRouteDistinguisher>`
+                
+                .. attribute:: as_xx
+                
+                	AS number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: as_
+                
+                	AS number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: as_index
+                
+                	ASN Index
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: address
+                
+                	IP address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: address_index
+                
+                	IP address index
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                
+
+                """
+
+                _prefix = 'ipv4-bgp-cfg'
+                _revision = '2018-01-18'
+
+                def __init__(self):
+                    super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
+
+                    self.yang_name = "route-distinguisher"
+                    self.yang_parent_name = "bgp-global"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpGlobalRouteDistinguisher', '')])),
+                        ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                    ])
+                    self.type = None
+                    self.as_xx = None
+                    self.as_ = None
+                    self.as_index = None
+                    self.address = None
+                    self.address_index = None
+                    self._segment_path = lambda: "route-distinguisher"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Vrfs()
         return self._top_entity
@@ -1576,17 +1576,17 @@ class GlobalAf(Entity):
             	VRF configuration for a particular address family
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: bgp
-            
-            	BGP AF VRF config
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
-            
             .. attribute:: maximum_prefix
             
             	Set maximum prefix limits
             	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.MaximumPrefix>`
             
             	**presence node**\: True
+            
+            .. attribute:: bgp
+            
+            	BGP AF VRF config
+            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
             
             
 
@@ -1603,7 +1603,7 @@ class GlobalAf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['af_name','saf_name','topology_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp))])
                 self._leafs = OrderedDict([
                     ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
                     ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
@@ -1615,18 +1615,71 @@ class GlobalAf(Entity):
                 self.topology_name = None
                 self.create = None
 
+                self.maximum_prefix = None
+                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
                 self.bgp = GlobalAf.Afs.Af.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-
-                self.maximum_prefix = None
-                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af/afs/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GlobalAf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+
+
+            class MaximumPrefix(Entity):
+                """
+                Set maximum prefix limits
+                
+                .. attribute:: prefix_limit
+                
+                	Set table's maximum prefix limit
+                	**type**\: int
+                
+                	**range:** 32..10000000
+                
+                	**mandatory**\: True
+                
+                .. attribute:: mid_threshold
+                
+                	Mid\-threshold (% of maximum)
+                	**type**\: int
+                
+                	**range:** 1..100
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ip-rib-cfg'
+                _revision = '2017-07-31'
+
+                def __init__(self):
+                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
+
+                    self.yang_name = "maximum-prefix"
+                    self.yang_parent_name = "af"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                        ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                    ])
+                    self.prefix_limit = None
+                    self.mid_threshold = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
 
 
             class Bgp(Entity):
@@ -2360,59 +2413,6 @@ class GlobalAf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
 
-
-
-
-            class MaximumPrefix(Entity):
-                """
-                Set maximum prefix limits
-                
-                .. attribute:: prefix_limit
-                
-                	Set table's maximum prefix limit
-                	**type**\: int
-                
-                	**range:** 32..10000000
-                
-                	**mandatory**\: True
-                
-                .. attribute:: mid_threshold
-                
-                	Mid\-threshold (% of maximum)
-                	**type**\: int
-                
-                	**range:** 1..100
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ip-rib-cfg'
-                _revision = '2017-07-31'
-
-                def __init__(self):
-                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
-
-                    self.yang_name = "maximum-prefix"
-                    self.yang_parent_name = "af"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self.is_presence_container = True
-                    self._leafs = OrderedDict([
-                        ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
-                        ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
-                    ])
-                    self.prefix_limit = None
-                    self.mid_threshold = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
 
 
 

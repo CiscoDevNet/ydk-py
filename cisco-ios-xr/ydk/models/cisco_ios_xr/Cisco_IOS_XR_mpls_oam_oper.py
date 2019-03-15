@@ -402,7 +402,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
+                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', 'interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
 
 
 
@@ -609,7 +609,7 @@ class MplsOam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, [u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
+                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, ['interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
 
 
 
@@ -939,7 +939,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -993,7 +993,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -1047,7 +1047,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
 
 
 
@@ -1101,7 +1101,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
 
 
 
@@ -1155,7 +1155,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
 
 
 
@@ -1209,7 +1209,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
 
 
 
@@ -1263,7 +1263,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
 
 
 
@@ -1317,7 +1317,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
 
 
 
@@ -1371,7 +1371,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
 
 
 
@@ -1425,7 +1425,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
 
 
 
@@ -1479,7 +1479,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -1533,7 +1533,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -1587,7 +1587,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -1641,7 +1641,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -1768,7 +1768,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -1822,7 +1822,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -1876,7 +1876,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -1931,7 +1931,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -2058,7 +2058,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2112,7 +2112,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -2166,7 +2166,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2221,7 +2221,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -2348,7 +2348,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2402,7 +2402,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -2456,7 +2456,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2511,7 +2511,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -2638,7 +2638,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2692,7 +2692,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -2746,7 +2746,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2801,7 +2801,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -2928,7 +2928,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -2982,7 +2982,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -3036,7 +3036,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -3091,7 +3091,7 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -3429,7 +3429,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -3484,7 +3484,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -3539,7 +3539,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
 
 
 
@@ -3594,7 +3594,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
 
 
 
@@ -3649,7 +3649,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
 
 
 
@@ -3704,7 +3704,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
 
 
 
@@ -3759,7 +3759,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
 
 
 
@@ -3814,7 +3814,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
 
 
 
@@ -3869,7 +3869,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
 
 
 
@@ -3924,7 +3924,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
 
 
 
@@ -3979,7 +3979,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -4034,7 +4034,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -4089,7 +4089,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
 
 
 
@@ -4144,7 +4144,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -4273,7 +4273,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -4328,7 +4328,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -4383,7 +4383,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -4439,7 +4439,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -4568,7 +4568,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -4623,7 +4623,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -4678,7 +4678,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -4734,7 +4734,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -4863,7 +4863,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -4918,7 +4918,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -4973,7 +4973,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -5029,7 +5029,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -5158,7 +5158,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -5213,7 +5213,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -5268,7 +5268,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -5324,7 +5324,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -5453,7 +5453,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -5508,7 +5508,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
 
 
@@ -5563,7 +5563,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
 
 
@@ -5619,7 +5619,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
 
 
@@ -5685,7 +5685,7 @@ class MplsOam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsOam.Global, [u'total_clients'], name, value)
+            self._perform_setattr(MplsOam.Global, ['total_clients'], name, value)
 
 
         class MessageStatistics(Entity):
@@ -5836,7 +5836,7 @@ class MplsOam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsOam.Global.MessageStatistics, [u'register_messages', u'unregister_messages', u'echo_submit_messages', u'echo_cancel_messages', u'get_result_messages', u'get_config_messages', u'get_response_messages', u'property_response_messages', u'property_request_messages', u'property_block_messages', u'thread_request_messages'], name, value)
+                self._perform_setattr(MplsOam.Global.MessageStatistics, ['register_messages', 'unregister_messages', 'echo_submit_messages', 'echo_cancel_messages', 'get_result_messages', 'get_config_messages', 'get_response_messages', 'property_response_messages', 'property_request_messages', 'property_block_messages', 'thread_request_messages'], name, value)
 
 
 
@@ -5962,7 +5962,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, ['ups', 'downs'], name, value)
 
 
 
@@ -6015,7 +6015,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, ['ups', 'downs'], name, value)
 
 
 
@@ -6068,7 +6068,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, ['ups', 'downs'], name, value)
 
 
 
@@ -6121,7 +6121,7 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, ['ups', 'downs'], name, value)
 
 
 

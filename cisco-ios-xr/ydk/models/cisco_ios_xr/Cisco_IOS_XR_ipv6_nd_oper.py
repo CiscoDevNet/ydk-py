@@ -731,7 +731,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', u'reachability_state', u'link_layer_address', u'encapsulation', u'selected_encapsulation', u'origin_encapsulation', u'interface_name', u'location', u'is_router', u'serg_flags', u'vrfid'], name, value)
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'reachability_state', 'link_layer_address', 'encapsulation', 'selected_encapsulation', 'origin_encapsulation', 'interface_name', 'location', 'is_router', 'serg_flags', 'vrfid'], name, value)
 
 
                             class LastReachedTime(Entity):
@@ -773,7 +773,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, ['seconds'], name, value)
 
 
 
@@ -851,7 +851,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, [u'total_neighbor_entries'], name, value)
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, ['total_neighbor_entries'], name, value)
 
 
                 class Multicast(Entity):
@@ -957,7 +957,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
 
 
@@ -1064,7 +1064,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
 
 
@@ -1171,7 +1171,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
 
 
@@ -1347,7 +1347,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', u'group_id', u'process_name', u'sent_sequence_number', u'received_sequence_number', u'state', u'state_changes', u'sent_packets', u'received_packets'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', 'group_id', 'process_name', 'sent_sequence_number', 'received_sequence_number', 'state', 'state_changes', 'sent_packets', 'received_packets'], name, value)
 
 
                     class Age(Entity):
@@ -1389,7 +1389,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, [u'seconds'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, ['seconds'], name, value)
 
 
 
@@ -1625,7 +1625,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', u'parent_interface_name', u'iftype', u'mtu', u'etype', u'vlan_tag', u'mac_addr_size', u'mac_addr', u'is_interface_enabled', u'is_ipv6_enabled', u'is_mpls_enabled', u'member_link'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'parent_interface_name', 'iftype', 'mtu', 'etype', 'vlan_tag', 'mac_addr_size', 'mac_addr', 'is_interface_enabled', 'is_ipv6_enabled', 'is_mpls_enabled', 'member_link'], name, value)
 
 
                     class NdParameters(Entity):
@@ -1851,7 +1851,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, [u'is_dad_enabled', u'dad_attempts', u'is_icm_pv6_redirect', u'is_dhcp_managed', u'is_route_address_managed', u'is_suppressed', u'send_unicast_ra', u'nd_retransmit_interval', u'nd_min_transmit_interval', u'nd_max_transmit_interval', u'nd_advertisement_lifetime', u'nd_reachable_time', u'nd_cache_limit', u'complete_protocol_count', u'complete_glean_count', u'incomplete_protocol_count', u'incomplete_glean_count', u'dropped_protocol_req_count', u'dropped_glean_req_count'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, ['is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
 
 
 
@@ -1886,6 +1886,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1906,15 +1924,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "local-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -1949,6 +1971,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1969,15 +2009,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "global-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -2029,7 +2073,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, [u'node_name', u'total_links'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, ['node_name', 'total_links'], name, value)
 
 
 
@@ -2308,7 +2352,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', u'is_dad_enabled', u'dad_attempts', u'is_icm_pv6_redirect', u'is_dhcp_managed', u'is_route_address_managed', u'is_suppressed', u'send_unicast_ra', u'nd_retransmit_interval', u'nd_min_transmit_interval', u'nd_max_transmit_interval', u'nd_advertisement_lifetime', u'nd_reachable_time', u'nd_cache_limit', u'complete_protocol_count', u'complete_glean_count', u'incomplete_protocol_count', u'incomplete_glean_count', u'dropped_protocol_req_count', u'dropped_glean_req_count'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', 'is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
 
 
 
@@ -2460,7 +2504,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', u'link_layer_address', u'context', u'state', u'flags', u'vr_gl_addr_ct'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', 'link_layer_address', 'context', 'state', 'flags', 'vr_gl_addr_ct'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -2494,6 +2538,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2514,15 +2576,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "local-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -2557,6 +2623,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2577,15 +2661,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "vr-global-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -2728,7 +2816,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, [u'idb'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, ['idb'], name, value)
 
 
                         class Ra(Entity):
@@ -2916,7 +3004,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, [u'address', u'hops', u'flags', u'life_time', u'mtu', u'err_msg', u'vrf_id', u'u6_tbl_id', u'rib_protoid', u'default_router', u'reachability'], name, value)
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, ['address', 'hops', 'flags', 'life_time', 'mtu', 'err_msg', 'vrf_id', 'u6_tbl_id', 'rib_protoid', 'default_router', 'reachability'], name, value)
 
 
                             class ElapsedRaTime(Entity):
@@ -2958,7 +3046,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, ['seconds'], name, value)
 
 
 
@@ -3001,7 +3089,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, ['seconds'], name, value)
 
 
 
@@ -3044,7 +3132,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, ['seconds'], name, value)
 
 
 
@@ -3151,7 +3239,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, [u'prefix_address', u'eui64', u'valid_life_time', u'preferred_life_time', u'prefix_len', u'flags', u'pfx_flags'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, ['prefix_address', 'eui64', 'valid_life_time', 'preferred_life_time', 'prefix_len', 'flags', 'pfx_flags'], name, value)
 
 
 

@@ -900,7 +900,7 @@ class Ntp(Entity):
         
         .. attribute:: mode
         
-        	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
+        	NTPPRECEDENCE (0) to specify Precedence value NTPDSCP (1) to specify DSCP value
         	**type**\:  :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
         
         	**mandatory**\: True

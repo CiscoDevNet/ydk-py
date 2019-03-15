@@ -601,7 +601,7 @@ class OSPFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.OspfGeneralGroup, [u'ospfrouterid', u'ospfadminstat', u'ospfversionnumber', u'ospfareabdrrtrstatus', u'ospfasbdrrtrstatus', u'ospfexternlsacount', u'ospfexternlsacksumsum', u'ospftossupport', u'ospforiginatenewlsas', u'ospfrxnewlsas', u'ospfextlsdblimit', u'ospfmulticastextensions', u'ospfexitoverflowinterval', u'ospfdemandextensions', u'ospfrfc1583compatibility', u'ospfopaquelsasupport', u'ospfreferencebandwidth', u'ospfrestartsupport', u'ospfrestartinterval', u'ospfrestartstrictlsachecking', u'ospfrestartstatus', u'ospfrestartage', u'ospfrestartexitreason', u'ospfaslsacount', u'ospfaslsacksumsum', u'ospfstubroutersupport', u'ospfstubrouteradvertisement', u'ospfdiscontinuitytime'], name, value)
+            self._perform_setattr(OSPFMIB.OspfGeneralGroup, ['ospfrouterid', 'ospfadminstat', 'ospfversionnumber', 'ospfareabdrrtrstatus', 'ospfasbdrrtrstatus', 'ospfexternlsacount', 'ospfexternlsacksumsum', 'ospftossupport', 'ospforiginatenewlsas', 'ospfrxnewlsas', 'ospfextlsdblimit', 'ospfmulticastextensions', 'ospfexitoverflowinterval', 'ospfdemandextensions', 'ospfrfc1583compatibility', 'ospfopaquelsasupport', 'ospfreferencebandwidth', 'ospfrestartsupport', 'ospfrestartinterval', 'ospfrestartstrictlsachecking', 'ospfrestartstatus', 'ospfrestartage', 'ospfrestartexitreason', 'ospfaslsacount', 'ospfaslsacksumsum', 'ospfstubroutersupport', 'ospfstubrouteradvertisement', 'ospfdiscontinuitytime'], name, value)
 
         class OspfRestartExitReason(Enum):
             """
@@ -1008,7 +1008,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, [u'ospfareaid', u'ospfauthtype', u'ospfimportasextern', u'ospfspfruns', u'ospfareabdrrtrcount', u'ospfasbdrrtrcount', u'ospfarealsacount', u'ospfarealsacksumsum', u'ospfareasummary', u'ospfareastatus', u'ospfareanssatranslatorrole', u'ospfareanssatranslatorstate', u'ospfareanssatranslatorstabilityinterval', u'ospfareanssatranslatorevents', u'cospfopaquearealsacount', u'cospfopaquearealsacksumsum', u'cospfareanssatranslatorrole', u'cospfareanssatranslatorstate', u'cospfareanssatranslatorevents'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, ['ospfareaid', 'ospfauthtype', 'ospfimportasextern', 'ospfspfruns', 'ospfareabdrrtrcount', 'ospfasbdrrtrcount', 'ospfarealsacount', 'ospfarealsacksumsum', 'ospfareasummary', 'ospfareastatus', 'ospfareanssatranslatorrole', 'ospfareanssatranslatorstate', 'ospfareanssatranslatorstabilityinterval', 'ospfareanssatranslatorevents', u'cospfopaquearealsacount', u'cospfopaquearealsacksumsum', u'cospfareanssatranslatorrole', u'cospfareanssatranslatorstate', u'cospfareanssatranslatorevents'], name, value)
 
             class CospfAreaNssaTranslatorRole(Enum):
                 """
@@ -1306,7 +1306,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, [u'ospfstubareaid', u'ospfstubtos', u'ospfstubmetric', u'ospfstubstatus', u'ospfstubmetrictype'], name, value)
+                self._perform_setattr(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, ['ospfstubareaid', 'ospfstubtos', 'ospfstubmetric', 'ospfstubstatus', 'ospfstubmetrictype'], name, value)
 
             class OspfStubMetricType(Enum):
                 """
@@ -1489,7 +1489,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, [u'ospflsdbareaid', u'ospflsdbtype', u'ospflsdblsid', u'ospflsdbrouterid', u'ospflsdbsequence', u'ospflsdbage', u'ospflsdbchecksum', u'ospflsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, ['ospflsdbareaid', 'ospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'ospflsdbsequence', 'ospflsdbage', 'ospflsdbchecksum', 'ospflsdbadvertisement'], name, value)
 
             class OspfLsdbType(Enum):
                 """
@@ -1688,7 +1688,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, [u'ospfarearangeareaid', u'ospfarearangenet', u'ospfarearangemask', u'ospfarearangestatus', u'ospfarearangeeffect'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, ['ospfarearangeareaid', 'ospfarearangenet', 'ospfarearangemask', 'ospfarearangestatus', 'ospfarearangeeffect'], name, value)
 
             class OspfAreaRangeEffect(Enum):
                 """
@@ -1856,7 +1856,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfHostTable.OspfHostEntry, [u'ospfhostipaddress', u'ospfhosttos', u'ospfhostmetric', u'ospfhoststatus', u'ospfhostareaid', u'ospfhostcfgareaid'], name, value)
+                self._perform_setattr(OSPFMIB.OspfHostTable.OspfHostEntry, ['ospfhostipaddress', 'ospfhosttos', 'ospfhostmetric', 'ospfhoststatus', 'ospfhostareaid', 'ospfhostcfgareaid'], name, value)
 
 
 
@@ -2215,7 +2215,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, [u'ospfifipaddress', u'ospfaddresslessif', u'ospfifareaid', u'ospfiftype', u'ospfifadminstat', u'ospfifrtrpriority', u'ospfiftransitdelay', u'ospfifretransinterval', u'ospfifhellointerval', u'ospfifrtrdeadinterval', u'ospfifpollinterval', u'ospfifstate', u'ospfifdesignatedrouter', u'ospfifbackupdesignatedrouter', u'ospfifevents', u'ospfifauthkey', u'ospfifstatus', u'ospfifmulticastforwarding', u'ospfifdemand', u'ospfifauthtype', u'ospfiflsacount', u'ospfiflsacksumsum', u'ospfifdesignatedrouterid', u'ospfifbackupdesignatedrouterid', u'cospfiflsacount', u'cospfiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, ['ospfifipaddress', 'ospfaddresslessif', 'ospfifareaid', 'ospfiftype', 'ospfifadminstat', 'ospfifrtrpriority', 'ospfiftransitdelay', 'ospfifretransinterval', 'ospfifhellointerval', 'ospfifrtrdeadinterval', 'ospfifpollinterval', 'ospfifstate', 'ospfifdesignatedrouter', 'ospfifbackupdesignatedrouter', 'ospfifevents', 'ospfifauthkey', 'ospfifstatus', 'ospfifmulticastforwarding', 'ospfifdemand', 'ospfifauthtype', 'ospfiflsacount', 'ospfiflsacksumsum', 'ospfifdesignatedrouterid', 'ospfifbackupdesignatedrouterid', u'cospfiflsacount', u'cospfiflsacksumsum'], name, value)
 
             class OspfIfMulticastForwarding(Enum):
                 """
@@ -2486,7 +2486,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, [u'ospfifmetricipaddress', u'ospfifmetricaddresslessif', u'ospfifmetrictos', u'ospfifmetricvalue', u'ospfifmetricstatus'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, ['ospfifmetricipaddress', 'ospfifmetricaddresslessif', 'ospfifmetrictos', 'ospfifmetricvalue', 'ospfifmetricstatus'], name, value)
 
 
 
@@ -2728,7 +2728,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, [u'ospfvirtifareaid', u'ospfvirtifneighbor', u'ospfvirtiftransitdelay', u'ospfvirtifretransinterval', u'ospfvirtifhellointerval', u'ospfvirtifrtrdeadinterval', u'ospfvirtifstate', u'ospfvirtifevents', u'ospfvirtifauthkey', u'ospfvirtifstatus', u'ospfvirtifauthtype', u'ospfvirtiflsacount', u'ospfvirtiflsacksumsum', u'cospfvirtiflsacount', u'cospfvirtiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, ['ospfvirtifareaid', 'ospfvirtifneighbor', 'ospfvirtiftransitdelay', 'ospfvirtifretransinterval', 'ospfvirtifhellointerval', 'ospfvirtifrtrdeadinterval', 'ospfvirtifstate', 'ospfvirtifevents', 'ospfvirtifauthkey', 'ospfvirtifstatus', 'ospfvirtifauthtype', 'ospfvirtiflsacount', 'ospfvirtiflsacksumsum', u'cospfvirtiflsacount', u'cospfvirtiflsacksumsum'], name, value)
 
             class OspfVirtIfState(Enum):
                 """
@@ -2965,7 +2965,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfNbrTable.OspfNbrEntry, [u'ospfnbripaddr', u'ospfnbraddresslessindex', u'ospfnbrrtrid', u'ospfnbroptions', u'ospfnbrpriority', u'ospfnbrstate', u'ospfnbrevents', u'ospfnbrlsretransqlen', u'ospfnbmanbrstatus', u'ospfnbmanbrpermanence', u'ospfnbrhellosuppressed', u'ospfnbrrestarthelperstatus', u'ospfnbrrestarthelperage', u'ospfnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfNbrTable.OspfNbrEntry, ['ospfnbripaddr', 'ospfnbraddresslessindex', 'ospfnbrrtrid', 'ospfnbroptions', 'ospfnbrpriority', 'ospfnbrstate', 'ospfnbrevents', 'ospfnbrlsretransqlen', 'ospfnbmanbrstatus', 'ospfnbmanbrpermanence', 'ospfnbrhellosuppressed', 'ospfnbrrestarthelperstatus', 'ospfnbrrestarthelperage', 'ospfnbrrestarthelperexitreason'], name, value)
 
             class OspfNbmaNbrPermanence(Enum):
                 """
@@ -3264,7 +3264,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, [u'ospfvirtnbrarea', u'ospfvirtnbrrtrid', u'ospfvirtnbripaddr', u'ospfvirtnbroptions', u'ospfvirtnbrstate', u'ospfvirtnbrevents', u'ospfvirtnbrlsretransqlen', u'ospfvirtnbrhellosuppressed', u'ospfvirtnbrrestarthelperstatus', u'ospfvirtnbrrestarthelperage', u'ospfvirtnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, ['ospfvirtnbrarea', 'ospfvirtnbrrtrid', 'ospfvirtnbripaddr', 'ospfvirtnbroptions', 'ospfvirtnbrstate', 'ospfvirtnbrevents', 'ospfvirtnbrlsretransqlen', 'ospfvirtnbrhellosuppressed', 'ospfvirtnbrrestarthelperstatus', 'ospfvirtnbrrestarthelperage', 'ospfvirtnbrrestarthelperexitreason'], name, value)
 
             class OspfVirtNbrRestartHelperExitReason(Enum):
                 """
@@ -3528,7 +3528,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, [u'ospfextlsdbtype', u'ospfextlsdblsid', u'ospfextlsdbrouterid', u'ospfextlsdbsequence', u'ospfextlsdbage', u'ospfextlsdbchecksum', u'ospfextlsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, ['ospfextlsdbtype', 'ospfextlsdblsid', 'ospfextlsdbrouterid', 'ospfextlsdbsequence', 'ospfextlsdbage', 'ospfextlsdbchecksum', 'ospfextlsdbadvertisement'], name, value)
 
             class OspfExtLsdbType(Enum):
                 """
@@ -3705,7 +3705,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, [u'ospfareaaggregateareaid', u'ospfareaaggregatelsdbtype', u'ospfareaaggregatenet', u'ospfareaaggregatemask', u'ospfareaaggregatestatus', u'ospfareaaggregateeffect', u'ospfareaaggregateextroutetag'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, ['ospfareaaggregateareaid', 'ospfareaaggregatelsdbtype', 'ospfareaaggregatenet', 'ospfareaaggregatemask', 'ospfareaaggregatestatus', 'ospfareaaggregateeffect', 'ospfareaaggregateextroutetag'], name, value)
 
             class OspfAreaAggregateEffect(Enum):
                 """
@@ -3926,7 +3926,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, [u'ospflocallsdbipaddress', u'ospflocallsdbaddresslessif', u'ospflocallsdbtype', u'ospflocallsdblsid', u'ospflocallsdbrouterid', u'ospflocallsdbsequence', u'ospflocallsdbage', u'ospflocallsdbchecksum', u'ospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, ['ospflocallsdbipaddress', 'ospflocallsdbaddresslessif', 'ospflocallsdbtype', 'ospflocallsdblsid', 'ospflocallsdbrouterid', 'ospflocallsdbsequence', 'ospflocallsdbage', 'ospflocallsdbchecksum', 'ospflocallsdbadvertisement'], name, value)
 
             class OspfLocalLsdbType(Enum):
                 """
@@ -4120,7 +4120,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, [u'ospfvirtlocallsdbtransitarea', u'ospfvirtlocallsdbneighbor', u'ospfvirtlocallsdbtype', u'ospfvirtlocallsdblsid', u'ospfvirtlocallsdbrouterid', u'ospfvirtlocallsdbsequence', u'ospfvirtlocallsdbage', u'ospfvirtlocallsdbchecksum', u'ospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, ['ospfvirtlocallsdbtransitarea', 'ospfvirtlocallsdbneighbor', 'ospfvirtlocallsdbtype', 'ospfvirtlocallsdblsid', 'ospfvirtlocallsdbrouterid', 'ospfvirtlocallsdbsequence', 'ospfvirtlocallsdbage', 'ospfvirtlocallsdbchecksum', 'ospfvirtlocallsdbadvertisement'], name, value)
 
             class OspfVirtLocalLsdbType(Enum):
                 """
@@ -4293,7 +4293,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, [u'ospfaslsdbtype', u'ospfaslsdblsid', u'ospfaslsdbrouterid', u'ospfaslsdbsequence', u'ospfaslsdbage', u'ospfaslsdbchecksum', u'ospfaslsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, ['ospfaslsdbtype', 'ospfaslsdblsid', 'ospfaslsdbrouterid', 'ospfaslsdbsequence', 'ospfaslsdbage', 'ospfaslsdbchecksum', 'ospfaslsdbadvertisement'], name, value)
 
             class OspfAsLsdbType(Enum):
                 """
@@ -4417,7 +4417,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, [u'ospfarealsacountareaid', u'ospfarealsacountlsatype', u'ospfarealsacountnumber'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, ['ospfarealsacountareaid', 'ospfarealsacountlsatype', 'ospfarealsacountnumber'], name, value)
 
             class OspfAreaLsaCountLsaType(Enum):
                 """

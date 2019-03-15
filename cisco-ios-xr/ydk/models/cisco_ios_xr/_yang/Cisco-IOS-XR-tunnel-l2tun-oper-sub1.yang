@@ -163,7 +163,7 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       type uint32;
       units "microsecond";
       description
-        "Average processing time for received packets 
+        "Average processing time for received packets
          (in micro seconds)";
     }
     leaf received-out-of-order-packets {

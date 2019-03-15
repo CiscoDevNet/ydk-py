@@ -856,7 +856,9 @@ module Cisco-IOS-XE-rip {
         "Configure RIP routing protocol";
       key "id";
       leaf id {
-        type string;
+        type leafref {
+	  path "/ios:native/ios:ipv6/ios:router/ios-rip:rip/ios-rip:id";
+        }
       }
       leaf enable {
         description

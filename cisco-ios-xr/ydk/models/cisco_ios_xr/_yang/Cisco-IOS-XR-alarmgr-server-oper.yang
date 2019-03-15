@@ -193,6 +193,25 @@ module Cisco-IOS-XR-alarmgr-server-oper {
           uses ALARM-MGR-SHOW-ALARM-BRIEF-SUPPR-INFO;
         }
       }
+      container alarm-id {
+        description
+          "Show brief system scope alarm related data.";
+        container active-alarms {
+          description
+            "Table of ActiveAlarm";
+          list active-alarm {
+            key "aid";
+            description
+              "Show the active alarms at this scope.";
+            leaf aid {
+              type string;
+              description
+                "Alarm ID";
+            }
+            uses ALARM-MGR-SHOW-ALARM-AID-BRIEF-INFO;
+          }
+        }
+      }
     }
   }
 }

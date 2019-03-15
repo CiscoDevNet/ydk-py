@@ -344,7 +344,7 @@ class PseudowireConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.Global, ['pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'predictive_redundancy', 'vc_state_notification_enabled', 'vc_state_notification_batch_size', 'vc_state_notification_rate'], name, value)
+            self._perform_setattr(PseudowireConfig.Global, [u'pw_grouping', u'pw_oam_refresh_transmit', u'pw_status', u'predictive_redundancy', u'vc_state_notification_enabled', u'vc_state_notification_batch_size', u'vc_state_notification_rate'], name, value)
 
 
 
@@ -544,7 +544,7 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'encapsulation', 'control_word', 'signaling_protocol', 'vc_type', 'switching_tlv', 'source_ip', 'tag_rewrite_ingress_vlan', 'mac_withdraw'], name, value)
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, [u'name', u'encapsulation', u'control_word', u'signaling_protocol', u'vc_type', u'switching_tlv', u'source_ip', u'tag_rewrite_ingress_vlan', u'mac_withdraw'], name, value)
 
 
             class LoadBalance(Entity):
@@ -598,7 +598,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, [u'ethernet', u'ip'], name, value)
 
 
                 class FlowLabel(Entity):
@@ -651,7 +651,7 @@ class PseudowireConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'tlv_code_17', 'static'], name, value)
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, [u'direction', u'tlv_code_17', u'static'], name, value)
 
                     class Direction(Enum):
                         """
@@ -747,7 +747,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['interface', 'address', 'hostname', 'disable_fallback'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, [u'interface', u'address', u'hostname', u'disable_fallback'], name, value)
 
 
 
@@ -793,7 +793,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, [u'direction', u'resync'], name, value)
 
 
 
@@ -830,7 +830,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, [u'control_word'], name, value)
 
 
 
@@ -888,7 +888,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['switchover_timer', 'timer', 'never'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, [u'switchover_timer', u'timer', u'never'], name, value)
 
 
 
@@ -961,7 +961,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'route_watch_disable', 'redundancy_master'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, [u'decoupled', u'disable', u'peer_topo_dual_homed', u'route_watch_disable', u'redundancy_master'], name, value)
 
 
 
@@ -1043,7 +1043,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'shutdown', 'shut_force', 'mtu', 'max_ports', 'enabled'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, [u'description', u'shutdown', u'shut_force', u'mtu', u'max_ports', u'enabled'], name, value)
 
 
 
@@ -1159,7 +1159,7 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_send', 'timeout_refresh_ack'], name, value)
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, [u'name', u'ack', u'keepalive', u'timeout_refresh_send', u'timeout_refresh_ack'], name, value)
 
 
 
@@ -1447,7 +1447,7 @@ class PseudowireState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_type', 'vc_owner_name', 'vc_psn_type', 'vc_local_group_id', 'vc_control_word', 'vc_local_if_mtu', 'vc_remote_group_id', 'vc_remote_control_word', 'vc_remote_if_mtu', 'vc_outbound_label', 'vc_inbound_label', 'vc_oper_status', 'vc_inbound_oper_status', 'vc_outbound_oper_status'], name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, [u'vc_peer_address', u'vc_id', u'vc_owner_type', u'vc_name', u'vc_index', u'vc_type', u'vc_owner_name', u'vc_psn_type', u'vc_local_group_id', u'vc_control_word', u'vc_local_if_mtu', u'vc_remote_group_id', u'vc_remote_control_word', u'vc_remote_if_mtu', u'vc_outbound_label', u'vc_inbound_label', u'vc_oper_status', u'vc_inbound_oper_status', u'vc_outbound_oper_status'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -1692,7 +1692,7 @@ class PseudowireState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['vc_create_time', 'vc_up_time', 'discontinuity_time', 'in_octets', 'in_pkts', 'in_errors', 'out_octets', 'out_pkts', 'out_errors'], name, value)
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, [u'vc_create_time', u'vc_up_time', u'discontinuity_time', u'in_octets', u'in_pkts', u'in_errors', u'out_octets', u'out_pkts', u'out_errors'], name, value)
 
 
 

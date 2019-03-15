@@ -1696,6 +1696,21 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "Clock class below minimum";
     }
+    leaf bad-clock-class {
+      type uint32;
+      description
+        "Illegal clock class (255) in announce messages";
+    }
+    leaf steps-removed {
+      type uint32;
+      description
+        "Steps removed too high";
+    }
+    leaf reserved-clock-id {
+      type uint32;
+      description
+        "Reserved Clock ID";
+    }
     leaf g8265-1-incompatible {
       type uint32;
       description

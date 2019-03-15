@@ -12,13 +12,13 @@ module Cisco-IOS-XR-iedge4710-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-iedge4710-oper-sub3 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-20;
   }
   include Cisco-IOS-XR-iedge4710-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-20;
   }
   include Cisco-IOS-XR-iedge4710-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-20;
   }
 
   organization
@@ -45,6 +45,10 @@ module Cisco-IOS-XR-iedge4710-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixed yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -65,6 +69,33 @@ module Cisco-IOS-XR-iedge4710-oper {
     }
     description
       "Subscriber author state filter flag";
+  }
+
+  typedef Subscriber-srg-oper-filter-flag {
+    type enumeration {
+      enum "srg-none" {
+        value 0;
+        description
+          "SRG Role None";
+      }
+      enum "srg-master" {
+        value 16384;
+        description
+          "SRG Role Master";
+      }
+      enum "srg-slave" {
+        value 65536;
+        description
+          "SRG Role Slave";
+      }
+      enum "srg-both" {
+        value 81920;
+        description
+          "SRG Role Master Slave";
+      }
+    }
+    description
+      "Subscriber srg oper filter flag";
   }
 
   typedef Subscriber-address-family-filter-flag {
@@ -263,6 +294,11 @@ module Cisco-IOS-XR-iedge4710-oper {
                 "Aggregate summary of statistics";
               uses IEDGE-STATS-SUMMARY-DATA;
             }
+            container disconn-unique {
+              description
+                "Disconnect Unique Summary statistics";
+              uses IEDGE-STATS-DISCONNECT-DATA;
+            }
             container srg {
               description
                 "Geo Redundancy statistics";
@@ -288,6 +324,218 @@ module Cisco-IOS-XR-iedge4710-oper {
           description
             "Subscriber session operational data for a
              particular node";
+          container srg-roles {
+            description
+              "List of subscriber session supported srg
+               roles";
+            list srg-role {
+              key "srg";
+              description
+                "Subscriber session operational data based on
+                 srg role";
+              container author-summaries {
+                description
+                  "Summary information filtered by
+                   authorization state";
+                list author-summary {
+                  key "author-state";
+                  description
+                    "authorization summary";
+                  leaf author-state {
+                    type Subscriber-author-state-filter-flag;
+                    description
+                      "Authorization state";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container username-summaries {
+                description
+                  "Summary information filtered by username";
+                list username-summary {
+                  key "username";
+                  description
+                    "Username summary";
+                  leaf username {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Subscriber username";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container mac-summaries {
+                description
+                  "Summary information filtered by MAC address";
+                list mac-summary {
+                  key "mac-address";
+                  description
+                    "MAC address summary";
+                  leaf mac-address {
+                    type yang:mac-address;
+                    description
+                      "Subscriber MAC address";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container interface-summaries {
+                description
+                  "Summary information filtered by interface";
+                list interface-summary {
+                  key "interface-name";
+                  description
+                    "Interface summary";
+                  leaf interface-name {
+                    type xr:Interface-name;
+                    description
+                      "Interface name";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container state-summaries {
+                description
+                  "Summary information filtered by session
+                   state";
+                list state-summary {
+                  key "state";
+                  description
+                    "State summary";
+                  leaf state {
+                    type Subscriber-state-filter-flag;
+                    description
+                      "Subscriber state";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container authentication-summaries {
+                description
+                  "Summary information filtered by
+                   authentication state";
+                list authentication-summary {
+                  key "authentication-state";
+                  description
+                    "authentication summary";
+                  leaf authentication-state {
+                    type Subscriber-authen-state-filter-flag;
+                    description
+                      "Authentication state";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container subscriber-sessions {
+                description
+                  "IP subscriber sessions";
+                list subscriber-session {
+                  key "session-id";
+                  description
+                    "Subscriber session information";
+                  leaf session-id {
+                    type xr:Hex-integer;
+                    description
+                      "Session ID";
+                  }
+                  uses SUBSCRIBER-SESSION-DATA;
+                }
+              }
+              container ipv4-address-vrf-summaries {
+                description
+                  "Summary information filtered by IPv4
+                   address and VRF";
+                list ipv4-address-vrf-summary {
+                  description
+                    "IPv4 address and VRF summary";
+                  leaf vrf-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "VRF name";
+                  }
+                  leaf address {
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "Subscriber IPv4 address";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container srg-summary {
+                description
+                  "Subscriber session summary information";
+                uses SUBSCRIBER-SESSION-SUMMARY;
+              }
+              container access-interface-summaries {
+                description
+                  "Summary information filtered by access
+                   interface";
+                list access-interface-summary {
+                  key "interface-name";
+                  description
+                    "Access interface summary";
+                  leaf interface-name {
+                    type xr:Interface-name;
+                    description
+                      "Interface name";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container address-family-summaries {
+                description
+                  "Summary information filtered by address
+                   family";
+                list address-family-summary {
+                  key "address-family";
+                  description
+                    "Address family summary";
+                  leaf address-family {
+                    type Subscriber-address-family-filter-flag;
+                    description
+                      "Address family";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container ipv4-address-summaries {
+                description
+                  "Summary information filtered by subscriber
+                   IPv4 address";
+                list ipv4-address-summary {
+                  key "address";
+                  description
+                    "IPv4 address summary";
+                  leaf address {
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "Subscriber IPv4 address";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              container vrf-summaries {
+                description
+                  "Summary information filtered by VRF";
+                list vrf-summary {
+                  key "vrf-name";
+                  description
+                    "VRF summary";
+                  leaf vrf-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "VRF name";
+                  }
+                  uses SUBSCRIBER-SESSION-SUMMARY;
+                }
+              }
+              leaf srg {
+                type Subscriber-srg-oper-filter-flag;
+                description
+                  "Subscriber srg role";
+              }
+            }
+          }
           container author-summaries {
             description
               "Summary information filtered by authorization

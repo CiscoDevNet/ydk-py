@@ -99,6 +99,8 @@ class EtherSpeed(Enum):
 
     .. data:: speed_unknown = 8
 
+    .. data:: speed_auto = 9
+
     """
 
     speed_10mb = Enum.YLeaf(0, "speed-10mb")
@@ -118,6 +120,8 @@ class EtherSpeed(Enum):
     speed_100gb = Enum.YLeaf(7, "speed-100gb")
 
     speed_unknown = Enum.YLeaf(8, "speed-unknown")
+
+    speed_auto = Enum.YLeaf(9, "speed-auto")
 
 
 class IetfIntfType(Enum):

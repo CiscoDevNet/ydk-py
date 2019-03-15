@@ -35,6 +35,14 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-28 {
+    description
+      "Added new SR-TE timers configuration.";
+  }
+  revision 2018-07-25 {
+    description
+      "Removed incorrect mandatory specifications.";
+  }
   revision 2018-07-07 {
     description
       "Modified the allowed range for policy path weight.";
@@ -81,6 +89,28 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "Xtc metric value";
   }
 
+  typedef Xtc-affinity-rule {
+    type enumeration {
+      enum "affinity-include-all" {
+        value 0;
+        description
+          "Include-all affinity rule";
+      }
+      enum "affinity-exclude-any" {
+        value 1;
+        description
+          "Exclude-any affinity rule";
+      }
+      enum "affinity-include-any" {
+        value 2;
+        description
+          "Include-any affinity rule";
+      }
+    }
+    description
+      "Xtc affinity rule";
+  }
+
   typedef Xtc-binding-sidexplicit-rule {
     type enumeration {
       enum "fallback-dynamic" {
@@ -96,6 +126,18 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
     }
     description
       "Xtc binding sidexplicit rule";
+  }
+
+  typedef Xtc-binding-sid-dynamic-rule {
+    type enumeration {
+      enum "disable" {
+        value 1;
+        description
+          "Disable dynamic binding SID allocation";
+      }
+    }
+    description
+      "Xtc binding sid dynamic rule";
   }
 
   typedef Xtc-path-hop {
@@ -137,28 +179,6 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "Xtc steering application";
   }
 
-  typedef Xtc-affinity-rule {
-    type enumeration {
-      enum "affinity-include-all" {
-        value 0;
-        description
-          "Include-all affinity rule";
-      }
-      enum "affinity-exclude-any" {
-        value 1;
-        description
-          "Exclude-any affinity rule";
-      }
-      enum "affinity-include-any" {
-        value 2;
-        description
-          "Include-any affinity rule";
-      }
-    }
-    description
-      "Xtc affinity rule";
-  }
-
   typedef Xtc-path {
     type enumeration {
       enum "explicit" {
@@ -188,8 +208,13 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
         description
           "TE metric type";
       }
-      enum "latency" {
+      enum "hopcount" {
         value 3;
+        description
+          "Hopcount metric type";
+      }
+      enum "latency" {
+        value 12;
         description
           "Latency metric type";
       }
@@ -310,16 +335,100 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "Xtc end point";
   }
 
+  grouping METRIC-MARGIN {
+    description
+      "Common node of metric,
+       on-demand-color-dyn-mpls-metric";
+    container metric-margin {
+      description
+        "Metric Margin";
+      leaf value-type {
+        type Xtc-metric-value;
+        description
+          "Metric margin type";
+      }
+      leaf absolute-value {
+        when "../value-type = 'absolute'" {
+          description
+            "../ValueType = Absolute";
+        }
+        type uint32 {
+          range "0..2147483647";
+        }
+        description
+          "Absolute metric value";
+      }
+      leaf relative-value {
+        when "../value-type = 'relative'" {
+          description
+            "../ValueType = Relative";
+        }
+        type uint32 {
+          range "0..2147483647";
+        }
+        description
+          "Relative metric value";
+      }
+    }
+  }
+
   grouping ENABLE {
     description
       "Common node of traffic-engineering, policy,
        segment-list, candidate-paths, preference,
-       path-info, metric, constraints, srte-interface,
-       auto-route, on-demand-color, pcep";
+       path-info, metric, srte-interface, auto-route,
+       on-demand-color, pcep";
     leaf enable {
       type empty;
       description
         "True only";
+    }
+  }
+
+  grouping AFFINITY-RULE-TABLE {
+    description
+      "Common node of constraints,
+       on-demand-color-dyn-mpls";
+    container affinity-rules {
+      description
+        "SR path computation and verification affinity
+         rules";
+      list affinity-rule {
+        key "rule";
+        description
+          "SR path computation and verification affinity
+           rule";
+        leaf rule {
+          type Xtc-affinity-rule;
+          description
+            "Affinity rule type";
+        }
+        list affinity-name {
+          key "affinity-name";
+          description
+            "Affinity rule name";
+          leaf affinity-name {
+            type xr:Cisco-ios-xr-string {
+              length "1..32";
+            }
+            description
+              "Affinity name";
+          }
+        }
+      }
+    }
+  }
+
+  grouping MAXIMUM-SID-DEPTH {
+    description
+      "Common node of traffic-engineering,
+       on-demand-color";
+    leaf maximum-sid-depth {
+      type uint32 {
+        range "1..255";
+      }
+      description
+        "Maximum SID Depth Configuration";
     }
   }
 
@@ -328,9 +437,20 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "This augment extends the configuration data of
        'Cisco-IOS-XR-segment-routing-ms-cfg'";
     container traffic-engineering {
-      presence "Indicates a traffic-engineering node is configured.";
       description
         "Traffic Engineering configuration data";
+      container out-of-resources {
+        description
+          "SR-TE out-of-resources handling configuration";
+        leaf maximum-ls-ps {
+          type uint32 {
+            range "0..4294967295";
+          }
+          default "0";
+          description
+            "Number of LSPs (0 for no limit; default is 0)";
+        }
+      }
       container on-demand-colors {
         description
           "On-demand color configuration";
@@ -339,16 +459,13 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           description
             "On-demand color configuration";
           container on-demand-color-dyn-mpls {
-            presence "Indicates a on-demand-color-dyn-mpls node is configured.";
             description
               "Dynamic MPLS path properties";
             container on-demand-color-dyn-mpls-metric {
-              presence "Indicates a on-demand-color-dyn-mpls-metric node is configured.";
               description
                 "Metric type";
               leaf metric-type {
                 type Xtc-metric;
-                mandatory true;
                 description
                   "Metric Type";
               }
@@ -357,6 +474,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                 description
                   "Metric submode Enable";
               }
+              uses METRIC-MARGIN;
             }
             container on-demand-color-dyn-mpls-pce {
               description
@@ -397,7 +515,6 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
               type uint32 {
                 range "128..255";
               }
-              mandatory true;
               description
                 "Prefix-SID algorithm";
             }
@@ -406,6 +523,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
               description
                 "Dynamic MPLS path properties submode Enable";
             }
+            uses AFFINITY-RULE-TABLE;
           }
           leaf bandwidth {
             type uint32 {
@@ -422,6 +540,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             description
               "Color";
           }
+          uses MAXIMUM-SID-DEPTH;
           uses ENABLE;
         }
       }
@@ -495,6 +614,35 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             "Enable logging for policy status";
         }
       }
+      container timers {
+        description
+          "SR-TE timers configuration";
+        leaf cleanup-delay {
+          type uint32 {
+            range "0..300";
+          }
+          default "10";
+          description
+            "Delay before cleaning up previous path";
+        }
+        leaf install-delay {
+          type uint32 {
+            range "0..300";
+          }
+          default "10";
+          description
+            "Delay before switching to a reoptimized path";
+        }
+        leaf periodic-reoptimization {
+          type uint32 {
+            range "0..86400";
+          }
+          default "600";
+          description
+            "How often to perform periodic reoptimization
+             of policies";
+        }
+      }
       container binding-sid-rules {
         description
           "Binding sid rules";
@@ -507,6 +655,17 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             mandatory true;
             description
               "Binding sid explicit rule";
+          }
+        }
+        container dynamic-binding-sid-rules {
+          presence "Indicates a dynamic-binding-sid-rules node is configured.";
+          description
+            "Dynamic binding SID options";
+          leaf dynamic-binding-sid-rule {
+            type Xtc-binding-sid-dynamic-rule;
+            mandatory true;
+            description
+              "Binding SID dynamic rule";
           }
         }
       }
@@ -640,6 +799,12 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                 }
               }
             }
+            leaf force-sr-include {
+              type empty;
+              description
+                "Force autoroute policy to be safe for
+                 carrying SR labelled traffic";
+            }
             uses ENABLE;
           }
           container candidate-paths {
@@ -696,30 +861,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                         "Prefix-SID algorithm";
                     }
                   }
-                  container affinity-rules {
-                    description
-                      "SR path computation and verification
-                       affinity rules";
-                    list affinity-rule {
-                      key "rule color";
-                      description
-                        "SR path computation and verification
-                         affinity rule";
-                      leaf rule {
-                        type Xtc-affinity-rule;
-                        description
-                          "Path-option preference";
-                      }
-                      leaf color {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..59";
-                        }
-                        description
-                          "The color";
-                      }
-                    }
-                  }
-                  uses ENABLE;
+                  uses AFFINITY-RULE-TABLE;
                 }
                 container path-infos {
                   description
@@ -730,56 +872,23 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                     description
                       "Policy configuration";
                     container metric {
-                      presence "Indicates a metric node is configured.";
                       description
                         "Metric configuration, valid only for
                          dynamic path-options";
-                      container margin {
-                        description
-                          "Metric type";
-                        leaf value-type {
-                          type Xtc-metric-value;
-                          description
-                            "Metric value type";
-                        }
-                        leaf absolute-value {
-                          when "../value-type = 'absolute'" {
-                            description
-                              "../ValueType = Absolute";
-                          }
-                          type uint32 {
-                            range "0..2147483647";
-                          }
-                          description
-                            "Absolute metric value";
-                        }
-                        leaf relative-value {
-                          when "../value-type = 'relative'" {
-                            description
-                              "../ValueType = Relative";
-                          }
-                          type uint32 {
-                            range "0..100";
-                          }
-                          description
-                            "Relative metric value";
-                        }
-                      }
                       leaf sid-limit {
                         type uint32 {
-                          range "0..255";
+                          range "1..255";
                         }
-                        mandatory true;
                         description
                           "Maximum number of SIDs";
                       }
                       leaf metric-type {
                         type Xtc-metric;
-                        mandatory true;
                         description
                           "Metric type";
                       }
                       uses ENABLE;
+                      uses METRIC-MARGIN;
                     }
                     container pcep {
                       description
@@ -871,15 +980,15 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             description
               "Set user defined interface attribute flags";
             list interface-affinity {
-              key "color";
+              key "affinity-name";
               description
                 "Set user defined interface attribute flags";
-              leaf color {
+              leaf affinity-name {
                 type xr:Cisco-ios-xr-string {
                   length "1..32";
                 }
                 description
-                  "Interface affinity colors";
+                  "Interface affinity names";
               }
             }
           }
@@ -1007,14 +1116,6 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             "Local source IP address to use on PCEP
              sessions";
         }
-        leaf max-sid-depth {
-          type uint32 {
-            range "1..32";
-          }
-          description
-            "Override the platform Maximum SID Depth value
-             with a user configured explicit value";
-        }
         leaf enable {
           type empty;
           description
@@ -1042,10 +1143,10 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
         description
           "Affinity-map configuration";
         list affinity-map {
-          key "color";
+          key "affinity-name";
           description
             "Affinity-map entry";
-          leaf color {
+          leaf affinity-name {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
@@ -1067,14 +1168,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
         description
           "Use TE-latency algorithm";
       }
-      leaf maximum-sid-depth {
-        type uint32 {
-          range "1..255";
-        }
-        mandatory true;
-        description
-          "Maximum SID Depth Configuration";
-      }
+      uses MAXIMUM-SID-DEPTH;
       uses ENABLE;
     }
   }

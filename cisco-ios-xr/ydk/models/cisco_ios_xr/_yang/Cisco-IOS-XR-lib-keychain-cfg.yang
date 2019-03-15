@@ -29,6 +29,10 @@ module Cisco-IOS-XR-lib-keychain-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-16 {
+    description
+      "Server Dead Auth Action";
+  }
   revision 2018-01-31 {
     description
       "Fixed incorrect plural rendering.";

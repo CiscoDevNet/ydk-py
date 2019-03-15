@@ -232,7 +232,7 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Shutdown.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.Shutdown.Location, [u'location'], name, value)
 
 
 
@@ -387,7 +387,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, ['location'], name, value)
+                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, [u'location'], name, value)
 
 
 
@@ -468,7 +468,7 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Offline.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.Offline.Location, [u'location'], name, value)
 
 
 
@@ -547,7 +547,7 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.AttentionLed.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.AttentionLed.Location, [u'location'], name, value)
 
 
 
@@ -595,7 +595,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Config.Location, ['location'], name, value)
+                self._perform_setattr(HwModule.Config.Location, [u'location'], name, value)
 
 
             class Logging(Entity):
@@ -668,7 +668,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, ['disable'], name, value)
+                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, [u'disable'], name, value)
 
 
 
@@ -885,7 +885,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, ['bootmedium'], name, value)
+                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, [u'bootmedium'], name, value)
 
 
 
@@ -1010,7 +1010,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Alocation, ['locs'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Alocation, [u'locs'], name, value)
 
 
             class Fpd(Entity):
@@ -1102,7 +1102,7 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, ['fpdname', 'state', 'hwver', 'fpdver', 'cardname', 'attr', 'fpddnld'], name, value)
+                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, [u'fpdname', u'state', u'hwver', u'fpdver', u'cardname', u'attr', u'fpddnld'], name, value)
 
 
 
@@ -1143,7 +1143,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Fpd, ['fpdname'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Fpd, [u'fpdname'], name, value)
 
 
 

@@ -175,7 +175,7 @@ class RebootHistory(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RebootHistory.Node.RebootHistory_, [u'no', u'time', u'cause_code', u'reason'], name, value)
+                self._perform_setattr(RebootHistory.Node.RebootHistory_, ['no', 'time', 'cause_code', 'reason'], name, value)
 
 
 

@@ -155,7 +155,7 @@ class HwModule(Entity):
     """
 
     _prefix = 'ncs1k-mxp-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-06-20'
 
     def __init__(self):
         super(HwModule, self).__init__()
@@ -199,7 +199,7 @@ class HwModule(Entity):
         """
 
         _prefix = 'ncs1k-mxp-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-06-20'
 
         def __init__(self):
             super(HwModule.SliceIds, self).__init__()
@@ -257,9 +257,9 @@ class HwModule(Entity):
             
             	**config**\: False
             
-            .. attribute:: hardware_status
+            .. attribute:: status
             
-            	HardwareStatus
+            	Status
             	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
             
             	**config**\: False
@@ -317,7 +317,7 @@ class HwModule(Entity):
             """
 
             _prefix = 'ncs1k-mxp-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-06-20'
 
             def __init__(self):
                 super(HwModule.SliceIds.SliceId, self).__init__()
@@ -333,7 +333,7 @@ class HwModule(Entity):
                     ('slice_id', (YLeaf(YType.uint32, 'slice-id'), ['int'])),
                     ('client_rate', (YLeaf(YType.enumeration, 'client-rate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'ClientDataRate', '')])),
                     ('trunk_rate', (YLeaf(YType.enumeration, 'trunk-rate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'TrunkDataRate', '')])),
-                    ('hardware_status', (YLeaf(YType.enumeration, 'hardware-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus', '')])),
+                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus', '')])),
                     ('dp_fpga_fw_type', (YLeaf(YType.str, 'dp-fpga-fw-type'), ['str'])),
                     ('dp_fpga_fw_ver', (YLeaf(YType.str, 'dp-fpga-fw-ver'), ['str'])),
                     ('need_upg', (YLeaf(YType.uint32, 'need-upg'), ['int'])),
@@ -344,7 +344,7 @@ class HwModule(Entity):
                 self.slice_id = None
                 self.client_rate = None
                 self.trunk_rate = None
-                self.hardware_status = None
+                self.status = None
                 self.dp_fpga_fw_type = None
                 self.dp_fpga_fw_ver = None
                 self.need_upg = None
@@ -357,7 +357,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.SliceIds.SliceId, ['slice_num', u'slice_id', u'client_rate', u'trunk_rate', u'hardware_status', u'dp_fpga_fw_type', u'dp_fpga_fw_ver', u'need_upg', u'encryption_supported', u'lldp_drop_status'], name, value)
+                self._perform_setattr(HwModule.SliceIds.SliceId, ['slice_num', u'slice_id', u'client_rate', u'trunk_rate', u'status', u'dp_fpga_fw_type', u'dp_fpga_fw_ver', u'need_upg', u'encryption_supported', u'lldp_drop_status'], name, value)
 
 
             class ClientPort(Entity):
@@ -394,7 +394,7 @@ class HwModule(Entity):
                 """
 
                 _prefix = 'ncs1k-mxp-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-06-20'
 
                 def __init__(self):
                     super(HwModule.SliceIds.SliceId.ClientPort, self).__init__()
@@ -456,7 +456,7 @@ class HwModule(Entity):
                     """
 
                     _prefix = 'ncs1k-mxp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-06-20'
 
                     def __init__(self):
                         super(HwModule.SliceIds.SliceId.ClientPort.TrunkPort, self).__init__()
@@ -502,7 +502,7 @@ class HwModule(Entity):
         """
 
         _prefix = 'ncs1k-mxp-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-06-20'
 
         def __init__(self):
             super(HwModule.SliceAll, self).__init__()
@@ -551,9 +551,9 @@ class HwModule(Entity):
             
             	**config**\: False
             
-            .. attribute:: hardware_status
+            .. attribute:: status
             
-            	HardwareStatus
+            	Status
             	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
             
             	**config**\: False
@@ -611,7 +611,7 @@ class HwModule(Entity):
             """
 
             _prefix = 'ncs1k-mxp-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-06-20'
 
             def __init__(self):
                 super(HwModule.SliceAll.SliceInfo, self).__init__()
@@ -626,7 +626,7 @@ class HwModule(Entity):
                     ('slice_id', (YLeaf(YType.uint32, 'slice-id'), ['int'])),
                     ('client_rate', (YLeaf(YType.enumeration, 'client-rate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'ClientDataRate', '')])),
                     ('trunk_rate', (YLeaf(YType.enumeration, 'trunk-rate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'TrunkDataRate', '')])),
-                    ('hardware_status', (YLeaf(YType.enumeration, 'hardware-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus', '')])),
+                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus', '')])),
                     ('dp_fpga_fw_type', (YLeaf(YType.str, 'dp-fpga-fw-type'), ['str'])),
                     ('dp_fpga_fw_ver', (YLeaf(YType.str, 'dp-fpga-fw-ver'), ['str'])),
                     ('need_upg', (YLeaf(YType.uint32, 'need-upg'), ['int'])),
@@ -636,7 +636,7 @@ class HwModule(Entity):
                 self.slice_id = None
                 self.client_rate = None
                 self.trunk_rate = None
-                self.hardware_status = None
+                self.status = None
                 self.dp_fpga_fw_type = None
                 self.dp_fpga_fw_ver = None
                 self.need_upg = None
@@ -649,7 +649,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.SliceAll.SliceInfo, [u'slice_id', u'client_rate', u'trunk_rate', u'hardware_status', u'dp_fpga_fw_type', u'dp_fpga_fw_ver', u'need_upg', u'encryption_supported', u'lldp_drop_status'], name, value)
+                self._perform_setattr(HwModule.SliceAll.SliceInfo, [u'slice_id', u'client_rate', u'trunk_rate', u'status', u'dp_fpga_fw_type', u'dp_fpga_fw_ver', u'need_upg', u'encryption_supported', u'lldp_drop_status'], name, value)
 
 
             class ClientPort(Entity):
@@ -686,7 +686,7 @@ class HwModule(Entity):
                 """
 
                 _prefix = 'ncs1k-mxp-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-06-20'
 
                 def __init__(self):
                     super(HwModule.SliceAll.SliceInfo.ClientPort, self).__init__()
@@ -749,7 +749,7 @@ class HwModule(Entity):
                     """
 
                     _prefix = 'ncs1k-mxp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-06-20'
 
                     def __init__(self):
                         super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__init__()

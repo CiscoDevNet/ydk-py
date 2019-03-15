@@ -37,6 +37,18 @@ module Cisco-IOS-XE-vrrp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-08-15 {
+    description
+      "Revise the model for vrrp ip primary/secondary in vrrp-group-v2";
+  }   
+  revision 2018-08-07 {
+    description
+      "Remove tailf:cli-incomplete-no in list vrrp-group-v2";
+  }  
+  revision 2018-07-27 {
+    description
+      "Modify container preempt for both version";
+  }
   revision 2018-06-28 {
     description
       "Add support for VRRP version 2";
@@ -108,36 +120,56 @@ module Cisco-IOS-XE-vrrp {
 	  type string;
 	}
 	container ip {
-	  list vrrp-ipv4 {
-	    key "ipv4";
-	    leaf ipv4 {
+	  container primary {
+	    leaf address {
+	      type inet:ipv4-address;
+	    }   
+      	  }
+      	  list secondary {
+	    key "address";
+	    leaf address {
 	      type inet:ipv4-address;
 	    }
 	    leaf secondary {
+	      description
+	        "Make this IPv4 address a secondary address";
+	      mandatory true;
 	      type empty;
 	    }
-	  }
+          }
 	}
 	leaf name {
 	  description "Unique VRRS identifier (max 48 characters)";
 	  type string;
 	}
-	container preempt {
-	  presence true;
-	  container delay {
-	    leaf minimum {
-	      description "Seconds to delay";
-	      type uint16 {
-		range "0..3600";
-	      }
-	    }
-	  }
-	}
+
+        container preempt-config {
+          leaf preempt {
+            description "Enable preemption of lower priority Master";
+            type boolean;
+            default true;
+          }
+        }
+
+        container preempt {
+           description "Enable preemption of lower priority Master";
+           container delay {
+             description "Set time delay before preempting";
+             leaf minimum {
+               description "Seconds to delay";
+               type uint16 {
+                 range "0..3600";
+               }
+               units seconds;
+             }
+           }
+        }
 	leaf priority {
 	  description "Priority level";
 	  type uint8 {
 	    range "1..254";
 	  }
+          default 100;
 	}
 	leaf shutdown {
 	  type empty;
@@ -275,26 +307,34 @@ module Cisco-IOS-XE-vrrp {
       type empty;
     }
       
-    container preempt {
-      description "Enable preemption of lower priority Master";
-      presence "Enable preemption";
-      container delay {
-	description "Set time delay before preempting";
-	leaf minimum {
-	  description "Seconds to delay";
-	  type uint16 {
-	    range "0..3600";
-	  }
-	  units seconds;
-	}
+    container preempt-config {
+      leaf preempt {
+        description "Enable preemption of lower priority Master";
+        type boolean;
+        default true;
       }
     }
+
+    container preempt {
+       description "Enable preemption of lower priority Master";
+       container delay {
+         description "Set time delay before preempting";
+         leaf minimum {
+           description "Seconds to delay";
+           type uint16 {
+             range "0..3600";
+           }
+           units seconds;
+         }
+       }
+    } 
       
     leaf priority {
       description "Priority level";
       type uint8 {
 	range "1..254";
       }
+      default 100;
     }
       
     leaf shutdown {

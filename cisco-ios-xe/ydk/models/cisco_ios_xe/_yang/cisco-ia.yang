@@ -26,6 +26,18 @@ module cisco-ia {
      Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+   revision "2018-08-03" {
+    description 
+      "Add parser message blacklist capability";
+    reference TBD;
+  }
+
+  revision "2018-07-25" {
+    description
+      "Add pivot commands (for internal use only).";
+    reference TBD;
+  }
+
    revision "2018-03-28" {
     description 
       "Add parser response to error information for
@@ -170,6 +182,25 @@ module cisco-ia {
     }
   }
     
+  typedef parser-msg-processing-method {
+    type enumeration {
+      enum "blacklist" {
+        value 0;
+        description 
+          "Check all parser output against a set
+           of known errors and abort the transaction
+           if matched.";
+      }
+      enum "whitelist" {
+        value 1;
+        description 
+          "Check all parser output against a set
+           of known messages to ignore and abort 
+           the transaction if not matched.";
+      }
+    }
+  }
+
   typedef cia-sync-type {
     type enumeration {
       enum "disabled" {
@@ -587,6 +618,15 @@ module cisco-ia {
             "Process any parser output from configuration changes
              as a possible error.";
       }
+      leaf missing-prc-method {
+          type parser-msg-processing-method;
+          default "blacklist";
+          description
+            "Process any parser output from configuration changes
+             and compare against either a known set of errors 
+             (blacklist) or a known set of messages to ignore 
+             (whitelist)";
+      }
       leaf snmp-community-string {
           type string;
           default private;
@@ -626,7 +666,6 @@ module cisco-ia {
       list parser-msg-ignore {
         key message;
         config false;
-        max-elements 200;
         description 
           "Parser output from configuration 
            change that is informational only,
@@ -645,7 +684,6 @@ module cisco-ia {
   
       list conf-parser-msg-ignore {
         key message;
-        max-elements 50;
         description 
           "Parser output from configuration 
            change that is informational only,
@@ -657,6 +695,42 @@ module cisco-ia {
           description 
             "A regular expression to match parser
              output to be ignored";
+        }
+      }
+
+      list parser-msg-error {
+        key message;
+        config false;
+        description 
+          "Parser output from configuration 
+           change that indicates an error
+           that cannot be ignored (must abort
+           the transaction). This is a read only
+           list containing known error messages.";
+        leaf message {
+          type string {
+              length "1..255";
+          }
+          description 
+            "A regular expression to match parser
+             output to be considered an error.";
+        }
+      }
+  
+      list conf-parser-msg-error {
+        key message;
+        description 
+          "Parser output from configuration 
+           change that indicates an error
+           that cannot be ignored (must abort
+           the transaction).";
+        leaf message {
+          type string {
+              length "1..255";
+          }
+          description 
+            "A regular expression to match parser
+             output to be considered an error";
         }
       }
 
@@ -806,6 +880,63 @@ module cisco-ia {
                being sent to Confd from the network
                element";
           }
+        }
+      }
+
+      container pivot-commands {
+        description
+          "WARNING: These configuration commands should not be used unless
+                    directed to by Cisco.
+           Some IOS configuration commands may have a vitally important
+           relationship to other IOS configuration commands.
+           These so called pivotal commands have to be handled as an 
+           execption to the normal processing flow. The pivotal commands
+           and their special handling actions are described in this list.";
+
+        grouping pivot-command-grouping {
+          leaf command {
+            type string {
+              length "1 .. 255";
+            }
+            description
+              "The command prefix to match.  Leading spaces are
+               counted towards the match.";
+          }
+          container retry {
+            presence
+              "The pivot command will be retried if it fails.";
+            description
+              "Whether or not the command will be retried if it
+               fails and associated parameters.";
+            leaf min-retry-time {
+              type uint16 {
+                range "10 .. 60000";
+              }
+              units "milliseconds";
+              description
+                "The minimum time to wait before retrying a failed
+                 command.";
+            }
+            leaf max-retry-time {
+              type uint16 {
+                range "10 .. 60000";
+              }
+              units "milliseconds";
+              description
+                "The maximum time to wait before retrying a failed
+                 command.  Commands that continue to fail after
+                 having waited this amount of time are considered to
+                 have permanently failed.";
+            }
+          }
+        }
+
+        list pivot-command {
+          key "command";
+          config false;
+          description
+            "Static list of pivot commands.";
+          uses pivot-command-grouping;
         }
       }
     }

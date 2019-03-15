@@ -882,7 +882,7 @@ class Vrrp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vrrp.Summary, ['ipv4_sessions_master_owner', 'ipv4_sessions_master', 'ipv4_sessions_backup', 'ipv4_sessions_init', 'ipv4_slaves_master', 'ipv4_slaves_backup', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_master_owner_up', 'ipv4_virtual_ip_addresses_master_owner_down', 'ipv4_virtual_ip_addresses_master_up', 'ipv4_virtual_ip_addresses_master_down', 'ipv4_virtual_ip_addresses_backup_up', 'ipv4_virtual_ip_addresses_backup_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_master_owner', 'ipv6_sessions_master', 'ipv6_sessions_backup', 'ipv6_sessions_init', 'ipv6_slaves_master', 'ipv6_slaves_backup', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_master_owner_up', 'ipv6_virtual_ip_addresses_master_owner_down', 'ipv6_virtual_ip_addresses_master_up', 'ipv6_virtual_ip_addresses_master_down', 'ipv6_virtual_ip_addresses_backup_up', 'ipv6_virtual_ip_addresses_backup_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'tracked_objects_state_up', 'tracked_objects_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive', 'ipv6bfd_sessions_up', 'ipv6bfd_sessions_down', 'ipv6bfd_session_inactive'], name, value)
+            self._perform_setattr(Vrrp.Summary, [u'ipv4_sessions_master_owner', u'ipv4_sessions_master', u'ipv4_sessions_backup', u'ipv4_sessions_init', u'ipv4_slaves_master', u'ipv4_slaves_backup', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_master_owner_up', u'ipv4_virtual_ip_addresses_master_owner_down', u'ipv4_virtual_ip_addresses_master_up', u'ipv4_virtual_ip_addresses_master_down', u'ipv4_virtual_ip_addresses_backup_up', u'ipv4_virtual_ip_addresses_backup_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_master_owner', u'ipv6_sessions_master', u'ipv6_sessions_backup', u'ipv6_sessions_init', u'ipv6_slaves_master', u'ipv6_slaves_backup', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_master_owner_up', u'ipv6_virtual_ip_addresses_master_owner_down', u'ipv6_virtual_ip_addresses_master_up', u'ipv6_virtual_ip_addresses_master_down', u'ipv6_virtual_ip_addresses_backup_up', u'ipv6_virtual_ip_addresses_backup_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'tracked_objects_state_up', u'tracked_objects_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive', u'ipv6bfd_sessions_up', u'ipv6bfd_sessions_down', u'ipv6bfd_session_inactive'], name, value)
 
 
 
@@ -1112,7 +1112,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
 
@@ -2000,7 +2000,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', u'interface_name_xr', u'virtual_router_id_xr', u'version', u'address_family', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'secondary_address_count', u'operational_address_count', u'primary_virtual_ip', u'configured_down_address_count', u'virtual_linklocal_ipv6_address', u'primary_state', u'master_ip_address', u'master_ipv6_address', u'master_priority', u'vrrp_state', u'authentication_type', u'authentication_string', u'configured_advertize_time', u'oper_advertize_time', u'min_delay_time', u'reload_delay_time', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'authentication_flag', u'force_timer_flag', u'preempt_flag', u'ip_address_owner_flag', u'is_accept_mode', u'preempt_delay_time', u'configured_priority', u'operational_priority', u'priority_decrement', u'tracked_interface_count', u'tracked_interface_up_count', u'tracked_item_count', u'tracked_item_up_count', u'time_in_current_state', u'state_change_count', u'time_vrouter_up', u'master_count', u'adverts_received_count', u'advert_interval_error_count', u'adverts_sent_count', u'authentication_fail_count', u'ttl_error_count', u'priority_zero_received_count', u'priority_zero_sent_count', u'invalid_packet_count', u'address_list_error_count', u'invalid_auth_type_count', u'auth_type_mismatch_count', u'pkt_length_errors_count', u'time_stats_discontinuity', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'bfd_cfg_remote_ip', u'bfd_configured_remote_ipv6_address', u'state_from_checkpoint', u'interface_ipv4_address', u'interface_ipv6_address', u'virtual_mac_address', u'virtual_mac_address_state', u'operational_address', u'ipv4_configured_down_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -2055,7 +2055,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -2111,7 +2111,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -2152,7 +2152,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -2193,7 +2193,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -2289,7 +2289,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
 
@@ -2357,7 +2357,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -2412,7 +2412,7 @@ class Vrrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -2550,7 +2550,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
 
@@ -2749,7 +2749,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
 
@@ -2918,7 +2918,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
 
@@ -3806,7 +3806,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', u'interface_name_xr', u'virtual_router_id_xr', u'version', u'address_family', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'secondary_address_count', u'operational_address_count', u'primary_virtual_ip', u'configured_down_address_count', u'virtual_linklocal_ipv6_address', u'primary_state', u'master_ip_address', u'master_ipv6_address', u'master_priority', u'vrrp_state', u'authentication_type', u'authentication_string', u'configured_advertize_time', u'oper_advertize_time', u'min_delay_time', u'reload_delay_time', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'authentication_flag', u'force_timer_flag', u'preempt_flag', u'ip_address_owner_flag', u'is_accept_mode', u'preempt_delay_time', u'configured_priority', u'operational_priority', u'priority_decrement', u'tracked_interface_count', u'tracked_interface_up_count', u'tracked_item_count', u'tracked_item_up_count', u'time_in_current_state', u'state_change_count', u'time_vrouter_up', u'master_count', u'adverts_received_count', u'advert_interval_error_count', u'adverts_sent_count', u'authentication_fail_count', u'ttl_error_count', u'priority_zero_received_count', u'priority_zero_sent_count', u'invalid_packet_count', u'address_list_error_count', u'invalid_auth_type_count', u'auth_type_mismatch_count', u'pkt_length_errors_count', u'time_stats_discontinuity', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'bfd_cfg_remote_ip', u'bfd_configured_remote_ipv6_address', u'state_from_checkpoint', u'interface_ipv4_address', u'interface_ipv6_address', u'virtual_mac_address', u'virtual_mac_address_state', u'operational_address', u'ipv4_configured_down_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -3861,7 +3861,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -3917,7 +3917,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -3958,7 +3958,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -3999,7 +3999,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -4095,7 +4095,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
 
@@ -4163,7 +4163,7 @@ class Vrrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -4218,7 +4218,7 @@ class Vrrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -4362,7 +4362,7 @@ class Vrrp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', u'primary_session_name', u'primary_session_interface', u'primary_af_name', u'primary_session_number', u'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -4413,7 +4413,7 @@ class Vrrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, ['slave_interface', 'slave_virtual_router_id'], name, value)
+                    self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, [u'slave_interface', u'slave_virtual_router_id'], name, value)
 
 
 

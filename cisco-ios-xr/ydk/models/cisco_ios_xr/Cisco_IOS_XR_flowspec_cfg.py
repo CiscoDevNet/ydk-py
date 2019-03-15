@@ -287,6 +287,11 @@ class FlowSpec(Entity):
                     """
                     Service Policy configuration
                     
+                    .. attribute:: policy_type  (key)
+                    
+                    	Choose the Policy type
+                    	**type**\:  :py:class:`FsAfP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FsAfP>`
+                    
                     .. attribute:: policy_name  (key)
                     
                     	Policy map name
@@ -294,10 +299,12 @@ class FlowSpec(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: policy_type
+                    .. attribute:: local
                     
-                    	keys\: policy\-type
-                    	**type**\: list of  		 :py:class:`PolicyType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FlowSpec.Afs.Af.ServicePolicies.ServicePolicy.PolicyType>`
+                    	Set constant integer
+                    	**type**\: bool
+                    
+                    	**mandatory**\: True
                     
                     
 
@@ -313,65 +320,21 @@ class FlowSpec(Entity):
                         self.yang_parent_name = "service-policies"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self.ylist_key_names = ['policy_name']
-                        self._child_classes = OrderedDict([("policy-type", ("policy_type", FlowSpec.Afs.Af.ServicePolicies.ServicePolicy.PolicyType))])
+                        self.ylist_key_names = ['policy_type','policy_name']
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
+                            ('policy_type', (YLeaf(YType.enumeration, 'policy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg', 'FsAfP', '')])),
                             ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                            ('local', (YLeaf(YType.boolean, 'local'), ['bool'])),
                         ])
+                        self.policy_type = None
                         self.policy_name = None
-
-                        self.policy_type = YList(self)
-                        self._segment_path = lambda: "service-policy" + "[policy-name='" + str(self.policy_name) + "']"
+                        self.local = None
+                        self._segment_path = lambda: "service-policy" + "[policy-type='" + str(self.policy_type) + "']" + "[policy-name='" + str(self.policy_name) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy, ['policy_name'], name, value)
-
-
-                    class PolicyType(Entity):
-                        """
-                        keys\: policy\-type
-                        
-                        .. attribute:: policy_type  (key)
-                        
-                        	Choose the Policy type
-                        	**type**\:  :py:class:`FsAfP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FsAfP>`
-                        
-                        .. attribute:: local
-                        
-                        	Set constant integer
-                        	**type**\: bool
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'flowspec-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, self).__init__()
-
-                            self.yang_name = "policy-type"
-                            self.yang_parent_name = "service-policy"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['policy_type']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('policy_type', (YLeaf(YType.enumeration, 'policy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg', 'FsAfP', '')])),
-                                ('local', (YLeaf(YType.boolean, 'local'), ['bool'])),
-                            ])
-                            self.policy_type = None
-                            self.local = None
-                            self._segment_path = lambda: "policy-type" + "[policy-type='" + str(self.policy_type) + "']"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, ['policy_type', 'local'], name, value)
-
+                        self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy, ['policy_type', 'policy_name', 'local'], name, value)
 
 
 
@@ -588,6 +551,11 @@ class FlowSpec(Entity):
                             """
                             Service Policy configuration
                             
+                            .. attribute:: policy_type  (key)
+                            
+                            	Choose the Policy type
+                            	**type**\:  :py:class:`FsAfP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FsAfP>`
+                            
                             .. attribute:: policy_name  (key)
                             
                             	Policy map name
@@ -595,10 +563,12 @@ class FlowSpec(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: policy_type
+                            .. attribute:: local
                             
-                            	keys\: policy\-type
-                            	**type**\: list of  		 :py:class:`PolicyType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy.PolicyType>`
+                            	Set constant integer
+                            	**type**\: bool
+                            
+                            	**mandatory**\: True
                             
                             
 
@@ -614,65 +584,21 @@ class FlowSpec(Entity):
                                 self.yang_parent_name = "service-policies"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self.ylist_key_names = ['policy_name']
-                                self._child_classes = OrderedDict([("policy-type", ("policy_type", FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy.PolicyType))])
+                                self.ylist_key_names = ['policy_type','policy_name']
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
+                                    ('policy_type', (YLeaf(YType.enumeration, 'policy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg', 'FsAfP', '')])),
                                     ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                    ('local', (YLeaf(YType.boolean, 'local'), ['bool'])),
                                 ])
+                                self.policy_type = None
                                 self.policy_name = None
-
-                                self.policy_type = YList(self)
-                                self._segment_path = lambda: "service-policy" + "[policy-name='" + str(self.policy_name) + "']"
+                                self.local = None
+                                self._segment_path = lambda: "service-policy" + "[policy-type='" + str(self.policy_type) + "']" + "[policy-name='" + str(self.policy_name) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy, ['policy_name'], name, value)
-
-
-                            class PolicyType(Entity):
-                                """
-                                keys\: policy\-type
-                                
-                                .. attribute:: policy_type  (key)
-                                
-                                	Choose the Policy type
-                                	**type**\:  :py:class:`FsVrfAfP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg.FsVrfAfP>`
-                                
-                                .. attribute:: local
-                                
-                                	Set constant integer
-                                	**type**\: bool
-                                
-                                	**mandatory**\: True
-                                
-                                
-
-                                """
-
-                                _prefix = 'flowspec-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, self).__init__()
-
-                                    self.yang_name = "policy-type"
-                                    self.yang_parent_name = "service-policy"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['policy_type']
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('policy_type', (YLeaf(YType.enumeration, 'policy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg', 'FsVrfAfP', '')])),
-                                        ('local', (YLeaf(YType.boolean, 'local'), ['bool'])),
-                                    ])
-                                    self.policy_type = None
-                                    self.local = None
-                                    self._segment_path = lambda: "policy-type" + "[policy-type='" + str(self.policy_type) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, ['policy_type', 'local'], name, value)
-
+                                self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy, ['policy_type', 'policy_name', 'local'], name, value)
 
 
 

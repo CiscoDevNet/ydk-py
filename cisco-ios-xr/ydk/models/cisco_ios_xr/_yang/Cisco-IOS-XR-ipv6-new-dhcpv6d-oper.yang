@@ -6,7 +6,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
-    revision-date 2017-12-06;
+    revision-date 2018-10-09;
   }
 
   organization
@@ -32,6 +32,14 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-10-09 {
+    description
+      "Added dhcpv6 server disconnect-history class";
+  }
+  revision 2018-09-17 {
+    description
+      "Added dhcpv6 proxy disconnect-history class";
+  }
   revision 2017-12-06 {
     description
       "Added proxy class and server class oper for class and server profile";
@@ -128,6 +136,21 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
               }
             }
           }
+          container disconnect-histories {
+            description
+              "DHCPv6 proxy disconnect history";
+            list disconnect-history {
+              key "index";
+              description
+                "Single DHCPv6 proxy disconnect history";
+              leaf index {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Index";
+              }
+              uses IPV6-DHCPV6D-DISC-HISTORY;
+            }
+          }
           container interfaces {
             description
               "DHCPV6 proxy interface";
@@ -200,6 +223,21 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
         container server {
           description
             "IPv6 DHCP server operational data";
+          container disconnect-histories {
+            description
+              "DHCPv6 server disconnect history";
+            list disconnect-history {
+              key "index";
+              description
+                "Single DHCPv6 server disconnect history";
+              leaf index {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Index";
+              }
+              uses IPV6-DHCPV6D-DISC-HISTORY;
+            }
+          }
           container binding {
             description
               "DHCPV6 server bindings";

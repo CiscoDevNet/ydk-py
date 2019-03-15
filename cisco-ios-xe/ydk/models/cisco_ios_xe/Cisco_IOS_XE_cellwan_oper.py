@@ -1083,7 +1083,7 @@ class CellwanOperData(Entity):
     """
 
     _prefix = 'cellwan-ios-xe-oper'
-    _revision = '2018-09-04'
+    _revision = '2018-05-18'
 
     def __init__(self):
         super(CellwanOperData, self).__init__()
@@ -1234,7 +1234,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanHardware, self).__init__()
@@ -1402,7 +1402,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanRadio, self).__init__()
@@ -1624,7 +1624,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanNetwork, self).__init__()
@@ -1853,7 +1853,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanConnection, self).__init__()
@@ -1967,7 +1967,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanSecurity, self).__init__()
@@ -2136,7 +2136,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanSms, self).__init__()
@@ -2253,7 +2253,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-09-04'
+        _revision = '2018-05-18'
 
         def __init__(self):
             super(CellwanOperData.CellwanGps, self).__init__()

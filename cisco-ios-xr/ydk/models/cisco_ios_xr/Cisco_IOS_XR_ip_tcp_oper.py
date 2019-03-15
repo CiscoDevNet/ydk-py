@@ -1864,7 +1864,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', u'client_jid', u'client_name', u'ipv4_received_packets', u'ipv4_sent_packets', u'ipv6_received_packets', u'ipv6_sent_packets'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
 
 
 
@@ -2151,7 +2151,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', u'pcb', u'vrf_id', u'packets_sent', u'xipc_pulse_received', u'segment_instruction_received', u'send_packets_queued', u'send_packets_queued_net_io', u'send_queue_failed', u'send_queue_net_io_failed', u'packets_received', u'receive_queue_failed', u'received_packets_queued', u'send_window_shrink_ignored', u'is_paw_socket', u'read_io_time', u'write_io_time'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', 'pcb', 'vrf_id', 'packets_sent', 'xipc_pulse_received', 'segment_instruction_received', 'send_packets_queued', 'send_packets_queued_net_io', 'send_queue_failed', 'send_queue_net_io_failed', 'packets_received', 'receive_queue_failed', 'received_packets_queued', 'send_window_shrink_ignored', 'is_paw_socket', 'read_io_time', 'write_io_time'], name, value)
 
 
                         class ReadIoCounts(Entity):
@@ -2224,7 +2224,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, [u'io_count', u'arm_count', u'unarm_count', u'autoarm_count'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
 
 
 
@@ -2298,7 +2298,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, [u'io_count', u'arm_count', u'unarm_count', u'autoarm_count'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
 
 
 
@@ -2418,7 +2418,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, [u'async_session'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, ['async_session'], name, value)
 
 
                             class DataWriteSuccessNum(Entity):
@@ -2458,7 +2458,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, ['entry'], name, value)
 
 
 
@@ -2499,7 +2499,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, ['entry'], name, value)
 
 
 
@@ -2540,7 +2540,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, ['entry'], name, value)
 
 
 
@@ -2581,7 +2581,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, ['entry'], name, value)
 
 
 
@@ -2622,7 +2622,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, ['entry'], name, value)
 
 
 
@@ -2663,7 +2663,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, ['entry'], name, value)
 
 
 
@@ -2704,7 +2704,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, ['entry'], name, value)
 
 
 
@@ -2745,7 +2745,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, ['entry'], name, value)
 
 
 
@@ -2788,7 +2788,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, ['entry'], name, value)
 
 
 
@@ -2831,7 +2831,7 @@ class TcpConnection(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, [u'entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, ['entry'], name, value)
 
 
 
@@ -3650,6 +3650,24 @@ class TcpConnection(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: sockbuf_pak_res_cur
+                    
+                    	Current number of packets extended for scaled sockets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: sockbuf_pak_res_max
+                    
+                    	Maximum number of packets extended for scaled sockets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: iqs_total_ingpacket
                     
                     	Total Number of Ingress packets on TCP iqs
@@ -3769,6 +3787,8 @@ class TcpConnection(Entity):
                             ('iq_sock_aborts', (YLeaf(YType.uint32, 'iq-sock-aborts'), ['int'])),
                             ('iq_ingress_drops', (YLeaf(YType.uint32, 'iq-ingress-drops'), ['int'])),
                             ('total_i_qs', (YLeaf(YType.uint32, 'total-i-qs'), ['int'])),
+                            ('sockbuf_pak_res_cur', (YLeaf(YType.uint32, 'sockbuf-pak-res-cur'), ['int'])),
+                            ('sockbuf_pak_res_max', (YLeaf(YType.uint32, 'sockbuf-pak-res-max'), ['int'])),
                         ])
                         self.syn_cache_count = None
                         self.num_open_sockets = None
@@ -3858,6 +3878,8 @@ class TcpConnection(Entity):
                         self.iq_sock_aborts = None
                         self.iq_ingress_drops = None
                         self.total_i_qs = None
+                        self.sockbuf_pak_res_cur = None
+                        self.sockbuf_pak_res_max = None
 
                         self.iqs_total_ingpacket = YList(self)
                         self.iqs_total_egpacket = YList(self)
@@ -3865,7 +3887,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, [u'syn_cache_count', u'num_open_sockets', u'total_pakets_sent', u'send_packets_dropped', u'send_auth_packets_dropped', u'data_pakets_sent', u'data_bytes_sent', u'packets_retransmitted', u'bytes_retransmitted', u'ack_only_packets_sent', u'delay_ack_packets_sent', u'urgent_only_packets_sent', u'window_probe_packets_sent', u'window_update_packets_sent', u'control_packets_sent', u'rst_packets_sent', u'total_packets_received', u'received_packets_dropped', u'synacl_match_pkts_dropped', u'received_packets_dropped_stale_c_hdr', u'received_auth_packets_dropped', u'ack_packets_received', u'ackbytes_received', u'duplicated_ack_packets_received', u'ack_packets_for_unsent_received', u'data_packets_received_in_sequence', u'data_bytes_received_in_sequence', u'duplicate_packets_received', u'duplicate_bytes_received', u'partial_duplicate_ack_received', u'partial_duplicate_bytes_received', u'out_of_order_packets_received', u'out_of_order_bytes_received', u'after_window_packets_received', u'after_window_bytes_received', u'window_probe_packets_received', u'window_update_packets_received', u'packets_received_after_close_packet', u'bad_checksum_packets_received', u'too_short_packets_received', u'malformed_packets_received', u'no_port_packets_received', u'connections_requested', u'connections_accepted', u'connections_established', u'connections_forcibly_closed', u'connections_closed', u'connections_dropped', u'embryonic_connection_dropped', u'connections_failed', u'established_connections_reset', u'retransmit_timeouts', u'retransmit_dropped', u'keep_alive_timeouts', u'keep_alive_dropped', u'keep_alive_probes', u'paws_dropped', u'persist_dropped', u'try_lock_dropped', u'connection_rate_limited', u'syn_cache_added', u'syn_cache_completed', u'syn_cache_timed_out', u'syn_cache_overflow', u'syn_cache_reset', u'syn_cache_unreach', u'syn_cache_bucket_oflow', u'syn_cache_aborted', u'syn_cache_duplicate_sy_ns', u'syn_cache_dropped', u'pulse_errors', u'socket_layer_packets', u'reassembly_packets', u'recovered_packets', u'packet_failures', u'mss_up', u'mss_down', u'truncated_write_iov', u'no_throttle', u'low_water_mark_throttle', u'high_water_mark_throttle', u'stalled_timer_tickle_count', u'stalled_timer_tickle_time', u'iq_sock_writes', u'iq_sock_retries', u'iq_sock_aborts', u'iq_ingress_drops', u'total_i_qs'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs', 'sockbuf_pak_res_cur', 'sockbuf_pak_res_max'], name, value)
 
 
                     class IqsTotalIngpacket(Entity):
@@ -3905,7 +3927,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, [u'entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, ['entry'], name, value)
 
 
 
@@ -3946,7 +3968,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, [u'entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, ['entry'], name, value)
 
 
 
@@ -6046,7 +6068,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', u'address_family', u'pcb', u'so', u'tcpcb', u'vrf_id', u'connection_state', u'established_time', u'local_pid', u'local_port', u'foreign_port', u'packet_priority', u'packet_tos', u'packet_ttl', u'hash_index', u'current_receive_queue_size', u'max_receive_queue_size', u'current_send_queue_size', u'max_send_queue_size', u'current_receive_queue_packet_size', u'max_receive_queue_packet_size', u'save_queue_size', u'send_initial_sequence_num', u'send_unack_sequence_num', u'send_next_sequence_num', u'send_max_sequence_num', u'send_window_size', u'send_congestion_window_size', u'receive_initial_sequence_num', u'receive_next_sequence_num', u'receive_adv_window_size', u'receive_window_size', u'mss', u'peer_mss', u'srtt', u'rtto', u'krtt', u'srtv', u'min_rtt', u'max_rtt', u'retries', u'ack_hold_time', u'giveup_time', u'keep_alive_time', u'syn_wait_time', u'rxsy_naclname', u'soft_error', u'sock_error', u'is_retrans_forever', u'min_mss', u'max_mss', u'connect_retries', u'connect_retry_interval', u'receive_window_scale', u'send_window_scale', u'request_receive_window_scale', u'rqst_send_wnd_scale', u'time_stamp_recent', u'time_stamp_recent_age', u'last_ack_sent', u'sendbuf_lowwat', u'recvbuf_lowwat', u'sendbuf_hiwat', u'recvbuf_hiwat', u'sendbuf_notify_thresh', u'recvbuf_datasize', u'queue_length', u'queue_zero_length', u'queue_limit', u'socket_error', u'auto_rearm', u'send_pdu_count', u'output_ifhandle', u'fib_pd_ctx_size', u'num_labels', u'local_app_instance'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', 'address_family', 'pcb', 'so', 'tcpcb', 'vrf_id', 'connection_state', 'established_time', 'local_pid', 'local_port', 'foreign_port', 'packet_priority', 'packet_tos', 'packet_ttl', 'hash_index', 'current_receive_queue_size', 'max_receive_queue_size', 'current_send_queue_size', 'max_send_queue_size', 'current_receive_queue_packet_size', 'max_receive_queue_packet_size', 'save_queue_size', 'send_initial_sequence_num', 'send_unack_sequence_num', 'send_next_sequence_num', 'send_max_sequence_num', 'send_window_size', 'send_congestion_window_size', 'receive_initial_sequence_num', 'receive_next_sequence_num', 'receive_adv_window_size', 'receive_window_size', 'mss', 'peer_mss', 'srtt', 'rtto', 'krtt', 'srtv', 'min_rtt', 'max_rtt', 'retries', 'ack_hold_time', 'giveup_time', 'keep_alive_time', 'syn_wait_time', 'rxsy_naclname', 'soft_error', 'sock_error', 'is_retrans_forever', 'min_mss', 'max_mss', 'connect_retries', 'connect_retry_interval', 'receive_window_scale', 'send_window_scale', 'request_receive_window_scale', 'rqst_send_wnd_scale', 'time_stamp_recent', 'time_stamp_recent_age', 'last_ack_sent', 'sendbuf_lowwat', 'recvbuf_lowwat', 'sendbuf_hiwat', 'recvbuf_hiwat', 'sendbuf_notify_thresh', 'recvbuf_datasize', 'queue_length', 'queue_zero_length', 'queue_limit', 'socket_error', 'auto_rearm', 'send_pdu_count', 'output_ifhandle', 'fib_pd_ctx_size', 'num_labels', 'local_app_instance'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -6106,7 +6128,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6167,7 +6189,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6252,6 +6274,20 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: snd_buf_scaled
+                        
+                        	Send buffer scaled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: rcv_buf_scaled
+                        
+                        	Receive buffer scaled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6280,6 +6316,8 @@ class TcpConnection(Entity):
                                 ('out_of_band_inline', (YLeaf(YType.boolean, 'out-of-band-inline'), ['bool'])),
                                 ('reuse_port', (YLeaf(YType.boolean, 'reuse-port'), ['bool'])),
                                 ('nonblocking_io', (YLeaf(YType.boolean, 'nonblocking-io'), ['bool'])),
+                                ('snd_buf_scaled', (YLeaf(YType.boolean, 'snd-buf-scaled'), ['bool'])),
+                                ('rcv_buf_scaled', (YLeaf(YType.boolean, 'rcv-buf-scaled'), ['bool'])),
                             ])
                             self.debug = None
                             self.accept_connection = None
@@ -6292,11 +6330,13 @@ class TcpConnection(Entity):
                             self.out_of_band_inline = None
                             self.reuse_port = None
                             self.nonblocking_io = None
+                            self.snd_buf_scaled = None
+                            self.rcv_buf_scaled = None
                             self._segment_path = lambda: "socket-option-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, [u'debug', u'accept_connection', u'reuse_address', u'keep_alive', u'dont_route', u'broadcast', u'use_loopback', u'linger', u'out_of_band_inline', u'reuse_port', u'nonblocking_io'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, ['debug', 'accept_connection', 'reuse_address', 'keep_alive', 'dont_route', 'broadcast', 'use_loopback', 'linger', 'out_of_band_inline', 'reuse_port', 'nonblocking_io', 'snd_buf_scaled', 'rcv_buf_scaled'], name, value)
 
 
 
@@ -6461,7 +6501,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, [u'no_file_descriptor_reference', u'is_connected', u'is_connecting', u'is_disconnecting', u'cant_send_more', u'cant_receive_more', u'received_at_mark', u'privileged', u'block_close', u'async_io_notify', u'is_confirming', u'is_solock', u'is_detached', u'block_receive', u'block_send'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, ['no_file_descriptor_reference', 'is_connected', 'is_connecting', 'is_disconnecting', 'cant_send_more', 'cant_receive_more', 'received_at_mark', 'privileged', 'block_close', 'async_io_notify', 'is_confirming', 'is_solock', 'is_detached', 'block_receive', 'block_send'], name, value)
 
 
 
@@ -6572,7 +6612,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, [u'selective_ack', u'md5', u'timestamps', u'window_scaling', u'nagle', u'giveup_timer', u'connection_keep_alive_timer', u'path_mtu_discovery', u'mss_cisco'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
 
 
 
@@ -6674,7 +6714,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, [u'nagle_wait', u'ack_needed', u'fin_sent', u'probing', u'need_push', u'pushed', u'in_syn_cache', u'path_mtu_ager'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, ['nagle_wait', 'ack_needed', 'fin_sent', 'probing', 'need_push', 'pushed', 'in_syn_cache', 'path_mtu_ager'], name, value)
 
 
 
@@ -6785,7 +6825,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, [u'selective_ack', u'md5', u'timestamps', u'window_scaling', u'nagle', u'giveup_timer', u'connection_keep_alive_timer', u'path_mtu_discovery', u'mss_cisco'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
 
 
 
@@ -6877,6 +6917,13 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: packet_extended
+                        
+                        	Packet Buffer is extended
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6906,6 +6953,7 @@ class TcpConnection(Entity):
                                 ('connect_wakeup', (YLeaf(YType.boolean, 'connect-wakeup'), ['bool'])),
                                 ('output_select', (YLeaf(YType.boolean, 'output-select'), ['bool'])),
                                 ('out_of_band_select', (YLeaf(YType.boolean, 'out-of-band-select'), ['bool'])),
+                                ('packet_extended', (YLeaf(YType.boolean, 'packet-extended'), ['bool'])),
                             ])
                             self.locked = None
                             self.waiting_for_lock = None
@@ -6919,11 +6967,12 @@ class TcpConnection(Entity):
                             self.connect_wakeup = None
                             self.output_select = None
                             self.out_of_band_select = None
+                            self.packet_extended = None
                             self._segment_path = lambda: "receive-buf-state-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, [u'locked', u'waiting_for_lock', u'waiting_for_data', u'input_select', u'async_io', u'not_interruptible', u'io_timer_set', u'delayed_wakeup', u'wakeup', u'connect_wakeup', u'output_select', u'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
 
 
@@ -7015,6 +7064,13 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: packet_extended
+                        
+                        	Packet Buffer is extended
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -7044,6 +7100,7 @@ class TcpConnection(Entity):
                                 ('connect_wakeup', (YLeaf(YType.boolean, 'connect-wakeup'), ['bool'])),
                                 ('output_select', (YLeaf(YType.boolean, 'output-select'), ['bool'])),
                                 ('out_of_band_select', (YLeaf(YType.boolean, 'out-of-band-select'), ['bool'])),
+                                ('packet_extended', (YLeaf(YType.boolean, 'packet-extended'), ['bool'])),
                             ])
                             self.locked = None
                             self.waiting_for_lock = None
@@ -7057,11 +7114,12 @@ class TcpConnection(Entity):
                             self.connect_wakeup = None
                             self.output_select = None
                             self.out_of_band_select = None
+                            self.packet_extended = None
                             self._segment_path = lambda: "send-buf-state-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, [u'locked', u'waiting_for_lock', u'waiting_for_data', u'input_select', u'async_io', u'not_interruptible', u'io_timer_set', u'delayed_wakeup', u'wakeup', u'connect_wakeup', u'output_select', u'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
 
 
@@ -7102,7 +7160,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, [u'entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, ['entry'], name, value)
 
 
 
@@ -7143,7 +7201,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, [u'entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, ['entry'], name, value)
 
 
 
@@ -7215,7 +7273,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, [u'timer_type', u'timer_activations', u'timer_expirations', u'timer_next_activation'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, ['timer_type', 'timer_activations', 'timer_expirations', 'timer_next_activation'], name, value)
 
 
 
@@ -7267,7 +7325,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, [u'start', u'end'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, ['start', 'end'], name, value)
 
 
 
@@ -7341,7 +7399,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, [u'start', u'end', u'duplicated_ack', u'retransmitted'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, ['start', 'end', 'duplicated_ack', 'retransmitted'], name, value)
 
 
 
@@ -7492,7 +7550,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain, ['keychain_name', u'chain_name', u'is_configured', u'desired_key_available', u'desired_key_id'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain, ['keychain_name', 'chain_name', 'is_configured', 'desired_key_available', 'desired_key_id'], name, value)
 
 
                     class Keys(Entity):
@@ -7637,7 +7695,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, [u'key_id', u'is_active', u'is_expired', u'is_valid', u'reason', u'send_id', u'recv_id', u'crypt_algo', u'is_configured', u'overlapping_key_available', u'overlapping_key'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, ['key_id', 'is_active', 'is_expired', 'is_valid', 'reason', 'send_id', 'recv_id', 'crypt_algo', 'is_configured', 'overlapping_key_available', 'overlapping_key'], name, value)
 
 
                         class InvalidatedKey(Entity):
@@ -7677,7 +7735,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, [u'key_id'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, ['key_id'], name, value)
 
 
 
@@ -7719,7 +7777,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, [u'key_id'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, ['key_id'], name, value)
 
 
 
@@ -7769,7 +7827,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, [u'id'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, ['id'], name, value)
 
 
                         class Keys(Entity):
@@ -7809,7 +7867,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, [u'key_id'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, ['key_id'], name, value)
 
 
 
@@ -7860,7 +7918,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, [u'id'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, ['id'], name, value)
 
 
                         class Keys(Entity):
@@ -7900,7 +7958,7 @@ class TcpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, [u'key_id'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, ['key_id'], name, value)
 
 
 
@@ -8104,7 +8162,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', u'af_name', u'pcb', u'connection_state', u'local_pid', u'local_port', u'foreign_port', u'current_receive_queue_size', u'current_send_queue_size', u'vrf_id'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', 'af_name', 'pcb', 'connection_state', 'local_pid', 'local_port', 'foreign_port', 'current_receive_queue_size', 'current_send_queue_size', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -8164,7 +8222,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8225,7 +8283,7 @@ class TcpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8499,7 +8557,7 @@ class Tcp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv4Traffic, [u'tcp_input_packets', u'tcp_checksum_error_packets', u'tcp_dropped_packets', u'tcp_output_packets', u'tcp_retransmitted_packets'], name, value)
+                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv4Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
 
 
 
@@ -8584,7 +8642,7 @@ class Tcp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv6Traffic, [u'tcp_input_packets', u'tcp_checksum_error_packets', u'tcp_dropped_packets', u'tcp_output_packets', u'tcp_retransmitted_packets'], name, value)
+                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv6Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
 
 
 

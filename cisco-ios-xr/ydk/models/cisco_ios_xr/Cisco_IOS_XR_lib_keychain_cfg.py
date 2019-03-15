@@ -215,7 +215,7 @@ class Keychains(Entity):
     """
 
     _prefix = 'lib-keychain-cfg'
-    _revision = '2018-01-31'
+    _revision = '2018-07-16'
 
     def __init__(self):
         super(Keychains, self).__init__()
@@ -268,7 +268,7 @@ class Keychains(Entity):
         """
 
         _prefix = 'lib-keychain-cfg'
-        _revision = '2018-01-31'
+        _revision = '2018-07-16'
 
         def __init__(self):
             super(Keychains.Keychain, self).__init__()
@@ -326,7 +326,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2018-01-31'
+            _revision = '2018-07-16'
 
             def __init__(self):
                 super(Keychains.Keychain.AcceptTolerance, self).__init__()
@@ -365,7 +365,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2018-01-31'
+            _revision = '2018-07-16'
 
             def __init__(self):
                 super(Keychains.Keychain.MacsecKeychain, self).__init__()
@@ -402,7 +402,7 @@ class Keychains(Entity):
                 """
 
                 _prefix = 'lib-keychain-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-07-16'
 
                 def __init__(self):
                     super(Keychains.Keychain.MacsecKeychain.MacsecKeys, self).__init__()
@@ -453,7 +453,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-07-16'
 
                     def __init__(self):
                         super(Keychains.Keychain.MacsecKeychain.MacsecKeys.MacsecKey, self).__init__()
@@ -606,7 +606,7 @@ class Keychains(Entity):
                         """
 
                         _prefix = 'lib-keychain-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-07-16'
 
                         def __init__(self):
                             super(Keychains.Keychain.MacsecKeychain.MacsecKeys.MacsecKey.MacsecLifetime, self).__init__()
@@ -691,7 +691,7 @@ class Keychains(Entity):
                         """
 
                         _prefix = 'lib-keychain-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-07-16'
 
                         def __init__(self):
                             super(Keychains.Keychain.MacsecKeychain.MacsecKeys.MacsecKey.MacsecKeyString, self).__init__()
@@ -736,7 +736,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2018-01-31'
+            _revision = '2018-07-16'
 
             def __init__(self):
                 super(Keychains.Keychain.Keys, self).__init__()
@@ -799,7 +799,7 @@ class Keychains(Entity):
                 """
 
                 _prefix = 'lib-keychain-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-07-16'
 
                 def __init__(self):
                     super(Keychains.Keychain.Keys.Key, self).__init__()
@@ -956,7 +956,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-07-16'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keys.Key.AcceptLifetime, self).__init__()
@@ -1131,7 +1131,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-07-16'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keys.Key.SendLifetime, self).__init__()

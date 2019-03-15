@@ -156,6 +156,13 @@ module Cisco-IOS-XR-ethernet-lldp-cfg {
         "Length  of time  (in sec) that receiver must
          keep this packet";
     }
+    leaf enable-priority-addr {
+      type boolean;
+      default "false";
+      description
+        "Enable or disable Priority to advertise
+         Mgmt-interface Addr First";
+    }
     leaf extended-show-width {
       type boolean;
       default "false";

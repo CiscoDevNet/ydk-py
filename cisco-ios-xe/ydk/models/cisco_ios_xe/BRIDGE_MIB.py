@@ -195,7 +195,7 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dBase, [u'dot1dbasebridgeaddress', u'dot1dbasenumports', u'dot1dbasetype'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dBase, ['dot1dbasebridgeaddress', 'dot1dbasenumports', 'dot1dbasetype'], name, value)
 
         class Dot1dBaseType(Enum):
             """
@@ -425,7 +425,7 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dStp, [u'dot1dstpprotocolspecification', u'dot1dstppriority', u'dot1dstptimesincetopologychange', u'dot1dstptopchanges', u'dot1dstpdesignatedroot', u'dot1dstprootcost', u'dot1dstprootport', u'dot1dstpmaxage', u'dot1dstphellotime', u'dot1dstpholdtime', u'dot1dstpforwarddelay', u'dot1dstpbridgemaxage', u'dot1dstpbridgehellotime', u'dot1dstpbridgeforwarddelay'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dStp, ['dot1dstpprotocolspecification', 'dot1dstppriority', 'dot1dstptimesincetopologychange', 'dot1dstptopchanges', 'dot1dstpdesignatedroot', 'dot1dstprootcost', 'dot1dstprootport', 'dot1dstpmaxage', 'dot1dstphellotime', 'dot1dstpholdtime', 'dot1dstpforwarddelay', 'dot1dstpbridgemaxage', 'dot1dstpbridgehellotime', 'dot1dstpbridgeforwarddelay'], name, value)
 
         class Dot1dStpProtocolSpecification(Enum):
             """
@@ -513,7 +513,7 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dTp, [u'dot1dtplearnedentrydiscards', u'dot1dtpagingtime'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dTp, ['dot1dtplearnedentrydiscards', 'dot1dtpagingtime'], name, value)
 
 
 
@@ -812,7 +812,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, [u'dot1dbaseport', u'dot1dbaseportifindex', u'dot1dbaseportcircuit', u'dot1dbaseportdelayexceededdiscards', u'dot1dbaseportmtuexceededdiscards', 'dot1dportcapabilities', 'dot1dportdefaultuserpriority', 'dot1dportnumtrafficclasses', 'dot1dportgarpjointime', 'dot1dportgarpleavetime', 'dot1dportgarpleavealltime', 'dot1dportgmrpstatus', 'dot1dportgmrpfailedregistrations', 'dot1dportgmrplastpduorigin', 'dot1dportrestrictedgroupregistration', u'dot1qpvid', u'dot1qportacceptableframetypes', u'dot1qportingressfiltering', u'dot1qportgvrpstatus', u'dot1qportgvrpfailedregistrations', u'dot1qportgvrplastpduorigin', u'dot1qportrestrictedvlanregistration'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, ['dot1dbaseport', 'dot1dbaseportifindex', 'dot1dbaseportcircuit', 'dot1dbaseportdelayexceededdiscards', 'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', 'dot1qpvid', 'dot1qportacceptableframetypes', 'dot1qportingressfiltering', 'dot1qportgvrpstatus', 'dot1qportgvrpfailedregistrations', 'dot1qportgvrplastpduorigin', 'dot1qportrestrictedvlanregistration'], name, value)
 
             class Dot1qPortAcceptableFrameTypes(Enum):
                 """
@@ -1051,7 +1051,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, [u'dot1dstpport', u'dot1dstpportpriority', u'dot1dstpportstate', u'dot1dstpportenable', u'dot1dstpportpathcost', u'dot1dstpportdesignatedroot', u'dot1dstpportdesignatedcost', u'dot1dstpportdesignatedbridge', u'dot1dstpportdesignatedport', u'dot1dstpportforwardtransitions', u'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, ['dot1dstpport', 'dot1dstpportpriority', 'dot1dstpportstate', 'dot1dstpportenable', 'dot1dstpportpathcost', 'dot1dstpportdesignatedroot', 'dot1dstpportdesignatedcost', 'dot1dstpportdesignatedbridge', 'dot1dstpportdesignatedport', 'dot1dstpportforwardtransitions', 'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
 
             class Dot1dStpPortEnable(Enum):
                 """
@@ -1220,7 +1220,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, [u'dot1dtpfdbaddress', u'dot1dtpfdbport', u'dot1dtpfdbstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, ['dot1dtpfdbaddress', 'dot1dtpfdbport', 'dot1dtpfdbstatus'], name, value)
 
             class Dot1dTpFdbStatus(Enum):
                 """
@@ -1430,7 +1430,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, [u'dot1dtpport', u'dot1dtpportmaxinfo', u'dot1dtpportinframes', u'dot1dtpportoutframes', u'dot1dtpportindiscards'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, ['dot1dtpport', 'dot1dtpportmaxinfo', 'dot1dtpportinframes', 'dot1dtpportoutframes', 'dot1dtpportindiscards'], name, value)
 
 
 
@@ -1556,7 +1556,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, [u'dot1dstaticaddress', u'dot1dstaticreceiveport', u'dot1dstaticallowedtogoto', u'dot1dstaticstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, ['dot1dstaticaddress', 'dot1dstaticreceiveport', 'dot1dstaticallowedtogoto', 'dot1dstaticstatus'], name, value)
 
             class Dot1dStaticStatus(Enum):
                 """

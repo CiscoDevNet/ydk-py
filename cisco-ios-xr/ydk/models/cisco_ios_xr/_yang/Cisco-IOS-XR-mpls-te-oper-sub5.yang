@@ -875,8 +875,13 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         description
           "Tunnel Service Binding SID Allocation Retry";
       }
-      enum "timer-not-used" {
+      enum "im-sync-delay" {
         value 29;
+        description
+          "IM sync delay";
+      }
+      enum "timer-not-used" {
+        value 30;
         description
           "Do not use";
       }
@@ -8890,7 +8895,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     description
       "Description of P2MP timers";
     list p2mp-timer {
-      max-elements "29";
+      max-elements "30";
       description
         "Description of all P2MP timers";
       uses MPLS-TE-P2MP-TIMER-B;
@@ -12966,7 +12971,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     leaf s2l-association-type {
       type uint16;
       description
-        "S2L Association Type                         
+        "S2L Association Type
          (draft-ietf-ccamp-mpls-tp-rsvpte-ext-associated-lsp)";
     }
     leaf s2l-association-tie-role {

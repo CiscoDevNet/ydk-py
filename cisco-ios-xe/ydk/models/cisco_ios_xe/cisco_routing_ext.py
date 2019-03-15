@@ -2,7 +2,9 @@
 
 This YANG module is an extention to 'ietf\-routing'
 module and describes addtional operational
-data for route list
+data for route list.
+Copyright (c) 2016 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict

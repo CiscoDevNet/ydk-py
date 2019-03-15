@@ -1,6 +1,12 @@
 """ Cisco_IOS_XR_sysadmin_led_mgr_ui 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module provides CLI for Status, ATTN, ALARM LED's.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -104,7 +110,7 @@ class Led(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Led.Location, ['location'], name, value)
+            self._perform_setattr(Led.Location, [u'location'], name, value)
 
 
         class LedAttributes(Entity):
@@ -160,7 +166,7 @@ class Led(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Led.Location.LedAttributes, ['led_name', 'led_mode', 'led_color'], name, value)
+                self._perform_setattr(Led.Location.LedAttributes, [u'led_name', u'led_mode', u'led_color'], name, value)
 
 
 

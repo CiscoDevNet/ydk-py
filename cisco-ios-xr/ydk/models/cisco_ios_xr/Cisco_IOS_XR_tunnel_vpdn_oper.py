@@ -236,189 +236,6 @@ class VpdnFailcode(Enum):
     call_prarmeters = Enum.YLeaf(18, "call-prarmeters")
 
 
-class VpdnNasPort(Enum):
-    """
-    VpdnNasPort (Enum Class)
-
-    NAS port types
-
-    .. data:: none = 0
-
-    	None
-
-    .. data:: primary = 1
-
-    	Primary
-
-    .. data:: bri = 2
-
-    	BRI
-
-    .. data:: serial = 3
-
-    	Serial
-
-    .. data:: asynchronous = 4
-
-    	Asynchronous
-
-    .. data:: vty = 5
-
-    	VTY
-
-    .. data:: atm = 6
-
-    	Asynchronous transfer mode
-
-    .. data:: ethernet = 7
-
-    	Ethernet
-
-    .. data:: ppp_atm = 8
-
-    	PPP over ATM
-
-    .. data:: pppoe_over_atm = 9
-
-    	PPPoE over ATM
-
-    .. data:: pppoe_over_ethernet = 10
-
-    	PPPoE over Ethernet
-
-    .. data:: pppoe_over_vlan = 11
-
-    	PPPoE over VLAN
-
-    .. data:: pppoe_over_q_in_q = 12
-
-    	PPPoE over Q-in-Q
-
-    .. data:: v120 = 13
-
-    	 V120
-
-    .. data:: v110 = 14
-
-    	V110
-
-    .. data:: piafs = 15
-
-    	PIAFS
-
-    .. data:: x75 = 16
-
-    	X.75
-
-    .. data:: ip_sec = 17
-
-    	IPSec
-
-    .. data:: other = 18
-
-    	Other
-
-    .. data:: virtual_pppoe_over_ethernet = 19
-
-    	Virtual PPPoE over Ethernet
-
-    .. data:: virtual_pppoe_over_vlan = 20
-
-    	 Virtual PPPoE over VLAN
-
-    .. data:: virtual_pppoe_over_q_in_q = 21
-
-    	Virtual PPPoE over Q-in-Q
-
-    .. data:: ipo_e_over_ethernet = 22
-
-    	IPoE over Ethernet
-
-    .. data:: ipo_e_over_vlan = 23
-
-    	IPoE over VLAN
-
-    .. data:: ipo_e_over_q_in_q = 24
-
-    	IPoE over Q-in-Q
-
-    .. data:: virtual_i_po_e_over_ethernet = 25
-
-    	Virtual IPoE over ethernet
-
-    .. data:: virtual_i_po_e_over_vlan = 26
-
-    	Virtual IPoE over VLAN
-
-    .. data:: virtual_i_po_e_over_q_in_q = 27
-
-    	Virtual IPoE over Q-in-Q
-
-    .. data:: unknown = 28
-
-    	Unknown
-
-    """
-
-    none = Enum.YLeaf(0, "none")
-
-    primary = Enum.YLeaf(1, "primary")
-
-    bri = Enum.YLeaf(2, "bri")
-
-    serial = Enum.YLeaf(3, "serial")
-
-    asynchronous = Enum.YLeaf(4, "asynchronous")
-
-    vty = Enum.YLeaf(5, "vty")
-
-    atm = Enum.YLeaf(6, "atm")
-
-    ethernet = Enum.YLeaf(7, "ethernet")
-
-    ppp_atm = Enum.YLeaf(8, "ppp-atm")
-
-    pppoe_over_atm = Enum.YLeaf(9, "pppoe-over-atm")
-
-    pppoe_over_ethernet = Enum.YLeaf(10, "pppoe-over-ethernet")
-
-    pppoe_over_vlan = Enum.YLeaf(11, "pppoe-over-vlan")
-
-    pppoe_over_q_in_q = Enum.YLeaf(12, "pppoe-over-q-in-q")
-
-    v120 = Enum.YLeaf(13, "v120")
-
-    v110 = Enum.YLeaf(14, "v110")
-
-    piafs = Enum.YLeaf(15, "piafs")
-
-    x75 = Enum.YLeaf(16, "x75")
-
-    ip_sec = Enum.YLeaf(17, "ip-sec")
-
-    other = Enum.YLeaf(18, "other")
-
-    virtual_pppoe_over_ethernet = Enum.YLeaf(19, "virtual-pppoe-over-ethernet")
-
-    virtual_pppoe_over_vlan = Enum.YLeaf(20, "virtual-pppoe-over-vlan")
-
-    virtual_pppoe_over_q_in_q = Enum.YLeaf(21, "virtual-pppoe-over-q-in-q")
-
-    ipo_e_over_ethernet = Enum.YLeaf(22, "ipo-e-over-ethernet")
-
-    ipo_e_over_vlan = Enum.YLeaf(23, "ipo-e-over-vlan")
-
-    ipo_e_over_q_in_q = Enum.YLeaf(24, "ipo-e-over-q-in-q")
-
-    virtual_i_po_e_over_ethernet = Enum.YLeaf(25, "virtual-i-po-e-over-ethernet")
-
-    virtual_i_po_e_over_vlan = Enum.YLeaf(26, "virtual-i-po-e-over-vlan")
-
-    virtual_i_po_e_over_q_in_q = Enum.YLeaf(27, "virtual-i-po-e-over-q-in-q")
-
-    unknown = Enum.YLeaf(28, "unknown")
-
-
 class VpdnState(Enum):
     """
     VpdnState (Enum Class)
@@ -951,10 +768,17 @@ class Vpdn(Entity):
                 """
                 Subscriber data
                 
+                .. attribute:: nas_port_id_val
+                
+                	NAS port ID Val
+                	**type**\: str
+                
+                	**config**\: False
+                
                 .. attribute:: nas_port_type
                 
                 	NAS port type
-                	**type**\:  :py:class:`VpdnNasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnNasPort>`
+                	**type**\: str
                 
                 	**config**\: False
                 
@@ -989,15 +813,6 @@ class Vpdn(Entity):
                 
                 	**units**\: nanosecond
                 
-                .. attribute:: nas_port
-                
-                	NAS port ID
-                	**type**\: list of int
-                
-                	**range:** 0..255
-                
-                	**config**\: False
-                
                 
 
                 """
@@ -1015,22 +830,22 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('nas_port_type', (YLeaf(YType.enumeration, 'nas-port-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper', 'VpdnNasPort', '')])),
+                        ('nas_port_id_val', (YLeaf(YType.str, 'nas-port-id-val'), ['str'])),
+                        ('nas_port_type', (YLeaf(YType.str, 'nas-port-type'), ['str'])),
                         ('physical_channel_id', (YLeaf(YType.uint32, 'physical-channel-id'), ['int'])),
                         ('receive_connect_speed', (YLeaf(YType.uint64, 'receive-connect-speed'), ['int'])),
                         ('transmit_connect_speed', (YLeaf(YType.uint64, 'transmit-connect-speed'), ['int'])),
-                        ('nas_port', (YLeafList(YType.uint8, 'nas-port'), ['int'])),
                     ])
+                    self.nas_port_id_val = None
                     self.nas_port_type = None
                     self.physical_channel_id = None
                     self.receive_connect_speed = None
                     self.transmit_connect_speed = None
-                    self.nas_port = []
                     self._segment_path = lambda: "subscriber"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Sessions.Session.Subscriber, [u'nas_port_type', u'physical_channel_id', u'receive_connect_speed', u'transmit_connect_speed', u'nas_port'], name, value)
+                    self._perform_setattr(Vpdn.Sessions.Session.Subscriber, [u'nas_port_id_val', u'nas_port_type', u'physical_channel_id', u'receive_connect_speed', u'transmit_connect_speed'], name, value)
 
 
 

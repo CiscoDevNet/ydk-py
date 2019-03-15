@@ -177,6 +177,90 @@ module Cisco-IOS-XR-fib-common-oper {
       "Fibllc entry";
   }
 
+  typedef Fibnh-info-repl {
+    type enumeration {
+      enum "fib-nh-repl-none" {
+        value 0;
+        description
+          "None Replicated NHINFO";
+      }
+      enum "fib-nh-repl-rsvpte" {
+        value 1;
+        description
+          "Replicated NHINFO for TE Accounting";
+      }
+      enum "fib-nh-repl-sr-mpls" {
+        value 2;
+        description
+          "Replicated NHINFO for SR MPLS Accounting";
+      }
+      enum "fib-nh-repl-bm" {
+        value 3;
+        description
+          "Replicated NHINFO for Bundle member";
+      }
+    }
+    description
+      "Fibnh info repl";
+  }
+
+  typedef Fibfrr {
+    type enumeration {
+      enum "fib-te-frr-node" {
+        value 0;
+        description
+          "TE FRR";
+      }
+      enum "fib-te-frr-intf" {
+        value 1;
+        description
+          "TE Interface FRR";
+      }
+      enum "fib-te-frr-protected-nh" {
+        value 2;
+        description
+          "TE Protected FRR";
+      }
+      enum "fib-te-frr-backup-nh" {
+        value 3;
+        description
+          "TE Backup FRR";
+      }
+      enum "fib-per-link-frr-protected-nh" {
+        value 4;
+        description
+          "Per Link Protected FRR";
+      }
+      enum "fib-per-link-frr-backup-nh" {
+        value 5;
+        description
+          "Per Link Backup FRR";
+      }
+      enum "fib-prefix-frr-protected-nh" {
+        value 6;
+        description
+          "Per Prefix Protected FRR";
+      }
+      enum "fib-prefix-frr-backup-nh" {
+        value 7;
+        description
+          "Per Prefix Backup FRR";
+      }
+      enum "fib-pic-frr-protected-nh" {
+        value 8;
+        description
+          "BGP PIC Protected FRR";
+      }
+      enum "fib-pic-frr-backup-nh" {
+        value 9;
+        description
+          "BGP PIC Backup FRR";
+      }
+    }
+    description
+      "Fibfrr";
+  }
+
   typedef Fib-link {
     type enumeration {
       enum "link-ipv4" {
@@ -224,22 +308,56 @@ module Cisco-IOS-XR-fib-common-oper {
       "Mplseos";
   }
 
-  grouping PREFIX-ENTRY-TABLE {
+  grouping STATE {
+    description
+      "Common node of prefix, label";
+    container state {
+      description
+        "Operational data";
+      uses FIB-OC-AFT-PREFIX-STATE;
+    }
+  }
+
+  grouping PREFIX-TABLE {
     description
       "Common node of ipv6-unicast, ipv4-unicast";
-    container prefix-entries {
+    container prefixes {
       description
         "Table of IP prefixes";
-      list prefix-entry {
-        key "network";
+      list prefix {
+        key "prefix";
         description
           "Prefix data";
-        leaf network {
-          type inet:ip-prefix;
+        leaf prefix {
+          type string;
           description
-            "Network address";
+            "Prefix";
         }
-        uses FIB-OC-AFT-PREFIX;
+        uses NEXT-HOP-TABLE;
+        uses STATE;
+      }
+    }
+  }
+
+  grouping NEXT-HOP-TABLE {
+    description
+      "Common node of prefix, label";
+    container next-hops {
+      description
+        "A next-hop associated with the forwarding
+         instance";
+      list next-hop {
+        key "index";
+        description
+          "A next-hop associated with the forwarding
+           instance";
+        leaf index {
+          type uint32;
+          description
+            "A unique index identifying the next-hop entry
+             for the AFT entry";
+        }
+        uses FIB-OC-AFT-PATH;
       }
     }
   }
@@ -1005,6 +1123,55 @@ module Cisco-IOS-XR-fib-common-oper {
                 uses FIB-SH-NHID-ENTRY;
               }
             }
+            container frr-nhinfo-pendings {
+              description
+                "FIB FRR NHINFO pending information";
+              list frr-nhinfo-pending {
+                description
+                  "FIB FRR Nhinfo pending information";
+                leaf queue-index {
+                  type uint32;
+                  description
+                    "Queue Index";
+                }
+                leaf frr-type {
+                  type Fibfrr;
+                  description
+                    "FRR Type";
+                }
+                leaf link-type {
+                  type Fib-link;
+                  description
+                    "Link Type";
+                }
+                leaf prefix-length {
+                  type uint32;
+                  description
+                    "Prefix Length";
+                }
+                leaf interface-name {
+                  type xr:Interface-name;
+                  description
+                    "Interface Name";
+                }
+                leaf main-interface-name {
+                  type xr:Interface-name;
+                  description
+                    "Main Interface Name";
+                }
+                leaf next-hop-prefix {
+                  type inet:ip-address-no-zone;
+                  description
+                    "NextHop Address";
+                }
+                leaf replicated-nh-type {
+                  type Fibnh-info-repl;
+                  description
+                    "Replicated NextHop Type";
+                }
+                uses FIB-SH-FRR-NHINFO;
+              }
+            }
             container external-client-summaries {
               description
                 "External Client Summary Table";
@@ -1105,37 +1272,32 @@ module Cisco-IOS-XR-fib-common-oper {
           container mpls {
             description
               "MPLS abstract forwarding table";
-            container label-entries {
+            container labels {
               description
                 "Table of MPLS labels";
-              list label-entry {
-                key "label label-length";
+              list label {
+                key "label";
                 description
                   "Label data";
                 leaf label {
-                  type xr:Cisco-ios-xr-string;
+                  type string;
                   description
-                    "MPLS label";
+                    "Label";
                 }
-                leaf label-length {
-                  type uint32;
-                  description
-                    "Internal representation of a mask-length
-                     of MPLS label";
-                }
-                uses FIB-OC-AFT-PREFIX;
+                uses NEXT-HOP-TABLE;
+                uses STATE;
               }
             }
           }
           container ipv6-unicast {
             description
               "IPv6 abstract forwarding table";
-            uses PREFIX-ENTRY-TABLE;
+            uses PREFIX-TABLE;
           }
           container ipv4-unicast {
             description
               "IPv4 abstract forwarding table";
-            uses PREFIX-ENTRY-TABLE;
+            uses PREFIX-TABLE;
           }
         }
         leaf vrf-name {

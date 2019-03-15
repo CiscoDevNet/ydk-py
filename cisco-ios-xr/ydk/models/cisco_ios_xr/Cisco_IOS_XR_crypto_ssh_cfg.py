@@ -35,12 +35,17 @@ class Ssh(Entity):
     	Provide SSH server service
     	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Server>`
     
+    .. attribute:: backup_server
+    
+    	Provide SSH server service
+    	**type**\:  :py:class:`BackupServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.BackupServer>`
+    
     
 
     """
 
     _prefix = 'crypto-ssh-cfg'
-    _revision = '2018-05-24'
+    _revision = '2018-09-11'
 
     def __init__(self):
         super(Ssh, self).__init__()
@@ -51,7 +56,7 @@ class Ssh(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("client", ("client", Ssh.Client)), ("server", ("server", Ssh.Server))])
+        self._child_classes = OrderedDict([("client", ("client", Ssh.Client)), ("server", ("server", Ssh.Server)), ("backup-server", ("backup_server", Ssh.BackupServer))])
         self._leafs = OrderedDict()
 
         self.client = Ssh.Client()
@@ -61,6 +66,10 @@ class Ssh(Entity):
         self.server = Ssh.Server()
         self.server.parent = self
         self._children_name_map["server"] = "server"
+
+        self.backup_server = Ssh.BackupServer()
+        self.backup_server.parent = self
+        self._children_name_map["backup_server"] = "backup-server"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh"
         self._is_frozen = True
 
@@ -103,6 +112,15 @@ class Ssh(Entity):
         
         	**length:** 1..32
         
+        .. attribute:: tcp_window_scale
+        
+        	Set SSH Client Tcp Window Scale factor
+        	**type**\: int
+        
+        	**range:** 1..14
+        
+        	**default value**\: 1
+        
         .. attribute:: rekey_time
         
         	Configure client time\-based rekey for SSH
@@ -133,7 +151,7 @@ class Ssh(Entity):
         """
 
         _prefix = 'crypto-ssh-cfg'
-        _revision = '2018-05-24'
+        _revision = '2018-09-11'
 
         def __init__(self):
             super(Ssh.Client, self).__init__()
@@ -148,6 +166,7 @@ class Ssh(Entity):
                 ('rekey_volume', (YLeaf(YType.uint32, 'rekey-volume'), ['int'])),
                 ('host_public_key', (YLeaf(YType.str, 'host-public-key'), ['str'])),
                 ('client_vrf', (YLeaf(YType.str, 'client-vrf'), ['str'])),
+                ('tcp_window_scale', (YLeaf(YType.uint32, 'tcp-window-scale'), ['int'])),
                 ('rekey_time', (YLeaf(YType.uint32, 'rekey-time'), ['int'])),
                 ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
                 ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
@@ -155,6 +174,7 @@ class Ssh(Entity):
             self.rekey_volume = None
             self.host_public_key = None
             self.client_vrf = None
+            self.tcp_window_scale = None
             self.rekey_time = None
             self.source_interface = None
             self.dscp = None
@@ -171,7 +191,7 @@ class Ssh(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ssh.Client, ['rekey_volume', 'host_public_key', 'client_vrf', 'rekey_time', 'source_interface', 'dscp'], name, value)
+            self._perform_setattr(Ssh.Client, ['rekey_volume', 'host_public_key', 'client_vrf', 'tcp_window_scale', 'rekey_time', 'source_interface', 'dscp'], name, value)
 
 
         class ClientAlgo(Entity):
@@ -188,7 +208,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Client.ClientAlgo, self).__init__()
@@ -228,7 +248,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Client.ClientAlgo.KeyExchanges, self).__init__()
@@ -267,7 +287,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Client.ClientEnable, self).__init__()
@@ -314,7 +334,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Client.ClientEnable.ClientCipher, self).__init__()
@@ -406,6 +426,15 @@ class Ssh(Entity):
         	Cisco sshd force protocol version 2 only
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
+        .. attribute:: tcp_window_scale
+        
+        	Set SSH Server Tcp Window Scale factor
+        	**type**\: int
+        
+        	**range:** 1..14
+        
+        	**default value**\: 1
+        
         .. attribute:: rekey_time
         
         	Time Period in minutes, defalut 60
@@ -454,7 +483,7 @@ class Ssh(Entity):
         """
 
         _prefix = 'crypto-ssh-cfg'
-        _revision = '2018-05-24'
+        _revision = '2018-09-11'
 
         def __init__(self):
             super(Ssh.Server, self).__init__()
@@ -470,6 +499,7 @@ class Ssh(Entity):
                 ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
                 ('netconf', (YLeaf(YType.uint32, 'netconf'), ['int'])),
                 ('v2', (YLeaf(YType.empty, 'v2'), ['Empty'])),
+                ('tcp_window_scale', (YLeaf(YType.uint32, 'tcp-window-scale'), ['int'])),
                 ('rekey_time', (YLeaf(YType.uint32, 'rekey-time'), ['int'])),
                 ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
                 ('rate_limit', (YLeaf(YType.uint32, 'rate-limit'), ['int'])),
@@ -480,6 +510,7 @@ class Ssh(Entity):
             self.session_limit = None
             self.netconf = None
             self.v2 = None
+            self.tcp_window_scale = None
             self.rekey_time = None
             self.logging = None
             self.rate_limit = None
@@ -514,7 +545,7 @@ class Ssh(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ssh.Server, ['rekey_volume', 'session_limit', 'netconf', 'v2', 'rekey_time', 'logging', 'rate_limit', 'timeout', 'dscp'], name, value)
+            self._perform_setattr(Ssh.Server, ['rekey_volume', 'session_limit', 'netconf', 'v2', 'tcp_window_scale', 'rekey_time', 'logging', 'rate_limit', 'timeout', 'dscp'], name, value)
 
 
         class Disable(Entity):
@@ -531,7 +562,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.Disable, self).__init__()
@@ -571,7 +602,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Server.Disable.Hmac, self).__init__()
@@ -610,7 +641,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.Enable, self).__init__()
@@ -657,7 +688,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Server.Enable.Cipher, self).__init__()
@@ -698,7 +729,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.VrfTable, self).__init__()
@@ -757,7 +788,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Server.VrfTable.Vrf, self).__init__()
@@ -802,7 +833,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.ServerAlgo, self).__init__()
@@ -842,7 +873,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Server.ServerAlgo.KeyExchanges, self).__init__()
@@ -883,7 +914,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.Capability, self).__init__()
@@ -921,7 +952,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2018-05-24'
+            _revision = '2018-09-11'
 
             def __init__(self):
                 super(Ssh.Server.NetconfVrfTable, self).__init__()
@@ -980,7 +1011,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2018-05-24'
+                _revision = '2018-09-11'
 
                 def __init__(self):
                     super(Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
@@ -1008,6 +1039,102 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
+
+
+
+
+    class BackupServer(Entity):
+        """
+        Provide SSH server service
+        
+        .. attribute:: backup_port_vrf
+        
+        	backup server config
+        	**type**\:  :py:class:`BackupPortVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.BackupServer.BackupPortVrf>`
+        
+        	**presence node**\: True
+        
+        
+
+        """
+
+        _prefix = 'crypto-ssh-cfg'
+        _revision = '2018-09-11'
+
+        def __init__(self):
+            super(Ssh.BackupServer, self).__init__()
+
+            self.yang_name = "backup-server"
+            self.yang_parent_name = "ssh"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("backup-port-vrf", ("backup_port_vrf", Ssh.BackupServer.BackupPortVrf))])
+            self._leafs = OrderedDict()
+
+            self.backup_port_vrf = None
+            self._children_name_map["backup_port_vrf"] = "backup-port-vrf"
+            self._segment_path = lambda: "backup-server"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ssh.BackupServer, [], name, value)
+
+
+        class BackupPortVrf(Entity):
+            """
+            backup server config
+            
+            .. attribute:: port
+            
+            	Port number
+            	**type**\: int
+            
+            	**range:** 11000..15000
+            
+            	**mandatory**\: True
+            
+            .. attribute:: vrf_name
+            
+            	VRF name (max\:32 chars)
+            	**type**\: str
+            
+            	**length:** 1..32
+            
+            	**mandatory**\: True
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'crypto-ssh-cfg'
+            _revision = '2018-09-11'
+
+            def __init__(self):
+                super(Ssh.BackupServer.BackupPortVrf, self).__init__()
+
+                self.yang_name = "backup-port-vrf"
+                self.yang_parent_name = "backup-server"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self.is_presence_container = True
+                self._leafs = OrderedDict([
+                    ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ])
+                self.port = None
+                self.vrf_name = None
+                self._segment_path = lambda: "backup-port-vrf"
+                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/backup-server/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ssh.BackupServer.BackupPortVrf, ['port', 'vrf_name'], name, value)
 
 
 

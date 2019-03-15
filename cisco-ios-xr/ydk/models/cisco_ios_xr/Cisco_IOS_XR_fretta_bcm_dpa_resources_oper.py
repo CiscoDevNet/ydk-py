@@ -20,6 +20,885 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class DpaTable(Enum):
+    """
+    DpaTable (Enum Class)
+
+    Dpa table
+
+    .. data:: test_if = 0
+
+    	test if
+
+    .. data:: test_nhg = 1
+
+    	test nhg
+
+    .. data:: test_nh = 2
+
+    	test nh
+
+    .. data:: test_rt = 3
+
+    	test rt
+
+    .. data:: test_dynhg = 4
+
+    	testdynhg
+
+    .. data:: test_ip_punt_policy = 5
+
+    	test ippuntpolicy
+
+    .. data:: test_punt = 6
+
+    	test punt
+
+    .. data:: test_punt_policy_stats = 7
+
+    	testpuntpolicystats
+
+    .. data:: test_async_update = 8
+
+    	testasyncupdate
+
+    .. data:: test_ddel_q = 9
+
+    	test ddel q
+
+    .. data:: bdbvi = 10
+
+    	bdbvi
+
+    .. data:: sys = 11
+
+    	sys
+
+    .. data:: npu = 12
+
+    	npu
+
+    .. data:: npuhwid = 13
+
+    	npuhwid
+
+    .. data:: l1_port = 14
+
+    	l1port
+
+    .. data:: l2_port = 15
+
+    	l2port
+
+    .. data:: l2intf = 16
+
+    	l2intf
+
+    .. data:: mplspwe_port_o_list = 17
+
+    	mplspweport olist
+
+    .. data:: mplspwe_port = 18
+
+    	mplspweport
+
+    .. data:: mhpwe_port = 19
+
+    	mhpweport
+
+    .. data:: l2xc = 20
+
+    	l2xc
+
+    .. data:: l2vpnstats = 21
+
+    	l2vpnstats
+
+    .. data:: l1_ports_tats = 22
+
+    	l1portstats
+
+    .. data:: l3intf = 23
+
+    	l3intf
+
+    .. data:: l3intfrxstats = 24
+
+    	l3intfrxstats
+
+    .. data:: ip_route = 25
+
+    	iproute
+
+    .. data:: ip6_route = 26
+
+    	ip6route
+
+    .. data:: punt_policy_stats = 27
+
+    	puntpolicystats
+
+    .. data:: tep = 28
+
+    	tep
+
+    .. data:: ip_punt_policy = 29
+
+    	ippuntpolicy
+
+    .. data:: ip6_punt_policy = 30
+
+    	ip6puntpolicy
+
+    .. data:: isis_punt_policy = 31
+
+    	isispuntpolicy
+
+    .. data:: ipnh_group = 32
+
+    	ipnhgroup
+
+    .. data:: ip6nh_group = 33
+
+    	ip6nhgroup
+
+    .. data:: ipnh = 34
+
+    	ipnh
+
+    .. data:: ip6nh = 35
+
+    	ip6nh
+
+    .. data:: ipvrf = 36
+
+    	ipvrf
+
+    .. data:: mplsnh = 37
+
+    	mplsnh
+
+    .. data:: mpls_label = 38
+
+    	mplslabel
+
+    .. data:: dnx_trap = 39
+
+    	dnx trap
+
+    .. data:: punt = 40
+
+    	punt
+
+    .. data:: punt_police_r = 41
+
+    	puntpolicer
+
+    .. data:: punt_lpts_police_r = 42
+
+    	puntlptspolicer
+
+    .. data:: punt_stats = 43
+
+    	puntstats
+
+    .. data:: tm_port = 44
+
+    	tmport
+
+    .. data:: span_session = 45
+
+    	spansession
+
+    .. data:: police_rstats = 46
+
+    	policerstats
+
+    .. data:: tm_ports_tats = 47
+
+    	tmportstats
+
+    .. data:: l3intftxstats = 48
+
+    	l3intftxstats
+
+    .. data:: mplstetxstats = 49
+
+    	mplstetxstats
+
+    .. data:: mplslblstats = 50
+
+    	mplslblstats
+
+    .. data:: police_r = 51
+
+    	policer
+
+    .. data:: l2intfrxstats = 52
+
+    	l2intfrxstats
+
+    .. data:: l2intftxstats = 53
+
+    	l2intftxstats
+
+    .. data:: dnx_pbr_tt_ipv4 = 54
+
+    	dnx pbr tt ipv4
+
+    .. data:: dnx_pbr_tt_ipv6 = 55
+
+    	dnx pbr tt ipv6
+
+    .. data:: bfdhwoff = 56
+
+    	bfdhwoff
+
+    .. data:: global_ = 57
+
+    	global
+
+    .. data:: lag_port = 58
+
+    	lagport
+
+    .. data:: qos_profile = 59
+
+    	qosprofile
+
+    .. data:: tmrate_profile = 60
+
+    	tmrateprofile
+
+    .. data:: dnx_port_range = 61
+
+    	dnx port range
+
+    .. data:: ipacl = 62
+
+    	ipacl
+
+    .. data:: ip6acl = 63
+
+    	ip6acl
+
+    .. data:: sched_tree = 64
+
+    	schedtree
+
+    .. data:: tmcos = 65
+
+    	tmcos
+
+    .. data:: statsagg = 66
+
+    	statsagg
+
+    .. data:: nhprotect = 67
+
+    	nhprotect
+
+    .. data:: sampler = 68
+
+    	sampler
+
+    .. data:: l2qos = 69
+
+    	l2qos
+
+    .. data:: peer_qos = 70
+
+    	peerqos
+
+    .. data:: ipqos = 71
+
+    	ipqos
+
+    .. data:: ip6qos = 72
+
+    	ip6qos
+
+    .. data:: mplsqos = 73
+
+    	mplsqos
+
+    .. data:: qosid = 74
+
+    	qosid
+
+    .. data:: extlif = 75
+
+    	extlif
+
+    .. data:: elif_ = 76
+
+    	elif
+
+    .. data:: ingaclstats = 77
+
+    	ingaclstats
+
+    .. data:: egraclstats = 78
+
+    	egraclstats
+
+    .. data:: edpl = 79
+
+    	edpl
+
+    .. data:: erp = 80
+
+    	erp
+
+    .. data:: cfmmaid = 81
+
+    	cfmmaid
+
+    .. data:: cfmdefmps = 82
+
+    	cfmdefmps
+
+    .. data:: cfmofflmep = 83
+
+    	cfmofflmep
+
+    .. data:: cfmoffrmep = 84
+
+    	cfmoffrmep
+
+    .. data:: cfmnonoff = 85
+
+    	cfmnonoff
+
+    .. data:: cfmhwoffrxstats = 86
+
+    	cfmhwoffrxstats
+
+    .. data:: ipmc_route = 87
+
+    	ipmcroute
+
+    .. data:: l2ipmc_route = 88
+
+    	l2ipmcroute
+
+    .. data:: ipmco_list = 89
+
+    	ipmcolist
+
+    .. data:: l2mco_list = 90
+
+    	l2mcolist
+
+    .. data:: ipmc_merge_do_list = 91
+
+    	ipmcmergedolist
+
+    .. data:: sgfgid_list = 92
+
+    	sgfgidlist
+
+    .. data:: meshmc = 93
+
+    	meshmc
+
+    .. data:: l2_bridge = 94
+
+    	l2bridge
+
+    .. data:: l2_bridge_port = 95
+
+    	l2bridgeport
+
+    .. data:: l2_bridge_vni = 96
+
+    	l2bridgevni
+
+    .. data:: l2_bridge_vnidecap = 97
+
+    	l2bridgevnidecap
+
+    .. data:: l2_bridge_mac = 98
+
+    	l2bridgemac
+
+    .. data:: l2brmac = 99
+
+    	l2brmac
+
+    .. data:: ip_tunnel_decap = 100
+
+    	iptunneldecap
+
+    .. data:: l2vlan_range = 101
+
+    	l2vlanrange
+
+    .. data:: ip_tunnel_encap = 102
+
+    	iptunnelencap
+
+    .. data:: rawget = 103
+
+    	rawget
+
+    .. data:: ip6mc_route = 104
+
+    	ip6mcroute
+
+    .. data:: l2evpnact_remote_peer_id = 105
+
+    	l2evpnactremotepeerid
+
+    .. data:: l2evpnact_local_shl = 106
+
+    	l2evpnactlocalshl
+
+    .. data:: l2evpnact_remote_shl = 107
+
+    	l2evpnactremoteshl
+
+    .. data:: evpn_iml_range = 108
+
+    	evpn imlrange
+
+    .. data:: l2_bridge_o_list = 109
+
+    	l2bridgeolist
+
+    .. data:: l2_bridge_vnio_list = 110
+
+    	l2bridgevniolist
+
+    .. data:: l2acl = 111
+
+    	l2acl
+
+    .. data:: l2evpn_nh = 112
+
+    	l2evpn nh
+
+    .. data:: l2_bridge_port_sc = 113
+
+    	l2bridgeport sc
+
+    .. data:: l3intfmctxstats = 114
+
+    	l3intfmctxstats
+
+    .. data:: tidl_sample = 115
+
+    	tidl sample
+
+    .. data:: tidl_ref_sample = 116
+
+    	tidl ref sample
+
+    .. data:: ipacl_prefix = 117
+
+    	ipaclprefix
+
+    .. data:: ip6acl_prefix = 118
+
+    	ip6aclprefix
+
+    .. data:: ipacl_port = 119
+
+    	ipaclport
+
+    .. data:: scaleacl = 120
+
+    	scaleacl
+
+    .. data:: ipmcf_hop = 121
+
+    	ipmcfhop
+
+    .. data:: bundle_swoff = 122
+
+    	bundle swoff
+
+    .. data:: mcidswoff = 123
+
+    	mcidswoff
+
+    .. data:: dest_map = 124
+
+    	destmap
+
+    .. data:: l2_bridge_port_pw = 125
+
+    	l2bridgeport pw
+
+    .. data:: l2evpnact_local_shlstats = 126
+
+    	l2evpnactlocalshlstats
+
+    .. data:: test_hidden = 127
+
+    	testhidden
+
+    .. data:: test_local = 128
+
+    	testlocal
+
+    .. data:: test_repeated = 129
+
+    	testrepeated
+
+    .. data:: limd = 130
+
+    	limd
+
+    .. data:: litap = 131
+
+    	litap
+
+    .. data:: l3intf_proto_stats = 132
+
+    	l3intfprotostats
+
+    .. data:: srv6sid = 133
+
+    	srv6sid
+
+    .. data:: srv6nh = 134
+
+    	srv6nh
+
+    .. data:: redirect_vrf = 135
+
+    	redirectvrf
+
+    .. data:: test_xtf = 136
+
+    	test xtf
+
+    .. data:: ippbr = 137
+
+    	ippbr
+
+    .. data:: ippbrstats = 138
+
+    	ippbrstats
+
+    .. data:: l2_bridge_port_remote_lc = 139
+
+    	l2bridgeport remote lc
+
+    .. data:: mpls_mdt_bud = 140
+
+    	mplsmdtbud
+
+    .. data:: l2mac_static = 141
+
+    	l2macstatic
+
+    .. data:: sr_label_rxstats = 142
+
+    	srlabelrxstats
+
+    .. data:: l2vpnxid = 143
+
+    	l2vpnxid
+
+    .. data:: rpfif = 144
+
+    	rpfif
+
+    """
+
+    test_if = Enum.YLeaf(0, "test-if")
+
+    test_nhg = Enum.YLeaf(1, "test-nhg")
+
+    test_nh = Enum.YLeaf(2, "test-nh")
+
+    test_rt = Enum.YLeaf(3, "test-rt")
+
+    test_dynhg = Enum.YLeaf(4, "test-dynhg")
+
+    test_ip_punt_policy = Enum.YLeaf(5, "test-ip-punt-policy")
+
+    test_punt = Enum.YLeaf(6, "test-punt")
+
+    test_punt_policy_stats = Enum.YLeaf(7, "test-punt-policy-stats")
+
+    test_async_update = Enum.YLeaf(8, "test-async-update")
+
+    test_ddel_q = Enum.YLeaf(9, "test-ddel-q")
+
+    bdbvi = Enum.YLeaf(10, "bdbvi")
+
+    sys = Enum.YLeaf(11, "sys")
+
+    npu = Enum.YLeaf(12, "npu")
+
+    npuhwid = Enum.YLeaf(13, "npuhwid")
+
+    l1_port = Enum.YLeaf(14, "l1-port")
+
+    l2_port = Enum.YLeaf(15, "l2-port")
+
+    l2intf = Enum.YLeaf(16, "l2intf")
+
+    mplspwe_port_o_list = Enum.YLeaf(17, "mplspwe-port-o-list")
+
+    mplspwe_port = Enum.YLeaf(18, "mplspwe-port")
+
+    mhpwe_port = Enum.YLeaf(19, "mhpwe-port")
+
+    l2xc = Enum.YLeaf(20, "l2xc")
+
+    l2vpnstats = Enum.YLeaf(21, "l2vpnstats")
+
+    l1_ports_tats = Enum.YLeaf(22, "l1-ports-tats")
+
+    l3intf = Enum.YLeaf(23, "l3intf")
+
+    l3intfrxstats = Enum.YLeaf(24, "l3intfrxstats")
+
+    ip_route = Enum.YLeaf(25, "ip-route")
+
+    ip6_route = Enum.YLeaf(26, "ip6-route")
+
+    punt_policy_stats = Enum.YLeaf(27, "punt-policy-stats")
+
+    tep = Enum.YLeaf(28, "tep")
+
+    ip_punt_policy = Enum.YLeaf(29, "ip-punt-policy")
+
+    ip6_punt_policy = Enum.YLeaf(30, "ip6-punt-policy")
+
+    isis_punt_policy = Enum.YLeaf(31, "isis-punt-policy")
+
+    ipnh_group = Enum.YLeaf(32, "ipnh-group")
+
+    ip6nh_group = Enum.YLeaf(33, "ip6nh-group")
+
+    ipnh = Enum.YLeaf(34, "ipnh")
+
+    ip6nh = Enum.YLeaf(35, "ip6nh")
+
+    ipvrf = Enum.YLeaf(36, "ipvrf")
+
+    mplsnh = Enum.YLeaf(37, "mplsnh")
+
+    mpls_label = Enum.YLeaf(38, "mpls-label")
+
+    dnx_trap = Enum.YLeaf(39, "dnx-trap")
+
+    punt = Enum.YLeaf(40, "punt")
+
+    punt_police_r = Enum.YLeaf(41, "punt-police-r")
+
+    punt_lpts_police_r = Enum.YLeaf(42, "punt-lpts-police-r")
+
+    punt_stats = Enum.YLeaf(43, "punt-stats")
+
+    tm_port = Enum.YLeaf(44, "tm-port")
+
+    span_session = Enum.YLeaf(45, "span-session")
+
+    police_rstats = Enum.YLeaf(46, "police-rstats")
+
+    tm_ports_tats = Enum.YLeaf(47, "tm-ports-tats")
+
+    l3intftxstats = Enum.YLeaf(48, "l3intftxstats")
+
+    mplstetxstats = Enum.YLeaf(49, "mplstetxstats")
+
+    mplslblstats = Enum.YLeaf(50, "mplslblstats")
+
+    police_r = Enum.YLeaf(51, "police-r")
+
+    l2intfrxstats = Enum.YLeaf(52, "l2intfrxstats")
+
+    l2intftxstats = Enum.YLeaf(53, "l2intftxstats")
+
+    dnx_pbr_tt_ipv4 = Enum.YLeaf(54, "dnx-pbr-tt-ipv4")
+
+    dnx_pbr_tt_ipv6 = Enum.YLeaf(55, "dnx-pbr-tt-ipv6")
+
+    bfdhwoff = Enum.YLeaf(56, "bfdhwoff")
+
+    global_ = Enum.YLeaf(57, "global")
+
+    lag_port = Enum.YLeaf(58, "lag-port")
+
+    qos_profile = Enum.YLeaf(59, "qos-profile")
+
+    tmrate_profile = Enum.YLeaf(60, "tmrate-profile")
+
+    dnx_port_range = Enum.YLeaf(61, "dnx-port-range")
+
+    ipacl = Enum.YLeaf(62, "ipacl")
+
+    ip6acl = Enum.YLeaf(63, "ip6acl")
+
+    sched_tree = Enum.YLeaf(64, "sched-tree")
+
+    tmcos = Enum.YLeaf(65, "tmcos")
+
+    statsagg = Enum.YLeaf(66, "statsagg")
+
+    nhprotect = Enum.YLeaf(67, "nhprotect")
+
+    sampler = Enum.YLeaf(68, "sampler")
+
+    l2qos = Enum.YLeaf(69, "l2qos")
+
+    peer_qos = Enum.YLeaf(70, "peer-qos")
+
+    ipqos = Enum.YLeaf(71, "ipqos")
+
+    ip6qos = Enum.YLeaf(72, "ip6qos")
+
+    mplsqos = Enum.YLeaf(73, "mplsqos")
+
+    qosid = Enum.YLeaf(74, "qosid")
+
+    extlif = Enum.YLeaf(75, "extlif")
+
+    elif_ = Enum.YLeaf(76, "elif")
+
+    ingaclstats = Enum.YLeaf(77, "ingaclstats")
+
+    egraclstats = Enum.YLeaf(78, "egraclstats")
+
+    edpl = Enum.YLeaf(79, "edpl")
+
+    erp = Enum.YLeaf(80, "erp")
+
+    cfmmaid = Enum.YLeaf(81, "cfmmaid")
+
+    cfmdefmps = Enum.YLeaf(82, "cfmdefmps")
+
+    cfmofflmep = Enum.YLeaf(83, "cfmofflmep")
+
+    cfmoffrmep = Enum.YLeaf(84, "cfmoffrmep")
+
+    cfmnonoff = Enum.YLeaf(85, "cfmnonoff")
+
+    cfmhwoffrxstats = Enum.YLeaf(86, "cfmhwoffrxstats")
+
+    ipmc_route = Enum.YLeaf(87, "ipmc-route")
+
+    l2ipmc_route = Enum.YLeaf(88, "l2ipmc-route")
+
+    ipmco_list = Enum.YLeaf(89, "ipmco-list")
+
+    l2mco_list = Enum.YLeaf(90, "l2mco-list")
+
+    ipmc_merge_do_list = Enum.YLeaf(91, "ipmc-merge-do-list")
+
+    sgfgid_list = Enum.YLeaf(92, "sgfgid-list")
+
+    meshmc = Enum.YLeaf(93, "meshmc")
+
+    l2_bridge = Enum.YLeaf(94, "l2-bridge")
+
+    l2_bridge_port = Enum.YLeaf(95, "l2-bridge-port")
+
+    l2_bridge_vni = Enum.YLeaf(96, "l2-bridge-vni")
+
+    l2_bridge_vnidecap = Enum.YLeaf(97, "l2-bridge-vnidecap")
+
+    l2_bridge_mac = Enum.YLeaf(98, "l2-bridge-mac")
+
+    l2brmac = Enum.YLeaf(99, "l2brmac")
+
+    ip_tunnel_decap = Enum.YLeaf(100, "ip-tunnel-decap")
+
+    l2vlan_range = Enum.YLeaf(101, "l2vlan-range")
+
+    ip_tunnel_encap = Enum.YLeaf(102, "ip-tunnel-encap")
+
+    rawget = Enum.YLeaf(103, "rawget")
+
+    ip6mc_route = Enum.YLeaf(104, "ip6mc-route")
+
+    l2evpnact_remote_peer_id = Enum.YLeaf(105, "l2evpnact-remote-peer-id")
+
+    l2evpnact_local_shl = Enum.YLeaf(106, "l2evpnact-local-shl")
+
+    l2evpnact_remote_shl = Enum.YLeaf(107, "l2evpnact-remote-shl")
+
+    evpn_iml_range = Enum.YLeaf(108, "evpn-iml-range")
+
+    l2_bridge_o_list = Enum.YLeaf(109, "l2-bridge-o-list")
+
+    l2_bridge_vnio_list = Enum.YLeaf(110, "l2-bridge-vnio-list")
+
+    l2acl = Enum.YLeaf(111, "l2acl")
+
+    l2evpn_nh = Enum.YLeaf(112, "l2evpn-nh")
+
+    l2_bridge_port_sc = Enum.YLeaf(113, "l2-bridge-port-sc")
+
+    l3intfmctxstats = Enum.YLeaf(114, "l3intfmctxstats")
+
+    tidl_sample = Enum.YLeaf(115, "tidl-sample")
+
+    tidl_ref_sample = Enum.YLeaf(116, "tidl-ref-sample")
+
+    ipacl_prefix = Enum.YLeaf(117, "ipacl-prefix")
+
+    ip6acl_prefix = Enum.YLeaf(118, "ip6acl-prefix")
+
+    ipacl_port = Enum.YLeaf(119, "ipacl-port")
+
+    scaleacl = Enum.YLeaf(120, "scaleacl")
+
+    ipmcf_hop = Enum.YLeaf(121, "ipmcf-hop")
+
+    bundle_swoff = Enum.YLeaf(122, "bundle-swoff")
+
+    mcidswoff = Enum.YLeaf(123, "mcidswoff")
+
+    dest_map = Enum.YLeaf(124, "dest-map")
+
+    l2_bridge_port_pw = Enum.YLeaf(125, "l2-bridge-port-pw")
+
+    l2evpnact_local_shlstats = Enum.YLeaf(126, "l2evpnact-local-shlstats")
+
+    test_hidden = Enum.YLeaf(127, "test-hidden")
+
+    test_local = Enum.YLeaf(128, "test-local")
+
+    test_repeated = Enum.YLeaf(129, "test-repeated")
+
+    limd = Enum.YLeaf(130, "limd")
+
+    litap = Enum.YLeaf(131, "litap")
+
+    l3intf_proto_stats = Enum.YLeaf(132, "l3intf-proto-stats")
+
+    srv6sid = Enum.YLeaf(133, "srv6sid")
+
+    srv6nh = Enum.YLeaf(134, "srv6nh")
+
+    redirect_vrf = Enum.YLeaf(135, "redirect-vrf")
+
+    test_xtf = Enum.YLeaf(136, "test-xtf")
+
+    ippbr = Enum.YLeaf(137, "ippbr")
+
+    ippbrstats = Enum.YLeaf(138, "ippbrstats")
+
+    l2_bridge_port_remote_lc = Enum.YLeaf(139, "l2-bridge-port-remote-lc")
+
+    mpls_mdt_bud = Enum.YLeaf(140, "mpls-mdt-bud")
+
+    l2mac_static = Enum.YLeaf(141, "l2mac-static")
+
+    sr_label_rxstats = Enum.YLeaf(142, "sr-label-rxstats")
+
+    l2vpnxid = Enum.YLeaf(143, "l2vpnxid")
+
+    rpfif = Enum.YLeaf(144, "rpfif")
+
+
 
 class Dpa(Entity):
     """
@@ -402,7 +1281,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -451,7 +1330,7 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, ['num_blocks'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, [u'num_blocks'], name, value)
 
 
                                 class BlockInfo(Entity):
@@ -511,7 +1390,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, ['block_name', 'num_fields'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, [u'block_name', u'num_fields'], name, value)
 
 
                                     class FieldInfo(Entity):
@@ -571,7 +1450,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_overflow'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_overflow'], name, value)
 
 
 
@@ -717,7 +1596,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -1429,7 +2308,7 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, ['nbi_rx_total_byte_cnt', 'nbi_rx_total_pkt_cnt', 'ire_cpu_pkt_cnt', 'ire_nif_pkt_cnt', 'ire_oamp_pkt_cnt', 'ire_olp_pkt_cnt', 'ire_rcy_pkt_cnt', 'ire_fdt_if_cnt', 'idr_mmu_if_cnt', 'idr_ocb_if_cnt', 'iqm_enqueue_pkt_cnt', 'iqm_dequeue_pkt_cnt', 'iqm_deleted_pkt_cnt', 'iqm_enq_discarded_pkt_cnt', 'ipt_egq_pkt_cnt', 'ipt_enq_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_cfg_event_cnt', 'ipt_cfg_byte_cnt', 'fdt_ipt_desc_cell_cnt', 'fdt_ire_desc_cell_cnt', 'fdt_transmitted_data_cells_cnt', 'fdr_p1_cell_in_cnt', 'fdr_p2_cell_in_cnt', 'fdr_p3_cell_in_cnt', 'fdr_cell_in_cnt_total', 'fda_cells_in_cnt_p1', 'fda_cells_in_cnt_p2', 'fda_cells_in_cnt_p3', 'fda_cells_in_tdm_cnt', 'fda_cells_in_meshmc_cnt', 'fda_cells_in_ipt_cnt', 'fda_cells_out_cnt_p1', 'fda_cells_out_cnt_p2', 'fda_cells_out_cnt_p3', 'fda_cells_out_tdm_cnt', 'fda_cells_out_meshmc_cnt', 'fda_cells_out_ipt_cnt', 'fda_egq_drop_cnt', 'fda_egq_meshmc_drop_cnt', 'egq_fqp_pkt_cnt', 'egq_pqp_uc_pkt_cnt', 'egq_pqp_discard_uc_pkt_cnt', 'egq_pqp_uc_bytes_cnt', 'egq_pqp_mc_pkt_cnt', 'egq_pqp_discard_mc_pkt_cnt', 'egq_pqp_mc_bytes_cnt', 'egq_ehp_uc_pkt_cnt', 'egq_ehp_mc_high_pkt_cnt', 'egq_ehp_mc_low_pkt_cnt', 'egq_deleted_pkt_cnt', 'egq_ehp_mc_high_discard_cnt', 'egq_ehp_mc_low_discard_cnt', 'egq_erpp_lag_pruning_discard_cnt', 'egq_erpp_pmf_discard_cnt', 'egq_erpp_vlan_mbr_discard_cnt', 'epni_epe_byte_cnt', 'epni_epe_pkt_cnt', 'epni_epe_discard_cnt', 'nbi_tx_total_byte_cnt', 'nbi_tx_total_pkt_cnt'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, [u'nbi_rx_total_byte_cnt', u'nbi_rx_total_pkt_cnt', u'ire_cpu_pkt_cnt', u'ire_nif_pkt_cnt', u'ire_oamp_pkt_cnt', u'ire_olp_pkt_cnt', u'ire_rcy_pkt_cnt', u'ire_fdt_if_cnt', u'idr_mmu_if_cnt', u'idr_ocb_if_cnt', u'iqm_enqueue_pkt_cnt', u'iqm_dequeue_pkt_cnt', u'iqm_deleted_pkt_cnt', u'iqm_enq_discarded_pkt_cnt', u'ipt_egq_pkt_cnt', u'ipt_enq_pkt_cnt', u'ipt_fdt_pkt_cnt', u'ipt_cfg_event_cnt', u'ipt_cfg_byte_cnt', u'fdt_ipt_desc_cell_cnt', u'fdt_ire_desc_cell_cnt', u'fdt_transmitted_data_cells_cnt', u'fdr_p1_cell_in_cnt', u'fdr_p2_cell_in_cnt', u'fdr_p3_cell_in_cnt', u'fdr_cell_in_cnt_total', u'fda_cells_in_cnt_p1', u'fda_cells_in_cnt_p2', u'fda_cells_in_cnt_p3', u'fda_cells_in_tdm_cnt', u'fda_cells_in_meshmc_cnt', u'fda_cells_in_ipt_cnt', u'fda_cells_out_cnt_p1', u'fda_cells_out_cnt_p2', u'fda_cells_out_cnt_p3', u'fda_cells_out_tdm_cnt', u'fda_cells_out_meshmc_cnt', u'fda_cells_out_ipt_cnt', u'fda_egq_drop_cnt', u'fda_egq_meshmc_drop_cnt', u'egq_fqp_pkt_cnt', u'egq_pqp_uc_pkt_cnt', u'egq_pqp_discard_uc_pkt_cnt', u'egq_pqp_uc_bytes_cnt', u'egq_pqp_mc_pkt_cnt', u'egq_pqp_discard_mc_pkt_cnt', u'egq_pqp_mc_bytes_cnt', u'egq_ehp_uc_pkt_cnt', u'egq_ehp_mc_high_pkt_cnt', u'egq_ehp_mc_low_pkt_cnt', u'egq_deleted_pkt_cnt', u'egq_ehp_mc_high_discard_cnt', u'egq_ehp_mc_low_discard_cnt', u'egq_erpp_lag_pruning_discard_cnt', u'egq_erpp_pmf_discard_cnt', u'egq_erpp_vlan_mbr_discard_cnt', u'epni_epe_byte_cnt', u'epni_epe_pkt_cnt', u'epni_epe_discard_cnt', u'nbi_tx_total_byte_cnt', u'nbi_tx_total_pkt_cnt'], name, value)
 
 
 
@@ -1822,7 +2701,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'trap_strength', 'priority', 'trap_id_xr', 'gport', 'fec_id', 'policer_id', 'stats_id', 'encap_id', 'mc_group', 'trap_string', 'id', 'offset', 'npu_id', 'packet_dropped', 'packet_accepted'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', u'trap_strength', u'priority', u'trap_id_xr', u'gport', u'fec_id', u'policer_id', u'stats_id', u'encap_id', u'mc_group', u'trap_string', u'id', u'offset', u'npu_id', u'packet_dropped', u'packet_accepted'], name, value)
 
 
 
@@ -2050,7 +2929,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -2128,7 +3007,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
 
 
 
@@ -2356,7 +3235,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -2434,7 +3313,7 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
 
 
 
@@ -2582,7 +3461,7 @@ class Dpa(Entity):
                     
                     .. attribute:: table_data
                     
-                    	Resources table
+                    	DPA Resources table
                     	**type**\: list of  		 :py:class:`TableData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_resources_oper.Dpa.Resources.Nodes.Node.TableDatas.TableData>`
                     
                     	**config**\: False
@@ -2615,14 +3494,12 @@ class Dpa(Entity):
 
                     class TableData(Entity):
                         """
-                        Resources table
+                        DPA Resources table
                         
                         .. attribute:: resource  (key)
                         
                         	Resource type
-                        	**type**\: int
-                        
-                        	**range:** 0..142
+                        	**type**\:  :py:class:`DpaTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_resources_oper.DpaTable>`
                         
                         	**config**\: False
                         
@@ -2700,7 +3577,7 @@ class Dpa(Entity):
                             self.ylist_key_names = ['resource']
                             self._child_classes = OrderedDict([("npu-tblr", ("npu_tblr", Dpa.Resources.Nodes.Node.TableDatas.TableData.NpuTblr))])
                             self._leafs = OrderedDict([
-                                ('resource', (YLeaf(YType.uint32, 'resource'), ['int'])),
+                                ('resource', (YLeaf(YType.enumeration, 'resource'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_resources_oper', 'DpaTable', '')])),
                                 ('sysdb_avail_npu_mask', (YLeaf(YType.uint64, 'sysdb-avail-npu-mask'), ['int'])),
                                 ('table_id', (YLeaf(YType.uint32, 'table-id'), ['int'])),
                                 ('name', (YLeaf(YType.str, 'name'), ['str'])),
@@ -2721,7 +3598,7 @@ class Dpa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData, ['resource', 'sysdb_avail_npu_mask', 'table_id', 'name', 'is_global', 'num_npus', 'table_specific_list'], name, value)
+                            self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData, ['resource', u'sysdb_avail_npu_mask', u'table_id', u'name', u'is_global', u'num_npus', u'table_specific_list'], name, value)
 
 
                         class NpuTblr(Entity):
@@ -2948,7 +3825,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData.NpuTblr, ['npu_id', 'num_objs', 'create_req', 'create_ok', 'delete_req', 'delete_ok', 'update_req', 'update_ok', 'eod_req', 'eod_ok', 'err_hw_fail', 'err_ref_resolve', 'err_db_notfound', 'err_db_exists', 'err_db_nomem', 'err_id_reserve', 'err_id_release', 'err_id_update'], name, value)
+                                self._perform_setattr(Dpa.Resources.Nodes.Node.TableDatas.TableData.NpuTblr, [u'npu_id', u'num_objs', u'create_req', u'create_ok', u'delete_req', u'delete_ok', u'update_req', u'update_ok', u'eod_req', u'eod_ok', u'err_hw_fail', u'err_ref_resolve', u'err_db_notfound', u'err_db_exists', u'err_db_nomem', u'err_id_reserve', u'err_id_release', u'err_id_update'], name, value)
 
 
 

@@ -190,9 +190,7 @@ module Cisco-IOS-XR-ip-udp-oper {
                   description
                     "A PCB information";
                   leaf pcb-address {
-                    type uint32 {
-                      range "0..4294967295";
-                    }
+                    type xr:Cisco-ios-xr-string;
                     description
                       "PCB address";
                   }

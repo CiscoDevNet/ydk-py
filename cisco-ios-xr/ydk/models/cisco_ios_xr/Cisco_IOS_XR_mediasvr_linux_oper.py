@@ -108,7 +108,7 @@ class MediaSvr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MediaSvr.All, ['show_output'], name, value)
+            self._perform_setattr(MediaSvr.All, [u'show_output'], name, value)
 
 
 
@@ -197,7 +197,7 @@ class MediaSvr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MediaSvr.LocationDescriptions.LocationDescription, ['node', 'show_output'], name, value)
+                self._perform_setattr(MediaSvr.LocationDescriptions.LocationDescription, ['node', u'show_output'], name, value)
 
 
 

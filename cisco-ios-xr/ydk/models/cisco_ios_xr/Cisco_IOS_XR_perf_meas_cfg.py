@@ -328,7 +328,7 @@ class PerformanceMeasurement(Entity):
             	The value for delay profile probe interval in seconds
             	**type**\: int
             
-            	**range:** 30..3600
+            	**range:** 1..3600
             
             	**units**\: second
             

@@ -118,7 +118,7 @@ class Vlans(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vlans.Vlan, [u'vlan_id'], name, value)
+            self._perform_setattr(Vlans.Vlan, ['vlan_id'], name, value)
 
 
         class Config(Entity):
@@ -181,7 +181,7 @@ class Vlans(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.Config, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.Config, ['vlan_id', 'name', 'status', 'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -274,7 +274,7 @@ class Vlans(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.State, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.State, ['vlan_id', 'name', 'status', 'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -465,7 +465,7 @@ class Vlans(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
 

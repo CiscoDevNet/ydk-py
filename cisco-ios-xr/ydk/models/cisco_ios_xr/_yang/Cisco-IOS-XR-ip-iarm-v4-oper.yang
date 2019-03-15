@@ -89,7 +89,7 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
                 description
                   "Prefix Length";
               }
-              leaf handle {
+              leaf interface {
                 type xr:Interface-name;
                 description
                   "Interface";

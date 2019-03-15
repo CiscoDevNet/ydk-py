@@ -1555,6 +1555,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
   }
 
+  grouping IMPLICIT-IMPORT-DISABLE {
+    description
+      "Common node of evpn-evi-bgp-auto-discovery,
+       evpn-instance-bgp-auto-discovery";
+    leaf implicit-import-disable {
+      type empty;
+      description
+        "Disables BGP Implicit Import";
+    }
+  }
+
   grouping IDENTIFIER {
     description
       "Common node of ethernet-segment,
@@ -5479,6 +5490,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             uses TABLE-POLICY;
             uses EVPN-ROUTE-DISTINGUISHER;
+            uses IMPLICIT-IMPORT-DISABLE;
             uses EVPN-ROUTE-TARGET-TABLE;
           }
           container evi-multicast {
@@ -5638,6 +5650,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             uses TABLE-POLICY;
             uses EVPN-ROUTE-DISTINGUISHER;
+            uses IMPLICIT-IMPORT-DISABLE;
             uses EVPN-ROUTE-TARGET-TABLE;
           }
           container evpn-instance-advertise-mac {

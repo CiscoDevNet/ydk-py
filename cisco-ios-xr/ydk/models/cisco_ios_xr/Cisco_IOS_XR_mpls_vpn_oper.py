@@ -275,7 +275,7 @@ class L3vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
+                self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', u'vrf_name_xr', u'vrf_description', u'route_distinguisher', u'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -313,7 +313,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, ['interface_name'], name, value)
+                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, [u'interface_name'], name, value)
 
 
 
@@ -388,7 +388,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, [u'af_name', u'saf_name', u'import_route_policy', u'export_route_policy'], name, value)
 
 
                 class RouteTarget(Entity):
@@ -453,7 +453,7 @@ class L3vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
+                        self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, [u'route_target_type', u'route_target_value', u'af_name', u'saf_name'], name, value)
 
 
 
@@ -587,7 +587,7 @@ class L3vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
+                self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', u'vrf_name_xr', u'vrf_description', u'route_distinguisher', u'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -625,7 +625,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, ['interface_name'], name, value)
+                    self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, [u'interface_name'], name, value)
 
 
 
@@ -700,7 +700,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.Vrfs.Vrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+                    self._perform_setattr(L3vpn.Vrfs.Vrf.Af, [u'af_name', u'saf_name', u'import_route_policy', u'export_route_policy'], name, value)
 
 
                 class RouteTarget(Entity):
@@ -765,7 +765,7 @@ class L3vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
+                        self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, [u'route_target_type', u'route_target_value', u'af_name', u'saf_name'], name, value)
 
 
 

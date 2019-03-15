@@ -8688,6 +8688,11 @@ class Ipsla(Entity):
         	Configure IPSLA Responder port type
         	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.Type>`
         
+        .. attribute:: twamp_light
+        
+        	Enter twamp\-light session details
+        	**type**\:  :py:class:`TwampLight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight>`
+        
         
 
         """
@@ -8703,7 +8708,7 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("twamp", ("twamp", Ipsla.Responder.Twamp)), ("type", ("type", Ipsla.Responder.Type))])
+            self._child_classes = OrderedDict([("twamp", ("twamp", Ipsla.Responder.Twamp)), ("type", ("type", Ipsla.Responder.Type)), ("twamp-light", ("twamp_light", Ipsla.Responder.TwampLight))])
             self._leafs = OrderedDict()
 
             self.twamp = Ipsla.Responder.Twamp()
@@ -8713,6 +8718,10 @@ class Ipsla(Entity):
             self.type = Ipsla.Responder.Type()
             self.type.parent = self
             self._children_name_map["type"] = "type"
+
+            self.twamp_light = Ipsla.Responder.TwampLight()
+            self.twamp_light.parent = self
+            self._children_name_map["twamp_light"] = "twamp-light"
             self._segment_path = lambda: "responder"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
             self._is_frozen = True
@@ -8997,6 +9006,1591 @@ class Ipsla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, ['port'], name, value)
+
+
+
+
+
+
+
+
+        class TwampLight(Entity):
+            """
+            Enter twamp\-light session details
+            
+            .. attribute:: session_ids
+            
+            	Create twamp\-light session
+            	**type**\:  :py:class:`SessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds>`
+            
+            
+
+            """
+
+            _prefix = 'man-ipsla-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipsla.Responder.TwampLight, self).__init__()
+
+                self.yang_name = "twamp-light"
+                self.yang_parent_name = "responder"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("session-ids", ("session_ids", Ipsla.Responder.TwampLight.SessionIds))])
+                self._leafs = OrderedDict()
+
+                self.session_ids = Ipsla.Responder.TwampLight.SessionIds()
+                self.session_ids.parent = self
+                self._children_name_map["session_ids"] = "session-ids"
+                self._segment_path = lambda: "twamp-light"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipsla.Responder.TwampLight, [], name, value)
+
+
+            class SessionIds(Entity):
+                """
+                Create twamp\-light session
+                
+                .. attribute:: session_id
+                
+                	Configure session ID
+                	**type**\: list of  		 :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId>`
+                
+                
+
+                """
+
+                _prefix = 'man-ipsla-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipsla.Responder.TwampLight.SessionIds, self).__init__()
+
+                    self.yang_name = "session-ids"
+                    self.yang_parent_name = "twamp-light"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("session-id", ("session_id", Ipsla.Responder.TwampLight.SessionIds.SessionId))])
+                    self._leafs = OrderedDict()
+
+                    self.session_id = YList(self)
+                    self._segment_path = lambda: "session-ids"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds, [], name, value)
+
+
+                class SessionId(Entity):
+                    """
+                    Configure session ID
+                    
+                    .. attribute:: session_id  (key)
+                    
+                    	SessionID
+                    	**type**\: int
+                    
+                    	**range:** 1..5
+                    
+                    .. attribute:: local_ip
+                    
+                    	Configure local ip address
+                    	**type**\:  :py:class:`LocalIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp>`
+                    
+                    .. attribute:: twamp_light_timeout
+                    
+                    	Configure session timeout
+                    	**type**\: int
+                    
+                    	**range:** 60..86400
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'man-ipsla-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId, self).__init__()
+
+                        self.yang_name = "session-id"
+                        self.yang_parent_name = "session-ids"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['session_id']
+                        self._child_classes = OrderedDict([("local-ip", ("local_ip", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp))])
+                        self._leafs = OrderedDict([
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('twamp_light_timeout', (YLeaf(YType.uint32, 'twamp-light-timeout'), ['int'])),
+                        ])
+                        self.session_id = None
+                        self.twamp_light_timeout = None
+
+                        self.local_ip = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp()
+                        self.local_ip.parent = self
+                        self._children_name_map["local_ip"] = "local-ip"
+                        self._segment_path = lambda: "session-id" + "[session-id='" + str(self.session_id) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId, ['session_id', 'twamp_light_timeout'], name, value)
+
+
+                    class LocalIp(Entity):
+                        """
+                        Configure local ip address
+                        
+                        .. attribute:: local_ipv6_addresses
+                        
+                        	Configure IPV6 address
+                        	**type**\:  :py:class:`LocalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses>`
+                        
+                        .. attribute:: local_ipv4_addresses
+                        
+                        	Configure IPV4 address
+                        	**type**\:  :py:class:`LocalIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'man-ipsla-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp, self).__init__()
+
+                            self.yang_name = "local-ip"
+                            self.yang_parent_name = "session-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("local-ipv6-addresses", ("local_ipv6_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses)), ("local-ipv4-addresses", ("local_ipv4_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses))])
+                            self._leafs = OrderedDict()
+
+                            self.local_ipv6_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses()
+                            self.local_ipv6_addresses.parent = self
+                            self._children_name_map["local_ipv6_addresses"] = "local-ipv6-addresses"
+
+                            self.local_ipv4_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses()
+                            self.local_ipv4_addresses.parent = self
+                            self._children_name_map["local_ipv4_addresses"] = "local-ipv4-addresses"
+                            self._segment_path = lambda: "local-ip"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp, [], name, value)
+
+
+                        class LocalIpv6Addresses(Entity):
+                            """
+                            Configure IPV6 address
+                            
+                            .. attribute:: local_ipv6_address
+                            
+                            	Enter value of local ip address
+                            	**type**\: list of  		 :py:class:`LocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'man-ipsla-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses, self).__init__()
+
+                                self.yang_name = "local-ipv6-addresses"
+                                self.yang_parent_name = "local-ip"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("local-ipv6-address", ("local_ipv6_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address))])
+                                self._leafs = OrderedDict()
+
+                                self.local_ipv6_address = YList(self)
+                                self._segment_path = lambda: "local-ipv6-addresses"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses, [], name, value)
+
+
+                            class LocalIpv6Address(Entity):
+                                """
+                                Enter value of local ip address
+                                
+                                .. attribute:: localv6_address  (key)
+                                
+                                	Local IPv6 address
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: local_port_numbers
+                                
+                                	Configuration of local port
+                                	**type**\:  :py:class:`LocalPortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'man-ipsla-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address, self).__init__()
+
+                                    self.yang_name = "local-ipv6-address"
+                                    self.yang_parent_name = "local-ipv6-addresses"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['localv6_address']
+                                    self._child_classes = OrderedDict([("local-port-numbers", ("local_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers))])
+                                    self._leafs = OrderedDict([
+                                        ('localv6_address', (YLeaf(YType.str, 'localv6-address'), ['str'])),
+                                    ])
+                                    self.localv6_address = None
+
+                                    self.local_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers()
+                                    self.local_port_numbers.parent = self
+                                    self._children_name_map["local_port_numbers"] = "local-port-numbers"
+                                    self._segment_path = lambda: "local-ipv6-address" + "[localv6-address='" + str(self.localv6_address) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address, ['localv6_address'], name, value)
+
+
+                                class LocalPortNumbers(Entity):
+                                    """
+                                    Configuration of local port
+                                    
+                                    .. attribute:: local_port_number
+                                    
+                                    	Enter value of local port
+                                    	**type**\: list of  		 :py:class:`LocalPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'man-ipsla-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers, self).__init__()
+
+                                        self.yang_name = "local-port-numbers"
+                                        self.yang_parent_name = "local-ipv6-address"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("local-port-number", ("local_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber))])
+                                        self._leafs = OrderedDict()
+
+                                        self.local_port_number = YList(self)
+                                        self._segment_path = lambda: "local-port-numbers"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers, [], name, value)
+
+
+                                    class LocalPortNumber(Entity):
+                                        """
+                                        Enter value of local port
+                                        
+                                        .. attribute:: local_port  (key)
+                                        
+                                        	Local port
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: remote_ip
+                                        
+                                        	Configure remote ip address
+                                        	**type**\:  :py:class:`RemoteIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'man-ipsla-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber, self).__init__()
+
+                                            self.yang_name = "local-port-number"
+                                            self.yang_parent_name = "local-port-numbers"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['local_port']
+                                            self._child_classes = OrderedDict([("remote-ip", ("remote_ip", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp))])
+                                            self._leafs = OrderedDict([
+                                                ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                            ])
+                                            self.local_port = None
+
+                                            self.remote_ip = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp()
+                                            self.remote_ip.parent = self
+                                            self._children_name_map["remote_ip"] = "remote-ip"
+                                            self._segment_path = lambda: "local-port-number" + "[local-port='" + str(self.local_port) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber, ['local_port'], name, value)
+
+
+                                        class RemoteIp(Entity):
+                                            """
+                                            Configure remote ip address
+                                            
+                                            .. attribute:: remote_ipv4_addresses
+                                            
+                                            	Configure IPV4 address
+                                            	**type**\:  :py:class:`RemoteIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses>`
+                                            
+                                            .. attribute:: remote_ipv6_addresses
+                                            
+                                            	Configure IPV6 address
+                                            	**type**\:  :py:class:`RemoteIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'man-ipsla-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
+
+                                                self.yang_name = "remote-ip"
+                                                self.yang_parent_name = "local-port-number"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([("remote-ipv4-addresses", ("remote_ipv4_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses)), ("remote-ipv6-addresses", ("remote_ipv6_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses))])
+                                                self._leafs = OrderedDict()
+
+                                                self.remote_ipv4_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses()
+                                                self.remote_ipv4_addresses.parent = self
+                                                self._children_name_map["remote_ipv4_addresses"] = "remote-ipv4-addresses"
+
+                                                self.remote_ipv6_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses()
+                                                self.remote_ipv6_addresses.parent = self
+                                                self._children_name_map["remote_ipv6_addresses"] = "remote-ipv6-addresses"
+                                                self._segment_path = lambda: "remote-ip"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp, [], name, value)
+
+
+                                            class RemoteIpv4Addresses(Entity):
+                                                """
+                                                Configure IPV4 address
+                                                
+                                                .. attribute:: remote_ipv4_address
+                                                
+                                                	Enter value of remote ipv4 address
+                                                	**type**\: list of  		 :py:class:`RemoteIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'man-ipsla-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
+
+                                                    self.yang_name = "remote-ipv4-addresses"
+                                                    self.yang_parent_name = "remote-ip"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("remote-ipv4-address", ("remote_ipv4_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.remote_ipv4_address = YList(self)
+                                                    self._segment_path = lambda: "remote-ipv4-addresses"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, [], name, value)
+
+
+                                                class RemoteIpv4Address(Entity):
+                                                    """
+                                                    Enter value of remote ipv4 address
+                                                    
+                                                    .. attribute:: remotev4_address  (key)
+                                                    
+                                                    	Remote IPv4 address
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: remote_port_numbers
+                                                    
+                                                    	Configuration of remote port
+                                                    	**type**\:  :py:class:`RemotePortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'man-ipsla-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
+
+                                                        self.yang_name = "remote-ipv4-address"
+                                                        self.yang_parent_name = "remote-ipv4-addresses"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = ['remotev4_address']
+                                                        self._child_classes = OrderedDict([("remote-port-numbers", ("remote_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers))])
+                                                        self._leafs = OrderedDict([
+                                                            ('remotev4_address', (YLeaf(YType.str, 'remotev4-address'), ['str'])),
+                                                        ])
+                                                        self.remotev4_address = None
+
+                                                        self.remote_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers()
+                                                        self.remote_port_numbers.parent = self
+                                                        self._children_name_map["remote_port_numbers"] = "remote-port-numbers"
+                                                        self._segment_path = lambda: "remote-ipv4-address" + "[remotev4-address='" + str(self.remotev4_address) + "']"
+                                                        self._is_frozen = True
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, ['remotev4_address'], name, value)
+
+
+                                                    class RemotePortNumbers(Entity):
+                                                        """
+                                                        Configuration of remote port
+                                                        
+                                                        .. attribute:: remote_port_number
+                                                        
+                                                        	Enter value of remote port
+                                                        	**type**\: list of  		 :py:class:`RemotePortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'man-ipsla-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
+
+                                                            self.yang_name = "remote-port-numbers"
+                                                            self.yang_parent_name = "remote-ipv4-address"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([("remote-port-number", ("remote_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber))])
+                                                            self._leafs = OrderedDict()
+
+                                                            self.remote_port_number = YList(self)
+                                                            self._segment_path = lambda: "remote-port-numbers"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, [], name, value)
+
+
+                                                        class RemotePortNumber(Entity):
+                                                            """
+                                                            Enter value of remote port
+                                                            
+                                                            .. attribute:: remote_port  (key)
+                                                            
+                                                            	Remote port
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** 0..65535
+                                                            
+                                                            .. attribute:: vrf_names
+                                                            
+                                                            	Configuration of vrf
+                                                            	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'man-ipsla-cfg'
+                                                            _revision = '2015-11-09'
+
+                                                            def __init__(self):
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+
+                                                                self.yang_name = "remote-port-number"
+                                                                self.yang_parent_name = "remote-port-numbers"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = ['remote_port']
+                                                                self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames))])
+                                                                self._leafs = OrderedDict([
+                                                                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                                                                ])
+                                                                self.remote_port = None
+
+                                                                self.vrf_names = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames()
+                                                                self.vrf_names.parent = self
+                                                                self._children_name_map["vrf_names"] = "vrf-names"
+                                                                self._segment_path = lambda: "remote-port-number" + "[remote-port='" + str(self.remote_port) + "']"
+                                                                self._is_frozen = True
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
+
+
+                                                            class VrfNames(Entity):
+                                                                """
+                                                                Configuration of vrf
+                                                                
+                                                                .. attribute:: vrf_name
+                                                                
+                                                                	Configure vrf name value
+                                                                	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'man-ipsla-cfg'
+                                                                _revision = '2015-11-09'
+
+                                                                def __init__(self):
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+
+                                                                    self.yang_name = "vrf-names"
+                                                                    self.yang_parent_name = "remote-port-number"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName))])
+                                                                    self._leafs = OrderedDict()
+
+                                                                    self.vrf_name = YList(self)
+                                                                    self._segment_path = lambda: "vrf-names"
+                                                                    self._is_frozen = True
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
+
+
+                                                                class VrfName(Entity):
+                                                                    """
+                                                                    Configure vrf name value
+                                                                    
+                                                                    .. attribute:: vrf_name  (key)
+                                                                    
+                                                                    	VRF Name
+                                                                    	**type**\: str
+                                                                    
+                                                                    	**length:** 1..32
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'man-ipsla-cfg'
+                                                                    _revision = '2015-11-09'
+
+                                                                    def __init__(self):
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+
+                                                                        self.yang_name = "vrf-name"
+                                                                        self.yang_parent_name = "vrf-names"
+                                                                        self.is_top_level_class = False
+                                                                        self.has_list_ancestor = True
+                                                                        self.ylist_key_names = ['vrf_name']
+                                                                        self._child_classes = OrderedDict([])
+                                                                        self._leafs = OrderedDict([
+                                                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                                                        ])
+                                                                        self.vrf_name = None
+                                                                        self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                                                        self._is_frozen = True
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
+
+
+
+
+
+
+
+
+                                            class RemoteIpv6Addresses(Entity):
+                                                """
+                                                Configure IPV6 address
+                                                
+                                                .. attribute:: remote_ipv6_address
+                                                
+                                                	Enter value of remote ipv6 address
+                                                	**type**\: list of  		 :py:class:`RemoteIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'man-ipsla-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
+
+                                                    self.yang_name = "remote-ipv6-addresses"
+                                                    self.yang_parent_name = "remote-ip"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("remote-ipv6-address", ("remote_ipv6_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.remote_ipv6_address = YList(self)
+                                                    self._segment_path = lambda: "remote-ipv6-addresses"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, [], name, value)
+
+
+                                                class RemoteIpv6Address(Entity):
+                                                    """
+                                                    Enter value of remote ipv6 address
+                                                    
+                                                    .. attribute:: remotev6_address  (key)
+                                                    
+                                                    	Remote IPv6 address
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: remote_port_numbers
+                                                    
+                                                    	Configuration of remote port
+                                                    	**type**\:  :py:class:`RemotePortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'man-ipsla-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
+
+                                                        self.yang_name = "remote-ipv6-address"
+                                                        self.yang_parent_name = "remote-ipv6-addresses"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = ['remotev6_address']
+                                                        self._child_classes = OrderedDict([("remote-port-numbers", ("remote_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers))])
+                                                        self._leafs = OrderedDict([
+                                                            ('remotev6_address', (YLeaf(YType.str, 'remotev6-address'), ['str'])),
+                                                        ])
+                                                        self.remotev6_address = None
+
+                                                        self.remote_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers()
+                                                        self.remote_port_numbers.parent = self
+                                                        self._children_name_map["remote_port_numbers"] = "remote-port-numbers"
+                                                        self._segment_path = lambda: "remote-ipv6-address" + "[remotev6-address='" + str(self.remotev6_address) + "']"
+                                                        self._is_frozen = True
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, ['remotev6_address'], name, value)
+
+
+                                                    class RemotePortNumbers(Entity):
+                                                        """
+                                                        Configuration of remote port
+                                                        
+                                                        .. attribute:: remote_port_number
+                                                        
+                                                        	Enter value of remote port
+                                                        	**type**\: list of  		 :py:class:`RemotePortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'man-ipsla-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
+
+                                                            self.yang_name = "remote-port-numbers"
+                                                            self.yang_parent_name = "remote-ipv6-address"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([("remote-port-number", ("remote_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber))])
+                                                            self._leafs = OrderedDict()
+
+                                                            self.remote_port_number = YList(self)
+                                                            self._segment_path = lambda: "remote-port-numbers"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, [], name, value)
+
+
+                                                        class RemotePortNumber(Entity):
+                                                            """
+                                                            Enter value of remote port
+                                                            
+                                                            .. attribute:: remote_port  (key)
+                                                            
+                                                            	Remote port
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** 0..65535
+                                                            
+                                                            .. attribute:: vrf_names
+                                                            
+                                                            	Configuration of vrf
+                                                            	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'man-ipsla-cfg'
+                                                            _revision = '2015-11-09'
+
+                                                            def __init__(self):
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+
+                                                                self.yang_name = "remote-port-number"
+                                                                self.yang_parent_name = "remote-port-numbers"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = ['remote_port']
+                                                                self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames))])
+                                                                self._leafs = OrderedDict([
+                                                                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                                                                ])
+                                                                self.remote_port = None
+
+                                                                self.vrf_names = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames()
+                                                                self.vrf_names.parent = self
+                                                                self._children_name_map["vrf_names"] = "vrf-names"
+                                                                self._segment_path = lambda: "remote-port-number" + "[remote-port='" + str(self.remote_port) + "']"
+                                                                self._is_frozen = True
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
+
+
+                                                            class VrfNames(Entity):
+                                                                """
+                                                                Configuration of vrf
+                                                                
+                                                                .. attribute:: vrf_name
+                                                                
+                                                                	Configure vrf name value
+                                                                	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'man-ipsla-cfg'
+                                                                _revision = '2015-11-09'
+
+                                                                def __init__(self):
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+
+                                                                    self.yang_name = "vrf-names"
+                                                                    self.yang_parent_name = "remote-port-number"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName))])
+                                                                    self._leafs = OrderedDict()
+
+                                                                    self.vrf_name = YList(self)
+                                                                    self._segment_path = lambda: "vrf-names"
+                                                                    self._is_frozen = True
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
+
+
+                                                                class VrfName(Entity):
+                                                                    """
+                                                                    Configure vrf name value
+                                                                    
+                                                                    .. attribute:: vrf_name  (key)
+                                                                    
+                                                                    	VRF Name
+                                                                    	**type**\: str
+                                                                    
+                                                                    	**length:** 1..32
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'man-ipsla-cfg'
+                                                                    _revision = '2015-11-09'
+
+                                                                    def __init__(self):
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+
+                                                                        self.yang_name = "vrf-name"
+                                                                        self.yang_parent_name = "vrf-names"
+                                                                        self.is_top_level_class = False
+                                                                        self.has_list_ancestor = True
+                                                                        self.ylist_key_names = ['vrf_name']
+                                                                        self._child_classes = OrderedDict([])
+                                                                        self._leafs = OrderedDict([
+                                                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                                                        ])
+                                                                        self.vrf_name = None
+                                                                        self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                                                        self._is_frozen = True
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        class LocalIpv4Addresses(Entity):
+                            """
+                            Configure IPV4 address
+                            
+                            .. attribute:: local_ipv4_address
+                            
+                            	Enter value of local ipv4 address
+                            	**type**\: list of  		 :py:class:`LocalIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'man-ipsla-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses, self).__init__()
+
+                                self.yang_name = "local-ipv4-addresses"
+                                self.yang_parent_name = "local-ip"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("local-ipv4-address", ("local_ipv4_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address))])
+                                self._leafs = OrderedDict()
+
+                                self.local_ipv4_address = YList(self)
+                                self._segment_path = lambda: "local-ipv4-addresses"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses, [], name, value)
+
+
+                            class LocalIpv4Address(Entity):
+                                """
+                                Enter value of local ipv4 address
+                                
+                                .. attribute:: localv4_address  (key)
+                                
+                                	Local IPv4 address
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: local_port_numbers
+                                
+                                	Configuration of local port
+                                	**type**\:  :py:class:`LocalPortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'man-ipsla-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address, self).__init__()
+
+                                    self.yang_name = "local-ipv4-address"
+                                    self.yang_parent_name = "local-ipv4-addresses"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['localv4_address']
+                                    self._child_classes = OrderedDict([("local-port-numbers", ("local_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers))])
+                                    self._leafs = OrderedDict([
+                                        ('localv4_address', (YLeaf(YType.str, 'localv4-address'), ['str'])),
+                                    ])
+                                    self.localv4_address = None
+
+                                    self.local_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers()
+                                    self.local_port_numbers.parent = self
+                                    self._children_name_map["local_port_numbers"] = "local-port-numbers"
+                                    self._segment_path = lambda: "local-ipv4-address" + "[localv4-address='" + str(self.localv4_address) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address, ['localv4_address'], name, value)
+
+
+                                class LocalPortNumbers(Entity):
+                                    """
+                                    Configuration of local port
+                                    
+                                    .. attribute:: local_port_number
+                                    
+                                    	Enter value of local port
+                                    	**type**\: list of  		 :py:class:`LocalPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'man-ipsla-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers, self).__init__()
+
+                                        self.yang_name = "local-port-numbers"
+                                        self.yang_parent_name = "local-ipv4-address"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("local-port-number", ("local_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber))])
+                                        self._leafs = OrderedDict()
+
+                                        self.local_port_number = YList(self)
+                                        self._segment_path = lambda: "local-port-numbers"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers, [], name, value)
+
+
+                                    class LocalPortNumber(Entity):
+                                        """
+                                        Enter value of local port
+                                        
+                                        .. attribute:: local_port  (key)
+                                        
+                                        	Local port
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: remote_ip
+                                        
+                                        	Configure remote ip address
+                                        	**type**\:  :py:class:`RemoteIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'man-ipsla-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber, self).__init__()
+
+                                            self.yang_name = "local-port-number"
+                                            self.yang_parent_name = "local-port-numbers"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['local_port']
+                                            self._child_classes = OrderedDict([("remote-ip", ("remote_ip", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp))])
+                                            self._leafs = OrderedDict([
+                                                ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                            ])
+                                            self.local_port = None
+
+                                            self.remote_ip = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp()
+                                            self.remote_ip.parent = self
+                                            self._children_name_map["remote_ip"] = "remote-ip"
+                                            self._segment_path = lambda: "local-port-number" + "[local-port='" + str(self.local_port) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber, ['local_port'], name, value)
+
+
+                                        class RemoteIp(Entity):
+                                            """
+                                            Configure remote ip address
+                                            
+                                            .. attribute:: remote_ipv4_addresses
+                                            
+                                            	Configure IPV4 address
+                                            	**type**\:  :py:class:`RemoteIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses>`
+                                            
+                                            .. attribute:: remote_ipv6_addresses
+                                            
+                                            	Configure IPV6 address
+                                            	**type**\:  :py:class:`RemoteIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'man-ipsla-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
+
+                                                self.yang_name = "remote-ip"
+                                                self.yang_parent_name = "local-port-number"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([("remote-ipv4-addresses", ("remote_ipv4_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses)), ("remote-ipv6-addresses", ("remote_ipv6_addresses", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses))])
+                                                self._leafs = OrderedDict()
+
+                                                self.remote_ipv4_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses()
+                                                self.remote_ipv4_addresses.parent = self
+                                                self._children_name_map["remote_ipv4_addresses"] = "remote-ipv4-addresses"
+
+                                                self.remote_ipv6_addresses = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses()
+                                                self.remote_ipv6_addresses.parent = self
+                                                self._children_name_map["remote_ipv6_addresses"] = "remote-ipv6-addresses"
+                                                self._segment_path = lambda: "remote-ip"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp, [], name, value)
+
+
+                                            class RemoteIpv4Addresses(Entity):
+                                                """
+                                                Configure IPV4 address
+                                                
+                                                .. attribute:: remote_ipv4_address
+                                                
+                                                	Enter value of remote ipv4 address
+                                                	**type**\: list of  		 :py:class:`RemoteIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'man-ipsla-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
+
+                                                    self.yang_name = "remote-ipv4-addresses"
+                                                    self.yang_parent_name = "remote-ip"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("remote-ipv4-address", ("remote_ipv4_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.remote_ipv4_address = YList(self)
+                                                    self._segment_path = lambda: "remote-ipv4-addresses"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, [], name, value)
+
+
+                                                class RemoteIpv4Address(Entity):
+                                                    """
+                                                    Enter value of remote ipv4 address
+                                                    
+                                                    .. attribute:: remotev4_address  (key)
+                                                    
+                                                    	Remote IPv4 address
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: remote_port_numbers
+                                                    
+                                                    	Configuration of remote port
+                                                    	**type**\:  :py:class:`RemotePortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'man-ipsla-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
+
+                                                        self.yang_name = "remote-ipv4-address"
+                                                        self.yang_parent_name = "remote-ipv4-addresses"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = ['remotev4_address']
+                                                        self._child_classes = OrderedDict([("remote-port-numbers", ("remote_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers))])
+                                                        self._leafs = OrderedDict([
+                                                            ('remotev4_address', (YLeaf(YType.str, 'remotev4-address'), ['str'])),
+                                                        ])
+                                                        self.remotev4_address = None
+
+                                                        self.remote_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers()
+                                                        self.remote_port_numbers.parent = self
+                                                        self._children_name_map["remote_port_numbers"] = "remote-port-numbers"
+                                                        self._segment_path = lambda: "remote-ipv4-address" + "[remotev4-address='" + str(self.remotev4_address) + "']"
+                                                        self._is_frozen = True
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, ['remotev4_address'], name, value)
+
+
+                                                    class RemotePortNumbers(Entity):
+                                                        """
+                                                        Configuration of remote port
+                                                        
+                                                        .. attribute:: remote_port_number
+                                                        
+                                                        	Enter value of remote port
+                                                        	**type**\: list of  		 :py:class:`RemotePortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'man-ipsla-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
+
+                                                            self.yang_name = "remote-port-numbers"
+                                                            self.yang_parent_name = "remote-ipv4-address"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([("remote-port-number", ("remote_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber))])
+                                                            self._leafs = OrderedDict()
+
+                                                            self.remote_port_number = YList(self)
+                                                            self._segment_path = lambda: "remote-port-numbers"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, [], name, value)
+
+
+                                                        class RemotePortNumber(Entity):
+                                                            """
+                                                            Enter value of remote port
+                                                            
+                                                            .. attribute:: remote_port  (key)
+                                                            
+                                                            	Remote port
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** 0..65535
+                                                            
+                                                            .. attribute:: vrf_names
+                                                            
+                                                            	Configuration of vrf
+                                                            	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'man-ipsla-cfg'
+                                                            _revision = '2015-11-09'
+
+                                                            def __init__(self):
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+
+                                                                self.yang_name = "remote-port-number"
+                                                                self.yang_parent_name = "remote-port-numbers"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = ['remote_port']
+                                                                self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames))])
+                                                                self._leafs = OrderedDict([
+                                                                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                                                                ])
+                                                                self.remote_port = None
+
+                                                                self.vrf_names = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames()
+                                                                self.vrf_names.parent = self
+                                                                self._children_name_map["vrf_names"] = "vrf-names"
+                                                                self._segment_path = lambda: "remote-port-number" + "[remote-port='" + str(self.remote_port) + "']"
+                                                                self._is_frozen = True
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
+
+
+                                                            class VrfNames(Entity):
+                                                                """
+                                                                Configuration of vrf
+                                                                
+                                                                .. attribute:: vrf_name
+                                                                
+                                                                	Configure vrf name value
+                                                                	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'man-ipsla-cfg'
+                                                                _revision = '2015-11-09'
+
+                                                                def __init__(self):
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+
+                                                                    self.yang_name = "vrf-names"
+                                                                    self.yang_parent_name = "remote-port-number"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName))])
+                                                                    self._leafs = OrderedDict()
+
+                                                                    self.vrf_name = YList(self)
+                                                                    self._segment_path = lambda: "vrf-names"
+                                                                    self._is_frozen = True
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
+
+
+                                                                class VrfName(Entity):
+                                                                    """
+                                                                    Configure vrf name value
+                                                                    
+                                                                    .. attribute:: vrf_name  (key)
+                                                                    
+                                                                    	VRF Name
+                                                                    	**type**\: str
+                                                                    
+                                                                    	**length:** 1..32
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'man-ipsla-cfg'
+                                                                    _revision = '2015-11-09'
+
+                                                                    def __init__(self):
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+
+                                                                        self.yang_name = "vrf-name"
+                                                                        self.yang_parent_name = "vrf-names"
+                                                                        self.is_top_level_class = False
+                                                                        self.has_list_ancestor = True
+                                                                        self.ylist_key_names = ['vrf_name']
+                                                                        self._child_classes = OrderedDict([])
+                                                                        self._leafs = OrderedDict([
+                                                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                                                        ])
+                                                                        self.vrf_name = None
+                                                                        self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                                                        self._is_frozen = True
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
+
+
+
+
+
+
+
+
+                                            class RemoteIpv6Addresses(Entity):
+                                                """
+                                                Configure IPV6 address
+                                                
+                                                .. attribute:: remote_ipv6_address
+                                                
+                                                	Enter value of remote ipv6 address
+                                                	**type**\: list of  		 :py:class:`RemoteIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'man-ipsla-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
+
+                                                    self.yang_name = "remote-ipv6-addresses"
+                                                    self.yang_parent_name = "remote-ip"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("remote-ipv6-address", ("remote_ipv6_address", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.remote_ipv6_address = YList(self)
+                                                    self._segment_path = lambda: "remote-ipv6-addresses"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, [], name, value)
+
+
+                                                class RemoteIpv6Address(Entity):
+                                                    """
+                                                    Enter value of remote ipv6 address
+                                                    
+                                                    .. attribute:: remotev6_address  (key)
+                                                    
+                                                    	Remote IPv6 address
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: remote_port_numbers
+                                                    
+                                                    	Configuration of remote port
+                                                    	**type**\:  :py:class:`RemotePortNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'man-ipsla-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
+
+                                                        self.yang_name = "remote-ipv6-address"
+                                                        self.yang_parent_name = "remote-ipv6-addresses"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = ['remotev6_address']
+                                                        self._child_classes = OrderedDict([("remote-port-numbers", ("remote_port_numbers", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers))])
+                                                        self._leafs = OrderedDict([
+                                                            ('remotev6_address', (YLeaf(YType.str, 'remotev6-address'), ['str'])),
+                                                        ])
+                                                        self.remotev6_address = None
+
+                                                        self.remote_port_numbers = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers()
+                                                        self.remote_port_numbers.parent = self
+                                                        self._children_name_map["remote_port_numbers"] = "remote-port-numbers"
+                                                        self._segment_path = lambda: "remote-ipv6-address" + "[remotev6-address='" + str(self.remotev6_address) + "']"
+                                                        self._is_frozen = True
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, ['remotev6_address'], name, value)
+
+
+                                                    class RemotePortNumbers(Entity):
+                                                        """
+                                                        Configuration of remote port
+                                                        
+                                                        .. attribute:: remote_port_number
+                                                        
+                                                        	Enter value of remote port
+                                                        	**type**\: list of  		 :py:class:`RemotePortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'man-ipsla-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
+
+                                                            self.yang_name = "remote-port-numbers"
+                                                            self.yang_parent_name = "remote-ipv6-address"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([("remote-port-number", ("remote_port_number", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber))])
+                                                            self._leafs = OrderedDict()
+
+                                                            self.remote_port_number = YList(self)
+                                                            self._segment_path = lambda: "remote-port-numbers"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, [], name, value)
+
+
+                                                        class RemotePortNumber(Entity):
+                                                            """
+                                                            Enter value of remote port
+                                                            
+                                                            .. attribute:: remote_port  (key)
+                                                            
+                                                            	Remote port
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** 0..65535
+                                                            
+                                                            .. attribute:: vrf_names
+                                                            
+                                                            	Configuration of vrf
+                                                            	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'man-ipsla-cfg'
+                                                            _revision = '2015-11-09'
+
+                                                            def __init__(self):
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+
+                                                                self.yang_name = "remote-port-number"
+                                                                self.yang_parent_name = "remote-port-numbers"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = ['remote_port']
+                                                                self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames))])
+                                                                self._leafs = OrderedDict([
+                                                                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                                                                ])
+                                                                self.remote_port = None
+
+                                                                self.vrf_names = Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames()
+                                                                self.vrf_names.parent = self
+                                                                self._children_name_map["vrf_names"] = "vrf-names"
+                                                                self._segment_path = lambda: "remote-port-number" + "[remote-port='" + str(self.remote_port) + "']"
+                                                                self._is_frozen = True
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
+
+
+                                                            class VrfNames(Entity):
+                                                                """
+                                                                Configuration of vrf
+                                                                
+                                                                .. attribute:: vrf_name
+                                                                
+                                                                	Configure vrf name value
+                                                                	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'man-ipsla-cfg'
+                                                                _revision = '2015-11-09'
+
+                                                                def __init__(self):
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+
+                                                                    self.yang_name = "vrf-names"
+                                                                    self.yang_parent_name = "remote-port-number"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName))])
+                                                                    self._leafs = OrderedDict()
+
+                                                                    self.vrf_name = YList(self)
+                                                                    self._segment_path = lambda: "vrf-names"
+                                                                    self._is_frozen = True
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
+
+
+                                                                class VrfName(Entity):
+                                                                    """
+                                                                    Configure vrf name value
+                                                                    
+                                                                    .. attribute:: vrf_name  (key)
+                                                                    
+                                                                    	VRF Name
+                                                                    	**type**\: str
+                                                                    
+                                                                    	**length:** 1..32
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'man-ipsla-cfg'
+                                                                    _revision = '2015-11-09'
+
+                                                                    def __init__(self):
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+
+                                                                        self.yang_name = "vrf-name"
+                                                                        self.yang_parent_name = "vrf-names"
+                                                                        self.is_top_level_class = False
+                                                                        self.has_list_ancestor = True
+                                                                        self.ylist_key_names = ['vrf_name']
+                                                                        self._child_classes = OrderedDict([])
+                                                                        self._leafs = OrderedDict([
+                                                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                                                        ])
+                                                                        self.vrf_name = None
+                                                                        self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                                                        self._is_frozen = True
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
+
+
+
+
+
+
+
+
+
 
 
 

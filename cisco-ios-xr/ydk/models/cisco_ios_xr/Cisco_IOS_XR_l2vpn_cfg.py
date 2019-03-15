@@ -1343,7 +1343,7 @@ class L2vpn(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(L2vpn, [u'nsr', u'mtu_mismatch_ignore', u'tcn_propagation', u'pwoam_refresh', u'load_balance', u'mspw_description', u'mac_limit_threshold', u'pw_status_disable', u'enable', u'pw_grouping', u'capability', u'l2vpn_router_id'], name, value)
+        self._perform_setattr(L2vpn, ['nsr', 'mtu_mismatch_ignore', 'tcn_propagation', 'pwoam_refresh', 'load_balance', 'mspw_description', 'mac_limit_threshold', 'pw_status_disable', 'enable', 'pw_grouping', 'capability', 'l2vpn_router_id'], name, value)
 
 
     class PwRouting(Entity):
@@ -1391,7 +1391,7 @@ class L2vpn(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.PwRouting, [u'pw_routing_global_id'], name, value)
+            self._perform_setattr(L2vpn.PwRouting, ['pw_routing_global_id'], name, value)
 
 
         class PwRoutingBgp(Entity):
@@ -1437,7 +1437,7 @@ class L2vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp, [u'enable'], name, value)
+                self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp, ['enable'], name, value)
 
 
             class EvpnRouteDistinguisher(Entity):
@@ -1510,7 +1510,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                    self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -1550,7 +1550,7 @@ class L2vpn(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.Neighbor, [u'ldp_flap'], name, value)
+            self._perform_setattr(L2vpn.Neighbor, ['ldp_flap'], name, value)
 
 
 
@@ -1766,7 +1766,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring, [u'g8032_ring_name', u'open_ring', u'exclusion_list', u'erp_provider_bridge'], name, value)
+                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring, ['g8032_ring_name', 'open_ring', 'exclusion_list', 'erp_provider_bridge'], name, value)
 
 
                 class ErpPort0s(Entity):
@@ -1848,7 +1848,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, [u'interface_name', u'monitor'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, ['interface_name', 'monitor'], name, value)
 
 
 
@@ -1966,7 +1966,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, [u'erp_instance_id', u'description', u'inclusion_list', u'profile'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, ['erp_instance_id', 'description', 'inclusion_list', 'profile'], name, value)
 
 
                         class Rpl(Entity):
@@ -2009,7 +2009,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, [u'port', u'role'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, ['port', 'role'], name, value)
 
 
 
@@ -2071,7 +2071,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, [u'port0', u'enable', u'level'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, ['port0', 'enable', 'level'], name, value)
 
 
                             class Port1(Entity):
@@ -2114,7 +2114,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, [u'aps_type', u'aps_channel'], name, value)
+                                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, ['aps_type', 'aps_channel'], name, value)
 
 
 
@@ -2206,7 +2206,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, [u'erp_port_type'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, ['erp_port_type'], name, value)
 
 
                         class NoneOrVirtual(Entity):
@@ -2247,7 +2247,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, [u'monitor'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, ['monitor'], name, value)
 
 
 
@@ -2295,7 +2295,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, [u'interface_name', u'monitor'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, ['interface_name', 'monitor'], name, value)
 
 
 
@@ -2393,7 +2393,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup, [u'name'], name, value)
+                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup, ['name'], name, value)
 
 
                 class P2pXconnects(Entity):
@@ -2536,7 +2536,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, [u'name', u'p2p_description', u'interworking'], name, value)
+                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, ['name', 'p2p_description', 'interworking'], name, value)
 
 
                         class BackupAttachmentCircuits(Entity):
@@ -2609,7 +2609,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, [u'interface_name'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, ['interface_name'], name, value)
 
 
 
@@ -2711,7 +2711,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, [u'eviid', u'remote_acid', u'source_acid', u'class_'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid', 'class_'], name, value)
 
 
 
@@ -2799,7 +2799,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, [u'pseudowire_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, ['pseudowire_id'], name, value)
 
 
                                 class Neighbor(Entity):
@@ -2915,7 +2915,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, [u'neighbor', u'tag_impose', u'class_', u'source_address', u'bandwidth'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, ['neighbor', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
                                     class MplsStaticLabels(Entity):
@@ -2962,7 +2962,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -3063,7 +3063,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, [u'neighbor', u'pseudowire_id', u'backup_pw_class'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
                                             class BackupMplsStaticLabels(Entity):
@@ -3110,7 +3110,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -3187,7 +3187,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, [u'l2tp_remote_session_id', u'l2tp_local_session_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
                                         class L2tpRemoteCookie(Entity):
@@ -3241,7 +3241,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3296,7 +3296,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3351,7 +3351,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3389,7 +3389,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, ['enable'], name, value)
 
 
 
@@ -3507,7 +3507,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, [u'pseudowire_address', u'tag_impose', u'class_', u'source_address', u'bandwidth'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, ['pseudowire_address', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
                                     class MplsStaticLabels(Entity):
@@ -3554,7 +3554,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -3655,7 +3655,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, [u'neighbor', u'pseudowire_id', u'backup_pw_class'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
                                             class BackupMplsStaticLabels(Entity):
@@ -3702,7 +3702,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -3779,7 +3779,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, [u'l2tp_remote_session_id', u'l2tp_local_session_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
                                         class L2tpRemoteCookie(Entity):
@@ -3833,7 +3833,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3888,7 +3888,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3943,7 +3943,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
 
@@ -3981,7 +3981,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, ['enable'], name, value)
 
 
 
@@ -4065,7 +4065,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, [u'name', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, ['name', 'enable'], name, value)
 
 
 
@@ -4185,7 +4185,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, [u'global_id', u'prefix', u'acid', u'sacid', u'tag_impose', u'class_'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, ['global_id', 'prefix', 'acid', 'sacid', 'tag_impose', 'class_'], name, value)
 
 
 
@@ -4267,7 +4267,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, [u'name', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, ['name', 'enable'], name, value)
 
 
 
@@ -4401,7 +4401,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, [u'name', u'mp2mpmtu', u'mp2mp_control_word', u'mp2mpl2_encapsulation', u'mp2mp_interworking', u'mp2mp_shutdown', u'mp2mpvpn_id'], name, value)
+                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, ['name', 'mp2mpmtu', 'mp2mp_control_word', 'mp2mpl2_encapsulation', 'mp2mp_interworking', 'mp2mp_shutdown', 'mp2mpvpn_id'], name, value)
 
 
                         class Mp2mpAutoDiscovery(Entity):
@@ -4473,7 +4473,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, [u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, ['enable'], name, value)
 
 
                             class RouteDistinguisher(Entity):
@@ -4545,7 +4545,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -4582,7 +4582,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, [u'export'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, ['export'], name, value)
 
 
 
@@ -4674,7 +4674,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, [u'role', u'format'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, ['role', 'format'], name, value)
 
 
                                     class TwoByteAsOrFourByteAs(Entity):
@@ -4721,7 +4721,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, [u'as_', u'as_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
 
@@ -4769,7 +4769,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, [u'address', u'addr_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
 
 
@@ -4835,7 +4835,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, [u'ce_range', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, ['ce_range', 'enable'], name, value)
 
 
                                 class FlowLabelLoadBalance(Entity):
@@ -4878,7 +4878,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -4961,7 +4961,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, [u'ce_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, ['ce_id'], name, value)
 
 
                                         class RemoteCeidAttachmentCircuits(Entity):
@@ -5044,7 +5044,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, [u'name', u'remote_ce_id'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, ['name', 'remote_ce_id'], name, value)
 
 
 
@@ -5138,7 +5138,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, [u'name'], name, value)
+                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, ['name'], name, value)
 
 
                 class BridgeDomains(Entity):
@@ -5435,7 +5435,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, [u'name', u'coupled_mode', u'shutdown', u'flooding_unknown_unicast', u'igmp_snooping_disable', u'transport_mode', u'mld_snooping', u'bridge_domain_mtu', u'dhcp', u'bridge_description', u'igmp_snooping', u'flooding'], name, value)
+                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
                         class BdStormControls(Entity):
@@ -5515,7 +5515,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, [u'sctype'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
 
 
                                 class StormControlUnit(Entity):
@@ -5566,7 +5566,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -5651,7 +5651,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, [u'vni'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
 
 
                                 class MemberVniStaticMacAddresses(Entity):
@@ -5733,7 +5733,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, [u'mac_address', u'next_hop_ip'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
 
 
@@ -5844,7 +5844,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, [u'bd_mac_withdraw_relay', u'bd_mac_withdraw_access_pw_disable', u'bd_mac_port_down_flush', u'bd_mac_withdraw', u'bd_mac_withdraw_behavior', u'bd_mac_learn'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
 
 
                             class BdMacLimit(Entity):
@@ -5896,7 +5896,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, [u'bd_mac_limit_action', u'bd_mac_limit_notif', u'bd_mac_limit_max'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
 
 
@@ -5977,7 +5977,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, [u'address', u'drop'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
 
 
@@ -6036,7 +6036,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, [u'logging', u'action', u'enable', u'threshold'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
 
 
 
@@ -6082,7 +6082,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, [u'bd_mac_aging_type', u'bd_mac_aging_time'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
 
 
@@ -6127,7 +6127,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, [u'offload_ipv4_multicast_enable', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
 
 
 
@@ -6311,7 +6311,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, [u'isid', u'core_bd_name', u'pbb_edge_igmp_profile', u'unknown_unicast_bmac'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
 
 
                                     class PbbEdgeSplitHorizonGroup(Entity):
@@ -6347,7 +6347,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, [u'disable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
 
 
@@ -6431,7 +6431,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, [u'address', u'pbb_static_mac_mapping_bmac'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
 
 
@@ -6476,7 +6476,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -6540,7 +6540,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, [u'pbb_edge_mac_learning'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
 
 
                                         class PbbEdgeMacLimit(Entity):
@@ -6592,7 +6592,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, [u'pbb_edge_mac_limit_action', u'pbb_edge_mac_limit_max', u'pbb_edge_mac_limit_notif'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
 
 
@@ -6638,7 +6638,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, [u'pbb_edge_mac_aging_type', u'pbb_edge_mac_aging_time'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
 
 
 
@@ -6703,7 +6703,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, [u'logging', u'disable', u'action', u'enable', u'accept_shutdown'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
 
 
 
@@ -6795,7 +6795,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, [u'pbb_core_mmrp_flood_optimization', u'vlan_id', u'pbb_core_igmp_profile', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
 
 
                                 class PbbCoreMac(Entity):
@@ -6849,7 +6849,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, [u'pbb_core_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
 
 
                                     class PbbCoreMacAging(Entity):
@@ -6894,7 +6894,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, [u'pbb_core_mac_aging_type', u'pbb_core_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
 
 
@@ -6947,7 +6947,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, [u'pbb_core_mac_limit_max', u'pbb_core_mac_limit_notif', u'pbb_core_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
 
 
 
@@ -7022,7 +7022,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, [u'eviid'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
 
 
@@ -7067,7 +7067,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -7143,7 +7143,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, [u'vpn_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
 
 
 
@@ -7236,7 +7236,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, [u'name', u'access_vfi_shutdown'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
 
 
                                 class AccessVfiPseudowires(Entity):
@@ -7336,7 +7336,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, [u'neighbor', u'pseudowire_id', u'access_vfi_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
 
 
                                         class AccessVfiPseudowireStaticMacAddresses(Entity):
@@ -7409,7 +7409,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
 
 
 
@@ -7619,7 +7619,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, [u'neighbor', u'pseudowire_id', u'pseudowire_mld_snoop', u'pseudowire_igmp_snoop', u'pseudowire_flooding', u'bd_pw_class', u'pseudowire_flooding_unknown_unicast'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
 
 
                                 class PseudowireDai(Entity):
@@ -7678,7 +7678,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class PseudowireDaiAddressValidation(Entity):
@@ -7728,7 +7728,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
 
 
@@ -7810,7 +7810,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -7861,7 +7861,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -7907,7 +7907,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -7981,7 +7981,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
 
 
@@ -8033,7 +8033,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
 
@@ -8112,7 +8112,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, [u'pseudowire_mac_port_down_flush', u'enable', u'pseudowire_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
 
 
                                     class PseudowireMacSecure(Entity):
@@ -8169,7 +8169,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
 
@@ -8215,7 +8215,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, [u'pseudowire_mac_aging_type', u'pseudowire_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
 
 
 
@@ -8268,7 +8268,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, [u'pseudowire_mac_limit_action', u'pseudowire_mac_limit_notif', u'pseudowire_mac_limit_max'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
 
 
 
@@ -8343,7 +8343,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
 
 
@@ -8392,7 +8392,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -8484,7 +8484,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, [u'neighbor', u'pseudowire_id', u'bridge_domain_backup_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
 
 
 
@@ -8604,7 +8604,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, [u'name', u'vfi_shutdown', u'vpnid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
 
 
                                 class MulticastP2mp(Entity):
@@ -8658,7 +8658,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, [u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
 
 
                                     class Transports(Entity):
@@ -8740,7 +8740,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, [u'transport_name', u'attribute_set_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
 
 
@@ -8815,7 +8815,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, [u'signaling_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
 
 
 
@@ -8954,7 +8954,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, [u'neighbor', u'pseudowire_id', u'vfi_pw_class', u'vfi_pw_igmp_snoop', u'vfi_pw_mld_snoop'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
 
 
                                         class VfiPwDhcpSnoop(Entity):
@@ -8997,7 +8997,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -9045,7 +9045,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -9119,7 +9119,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
 
 
 
@@ -9218,7 +9218,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, [u'table_policy', u'ad_control_word', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
 
 
                                     class LdpSignalingProtocol(Entity):
@@ -9273,7 +9273,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
 
 
                                         class VplsId(Entity):
@@ -9345,7 +9345,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, [u'type', u'as_', u'as_index', u'address', u'address_index'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
 
@@ -9389,7 +9389,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -9427,7 +9427,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, [u'export'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
 
 
 
@@ -9500,7 +9500,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -9564,7 +9564,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, [u've_range', u'veid', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
 
 
                                         class FlowLabelLoadBalance(Entity):
@@ -9607,7 +9607,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -9700,7 +9700,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, [u'role', u'format'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
 
 
                                             class TwoByteAsOrFourByteAs(Entity):
@@ -9747,7 +9747,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, [u'as_', u'as_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
 
@@ -9795,7 +9795,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, [u'address', u'addr_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
 
 
@@ -9875,7 +9875,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, [u'vpn_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
 
 
 
@@ -10045,7 +10045,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, [u'name', u'interface_flooding', u'interface_igmp_snoop', u'interface_flooding_unknown_unicast', u'interface_mld_snoop'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
 
 
                                 class InterfaceIpSourceGuard(Entity):
@@ -10095,7 +10095,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
 
@@ -10155,7 +10155,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class InterfaceDaiAddressValidation(Entity):
@@ -10212,7 +10212,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
 
@@ -10257,7 +10257,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -10338,7 +10338,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -10389,7 +10389,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -10465,7 +10465,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
 
 
@@ -10540,7 +10540,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
 
 
 
@@ -10612,7 +10612,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, [u'interface_mac_port_down_flush', u'interface_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
 
 
                                     class InterfaceMacAging(Entity):
@@ -10657,7 +10657,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, [u'interface_mac_aging_time', u'interface_mac_aging_type'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
 
 
@@ -10715,7 +10715,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
 
@@ -10768,7 +10768,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, [u'interface_mac_limit_max', u'interface_mac_limit_notif', u'interface_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
 
 
 
@@ -10854,7 +10854,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, [u'eviid', u'acid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
 
@@ -10899,7 +10899,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
 
 
 
@@ -10952,7 +10952,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
 
 
                             class DaiAddressValidation(Entity):
@@ -11009,7 +11009,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
 
@@ -11093,7 +11093,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, [u'interface_name'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
 
 
                                 class RoutedInterfaceSplitHorizonGroup(Entity):
@@ -11129,7 +11129,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, [u'routed_interface_split_horizon_group_core'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
 
 
@@ -11252,7 +11252,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass, [u'name', u'mac_withdraw', u'enable'], name, value)
+                    self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass, ['name', 'mac_withdraw', 'enable'], name, value)
 
 
                 class L2tpv3Encapsulation(Entity):
@@ -11365,7 +11365,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, [u'df_bit_set', u'cookie_size', u'source_address', u'transport_mode', u'enable', u'time_to_live'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, ['df_bit_set', 'cookie_size', 'source_address', 'transport_mode', 'enable', 'time_to_live'], name, value)
 
 
                     class Sequencing(Entity):
@@ -11414,7 +11414,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, [u'sequencing', u'resync_threshold'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
 
@@ -11460,7 +11460,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, [u'type_of_service_value', u'type_of_service_mode'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, ['type_of_service_value', 'type_of_service_mode'], name, value)
 
 
 
@@ -11508,7 +11508,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, [u'protocol', u'l2tpv3_class_name'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, ['protocol', 'l2tpv3_class_name'], name, value)
 
 
 
@@ -11554,7 +11554,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, [u'enable', u'max_path_mtu'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, ['enable', 'max_path_mtu'], name, value)
 
 
 
@@ -11601,7 +11601,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, [u'type', u'disable_backup'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, ['type', 'disable_backup'], name, value)
 
 
 
@@ -11731,7 +11731,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, [u'pw_switching_tlv', u'static_tag_rewrite', u'signaling_protocol', u'vccv_type', u'source_address', u'transport_mode', u'enable', u'control_word'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, ['pw_switching_tlv', 'static_tag_rewrite', 'signaling_protocol', 'vccv_type', 'source_address', 'transport_mode', 'enable', 'control_word'], name, value)
 
 
                     class Sequencing(Entity):
@@ -11780,7 +11780,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, [u'sequencing', u'resync_threshold'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
 
@@ -11828,7 +11828,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, [u'redundancy_one_way', u'redundancy_initial_delay'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, ['redundancy_one_way', 'redundancy_initial_delay'], name, value)
 
 
 
@@ -11890,7 +11890,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, [u'type', u'interface_tunnel_number', u'fallback_disable', u'srte_policy'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'srte_policy'], name, value)
 
 
 
@@ -11943,7 +11943,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, [u'flow_label_load_balance_code', u'pw_label_load_balance'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, ['flow_label_load_balance_code', 'pw_label_load_balance'], name, value)
 
 
                         class FlowLabelLoadBalance(Entity):
@@ -11986,7 +11986,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -12111,7 +12111,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch, [u'name'], name, value)
+                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch, ['name'], name, value)
 
 
                 class VlanSwitchPorts(Entity):
@@ -12184,7 +12184,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, [u'interface_name'], name, value)
+                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, ['interface_name'], name, value)
 
 
 
@@ -12378,7 +12378,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, [u'vni_range1_min', u'vni_range1_max', u'vni_range2_min', u'vni_range2_max', u'vni_range3_min', u'vni_range3_max', u'vni_range4_min', u'vni_range4_max', u'vni_range5_min', u'vni_range5_max', u'vni_range6_min', u'vni_range6_max', u'vni_range7_min', u'vni_range7_max', u'vni_range8_min', u'vni_range8_max', u'vni_range9_min', u'vni_range9_max'], name, value)
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, ['vni_range1_min', 'vni_range1_max', 'vni_range2_min', 'vni_range2_max', 'vni_range3_min', 'vni_range3_max', 'vni_range4_min', 'vni_range4_max', 'vni_range5_min', 'vni_range5_max', 'vni_range6_min', 'vni_range6_max', 'vni_range7_min', 'vni_range7_max', 'vni_range8_min', 'vni_range8_max', 'vni_range9_min', 'vni_range9_max'], name, value)
 
 
 
@@ -12570,7 +12570,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, [u'vlan_range1_min', u'vlan_range1_max', u'vlan_range2_min', u'vlan_range2_max', u'vlan_range3_min', u'vlan_range3_max', u'vlan_range4_min', u'vlan_range4_max', u'vlan_range5_min', u'vlan_range5_max', u'vlan_range6_min', u'vlan_range6_max', u'vlan_range7_min', u'vlan_range7_max', u'vlan_range8_min', u'vlan_range8_max', u'vlan_range9_min', u'vlan_range9_max'], name, value)
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, ['vlan_range1_min', 'vlan_range1_max', 'vlan_range2_min', 'vlan_range2_max', 'vlan_range3_min', 'vlan_range3_max', 'vlan_range4_min', 'vlan_range4_max', 'vlan_range5_min', 'vlan_range5_max', 'vlan_range6_min', 'vlan_range6_max', 'vlan_range7_min', 'vlan_range7_max', 'vlan_range8_min', 'vlan_range8_max', 'vlan_range9_min', 'vlan_range9_max'], name, value)
 
 
 
@@ -12763,7 +12763,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, [u'interface_range1_min', u'interface_range1_max', u'interface_range2_min', u'interface_range2_max', u'interface_range3_min', u'interface_range3_max', u'interface_range4_min', u'interface_range4_max', u'interface_range5_min', u'interface_range5_max', u'interface_range6_min', u'interface_range6_max', u'interface_range7_min', u'interface_range7_max', u'interface_range8_min', u'interface_range8_max', u'interface_range9_min', u'interface_range9_max'], name, value)
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, ['interface_range1_min', 'interface_range1_max', 'interface_range2_min', 'interface_range2_max', 'interface_range3_min', 'interface_range3_max', 'interface_range4_min', 'interface_range4_max', 'interface_range5_min', 'interface_range5_max', 'interface_range6_min', 'interface_range6_max', 'interface_range7_min', 'interface_range7_max', 'interface_range8_min', 'interface_range8_max', 'interface_range9_min', 'interface_range9_max'], name, value)
 
 
 
@@ -13061,7 +13061,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, [u'name', u'coupled_mode', u'shutdown', u'flooding_unknown_unicast', u'igmp_snooping_disable', u'transport_mode', u'mld_snooping', u'bridge_domain_mtu', u'dhcp', u'bridge_description', u'igmp_snooping', u'flooding'], name, value)
+                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
                         class BdStormControls(Entity):
@@ -13141,7 +13141,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, [u'sctype'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
 
 
                                 class StormControlUnit(Entity):
@@ -13192,7 +13192,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -13277,7 +13277,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, [u'vni'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
 
 
                                 class MemberVniStaticMacAddresses(Entity):
@@ -13359,7 +13359,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, [u'mac_address', u'next_hop_ip'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
 
 
@@ -13470,7 +13470,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, [u'bd_mac_withdraw_relay', u'bd_mac_withdraw_access_pw_disable', u'bd_mac_port_down_flush', u'bd_mac_withdraw', u'bd_mac_withdraw_behavior', u'bd_mac_learn'], name, value)
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
 
 
                             class BdMacLimit(Entity):
@@ -13522,7 +13522,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, [u'bd_mac_limit_action', u'bd_mac_limit_notif', u'bd_mac_limit_max'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
 
 
@@ -13603,7 +13603,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, [u'address', u'drop'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
 
 
@@ -13662,7 +13662,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, [u'logging', u'action', u'enable', u'threshold'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
 
 
 
@@ -13708,7 +13708,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, [u'bd_mac_aging_type', u'bd_mac_aging_time'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
 
 
@@ -13753,7 +13753,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, [u'offload_ipv4_multicast_enable', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
 
 
 
@@ -13937,7 +13937,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, [u'isid', u'core_bd_name', u'pbb_edge_igmp_profile', u'unknown_unicast_bmac'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
 
 
                                     class PbbEdgeSplitHorizonGroup(Entity):
@@ -13973,7 +13973,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, [u'disable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
 
 
@@ -14057,7 +14057,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, [u'address', u'pbb_static_mac_mapping_bmac'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
 
 
@@ -14102,7 +14102,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -14166,7 +14166,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, [u'pbb_edge_mac_learning'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
 
 
                                         class PbbEdgeMacLimit(Entity):
@@ -14218,7 +14218,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, [u'pbb_edge_mac_limit_action', u'pbb_edge_mac_limit_max', u'pbb_edge_mac_limit_notif'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
 
 
@@ -14264,7 +14264,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, [u'pbb_edge_mac_aging_type', u'pbb_edge_mac_aging_time'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
 
 
 
@@ -14329,7 +14329,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, [u'logging', u'disable', u'action', u'enable', u'accept_shutdown'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
 
 
 
@@ -14421,7 +14421,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, [u'pbb_core_mmrp_flood_optimization', u'vlan_id', u'pbb_core_igmp_profile', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
 
 
                                 class PbbCoreMac(Entity):
@@ -14475,7 +14475,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, [u'pbb_core_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
 
 
                                     class PbbCoreMacAging(Entity):
@@ -14520,7 +14520,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, [u'pbb_core_mac_aging_type', u'pbb_core_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
 
 
@@ -14573,7 +14573,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, [u'pbb_core_mac_limit_max', u'pbb_core_mac_limit_notif', u'pbb_core_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
 
 
 
@@ -14648,7 +14648,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, [u'eviid'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
 
 
@@ -14693,7 +14693,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -14769,7 +14769,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, [u'vpn_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
 
 
 
@@ -14862,7 +14862,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, [u'name', u'access_vfi_shutdown'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
 
 
                                 class AccessVfiPseudowires(Entity):
@@ -14962,7 +14962,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, [u'neighbor', u'pseudowire_id', u'access_vfi_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
 
 
                                         class AccessVfiPseudowireStaticMacAddresses(Entity):
@@ -15035,7 +15035,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
 
 
 
@@ -15245,7 +15245,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, [u'neighbor', u'pseudowire_id', u'pseudowire_mld_snoop', u'pseudowire_igmp_snoop', u'pseudowire_flooding', u'bd_pw_class', u'pseudowire_flooding_unknown_unicast'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
 
 
                                 class PseudowireDai(Entity):
@@ -15304,7 +15304,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class PseudowireDaiAddressValidation(Entity):
@@ -15354,7 +15354,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
 
 
@@ -15436,7 +15436,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -15487,7 +15487,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -15533,7 +15533,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -15607,7 +15607,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
 
 
@@ -15659,7 +15659,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
 
@@ -15738,7 +15738,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, [u'pseudowire_mac_port_down_flush', u'enable', u'pseudowire_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
 
 
                                     class PseudowireMacSecure(Entity):
@@ -15795,7 +15795,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
 
@@ -15841,7 +15841,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, [u'pseudowire_mac_aging_type', u'pseudowire_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
 
 
 
@@ -15894,7 +15894,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, [u'pseudowire_mac_limit_action', u'pseudowire_mac_limit_notif', u'pseudowire_mac_limit_max'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
 
 
 
@@ -15969,7 +15969,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
 
 
@@ -16018,7 +16018,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -16110,7 +16110,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, [u'neighbor', u'pseudowire_id', u'bridge_domain_backup_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
 
 
 
@@ -16230,7 +16230,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, [u'name', u'vfi_shutdown', u'vpnid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
 
 
                                 class MulticastP2mp(Entity):
@@ -16284,7 +16284,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, [u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
 
 
                                     class Transports(Entity):
@@ -16366,7 +16366,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, [u'transport_name', u'attribute_set_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
 
 
@@ -16441,7 +16441,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, [u'signaling_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
 
 
 
@@ -16580,7 +16580,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, [u'neighbor', u'pseudowire_id', u'vfi_pw_class', u'vfi_pw_igmp_snoop', u'vfi_pw_mld_snoop'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
 
 
                                         class VfiPwDhcpSnoop(Entity):
@@ -16623,7 +16623,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -16671,7 +16671,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
 
@@ -16745,7 +16745,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
 
 
 
@@ -16844,7 +16844,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, [u'table_policy', u'ad_control_word', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
 
 
                                     class LdpSignalingProtocol(Entity):
@@ -16899,7 +16899,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
 
 
                                         class VplsId(Entity):
@@ -16971,7 +16971,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, [u'type', u'as_', u'as_index', u'address', u'address_index'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
 
@@ -17015,7 +17015,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -17053,7 +17053,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, [u'export'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
 
 
 
@@ -17126,7 +17126,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -17190,7 +17190,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, [u've_range', u'veid', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
 
 
                                         class FlowLabelLoadBalance(Entity):
@@ -17233,7 +17233,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
 
@@ -17326,7 +17326,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, [u'role', u'format'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
 
 
                                             class TwoByteAsOrFourByteAs(Entity):
@@ -17373,7 +17373,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, [u'as_', u'as_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
 
@@ -17421,7 +17421,7 @@ class L2vpn(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, [u'address', u'addr_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
 
 
@@ -17501,7 +17501,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, [u'vpn_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
 
 
 
@@ -17671,7 +17671,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, [u'name', u'interface_flooding', u'interface_igmp_snoop', u'interface_flooding_unknown_unicast', u'interface_mld_snoop'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
 
 
                                 class InterfaceIpSourceGuard(Entity):
@@ -17721,7 +17721,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
 
@@ -17781,7 +17781,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class InterfaceDaiAddressValidation(Entity):
@@ -17838,7 +17838,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
 
@@ -17883,7 +17883,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
 
@@ -17964,7 +17964,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -18015,7 +18015,7 @@ class L2vpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
 
@@ -18091,7 +18091,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
 
 
@@ -18166,7 +18166,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
 
 
 
@@ -18238,7 +18238,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, [u'interface_mac_port_down_flush', u'interface_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
 
 
                                     class InterfaceMacAging(Entity):
@@ -18283,7 +18283,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, [u'interface_mac_aging_time', u'interface_mac_aging_type'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
 
 
@@ -18341,7 +18341,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
 
@@ -18394,7 +18394,7 @@ class L2vpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, [u'interface_mac_limit_max', u'interface_mac_limit_notif', u'interface_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
 
 
 
@@ -18480,7 +18480,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, [u'eviid', u'acid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
 
@@ -18525,7 +18525,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
 
 
 
@@ -18578,7 +18578,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
 
 
                             class DaiAddressValidation(Entity):
@@ -18635,7 +18635,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
 
@@ -18719,7 +18719,7 @@ class L2vpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, [u'interface_name'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
 
 
                                 class RoutedInterfaceSplitHorizonGroup(Entity):
@@ -18755,7 +18755,7 @@ class L2vpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, [u'routed_interface_split_horizon_group_core'], name, value)
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
 
 
@@ -18903,7 +18903,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, [u'name'], name, value)
+                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, ['name'], name, value)
 
 
                     class VlanUnawareFxcAttachmentCircuits(Entity):
@@ -18976,7 +18976,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, [u'name'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, ['name'], name, value)
 
 
 
@@ -19060,7 +19060,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, [u'eviid', u'acid'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
 
@@ -19148,7 +19148,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, [u'eviid'], name, value)
+                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, ['eviid'], name, value)
 
 
                     class VlanAwareFxcAttachmentCircuits(Entity):
@@ -19221,7 +19221,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, [u'name'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, ['name'], name, value)
 
 
 
@@ -19272,7 +19272,7 @@ class L2vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.Database.Redundancy, [u'enable'], name, value)
+                self._perform_setattr(L2vpn.Database.Redundancy, ['enable'], name, value)
 
 
             class IccpRedundancyGroups(Entity):
@@ -19366,7 +19366,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, [u'group_id', u'multi_homing_node_id'], name, value)
+                        self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, ['group_id', 'multi_homing_node_id'], name, value)
 
 
                     class IccpInterfaces(Entity):
@@ -19471,7 +19471,7 @@ class L2vpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, [u'interface_name', u'secondary_vlan_range', u'recovery_delay', u'primary_vlan_range', u'mac_flush_tcn'], name, value)
+                                self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, ['interface_name', 'secondary_vlan_range', 'recovery_delay', 'primary_vlan_range', 'mac_flush_tcn'], name, value)
 
 
 
@@ -19516,7 +19516,7 @@ class L2vpn(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.Pbb, [u'backbone_source_mac'], name, value)
+            self._perform_setattr(L2vpn.Pbb, ['backbone_source_mac'], name, value)
 
 
 
@@ -19592,7 +19592,7 @@ class L2vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, [u'mtu_mismatch_ignore'], name, value)
+                self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, ['mtu_mismatch_ignore'], name, value)
 
 
 
@@ -19697,7 +19697,7 @@ class L2vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.Utility.Logging, [u'bridge_domain_state_change', u'pseudowire_state_change', u'vfi', u'nsr_state_change', u'pwhe_replication_state_change'], name, value)
+                self._perform_setattr(L2vpn.Utility.Logging, ['bridge_domain_state_change', 'pseudowire_state_change', 'vfi', 'nsr_state_change', 'pwhe_replication_state_change'], name, value)
 
 
 
@@ -19859,7 +19859,7 @@ class L2vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, [u'external_interface_format'], name, value)
+                        self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, ['external_interface_format'], name, value)
 
 
 
@@ -19898,7 +19898,7 @@ class L2vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, [u'statistics'], name, value)
+                    self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, ['statistics'], name, value)
 
 
 
@@ -19997,7 +19997,7 @@ class GenericInterfaceLists(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, [u'generic_interface_list_name', u'enable'], name, value)
+            self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, ['generic_interface_list_name', 'enable'], name, value)
 
 
         class Interfaces(Entity):
@@ -20077,7 +20077,7 @@ class GenericInterfaceLists(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, [u'interface_name', u'enable'], name, value)
+                    self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
 
 
@@ -20131,7 +20131,7 @@ class Evpn(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Evpn, [u'enable'], name, value)
+        self._perform_setattr(Evpn, ['enable'], name, value)
 
 
     class EvpnTables(Entity):
@@ -20296,7 +20296,7 @@ class Evpn(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Evpn.EvpnTables, [u'evi_cost_out', u'evpn_source_interface', u'evpn_cost_in_startup'], name, value)
+            self._perform_setattr(Evpn.EvpnTables, ['evi_cost_out', 'evpn_source_interface', 'evpn_cost_in_startup'], name, value)
 
 
         class EvpnTimers(Entity):
@@ -20366,7 +20366,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, [u'evpn_carving', u'evpn_recovery', u'enable', u'evpn_peering'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
 
 
 
@@ -20413,7 +20413,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.Evpnmac, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.Evpnmac, ['enable'], name, value)
 
 
             class EvpnmacSecure(Entity):
@@ -20486,7 +20486,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, [u'evpnmac_secure_freeze_time', u'enable', u'evpnmac_secure_retry_count', u'evpnmac_secure_move_count', u'evpnmac_secure_move_interval'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, ['evpnmac_secure_freeze_time', 'enable', 'evpnmac_secure_retry_count', 'evpnmac_secure_move_count', 'evpnmac_secure_move_interval'], name, value)
 
 
 
@@ -20643,7 +20643,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi, [u'eviid', u'evi_reorig_disable', u'evi_advertise_mac_deprecated', u'evpn_evi_description', u'evi_ecmp_disable', u'evi_unknown_unicast_flooding_disable', u'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi, ['eviid', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EviLoadBalancing(Entity):
@@ -20686,7 +20686,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, [u'enable', u'evi_static_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
 
@@ -20708,6 +20708,11 @@ class Evpn(Entity):
                     
                     	Route Distinguisher
                     	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher>`
+                    
+                    .. attribute:: implicit_import_disable
+                    
+                    	Disables BGP Implicit Import
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: evpn_route_targets
                     
@@ -20733,9 +20738,11 @@ class Evpn(Entity):
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                            ('implicit_import_disable', (YLeaf(YType.empty, 'implicit-import-disable'), ['Empty'])),
                         ])
                         self.enable = None
                         self.table_policy = None
+                        self.implicit_import_disable = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -20748,7 +20755,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, [u'enable', u'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):
@@ -20820,7 +20827,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -20936,7 +20943,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, [u'format', u'role', u'as_', u'as_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
 
@@ -20987,7 +20994,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, [u'format', u'role', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
 
 
@@ -21056,7 +21063,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, [u'format', u'role', u'address', u'addr_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
 
 
@@ -21102,7 +21109,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, [u'enable', u'evi_mcast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
 
 
@@ -21147,7 +21154,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, [u'enable', u'evi_advertise_mac_bvi'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
 
 
 
@@ -21243,7 +21250,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, [u'name'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, ['name'], name, value)
 
 
                 class EvpnVirtualAccessVfiTimers(Entity):
@@ -21313,7 +21320,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, [u'evpn_virtual_access_vfi_recovery', u'evpn_virtual_access_vfi_peering', u'evpn_virtual_access_vfi_carving', u'enable'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'evpn_virtual_access_vfi_carving', 'enable'], name, value)
 
 
 
@@ -21385,7 +21392,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, [u'enable', u'es_import_route_target', u'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -21489,7 +21496,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
 
@@ -21536,7 +21543,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -21583,7 +21590,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
 
@@ -21632,7 +21639,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, [u'evpn_static_flow_label', u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_static_flow_label', 'enable'], name, value)
 
 
 
@@ -21679,7 +21686,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery, ['enable'], name, value)
 
 
             class EvpnRouteDistinguisher(Entity):
@@ -21752,7 +21759,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -21838,7 +21845,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup, [u'group_id'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup, ['group_id'], name, value)
 
 
                 class EvpnGroupCoreInterfaces(Entity):
@@ -21911,7 +21918,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, [u'interface_name'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, ['interface_name'], name, value)
 
 
 
@@ -22084,7 +22091,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, [u'vpn_id', u'encapsulation', u'side', u'evi_reorig_disable', u'evi_advertise_mac_deprecated', u'evpn_evi_description', u'evi_ecmp_disable', u'evi_unknown_unicast_flooding_disable', u'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, ['vpn_id', 'encapsulation', 'side', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EvpnInstanceBgpAutoDiscovery(Entity):
@@ -22105,6 +22112,11 @@ class Evpn(Entity):
                     
                     	Route Distinguisher
                     	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher>`
+                    
+                    .. attribute:: implicit_import_disable
+                    
+                    	Disables BGP Implicit Import
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: evpn_route_targets
                     
@@ -22130,9 +22142,11 @@ class Evpn(Entity):
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                            ('implicit_import_disable', (YLeaf(YType.empty, 'implicit-import-disable'), ['Empty'])),
                         ])
                         self.enable = None
                         self.table_policy = None
+                        self.implicit_import_disable = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -22145,7 +22159,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, [u'enable', u'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):
@@ -22217,7 +22231,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
 
@@ -22333,7 +22347,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, [u'format', u'role', u'as_', u'as_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
 
@@ -22384,7 +22398,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, [u'format', u'role', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
 
 
@@ -22453,7 +22467,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, [u'format', u'role', u'address', u'addr_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
 
 
@@ -22500,7 +22514,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, [u'enable', u'evi_advertise_mac_bvi'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
 
 
 
@@ -22544,7 +22558,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, [u'enable', u'evi_mcast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
 
 
@@ -22588,7 +22602,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, [u'enable', u'evi_static_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
 
@@ -22635,7 +22649,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnLogging, [u'evpn_df_election', u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnLogging, ['evpn_df_election', 'enable'], name, value)
 
 
 
@@ -22745,7 +22759,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, [u'interface_name', u'evpn_core_isolation_group', u'mac_flush'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, ['interface_name', 'evpn_core_isolation_group', 'mac_flush'], name, value)
 
 
                 class EvpnacTimers(Entity):
@@ -22815,7 +22829,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, [u'evpnac_peering', u'evpnac_carving', u'enable', u'evpnac_recovery'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'evpnac_carving', 'enable', 'evpnac_recovery'], name, value)
 
 
 
@@ -22910,7 +22924,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, [u'force_single_homed', u'load_balancing_mode', u'enable', u'backbone_source_mac', u'es_import_route_target', u'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, ['force_single_homed', 'load_balancing_mode', 'enable', 'backbone_source_mac', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -23014,7 +23028,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
 
@@ -23061,7 +23075,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -23108,7 +23122,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
 
@@ -23215,7 +23229,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, [u'neighbor', u'pseudowire_id'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, ['neighbor', 'pseudowire_id'], name, value)
 
 
                 class EvpnVirtualAccessPwTimers(Entity):
@@ -23285,7 +23299,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, [u'evpn_virtual_access_pw_recovery', u'evpn_virtual_access_pw_peering', u'enable', u'evpn_virtual_access_pw_carving'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable', 'evpn_virtual_access_pw_carving'], name, value)
 
 
 
@@ -23357,7 +23371,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, [u'enable', u'es_import_route_target', u'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -23461,7 +23475,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
 
@@ -23508,7 +23522,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -23555,7 +23569,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
 
@@ -23606,7 +23620,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment, ['enable'], name, value)
 
 
             class EvpnEsiTypes(Entity):
@@ -23688,7 +23702,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, [u'esi_type', u'disable_auto_generation'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, ['esi_type', 'disable_auto_generation'], name, value)
 
 
 

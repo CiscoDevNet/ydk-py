@@ -226,7 +226,7 @@ class Nacm(Entity):
             	Group name associated with this entry
             	**type**\: str
             
-            	**pattern:** [^\\\*].\*
+            	**length:** 1..18446744073709551615
             
             .. attribute:: user_name
             
@@ -289,7 +289,7 @@ class Nacm(Entity):
         
         		**type**\: list of str
         
-        			**pattern:** [^\\\*].\*
+        			**length:** 1..18446744073709551615
         
         .. attribute:: rule
         

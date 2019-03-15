@@ -27,7 +27,7 @@ module Cisco-IOS-XE-arp {
 
   description
     "Cisco XE Native Access Point (AP) Group Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
@@ -36,6 +36,11 @@ module Cisco-IOS-XE-arp {
   revision 2018-06-28{
     description
         "Added must constraints for deleting vrf";
+  }
+
+  revision 2018-06-17{
+   description
+     "Add arp alias";
   }
 
   revision 2017-11-07 {
@@ -71,6 +76,11 @@ module Cisco-IOS-XE-arp {
 	  enum SRP-A;
 	  enum SRP-B;
 	}
+      }
+      leaf alias {
+        description
+         "Respond to ARP requests for the IP address";
+        type empty;
       }
     }
   }

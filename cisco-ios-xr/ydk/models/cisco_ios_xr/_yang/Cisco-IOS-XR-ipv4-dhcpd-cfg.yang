@@ -409,10 +409,20 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
         description
           "Not a Format String";
       }
-      enum "format" {
+      enum "hex" {
         value 1;
         description
-          "Format String";
+          "Hex Format String";
+      }
+      enum "ascii" {
+        value 2;
+        description
+          "Ascii Format String";
+      }
+      enum "extended" {
+        value 3;
+        description
+          "Extended Format String";
       }
     }
     description
@@ -876,6 +886,15 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                   max-elements "8";
                   description
                     "Router's IP address";
+                }
+              }
+              container delete-binding-on-discover {
+                description
+                  "Delete binding on receiving discover";
+                leaf disable {
+                  type empty;
+                  description
+                    "Disable delete binding on discover";
                 }
               }
               container net-bios-name-servers {

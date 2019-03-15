@@ -1360,7 +1360,7 @@ class SpanMonitorSession(Entity):
             
             .. attribute:: hardware_sessions
             
-            	Table of sessions set up in the hardware.  When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
+            	Table of sessions set up in the hardware. When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
             	**type**\:  :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
             
             	**config**\: False
@@ -1927,7 +1927,7 @@ class SpanMonitorSession(Entity):
 
             class HardwareSessions(Entity):
                 """
-                Table of sessions set up in the hardware. 
+                Table of sessions set up in the hardware.
                 When all sessions are operating correctly the
                 entries in this table should match those
                 entries in GlobalSessionTable that have a

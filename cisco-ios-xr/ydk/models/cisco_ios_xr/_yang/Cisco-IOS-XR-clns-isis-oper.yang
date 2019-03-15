@@ -584,7 +584,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                                metric.  This is the
                                                well-known shortest path
                                                algorithm as computed by the
-                                               IS-IS Decision process. 
+                                               IS-IS Decision process.
                                                Consistent with the deployed
                                                practice for link- state
                                                protocols, algorithm 0
@@ -2278,6 +2278,21 @@ module Cisco-IOS-XR-clns-isis-oper {
                 "Interface name";
             }
             uses ISIS-SH-CHKPT-IDB;
+          }
+        }
+        container sr-labels {
+          description
+            "SR Label table";
+          list sr-label {
+            key "label";
+            description
+              "SrLabel table entry";
+            leaf label {
+              type uint32;
+              description
+                "SR Label";
+            }
+            uses ISIS-SH-LABEL;
           }
         }
         container interface-statistics {

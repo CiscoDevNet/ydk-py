@@ -154,7 +154,7 @@ class FrequencySynchronization(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(FrequencySynchronization, [u'quality_level_option', u'enable', u'source_selection_logging', u'clock_interface_source_type', u'system_timing_mode'], name, value)
+        self._perform_setattr(FrequencySynchronization, ['quality_level_option', 'enable', 'source_selection_logging', 'clock_interface_source_type', 'system_timing_mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()

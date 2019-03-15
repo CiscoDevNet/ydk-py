@@ -40,6 +40,19 @@ module Cisco-IOS-XE-route-map {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-12-05 {
+    description
+      "Removed choice option from set ip nexthop so that multiple \
+       options can be configured at same time";
+  }
+  revision 2018-12-05 {
+    description
+      "Added support for set nlri and set attribute-set";
+  }
+  revision 2018-08-10 {
+    description
+      "Added support for multiple IPv4 next-hop (set ip next-hop)";
+  }
   revision 2018-03-08 {
     description
       "Add tailf:cli-flat-list-syntax to route-map/match-preference";
@@ -50,8 +63,8 @@ module Cisco-IOS-XE-route-map {
   }
   revision 2017-07-27 {
     description
-      "Add model for set ip next-hop verify-availability \
-       <ipaddr> <range> track <range>";
+      "Add model for set ip next-hop verify-availability" +
+      "<ipaddr> <range> track <range>";
   }
   revision 2017-06-07 {
     description
@@ -184,6 +197,12 @@ module Cisco-IOS-XE-route-map {
             presence "tag";
           }
         }
+	// route-map * / set attribute-set
+	leaf attribute-set {
+	  description
+	    "TE Profile name";
+	  type string;
+	}
         // route-map * / set automatic-tag
         leaf automatic-tag {
           description
@@ -457,94 +476,92 @@ module Cisco-IOS-XE-route-map {
           container next-hop {
             description
               "Next hop address";
-            choice next-hop-choice {
-              leaf address {
+            leaf-list address {
+              type inet:ipv4-address;
+            }
+            container dynamic {
+              description
+                "application dynamically sets next hop";
+              leaf dhcp {
+                description
+                  "DHCP learned next hop";
+                type empty;
+              }
+            }
+            container encapsulate {
+              description
+                "Encapsulation profile for VPN nexthop";
+              leaf l3vpn {
+                description
+                  "L3VPN";
+                type string;
+              }
+            }
+            leaf peer-address {
+              description
+                "Use peer address (for BGP only)";
+              type empty;
+            }
+            container recursive {
+              description
+                "Recursive next-hop";
+              leaf ipv4 {
+                description
+                  "IP address of recursive next hop";
                 type inet:ipv4-address;
               }
-              container dynamic {
+              leaf global {
                 description
-                  "application dynamically sets next hop";
-                leaf dhcp {
-                  description
-                    "DHCP learned next hop";
-                  type empty;
-                }
+                  "IP address of recursive next hop";
+                type inet:ipv4-address;
               }
-              container encapsulate {
+              container vrf {
                 description
-                  "Encapsulation profile for VPN nexthop";
-                leaf l3vpn {
-                  description
-                    "L3VPN";
-                  type string;
-                }
-              }
-              leaf peer-address {
-                description
-                  "Use peer address (for BGP only)";
-                type empty;
-              }
-              container recursive {
-                description
-                  "Recursive next-hop";
-                leaf ipv4 {
-                  description
-                    "IP address of recursive next hop";
-                  type inet:ipv4-address;
-                }
-                leaf global {
-                  description
-                    "IP address of recursive next hop";
-                  type inet:ipv4-address;
-                }
-                container vrf {
-                  description
-                    "VRF name";
-                  list vrfs {
-                    key "vrf";
-                    leaf vrf {
-                      description
-                        "VRF name";
-                      type string;
-                    }
-                    leaf ipv4 {
-                      description
-                        "IP address of recursive next hop";
-                      type inet:ipv4-address;
-                    }
+                  "VRF name";
+                list vrfs {
+                  key "vrf";
+                  leaf vrf {
+                    description
+                      "VRF name";
+                    type string;
                   }
-                }
-              }
-              leaf self {
-                description
-                  "Use self address (for BGP only)";
-                type empty;
-              }
-              container verify-availability {
-                description
-                  "Verify if nexthop is reachable";
-                presence "true";
-                list ipv4 {
-                  key "ipv4";
                   leaf ipv4 {
                     description
-                      "IP address of next hop";
+                      "IP address of recursive next hop";
                     type inet:ipv4-address;
                   }
-                  leaf range {
-                    type uint16 {
-                      range "1..65535";
-                    }
-                  }
-                  leaf track {
-                    description
-                      "set the next hop depending on the state\
-                       of a tracked object";
-                    type uint16 {
-                       range "1..1000";
-                    }
-                  } 
                 }
+              }
+            }
+            leaf self {
+              description
+                "Use self address (for BGP only)";
+              type empty;
+            }
+            container verify-availability {
+              description
+                "Verify if nexthop is reachable";
+              presence "true";
+              list ipv4 {
+                key "ipv4";
+                leaf ipv4 {
+                  description
+                    "IP address of next hop";
+                  type inet:ipv4-address;
+                }
+                leaf range {
+                  type uint16 {
+                    range "1..65535";
+                  }
+                }
+                leaf track {
+                  description
+                    "set the next hop depending on the state\
+                     of a tracked object";
+                  type uint16 {
+                     range "1..1000";
+                  }
+                } 
               }
             }
           }
@@ -917,6 +934,21 @@ module Cisco-IOS-XE-route-map {
             "Set MPLS label for prefix";
           type empty;
         }
+	// route-map * / set nlri
+	container nlri {
+	  description
+	    "BGP NLRI type";
+	    leaf unicast {
+	      description
+	        "Used in unicast RIB";
+	      type empty;
+	    }
+	    leaf multicast {
+	      description
+	        "Used in multicast RIB";
+	      type empty;
+	    }
+	}
         // route-map * / set weight
         leaf weight {
           description

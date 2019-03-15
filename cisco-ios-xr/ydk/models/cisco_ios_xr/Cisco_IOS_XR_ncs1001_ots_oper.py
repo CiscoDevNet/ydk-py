@@ -687,7 +687,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.AmpliTrailInfo, [u'eqpt_fail', u'view', u'com_port_number', u'com_port_name', u'line_port_number', u'line_port_name', u'bst_in_rx_power', u'bst_in_rx_total_power', u'bst_in_rx_power_th_low', u'bst_out_tx_power', u'bst_out_tx_total_power', u'bst_out_tx_power_th_low', u'bst_working_mode', u'bst_safety_mode', u'bst_gain_range', u'bst_osri', u'bst_channel_power', u'bst_gain', u'bst_tilt', u'pre_in_rx_power', u'pre_in_rx_total_power', u'pre_in_rx_power_th_low', u'pre_out_tx_power', u'pre_out_tx_total_power', u'pre_out_tx_power_th_low', u'pre_working_mode', u'pre_safety_mode', u'pre_gain_range', u'pre_osri', u'pre_channel_power', u'pre_gain', u'pre_tilt'], name, value)
+                        self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.AmpliTrailInfo, ['eqpt_fail', 'view', 'com_port_number', 'com_port_name', 'line_port_number', 'line_port_name', 'bst_in_rx_power', 'bst_in_rx_total_power', 'bst_in_rx_power_th_low', 'bst_out_tx_power', 'bst_out_tx_total_power', 'bst_out_tx_power_th_low', 'bst_working_mode', 'bst_safety_mode', 'bst_gain_range', 'bst_osri', 'bst_channel_power', 'bst_gain', 'bst_tilt', 'pre_in_rx_power', 'pre_in_rx_total_power', 'pre_in_rx_power_th_low', 'pre_out_tx_power', 'pre_out_tx_total_power', 'pre_out_tx_power_th_low', 'pre_working_mode', 'pre_safety_mode', 'pre_gain_range', 'pre_osri', 'pre_channel_power', 'pre_gain', 'pre_tilt'], name, value)
 
 
 
@@ -880,7 +880,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.ChannelTrailInfo, [u'eqpt_fail', u'filter', u'och_name', u'wavelength', u'frequency', u'com_port_number', u'com_port_name', u'com_rx_power_th_low', u'line_port_number', u'line_port_name', u'line_rx_power_th_low', u'bst_in_rx_power', u'bst_out_tx_power', u'pre_in_rx_power', u'pre_out_tx_power'], name, value)
+                        self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.ChannelTrailInfo, ['eqpt_fail', 'filter', 'och_name', 'wavelength', 'frequency', 'com_port_number', 'com_port_name', 'com_rx_power_th_low', 'line_port_number', 'line_port_name', 'line_rx_power_th_low', 'bst_in_rx_power', 'bst_out_tx_power', 'pre_in_rx_power', 'pre_out_tx_power'], name, value)
 
 
 
@@ -1406,7 +1406,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.AmpliTrailInfo, [u'eqpt_fail', u'view', u'com_port_number', u'com_port_name', u'line_port_number', u'line_port_name', u'bst_in_rx_power', u'bst_in_rx_total_power', u'bst_in_rx_power_th_low', u'bst_out_tx_power', u'bst_out_tx_total_power', u'bst_out_tx_power_th_low', u'bst_working_mode', u'bst_safety_mode', u'bst_gain_range', u'bst_osri', u'bst_channel_power', u'bst_gain', u'bst_tilt', u'pre_in_rx_power', u'pre_in_rx_total_power', u'pre_in_rx_power_th_low', u'pre_out_tx_power', u'pre_out_tx_total_power', u'pre_out_tx_power_th_low', u'pre_working_mode', u'pre_safety_mode', u'pre_gain_range', u'pre_osri', u'pre_channel_power', u'pre_gain', u'pre_tilt'], name, value)
+                        self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.AmpliTrailInfo, ['eqpt_fail', 'view', 'com_port_number', 'com_port_name', 'line_port_number', 'line_port_name', 'bst_in_rx_power', 'bst_in_rx_total_power', 'bst_in_rx_power_th_low', 'bst_out_tx_power', 'bst_out_tx_total_power', 'bst_out_tx_power_th_low', 'bst_working_mode', 'bst_safety_mode', 'bst_gain_range', 'bst_osri', 'bst_channel_power', 'bst_gain', 'bst_tilt', 'pre_in_rx_power', 'pre_in_rx_total_power', 'pre_in_rx_power_th_low', 'pre_out_tx_power', 'pre_out_tx_total_power', 'pre_out_tx_power_th_low', 'pre_working_mode', 'pre_safety_mode', 'pre_gain_range', 'pre_osri', 'pre_channel_power', 'pre_gain', 'pre_tilt'], name, value)
 
 
 
@@ -1599,7 +1599,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.ChannelTrailInfo, [u'eqpt_fail', u'filter', u'och_name', u'wavelength', u'frequency', u'com_port_number', u'com_port_name', u'com_rx_power_th_low', u'line_port_number', u'line_port_name', u'line_rx_power_th_low', u'bst_in_rx_power', u'bst_out_tx_power', u'pre_in_rx_power', u'pre_out_tx_power'], name, value)
+                        self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.ChannelTrailInfo, ['eqpt_fail', 'filter', 'och_name', 'wavelength', 'frequency', 'com_port_number', 'com_port_name', 'com_rx_power_th_low', 'line_port_number', 'line_port_name', 'line_rx_power_th_low', 'bst_in_rx_power', 'bst_out_tx_power', 'pre_in_rx_power', 'pre_out_tx_power'], name, value)
 
 
 

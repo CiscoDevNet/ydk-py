@@ -41,6 +41,37 @@ module Cisco-IOS-XE-nat {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-12-18 {
+    description
+      "fix ip nat inside static with multiple vrf get-config missing config issue";
+  }
+
+  revision 2018-11-15 {
+      description
+         "fix to allow multiple pool/interface under different vrf";
+  }
+
+  revision 2018-08-31 {
+      description
+         "add nat inside/outside to Vlan interfaces";
+  }
+
+  revision 2018-08-22 {
+      description
+         "fix the deletion of ip nat inside source static <ip> <ip> vrf";
+  }  
+
+  revision 2018-08-18 {
+      description
+         "Changed soure inside source list to use only one pool/interface";
+  }
+
+  revision 2018-08-08 {
+      description
+         "force overload to 'ip nat inside source list interface/vrf' and 'ip
+nat inside source route-map interface/vrf'";
+  }
+
   revision 2018-06-30{
     description
         "fixing source list pool/interface and source route-map pool/interface
@@ -179,7 +210,7 @@ issues";
     }
   }
 
-  grouping config-ip-nat-source-route-map-pool-vrf-base-grouping {
+  grouping config-ip-nat-source-pool-vrf-base-grouping {
     list vrf {
       description
         "Specify vrf";
@@ -193,9 +224,6 @@ issues";
       leaf match-in-vrf {
         description
           "Match incoming vrf";
-        must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-          error-message "VRF must be created 1st, deleted last";
-        }
         type empty;
       }
       leaf overload {
@@ -229,7 +257,7 @@ issues";
     uses config-ip-nat-source-route-map-pool-base-grouping;
   }
 
-  grouping config-ip-nat-source-route-map-pool-vrf-grouping {
+  grouping config-ip-nat-source-pool-vrf-grouping {
     list redundancy {
       key "name";
       leaf name {
@@ -246,16 +274,17 @@ issues";
             range "1..2147483647";
           }
         }
-        uses config-ip-nat-source-route-map-pool-vrf-base-grouping;
+        uses config-ip-nat-source-pool-vrf-base-grouping;
       }
     }
-    uses config-ip-nat-source-route-map-pool-vrf-base-grouping;
+    uses config-ip-nat-source-pool-vrf-base-grouping;
   }
 
-  grouping config-ip-nat-source-route-map-interface-base-grouping {
+  grouping config-ip-nat-source-interface-base-grouping {
     leaf overload {
       description
         "Overload an address translation";
+      mandatory true;
       type empty;
     }
     leaf extended {
@@ -274,7 +303,7 @@ issues";
     }
   }
 
-  grouping config-ip-nat-source-route-map-interface-vrf-grouping {
+  grouping config-ip-nat-source-interface-vrf-grouping {
     list vrf {
       description
         "Specify vrf";
@@ -284,41 +313,7 @@ issues";
           "vrf name";
         type string;
       }
-      uses config-ip-nat-source-route-map-interface-base-grouping;
-    }
-  }
-
-  grouping config-ip-nat-source-list-interface-base-grouping {
-    leaf overload {
-      description
-        "Overload an address translation";
-      type empty;
-    }
-    leaf extended {
-      description
-        "Overload extended";
-      when "../overload";
-      type empty;
-    }
-    leaf oer {
-      description
-        "Use with vtemplate only.  On new translation,
-         if OER BR is UP, OER will select IP from outgoing
-         Interface.  All packets matching translation are
-         forwarded over Interface for duration of translation.";
-      type empty;
-    }
-  }
-
-  grouping config-ip-nat-source-list-interface-vrf-grouping {
-    list vrf {
-      description
-        "Specify vrf";
-      key "name";
-      leaf name {
-        type string;
-      }
-      uses config-ip-nat-source-list-interface-base-grouping;
+      uses config-ip-nat-source-interface-base-grouping;
     }
   }
 
@@ -341,33 +336,6 @@ issues";
          All packets matching translation are forwarded over Interface
          for duration of translation.";
       type empty;
-    }
-  }
-
-  grouping config-ip-nat-source-list-pool-vrf-base-grouping {
-    list vrf {
-      description
-        "Specify vrf";
-      key "name";
-      leaf name {
-        must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-          error-message "VRF must be created 1st, deleted last";
-        }
-        type string;
-      }
-      leaf match-in-vrf {
-        description
-          "Match incoming vrf";
-        must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-          error-message "VRF must be created 1st, deleted last";
-        }
-        type empty;
-      }
-      leaf overload {
-        description
-          "Overload an address translation";
-        type empty;
-      }
     }
   }
 
@@ -394,98 +362,7 @@ issues";
     uses config-ip-nat-source-list-pool-base-grouping;
   }
 
-  grouping config-ip-nat-source-list-pool-vrf-grouping {
-    list redundancy {
-      key "name";
-      leaf name {
-        type uint8 {
-          range "1..2";
-        } 
-      }
-      list mapping-id {
-        description
-          "Associate a mapping id to this mapping";
-        key "name";
-        leaf name {
-          type uint32 {
-            range "1..2147483647";
-          }
-        }
-        uses config-ip-nat-source-list-pool-vrf-base-grouping;
-      }
-    }
-    uses config-ip-nat-source-list-pool-vrf-base-grouping;
-  }
-
-  grouping config-ip-nat-source-route-map-pool-interface-grouping {            
-
-    // ip nat inside source route-map pool *
-    container pool {
-      description
-        "Name pool of global addresses";
-      leaf pool-name {
-        description 
-          "Pool name for global addresses";
-        type string;
-      }
-      uses config-ip-nat-source-route-map-pool-option-grouping;
-    }
-
-    // ip nat inside source route-map pool * vrf *
-    container pool-with-vrf {
-      list pool {
-        description
-          "Specify interface for global address";
-        max-elements "1";
-        key "pool-name";
-        leaf pool-name {
-          description 
-            "Pool name for global addresses";
-          type string;
-        }
-        uses config-ip-nat-source-route-map-pool-vrf-grouping;
-      }
-    }
-
-    // ip nat inside source route-map interface 
-    container interface {
-      description
-        "Specify interface for global address";
-      leaf interface-name {
-        type string;
-      }
-      uses config-ip-nat-source-route-map-interface-base-grouping;
-    }
-
-    // ip nat inside source route-map interface * vrf *
-    container interface-with-vrf {
-      list interface {
-        description
-          "Specify interface for global address";
-        max-elements "1";
-        key "interface-name";
-        leaf interface-name {
-          type string;
-        }
-        uses config-ip-nat-source-route-map-interface-vrf-grouping;
-      }
-    }
-  }
-
-  grouping config-ip-nat-source-list-pool-interface-grouping {
-
-    // ip nat inside source list * pool
-    list pool {
-      description
-        "Name pool of global addresses";
-      key "name";
-      leaf name {
-        type string;
-      }
-      uses config-ip-nat-source-list-pool-option-grouping;
-    }
-    
-    // ip nat inside source list * pool * vrf *
+  grouping config-ip-nat-inside-source-pool-with-vrf-grouping {
     container pool-with-vrf {
       list pool {
         description
@@ -494,20 +371,21 @@ issues";
         leaf name {
           type string;
         }
-        uses config-ip-nat-source-list-pool-vrf-grouping;
+        uses config-ip-nat-source-pool-vrf-grouping;
       }
     }
+  }
 
-    // ip nat inside source list * interface
-    // Note: "overload" will always in show running so add incomplete command in interface.
+  grouping config-ip-nat-inside-source-interface-grouping {
     list interface {
       description
         "Specify interface for global address";
+      max-elements "1";
       key "name";
       leaf name {
         type string;
       }
-      uses config-ip-nat-source-list-interface-base-grouping;
+      uses config-ip-nat-source-interface-base-grouping;
     }
 
     // ip nat inside source list * interface * vrf *
@@ -519,7 +397,66 @@ issues";
         leaf name {
           type string;
         }
-        uses config-ip-nat-source-list-interface-vrf-grouping;
+        uses config-ip-nat-source-interface-vrf-grouping;
+      }
+    }
+  }
+     
+  grouping config-ip-nat-source-route-map-pool-interface-grouping {            
+    // ip nat inside source route-map pool *
+    choice pool-or-interface {
+      case pool-choice {
+        list pool {
+          description
+            "Name pool of global addresses";
+          max-elements "1";
+          key "pool-name";
+          leaf pool-name {
+            description 
+              "Pool name for global addresses";
+            type string;
+          }
+          uses config-ip-nat-source-route-map-pool-option-grouping;
+        }
+
+        // ip nat inside source route-map pool * vrf *
+        uses config-ip-nat-inside-source-pool-with-vrf-grouping;
+      }
+
+      case interface-choice {
+         // ip nat inside source route-map interface 
+         uses config-ip-nat-inside-source-interface-grouping;
+      }
+    }
+  }
+
+  grouping config-ip-nat-source-list-pool-interface-grouping {
+    // ip nat inside source list * pool
+    choice pool-or-interface {
+      case pool-choice {
+        list pool {
+          description
+            "Name pool of global addresses";
+          max-elements "1";
+          key "name";
+          leaf name {
+            description
+              "Pool name for global addresses";
+            type string;
+          }
+          uses config-ip-nat-source-list-pool-option-grouping;
+        }
+        
+        // ip nat inside source list * pool * vrf *
+        uses config-ip-nat-inside-source-pool-with-vrf-grouping;
+      }
+
+      // ip nat inside source list * interface
+      // Note: "overload" will always in show running 
+      //       so add incomplete command in interface.
+      case interface-choice {
+         // ip nat inside source route-map interface 
+         uses config-ip-nat-inside-source-interface-grouping;
       }
     }
   }
@@ -559,6 +496,89 @@ issues";
     leaf never {
       description
         "Never timeout";
+      type empty;
+    }
+  }
+
+  grouping config-ip-nat-source-static-transport-common-part-one-grouping {
+    leaf proto {
+      type enumeration {
+        enum "tcp";
+        enum "udp";
+      }
+    }
+    leaf network {
+      description
+        "Subnet translation";
+      type empty;
+    }
+    leaf local-port {
+      type uint16 {
+        range "1..65535";
+      }
+    }
+    leaf mask {
+      type union {
+        type inet:ipv4-address;
+        type string;
+      }
+    }
+    leaf global-port {
+      type uint16 {
+        range "1..65535";
+      }
+    }
+    leaf extendable {
+      description
+        "Extend this translation when used";
+      type empty;
+    }
+    leaf no-alias {
+      description
+        "Do not create an alias for the global address";
+      type empty;
+    }
+    leaf no-payload {
+      description
+        "No translation of embedded address/port in the payload";
+      type empty;
+    }
+    leaf route-map {
+      description
+        "Specify route-map";
+      type string;
+    }
+    leaf reversible {
+      when "../route-map";
+      type empty;
+    }
+    leaf redundancy {
+      description
+        "NAT redundancy operation";
+      type union {
+        type uint8;
+        type string;
+      }
+    }
+    leaf mapping-id {
+      description
+        "Associate a mapping id to this mapping";
+      when "../redundancy";
+      type uint32 {
+        range "1..2147483647";
+      }
+    }
+  }
+
+  grouping config-ip-nat-source-static-transport-common-part-two-grouping {
+    leaf forced {
+      description
+        "Delete this entry and its children, even if in use";
+      type empty;
+    }
+    leaf overload {
+      description
+        "Overload an address translation";
       type empty;
     }
   }
@@ -664,6 +684,28 @@ issues";
           container static {
             description
               "Specify static local->global mapping";
+            list nat-static-transport-list-with-vrf {
+              key "local-ip global-ip vrf";
+              leaf local-ip {
+                type inet:ipv4-address;
+              }
+              leaf global-ip {
+                type inet:ipv4-address;
+              }
+              leaf vrf {
+                description
+                  "Specify vrf";
+                type string;
+              }
+              uses config-ip-nat-source-static-transport-common-part-one-grouping;
+              leaf match-in-vrf {
+                description
+                  "Match incoming vrf";
+                when "../vrf";
+                type empty;
+              }
+              uses config-ip-nat-source-static-transport-common-part-two-grouping;
+            }
             list nat-static-transport-list {
               key "local-ip global-ip";
               leaf local-ip {
@@ -672,94 +714,8 @@ issues";
               leaf global-ip {
                 type inet:ipv4-address;
               }
-              leaf proto {
-                type enumeration {
-                  enum "tcp";
-                  enum "udp";
-                }
-              }
-              leaf network {
-                description
-                  "Subnet translation";
-                type empty;
-              }
-              leaf local-port {
-                type uint16 {
-                  range "1..65535";
-                }
-              }
-              leaf mask {
-                type union {
-                  type string;
-                  type inet:ipv4-address;
-                }
-              }
-              leaf global-port {
-                type uint16 {
-                  range "1..65535";
-                }
-              }
-              leaf vrf {
-                description
-                  "Specify vrf";
-                type string;
-              }
-              leaf extendable {
-                description
-                  "Extend this translation when used";
-                type empty;
-              }
-              leaf no-alias {
-                description
-                  "Do not create an alias for the global address";
-                type empty;
-              }
-              leaf no-payload {
-                description
-                  "No translation of embedded address/port in the payload";
-                type empty;
-              }
-              leaf route-map {
-                description
-                  "Specify route-map";
-                type string;
-              }
-              leaf reversible {
-                when "../route-map";
-                type empty;
-              }
-              leaf redundancy {
-                description
-                  "NAT redundancy operation";
-                type union {
-                  type uint8;
-                  type string;
-                }
-              }
-              leaf mapping-id {
-                description
-                  "Associate a mapping id to this mapping";
-                when "../redundancy";
-                type uint32 {
-                  range "1..2147483647";
-                }
-              }
-              leaf match-in-vrf {
-                description
-                  "Match incoming vrf";
-                when "../vrf";
-                type empty;
-              }
-              leaf forced {
-                description
-                  "Delete this entry and its children, even if in use";
-                type empty;
-              }
-              leaf overload {
-                description
-                  "Overload an address translation";
-                type empty;
-              }
+              uses config-ip-nat-source-static-transport-common-part-one-grouping;
+              uses config-ip-nat-source-static-transport-common-part-two-grouping;
             }
             list nat-static-proto-transport-interface-list {
               key "proto local-ip local-port";
@@ -970,8 +926,8 @@ issues";
         }
         container syn-timeout {
           description
-            "Specify timeout for NAT TCP flows after a SYN \
-             and no further data";
+            "Specify timeout for NAT TCP flows after a SYN" +
+            "and no further data";
           uses ip-nat-translation-timeout-grouping;
         }
         container tcp-timeout {
@@ -1132,6 +1088,10 @@ issues";
     uses config-interface-ip-nat-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:Vlan/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
   /////////////////////////////////////////////////////////
   // native / nat66
   /////////////////////////////////////////////////////////
@@ -1183,6 +1143,10 @@ issues";
   }
 
   augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-nat66-grouping;
+  }
+ 
+  augment "/ios:native/ios:interface/ios:Vlan" {
     uses config-interface-nat66-grouping;
   }
 }

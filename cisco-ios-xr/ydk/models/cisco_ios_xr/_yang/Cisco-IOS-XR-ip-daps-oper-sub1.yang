@@ -516,13 +516,6 @@ submodule Cisco-IOS-XR-ip-daps-oper-sub1 {
       description
         "VRF name";
     }
-    leaf pool-scope {
-      type string {
-        length "0..64";
-      }
-      description
-        "Pool scope";
-    }
     leaf allocated-addresses {
       type uint32;
       description

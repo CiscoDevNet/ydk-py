@@ -233,7 +233,7 @@ class OcniNiBase(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, [u'name', u'type', u'enabled', u'description', u'enabled_address_family'], name, value)
+                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, ['name', 'type', 'enabled', 'description', 'enabled_address_family'], name, value)
 
 
 

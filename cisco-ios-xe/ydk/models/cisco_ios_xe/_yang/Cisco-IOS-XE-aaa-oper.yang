@@ -30,26 +30,14 @@ module Cisco-IOS-XE-aaa-oper {
 
   revision 2018-04-16 {
     description
-      "Introduced group name as one of the server key information for both
+      "Added support for AAA RADIUS and TACACS statistics native model.
+       Added support for AAA LDAP counters native model.
+       Introduced additional counters for RADIUS server.
+       The additional counters are Messages-sent, Messages-received and
+       Errors-received.
+       Introduced group name as one of the server key information for both
        RADIUS and TACACS. For TACACS added port information also as one of
        the server key info.";
-    reference "1.4.0";
-  }
-  revision 2018-03-27 {
-    description
-      "Introduced additional counters for RADIUS server.
-       The additional counters are Messages-sent, Messages-received and
-       Errors-received.";
-    reference "1.3.0";
-  }
-  revision 2018-03-05 {
-    description
-      "Added support for AAA LDAP counters native model";
-    reference "1.2.0";
-  }
-  revision 2018-02-23 {
-    description
-      "Added support for AAA RADIUS and TACACS statistics native model";
     reference "1.1.0";
   }
   revision 2017-11-01 {

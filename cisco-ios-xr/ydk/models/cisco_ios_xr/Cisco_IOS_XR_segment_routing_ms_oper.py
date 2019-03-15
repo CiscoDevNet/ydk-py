@@ -1176,7 +1176,7 @@ class Srms(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1236,7 +1236,7 @@ class Srms(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -1411,7 +1411,7 @@ class Srms(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1471,7 +1471,7 @@ class Srms(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -2724,7 +2724,7 @@ class Srlb(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Srlb.SrlbInconsistency, [u'start_srlb_range', u'end_srlb_range'], name, value)
+            self._perform_setattr(Srlb.SrlbInconsistency, ['start_srlb_range', 'end_srlb_range'], name, value)
 
 
     def clone_ptr(self):

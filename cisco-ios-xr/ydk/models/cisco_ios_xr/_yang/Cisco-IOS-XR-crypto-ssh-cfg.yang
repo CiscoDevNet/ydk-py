@@ -29,6 +29,10 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-11 {
+    description
+      "Added backup ssh server schema";
+  }
   revision 2018-05-24 {
     description
       "Changes in enable cipher aes-cbc schema and added enable cipher 3des-cbc support";
@@ -167,6 +171,14 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         description
           "Source interface VRF for ssh client sessions";
       }
+      leaf tcp-window-scale {
+        type uint32 {
+          range "1..14";
+        }
+        default "1";
+        description
+          "Set SSH Client Tcp Window Scale factor";
+      }
       leaf rekey-time {
         type uint32 {
           range "30..1440";
@@ -280,6 +292,14 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         description
           "Cisco sshd force protocol version 2 only";
       }
+      leaf tcp-window-scale {
+        type uint32 {
+          range "1..14";
+        }
+        default "1";
+        description
+          "Set SSH Server Tcp Window Scale factor";
+      }
       leaf rekey-time {
         type uint32 {
           range "30..1440";
@@ -317,6 +337,31 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         }
         description
           "Cisco sshd DSCP value";
+      }
+    }
+    container backup-server {
+      description
+        "Provide SSH server service";
+      container backup-port-vrf {
+        presence "Indicates a backup-port-vrf node is configured.";
+        description
+          "backup server config";
+        leaf port {
+          type uint32 {
+            range "11000..15000";
+          }
+          mandatory true;
+          description
+            "Port number";
+        }
+        leaf vrf-name {
+          type xr:Cisco-ios-xr-string {
+            length "1..32";
+          }
+          mandatory true;
+          description
+            "VRF name (max:32 chars)";
+        }
       }
     }
   }

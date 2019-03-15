@@ -122,7 +122,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-oper {
         }
         container hardware-sessions {
           description
-            "Table of sessions set up in the hardware. 
+            "Table of sessions set up in the hardware.
              When all sessions are operating correctly the
              entries in this table should match those
              entries in GlobalSessionTable that have a

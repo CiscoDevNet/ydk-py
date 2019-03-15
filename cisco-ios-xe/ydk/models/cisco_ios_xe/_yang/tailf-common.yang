@@ -7,7 +7,7 @@ module tailf-common {
   }
 
   include tailf-cli-extensions {
-    revision-date 2017-08-23;
+    revision-date 2018-09-11;
   }
 
   organization "Tail-f Systems";
@@ -15,6 +15,29 @@ module tailf-common {
   description
     "This module defines all Tail-f YANG extensions statements
     and common YANG types.";
+
+  revision 2018-09-11 {
+    description
+      "Released as part of ConfD-6.5.7 / NCS-4.5.7.
+
+       Allow tailf:display-when in YANG 1.1 'action'.
+
+       Included latest revision of tailf-cli-extensions.";
+  }
+
+  revision 2018-04-19 {
+    description
+      "Released as part of ConfD-6.6.1 / NCS-4.6.1.
+
+       Included latest revision of tailf-cli-extensions.";
+  }
+
+  revision 2018-03-01 {
+    description
+      "Released as part of ConfD-6.6 / NCS-4.6.
+
+       Updated the description for tailf:dependency.";
+  }
 
   revision 2017-09-28 {
     description
@@ -839,7 +862,9 @@ module tailf-common {
     tailf:substatement "tailf:snmp-mib-module-name";
     tailf:substatement "tailf:id";
     tailf:substatement "tailf:id-value";
-    tailf:substatement "tailf:export";
+    tailf:substatement "tailf:export" {
+      tailf:occurence "*";
+    }
     tailf:substatement "tailf:unique-selector";
     tailf:substatement "tailf:annotate-statement" {
       tailf:occurence "*";
@@ -1766,10 +1791,10 @@ module tailf-common {
        must be given, unless the compiler can figure out the dependency
        by itself.
 
-       Note that having 'must' expressions or a 'tailf:validate'
-       statement without dependencies impacts the overall performance
-       of the system, since all such 'must' expressions or validation
-       functions are evaluated at every commit.";
+       Note that having 'tailf:validate' statements without
+       dependencies impacts the overall performance of the system,
+       since all such validation functions are evaluated at every
+       commit.";
   }
 
   extension no-dependency {
@@ -2007,6 +2032,7 @@ module tailf-common {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
+    tailf:use-in "action";
     tailf:use-in "refine";
     tailf:occurence "*";
     tailf:substatement "tailf:xpath-root";

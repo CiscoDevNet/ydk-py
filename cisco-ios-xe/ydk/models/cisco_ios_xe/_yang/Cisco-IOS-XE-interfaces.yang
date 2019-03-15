@@ -42,6 +42,30 @@ submodule Cisco-IOS-XE-interfaces {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-11-27 {
+    description
+      "Fix ip address annotations, remove no-address container";
+  }
+  revision 2018-11-26 {
+    description
+      "Changed ip vrf forwarding from type leafref to string beacuse pyang fails";
+  } 
+  revision 2018-09-07 {
+    description
+      "Add must constraint to vrf forwaring, on vrf address-family";
+  }
+  revision 2018-08-29 {
+    description
+      "added must constraint on no ip address";
+  }
+  revision 2018-07-11 {
+    description
+      "Add .* to cli-preformatted, apply input validation to disallow newlines";
+  }
+  revision 2018-07-10 {
+    description
+      "Add interface vrf forwarding downstream. Increase hold-queue size.";
+  }
   revision 2018-06-28 {
     description
       "added must constraints for deleting vrf, changing to switchport from no switchport";
@@ -426,6 +450,7 @@ submodule Cisco-IOS-XE-interfaces {
       description
         "Interface specific description";
       type string {
+        pattern '.*';
         length "0..240";
       }
     }
@@ -800,6 +825,7 @@ submodule Cisco-IOS-XE-interfaces {
     container bfd {
       description
         "BFD interface configuration commands";
+
       // @mount Cisco-IOS-XE-bfd
     }
 
@@ -949,8 +975,8 @@ submodule Cisco-IOS-XE-interfaces {
         }
       }
       leaf queue-length {
-        type uint16 {
-          range "0..4096";
+        type uint32 {
+          range "0..240000";
         }
       }
     }
@@ -974,9 +1000,9 @@ submodule Cisco-IOS-XE-interfaces {
               description
                 "Configure forwarding table";
               type string;
-              // type leafref {
-              //   path "/ios:native/ios:ip/ios:vrf/ios:name";
-              // }
+              //type leafref {
+              //  path "/ios:native/ios:ip/ios:vrf/ios:name";
+              //}
             }
           }
         }
@@ -984,15 +1010,28 @@ submodule Cisco-IOS-XE-interfaces {
       container vrf {
         description
           "VPN Routing/Forwarding parameters on the interface";
-          // interface * / vrf forwarding
+        // interface * / vrf forwarding
         leaf forwarding {
           description
             "Configure forwarding table";
           must "/ios:native/ios:vrf/ios:definition[ios:name=current()]" { 
 	    error-message "VRF must be created 1st, deleted last";
           }
+          must "not(../../ip/address) or " +
+               "/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4" {
+            error-message "Address-family ipv4 in VRF must be created 1st, deleted last";
+          }
 	  must "not (../../switchport-conf/switchport) or (../../switchport-conf/switchport = 'false')" {
 	    error-message "To configure vrf forwarding, set switchport to false 1st; To change switchport from false to true, delete vrf forwarding 1st";
+          }
+          type string;
+        }
+        leaf downstream {
+          description
+            "Configure different VRF for downstream traffic";
+          when "../forwarding";
+          must "/ios:native/ios:vrf/ios:definition[ios:name=current()]" { 
+	    error-message "VRF must be created 1st, deleted last";
           }
           type string;
         }
@@ -1147,12 +1186,6 @@ submodule Cisco-IOS-XE-interfaces {
           description
             "Enable IP processing without an explicit address";
           type string;
-        }
-        // interface * / no ip address
-        container no-address {
-          leaf address {
-            type boolean;
-          }
         }
         // interface * / ip address XXX
         container address {
@@ -1324,6 +1357,7 @@ submodule Cisco-IOS-XE-interfaces {
       container pim {
         description
           "PIM interface commands";
+
         // @mount Cisco-IOS-XE-mcast
       }
 
@@ -2971,6 +3005,9 @@ submodule Cisco-IOS-XE-interfaces {
         list Port-channel {
           key "name";
           leaf name {
+	    must "/ios:native/ios:interface/ios:Port-channel[ios:name=number(substring-before(current(), '.'))]" {
+	      error-message "To create a Port-channel subinterface, the Port-channel interface needs to be created 1st; vice versa for delete.";
+	    }
             type string;
           }
           uses interface-common-grouping;

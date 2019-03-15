@@ -3171,7 +3171,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             range "0..65535";
           }
           description
-            "First half of BGP AS number in XX.YY format. 
+            "First half of BGP AS number in XX.YY format.
              Mandatory if Protocol is BGP and must not be
              specified otherwise. Must be a non-zero value
              if second half is zero.";

@@ -396,7 +396,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo, [u'tracke_name', u'type', u'track_state', u'state_change_counter', u'seconds_last_change', u'threshold_up', u'threshold_down'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -479,7 +479,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -520,7 +520,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -595,7 +595,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -659,7 +659,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -734,7 +734,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -833,7 +833,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, [u'object_name', u'track_state', u'with_not'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
 
@@ -936,7 +936,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, [u'object_name', u'track_state', u'weight'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
 
@@ -1017,7 +1017,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
 
@@ -1071,7 +1071,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, [u'time_remaining', u'track_state'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
 
@@ -1231,7 +1231,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, [u'tracke_name', u'type', u'track_state'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
                 class TrackTypeInfo(Entity):
@@ -1313,7 +1313,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, [u'discriminant'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
                     class InterfaceTracks(Entity):
@@ -1353,7 +1353,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -1427,7 +1427,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -1490,7 +1490,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -1564,7 +1564,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -1767,7 +1767,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo, [u'tracke_name', u'type', u'track_state', u'state_change_counter', u'seconds_last_change', u'threshold_up', u'threshold_down'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -1850,7 +1850,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -1891,7 +1891,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -1966,7 +1966,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -2030,7 +2030,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -2105,7 +2105,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -2204,7 +2204,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, [u'object_name', u'track_state', u'with_not'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
 
@@ -2307,7 +2307,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, [u'object_name', u'track_state', u'weight'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
 
@@ -2388,7 +2388,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
 
@@ -2442,7 +2442,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, [u'time_remaining', u'track_state'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
 
@@ -2553,7 +2553,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, [u'tracke_name', u'type', u'track_state'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -2636,7 +2636,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -2677,7 +2677,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -2752,7 +2752,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -2816,7 +2816,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -2891,7 +2891,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -3142,7 +3142,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo, [u'tracke_name', u'type', u'track_state', u'state_change_counter', u'seconds_last_change', u'threshold_up', u'threshold_down'], name, value)
+                    self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
                 class TrackTypeInfo(Entity):
@@ -3224,7 +3224,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, [u'discriminant'], name, value)
+                        self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
                     class InterfaceTracks(Entity):
@@ -3264,7 +3264,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -3338,7 +3338,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -3401,7 +3401,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -3475,7 +3475,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -3572,7 +3572,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, [u'object_name', u'track_state', u'with_not'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
 
@@ -3673,7 +3673,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, [u'object_name', u'track_state', u'weight'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
 
@@ -3752,7 +3752,7 @@ class ObjectTracking(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, [u'interface_name'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
 
@@ -3805,7 +3805,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.Delayed, [u'time_remaining', u'track_state'], name, value)
+                        self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
 
@@ -3917,7 +3917,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, [u'tracke_name', u'type', u'track_state'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -4000,7 +4000,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -4041,7 +4041,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -4116,7 +4116,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -4180,7 +4180,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -4255,7 +4255,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -4457,7 +4457,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo, [u'tracke_name', u'type', u'track_state', u'state_change_counter', u'seconds_last_change', u'threshold_up', u'threshold_down'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -4540,7 +4540,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -4581,7 +4581,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -4656,7 +4656,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -4720,7 +4720,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -4795,7 +4795,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 
@@ -4894,7 +4894,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, [u'object_name', u'track_state', u'with_not'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
 
@@ -4997,7 +4997,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, [u'object_name', u'track_state', u'weight'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
 
@@ -5078,7 +5078,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
 
@@ -5132,7 +5132,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, [u'time_remaining', u'track_state'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
 
@@ -5243,7 +5243,7 @@ class ObjectTracking(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, [u'tracke_name', u'type', u'track_state'], name, value)
+                self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
             class TrackTypeInfo(Entity):
@@ -5326,7 +5326,7 @@ class ObjectTracking(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, [u'discriminant'], name, value)
+                    self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
                 class InterfaceTracks(Entity):
@@ -5367,7 +5367,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, [u'interface_name'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
 
@@ -5442,7 +5442,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, [u'prefix', u'prefix_length', u'vrf', u'next_hop'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
 
@@ -5506,7 +5506,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, [u'ipsla_op_id', u'rtt', u'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
 
@@ -5581,7 +5581,7 @@ class ObjectTracking(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, [u'interface_name', u'destination_address', u'rate', u'debounce_count'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
 

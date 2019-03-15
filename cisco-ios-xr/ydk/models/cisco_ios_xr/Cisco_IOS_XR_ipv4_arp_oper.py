@@ -663,7 +663,7 @@ class ArpGmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', u'vrf_name_xr', u'vrf_id_number', u'table_id', u'rsi_handle', u'rsi_handle_high'], name, value)
+                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', 'vrf_name_xr', 'vrf_id_number', 'table_id', 'rsi_handle', 'rsi_handle_high'], name, value)
 
 
 
@@ -895,7 +895,7 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', 'ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
 
 
 
@@ -1029,7 +1029,7 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', u'ip_address', u'prefix_length_xr', u'interface_name_xr', u'interface_name'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', 'ip_address', 'prefix_length_xr', 'interface_name_xr', 'interface_name'], name, value)
 
 
 
@@ -1154,7 +1154,7 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', u'interface_name_xr', u'reference_count'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', 'interface_name_xr', 'reference_count'], name, value)
 
 
                     class AssociatedConfigurationEntry(Entity):
@@ -1223,7 +1223,7 @@ class ArpGmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, [u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
+                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, ['ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
 
 
 

@@ -206,6 +206,14 @@ class OpStartResult(Enum):
 
     	An internal error occured while attempting to start the operation
 
+    .. data:: prepare_error_previous_operation_not_committed = 6
+
+    	A previous install operation has not been committed
+
+    .. data:: prepare_error_already_in_progress = 7
+
+    	An install operation is already in progress
+
     """
 
     start_success = Enum.YLeaf(0, "start-success")
@@ -219,6 +227,10 @@ class OpStartResult(Enum):
     recover_error_unrecoverable = Enum.YLeaf(4, "recover-error-unrecoverable")
 
     start_error_internal = Enum.YLeaf(5, "start-error-internal")
+
+    prepare_error_previous_operation_not_committed = Enum.YLeaf(6, "prepare-error-previous-operation-not-committed")
+
+    prepare_error_already_in_progress = Enum.YLeaf(7, "prepare-error-already-in-progress")
 
 
 
@@ -252,7 +264,7 @@ class Issu(Entity):
     """
 
     _prefix = 'issu'
-    _revision = '2018-03-12'
+    _revision = '2018-08-24'
 
     def __init__(self):
         super(Issu, self).__init__()
@@ -383,7 +395,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-03-12'
+        _revision = '2018-08-24'
 
         def __init__(self):
             super(Issu.Status, self).__init__()
@@ -502,7 +514,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Status.Prepare, self).__init__()
@@ -587,7 +599,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Status.Activate, self).__init__()
@@ -658,7 +670,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Status.Error, self).__init__()
@@ -728,7 +740,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Status.Error.Details, self).__init__()
@@ -790,7 +802,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-03-12'
+        _revision = '2018-08-24'
 
         def __init__(self):
             super(Issu.Clients, self).__init__()
@@ -932,7 +944,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Clients.Client, self).__init__()
@@ -1062,7 +1074,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-03-12'
+        _revision = '2018-08-24'
 
         def __init__(self):
             super(Issu.Internals, self).__init__()
@@ -1406,7 +1418,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Internals.Orchestrator, self).__init__()
@@ -1480,7 +1492,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.OperationStartDetails, self).__init__()
@@ -1559,7 +1571,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.InternalPrepare, self).__init__()
@@ -1610,7 +1622,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, self).__init__()
@@ -1703,7 +1715,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-03-12'
+                        _revision = '2018-08-24'
 
                         def __init__(self):
                             super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, self).__init__()
@@ -1824,7 +1836,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.InternalActivate, self).__init__()
@@ -1883,7 +1895,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, self).__init__()
@@ -1976,7 +1988,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-03-12'
+                        _revision = '2018-08-24'
 
                         def __init__(self):
                             super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, self).__init__()
@@ -2104,7 +2116,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.Error, self).__init__()
@@ -2179,7 +2191,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Internals.Agents, self).__init__()
@@ -2227,7 +2239,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.Requests, self).__init__()
@@ -2306,7 +2318,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.Requests.Request, self).__init__()
@@ -2402,7 +2414,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-03-12'
+                        _revision = '2018-08-24'
 
                         def __init__(self):
                             super(Issu.Internals.Agents.Requests.Request.Checkpoint, self).__init__()
@@ -2472,7 +2484,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-03-12'
+                        _revision = '2018-08-24'
 
                         def __init__(self):
                             super(Issu.Internals.Agents.Requests.Request.Agents_, self).__init__()
@@ -2532,7 +2544,7 @@ class Issu(Entity):
                             """
 
                             _prefix = 'issu'
-                            _revision = '2018-03-12'
+                            _revision = '2018-08-24'
 
                             def __init__(self):
                                 super(Issu.Internals.Agents.Requests.Request.Agents_.Agent, self).__init__()
@@ -2585,7 +2597,7 @@ class Issu(Entity):
                                 """
 
                                 _prefix = 'issu'
-                                _revision = '2018-03-12'
+                                _revision = '2018-08-24'
 
                                 def __init__(self):
                                     super(Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents, self).__init__()
@@ -2663,7 +2675,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.Inventory, self).__init__()
@@ -2717,7 +2729,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.Inventory.Agent, self).__init__()
@@ -2778,7 +2790,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.ReloadTracking, self).__init__()
@@ -2837,7 +2849,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.ReloadTracking.Node, self).__init__()
@@ -2883,7 +2895,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-03-12'
+            _revision = '2018-08-24'
 
             def __init__(self):
                 super(Issu.Internals.InventoryMonitor, self).__init__()
@@ -2923,7 +2935,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-03-12'
+                _revision = '2018-08-24'
 
                 def __init__(self):
                     super(Issu.Internals.InventoryMonitor.Inventory, self).__init__()
@@ -2968,7 +2980,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-03-12'
+                    _revision = '2018-08-24'
 
                     def __init__(self):
                         super(Issu.Internals.InventoryMonitor.Inventory.Node, self).__init__()

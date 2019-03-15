@@ -1,184 +1,181 @@
 module tailf-aaa {
   namespace "http://tail-f.com/ns/aaa/1.1";
   prefix aaa;
-  tailf:id "http://tail-f.com/ns/aaa";
-
   import tailf-common {
     prefix tailf;
   }
-
   organization "Tail-f Systems";
 
-  description
-    "This module defines the Tail-f AAA data model.";
+  contact
+    "Cisco Systems, Inc.
+     Customer Service
 
+     Postal: 170 West Tasman Drive
+     San Jose, CA 95134
+
+     Tel: +1 800 553-NETS
+
+     E-mail: cs-yang@cisco.com";
+
+  description 
+    "This module contains definitions
+     for the Calvados model objects.
+
+    This module defines the Tail-f AAA data model.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2011-09-22 {
     description
       "Released as part of ConfD-3.7.";
   }
 
-  revision 2010-06-17 {
-    description
-      "Released as part of ConfD-3.3.";
-  }
-
-  revision 2010-04-22 {
-    description
-      "Released as part of ConfD-3.2.1.";
-  }
-
-  revision 2010-03-18 {
-    description
-      "Released as part of ConfD-3.2.";
-  }
 
   typedef history {
     type uint64 {
       range "0 .. 8192";
     }
   }
+
   typedef idle-timeout {
     type uint64 {
       range "0 .. 8192";
     }
   }
+
   typedef display-level {
     type uint64 {
       range "1 .. 64";
     }
   }
+
   typedef dataOperationType {
     type enumeration {
-      enum r;
-      enum rx;
-      enum x;
-      enum rw;
-      enum rwx;
-      enum wx;
-      enum w;
-      enum c;
-      enum cr;
-      enum cu;
-      enum cd;
-      enum cx;
-      enum cru;
-      enum crd;
-      enum crx;
-      enum cud;
-      enum cux;
-      enum cdx;
-      enum crud;
-      enum crux;
-      enum crdx;
-      enum cudx;
-      enum crudx;
-      enum ru;
-      enum rd;
-      enum rud;
-      enum rux;
-      enum rdx;
-      enum u;
-      enum ud;
-      enum ux;
-      enum d;
-      enum dx;
+      enum "r";
+      enum "rx";
+      enum "x";
+      enum "rw";
+      enum "rwx";
+      enum "wx";
+      enum "w";
+      enum "c";
+      enum "cr";
+      enum "cu";
+      enum "cd";
+      enum "cx";
+      enum "cru";
+      enum "crd";
+      enum "crx";
+      enum "cud";
+      enum "cux";
+      enum "cdx";
+      enum "crud";
+      enum "crux";
+      enum "crdx";
+      enum "cudx";
+      enum "crudx";
+      enum "ru";
+      enum "rd";
+      enum "rud";
+      enum "rux";
+      enum "rdx";
+      enum "u";
+      enum "ud";
+      enum "ux";
+      enum "d";
+      enum "dx";
     }
   }
+
   typedef cmdOperationType {
     type enumeration {
-      enum r;
-      enum rx;
-      enum x;
+      enum "r";
+      enum "rx";
+      enum "x";
     }
   }
+
   typedef Action {
     type enumeration {
-      enum accept;
-      enum reject;
-      enum accept_log;
+      enum "accept";
+      enum "reject";
+      enum "accept_log";
     }
   }
+
   typedef passwdStr {
-    type tailf:md5-digest-string {
-    }
+    type tailf:md5-digest-string;
   }
+
   typedef levelInt {
     type int32 {
       range "0 .. 15";
     }
   }
+
   typedef modeStr {
     type union {
       type string;
       type builtinModes;
     }
   }
+
   typedef builtinModes {
     type enumeration {
-      enum exec;
-      enum configure;
+      enum "exec";
+      enum "configure";
     }
   }
 
   grouping session-params {
     leaf complete-on-space {
       type boolean;
-      tailf:info "Enable/disable completion on space";
     }
     leaf ignore-leading-space {
       type boolean;
-      tailf:info "Ignore leading whitespace";
     }
     leaf idle-timeout {
       type idle-timeout;
-      tailf:info "CLI idle-timeout in seconds";
     }
     leaf paginate {
       type boolean;
-      tailf:info "Paginate output from CLI commands";
     }
     leaf history {
       type history;
-      tailf:info "History size";
     }
     leaf autowizard {
       type boolean;
-      tailf:info "Automatically query user for mandatory elems";
     }
     leaf show-defaults {
       type boolean;
-      tailf:info "Show default values when showing the configuration";
     }
     leaf display-level {
       type display-level;
-      tailf:info "Max depth to show when displaying configuration";
     }
     leaf prompt1 {
       type string;
-      tailf:info "Prompt for operational mode";
     }
     leaf prompt2 {
       type string;
-      tailf:info "Prompt for configure mode";
     }
   }
-
   container aaa {
     container authentication {
       container users {
         list user {
-          key name;
-          max-elements 1024;
+          key "name";
+          ordered-by user;
+          max-elements "1024";
           leaf name {
             type string;
           }
           leaf uid {
-            type int32;
-            mandatory true;
+            type uint32;
+            default "9000";
           }
           leaf gid {
-            type int32;
-            mandatory true;
+            type uint32;
+            default "100";
           }
           leaf password {
             type passwdStr;
@@ -186,27 +183,35 @@ module tailf-aaa {
           }
           leaf ssh_keydir {
             type string;
-            mandatory true;
+            default "/home/sshdir";
           }
           leaf homedir {
             type string;
-            mandatory true;
+            default "/home/homedir";
           }
         }
       }
       container groups {
         list group {
-          key name;
-          max-elements 32;
+          key "name";
+          max-elements "32";
           leaf name {
             type string;
           }
           leaf gid {
-            type int32;
+            type uint32;
+            default "100";
           }
           leaf users {
             type string;
-            mandatory true;
+            default "%%__system_user__%%";
+          }
+        }
+      }
+      container login {
+        container group {
+          leaf tacacs {
+            type empty;
           }
         }
       }
@@ -214,9 +219,7 @@ module tailf-aaa {
     container authorization {
       container cmdrules {
         list cmdrule {
-          key index;
-          tailf:indexed-view;
-
+          key "index";
           leaf index {
             type uint32;
           }
@@ -244,9 +247,7 @@ module tailf-aaa {
       }
       container datarules {
         list datarule {
-          key index;
-          tailf:indexed-view;
-
+          key "index";
           leaf index {
             type uint32;
           }
@@ -256,7 +257,7 @@ module tailf-aaa {
           }
           leaf context {
             type string;
-            default *;
+            default "*";
           }
           leaf keypath {
             type string;
@@ -276,12 +277,30 @@ module tailf-aaa {
           }
         }
       }
+      container commands {
+        container group {
+          leaf tacacs {
+            type empty;
+          }
+          leaf none {
+            type empty;
+          }
+        }
+      }
+    }
+    container accounting {
+      container commands {
+        container group {
+          leaf tacacs {
+            type empty;
+          }
+        }
+      }
     }
     container ios {
       presence "";
-
       list level {
-        key nr;
+        key "nr";
         min-elements 2;
         leaf nr {
           type levelInt;
@@ -294,24 +313,23 @@ module tailf-aaa {
         }
         leaf prompt {
           type string;
-          default "\h# ";
+          default "\\h# ";
         }
       }
-
       list privilege {
-        key mode;
+        key "mode";
         leaf mode {
           type modeStr;
         }
         list level {
-          key nr;
+          key "nr";
           min-elements 1;
-          max-elements 15;
+          max-elements "15";
           leaf nr {
             type levelInt;
           }
           list command {
-            key name;
+            key "name";
             leaf name {
               type string;
             }
@@ -321,54 +339,39 @@ module tailf-aaa {
     }
   }
   list alias {
-    key name;
-    tailf:info "Create command alias.";
+    key "name";
     leaf name {
       type string;
-      tailf:info "Name of the command alias. An alias name can be a single
-                  word or multiple words joined by a dash (-).";
     }
     leaf expansion {
       type string;
       mandatory true;
-      tailf:info "Original command syntax. Valid abbreviations of the original
-                  command syntax can be entered for the command-syntax argument.";
     }
   }
   container session {
     uses session-params;
     presence "";
-    tailf:info "Global default CLI session parameters";
   }
   list user {
-    key name;
+    key "name";
     leaf name {
       type string;
     }
     leaf description {
       type string;
-      tailf:info "User description";
     }
     list alias {
-      key name;
-      tailf:info "Create command alias.";
+      key "name";
       leaf name {
         type string;
-        tailf:info "Name of the command alias. An alias name can be a single
-                    word or multiple words joined by a dash (-).";
       }
       leaf expansion {
         type string;
         mandatory true;
-        tailf:info "Original command syntax. Valid abbreviations of the original
-                    command syntax can be entered for the command-syntax argument.";
       }
     }
     container session {
       uses session-params;
-      tailf:info "User specific default CLI session parameters";
     }
   }
-
 }
-

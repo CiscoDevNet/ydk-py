@@ -432,7 +432,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
             length "1..64";
           }
           description
-            "Access list of groups that should map to a 
+            "Access list of groups that should map to a
              given RP";
         }
         leaf auto-rp-override {

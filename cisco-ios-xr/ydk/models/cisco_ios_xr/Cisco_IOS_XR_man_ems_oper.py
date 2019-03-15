@@ -330,7 +330,7 @@ class Grpc(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
+            self._perform_setattr(Grpc.Statistics, [u'ct_show_cmd_txt_req_recv', u'ct_show_cmd_txt_res_sent', u'ct_get_config_req_recv', u'ct_get_config_res_sent', u'ct_cli_config_req_recv', u'ct_cli_config_res_sent', u'ct_merge_config_req_recv', u'ct_merge_config_res_sent', u'ct_commit_replace_req_recv', u'ct_commit_replace_res_sent', u'ct_delete_config_req_recv', u'ct_delete_config_res_sent', u'ct_replace_config_req_recv', u'ct_replace_config_res_sent', u'ct_get_oper_req_recv', u'ct_get_oper_res_sent', u'ct_get_current_session', u'ct_commit_config_req_recv', u'ct_commit_config_res_sent', u'ct_action_json_req_recv', u'ct_action_json_res_sent'], name, value)
 
 
 
@@ -461,7 +461,7 @@ class Grpc(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total', 'max_streams', 'max_streams_per_user'], name, value)
+            self._perform_setattr(Grpc.Status, [u'transport', u'address_family', u'tls', u'trustpoint', u'listening_port', u'vrf_socket_ns_path', u'max_req_per_user', u'max_req_total', u'max_streams', u'max_streams_per_user'], name, value)
 
 
     def clone_ptr(self):

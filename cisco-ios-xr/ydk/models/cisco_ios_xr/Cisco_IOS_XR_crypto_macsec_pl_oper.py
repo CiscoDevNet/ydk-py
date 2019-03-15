@@ -2093,7 +2093,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkts_untagged
                                     
-                                    	ingress packet untagged & validateFrames is  !strict
+                                    	ingress packet untagged & validateFrames is !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2102,7 +2102,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
-                                    	ingress frames received with an invalid MACSec tag or ICV                                       added with next one gives InPktsSCIMiss
+                                    	ingress frames received with an invalid MACSec tag or ICV added with next one gives InPktsSCIMiss
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2111,7 +2111,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
-                                    	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
+                                    	correctly tagged ingress frames for which no valid SC found & validateFrames is strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2120,7 +2120,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
-                                    	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is !strict
+                                    	correctly tagged ingress frames for which no valid SC found & validateFrames is !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -3731,6 +3731,15 @@ class MacsecPlatform(Entity):
                                         
                                         	**config**\: False
                                         
+                                        .. attribute:: conf_offset
+                                        
+                                        	Confidentiality Offset
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -3757,6 +3766,7 @@ class MacsecPlatform(Entity):
                                                 ('initial_pkt_number', (YLeaf(YType.uint8, 'initial-pkt-number'), ['int'])),
                                                 ('current_pkt_number', (YLeaf(YType.uint64, 'current-pkt-number'), ['int'])),
                                                 ('max_pkt_number', (YLeaf(YType.uint64, 'max-pkt-number'), ['int'])),
+                                                ('conf_offset', (YLeaf(YType.uint16, 'conf-offset'), ['int'])),
                                             ])
                                             self.is_valid = None
                                             self.sa_id = None
@@ -3767,6 +3777,7 @@ class MacsecPlatform(Entity):
                                             self.initial_pkt_number = None
                                             self.current_pkt_number = None
                                             self.max_pkt_number = None
+                                            self.conf_offset = None
 
                                             self.xform_params = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams()
                                             self.xform_params.parent = self
@@ -3775,7 +3786,7 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa, [u'is_valid', u'sa_id', u'sc_no', u'out_pkts_too_long', u'out_pkts_encrypted_protected', u'out_octets_encrypted_protected1', u'initial_pkt_number', u'current_pkt_number', u'max_pkt_number'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa, [u'is_valid', u'sa_id', u'sc_no', u'out_pkts_too_long', u'out_pkts_encrypted_protected', u'out_octets_encrypted_protected1', u'initial_pkt_number', u'current_pkt_number', u'max_pkt_number', u'conf_offset'], name, value)
 
 
                                         class XformParams(Entity):
@@ -3830,7 +3841,7 @@ class MacsecPlatform(Entity):
                                             
                                             .. attribute:: bgen_auth_key
                                             
-                                            	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
+                                            	TRUE to generate the authKey, so authKey in this struct not used APM\_FALSE to use provided authKey
                                             	**type**\: bool
                                             
                                             	**config**\: False
@@ -4002,6 +4013,15 @@ class MacsecPlatform(Entity):
                                         
                                         	**config**\: False
                                         
+                                        .. attribute:: conf_offset
+                                        
+                                        	Confidentiality Offset
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -4032,6 +4052,7 @@ class MacsecPlatform(Entity):
                                                 ('in_pkts_unused_sa', (YLeaf(YType.uint8, 'in-pkts-unused-sa'), ['int'])),
                                                 ('in_octets_decrypted_validated1', (YLeaf(YType.uint8, 'in-octets-decrypted-validated1'), ['int'])),
                                                 ('in_octets_validated', (YLeaf(YType.uint8, 'in-octets-validated'), ['int'])),
+                                                ('conf_offset', (YLeaf(YType.uint16, 'conf-offset'), ['int'])),
                                             ])
                                             self.is_valid = None
                                             self.sa_id = None
@@ -4046,6 +4067,7 @@ class MacsecPlatform(Entity):
                                             self.in_pkts_unused_sa = None
                                             self.in_octets_decrypted_validated1 = None
                                             self.in_octets_validated = None
+                                            self.conf_offset = None
 
                                             self.xform_params = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams()
                                             self.xform_params.parent = self
@@ -4054,7 +4076,7 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa, [u'is_valid', u'sa_id', u'sc_no', u'in_pkts_unchecked', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_ok', u'in_pkts_invalid', u'in_pkts_not_valid', u'in_pkts_not_using_sa', u'in_pkts_unused_sa', u'in_octets_decrypted_validated1', u'in_octets_validated'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa, [u'is_valid', u'sa_id', u'sc_no', u'in_pkts_unchecked', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_ok', u'in_pkts_invalid', u'in_pkts_not_valid', u'in_pkts_not_using_sa', u'in_pkts_unused_sa', u'in_octets_decrypted_validated1', u'in_octets_validated', u'conf_offset'], name, value)
 
 
                                         class XformParams(Entity):
@@ -4109,7 +4131,7 @@ class MacsecPlatform(Entity):
                                             
                                             .. attribute:: bgen_auth_key
                                             
-                                            	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
+                                            	TRUE to generate the authKey, so authKey in this struct not used APM\_FALSE to use provided authKey
                                             	**type**\: bool
                                             
                                             	**config**\: False
@@ -5244,7 +5266,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: ethertype
                                         
-                                        	Parsed EtherType to match could be 0 if Ethertype should'nt                              be matched can be 0x88E5 for MACSec tag
+                                        	Parsed EtherType to match could be 0 if Ethertype should'nt be matched can be 0x88E5 for MACSec tag
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5253,7 +5275,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: outer_vlan_id
                                         
-                                        	 VLAN ID for outer tag use this when             only one tag should be matched
+                                        	 VLAN ID for outer tag use this when only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5262,7 +5284,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
-                                        	VLAN User Priority for outer tag  use            this when only one tag should be matched
+                                        	VLAN User Priority for outer tag  use this when only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..255
@@ -5271,7 +5293,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: inner_vlan_id
                                         
-                                        	VLAN ID for inner tag used when two              VLAN Tags should be matched
+                                        	VLAN ID for inner tag used when two VLAN Tags should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5280,7 +5302,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
-                                        	 VLAN User priority for inner tag use            when matching two VLAN tags
+                                        	 VLAN User priority for inner tag use when matching two VLAN tags
                                         	**type**\: int
                                         
                                         	**range:** 0..255
@@ -5289,7 +5311,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: psci
                                         
-                                        	 SCI to be matched value required for            ingress only, pass NULL for egress
+                                        	 SCI to be matched value required for ingress only, pass NULL for egress
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
@@ -5361,7 +5383,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: tci_chk
                                         
-                                        	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
+                                        	TCI bits will be checked only when this bit is enabled. All the values of TCI bits are mandatory when TCI check is used
                                         	**type**\: bool
                                         
                                         	**config**\: False
@@ -5486,7 +5508,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: plain_bits
                                         
-                                        	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
+                                        	Plain bits to compare. Max values\: untagged pkt \- 40 bits after EthType 1 VLAN tag \- 24 bits after parsed EthType 2 VLAN tags\- 8 bits after parsed EthType 1 MPLS tag \- 32 bits after 1st tag 2 MPLS tags\- 8 bits following after 2nd or atmost 5th MPLS tag PBB \- 16 bits after C\-SA PBB with VLAN tag \- 16 bits of VLAN tag 
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
@@ -5506,7 +5528,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: force_ctrl
                                         
-                                        	Force the pkt as control pkt irrepective         of the results of control packet detector
+                                        	Force the pkt as control pkt irrepective of the results of control packet detector
                                         	**type**\: bool
                                         
                                         	**config**\: False
@@ -5689,7 +5711,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: ethertype
                                         
-                                        	Parsed EtherType to match could be 0 if Ethertype should'nt                              be matched can be 0x88E5 for MACSec tag
+                                        	Parsed EtherType to match could be 0 if Ethertype should'nt be matched can be 0x88E5 for MACSec tag
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5698,7 +5720,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: outer_vlan_id
                                         
-                                        	 VLAN ID for outer tag use this when             only one tag should be matched
+                                        	 VLAN ID for outer tag use this when only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5707,7 +5729,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
-                                        	VLAN User Priority for outer tag  use            this when only one tag should be matched
+                                        	VLAN User Priority for outer tag  use this when only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..255
@@ -5716,7 +5738,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: inner_vlan_id
                                         
-                                        	VLAN ID for inner tag used when two              VLAN Tags should be matched
+                                        	VLAN ID for inner tag used when two VLAN Tags should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -5725,7 +5747,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
-                                        	 VLAN User priority for inner tag use            when matching two VLAN tags
+                                        	 VLAN User priority for inner tag use when matching two VLAN tags
                                         	**type**\: int
                                         
                                         	**range:** 0..255
@@ -5734,7 +5756,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: psci
                                         
-                                        	 SCI to be matched value required for            ingress only, pass NULL for egress
+                                        	 SCI to be matched value required for ingress only, pass NULL for egress
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
@@ -5806,7 +5828,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: tci_chk
                                         
-                                        	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
+                                        	TCI bits will be checked only when this bit is enabled. All the values of TCI bits are mandatory when TCI check is used
                                         	**type**\: bool
                                         
                                         	**config**\: False
@@ -5931,7 +5953,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: plain_bits
                                         
-                                        	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
+                                        	Plain bits to compare. Max values\: untagged pkt \- 40 bits after EthType 1 VLAN tag \- 24 bits after parsed EthType 2 VLAN tags\- 8 bits after parsed EthType 1 MPLS tag \- 32 bits after 1st tag 2 MPLS tags\- 8 bits following after 2nd or atmost 5th MPLS tag PBB \- 16 bits after C\-SA PBB with VLAN tag \- 16 bits of VLAN tag 
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
@@ -5951,7 +5973,7 @@ class MacsecPlatform(Entity):
                                         
                                         .. attribute:: force_ctrl
                                         
-                                        	Force the pkt as control pkt irrepective         of the results of control packet detector
+                                        	Force the pkt as control pkt irrepective of the results of control packet detector
                                         	**type**\: bool
                                         
                                         	**config**\: False
@@ -7880,7 +7902,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkts_untagged
                                     
-                                    	ingress packet untagged & validateFrames is  !strict
+                                    	ingress packet untagged & validateFrames is !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -7889,7 +7911,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
-                                    	ingress frames received with an invalid MACSec tag or ICV                                       added with next one gives InPktsSCIMiss
+                                    	ingress frames received with an invalid MACSec tag or ICV added with next one gives InPktsSCIMiss
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -7898,7 +7920,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
-                                    	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
+                                    	correctly tagged ingress frames for which no valid SC found & validateFrames is strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -7907,7 +7929,7 @@ class MacsecPlatform(Entity):
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
-                                    	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is !strict
+                                    	correctly tagged ingress frames for which no valid SC found & validateFrames is !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615

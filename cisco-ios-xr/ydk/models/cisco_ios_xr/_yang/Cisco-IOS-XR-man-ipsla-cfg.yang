@@ -602,7 +602,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive";
         }
         type uint32 {
@@ -645,7 +645,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive' and ../thresh-type != 'average'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive and ../ThreshType != Average";
         }
         type uint32 {
@@ -775,6 +775,42 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       type empty;
       description
         "Forced option for the MPLS LSP operation";
+    }
+  }
+
+  grouping REMOTE-PORT {
+    description
+      "Common node of remote-ipv4-address,
+       remote-ipv6-address";
+    container remote-port-numbers {
+      description
+        "Configuration of remote port";
+      list remote-port-number {
+        key "remote-port";
+        description
+          "Enter value of remote port";
+        container vrf-names {
+          description
+            "Configuration of vrf";
+          list vrf-name {
+            key "vrf-name";
+            description
+              "Configure vrf name value";
+            leaf vrf-name {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "VRF Name";
+            }
+          }
+        }
+        leaf remote-port {
+          type inet:port-number;
+          description
+            "Remote port";
+        }
+      }
     }
   }
 
@@ -1165,6 +1201,60 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       type inet:port-number;
       description
         "Port number on target device";
+    }
+  }
+
+  grouping LOCAL-PORT {
+    description
+      "Common node of local-ipv4-address,
+       local-ipv6-address";
+    container local-port-numbers {
+      description
+        "Configuration of local port";
+      list local-port-number {
+        key "local-port";
+        description
+          "Enter value of local port";
+        container remote-ip {
+          description
+            "Configure remote ip address";
+          container remote-ipv4-addresses {
+            description
+              "Configure IPV4 address";
+            list remote-ipv4-address {
+              key "remotev4-address";
+              description
+                "Enter value of remote ipv4 address";
+              leaf remotev4-address {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Remote IPv4 address";
+              }
+              uses REMOTE-PORT;
+            }
+          }
+          container remote-ipv6-addresses {
+            description
+              "Configure IPV6 address";
+            list remote-ipv6-address {
+              key "remotev6-address";
+              description
+                "Enter value of remote ipv6 address";
+              leaf remotev6-address {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Remote IPv6 address";
+              }
+              uses REMOTE-PORT;
+            }
+          }
+        }
+        leaf local-port {
+          type inet:port-number;
+          description
+            "Local port";
+        }
+      }
     }
   }
 
@@ -2371,6 +2461,68 @@ module Cisco-IOS-XR-man-ipsla-cfg {
                 description
                   "IP address of the Responder";
               }
+            }
+          }
+        }
+      }
+      container twamp-light {
+        description
+          "Enter twamp-light session details";
+        container session-ids {
+          description
+            "Create twamp-light session";
+          list session-id {
+            key "session-id";
+            description
+              "Configure session ID";
+            container local-ip {
+              description
+                "Configure local ip address";
+              container local-ipv6-addresses {
+                description
+                  "Configure IPV6 address";
+                list local-ipv6-address {
+                  key "localv6-address";
+                  description
+                    "Enter value of local ip address";
+                  leaf localv6-address {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Local IPv6 address";
+                  }
+                  uses LOCAL-PORT;
+                }
+              }
+              container local-ipv4-addresses {
+                description
+                  "Configure IPV4 address";
+                list local-ipv4-address {
+                  key "localv4-address";
+                  description
+                    "Enter value of local ipv4 address";
+                  leaf localv4-address {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Local IPv4 address";
+                  }
+                  uses LOCAL-PORT;
+                }
+              }
+            }
+            leaf twamp-light-timeout {
+              type uint32 {
+                range "60..86400";
+              }
+              units "second";
+              description
+                "Configure session timeout";
+            }
+            leaf session-id {
+              type uint32 {
+                range "1..5";
+              }
+              description
+                "SessionID";
             }
           }
         }

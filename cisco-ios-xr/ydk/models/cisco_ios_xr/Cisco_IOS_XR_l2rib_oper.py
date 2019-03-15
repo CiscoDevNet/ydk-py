@@ -5,7 +5,7 @@ for Cisco IOS\-XR l2rib package operational data.
 
 This module contains definitions
 for the following management objects\:
-  l2rib\: L2RIB operational information 
+  l2rib\: L2RIB operational information
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
@@ -606,7 +606,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.ProducersDetails.ProducersDetail, ['object_id', 'product_id', u'last_update_timestamp'], name, value)
+                self._perform_setattr(L2rib.ProducersDetails.ProducersDetail, ['object_id', 'product_id', 'last_update_timestamp'], name, value)
 
 
             class Producer(Entity):
@@ -705,7 +705,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Producer, [u'client_id', u'object_type', u'producer_id', u'producer_name', u'admin_distance', u'purge_time', u'state'], name, value)
+                    self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Producer, ['client_id', 'object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time', 'state'], name, value)
 
 
 
@@ -765,7 +765,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics, [u'producer_id', u'producer_name'], name, value)
+                    self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics, ['producer_id', 'producer_name'], name, value)
 
 
                 class Statistics_(Entity):
@@ -837,7 +837,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_, [u'memory_size', u'object_count', u'endof_interval_ts'], name, value)
+                        self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_, ['memory_size', 'object_count', 'endof_interval_ts'], name, value)
 
 
                     class ExtendedCounter(Entity):
@@ -931,7 +931,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter, [u'counter_type', u'counter_name', u'l2rb_first_event_ts', u'l2rb_last_event_ts', u'l2rb_interval_event_count', u'l2rb_total_event_count'], name, value)
+                            self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
 
@@ -997,7 +997,7 @@ class L2rib(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2rib.Summary, [u'converged_tables_count', u'total_memory'], name, value)
+            self._perform_setattr(L2rib.Summary, ['converged_tables_count', 'total_memory'], name, value)
 
 
         class TableSummary(Entity):
@@ -1067,7 +1067,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.Summary.TableSummary, [u'object_type', u'object_count', u'table_memory'], name, value)
+                self._perform_setattr(L2rib.Summary.TableSummary, ['object_type', 'object_count', 'table_memory'], name, value)
 
 
             class ProducerStat(Entity):
@@ -1126,7 +1126,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat, [u'producer_id', u'producer_name'], name, value)
+                    self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat, ['producer_id', 'producer_name'], name, value)
 
 
                 class Statistics(Entity):
@@ -1198,7 +1198,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat.Statistics, [u'memory_size', u'object_count', u'endof_interval_ts'], name, value)
+                        self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat.Statistics, ['memory_size', 'object_count', 'endof_interval_ts'], name, value)
 
 
                     class ExtendedCounter(Entity):
@@ -1292,7 +1292,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter, [u'counter_type', u'counter_name', u'l2rb_first_event_ts', u'l2rb_last_event_ts', u'l2rb_interval_event_count', u'l2rb_total_event_count'], name, value)
+                            self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
 
@@ -1456,7 +1456,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.Producers.Producer, ['object_id', 'product_id', u'client_id', u'object_type', u'producer_id', u'producer_name', u'admin_distance', u'purge_time', u'state'], name, value)
+                self._perform_setattr(L2rib.Producers.Producer, ['object_id', 'product_id', 'client_id', 'object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time', 'state'], name, value)
 
 
 
@@ -1588,7 +1588,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.Clients.Client, ['client_id', u'client_id_xr', u'process_id', u'node_id', u'proc_name', u'proc_suffix'], name, value)
+                self._perform_setattr(L2rib.Clients.Client, ['client_id', 'client_id_xr', 'process_id', 'node_id', 'proc_name', 'proc_suffix'], name, value)
 
 
 
@@ -1755,7 +1755,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.EvisXr.Evi, ['evi', u'l2r_vni', u'l2r_encap_type', u'l2r_nve_iod', u'l2r_nve_ifhandle', u'vtep_ip', u'l2r_topo_txid', u'l2r_topo_flags'], name, value)
+                self._perform_setattr(L2rib.EvisXr.Evi, ['evi', 'l2r_vni', 'l2r_encap_type', 'l2r_nve_iod', 'l2r_nve_ifhandle', 'vtep_ip', 'l2r_topo_txid', 'l2r_topo_flags'], name, value)
 
 
             class Topology(Entity):
@@ -1815,7 +1815,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EvisXr.Evi.Topology, [u'topology_id', u'topology_name', u'topology_type'], name, value)
+                    self._perform_setattr(L2rib.EvisXr.Evi.Topology, ['topology_id', 'topology_name', 'topology_type'], name, value)
 
 
 
@@ -1950,7 +1950,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.ClientsDetails.ClientsDetail, ['client_id', u'producer_count', u'last_update_timestamp'], name, value)
+                self._perform_setattr(L2rib.ClientsDetails.ClientsDetail, ['client_id', 'producer_count', 'last_update_timestamp'], name, value)
 
 
             class Client(Entity):
@@ -2030,7 +2030,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.Client, [u'client_id_xr', u'process_id', u'node_id', u'proc_name', u'proc_suffix'], name, value)
+                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.Client, ['client_id_xr', 'process_id', 'node_id', 'proc_name', 'proc_suffix'], name, value)
 
 
 
@@ -2089,7 +2089,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics, [u'producer_id', u'producer_name'], name, value)
+                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics, ['producer_id', 'producer_name'], name, value)
 
 
                 class Statistics(Entity):
@@ -2160,7 +2160,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics, [u'memory_size', u'object_count', u'endof_interval_ts'], name, value)
+                        self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics, ['memory_size', 'object_count', 'endof_interval_ts'], name, value)
 
 
                     class ExtendedCounter(Entity):
@@ -2253,7 +2253,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter, [u'counter_type', u'counter_name', u'l2rb_first_event_ts', u'l2rb_last_event_ts', u'l2rb_interval_event_count', u'l2rb_total_event_count'], name, value)
+                            self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
 
@@ -2334,7 +2334,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.ProducerArray, [u'object_type', u'producer_id', u'producer_name', u'admin_distance', u'purge_time'], name, value)
+                    self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.ProducerArray, ['object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time'], name, value)
 
 
 
@@ -2486,15 +2486,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC IP Address
@@ -2516,15 +2507,6 @@ class L2rib(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -2612,10 +2594,8 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("mac-ip-route", ("mac_ip_route", L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute)), ("rt-tlv", ("rt_tlv", L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv)), ("nh-tlv", ("nh_tlv", L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
                         ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
@@ -2623,10 +2603,8 @@ class L2rib(Entity):
                         ('last_update_timestamp', (YLeaf(YType.uint64, 'last-update-timestamp'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.sequence_number = None
                     self.flags = None
@@ -2649,7 +2627,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail, ['evi', 'tag_id', 'mac_addr', 'ip_addr', 'admin_dist', 'prod_id', u'sequence_number', u'flags', u'soo', u'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail, ['evi', 'mac_addr', 'ip_addr', 'prod_id', 'sequence_number', 'flags', 'soo', 'last_update_timestamp'], name, value)
 
 
                 class MacIpRoute(Entity):
@@ -2743,7 +2721,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute, [u'mac_address', u'ip_address', u'admin_distance', u'producer_id', u'topology_id'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute, ['mac_address', 'ip_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                     class NextHop(Entity):
@@ -2806,7 +2784,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop, [u'topology_id', u'flags'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop, ['topology_id', 'flags'], name, value)
 
 
                         class NextHop_(Entity):
@@ -2911,7 +2889,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                             class Labeled(Entity):
@@ -2979,7 +2957,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -3044,7 +3022,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv, [u'tlv_type', u'tlv_len'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv, ['tlv_type', 'tlv_len'], name, value)
 
 
                     class TlvVal(Entity):
@@ -3085,7 +3063,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal, [u'entry'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
 
@@ -3148,7 +3126,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv, [u'tlv_type', u'tlv_len'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv, ['tlv_type', 'tlv_len'], name, value)
 
 
                     class TlvVal(Entity):
@@ -3189,7 +3167,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal, [u'entry'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal, ['entry'], name, value)
 
 
 
@@ -3247,15 +3225,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC\-IP Address
@@ -3277,15 +3246,6 @@ class L2rib(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -3366,10 +3326,8 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("next-hop", ("next_hop", L2rib.EviChildTables.MacIps.MacIp.NextHop))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                         ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
@@ -3378,10 +3336,8 @@ class L2rib(Entity):
                         ('topology_id', (YLeaf(YType.uint32, 'topology-id'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.mac_address = None
                     self.ip_address = None
@@ -3397,7 +3353,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp, ['evi', 'tag_id', 'mac_addr', 'ip_addr', 'admin_dist', 'prod_id', u'mac_address', u'ip_address', u'admin_distance', u'producer_id', u'topology_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp, ['evi', 'mac_addr', 'ip_addr', 'prod_id', 'mac_address', 'ip_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                 class NextHop(Entity):
@@ -3460,7 +3416,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop, [u'topology_id', u'flags'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop, ['topology_id', 'flags'], name, value)
 
 
                     class NextHop_(Entity):
@@ -3565,7 +3521,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                         class Labeled(Entity):
@@ -3633,7 +3589,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -3692,30 +3648,12 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -3789,9 +3727,7 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("route", ("route", L2rib.EviChildTables.Macs.Mac.Route))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                         ('admin_distance', (YLeaf(YType.uint8, 'admin-distance'), ['int'])),
@@ -3799,9 +3735,7 @@ class L2rib(Entity):
                         ('topology_id', (YLeaf(YType.uint32, 'topology-id'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.mac_address = None
                     self.admin_distance = None
@@ -3816,7 +3750,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac, ['evi', 'tag_id', 'mac_addr', 'admin_dist', 'prod_id', u'mac_address', u'admin_distance', u'producer_id', u'topology_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac, ['evi', 'mac_addr', 'prod_id', 'mac_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                 class Route(Entity):
@@ -3888,7 +3822,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route, [u'type'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route, ['type'], name, value)
 
 
                     class Regular(Entity):
@@ -3991,7 +3925,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop, [u'topology_id', u'flags'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop, ['topology_id', 'flags'], name, value)
 
 
                             class NextHop_(Entity):
@@ -4096,7 +4030,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                 class Labeled(Entity):
@@ -4164,7 +4098,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -4240,7 +4174,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi, [u'sequence_number', u'forward_state'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi, ['sequence_number', 'forward_state'], name, value)
 
 
                         class EthernetSegmentId(Entity):
@@ -4303,7 +4237,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -4388,7 +4322,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList, [u'producer_id', u'mac_count', u'local_label'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList, ['producer_id', 'mac_count', 'local_label'], name, value)
 
 
                             class PathListInfo(Entity):
@@ -4449,7 +4383,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo, [u'type'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo, ['type'], name, value)
 
 
                                 class PathListEsi(Entity):
@@ -4508,7 +4442,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, [u'resolved'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, ['resolved'], name, value)
 
 
                                     class EthernetSegmentId(Entity):
@@ -4571,7 +4505,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -4635,7 +4569,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, [u'topology_id', u'flags'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                         class NextHop(Entity):
@@ -4740,7 +4674,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                             class Labeled(Entity):
@@ -4808,7 +4742,7 @@ class L2rib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -4853,7 +4787,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac, [u'mac_address'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
 
@@ -4918,7 +4852,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray, [u'topology_id', u'flags'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                 class NextHop(Entity):
@@ -5023,7 +4957,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                     class Labeled(Entity):
@@ -5091,7 +5025,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -5157,7 +5091,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac, [u'bmac_address', u'forward_state'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac, ['bmac_address', 'forward_state'], name, value)
 
 
                         class PathList(Entity):
@@ -5240,7 +5174,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList, [u'producer_id', u'mac_count', u'local_label'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList, ['producer_id', 'mac_count', 'local_label'], name, value)
 
 
                             class PathListInfo(Entity):
@@ -5301,7 +5235,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo, [u'type'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo, ['type'], name, value)
 
 
                                 class PathListEsi(Entity):
@@ -5360,7 +5294,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi, [u'resolved'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi, ['resolved'], name, value)
 
 
                                     class EthernetSegmentId(Entity):
@@ -5423,7 +5357,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -5487,7 +5421,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, [u'topology_id', u'flags'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                         class NextHop(Entity):
@@ -5592,7 +5526,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                             class Labeled(Entity):
@@ -5660,7 +5594,7 @@ class L2rib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -5705,7 +5639,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac, [u'mac_address'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
 
@@ -5770,7 +5704,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray, [u'topology_id', u'flags'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                 class NextHop(Entity):
@@ -5875,7 +5809,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                     class Labeled(Entity):
@@ -5943,7 +5877,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -6133,7 +6067,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.Imets.Imet, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', u'vtepi_paddr', u'admin_distance', u'producer_id', u'topo_id', u'ethernet_tag_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.Imets.Imet, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', 'vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
 
@@ -6189,30 +6123,12 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -6318,9 +6234,7 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("mac-route", ("mac_route", L2rib.EviChildTables.MacDetails.MacDetail.MacRoute)), ("rt-tlv", ("rt_tlv", L2rib.EviChildTables.MacDetails.MacDetail.RtTlv))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
                         ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
@@ -6331,9 +6245,7 @@ class L2rib(Entity):
                         ('last_update_timestamp', (YLeaf(YType.uint64, 'last-update-timestamp'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.sequence_number = None
                     self.flags = None
@@ -6355,7 +6267,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail, ['evi', 'tag_id', 'mac_addr', 'admin_dist', 'prod_id', u'sequence_number', u'flags', u'baseflags', u'soo', u'slot_id', u'esi', u'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail, ['evi', 'mac_addr', 'prod_id', 'sequence_number', 'flags', 'baseflags', 'soo', 'slot_id', 'esi', 'last_update_timestamp'], name, value)
 
 
                 class MacRoute(Entity):
@@ -6440,7 +6352,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute, [u'mac_address', u'admin_distance', u'producer_id', u'topology_id'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute, ['mac_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                     class Route(Entity):
@@ -6512,7 +6424,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route, [u'type'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route, ['type'], name, value)
 
 
                         class Regular(Entity):
@@ -6615,7 +6527,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop, [u'topology_id', u'flags'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop, ['topology_id', 'flags'], name, value)
 
 
                                 class NextHop_(Entity):
@@ -6720,7 +6632,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                     class Labeled(Entity):
@@ -6788,7 +6700,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -6864,7 +6776,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi, [u'sequence_number', u'forward_state'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi, ['sequence_number', 'forward_state'], name, value)
 
 
                             class EthernetSegmentId(Entity):
@@ -6927,7 +6839,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -7012,7 +6924,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList, [u'producer_id', u'mac_count', u'local_label'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList, ['producer_id', 'mac_count', 'local_label'], name, value)
 
 
                                 class PathListInfo(Entity):
@@ -7073,7 +6985,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo, [u'type'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo, ['type'], name, value)
 
 
                                     class PathListEsi(Entity):
@@ -7132,7 +7044,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, [u'resolved'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, ['resolved'], name, value)
 
 
                                         class EthernetSegmentId(Entity):
@@ -7195,7 +7107,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -7259,7 +7171,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, [u'topology_id', u'flags'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                             class NextHop(Entity):
@@ -7364,7 +7276,7 @@ class L2rib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                                 class Labeled(Entity):
@@ -7432,7 +7344,7 @@ class L2rib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -7477,7 +7389,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac, [u'mac_address'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
 
@@ -7542,7 +7454,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray, [u'topology_id', u'flags'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                     class NextHop(Entity):
@@ -7647,7 +7559,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                         class Labeled(Entity):
@@ -7715,7 +7627,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -7781,7 +7693,7 @@ class L2rib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac, [u'bmac_address', u'forward_state'], name, value)
+                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac, ['bmac_address', 'forward_state'], name, value)
 
 
                             class PathList(Entity):
@@ -7864,7 +7776,7 @@ class L2rib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList, [u'producer_id', u'mac_count', u'local_label'], name, value)
+                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList, ['producer_id', 'mac_count', 'local_label'], name, value)
 
 
                                 class PathListInfo(Entity):
@@ -7925,7 +7837,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo, [u'type'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo, ['type'], name, value)
 
 
                                     class PathListEsi(Entity):
@@ -7984,7 +7896,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi, [u'resolved'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi, ['resolved'], name, value)
 
 
                                         class EthernetSegmentId(Entity):
@@ -8047,7 +7959,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, [u'system_priority', u'system_id', u'port_key'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
 
@@ -8111,7 +8023,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, [u'topology_id', u'flags'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                             class NextHop(Entity):
@@ -8216,7 +8128,7 @@ class L2rib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                                 class Labeled(Entity):
@@ -8284,7 +8196,7 @@ class L2rib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -8329,7 +8241,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac, [u'mac_address'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
 
@@ -8394,7 +8306,7 @@ class L2rib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray, [u'topology_id', u'flags'], name, value)
+                                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray, ['topology_id', 'flags'], name, value)
 
 
                                     class NextHop(Entity):
@@ -8499,7 +8411,7 @@ class L2rib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop, [u'type', u'ipv4', u'ipv6', u'mac', u'interface_handle', u'xid'], name, value)
+                                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                         class Labeled(Entity):
@@ -8567,7 +8479,7 @@ class L2rib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, [u'address_family', u'ip_address', u'label', u'internal'], name, value)
+                                                self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
 
@@ -8635,7 +8547,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.RtTlv, [u'tlv_type', u'tlv_len'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.RtTlv, ['tlv_type', 'tlv_len'], name, value)
 
 
                     class TlvVal(Entity):
@@ -8676,7 +8588,7 @@ class L2rib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal, [u'entry'], name, value)
+                            self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
 
@@ -8884,7 +8796,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', u'tunnel_id', u'flags', u'tunnel_type', u'l2r_label', u'encap_type', u'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', 'tunnel_id', 'flags', 'tunnel_type', 'l2r_label', 'encap_type', 'last_update_timestamp'], name, value)
 
 
                 class ImetRouteBase(Entity):
@@ -8967,7 +8879,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase, [u'vtepi_paddr', u'admin_distance', u'producer_id', u'topo_id', u'ethernet_tag_id'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase, ['vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
 
@@ -9081,7 +8993,7 @@ class L2rib(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2rib.Evis.Evi, ['evi', u'topology_id', u'topology_name', u'topology_type'], name, value)
+                self._perform_setattr(L2rib.Evis.Evi, ['evi', 'topology_id', 'topology_name', 'topology_type'], name, value)
 
 
 

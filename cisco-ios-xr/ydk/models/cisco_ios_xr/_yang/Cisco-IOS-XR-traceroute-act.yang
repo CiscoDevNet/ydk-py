@@ -24,10 +24,10 @@ module Cisco-IOS-XR-traceroute-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ping action package configuration.
 
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
     
-    revision "2016-09-28" {
+    revision "2018-10-01" {
         description
             "IOS XR 6.2.1 revision.";
     }
@@ -39,6 +39,8 @@ module Cisco-IOS-XR-traceroute-act {
         input {
 
             container destination {
+                
+                presence "traceroute input";
 
                 uses TRACEROUTE-OPTIONS;
 
@@ -46,10 +48,16 @@ module Cisco-IOS-XR-traceroute-act {
             }
 
             container ipv4 {
+                
+                presence "ipv4 traceroute input";
+                
                 uses TRACEROUTE-OPTIONS;
             }
 
             container ipv6 {
+                
+                presence "ipv6 traceroute input";
+                
                 uses IPV6-TRACEROUTE-INPUT;
             }
 
@@ -60,10 +68,16 @@ module Cisco-IOS-XR-traceroute-act {
             container traceroute-response {
 
                 container ipv4 {
+                
+                    presence "ipv4 traceroute output";
+
                     uses TRACEROUTE-OUTPUT;
                 }
 
                 container ipv6 {
+                
+                    presence "ipv6 traceroute output";
+
                     uses TRACEROUTE-OUTPUT;
                 }
             }

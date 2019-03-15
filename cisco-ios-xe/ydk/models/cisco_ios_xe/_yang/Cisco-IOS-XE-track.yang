@@ -37,6 +37,14 @@ module Cisco-IOS-XE-track {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-08-10 {
+    description
+      "removed default-track-grouping container";
+  }
+  revision 2018-08-07 {
+    description
+      "updated threshold and carrier-delay leaf";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -80,6 +88,73 @@ module Cisco-IOS-XE-track {
         }
       }
     }
+    leaf carrier-delay {
+      description
+        "Report state change after interface carrier-delay timer";
+        type empty;
+    }
+    container threshold {
+      description
+        "Threshold parameters";
+      container metric {
+        description
+          "Scaled metric threshold";
+        when "../../ip/route/metric or ../../ipv6/route/metric";
+
+        leaf up {
+          description
+            "Up threshold";
+          type uint32 {
+            range "0..254";
+          }
+        }
+        leaf down {
+          description
+            "Down threshold";
+          type uint32 {
+            range "2..255";
+          }
+        }
+      }
+      container weight {
+        description
+          "Weight threshold";
+        when "../../list/threshold = 'weight'";
+        leaf up {
+          description 
+            "Up threshold";
+          type uint32 {
+            range "0..255";
+          }
+        }
+        leaf down {
+          description 
+            "Down threshold";
+          type uint32 {
+            range "0..255";
+          }
+        }
+      }
+      container percentage {
+        description
+          "Percentage threshold";
+        when "../../list/threshold = 'percentage'";
+        leaf up {
+          description 
+            "Up threshold value in percentage";
+          type uint32 {
+            range "0..100";
+          }
+        }
+        leaf down {
+          description 
+            "Down threshold value in percentage";
+          type uint32 {
+            range "0..100";
+          }
+        }
+      }
+    }
     leaf default-state {
       description
         "default object state";
@@ -101,6 +176,14 @@ module Cisco-IOS-XE-track {
         description
           "Negate the state of object";
         type empty;
+      }
+      leaf weight {
+        description
+          "Assign a weight to object";
+        when "../../list/threshold = 'weight'";
+        type uint32 {
+          range "1..255";
+        }
       }
     }
     container ipv6-object {
@@ -125,41 +208,6 @@ module Cisco-IOS-XE-track {
     }
   }
 
-  grouping default-track-grouping {
-    container delay {
-      description
-        "Tracking delay";
-      presence "true";
-    }
-    leaf default-state {
-      description
-        "default object state";
-      type enumeration {
-        enum "down";
-        enum "up";
-      }
-    }
-    container ip {
-      description
-        "Tracking IP object configuration";
-      when "../../ip";
-      leaf vrf {
-        description
-          "VPN Routing/Forwarding table";
-        type empty;
-      }
-    }
-    container ipv6 {
-      description
-        "Tracking IPv6 object configuration";
-      when "../../ipv6";
-      leaf vrf {
-        description
-          "VPN Routing/Forwarding table";
-        type empty;
-      }
-    }
-  }
 
   grouping config-track-grouping {
     list tracked-object {
@@ -279,11 +327,6 @@ module Cisco-IOS-XE-track {
         description
           "Stub tracking object";
         type empty;
-      }
-      container default {
-        description
-          "Set a command to its defaults";
-        uses default-track-grouping;
       }
       uses track-grouping;
     }

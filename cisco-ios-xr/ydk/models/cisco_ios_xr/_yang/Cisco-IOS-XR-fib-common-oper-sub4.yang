@@ -1187,7 +1187,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     list fpd-gbltbl-src-entry {
       max-elements "14";
       description
-        "Number of global routes from                    
+        "Number of global routes from
          
          each route source";
       leaf entry {
@@ -1197,7 +1197,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     list fpd-vrftbl-src-entry {
       max-elements "14";
       description
-        "Number of vrf routes from                       
+        "Number of vrf routes from
          
          each route source";
       leaf entry {
@@ -1487,6 +1487,86 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     }
   }
 
+  grouping FIB-SH-FRR-NHINFO {
+    description
+      "FIB per nhinfo information";
+    leaf si-frrtype {
+      type uint32;
+      description
+        "FRR-NHinfo Type";
+    }
+    leaf si-refcount {
+      type uint32;
+      description
+        "refcount";
+    }
+    leaf si-flags {
+      type uint32;
+      description
+        "frr nhinfo flags";
+    }
+    leaf si-ifh {
+      type uint32;
+      description
+        "ifh assoc w frr nh";
+    }
+    leaf si-main-ifh {
+      type uint32;
+      description
+        "main ifh assoc w prot-frr nh";
+    }
+    leaf si-linktype {
+      type uint32;
+      description
+        "Linktype using this FRR object";
+    }
+    leaf si-nh-pfx-proto {
+      type uint32;
+      description
+        "Protocol for next-hop prefix";
+    }
+    leaf si-nh-pfx {
+      type yang:hex-string;
+      description
+        "nh prefix";
+    }
+    leaf si-nh-pfx-len {
+      type uint32;
+      description
+        "prefix len";
+    }
+    leaf si-tunid {
+      type uint32;
+      description
+        "tunnel id for c12k";
+    }
+    leaf si-frr-ptr {
+      type uint32;
+      description
+        "frr-nhinfo pointer";
+    }
+    leaf si-prot-frr-ptr {
+      type uint32;
+      description
+        "prot-frr-nhinfo pointer for a bkup-frr";
+    }
+    leaf si-parent-nh-ptr {
+      type uint32;
+      description
+        "parent nhinfo pointer";
+    }
+    leaf si-repl-parent-type {
+      type uint8;
+      description
+        "replicated parent nhinfo type";
+    }
+    leaf si-upd-ts {
+      type uint64;
+      description
+        "update timestamp";
+    }
+  }
+
   grouping FIB-SH-NHID-ENTRY {
     description
       "FIB per NHID entry information";
@@ -1534,6 +1614,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       type uint64;
       description
         "The time of last update in msec";
+    }
+    leaf encap-id {
+      type uint64;
+      description
+        "ENCAP ID value";
     }
   }
 
@@ -3006,6 +3091,12 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Route destined for Line Card that support
          External Reach only";
     }
+    leaf route-source-not-preferred {
+      type boolean;
+      description
+        "The source of this route is not preferred over
+         other sources with the same prefix";
+    }
     leaf route-is-sr-flag {
       type boolean;
       description
@@ -3030,6 +3121,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       type uint32;
       description
         "NHID of the replicated NHINFO";
+    }
+    leaf nh-info-replicated-encap-id {
+      type uint64;
+      description
+        "ENCAP ID of the replicated NHINFO";
     }
     leaf nh-info-replicated-interface {
       type xr:Interface-name;

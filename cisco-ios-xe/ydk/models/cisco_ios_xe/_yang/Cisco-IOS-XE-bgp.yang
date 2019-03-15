@@ -18,6 +18,9 @@ module Cisco-IOS-XE-bgp {
   import Cisco-IOS-XE-interface-common {
     prefix ios-ifc;
   }
+  import Cisco-IOS-XE-isis {
+    prefix ios-isis;
+  }
   import Cisco-IOS-XE-ospf {
     prefix ios-ospf;
   }
@@ -50,6 +53,64 @@ module Cisco-IOS-XE-bgp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2019-01-09 {
+    description
+      "fixed redistribute isis delete behavior";
+  }
+  revision 2018-12-10 {
+    description
+      "Fixed as-path to handle regular expression statements";
+  }
+  revision 2018-12-06 {
+    description
+      "Fix CLI ordering for neighbor peer-group and neighbor inherit configs
+       and add vpnv4-unicast peer-group and import configs";
+  }
+  revision 2018-11-20 {
+    description
+      "fixed as-path ordering issue after replace operation";
+  }
+  revision 2018-11-13 {
+    description
+      "Fix network config so that network with-mask cannot use the ip address
+      class type default mask";
+  }
+  revision 2018-08-31 {
+    description
+      "add delete annotations for AF neighbor configurations";
+  }
+  revision 2018-08-09 {
+    description 
+      "Add default values to leaves";
+  }
+  revision 2018-08-04 {
+    description
+      "Allow bgp advertisement-interval to be configured through netconf. Update neighbor ebgp-multihop and next-hop-unchanged dependencies";
+  }
+  revision 2018-08-01 {
+    description
+      "Fixed order of as-path access-list";
+  }
+  revision 2018-07-30 {
+    description
+      "Update config annotations for address-family, redistribute, and fall-over commands";
+  }
+  revision 2018-07-18 {
+    description
+      "Fixed next-hop-self, fall-over bfd, as-override, allowas-in";
+  }
+  revision 2018-07-16 {
+    description
+      "Fix neighbor remote-as and peer-group config";
+  }
+  revision 2018-07-12 {
+    description 
+      "Edit neighbors timer container to allow for no timer config";
+  }
+  revision 2018-07-11 {
+    description
+      "fix bgp timers";
+  }
   revision 2018-06-28 {
     description
       "added must constraints for deleting vrf";
@@ -317,6 +378,7 @@ module Cisco-IOS-XE-bgp {
         leaf interval {
           description
             "Interval (minutes)";
+          default 1440;
           type uint16 {
             range "5..1440";
           }
@@ -382,6 +444,7 @@ module Cisco-IOS-XE-bgp {
       leaf interval {
         description
           "Interval value (seconds)";
+        default 600;
         type uint32 {
           range "60..4294967295";
         }
@@ -420,6 +483,7 @@ module Cisco-IOS-XE-bgp {
       leaf restart-time {
         description
           "Set the max time needed to restart and come back up";
+        default 120;
         type uint16 {
           range "1..3600";
         }
@@ -427,6 +491,7 @@ module Cisco-IOS-XE-bgp {
       leaf stalepath-time {
         description
           "Set the max time to hold onto restarting peer's stale paths";
+        default 360;
         type uint16 {
           range "1..3600";
         }
@@ -456,6 +521,7 @@ module Cisco-IOS-XE-bgp {
       leaf limit {
         description
           "Set the max limit for the dynamic subnet range neighbors";
+        default 100;
         type uint16 {
           range "1..10000";
         }
@@ -561,6 +627,7 @@ module Cisco-IOS-XE-bgp {
         description 
           "Configure refresh max-eor time";
         leaf refresh-disable {
+          default 0;
           type enumeration {
 	    enum 0;
 	  }
@@ -575,6 +642,7 @@ module Cisco-IOS-XE-bgp {
         description 
           "Configure refresh stale-path time";
         leaf refresh-disable {
+          default 0;
           type enumeration {
 	    enum 0;
 	  }
@@ -594,6 +662,7 @@ module Cisco-IOS-XE-bgp {
       leaf deterministic {
         description
           "Enable bounded-execution-time regular expression engine";
+        default true;
         type boolean;
       }
     }
@@ -625,6 +694,7 @@ module Cisco-IOS-XE-bgp {
       leaf path-mtu-discovery {
         description
           "Use transport path MTU discovery";
+        default true;
         type boolean;
       }
     }
@@ -633,6 +703,7 @@ module Cisco-IOS-XE-bgp {
     leaf update-delay {
       description
         "Set the max initial delay for sending update";
+      default 120;
       type uint16 {
         range "1..3600";
       }
@@ -791,6 +862,7 @@ module Cisco-IOS-XE-bgp {
         leaf aggregate-timer {
           description
           "Timer interval";
+          default 40;
           type uint8 {
             range "6..60";
           }
@@ -933,6 +1005,7 @@ module Cisco-IOS-XE-bgp {
         leaf delay {
           description
             "Set the delay to trigger nexthop tracking";
+          default 5;
           type uint8 {
             range "0..100";
           }
@@ -940,6 +1013,7 @@ module Cisco-IOS-XE-bgp {
         leaf enable {
           description
             "Enable nexthop tracking";
+          default true;
           type boolean;
         }
       }
@@ -992,6 +1066,7 @@ module Cisco-IOS-XE-bgp {
     leaf scan-time {
       description
         "Configure background scanner interval";
+      default 60;
       type uint8 {
         range "5..60";
       }
@@ -1015,6 +1090,7 @@ module Cisco-IOS-XE-bgp {
         leaf threshold {
           description
             "Threshold value (seconds)";
+          default 300;
           type uint16 {
             range "120..3600";
           }
@@ -1377,7 +1453,7 @@ module Cisco-IOS-XE-bgp {
       description
         "Override matching AS-number while sending update";
       presence "true";
-      leaf disable {
+      leaf split-horizon {
         type empty;
       }
     }
@@ -1545,12 +1621,24 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
+  // router bgp * / address-family * / neighbor * next-hop-unchanged
+  grouping vrf-neighbor-next-hop-unchanged-grouping {
+    leaf next-hop-unchanged {
+      description
+        "Propagate the iBGP paths' next hop unchanged for this neighbor";
+      type empty;
+      must '(../ios-bgp:ebgp-multihop/ios-bgp:max-hop)' {
+       error-message "next-hop-unchanged must be created after ebgp-multihop and deleted before ebgp-multihop";
+      }
+    }
+  }
+
+
   // router bgp * / address-family * / neighbor * peer-group
   grouping neighbor-peer-group-grouping {
     container peer-group {
       description
         "Member of the peer-group";
-      presence "true";
       leaf peer-group-name {
         description
           "peer-group name";
@@ -1803,7 +1891,6 @@ module Cisco-IOS-XE-bgp {
     container ebgp-multihop {
       description
         "Allow EBGP neighbors not on directly connected networks";
-      presence "Allow EBGP neighbors not on directly connected networks";
       leaf max-hop {
         type uint8 {
           range "1..255";
@@ -1818,6 +1905,14 @@ module Cisco-IOS-XE-bgp {
       description
         "session fall on peer route lost";
       presence "true";
+      container default {
+        leaf enable {
+          type empty;
+        }
+        leaf route-map {
+          type string;
+        }
+      }    
       container bfd {
         description
           "Use BFD to detect failure";
@@ -1838,18 +1933,15 @@ module Cisco-IOS-XE-bgp {
           description
             "Retrieve control plane dependent failure info from BFD for BGP
             GR/NSR operation";
-                type empty;
+          type empty;
         }
         leaf strict-mode {
           description
             "Enable BFD strict-mode";
-                type empty;
+          type empty;
         }
-      }
-      leaf route-map-name {
-        type string;
-      }
-    }
+      }    
+    }    
   }
 
   // router bgp * / address-family * / neighbor * ha-mode
@@ -2016,21 +2108,6 @@ module Cisco-IOS-XE-bgp {
   grouping neighbor-remote-as-grouping {
     leaf remote-as {
       description
-        "Specify a BGP neighbor";
-      type union {
-        type uint32 {
-          range "1..4294967295";
-        }
-        type string;
-      }
-      mandatory true;
-    }
-  }
-
-  // router bgp * / address-family * / neighbor * remote-as
-  grouping peer-group-remote-as-grouping {
-    leaf remote-as {
-      description
         "Specify a BGP peer-group remote-as";
       type union {
         type uint32 {
@@ -2056,19 +2133,26 @@ module Cisco-IOS-XE-bgp {
       description
         "BGP per neighbor timers";
       leaf keepalive-interval {
+        default 60;
         type uint16 {
           range "0..65535";
         }
       }
       leaf holdtime {
+        default 180;
         type uint16 {
           range "0..65535";
         }
       }
       leaf minimum-neighbor-hold {
+        default 0;
         type uint16 {
           range "0..65535";
         }
+      }
+      must "(keepalive-interval and holdtime) or ( not(keepalive-interval) and"
+	+ " not(holdtime) and not(minimum-neighbor-hold))" {
+	  error-message "keepalive-interval and holdtime must be configured";
       }
     }
   }
@@ -2552,6 +2636,14 @@ module Cisco-IOS-XE-bgp {
             "Specify a BGP backdoor route";
           type empty;
         }
+	must "not((number(substring-before(ios-bgp:number,'.')) = 0) and (ios-bgp:mask='0.0.0.0')) and " +
+	  "not(((number(substring-before(ios-bgp:number,'.')) > 0) and (number(substring-before(ios-bgp:number,'.')) < 128)) and (ios-bgp:mask='255.0.0.0')) and " + 
+	  "not(((number(substring-before(ios-bgp:number,'.')) > 127) and (number(substring-before(ios-bgp:number,'.')) < 192)) and (ios-bgp:mask='255.255.0.0')) and " + 
+	  "not(((number(substring-before(ios-bgp:number,'.')) > 191) and (number(substring-before(ios-bgp:number,'.')) < 224)) and (ios-bgp:mask='255.255.255.0')) and " + 
+	  "not((number(substring-before(ios-bgp:number,'.')) > 223) and (ios-bgp:mask='255.255.255.255'))" {
+	   error-message "Default mask for network given, please configure
+			  network without a mask";
+	   }
       }
       list no-mask {
         description
@@ -2753,7 +2845,9 @@ module Cisco-IOS-XE-bgp {
         list isis-area {
           key "name";
           leaf name {
-            type string;
+            type leafref {
+              path "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:area-tag";
+            }
           }
           uses redistribute-isis-grouping;
         }
@@ -2805,21 +2899,22 @@ module Cisco-IOS-XE-bgp {
             range "1..65535";
           }
         }
-        list vrf {
-          description
-            "VPN Routing/Forwarding Instance";
-          key "name";
-          leaf name {
-	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-	      error-message "VRF must be created 1st, deleted last";
-            }
-            type string;
+	choice ospf-choice {
+	  list vrf {
+	    description
+              "VPN Routing/Forwarding Instance";
+	    key "name";
+	    leaf name {
+	      must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+		error-message "VRF must be created 1st, deleted last";
+	      }
+              type string;
+	    }
+	    uses redistribute-ospf-non-vrf-grouping;
           }
-          container match;
-          uses metric-route-map-grouping;
-        }
-        container non-vrf {
-          uses redistribute-ospf-non-vrf-grouping;
+          container non-vrf {
+	    uses redistribute-ospf-non-vrf-grouping;
+	  }
         }
       }
       list ospfv3 {
@@ -2827,8 +2922,8 @@ module Cisco-IOS-XE-bgp {
           "OSPFv3";
         key "id";
         leaf id {
-          type uint16 {
-            range "1..65535";
+	  type leafref {
+            path "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:id";
           }
         }
         uses redistribute-ospf-non-vrf-grouping;
@@ -2847,17 +2942,21 @@ module Cisco-IOS-XE-bgp {
         presence "Static routes";
         description
           "Static routes";
-        container clns {
-          description
-            "Redistribution of OSI dynamic routes";
-          presence "true";
-          uses route-map-metric-grouping;
-        }
-        container ip {
-          presence "true";
-          uses metric-route-map-grouping;
-        }
-        uses metric-route-map-grouping;
+	choice static-choice {
+	  container clns {
+	    description
+              "Redistribution of OSI dynamic routes";
+	    presence "true";
+	    uses route-map-metric-grouping;
+          }
+          container ip {
+	    presence "true";
+	    uses metric-route-map-grouping;
+	  }
+	  container default {
+	    uses metric-route-map-grouping;
+	  }
+	}
       }
     }
   }
@@ -2937,7 +3036,6 @@ module Cisco-IOS-XE-bgp {
           "Redistribute OSPF NSSA external routes";
         type ios-types:redist-ospf-external-type;
       }
-      uses metric-route-map-grouping;
     }
     uses metric-route-map-grouping;
   }
@@ -3015,6 +3113,7 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
+    uses neighbor-peer-group-grouping;
     uses neighbor-shutdown-grouping;
     uses neighbor-timers-grouping;
     uses neighbor-transport-grouping;
@@ -3036,7 +3135,7 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-shutdown-grouping;
     uses neighbor-timers-grouping;
     uses neighbor-transport-grouping;
@@ -3065,7 +3164,6 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
     uses neighbor-next-hop-unchanged-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3287,7 +3385,6 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
     uses neighbor-next-hop-unchanged-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3502,7 +3599,9 @@ module Cisco-IOS-XE-bgp {
   }
   
   grouping vrf-ipv4-unicast-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertise-map-grouping;
     uses neighbor-advertisement-interval-grouping;
@@ -3522,15 +3621,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-fall-over-grouping;
     uses neighbor-filter-list-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3553,7 +3650,9 @@ module Cisco-IOS-XE-bgp {
   }
   
   grouping vrf-ipv4-multicast-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertise-map-grouping;
     uses neighbor-advertisement-interval-grouping;
@@ -3571,15 +3670,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-fall-over-grouping;
     uses neighbor-filter-list-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3599,7 +3696,9 @@ module Cisco-IOS-XE-bgp {
   }
   
   grouping vrf-ipv4-flowspec-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertisement-interval-grouping;
     uses neighbor-allowas-in-grouping;
@@ -3609,15 +3708,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-ebgp-multihop-grouping;
     uses neighbor-fall-over-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3635,7 +3732,9 @@ module Cisco-IOS-XE-bgp {
   }
   
   grouping vrf-ipv6-unicast-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertise-map-grouping;
     uses neighbor-advertisement-interval-grouping;
@@ -3654,15 +3753,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-fall-over-grouping;
     uses neighbor-filter-list-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3684,7 +3781,9 @@ module Cisco-IOS-XE-bgp {
   }
 
   grouping vrf-ipv6-multicast-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertisement-interval-grouping;
     uses neighbor-aigp-grouping;
@@ -3701,15 +3800,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-fall-over-grouping;
     uses neighbor-filter-list-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-prefix-list-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
@@ -3729,7 +3826,9 @@ module Cisco-IOS-XE-bgp {
   }
   
   grouping vrf-ipv6-flowspec-neighbor {
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
+    uses neighbor-peer-group-grouping;
+    uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     uses neighbor-advertisement-interval-grouping;
     uses neighbor-allowas-in-grouping;
@@ -3739,15 +3838,13 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-ebgp-multihop-grouping;
     uses neighbor-fall-over-grouping;
     uses neighbor-ha-mode-grouping;
-    uses neighbor-inherit-grouping;
     uses neighbor-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses neighbor-peer-group-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3789,11 +3886,11 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
     uses neighbor-prefix-list-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3837,11 +3934,11 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
     uses neighbor-prefix-list-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3875,10 +3972,10 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3920,11 +4017,11 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
     uses neighbor-prefix-list-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -3967,11 +4064,11 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
     uses neighbor-prefix-list-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -4005,10 +4102,10 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
-    uses neighbor-next-hop-unchanged-grouping;
+    uses vrf-neighbor-next-hop-unchanged-grouping;
     uses neighbor-password-grouping;
     uses neighbor-path-attribute-grouping;
-    uses peer-group-remote-as-grouping;
+    uses neighbor-remote-as-grouping;
     uses neighbor-remove-private-as-grouping;
     uses neighbor-route-map-grouping;
     uses neighbor-route-reflector-client-grouping;
@@ -4363,6 +4460,10 @@ module Cisco-IOS-XE-bgp {
 	key "id";
 	leaf id {
 	  type inet:ip-address;
+	  must
+	  "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()]/ios-bgp:ebgp-multihop/ios-bgp:max-hop and ../ios-bgp:next-hop-unchanged) or not(../next-hop-unchanged)" {
+	      error-message "ebgp multihop must be created before next-hop-unchanged and deleted after next-hop-unchanged";
+	  }
 	}
 	uses ipv4-unicast-neighbor;
       }
@@ -4678,6 +4779,7 @@ module Cisco-IOS-XE-bgp {
       description
 	"VPNv4 Unicast address family";
       uses vpnv4-unicast-bgp;
+      uses address-family-vpnv4-import-grouping;
       uses address-family-maximum-paths-grouping;
       container peer-group {
 	list neighbor {
@@ -5419,20 +5521,28 @@ module Cisco-IOS-XE-bgp {
   }
 
   grouping ip-community-list-expanded-grouping {
-    container deny {
+    container expanded-grouping {
       description
-        "Specify community to reject";
-      leaf-list deny-list {
+        "Community list entry";
+
+      list extended_grouping {
+        description
+          "Specify community list to accept or deny";
         ordered-by user;
-        type string;
-      }
-    }
-    container permit {
-      description
-        "Specify community to accept";
-      leaf-list permit-list {
-        ordered-by user;
-        type string;
+        key "action string";
+
+        leaf action {
+          type enumeration {
+            enum deny;
+            enum permit;
+          }
+        }
+
+        leaf string {
+          type string {
+             pattern '.*';
+          }
+        }
       }
     }
   }
@@ -5637,7 +5747,7 @@ module Cisco-IOS-XE-bgp {
 	}
 	uses global-neighbor;
       }
-
+      
       // router bgp * / address-family
       container address-family {
         description

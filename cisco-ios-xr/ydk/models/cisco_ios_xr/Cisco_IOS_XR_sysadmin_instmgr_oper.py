@@ -1,8 +1,14 @@
 """ Cisco_IOS_XR_sysadmin_instmgr_oper 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR sysadmin\-instmgr 
 operational model
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict

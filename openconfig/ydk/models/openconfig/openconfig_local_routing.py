@@ -758,7 +758,7 @@ class LocalRoutes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
 
@@ -812,7 +812,7 @@ class LocalRoutes(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
 

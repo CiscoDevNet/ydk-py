@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixed yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -302,6 +306,41 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
       type uint64;
       description
         "Timestamp of recent Resume Event";
+    }
+  }
+
+  grouping IEDGE-DISCONNECT-DATA {
+    description
+      "IEDGE DISCONNECT DATA";
+    leaf disc-reason {
+      type string;
+      description
+        "Disconnect reason";
+    }
+    leaf session-count {
+      type uint32;
+      description
+        "Number of sessions that disconnected this way";
+    }
+    leaf latest-activity {
+      type uint32;
+      description
+        "Latest activity";
+    }
+    leaf if-name {
+      type string;
+      description
+        "Interface name";
+    }
+  }
+
+  grouping IEDGE-STATS-DISCONNECT-DATA {
+    description
+      "Disconnect data";
+    list history-data {
+      description
+        "List of disconnect history items";
+      uses IEDGE-DISCONNECT-DATA;
     }
   }
 
@@ -612,11 +651,6 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
       type uint64;
       description
         "Unexpected errors";
-    }
-    leaf incomplete-requests {
-      type uint64;
-      description
-        "Incomplete requests - missing attributes";
     }
     leaf terminated-requests {
       type uint64;

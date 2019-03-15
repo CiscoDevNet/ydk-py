@@ -9,10 +9,10 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-infra-xtc-agent-oper-sub2 {
-    revision-date 2017-09-11;
+    revision-date 2018-11-28;
   }
   include Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
-    revision-date 2017-09-11;
+    revision-date 2018-11-28;
   }
 
   organization
@@ -39,6 +39,10 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-28 {
+    description
+      "Various modifications to policy-related models for better compatibility with the IETF policy draft.";
+  }
   revision 2017-09-11 {
     description
       "Initial version";
@@ -119,6 +123,21 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
         uses XTC-POLICY-BAG;
       }
     }
+    container policy-forwardings {
+      description
+        "Forwarding information for policies";
+      list policy-forwarding {
+        key "name";
+        description
+          "Forwarding information for the policy";
+        leaf name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Policy Name";
+        }
+        uses XTC-FWDING-POLICY-BAG;
+      }
+    }
     container policy-summary {
       description
         "Summary of all policies";
@@ -137,25 +156,6 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
             "Color";
         }
         uses XTC-ON-DEMAND-COLOR-BAG;
-      }
-    }
-    container forwarding {
-      description
-        "Forwarding information";
-      container policy-forwardings {
-        description
-          "Forwarding information for policies";
-        list policy-forwarding {
-          key "name";
-          description
-            "Forwarding information for the policy";
-          leaf name {
-            type xr:Cisco-ios-xr-string;
-            description
-              "Policy Name";
-          }
-          uses XTC-FWDING-POLICY-BAG;
-        }
       }
     }
     container controller {

@@ -81,11 +81,6 @@ class NvoInstances(Entity):
         
         	**range:** 0..65535
         
-        .. attribute:: overlay_encapsulation
-        
-        	Encapsulation type
-        	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
-        
         .. attribute:: virtual_network
         
         	VNI member attributes
@@ -99,6 +94,11 @@ class NvoInstances(Entity):
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         	**mandatory**\: True
+        
+        .. attribute:: overlay_encapsulation
+        
+        	Encapsulation type
+        	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
         
         
 
@@ -118,12 +118,12 @@ class NvoInstances(Entity):
             self._child_classes = OrderedDict([("virtual-network", ("virtual_network", NvoInstances.NvoInstance.VirtualNetwork))])
             self._leafs = OrderedDict([
                 ('nvo_id', (YLeaf(YType.uint16, 'nvo-id'), ['int'])),
-                ('overlay_encapsulation', (YLeaf(YType.identityref, 'overlay-encapsulation'), [('ydk.models.cisco_ios_xe.nvo', 'OverlayEncapType')])),
                 ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                ('overlay_encapsulation', (YLeaf(YType.identityref, 'overlay-encapsulation'), [('ydk.models.cisco_ios_xe.nvo', 'OverlayEncapType')])),
             ])
             self.nvo_id = None
-            self.overlay_encapsulation = None
             self.source_interface = None
+            self.overlay_encapsulation = None
 
             self.virtual_network = YList(self)
             self._segment_path = lambda: "nvo-instance" + "[nvo-id='" + str(self.nvo_id) + "']"
@@ -131,7 +131,7 @@ class NvoInstances(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvoInstances.NvoInstance, [u'nvo_id', u'overlay_encapsulation', u'source_interface'], name, value)
+            self._perform_setattr(NvoInstances.NvoInstance, [u'nvo_id', u'source_interface', u'overlay_encapsulation'], name, value)
 
 
         class VirtualNetwork(Entity):

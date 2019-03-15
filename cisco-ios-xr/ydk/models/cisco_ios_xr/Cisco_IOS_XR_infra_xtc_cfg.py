@@ -142,11 +142,23 @@ class PceMetric(Enum):
 
     	TE metric type
 
+    .. data:: hopcount = 3
+
+    	Hopcount metric type
+
+    .. data:: latency = 12
+
+    	Latency metric type
+
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
+
+    hopcount = Enum.YLeaf(3, "hopcount")
+
+    latency = Enum.YLeaf(12, "latency")
 
 
 class PcePath(Enum):
@@ -265,8 +277,6 @@ class Pce(Entity):
     	REST configuration
     	**type**\:  :py:class:`Rest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Rest>`
     
-    	**presence node**\: True
-    
     .. attribute:: state_syncs
     
     	Standby IPv4 PCE configuration
@@ -330,7 +340,7 @@ class Pce(Entity):
     """
 
     _prefix = 'infra-xtc-cfg'
-    _revision = '2018-07-02'
+    _revision = '2018-07-25'
 
     def __init__(self):
         super(Pce, self).__init__()
@@ -368,7 +378,8 @@ class Pce(Entity):
         self.backoff = None
         self._children_name_map["backoff"] = "backoff"
 
-        self.rest = None
+        self.rest = Pce.Rest()
+        self.rest.parent = self
         self._children_name_map["rest"] = "rest"
 
         self.state_syncs = Pce.StateSyncs()
@@ -414,7 +425,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Ipv6StateSyncs, self).__init__()
@@ -452,7 +463,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.Ipv6StateSyncs.Ipv6StateSync, self).__init__()
@@ -491,7 +502,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.PccAddresses, self).__init__()
@@ -539,7 +550,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.PccAddresses.PccAddress, self).__init__()
@@ -582,7 +593,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.PccAddresses.PccAddress.LspNames, self).__init__()
@@ -643,7 +654,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.PccAddresses.PccAddress.LspNames.LspName, self).__init__()
@@ -718,7 +729,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-02'
+                        _revision = '2018-07-25'
 
                         def __init__(self):
                             super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe, self).__init__()
@@ -782,7 +793,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-02'
+                            _revision = '2018-07-25'
 
                             def __init__(self):
                                 super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity, self).__init__()
@@ -838,7 +849,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-02'
+                            _revision = '2018-07-25'
 
                             def __init__(self):
                                 super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority, self).__init__()
@@ -893,7 +904,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Logging, self).__init__()
@@ -959,7 +970,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Backoff, self).__init__()
@@ -1002,8 +1013,6 @@ class Pce(Entity):
         	REST authentication type
         	**type**\:  :py:class:`PcerestAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PcerestAuthentication>`
         
-        	**mandatory**\: True
-        
         .. attribute:: enable
         
         	True only
@@ -1011,12 +1020,10 @@ class Pce(Entity):
         
         
 
-        This class is a :ref:`presence class<presence-class>`
-
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Rest, self).__init__()
@@ -1027,7 +1034,6 @@ class Pce(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("rest-users", ("rest_users", Pce.Rest.RestUsers))])
-            self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('rest_authentication', (YLeaf(YType.enumeration, 'rest-authentication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg', 'PcerestAuthentication', '')])),
                 ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
@@ -1060,7 +1066,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.Rest.RestUsers, self).__init__()
@@ -1100,8 +1106,6 @@ class Pce(Entity):
                 
                 	**pattern:** (!.+)\|([^!].+)
                 
-                	**mandatory**\: True
-                
                 .. attribute:: enable
                 
                 	True only
@@ -1112,7 +1116,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.Rest.RestUsers.RestUser, self).__init__()
@@ -1156,7 +1160,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.StateSyncs, self).__init__()
@@ -1194,7 +1198,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.StateSyncs.StateSync, self).__init__()
@@ -1243,7 +1247,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.SegmentRouting, self).__init__()
@@ -1301,7 +1305,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.SegmentRouting.TrafficEngineering, self).__init__()
@@ -1350,7 +1354,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.SegmentRouting.TrafficEngineering.AffinityBits, self).__init__()
@@ -1397,7 +1401,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit, self).__init__()
@@ -1438,7 +1442,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.SegmentRouting.TrafficEngineering.Peers, self).__init__()
@@ -1492,7 +1496,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer, self).__init__()
@@ -1535,7 +1539,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-02'
+                        _revision = '2018-07-25'
 
                         def __init__(self):
                             super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies, self).__init__()
@@ -1597,7 +1601,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-02'
+                            _revision = '2018-07-25'
 
                             def __init__(self):
                                 super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy, self).__init__()
@@ -1656,7 +1660,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-02'
+                                _revision = '2018-07-25'
 
                                 def __init__(self):
                                     super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid, self).__init__()
@@ -1715,7 +1719,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-02'
+                                _revision = '2018-07-25'
 
                                 def __init__(self):
                                     super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint, self).__init__()
@@ -1766,7 +1770,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-02'
+                                _revision = '2018-07-25'
 
                                 def __init__(self):
                                     super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths, self).__init__()
@@ -1810,7 +1814,7 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-cfg'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-07-25'
 
                                     def __init__(self):
                                         super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules, self).__init__()
@@ -1854,7 +1858,7 @@ class Pce(Entity):
                                         """
 
                                         _prefix = 'infra-xtc-cfg'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-07-25'
 
                                         def __init__(self):
                                             super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule, self).__init__()
@@ -1894,7 +1898,7 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-cfg'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-07-25'
 
                                     def __init__(self):
                                         super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences, self).__init__()
@@ -1941,7 +1945,7 @@ class Pce(Entity):
                                         """
 
                                         _prefix = 'infra-xtc-cfg'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-07-25'
 
                                         def __init__(self):
                                             super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference, self).__init__()
@@ -1984,7 +1988,7 @@ class Pce(Entity):
                                             """
 
                                             _prefix = 'infra-xtc-cfg'
-                                            _revision = '2018-07-02'
+                                            _revision = '2018-07-25'
 
                                             def __init__(self):
                                                 super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos, self).__init__()
@@ -2043,7 +2047,7 @@ class Pce(Entity):
                                                 """
 
                                                 _prefix = 'infra-xtc-cfg'
-                                                _revision = '2018-07-02'
+                                                _revision = '2018-07-25'
 
                                                 def __init__(self):
                                                     super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo, self).__init__()
@@ -2093,7 +2097,7 @@ class Pce(Entity):
                                                     """
 
                                                     _prefix = 'infra-xtc-cfg'
-                                                    _revision = '2018-07-02'
+                                                    _revision = '2018-07-25'
 
                                                     def __init__(self):
                                                         super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, self).__init__()
@@ -2140,7 +2144,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.SegmentRouting.TrafficEngineering.Segments, self).__init__()
@@ -2183,7 +2187,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment, self).__init__()
@@ -2225,7 +2229,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-02'
+                        _revision = '2018-07-25'
 
                         def __init__(self):
                             super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_, self).__init__()
@@ -2281,7 +2285,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-02'
+                            _revision = '2018-07-25'
 
                             def __init__(self):
                                 super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_, self).__init__()
@@ -2324,11 +2328,11 @@ class Pce(Entity):
         	Topology reoptimization timer configuration
         	**type**\: int
         
-        	**range:** 10..3600
+        	**range:** 600..86400
         
         	**units**\: second
         
-        	**default value**\: 60
+        	**default value**\: 1800
         
         .. attribute:: keepalive
         
@@ -2359,7 +2363,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Timers, self).__init__()
@@ -2407,7 +2411,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.Netconf, self).__init__()
@@ -2455,7 +2459,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.Netconf.NetconfSsh, self).__init__()
@@ -2501,7 +2505,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.DisjointPath, self).__init__()
@@ -2542,7 +2546,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.DisjointPath.Groups, self).__init__()
@@ -2607,7 +2611,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.DisjointPath.Groups.Group, self).__init__()
@@ -2656,7 +2660,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.DisjointPath.Groups.Group.GroupLspRecords, self).__init__()
@@ -2703,17 +2707,17 @@ class Pce(Entity):
                         
                         .. attribute:: disj_path
                         
-                        	Set LSP to follow shortest\-path
+                        	Set to 1 to follow shortest\-path
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..1
                         
                         
 
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-02'
+                        _revision = '2018-07-25'
 
                         def __init__(self):
                             super(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, self).__init__()
@@ -2760,7 +2764,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-02'
+        _revision = '2018-07-25'
 
         def __init__(self):
             super(Pce.ExplicitPaths, self).__init__()
@@ -2808,7 +2812,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-02'
+            _revision = '2018-07-25'
 
             def __init__(self):
                 super(Pce.ExplicitPaths.ExplicitPath, self).__init__()
@@ -2851,7 +2855,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-02'
+                _revision = '2018-07-25'
 
                 def __init__(self):
                     super(Pce.ExplicitPaths.ExplicitPath.PathHops, self).__init__()
@@ -2920,7 +2924,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-02'
+                    _revision = '2018-07-25'
 
                     def __init__(self):
                         super(Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop, self).__init__()

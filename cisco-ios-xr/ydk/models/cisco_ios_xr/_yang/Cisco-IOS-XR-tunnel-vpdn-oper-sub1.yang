@@ -190,129 +190,6 @@ submodule Cisco-IOS-XR-tunnel-vpdn-oper-sub1 {
       "TOS modes";
   }
 
-  typedef Vpdn-nas-port {
-    type enumeration {
-      enum "none" {
-        description
-          "None";
-      }
-      enum "primary" {
-        description
-          "Primary";
-      }
-      enum "bri" {
-        description
-          "BRI";
-      }
-      enum "serial" {
-        description
-          "Serial";
-      }
-      enum "asynchronous" {
-        description
-          "Asynchronous";
-      }
-      enum "vty" {
-        description
-          "VTY";
-      }
-      enum "atm" {
-        description
-          "Asynchronous transfer mode";
-      }
-      enum "ethernet" {
-        description
-          "Ethernet";
-      }
-      enum "ppp-atm" {
-        description
-          "PPP over ATM";
-      }
-      enum "pppoe-over-atm" {
-        description
-          "PPPoE over ATM";
-      }
-      enum "pppoe-over-ethernet" {
-        description
-          "PPPoE over Ethernet";
-      }
-      enum "pppoe-over-vlan" {
-        description
-          "PPPoE over VLAN";
-      }
-      enum "pppoe-over-q-in-q" {
-        description
-          "PPPoE over Q-in-Q";
-      }
-      enum "v120" {
-        description
-          " V120";
-      }
-      enum "v110" {
-        description
-          "V110";
-      }
-      enum "piafs" {
-        description
-          "PIAFS";
-      }
-      enum "x75" {
-        description
-          "X.75";
-      }
-      enum "ip-sec" {
-        description
-          "IPSec";
-      }
-      enum "other" {
-        description
-          "Other";
-      }
-      enum "virtual-pppoe-over-ethernet" {
-        description
-          "Virtual PPPoE over Ethernet";
-      }
-      enum "virtual-pppoe-over-vlan" {
-        description
-          " Virtual PPPoE over VLAN";
-      }
-      enum "virtual-pppoe-over-q-in-q" {
-        description
-          "Virtual PPPoE over Q-in-Q";
-      }
-      enum "ipo-e-over-ethernet" {
-        description
-          "IPoE over Ethernet";
-      }
-      enum "ipo-e-over-vlan" {
-        description
-          "IPoE over VLAN";
-      }
-      enum "ipo-e-over-q-in-q" {
-        description
-          "IPoE over Q-in-Q";
-      }
-      enum "virtual-i-po-e-over-ethernet" {
-        description
-          "Virtual IPoE over ethernet";
-      }
-      enum "virtual-i-po-e-over-vlan" {
-        description
-          "Virtual IPoE over VLAN";
-      }
-      enum "virtual-i-po-e-over-q-in-q" {
-        description
-          "Virtual IPoE over Q-in-Q";
-      }
-      enum "unknown" {
-        description
-          "Unknown";
-      }
-    }
-    description
-      "NAS port types";
-  }
-
   typedef Session-state {
     type enumeration {
       enum "idle" {
@@ -723,8 +600,13 @@ submodule Cisco-IOS-XR-tunnel-vpdn-oper-sub1 {
   grouping VPDN-SUBSCRIBER {
     description
       "VPDN session subscriber data";
+    leaf nas-port-id-val {
+      type string;
+      description
+        "NAS port ID Val";
+    }
     leaf nas-port-type {
-      type Vpdn-nas-port;
+      type string;
       description
         "NAS port type";
     }
@@ -744,11 +626,6 @@ submodule Cisco-IOS-XR-tunnel-vpdn-oper-sub1 {
       units "nanosecond";
       description
         "Transmit connect speed in nanoseconds";
-    }
-    leaf-list nas-port {
-      type uint8;
-      description
-        "NAS port ID";
     }
   }
 

@@ -45,6 +45,16 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       "Bag string";
   }
 
+  grouping FIB-OC-AFT-PREFIX-STATE {
+    description
+      "FIB OC AFT PREFIX STATE";
+    leaf prefix-index {
+      type string;
+      description
+        "IP prefix or MPLS label";
+    }
+  }
+
   grouping FIB-OC-INTERF-REF-STATE {
     description
       "FIB OC INTERF REF STATE";
@@ -117,36 +127,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       description
         "AFT entry next-hop interface ref";
       uses FIB-OC-INTERF-REF;
-    }
-  }
-
-  grouping FIB-OC-PREFIX-STATE {
-    description
-      "FIB OC PREFIX STATE";
-    leaf prefix-index {
-      type string;
-      description
-        "IP prefix";
-    }
-    leaf label-index {
-      type string;
-      description
-        "MPLS label";
-    }
-  }
-
-  grouping FIB-OC-AFT-PREFIX {
-    description
-      "OC AFT entry";
-    container state {
-      description
-        "State";
-      uses FIB-OC-PREFIX-STATE;
-    }
-    list next-hop {
-      description
-        "Next hops";
-      uses FIB-OC-AFT-PATH;
     }
   }
 }

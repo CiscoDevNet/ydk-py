@@ -38,7 +38,7 @@ module Cisco-IOS-XR-invmgr-oper {
      for the following management objects:
        inventory: Inventory information
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -140,31 +140,6 @@ module Cisco-IOS-XR-invmgr-oper {
         description
           "Inventory EDM EEPROM Information Bag";
         uses INVMGR-EEPROM-OPAQUE-DATA;
-      }
-      leaf module-done {
-        type uint32;
-        default "1";
-        description
-          "Inventory EDM Module Done Tuple";
-      }
-      leaf vm-node-id {
-        type uint32 {
-          range "0..4294967295";
-        }
-        description
-          "VM Node ID Tuple";
-      }
-      leaf vm-done {
-        type uint32;
-        description
-          "VM Done Tuple";
-      }
-      leaf node-id {
-        type uint32 {
-          range "0..4294967295";
-        }
-        description
-          "Node ID Tuple";
       }
     }
   }

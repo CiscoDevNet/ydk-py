@@ -408,7 +408,7 @@ class DOCSIETFBPI2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CodeDownloadControl, ['docsietfbpi2codedownloadstatuscode', 'docsietfbpi2codedownloadstatusstring', 'docsietfbpi2codemfgorgname', 'docsietfbpi2codemfgcodeaccessstart', 'docsietfbpi2codemfgcvcaccessstart', 'docsietfbpi2codecosignerorgname', 'docsietfbpi2codecosignercodeaccessstart', 'docsietfbpi2codecosignercvcaccessstart', 'docsietfbpi2codecvcupdate'], name, value)
+            self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CodeDownloadControl, [u'docsietfbpi2codedownloadstatuscode', u'docsietfbpi2codedownloadstatusstring', u'docsietfbpi2codemfgorgname', u'docsietfbpi2codemfgcodeaccessstart', u'docsietfbpi2codemfgcvcaccessstart', u'docsietfbpi2codecosignerorgname', u'docsietfbpi2codecosignercodeaccessstart', u'docsietfbpi2codecosignercvcaccessstart', u'docsietfbpi2codecvcupdate'], name, value)
 
         class DocsIetfBpi2CodeDownloadStatusCode(Enum):
             """
@@ -814,7 +814,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry, ['ifindex', 'docsietfbpi2cmprivacyenable', 'docsietfbpi2cmpublickey', 'docsietfbpi2cmauthstate', 'docsietfbpi2cmauthkeysequencenumber', 'docsietfbpi2cmauthexpiresold', 'docsietfbpi2cmauthexpiresnew', 'docsietfbpi2cmauthreset', 'docsietfbpi2cmauthgracetime', 'docsietfbpi2cmtekgracetime', 'docsietfbpi2cmauthwaittimeout', 'docsietfbpi2cmreauthwaittimeout', 'docsietfbpi2cmopwaittimeout', 'docsietfbpi2cmrekeywaittimeout', 'docsietfbpi2cmauthrejectwaittimeout', 'docsietfbpi2cmsamapwaittimeout', 'docsietfbpi2cmsamapmaxretries', 'docsietfbpi2cmauthentinfos', 'docsietfbpi2cmauthrequests', 'docsietfbpi2cmauthreplies', 'docsietfbpi2cmauthrejects', 'docsietfbpi2cmauthinvalids', 'docsietfbpi2cmauthrejecterrorcode', 'docsietfbpi2cmauthrejecterrorstring', 'docsietfbpi2cmauthinvaliderrorcode', 'docsietfbpi2cmauthinvaliderrorstring'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry, [u'ifindex', u'docsietfbpi2cmprivacyenable', u'docsietfbpi2cmpublickey', u'docsietfbpi2cmauthstate', u'docsietfbpi2cmauthkeysequencenumber', u'docsietfbpi2cmauthexpiresold', u'docsietfbpi2cmauthexpiresnew', u'docsietfbpi2cmauthreset', u'docsietfbpi2cmauthgracetime', u'docsietfbpi2cmtekgracetime', u'docsietfbpi2cmauthwaittimeout', u'docsietfbpi2cmreauthwaittimeout', u'docsietfbpi2cmopwaittimeout', u'docsietfbpi2cmrekeywaittimeout', u'docsietfbpi2cmauthrejectwaittimeout', u'docsietfbpi2cmsamapwaittimeout', u'docsietfbpi2cmsamapmaxretries', u'docsietfbpi2cmauthentinfos', u'docsietfbpi2cmauthrequests', u'docsietfbpi2cmauthreplies', u'docsietfbpi2cmauthrejects', u'docsietfbpi2cmauthinvalids', u'docsietfbpi2cmauthrejecterrorcode', u'docsietfbpi2cmauthrejecterrorstring', u'docsietfbpi2cmauthinvaliderrorcode', u'docsietfbpi2cmauthinvaliderrorstring'], name, value)
 
             class DocsIetfBpi2CmAuthInvalidErrorCode(Enum):
                 """
@@ -1199,7 +1199,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry, ['ifindex', 'docsietfbpi2cmteksaid', 'docsietfbpi2cmteksatype', 'docsietfbpi2cmtekdataencryptalg', 'docsietfbpi2cmtekdataauthentalg', 'docsietfbpi2cmtekstate', 'docsietfbpi2cmtekkeysequencenumber', 'docsietfbpi2cmtekexpiresold', 'docsietfbpi2cmtekexpiresnew', 'docsietfbpi2cmtekkeyrequests', 'docsietfbpi2cmtekkeyreplies', 'docsietfbpi2cmtekkeyrejects', 'docsietfbpi2cmtekinvalids', 'docsietfbpi2cmtekauthpends', 'docsietfbpi2cmtekkeyrejecterrorcode', 'docsietfbpi2cmtekkeyrejecterrorstring', 'docsietfbpi2cmtekinvaliderrorcode', 'docsietfbpi2cmtekinvaliderrorstring'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry, [u'ifindex', u'docsietfbpi2cmteksaid', u'docsietfbpi2cmteksatype', u'docsietfbpi2cmtekdataencryptalg', u'docsietfbpi2cmtekdataauthentalg', u'docsietfbpi2cmtekstate', u'docsietfbpi2cmtekkeysequencenumber', u'docsietfbpi2cmtekexpiresold', u'docsietfbpi2cmtekexpiresnew', u'docsietfbpi2cmtekkeyrequests', u'docsietfbpi2cmtekkeyreplies', u'docsietfbpi2cmtekkeyrejects', u'docsietfbpi2cmtekinvalids', u'docsietfbpi2cmtekauthpends', u'docsietfbpi2cmtekkeyrejecterrorcode', u'docsietfbpi2cmtekkeyrejecterrorstring', u'docsietfbpi2cmtekinvaliderrorcode', u'docsietfbpi2cmtekinvaliderrorstring'], name, value)
 
             class DocsIetfBpi2CmTEKInvalidErrorCode(Enum):
                 """
@@ -1489,7 +1489,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable.DocsIetfBpi2CmIpMulticastMapEntry, ['ifindex', 'docsietfbpi2cmipmulticastindex', 'docsietfbpi2cmipmulticastaddresstype', 'docsietfbpi2cmipmulticastaddress', 'docsietfbpi2cmipmulticastsaid', 'docsietfbpi2cmipmulticastsamapstate', 'docsietfbpi2cmipmulticastsamaprequests', 'docsietfbpi2cmipmulticastsamapreplies', 'docsietfbpi2cmipmulticastsamaprejects', 'docsietfbpi2cmipmulticastsamaprejecterrorcode', 'docsietfbpi2cmipmulticastsamaprejecterrorstring'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable.DocsIetfBpi2CmIpMulticastMapEntry, [u'ifindex', u'docsietfbpi2cmipmulticastindex', u'docsietfbpi2cmipmulticastaddresstype', u'docsietfbpi2cmipmulticastaddress', u'docsietfbpi2cmipmulticastsaid', u'docsietfbpi2cmipmulticastsamapstate', u'docsietfbpi2cmipmulticastsamaprequests', u'docsietfbpi2cmipmulticastsamapreplies', u'docsietfbpi2cmipmulticastsamaprejects', u'docsietfbpi2cmipmulticastsamaprejecterrorcode', u'docsietfbpi2cmipmulticastsamaprejecterrorstring'], name, value)
 
             class DocsIetfBpi2CmIpMulticastSAMapRejectErrorCode(Enum):
                 """
@@ -1653,7 +1653,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmDeviceCertTable.DocsIetfBpi2CmDeviceCertEntry, ['ifindex', 'docsietfbpi2cmdevicecmcert', 'docsietfbpi2cmdevicemanufcert'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmDeviceCertTable.DocsIetfBpi2CmDeviceCertEntry, [u'ifindex', u'docsietfbpi2cmdevicecmcert', u'docsietfbpi2cmdevicemanufcert'], name, value)
 
 
 
@@ -1768,7 +1768,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmCryptoSuiteTable.DocsIetfBpi2CmCryptoSuiteEntry, ['ifindex', 'docsietfbpi2cmcryptosuiteindex', 'docsietfbpi2cmcryptosuitedataencryptalg', 'docsietfbpi2cmcryptosuitedataauthentalg'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmCryptoSuiteTable.DocsIetfBpi2CmCryptoSuiteEntry, [u'ifindex', u'docsietfbpi2cmcryptosuiteindex', u'docsietfbpi2cmcryptosuitedataencryptalg', u'docsietfbpi2cmcryptosuitedataauthentalg'], name, value)
 
 
 
@@ -1986,7 +1986,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsBaseTable.DocsIetfBpi2CmtsBaseEntry, ['ifindex', 'docsietfbpi2cmtsdefaultauthlifetime', 'docsietfbpi2cmtsdefaultteklifetime', 'docsietfbpi2cmtsdefaultselfsignedmanufcerttrust', 'docsietfbpi2cmtscheckcertvalidityperiods', 'docsietfbpi2cmtsauthentinfos', 'docsietfbpi2cmtsauthrequests', 'docsietfbpi2cmtsauthreplies', 'docsietfbpi2cmtsauthrejects', 'docsietfbpi2cmtsauthinvalids', 'docsietfbpi2cmtssamaprequests', 'docsietfbpi2cmtssamapreplies', 'docsietfbpi2cmtssamaprejects'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsBaseTable.DocsIetfBpi2CmtsBaseEntry, [u'ifindex', u'docsietfbpi2cmtsdefaultauthlifetime', u'docsietfbpi2cmtsdefaultteklifetime', u'docsietfbpi2cmtsdefaultselfsignedmanufcerttrust', u'docsietfbpi2cmtscheckcertvalidityperiods', u'docsietfbpi2cmtsauthentinfos', u'docsietfbpi2cmtsauthrequests', u'docsietfbpi2cmtsauthreplies', u'docsietfbpi2cmtsauthrejects', u'docsietfbpi2cmtsauthinvalids', u'docsietfbpi2cmtssamaprequests', u'docsietfbpi2cmtssamapreplies', u'docsietfbpi2cmtssamaprejects'], name, value)
 
             class DocsIetfBpi2CmtsDefaultSelfSignedManufCertTrust(Enum):
                 """
@@ -2323,7 +2323,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry, ['ifindex', 'docsietfbpi2cmtsauthcmmacaddress', 'docsietfbpi2cmtsauthcmbpiversion', 'docsietfbpi2cmtsauthcmpublickey', 'docsietfbpi2cmtsauthcmkeysequencenumber', 'docsietfbpi2cmtsauthcmexpiresold', 'docsietfbpi2cmtsauthcmexpiresnew', 'docsietfbpi2cmtsauthcmlifetime', 'docsietfbpi2cmtsauthcmreset', 'docsietfbpi2cmtsauthcminfos', 'docsietfbpi2cmtsauthcmrequests', 'docsietfbpi2cmtsauthcmreplies', 'docsietfbpi2cmtsauthcmrejects', 'docsietfbpi2cmtsauthcminvalids', 'docsietfbpi2cmtsauthrejecterrorcode', 'docsietfbpi2cmtsauthrejecterrorstring', 'docsietfbpi2cmtsauthinvaliderrorcode', 'docsietfbpi2cmtsauthinvaliderrorstring', 'docsietfbpi2cmtsauthprimarysaid', 'docsietfbpi2cmtsauthbpkmcmcertvalid', 'docsietfbpi2cmtsauthbpkmcmcert', 'docsietfbpi2cmtsauthcacertindexptr'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry, [u'ifindex', u'docsietfbpi2cmtsauthcmmacaddress', u'docsietfbpi2cmtsauthcmbpiversion', u'docsietfbpi2cmtsauthcmpublickey', u'docsietfbpi2cmtsauthcmkeysequencenumber', u'docsietfbpi2cmtsauthcmexpiresold', u'docsietfbpi2cmtsauthcmexpiresnew', u'docsietfbpi2cmtsauthcmlifetime', u'docsietfbpi2cmtsauthcmreset', u'docsietfbpi2cmtsauthcminfos', u'docsietfbpi2cmtsauthcmrequests', u'docsietfbpi2cmtsauthcmreplies', u'docsietfbpi2cmtsauthcmrejects', u'docsietfbpi2cmtsauthcminvalids', u'docsietfbpi2cmtsauthrejecterrorcode', u'docsietfbpi2cmtsauthrejecterrorstring', u'docsietfbpi2cmtsauthinvaliderrorcode', u'docsietfbpi2cmtsauthinvaliderrorstring', u'docsietfbpi2cmtsauthprimarysaid', u'docsietfbpi2cmtsauthbpkmcmcertvalid', u'docsietfbpi2cmtsauthbpkmcmcert', u'docsietfbpi2cmtsauthcacertindexptr'], name, value)
 
             class DocsIetfBpi2CmtsAuthBpkmCmCertValid(Enum):
                 """
@@ -2848,7 +2848,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable.DocsIetfBpi2CmtsTEKEntry, ['ifindex', 'docsietfbpi2cmtsteksaid', 'docsietfbpi2cmtsteksatype', 'docsietfbpi2cmtstekdataencryptalg', 'docsietfbpi2cmtstekdataauthentalg', 'docsietfbpi2cmtsteklifetime', 'docsietfbpi2cmtstekkeysequencenumber', 'docsietfbpi2cmtstekexpiresold', 'docsietfbpi2cmtstekexpiresnew', 'docsietfbpi2cmtstekreset', 'docsietfbpi2cmtskeyrequests', 'docsietfbpi2cmtskeyreplies', 'docsietfbpi2cmtskeyrejects', 'docsietfbpi2cmtstekinvalids', 'docsietfbpi2cmtskeyrejecterrorcode', 'docsietfbpi2cmtskeyrejecterrorstring', 'docsietfbpi2cmtstekinvaliderrorcode', 'docsietfbpi2cmtstekinvaliderrorstring'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable.DocsIetfBpi2CmtsTEKEntry, [u'ifindex', u'docsietfbpi2cmtsteksaid', u'docsietfbpi2cmtsteksatype', u'docsietfbpi2cmtstekdataencryptalg', u'docsietfbpi2cmtstekdataauthentalg', u'docsietfbpi2cmtsteklifetime', u'docsietfbpi2cmtstekkeysequencenumber', u'docsietfbpi2cmtstekexpiresold', u'docsietfbpi2cmtstekexpiresnew', u'docsietfbpi2cmtstekreset', u'docsietfbpi2cmtskeyrequests', u'docsietfbpi2cmtskeyreplies', u'docsietfbpi2cmtskeyrejects', u'docsietfbpi2cmtstekinvalids', u'docsietfbpi2cmtskeyrejecterrorcode', u'docsietfbpi2cmtskeyrejecterrorstring', u'docsietfbpi2cmtstekinvaliderrorcode', u'docsietfbpi2cmtstekinvaliderrorstring'], name, value)
 
             class DocsIetfBpi2CmtsKeyRejectErrorCode(Enum):
                 """
@@ -3152,7 +3152,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsIpMulticastMapTable.DocsIetfBpi2CmtsIpMulticastMapEntry, ['ifindex', 'docsietfbpi2cmtsipmulticastindex', 'docsietfbpi2cmtsipmulticastaddresstype', 'docsietfbpi2cmtsipmulticastaddress', 'docsietfbpi2cmtsipmulticastmask', 'docsietfbpi2cmtsipmulticastsaid', 'docsietfbpi2cmtsipmulticastsatype', 'docsietfbpi2cmtsipmulticastdataencryptalg', 'docsietfbpi2cmtsipmulticastdataauthentalg', 'docsietfbpi2cmtsipmulticastsamaprequests', 'docsietfbpi2cmtsipmulticastsamapreplies', 'docsietfbpi2cmtsipmulticastsamaprejects', 'docsietfbpi2cmtsipmulticastsamaprejecterrorcode', 'docsietfbpi2cmtsipmulticastsamaprejecterrorstring', 'docsietfbpi2cmtsipmulticastmapcontrol', 'docsietfbpi2cmtsipmulticastmapstoragetype'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsIpMulticastMapTable.DocsIetfBpi2CmtsIpMulticastMapEntry, [u'ifindex', u'docsietfbpi2cmtsipmulticastindex', u'docsietfbpi2cmtsipmulticastaddresstype', u'docsietfbpi2cmtsipmulticastaddress', u'docsietfbpi2cmtsipmulticastmask', u'docsietfbpi2cmtsipmulticastsaid', u'docsietfbpi2cmtsipmulticastsatype', u'docsietfbpi2cmtsipmulticastdataencryptalg', u'docsietfbpi2cmtsipmulticastdataauthentalg', u'docsietfbpi2cmtsipmulticastsamaprequests', u'docsietfbpi2cmtsipmulticastsamapreplies', u'docsietfbpi2cmtsipmulticastsamaprejects', u'docsietfbpi2cmtsipmulticastsamaprejecterrorcode', u'docsietfbpi2cmtsipmulticastsamaprejecterrorstring', u'docsietfbpi2cmtsipmulticastmapcontrol', u'docsietfbpi2cmtsipmulticastmapstoragetype'], name, value)
 
             class DocsIetfBpi2CmtsIpMulticastSAMapRejectErrorCode(Enum):
                 """
@@ -3306,7 +3306,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsMulticastAuthTable.DocsIetfBpi2CmtsMulticastAuthEntry, ['ifindex', 'docsietfbpi2cmtsmulticastauthsaid', 'docsietfbpi2cmtsmulticastauthcmmacaddress', 'docsietfbpi2cmtsmulticastauthcontrol'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsMulticastAuthTable.DocsIetfBpi2CmtsMulticastAuthEntry, [u'ifindex', u'docsietfbpi2cmtsmulticastauthsaid', u'docsietfbpi2cmtsmulticastauthcmmacaddress', u'docsietfbpi2cmtsmulticastauthcontrol'], name, value)
 
 
 
@@ -3431,7 +3431,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable.DocsIetfBpi2CmtsProvisionedCmCertEntry, ['docsietfbpi2cmtsprovisionedcmcertmacaddress', 'docsietfbpi2cmtsprovisionedcmcerttrust', 'docsietfbpi2cmtsprovisionedcmcertsource', 'docsietfbpi2cmtsprovisionedcmcertstatus', 'docsietfbpi2cmtsprovisionedcmcert'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable.DocsIetfBpi2CmtsProvisionedCmCertEntry, [u'docsietfbpi2cmtsprovisionedcmcertmacaddress', u'docsietfbpi2cmtsprovisionedcmcerttrust', u'docsietfbpi2cmtsprovisionedcmcertsource', u'docsietfbpi2cmtsprovisionedcmcertstatus', u'docsietfbpi2cmtsprovisionedcmcert'], name, value)
 
             class DocsIetfBpi2CmtsProvisionedCmCertSource(Enum):
                 """
@@ -3646,7 +3646,7 @@ class DOCSIETFBPI2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable.DocsIetfBpi2CmtsCACertEntry, ['docsietfbpi2cmtscacertindex', 'docsietfbpi2cmtscacertsubject', 'docsietfbpi2cmtscacertissuer', 'docsietfbpi2cmtscacertserialnumber', 'docsietfbpi2cmtscacerttrust', 'docsietfbpi2cmtscacertsource', 'docsietfbpi2cmtscacertstatus', 'docsietfbpi2cmtscacert', 'docsietfbpi2cmtscacertthumbprint'], name, value)
+                self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable.DocsIetfBpi2CmtsCACertEntry, [u'docsietfbpi2cmtscacertindex', u'docsietfbpi2cmtscacertsubject', u'docsietfbpi2cmtscacertissuer', u'docsietfbpi2cmtscacertserialnumber', u'docsietfbpi2cmtscacerttrust', u'docsietfbpi2cmtscacertsource', u'docsietfbpi2cmtscacertstatus', u'docsietfbpi2cmtscacert', u'docsietfbpi2cmtscacertthumbprint'], name, value)
 
             class DocsIetfBpi2CmtsCACertSource(Enum):
                 """

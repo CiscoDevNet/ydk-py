@@ -998,7 +998,7 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
 
 
 
@@ -1112,7 +1112,7 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', 'operator_type_xr', 'port_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', u'operator_type_xr', u'port_xr'], name, value)
 
 
 
@@ -1232,7 +1232,7 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', 'start_port_xr', 'end_port_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', u'start_port_xr', u'end_port_xr'], name, value)
 
 
 
@@ -1320,7 +1320,7 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
 
 
 
@@ -1636,7 +1636,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
 
 
 
@@ -1748,7 +1748,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', u'prefix_xr', u'prefix_length_xr'], name, value)
 
 
 
@@ -1860,7 +1860,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', u'start_address_xr', u'end_address_xr'], name, value)
 
 
 
@@ -1948,7 +1948,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
 
 
 
@@ -2038,7 +2038,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', u'host_address_xr'], name, value)
 
 
 
@@ -2303,7 +2303,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
 
 
 
@@ -2415,7 +2415,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', u'prefix_xr', u'prefix_length_xr'], name, value)
 
 
 
@@ -2527,7 +2527,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', u'start_address_xr', u'end_address_xr'], name, value)
 
 
 
@@ -2615,7 +2615,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
 
 
 
@@ -2705,7 +2705,7 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', u'host_address_xr'], name, value)
 
 
 

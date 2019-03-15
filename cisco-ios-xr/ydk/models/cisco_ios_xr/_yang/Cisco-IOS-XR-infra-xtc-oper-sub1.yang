@@ -51,6 +51,25 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Pce-headend-swap {
+    type enumeration {
+      enum "pcehs-none" {
+        description
+          "Headends not swapped";
+      }
+      enum "pcehs-plain" {
+        description
+          "Headends swapped";
+      }
+      enum "pcehs-rwi" {
+        description
+          "Headends swapped with increment";
+      }
+    }
+    description
+      "PCE Headends Swap Code";
+  }
+
   typedef Pce-cspf-rc {
     type enumeration {
       enum "pce-cspf-not-set" {
@@ -132,25 +151,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
     description
       "PCE CSPF Result Code";
-  }
-
-  typedef Pce-headend-swap {
-    type enumeration {
-      enum "pcehs-none" {
-        description
-          "Headends not swapped";
-      }
-      enum "pcehs-plain" {
-        description
-          "Headends swapped";
-      }
-      enum "pcehs-rwi" {
-        description
-          "Headends swapped with increment";
-      }
-    }
-    description
-      "PCE Headends Swap Code";
   }
 
   typedef Sid {
@@ -544,6 +544,52 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Association LSP Info";
       uses PCE-ASSO-LSP-INFO;
+    }
+  }
+
+  grouping PCE-SR-MPLS-PATH-BAG {
+    description
+      "PCE SR path information";
+    container source {
+      description
+        "Source of path";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    container destination {
+      description
+        "Destination of path";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    leaf cost {
+      type uint64;
+      description
+        "Cost";
+    }
+    list hops {
+      description
+        "SR hops";
+      uses PCE-SR-HOP-TYPE;
+    }
+  }
+
+  grouping PCE-SR-MPLS-PATH-LIST-BAG {
+    description
+      "PCE SR MPLS path list";
+    leaf cspf-result {
+      type Pce-cspf-rc;
+      description
+        "Result of the computation";
+    }
+    leaf iterations-done {
+      type uint32;
+      description
+        "Iterations performed of the Suurballe-Tarjan
+         algorithm";
+    }
+    list output-path {
+      description
+        "Output SR MPLS paths";
+      uses PCE-SR-MPLS-PATH-BAG;
     }
   }
 
@@ -1871,6 +1917,16 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "Maximum SID Depth";
+    }
+    leaf absolute-margin {
+      type uint32;
+      description
+        "Absolute Margin";
+    }
+    leaf relative-margin {
+      type uint32;
+      description
+        "Relative Margin";
     }
   }
 

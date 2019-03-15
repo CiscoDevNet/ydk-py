@@ -124,6 +124,23 @@ class DynamicTemplate(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: pppoe_template
+            
+            	PPPoE template configuration data
+            	**type**\:  :py:class:`PppoeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppoeTemplate>`
+            
+            	**presence node**\: True
+            
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
+            
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
+            
             .. attribute:: dhcpv6
             
             	Interface dhcpv6 configuration data
@@ -134,27 +151,20 @@ class DynamicTemplate(Entity):
             	Interface IPv6 Network configuration data
             	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor>`
             
-            .. attribute:: ipv6_network
+            .. attribute:: accounting
             
-            	Interface IPv6 Network configuration data
-            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
+            	Subscriber accounting dynamic\-template commands
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting>`
             
-            .. attribute:: pbr
+            .. attribute:: span_monitor_sessions
             
-            	Dynamic Template PBR configuration
-            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions>`
             
-            .. attribute:: pppoe_template
+            .. attribute:: qos
             
-            	PPPoE template configuration data
-            	**type**\:  :py:class:`PppoeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppoeTemplate>`
-            
-            	**presence node**\: True
-            
-            .. attribute:: ppp_template
-            
-            	PPP template configuration data
-            	**type**\:  :py:class:`PppTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate>`
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
             
             .. attribute:: ipv4_packet_filter
             
@@ -166,16 +176,6 @@ class DynamicTemplate(Entity):
             	IPv6 Packet Filtering configuration for the interface
             	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter>`
             
-            .. attribute:: accounting
-            
-            	Subscriber accounting dynamic\-template commands
-            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
-            
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
@@ -183,10 +183,20 @@ class DynamicTemplate(Entity):
             
             	**length:** 1..32
             
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
+            
             .. attribute:: igmp
             
             	IGMPconfiguration
             	**type**\:  :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp>`
+            
+            .. attribute:: ppp_template
+            
+            	PPP template configuration data
+            	**type**\:  :py:class:`PppTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate>`
             
             
 
@@ -203,13 +213,24 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.Ppps.Ppp.Pbr)), ("Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template", ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)), ("Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template", ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.Ppps.Ppp.Accounting)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.Ppps.Ppp.Igmp))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template", ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.Ppps.Ppp.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.Ppps.Ppp.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.Ppps.Ppp.Qos)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.Ppps.Ppp.Igmp)), ("Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template", ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
                 ])
                 self.template_name = None
                 self.vrf = None
+
+                self.pppoe_template = None
+                self._children_name_map["pppoe_template"] = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
+
+                self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
+                self.pbr.parent = self
+                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+
+                self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
+                self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
 
                 self.dhcpv6 = DynamicTemplate.Ppps.Ppp.Dhcpv6()
                 self.dhcpv6.parent = self
@@ -219,20 +240,17 @@ class DynamicTemplate(Entity):
                 self.ipv6_neighbor.parent = self
                 self._children_name_map["ipv6_neighbor"] = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
 
-                self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
-                self.ipv6_network.parent = self
-                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+                self.accounting = DynamicTemplate.Ppps.Ppp.Accounting()
+                self.accounting.parent = self
+                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
 
-                self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
-                self.pbr.parent = self
-                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
 
-                self.pppoe_template = None
-                self._children_name_map["pppoe_template"] = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
-
-                self.ppp_template = DynamicTemplate.Ppps.Ppp.PppTemplate()
-                self.ppp_template.parent = self
-                self._children_name_map["ppp_template"] = "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"
+                self.qos = DynamicTemplate.Ppps.Ppp.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
@@ -242,23 +260,216 @@ class DynamicTemplate(Entity):
                 self.ipv6_packet_filter.parent = self
                 self._children_name_map["ipv6_packet_filter"] = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
 
-                self.accounting = DynamicTemplate.Ppps.Ppp.Accounting()
-                self.accounting.parent = self
-                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-
-                self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
-                self.ipv4_network.parent = self
-                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
+                self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
 
                 self.igmp = DynamicTemplate.Ppps.Ppp.Igmp()
                 self.igmp.parent = self
                 self._children_name_map["igmp"] = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
+
+                self.ppp_template = DynamicTemplate.Ppps.Ppp.PppTemplate()
+                self.ppp_template.parent = self
+                self._children_name_map["ppp_template"] = "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"
                 self._segment_path = lambda: "ppp" + "[template-name='" + str(self.template_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DynamicTemplate.Ppps.Ppp, [u'template_name', 'vrf'], name, value)
+
+
+            class PppoeTemplate(Entity):
+                """
+                PPPoE template configuration data
+                
+                .. attribute:: port_limit
+                
+                	Specify the Port limit (attr 62) to apply to the subscriber
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                	**mandatory**\: True
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'subscriber-pppoe-ma-gbl-cfg'
+                _revision = '2017-09-30'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.PppoeTemplate, self).__init__()
+
+                    self.yang_name = "pppoe-template"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('port_limit', (YLeaf(YType.uint16, 'port-limit'), ['int'])),
+                    ])
+                    self.port_limit = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.PppoeTemplate, ['port_limit'], name, value)
+
+
+
+            class Pbr(Entity):
+                """
+                Dynamic Template PBR configuration
+                
+                .. attribute:: service_policy
+                
+                	PBR service policy configuration
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy>`
+                
+                .. attribute:: service_policy_in
+                
+                	Class for subscriber ingress policy
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'pbr-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy))])
+                    self._leafs = OrderedDict([
+                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
+                    ])
+                    self.service_policy_in = None
+
+                    self.service_policy = DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Pbr, ['service_policy_in'], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    PBR service policy configuration
+                    
+                    .. attribute:: input
+                    
+                    	Ingress service policy
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                        ])
+                        self.input = None
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, ['input'], name, value)
+
+
+
+
+            class Ipv4Network(Entity):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\: int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: true
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Ipv4Network, self).__init__()
+
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
+                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
+                    ])
+                    self.unnumbered = None
+                    self.mtu = None
+                    self.unreachables = None
+                    self.rpf = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
+
 
 
             class Dhcpv6(Entity):
@@ -803,6 +1014,1161 @@ class DynamicTemplate(Entity):
 
 
 
+            class Accounting(Entity):
+                """
+                Subscriber accounting dynamic\-template commands
+                
+                .. attribute:: idle_timeout
+                
+                	Subscriber accounting idle timeout
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
+                
+                .. attribute:: session
+                
+                	Subscriber accounting session accounting
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
+                
+                .. attribute:: service_accounting
+                
+                	Subscriber accounting service accounting
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
+                
+                .. attribute:: monitor_feature
+                
+                	Subscriber monitor feature
+                	**type**\: str
+                
+                .. attribute:: prepaid_feature
+                
+                	Subscriber accounting prepaid feature
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'subscriber-accounting-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("idle-timeout", ("idle_timeout", DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout)), ("session", ("session", DynamicTemplate.Ppps.Ppp.Accounting.Session)), ("service-accounting", ("service_accounting", DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting))])
+                    self._leafs = OrderedDict([
+                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
+                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
+                    ])
+                    self.monitor_feature = None
+                    self.prepaid_feature = None
+
+                    self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+
+                    self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
+                    self.session.parent = self
+                    self._children_name_map["session"] = "session"
+
+                    self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
+
+
+                class IdleTimeout(Entity):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\: int
+                    
+                    	**range:** 60..4320000
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, self).__init__()
+
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                        ])
+                        self.timeout_value = None
+                        self.threshold = None
+                        self.direction = None
+                        self._segment_path = lambda: "idle-timeout"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
+
+
+
+                class Session(Entity):
+                    """
+                    Subscriber accounting session accounting
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: dual_stack_delay
+                    
+                    	Dual stack wait delay in seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: hold_acct_start
+                    
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session.HoldAcctStart>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.Session, self).__init__()
+
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
+                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
+                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'Ppps.Ppp.Accounting.Session.HoldAcctStart')])),
+                        ])
+                        self.method_list_name = None
+                        self.periodic_interval = None
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self._segment_path = lambda: "session"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
+
+                    class HoldAcctStart(Enum):
+                        """
+                        HoldAcctStart (Enum Class)
+
+                        Hold Accounting start based on IA\_PD
+
+                        .. data:: ipv6_prefix_delegation = 3
+
+                        	Based on ipv6 delegated prefix
+
+                        """
+
+                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
+
+
+
+
+                class ServiceAccounting(Entity):
+                    """
+                    Subscriber accounting service accounting
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Service accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: accounting_interim_interval
+                    
+                    	Accounting interim interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, self).__init__()
+
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
+                        ])
+                        self.method_list_name = None
+                        self.accounting_interim_interval = None
+                        self._segment_path = lambda: "service-accounting"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
+
+
+
+
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.Ppps.Ppp.Qos.Account)), ("output", ("output", DynamicTemplate.Ppps.Ppp.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
+                        self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.Output, ['minimum_bandwidth'], name, value)
+
+
+
+
+            class Ipv4PacketFilter(Entity):
+                """
+                IPv4 Packet Filtering configuration for the
+                template
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
+                
+                .. attribute:: inbound
+                
+                	IPv4 Packet filter to be applied to inbound packets
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv4-packet-filter"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("outbound", ("outbound", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound)), ("inbound", ("inbound", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound))])
+                    self._leafs = OrderedDict()
+
+                    self.outbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound()
+                    self.outbound.parent = self
+                    self._children_name_map["outbound"] = "outbound"
+
+                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter, [], name, value)
+
+
+                class Outbound(Entity):
+                    """
+                    IPv4 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, self).__init__()
+
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('hardware_count', (YLeaf(YType.empty, 'hardware-count'), ['Empty'])),
+                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
+                        ])
+                        self.common_acl_name = None
+                        self.name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self._segment_path = lambda: "outbound"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, ['common_acl_name', 'name', 'hardware_count', 'interface_statistics'], name, value)
+
+
+
+                class Inbound(Entity):
+                    """
+                    IPv4 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, self).__init__()
+
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('hardware_count', (YLeaf(YType.empty, 'hardware-count'), ['Empty'])),
+                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
+                        ])
+                        self.common_acl_name = None
+                        self.name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self._segment_path = lambda: "inbound"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, ['common_acl_name', 'name', 'hardware_count', 'interface_statistics'], name, value)
+
+
+
+
+            class Ipv6PacketFilter(Entity):
+                """
+                IPv6 Packet Filtering configuration for the
+                interface
+                
+                .. attribute:: inbound
+                
+                	IPv6 Packet filter to be applied to inbound packets
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv6 Packet filter to be applied to outbound packets
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv6-packet-filter"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("inbound", ("inbound", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound)), ("outbound", ("outbound", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound))])
+                    self._leafs = OrderedDict()
+
+                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+
+                    self.outbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound()
+                    self.outbound.parent = self
+                    self._children_name_map["outbound"] = "outbound"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter, [], name, value)
+
+
+                class Inbound(Entity):
+                    """
+                    IPv6 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, self).__init__()
+
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
+                        ])
+                        self.common_acl_name = None
+                        self.name = None
+                        self.interface_statistics = None
+                        self._segment_path = lambda: "inbound"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, ['common_acl_name', 'name', 'interface_statistics'], name, value)
+
+
+
+                class Outbound(Entity):
+                    """
+                    IPv6 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, self).__init__()
+
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
+                        ])
+                        self.common_acl_name = None
+                        self.name = None
+                        self.interface_statistics = None
+                        self._segment_path = lambda: "outbound"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, ['common_acl_name', 'name', 'interface_statistics'], name, value)
+
+
+
+
             class Ipv6Network(Entity):
                 """
                 Interface IPv6 Network configuration data
@@ -942,130 +2308,196 @@ class DynamicTemplate(Entity):
 
 
 
-            class Pbr(Entity):
+            class Igmp(Entity):
                 """
-                Dynamic Template PBR configuration
+                IGMPconfiguration
                 
-                .. attribute:: service_policy
+                .. attribute:: default_vrf
                 
-                	PBR service policy configuration
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy>`
-                
-                .. attribute:: service_policy_in
-                
-                	Class for subscriber ingress policy
-                	**type**\: str
+                	Default VRF
+                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
                 
                 
 
                 """
 
-                _prefix = 'pbr-subscriber-cfg'
+                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Pbr, self).__init__()
+                    super(DynamicTemplate.Ppps.Ppp.Igmp, self).__init__()
 
-                    self.yang_name = "pbr"
+                    self.yang_name = "igmp"
                     self.yang_parent_name = "ppp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy))])
-                    self._leafs = OrderedDict([
-                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
-                    ])
-                    self.service_policy_in = None
+                    self._child_classes = OrderedDict([("default-vrf", ("default_vrf", DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf))])
+                    self._leafs = OrderedDict()
 
-                    self.service_policy = DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy()
-                    self.service_policy.parent = self
-                    self._children_name_map["service_policy"] = "service-policy"
-                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
+                    self.default_vrf.parent = self
+                    self._children_name_map["default_vrf"] = "default-vrf"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Pbr, ['service_policy_in'], name, value)
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp, [], name, value)
 
 
-                class ServicePolicy(Entity):
+                class DefaultVrf(Entity):
                     """
-                    PBR service policy configuration
+                    Default VRF
                     
-                    .. attribute:: input
+                    .. attribute:: explicit_tracking
                     
-                    	Ingress service policy
+                    	IGMPv3 explicit host tracking
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: max_groups
+                    
+                    	IGMP Max Groups
+                    	**type**\: int
+                    
+                    	**range:** 1..40000
+                    
+                    	**default value**\: 25000
+                    
+                    .. attribute:: access_group
+                    
+                    	Access list specifying access\-list group range
                     	**type**\: str
                     
+                    	**length:** 1..64
+                    
+                    .. attribute:: version
+                    
+                    	IGMP Version
+                    	**type**\: int
+                    
+                    	**range:** 1..3
+                    
+                    	**default value**\: 3
+                    
+                    .. attribute:: query_interval
+                    
+                    	Query interval in seconds
+                    	**type**\: int
+                    
+                    	**range:** 1..3600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
+                    .. attribute:: query_max_response_time
+                    
+                    	Query response value in seconds
+                    	**type**\: int
+                    
+                    	**range:** 1..12
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 10
+                    
+                    .. attribute:: multicast_mode
+                    
+                    	Configure Multicast mode variable
+                    	**type**\:  :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
+                    
                     
 
                     """
 
-                    _prefix = 'pbr-subscriber-cfg'
+                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, self).__init__()
+                        super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, self).__init__()
 
-                        self.yang_name = "service-policy"
-                        self.yang_parent_name = "pbr"
+                        self.yang_name = "default-vrf"
+                        self.yang_parent_name = "igmp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("explicit-tracking", ("explicit_tracking", DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking))])
                         self._leafs = OrderedDict([
-                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                            ('max_groups', (YLeaf(YType.uint32, 'max-groups'), ['int'])),
+                            ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                            ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
+                            ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                            ('multicast_mode', (YLeaf(YType.enumeration, 'multicast-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg', 'DynTmplMulticastMode', '')])),
                         ])
-                        self.input = None
-                        self._segment_path = lambda: "service-policy"
+                        self.max_groups = None
+                        self.access_group = None
+                        self.version = None
+                        self.query_interval = None
+                        self.query_max_response_time = None
+                        self.multicast_mode = None
+
+                        self.explicit_tracking = None
+                        self._children_name_map["explicit_tracking"] = "explicit-tracking"
+                        self._segment_path = lambda: "default-vrf"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, ['input'], name, value)
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, ['max_groups', 'access_group', 'version', 'query_interval', 'query_max_response_time', 'multicast_mode'], name, value)
 
 
+                    class ExplicitTracking(Entity):
+                        """
+                        IGMPv3 explicit host tracking
+                        
+                        .. attribute:: enable
+                        
+                        	Enable or disable, when value is TRUE or FALSE respectively
+                        	**type**\: bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access list specifying tracking group range
+                        	**type**\: str
+                        
+                        	**length:** 1..64
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, self).__init__()
+
+                            self.yang_name = "explicit-tracking"
+                            self.yang_parent_name = "default-vrf"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ])
+                            self.enable = None
+                            self.access_list_name = None
+                            self._segment_path = lambda: "explicit-tracking"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, ['enable', 'access_list_name'], name, value)
 
 
-            class PppoeTemplate(Entity):
-                """
-                PPPoE template configuration data
-                
-                .. attribute:: port_limit
-                
-                	Specify the Port limit (attr 62) to apply to the subscriber
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                	**mandatory**\: True
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2017-09-30'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.PppoeTemplate, self).__init__()
-
-                    self.yang_name = "pppoe-template"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self.is_presence_container = True
-                    self._leafs = OrderedDict([
-                        ('port_limit', (YLeaf(YType.uint16, 'port-limit'), ['int'])),
-                    ])
-                    self.port_limit = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.PppoeTemplate, ['port_limit'], name, value)
 
 
 
@@ -1943,848 +3375,6 @@ class DynamicTemplate(Entity):
 
 
 
-            class Ipv4PacketFilter(Entity):
-                """
-                IPv4 Packet Filtering configuration for the
-                template
-                
-                .. attribute:: outbound
-                
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
-                
-                .. attribute:: inbound
-                
-                	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter, self).__init__()
-
-                    self.yang_name = "ipv4-packet-filter"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("outbound", ("outbound", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound)), ("inbound", ("inbound", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound))])
-                    self._leafs = OrderedDict()
-
-                    self.outbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound()
-                    self.outbound.parent = self
-                    self._children_name_map["outbound"] = "outbound"
-
-                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self._children_name_map["inbound"] = "inbound"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter, [], name, value)
-
-
-                class Outbound(Entity):
-                    """
-                    IPv4 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, self).__init__()
-
-                        self.yang_name = "outbound"
-                        self.yang_parent_name = "ipv4-packet-filter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
-                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                            ('hardware_count', (YLeaf(YType.empty, 'hardware-count'), ['Empty'])),
-                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
-                        ])
-                        self.common_acl_name = None
-                        self.name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self._segment_path = lambda: "outbound"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, ['common_acl_name', 'name', 'hardware_count', 'interface_statistics'], name, value)
-
-
-
-                class Inbound(Entity):
-                    """
-                    IPv4 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, self).__init__()
-
-                        self.yang_name = "inbound"
-                        self.yang_parent_name = "ipv4-packet-filter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
-                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                            ('hardware_count', (YLeaf(YType.empty, 'hardware-count'), ['Empty'])),
-                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
-                        ])
-                        self.common_acl_name = None
-                        self.name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self._segment_path = lambda: "inbound"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, ['common_acl_name', 'name', 'hardware_count', 'interface_statistics'], name, value)
-
-
-
-
-            class Ipv6PacketFilter(Entity):
-                """
-                IPv6 Packet Filtering configuration for the
-                interface
-                
-                .. attribute:: inbound
-                
-                	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
-                
-                .. attribute:: outbound
-                
-                	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter, self).__init__()
-
-                    self.yang_name = "ipv6-packet-filter"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("inbound", ("inbound", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound)), ("outbound", ("outbound", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound))])
-                    self._leafs = OrderedDict()
-
-                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self._children_name_map["inbound"] = "inbound"
-
-                    self.outbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound()
-                    self.outbound.parent = self
-                    self._children_name_map["outbound"] = "outbound"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter, [], name, value)
-
-
-                class Inbound(Entity):
-                    """
-                    IPv6 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, self).__init__()
-
-                        self.yang_name = "inbound"
-                        self.yang_parent_name = "ipv6-packet-filter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
-                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
-                        ])
-                        self.common_acl_name = None
-                        self.name = None
-                        self.interface_statistics = None
-                        self._segment_path = lambda: "inbound"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, ['common_acl_name', 'name', 'interface_statistics'], name, value)
-
-
-
-                class Outbound(Entity):
-                    """
-                    IPv6 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, self).__init__()
-
-                        self.yang_name = "outbound"
-                        self.yang_parent_name = "ipv6-packet-filter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('common_acl_name', (YLeaf(YType.str, 'common-acl-name'), ['str'])),
-                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                            ('interface_statistics', (YLeaf(YType.empty, 'interface-statistics'), ['Empty'])),
-                        ])
-                        self.common_acl_name = None
-                        self.name = None
-                        self.interface_statistics = None
-                        self._segment_path = lambda: "outbound"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, ['common_acl_name', 'name', 'interface_statistics'], name, value)
-
-
-
-
-            class Accounting(Entity):
-                """
-                Subscriber accounting dynamic\-template commands
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
-                
-                .. attribute:: service_accounting
-                
-                	Subscriber accounting service accounting
-                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
-                
-                .. attribute:: monitor_feature
-                
-                	Subscriber monitor feature
-                	**type**\: str
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'subscriber-accounting-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Accounting, self).__init__()
-
-                    self.yang_name = "accounting"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("idle-timeout", ("idle_timeout", DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout)), ("session", ("session", DynamicTemplate.Ppps.Ppp.Accounting.Session)), ("service-accounting", ("service_accounting", DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting))])
-                    self._leafs = OrderedDict([
-                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
-                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
-                    ])
-                    self.monitor_feature = None
-                    self.prepaid_feature = None
-
-                    self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self._children_name_map["idle_timeout"] = "idle-timeout"
-
-                    self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
-                    self.session.parent = self
-                    self._children_name_map["session"] = "session"
-
-                    self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self._children_name_map["service_accounting"] = "service-accounting"
-                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
-
-
-                class IdleTimeout(Entity):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\: int
-                    
-                    	**range:** 60..4320000
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\: int
-                    
-                    	**range:** 1..10000
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, self).__init__()
-
-                        self.yang_name = "idle-timeout"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
-                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
-                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
-                        ])
-                        self.timeout_value = None
-                        self.threshold = None
-                        self.direction = None
-                        self._segment_path = lambda: "idle-timeout"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
-
-
-
-                class Session(Entity):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session.HoldAcctStart>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Accounting.Session, self).__init__()
-
-                        self.yang_name = "session"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
-                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
-                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'Ppps.Ppp.Accounting.Session.HoldAcctStart')])),
-                        ])
-                        self.method_list_name = None
-                        self.periodic_interval = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self._segment_path = lambda: "session"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
-
-                    class HoldAcctStart(Enum):
-                        """
-                        HoldAcctStart (Enum Class)
-
-                        Hold Accounting start based on IA\_PD
-
-                        .. data:: ipv6_prefix_delegation = 3
-
-                        	Based on ipv6 delegated prefix
-
-                        """
-
-                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
-
-
-
-
-                class ServiceAccounting(Entity):
-                    """
-                    Subscriber accounting service accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: accounting_interim_interval
-                    
-                    	Accounting interim interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, self).__init__()
-
-                        self.yang_name = "service-accounting"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
-                        ])
-                        self.method_list_name = None
-                        self.accounting_interim_interval = None
-                        self._segment_path = lambda: "service-accounting"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
-
-
-
-
-            class Ipv4Network(Entity):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
-                
-                .. attribute:: mtu
-                
-                	The IP Maximum Transmission Unit
-                	**type**\: int
-                
-                	**range:** 68..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
-                
-                	**default value**\: false
-                
-                .. attribute:: rpf
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
-                
-                	**default value**\: true
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Ipv4Network, self).__init__()
-
-                    self.yang_name = "ipv4-network"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
-                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
-                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
-                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
-                    ])
-                    self.unnumbered = None
-                    self.mtu = None
-                    self.unreachables = None
-                    self.rpf = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
-
-
-
-            class Igmp(Entity):
-                """
-                IGMPconfiguration
-                
-                .. attribute:: default_vrf
-                
-                	Default VRF
-                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(DynamicTemplate.Ppps.Ppp.Igmp, self).__init__()
-
-                    self.yang_name = "igmp"
-                    self.yang_parent_name = "ppp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("default-vrf", ("default_vrf", DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf))])
-                    self._leafs = OrderedDict()
-
-                    self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
-                    self.default_vrf.parent = self
-                    self._children_name_map["default_vrf"] = "default-vrf"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp, [], name, value)
-
-
-                class DefaultVrf(Entity):
-                    """
-                    Default VRF
-                    
-                    .. attribute:: explicit_tracking
-                    
-                    	IGMPv3 explicit host tracking
-                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: max_groups
-                    
-                    	IGMP Max Groups
-                    	**type**\: int
-                    
-                    	**range:** 1..40000
-                    
-                    	**default value**\: 25000
-                    
-                    .. attribute:: access_group
-                    
-                    	Access list specifying access\-list group range
-                    	**type**\: str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: version
-                    
-                    	IGMP Version
-                    	**type**\: int
-                    
-                    	**range:** 1..3
-                    
-                    	**default value**\: 3
-                    
-                    .. attribute:: query_interval
-                    
-                    	Query interval in seconds
-                    	**type**\: int
-                    
-                    	**range:** 1..3600
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 60
-                    
-                    .. attribute:: query_max_response_time
-                    
-                    	Query response value in seconds
-                    	**type**\: int
-                    
-                    	**range:** 1..12
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 10
-                    
-                    .. attribute:: multicast_mode
-                    
-                    	Configure Multicast mode variable
-                    	**type**\:  :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, self).__init__()
-
-                        self.yang_name = "default-vrf"
-                        self.yang_parent_name = "igmp"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("explicit-tracking", ("explicit_tracking", DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking))])
-                        self._leafs = OrderedDict([
-                            ('max_groups', (YLeaf(YType.uint32, 'max-groups'), ['int'])),
-                            ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
-                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
-                            ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
-                            ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
-                            ('multicast_mode', (YLeaf(YType.enumeration, 'multicast-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg', 'DynTmplMulticastMode', '')])),
-                        ])
-                        self.max_groups = None
-                        self.access_group = None
-                        self.version = None
-                        self.query_interval = None
-                        self.query_max_response_time = None
-                        self.multicast_mode = None
-
-                        self.explicit_tracking = None
-                        self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                        self._segment_path = lambda: "default-vrf"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, ['max_groups', 'access_group', 'version', 'query_interval', 'query_max_response_time', 'multicast_mode'], name, value)
-
-
-                    class ExplicitTracking(Entity):
-                        """
-                        IGMPv3 explicit host tracking
-                        
-                        .. attribute:: enable
-                        
-                        	Enable or disable, when value is TRUE or FALSE respectively
-                        	**type**\: bool
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: access_list_name
-                        
-                        	Access list specifying tracking group range
-                        	**type**\: str
-                        
-                        	**length:** 1..64
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, self).__init__()
-
-                            self.yang_name = "explicit-tracking"
-                            self.yang_parent_name = "default-vrf"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self.is_presence_container = True
-                            self._leafs = OrderedDict([
-                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
-                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
-                            ])
-                            self.enable = None
-                            self.access_list_name = None
-                            self._segment_path = lambda: "explicit-tracking"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, ['enable', 'access_list_name'], name, value)
-
-
-
-
-
 
 
     class IpSubscribers(Entity):
@@ -2834,6 +3424,16 @@ class DynamicTemplate(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
+            
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
+            
             .. attribute:: dhcpv6
             
             	Interface dhcpv6 configuration data
@@ -2844,15 +3444,20 @@ class DynamicTemplate(Entity):
             	Interface IPv6 Network configuration data
             	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor>`
             
-            .. attribute:: ipv6_network
+            .. attribute:: accounting
             
-            	Interface IPv6 Network configuration data
-            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
+            	Subscriber accounting dynamic\-template commands
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting>`
             
-            .. attribute:: pbr
+            .. attribute:: span_monitor_sessions
             
-            	Dynamic Template PBR configuration
-            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
             
             .. attribute:: dhcpd
             
@@ -2869,22 +3474,17 @@ class DynamicTemplate(Entity):
             	IPv6 Packet Filtering configuration for the interface
             	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter>`
             
-            .. attribute:: accounting
-            
-            	Subscriber accounting dynamic\-template commands
-            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
-            
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
             	**type**\: str
             
             	**length:** 1..32
+            
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
             
             .. attribute:: igmp
             
@@ -2906,13 +3506,21 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr)), ("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.IpSubscribers.IpSubscriber.Qos)), ("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
                 ])
                 self.template_name = None
                 self.vrf = None
+
+                self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
+                self.pbr.parent = self
+                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+
+                self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
+                self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
 
                 self.dhcpv6 = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6()
                 self.dhcpv6.parent = self
@@ -2922,13 +3530,17 @@ class DynamicTemplate(Entity):
                 self.ipv6_neighbor.parent = self
                 self._children_name_map["ipv6_neighbor"] = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
 
-                self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
-                self.ipv6_network.parent = self
-                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+                self.accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting()
+                self.accounting.parent = self
+                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
 
-                self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
-                self.pbr.parent = self
-                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+
+                self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.dhcpd = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd()
                 self.dhcpd.parent = self
@@ -2942,13 +3554,9 @@ class DynamicTemplate(Entity):
                 self.ipv6_packet_filter.parent = self
                 self._children_name_map["ipv6_packet_filter"] = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
 
-                self.accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting()
-                self.accounting.parent = self
-                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-
-                self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
-                self.ipv4_network.parent = self
-                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
+                self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
 
                 self.igmp = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp()
                 self.igmp.parent = self
@@ -2959,6 +3567,155 @@ class DynamicTemplate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber, [u'template_name', 'vrf'], name, value)
+
+
+            class Pbr(Entity):
+                """
+                Dynamic Template PBR configuration
+                
+                .. attribute:: service_policy
+                
+                	PBR service policy configuration
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
+                
+                .. attribute:: service_policy_in
+                
+                	Class for subscriber ingress policy
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'pbr-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy))])
+                    self._leafs = OrderedDict([
+                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
+                    ])
+                    self.service_policy_in = None
+
+                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, ['service_policy_in'], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    PBR service policy configuration
+                    
+                    .. attribute:: input
+                    
+                    	Ingress service policy
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                        ])
+                        self.input = None
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, ['input'], name, value)
+
+
+
+
+            class Ipv4Network(Entity):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\: int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: true
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, self).__init__()
+
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
+                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
+                    ])
+                    self.unnumbered = None
+                    self.mtu = None
+                    self.unreachables = None
+                    self.rpf = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
+
 
 
             class Dhcpv6(Entity):
@@ -3503,224 +4260,831 @@ class DynamicTemplate(Entity):
 
 
 
-            class Ipv6Network(Entity):
+            class Accounting(Entity):
                 """
-                Interface IPv6 Network configuration data
+                Subscriber accounting dynamic\-template commands
                 
-                .. attribute:: addresses
+                .. attribute:: service_accounting
                 
-                	Set the IPv6 address of an interface
-                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
+                	Subscriber accounting service accounting
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
                 
-                .. attribute:: mtu
+                .. attribute:: session
                 
-                	MTU Setting of Interface
-                	**type**\: int
+                	Subscriber accounting session accounting
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
                 
-                	**range:** 1280..65535
+                .. attribute:: idle_timeout
                 
-                	**units**\: byte
+                	Subscriber accounting idle timeout
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
                 
-                .. attribute:: rpf
+                .. attribute:: monitor_feature
                 
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
+                	Subscriber monitor feature
+                	**type**\: str
                 
-                .. attribute:: unreachables
+                .. attribute:: prepaid_feature
                 
-                	Override Sending of ICMP Unreachable Messages
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2017-01-11'
-
-                def __init__(self):
-                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, self).__init__()
-
-                    self.yang_name = "ipv6-network"
-                    self.yang_parent_name = "ip-subscriber"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("addresses", ("addresses", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses))])
-                    self._leafs = OrderedDict([
-                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
-                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
-                        ('unreachables', (YLeaf(YType.empty, 'unreachables'), ['Empty'])),
-                    ])
-                    self.mtu = None
-                    self.rpf = None
-                    self.unreachables = None
-
-                    self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
-                    self.addresses.parent = self
-                    self._children_name_map["addresses"] = "addresses"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, ['mtu', 'rpf', 'unreachables'], name, value)
-
-
-                class Addresses(Entity):
-                    """
-                    Set the IPv6 address of an interface
-                    
-                    .. attribute:: auto_configuration
-                    
-                    	Auto IPv6 Interface Configuration
-                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2017-01-11'
-
-                    def __init__(self):
-                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses, self).__init__()
-
-                        self.yang_name = "addresses"
-                        self.yang_parent_name = "ipv6-network"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("auto-configuration", ("auto_configuration", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration))])
-                        self._leafs = OrderedDict()
-
-                        self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
-                        self.auto_configuration.parent = self
-                        self._children_name_map["auto_configuration"] = "auto-configuration"
-                        self._segment_path = lambda: "addresses"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses, [], name, value)
-
-
-                    class AutoConfiguration(Entity):
-                        """
-                        Auto IPv6 Interface Configuration
-                        
-                        .. attribute:: enable
-                        
-                        	The flag to enable auto ipv6 interface configuration
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2017-01-11'
-
-                        def __init__(self):
-                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
-
-                            self.yang_name = "auto-configuration"
-                            self.yang_parent_name = "addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                            ])
-                            self.enable = None
-                            self._segment_path = lambda: "auto-configuration"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, ['enable'], name, value)
-
-
-
-
-
-            class Pbr(Entity):
-                """
-                Dynamic Template PBR configuration
-                
-                .. attribute:: service_policy
-                
-                	PBR service policy configuration
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
-                
-                .. attribute:: service_policy_in
-                
-                	Class for subscriber ingress policy
+                	Subscriber accounting prepaid feature
                 	**type**\: str
                 
                 
 
                 """
 
-                _prefix = 'pbr-subscriber-cfg'
-                _revision = '2015-11-09'
+                _prefix = 'subscriber-accounting-cfg'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, self).__init__()
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, self).__init__()
 
-                    self.yang_name = "pbr"
+                    self.yang_name = "accounting"
                     self.yang_parent_name = "ip-subscriber"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy))])
+                    self._child_classes = OrderedDict([("service-accounting", ("service_accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting)), ("session", ("session", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session)), ("idle-timeout", ("idle_timeout", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout))])
                     self._leafs = OrderedDict([
-                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
+                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
+                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
                     ])
-                    self.service_policy_in = None
+                    self.monitor_feature = None
+                    self.prepaid_feature = None
 
-                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
-                    self.service_policy.parent = self
-                    self._children_name_map["service_policy"] = "service-policy"
-                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+
+                    self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
+                    self.session.parent = self
+                    self._children_name_map["session"] = "session"
+
+                    self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, ['service_policy_in'], name, value)
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
 
 
-                class ServicePolicy(Entity):
+                class ServiceAccounting(Entity):
                     """
-                    PBR service policy configuration
+                    Subscriber accounting service accounting
                     
-                    .. attribute:: input
+                    .. attribute:: method_list_name
                     
-                    	Ingress service policy
+                    	Service accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: accounting_interim_interval
+                    
+                    	Accounting interim interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, self).__init__()
+
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
+                        ])
+                        self.method_list_name = None
+                        self.accounting_interim_interval = None
+                        self._segment_path = lambda: "service-accounting"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
+
+
+
+                class Session(Entity):
+                    """
+                    Subscriber accounting session accounting
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: dual_stack_delay
+                    
+                    	Dual stack wait delay in seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: hold_acct_start
+                    
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session.HoldAcctStart>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, self).__init__()
+
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
+                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
+                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'IpSubscribers.IpSubscriber.Accounting.Session.HoldAcctStart')])),
+                        ])
+                        self.method_list_name = None
+                        self.periodic_interval = None
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self._segment_path = lambda: "session"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
+
+                    class HoldAcctStart(Enum):
+                        """
+                        HoldAcctStart (Enum Class)
+
+                        Hold Accounting start based on IA\_PD
+
+                        .. data:: ipv6_prefix_delegation = 3
+
+                        	Based on ipv6 delegated prefix
+
+                        """
+
+                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
+
+
+
+
+                class IdleTimeout(Entity):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\: int
+                    
+                    	**range:** 60..4320000
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
                     	**type**\: str
                     
                     
 
                     """
 
-                    _prefix = 'pbr-subscriber-cfg'
-                    _revision = '2015-11-09'
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, self).__init__()
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, self).__init__()
 
-                        self.yang_name = "service-policy"
-                        self.yang_parent_name = "pbr"
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
                         ])
+                        self.timeout_value = None
+                        self.threshold = None
+                        self.direction = None
+                        self._segment_path = lambda: "idle-timeout"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
+
+
+
+
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account)), ("output", ("output", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
                         self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
                         self._segment_path = lambda: "service-policy"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, ['input'], name, value)
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, ['minimum_bandwidth'], name, value)
 
 
 
@@ -4128,326 +5492,142 @@ class DynamicTemplate(Entity):
 
 
 
-            class Accounting(Entity):
+            class Ipv6Network(Entity):
                 """
-                Subscriber accounting dynamic\-template commands
+                Interface IPv6 Network configuration data
                 
-                .. attribute:: service_accounting
+                .. attribute:: addresses
                 
-                	Subscriber accounting service accounting
-                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
-                
-                .. attribute:: monitor_feature
-                
-                	Subscriber monitor feature
-                	**type**\: str
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'subscriber-accounting-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, self).__init__()
-
-                    self.yang_name = "accounting"
-                    self.yang_parent_name = "ip-subscriber"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("service-accounting", ("service_accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting)), ("session", ("session", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session)), ("idle-timeout", ("idle_timeout", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout))])
-                    self._leafs = OrderedDict([
-                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
-                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
-                    ])
-                    self.monitor_feature = None
-                    self.prepaid_feature = None
-
-                    self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self._children_name_map["service_accounting"] = "service-accounting"
-
-                    self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
-                    self.session.parent = self
-                    self._children_name_map["session"] = "session"
-
-                    self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self._children_name_map["idle_timeout"] = "idle-timeout"
-                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
-
-
-                class ServiceAccounting(Entity):
-                    """
-                    Subscriber accounting service accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: accounting_interim_interval
-                    
-                    	Accounting interim interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, self).__init__()
-
-                        self.yang_name = "service-accounting"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
-                        ])
-                        self.method_list_name = None
-                        self.accounting_interim_interval = None
-                        self._segment_path = lambda: "service-accounting"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
-
-
-
-                class Session(Entity):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session.HoldAcctStart>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, self).__init__()
-
-                        self.yang_name = "session"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
-                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
-                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'IpSubscribers.IpSubscriber.Accounting.Session.HoldAcctStart')])),
-                        ])
-                        self.method_list_name = None
-                        self.periodic_interval = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self._segment_path = lambda: "session"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
-
-                    class HoldAcctStart(Enum):
-                        """
-                        HoldAcctStart (Enum Class)
-
-                        Hold Accounting start based on IA\_PD
-
-                        .. data:: ipv6_prefix_delegation = 3
-
-                        	Based on ipv6 delegated prefix
-
-                        """
-
-                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
-
-
-
-
-                class IdleTimeout(Entity):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\: int
-                    
-                    	**range:** 60..4320000
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\: int
-                    
-                    	**range:** 1..10000
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, self).__init__()
-
-                        self.yang_name = "idle-timeout"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
-                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
-                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
-                        ])
-                        self.timeout_value = None
-                        self.threshold = None
-                        self.direction = None
-                        self._segment_path = lambda: "idle-timeout"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
-
-
-
-
-            class Ipv4Network(Entity):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
+                	Set the IPv6 address of an interface
+                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
                 
                 .. attribute:: mtu
                 
-                	The IP Maximum Transmission Unit
+                	MTU Setting of Interface
                 	**type**\: int
                 
-                	**range:** 68..65535
+                	**range:** 1280..65535
                 
                 	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
-                
-                	**default value**\: false
                 
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
                 
-                	**default value**\: true
+                .. attribute:: unreachables
+                
+                	Override Sending of ICMP Unreachable Messages
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
+                _prefix = 'ipv6-ma-subscriber-cfg'
+                _revision = '2017-01-11'
 
                 def __init__(self):
-                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, self).__init__()
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, self).__init__()
 
-                    self.yang_name = "ipv4-network"
+                    self.yang_name = "ipv6-network"
                     self.yang_parent_name = "ip-subscriber"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses))])
                     self._leafs = OrderedDict([
-                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
                         ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
-                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
                         ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
+                        ('unreachables', (YLeaf(YType.empty, 'unreachables'), ['Empty'])),
                     ])
-                    self.unnumbered = None
                     self.mtu = None
-                    self.unreachables = None
                     self.rpf = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                    self.unreachables = None
+
+                    self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
+                    self.addresses.parent = self
+                    self._children_name_map["addresses"] = "addresses"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, ['mtu', 'rpf', 'unreachables'], name, value)
+
+
+                class Addresses(Entity):
+                    """
+                    Set the IPv6 address of an interface
+                    
+                    .. attribute:: auto_configuration
+                    
+                    	Auto IPv6 Interface Configuration
+                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-subscriber-cfg'
+                    _revision = '2017-01-11'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses, self).__init__()
+
+                        self.yang_name = "addresses"
+                        self.yang_parent_name = "ipv6-network"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("auto-configuration", ("auto_configuration", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration))])
+                        self._leafs = OrderedDict()
+
+                        self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
+                        self.auto_configuration.parent = self
+                        self._children_name_map["auto_configuration"] = "auto-configuration"
+                        self._segment_path = lambda: "addresses"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses, [], name, value)
+
+
+                    class AutoConfiguration(Entity):
+                        """
+                        Auto IPv6 Interface Configuration
+                        
+                        .. attribute:: enable
+                        
+                        	The flag to enable auto ipv6 interface configuration
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-subscriber-cfg'
+                        _revision = '2017-01-11'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
+
+                            self.yang_name = "auto-configuration"
+                            self.yang_parent_name = "addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ])
+                            self.enable = None
+                            self._segment_path = lambda: "auto-configuration"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, ['enable'], name, value)
+
+
 
 
 
@@ -4693,20 +5873,35 @@ class DynamicTemplate(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
+            
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
+            
             .. attribute:: ipv6_neighbor
             
             	Interface IPv6 Network configuration data
             	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor>`
             
-            .. attribute:: ipv6_network
+            .. attribute:: accounting
             
-            	Interface IPv6 Network configuration data
-            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
+            	Subscriber accounting dynamic\-template commands
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting>`
             
-            .. attribute:: pbr
+            .. attribute:: span_monitor_sessions
             
-            	Dynamic Template PBR configuration
-            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
             
             .. attribute:: ipv4_packet_filter
             
@@ -4718,22 +5913,17 @@ class DynamicTemplate(Entity):
             	IPv6 Packet Filtering configuration for the interface
             	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter>`
             
-            .. attribute:: accounting
-            
-            	Subscriber accounting dynamic\-template commands
-            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
-            
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
             	**type**\: str
             
             	**length:** 1..32
+            
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
             
             
 
@@ -4750,7 +5940,7 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.SubscriberServices.SubscriberService.Qos)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
@@ -4758,17 +5948,29 @@ class DynamicTemplate(Entity):
                 self.template_name = None
                 self.vrf = None
 
+                self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
+                self.pbr.parent = self
+                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+
+                self.ipv4_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network()
+                self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+
                 self.ipv6_neighbor = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor()
                 self.ipv6_neighbor.parent = self
                 self._children_name_map["ipv6_neighbor"] = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
 
-                self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
-                self.ipv6_network.parent = self
-                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+                self.accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting()
+                self.accounting.parent = self
+                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
 
-                self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
-                self.pbr.parent = self
-                self._children_name_map["pbr"] = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+
+                self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
@@ -4778,19 +5980,164 @@ class DynamicTemplate(Entity):
                 self.ipv6_packet_filter.parent = self
                 self._children_name_map["ipv6_packet_filter"] = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
 
-                self.accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting()
-                self.accounting.parent = self
-                self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-
-                self.ipv4_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network()
-                self.ipv4_network.parent = self
-                self._children_name_map["ipv4_network"] = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
+                self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
                 self._segment_path = lambda: "subscriber-service" + "[template-name='" + str(self.template_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService, [u'template_name', 'vrf'], name, value)
+
+
+            class Pbr(Entity):
+                """
+                Dynamic Template PBR configuration
+                
+                .. attribute:: service_policy
+                
+                	PBR service policy configuration
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
+                
+                .. attribute:: service_policy_in
+                
+                	Class for subscriber ingress policy
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'pbr-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy))])
+                    self._leafs = OrderedDict([
+                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
+                    ])
+                    self.service_policy_in = None
+
+                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, ['service_policy_in'], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    PBR service policy configuration
+                    
+                    .. attribute:: input
+                    
+                    	Ingress service policy
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                        ])
+                        self.input = None
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, ['input'], name, value)
+
+
+
+
+            class Ipv4Network(Entity):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\: int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\: bool
+                
+                	**default value**\: true
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, self).__init__()
+
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
+                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
+                    ])
+                    self.unnumbered = None
+                    self.mtu = None
+                    self.unreachables = None
+                    self.rpf = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
+
 
 
             class Ipv6Neighbor(Entity):
@@ -5180,224 +6527,831 @@ class DynamicTemplate(Entity):
 
 
 
-            class Ipv6Network(Entity):
+            class Accounting(Entity):
                 """
-                Interface IPv6 Network configuration data
+                Subscriber accounting dynamic\-template commands
                 
-                .. attribute:: addresses
+                .. attribute:: service_accounting
                 
-                	Set the IPv6 address of an interface
-                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
+                	Subscriber accounting service accounting
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
                 
-                .. attribute:: mtu
+                .. attribute:: session
                 
-                	MTU Setting of Interface
-                	**type**\: int
+                	Subscriber accounting session accounting
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
                 
-                	**range:** 1280..65535
+                .. attribute:: idle_timeout
                 
-                	**units**\: byte
+                	Subscriber accounting idle timeout
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
                 
-                .. attribute:: rpf
+                .. attribute:: monitor_feature
                 
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
+                	Subscriber monitor feature
+                	**type**\: str
                 
-                .. attribute:: unreachables
+                .. attribute:: prepaid_feature
                 
-                	Override Sending of ICMP Unreachable Messages
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2017-01-11'
-
-                def __init__(self):
-                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, self).__init__()
-
-                    self.yang_name = "ipv6-network"
-                    self.yang_parent_name = "subscriber-service"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("addresses", ("addresses", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses))])
-                    self._leafs = OrderedDict([
-                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
-                        ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
-                        ('unreachables', (YLeaf(YType.empty, 'unreachables'), ['Empty'])),
-                    ])
-                    self.mtu = None
-                    self.rpf = None
-                    self.unreachables = None
-
-                    self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
-                    self.addresses.parent = self
-                    self._children_name_map["addresses"] = "addresses"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, ['mtu', 'rpf', 'unreachables'], name, value)
-
-
-                class Addresses(Entity):
-                    """
-                    Set the IPv6 address of an interface
-                    
-                    .. attribute:: auto_configuration
-                    
-                    	Auto IPv6 Interface Configuration
-                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2017-01-11'
-
-                    def __init__(self):
-                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses, self).__init__()
-
-                        self.yang_name = "addresses"
-                        self.yang_parent_name = "ipv6-network"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("auto-configuration", ("auto_configuration", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration))])
-                        self._leafs = OrderedDict()
-
-                        self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
-                        self.auto_configuration.parent = self
-                        self._children_name_map["auto_configuration"] = "auto-configuration"
-                        self._segment_path = lambda: "addresses"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses, [], name, value)
-
-
-                    class AutoConfiguration(Entity):
-                        """
-                        Auto IPv6 Interface Configuration
-                        
-                        .. attribute:: enable
-                        
-                        	The flag to enable auto ipv6 interface configuration
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2017-01-11'
-
-                        def __init__(self):
-                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
-
-                            self.yang_name = "auto-configuration"
-                            self.yang_parent_name = "addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                            ])
-                            self.enable = None
-                            self._segment_path = lambda: "auto-configuration"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, ['enable'], name, value)
-
-
-
-
-
-            class Pbr(Entity):
-                """
-                Dynamic Template PBR configuration
-                
-                .. attribute:: service_policy
-                
-                	PBR service policy configuration
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
-                
-                .. attribute:: service_policy_in
-                
-                	Class for subscriber ingress policy
+                	Subscriber accounting prepaid feature
                 	**type**\: str
                 
                 
 
                 """
 
-                _prefix = 'pbr-subscriber-cfg'
-                _revision = '2015-11-09'
+                _prefix = 'subscriber-accounting-cfg'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, self).__init__()
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, self).__init__()
 
-                    self.yang_name = "pbr"
+                    self.yang_name = "accounting"
                     self.yang_parent_name = "subscriber-service"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy))])
+                    self._child_classes = OrderedDict([("service-accounting", ("service_accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting)), ("session", ("session", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session)), ("idle-timeout", ("idle_timeout", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout))])
                     self._leafs = OrderedDict([
-                        ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
+                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
+                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
                     ])
-                    self.service_policy_in = None
+                    self.monitor_feature = None
+                    self.prepaid_feature = None
 
-                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
-                    self.service_policy.parent = self
-                    self._children_name_map["service_policy"] = "service-policy"
-                    self._segment_path = lambda: "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+                    self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+
+                    self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
+                    self.session.parent = self
+                    self._children_name_map["session"] = "session"
+
+                    self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, ['service_policy_in'], name, value)
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
 
 
-                class ServicePolicy(Entity):
+                class ServiceAccounting(Entity):
                     """
-                    PBR service policy configuration
+                    Subscriber accounting service accounting
                     
-                    .. attribute:: input
+                    .. attribute:: method_list_name
                     
-                    	Ingress service policy
+                    	Service accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: accounting_interim_interval
+                    
+                    	Accounting interim interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, self).__init__()
+
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
+                        ])
+                        self.method_list_name = None
+                        self.accounting_interim_interval = None
+                        self._segment_path = lambda: "service-accounting"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
+
+
+
+                class Session(Entity):
+                    """
+                    Subscriber accounting session accounting
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\: str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: dual_stack_delay
+                    
+                    	Dual stack wait delay in seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: hold_acct_start
+                    
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session.HoldAcctStart>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, self).__init__()
+
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
+                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
+                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'SubscriberServices.SubscriberService.Accounting.Session.HoldAcctStart')])),
+                        ])
+                        self.method_list_name = None
+                        self.periodic_interval = None
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self._segment_path = lambda: "session"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
+
+                    class HoldAcctStart(Enum):
+                        """
+                        HoldAcctStart (Enum Class)
+
+                        Hold Accounting start based on IA\_PD
+
+                        .. data:: ipv6_prefix_delegation = 3
+
+                        	Based on ipv6 delegated prefix
+
+                        """
+
+                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
+
+
+
+
+                class IdleTimeout(Entity):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\: int
+                    
+                    	**range:** 60..4320000
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
                     	**type**\: str
                     
                     
 
                     """
 
-                    _prefix = 'pbr-subscriber-cfg'
-                    _revision = '2015-11-09'
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, self).__init__()
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, self).__init__()
 
-                        self.yang_name = "service-policy"
-                        self.yang_parent_name = "pbr"
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('input', (YLeaf(YType.str, 'input'), ['str'])),
+                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
                         ])
+                        self.timeout_value = None
+                        self.threshold = None
+                        self.direction = None
+                        self._segment_path = lambda: "idle-timeout"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
+
+
+
+
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account)), ("output", ("output", DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
                         self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
                         self._segment_path = lambda: "service-policy"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, ['input'], name, value)
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, ['minimum_bandwidth'], name, value)
 
 
 
@@ -5736,326 +7690,142 @@ class DynamicTemplate(Entity):
 
 
 
-            class Accounting(Entity):
+            class Ipv6Network(Entity):
                 """
-                Subscriber accounting dynamic\-template commands
+                Interface IPv6 Network configuration data
                 
-                .. attribute:: service_accounting
+                .. attribute:: addresses
                 
-                	Subscriber accounting service accounting
-                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
-                
-                .. attribute:: monitor_feature
-                
-                	Subscriber monitor feature
-                	**type**\: str
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'subscriber-accounting-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, self).__init__()
-
-                    self.yang_name = "accounting"
-                    self.yang_parent_name = "subscriber-service"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("service-accounting", ("service_accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting)), ("session", ("session", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session)), ("idle-timeout", ("idle_timeout", DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout))])
-                    self._leafs = OrderedDict([
-                        ('monitor_feature', (YLeaf(YType.str, 'monitor-feature'), ['str'])),
-                        ('prepaid_feature', (YLeaf(YType.str, 'prepaid-feature'), ['str'])),
-                    ])
-                    self.monitor_feature = None
-                    self.prepaid_feature = None
-
-                    self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self._children_name_map["service_accounting"] = "service-accounting"
-
-                    self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
-                    self.session.parent = self
-                    self._children_name_map["session"] = "session"
-
-                    self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self._children_name_map["idle_timeout"] = "idle-timeout"
-                    self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, ['monitor_feature', 'prepaid_feature'], name, value)
-
-
-                class ServiceAccounting(Entity):
-                    """
-                    Subscriber accounting service accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: accounting_interim_interval
-                    
-                    	Accounting interim interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, self).__init__()
-
-                        self.yang_name = "service-accounting"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('accounting_interim_interval', (YLeaf(YType.uint32, 'accounting-interim-interval'), ['int'])),
-                        ])
-                        self.method_list_name = None
-                        self.accounting_interim_interval = None
-                        self._segment_path = lambda: "service-accounting"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
-
-
-
-                class Session(Entity):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\: str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  :py:class:`HoldAcctStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session.HoldAcctStart>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, self).__init__()
-
-                        self.yang_name = "session"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
-                            ('periodic_interval', (YLeaf(YType.uint32, 'periodic-interval'), ['int'])),
-                            ('dual_stack_delay', (YLeaf(YType.uint32, 'dual-stack-delay'), ['int'])),
-                            ('hold_acct_start', (YLeaf(YType.enumeration, 'hold-acct-start'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate', 'SubscriberServices.SubscriberService.Accounting.Session.HoldAcctStart')])),
-                        ])
-                        self.method_list_name = None
-                        self.periodic_interval = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self._segment_path = lambda: "session"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, ['method_list_name', 'periodic_interval', 'dual_stack_delay', 'hold_acct_start'], name, value)
-
-                    class HoldAcctStart(Enum):
-                        """
-                        HoldAcctStart (Enum Class)
-
-                        Hold Accounting start based on IA\_PD
-
-                        .. data:: ipv6_prefix_delegation = 3
-
-                        	Based on ipv6 delegated prefix
-
-                        """
-
-                        ipv6_prefix_delegation = Enum.YLeaf(3, "ipv6-prefix-delegation")
-
-
-
-
-                class IdleTimeout(Entity):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\: int
-                    
-                    	**range:** 60..4320000
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\: int
-                    
-                    	**range:** 1..10000
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, self).__init__()
-
-                        self.yang_name = "idle-timeout"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('timeout_value', (YLeaf(YType.uint32, 'timeout-value'), ['int'])),
-                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
-                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
-                        ])
-                        self.timeout_value = None
-                        self.threshold = None
-                        self.direction = None
-                        self._segment_path = lambda: "idle-timeout"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
-
-
-
-
-            class Ipv4Network(Entity):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
+                	Set the IPv6 address of an interface
+                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
                 
                 .. attribute:: mtu
                 
-                	The IP Maximum Transmission Unit
+                	MTU Setting of Interface
                 	**type**\: int
                 
-                	**range:** 68..65535
+                	**range:** 1280..65535
                 
                 	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\: bool
-                
-                	**default value**\: false
                 
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
                 
-                	**default value**\: true
+                .. attribute:: unreachables
+                
+                	Override Sending of ICMP Unreachable Messages
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
+                _prefix = 'ipv6-ma-subscriber-cfg'
+                _revision = '2017-01-11'
 
                 def __init__(self):
-                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, self).__init__()
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, self).__init__()
 
-                    self.yang_name = "ipv4-network"
+                    self.yang_name = "ipv6-network"
                     self.yang_parent_name = "subscriber-service"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses))])
                     self._leafs = OrderedDict([
-                        ('unnumbered', (YLeaf(YType.str, 'unnumbered'), ['str'])),
                         ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
-                        ('unreachables', (YLeaf(YType.boolean, 'unreachables'), ['bool'])),
                         ('rpf', (YLeaf(YType.boolean, 'rpf'), ['bool'])),
+                        ('unreachables', (YLeaf(YType.empty, 'unreachables'), ['Empty'])),
                     ])
-                    self.unnumbered = None
                     self.mtu = None
-                    self.unreachables = None
                     self.rpf = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+                    self.unreachables = None
+
+                    self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
+                    self.addresses.parent = self
+                    self._children_name_map["addresses"] = "addresses"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, ['unnumbered', 'mtu', 'unreachables', 'rpf'], name, value)
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, ['mtu', 'rpf', 'unreachables'], name, value)
+
+
+                class Addresses(Entity):
+                    """
+                    Set the IPv6 address of an interface
+                    
+                    .. attribute:: auto_configuration
+                    
+                    	Auto IPv6 Interface Configuration
+                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-subscriber-cfg'
+                    _revision = '2017-01-11'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses, self).__init__()
+
+                        self.yang_name = "addresses"
+                        self.yang_parent_name = "ipv6-network"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("auto-configuration", ("auto_configuration", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration))])
+                        self._leafs = OrderedDict()
+
+                        self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
+                        self.auto_configuration.parent = self
+                        self._children_name_map["auto_configuration"] = "auto-configuration"
+                        self._segment_path = lambda: "addresses"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses, [], name, value)
+
+
+                    class AutoConfiguration(Entity):
+                        """
+                        Auto IPv6 Interface Configuration
+                        
+                        .. attribute:: enable
+                        
+                        	The flag to enable auto ipv6 interface configuration
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-subscriber-cfg'
+                        _revision = '2017-01-11'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
+
+                            self.yang_name = "auto-configuration"
+                            self.yang_parent_name = "addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ])
+                            self.enable = None
+                            self._segment_path = lambda: "auto-configuration"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, ['enable'], name, value)
+
+
 
 
 

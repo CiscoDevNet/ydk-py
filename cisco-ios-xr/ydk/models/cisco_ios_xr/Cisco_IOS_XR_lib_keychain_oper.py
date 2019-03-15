@@ -253,7 +253,7 @@ class Keychain(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Keychain.Keys.Key, ['key_name', 'accept_tolerance'], name, value)
+                self._perform_setattr(Keychain.Keys.Key, ['key_name', u'accept_tolerance'], name, value)
 
 
             class Key_(Entity):
@@ -388,7 +388,7 @@ class Keychain(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Keychain.Keys.Key.Key_.KeyId, ['key_string', 'type', 'key_id', 'cryptographic_algorithm'], name, value)
+                        self._perform_setattr(Keychain.Keys.Key.Key_.KeyId, [u'key_string', u'type', u'key_id', u'cryptographic_algorithm'], name, value)
 
 
                     class Macsec(Entity):
@@ -426,7 +426,7 @@ class Keychain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.Macsec, ['is_macsec_key'], name, value)
+                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.Macsec, [u'is_macsec_key'], name, value)
 
 
 
@@ -503,7 +503,7 @@ class Keychain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.SendLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
+                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.SendLifetime, [u'start', u'end', u'duration', u'is_always_valid', u'is_valid_now'], name, value)
 
 
 
@@ -580,7 +580,7 @@ class Keychain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
+                            self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, [u'start', u'end', u'duration', u'is_always_valid', u'is_valid_now'], name, value)
 
 
 

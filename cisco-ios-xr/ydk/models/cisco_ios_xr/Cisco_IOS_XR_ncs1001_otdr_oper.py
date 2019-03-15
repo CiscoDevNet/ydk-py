@@ -568,7 +568,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem, [u'otdr_number', u'direction', u'timestamp', u'sor_file', u'sor_directory', u'scan_mode', u'distance', u'total_orl'], name, value)
+                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem, ['otdr_number', 'direction', 'timestamp', 'sor_file', 'sor_directory', 'scan_mode', 'distance', 'total_orl'], name, value)
 
 
                         class OtdrEvent(Entity):
@@ -683,7 +683,7 @@ class HwModule(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem.OtdrEvent, [u'event_id', u'type', u'position', u'accuracy', u'magnitude', u'attenuation', u'eof_confidence', u'threshold_crossing'], name, value)
+                                self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem.OtdrEvent, ['event_id', 'type', 'position', 'accuracy', 'magnitude', 'attenuation', 'eof_confidence', 'threshold_crossing'], name, value)
 
 
 
@@ -776,7 +776,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrScan, [u'index', u'otdr_number', u'direction', u'scan_mode', u'timestamp', u'sor_file'], name, value)
+                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrScan, ['index', 'otdr_number', 'direction', 'scan_mode', 'timestamp', 'sor_file'], name, value)
 
 
 
@@ -866,7 +866,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrStatus, [u'otdr_id', u'direction', u'timestamp', u'training_status', u'measurement_status', u'progress_pc'], name, value)
+                            self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrStatus, ['otdr_id', 'direction', 'timestamp', 'training_status', 'measurement_status', 'progress_pc'], name, value)
 
 
 
@@ -1147,7 +1147,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrItem, [u'otdr_number', u'direction', u'timestamp', u'sor_file', u'sor_directory', u'scan_mode', u'distance', u'total_orl'], name, value)
+                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrItem, ['otdr_number', 'direction', 'timestamp', 'sor_file', 'sor_directory', 'scan_mode', 'distance', 'total_orl'], name, value)
 
 
                     class OtdrEvent(Entity):
@@ -1262,7 +1262,7 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrItem.OtdrEvent, [u'event_id', u'type', u'position', u'accuracy', u'magnitude', u'attenuation', u'eof_confidence', u'threshold_crossing'], name, value)
+                            self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrItem.OtdrEvent, ['event_id', 'type', 'position', 'accuracy', 'magnitude', 'attenuation', 'eof_confidence', 'threshold_crossing'], name, value)
 
 
 
@@ -1355,7 +1355,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrScan, [u'index', u'otdr_number', u'direction', u'scan_mode', u'timestamp', u'sor_file'], name, value)
+                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrScan, ['index', 'otdr_number', 'direction', 'scan_mode', 'timestamp', 'sor_file'], name, value)
 
 
 
@@ -1445,7 +1445,7 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrStatus, [u'otdr_id', u'direction', u'timestamp', u'training_status', u'measurement_status', u'progress_pc'], name, value)
+                        self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrStatus, ['otdr_id', 'direction', 'timestamp', 'training_status', 'measurement_status', 'progress_pc'], name, value)
 
 
 

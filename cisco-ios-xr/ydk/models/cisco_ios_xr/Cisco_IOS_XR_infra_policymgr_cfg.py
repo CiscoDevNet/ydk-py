@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ASR9k policy manager configuration.
- 
+
 Copyright (c) 2013, 2015\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
@@ -318,7 +318,7 @@ class PolicyManager(Entity):
     """
 
     _prefix = 'infra-policymgr-cfg'
-    _revision = '2018-03-02'
+    _revision = '2018-09-30'
 
     def __init__(self):
         super(PolicyManager, self).__init__()
@@ -360,7 +360,7 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2018-03-02'
+        _revision = '2018-09-30'
 
         def __init__(self):
             super(PolicyManager.ClassMaps, self).__init__()
@@ -428,7 +428,7 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2018-03-02'
+            _revision = '2018-09-30'
 
             def __init__(self):
                 super(PolicyManager.ClassMaps.ClassMap, self).__init__()
@@ -631,14 +631,14 @@ class PolicyManager(Entity):
                 
                 .. attribute:: ipv6_packet_length
                 
-                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	Match IPv6 packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
-                	Match packet length.  Should be value 0..65535 or range
+                	Match packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -697,7 +697,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: destination_port
                 
-                	Match destination port.  Should be value 0..65535 or range
+                	Match destination port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -707,11 +707,11 @@ class PolicyManager(Entity):
                 	Match fragment type for a packet
                 	**type**\: list of str
                 
-                	**pattern:** (first\-fragment)\|(is\-fragment)\|(last\-fragment)
+                	**pattern:** (dont\-fragment)\|(first\-fragment)\|(is\-fragment)\|(last\-fragment)
                 
                 .. attribute:: frame_relay_dlci
                 
-                	Match frame\-relay DLCI value.  Should be value 16..1007 or range
+                	Match frame\-relay DLCI value. Should be value 16..1007 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -725,28 +725,28 @@ class PolicyManager(Entity):
                 
                 .. attribute:: icmpv4_code
                 
-                	Match IPv4 ICMP code.  Should be value 0..255 or range
+                	Match IPv4 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
-                	Match IPv4 ICMP type.  Should be value 0..255 or range
+                	Match IPv4 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
-                	Match IPv6 ICMP code.  Should be value 0..255 or range
+                	Match IPv6 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
-                	Match IPv6 ICMP type.  Should be value 0..255 or range
+                	Match IPv6 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -763,7 +763,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: source_port
                 
-                	Match source port.  Should be value 0..65535 or range
+                	Match source port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -939,7 +939,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-03-02'
+                _revision = '2018-09-30'
 
                 def __init__(self):
                     super(PolicyManager.ClassMaps.ClassMap.Match, self).__init__()
@@ -1115,7 +1115,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, self).__init__()
@@ -1163,7 +1163,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, self).__init__()
@@ -1211,7 +1211,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, self).__init__()
@@ -1259,7 +1259,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, self).__init__()
@@ -1307,7 +1307,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, self).__init__()
@@ -1355,7 +1355,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, self).__init__()
@@ -1403,7 +1403,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DomainName, self).__init__()
@@ -1451,7 +1451,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, self).__init__()
@@ -1497,7 +1497,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.Flow, self).__init__()
@@ -1545,7 +1545,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, self).__init__()
@@ -1734,14 +1734,14 @@ class PolicyManager(Entity):
                 
                 .. attribute:: ipv6_packet_length
                 
-                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	Match IPv6 packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
-                	Match packet length.  Should be value 0..65535 or range
+                	Match packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1800,7 +1800,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: destination_port
                 
-                	Match destination port.  Should be value 0..65535 or range
+                	Match destination port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1810,11 +1810,11 @@ class PolicyManager(Entity):
                 	Match fragment type for a packet
                 	**type**\: list of str
                 
-                	**pattern:** (first\-fragment)\|(is\-fragment)\|(last\-fragment)
+                	**pattern:** (dont\-fragment)\|(first\-fragment)\|(is\-fragment)\|(last\-fragment)
                 
                 .. attribute:: frame_relay_dlci
                 
-                	Match frame\-relay DLCI value.  Should be value 16..1007 or range
+                	Match frame\-relay DLCI value. Should be value 16..1007 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1828,28 +1828,28 @@ class PolicyManager(Entity):
                 
                 .. attribute:: icmpv4_code
                 
-                	Match IPv4 ICMP code.  Should be value 0..255 or range
+                	Match IPv4 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
-                	Match IPv4 ICMP type.  Should be value 0..255 or range
+                	Match IPv4 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
-                	Match IPv6 ICMP code.  Should be value 0..255 or range
+                	Match IPv6 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
-                	Match IPv6 ICMP type.  Should be value 0..255 or range
+                	Match IPv6 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1866,7 +1866,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: source_port
                 
-                	Match source port.  Should be value 0..65535 or range
+                	Match source port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -2020,7 +2020,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-03-02'
+                _revision = '2018-09-30'
 
                 def __init__(self):
                     super(PolicyManager.ClassMaps.ClassMap.MatchNot, self).__init__()
@@ -2188,7 +2188,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, self).__init__()
@@ -2236,7 +2236,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, self).__init__()
@@ -2284,7 +2284,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, self).__init__()
@@ -2332,7 +2332,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, self).__init__()
@@ -2380,7 +2380,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, self).__init__()
@@ -2428,7 +2428,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, self).__init__()
@@ -2476,7 +2476,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, self).__init__()
@@ -2524,7 +2524,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, self).__init__()
@@ -2565,7 +2565,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, self).__init__()
@@ -2605,7 +2605,7 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2018-03-02'
+        _revision = '2018-09-30'
 
         def __init__(self):
             super(PolicyManager.PolicyMaps, self).__init__()
@@ -2663,7 +2663,7 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2018-03-02'
+            _revision = '2018-09-30'
 
             def __init__(self):
                 super(PolicyManager.PolicyMaps.PolicyMap, self).__init__()
@@ -2722,7 +2722,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-03-02'
+                _revision = '2018-09-30'
 
                 def __init__(self):
                     super(PolicyManager.PolicyMaps.PolicyMap.Event, self).__init__()
@@ -2781,7 +2781,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.Event.Class, self).__init__()
@@ -2858,7 +2858,7 @@ class PolicyManager(Entity):
                         
                         .. attribute:: set_timer
                         
-                        	Set a timer to execute a rule on its  expiry
+                        	Set a timer to execute a rule on its expiry
                         	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer>`
                         
                         	**presence node**\: True
@@ -2873,7 +2873,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, self).__init__()
@@ -2942,7 +2942,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, self).__init__()
@@ -2982,7 +2982,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, self).__init__()
@@ -3040,7 +3040,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, self).__init__()
@@ -3093,7 +3093,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, self).__init__()
@@ -3121,7 +3121,7 @@ class PolicyManager(Entity):
 
                         class SetTimer(Entity):
                             """
-                            Set a timer to execute a rule on its 
+                            Set a timer to execute a rule on its
                             expiry
                             
                             .. attribute:: timer_name
@@ -3149,7 +3149,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, self).__init__()
@@ -3189,7 +3189,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, self).__init__()
@@ -3345,7 +3345,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: service_fragment
                 
-                	Policy action service fragment.  Service fragment name
+                	Policy action service fragment. Service fragment name
                 	**type**\: str
                 
                 .. attribute:: fragment
@@ -3370,7 +3370,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-03-02'
+                _revision = '2018-09-30'
 
                 def __init__(self):
                     super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, self).__init__()
@@ -3496,7 +3496,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape, self).__init__()
@@ -3546,7 +3546,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, self).__init__()
@@ -3594,7 +3594,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, self).__init__()
@@ -3643,7 +3643,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, self).__init__()
@@ -3691,7 +3691,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, self).__init__()
@@ -3739,7 +3739,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, self).__init__()
@@ -3793,7 +3793,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc, self).__init__()
@@ -3850,7 +3850,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, self).__init__()
@@ -3898,7 +3898,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, self).__init__()
@@ -3946,7 +3946,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, self).__init__()
@@ -4064,7 +4064,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, self).__init__()
@@ -4134,7 +4134,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: discard_class
                     
-                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4155,7 +4155,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: cos
                     
-                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4202,14 +4202,14 @@ class PolicyManager(Entity):
                     
                     .. attribute:: mpls_experimental_imposition
                     
-                    	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                    	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                     	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: srp_priority
                     
-                    	Sets the spatial reuse protocol priority value of an  outgoing packet
+                    	Sets the spatial reuse protocol priority value of an outgoing packet
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4254,7 +4254,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, self).__init__()
@@ -4337,12 +4337,12 @@ class PolicyManager(Entity):
                     
                     .. attribute:: conform_action
                     
-                    	Configures the action to take on packets that conform  to the rate limit
+                    	Configures the action to take on packets that conform to the rate limit
                     	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
                     
                     .. attribute:: exceed_action
                     
-                    	Configures the action to take on packets that exceed  the rate limit
+                    	Configures the action to take on packets that exceed the rate limit
                     	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
                     
                     .. attribute:: violate_action
@@ -4355,7 +4355,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police, self).__init__()
@@ -4425,7 +4425,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, self).__init__()
@@ -4473,7 +4473,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, self).__init__()
@@ -4521,7 +4521,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, self).__init__()
@@ -4569,7 +4569,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, self).__init__()
@@ -4596,7 +4596,7 @@ class PolicyManager(Entity):
 
                     class ConformAction(Entity):
                         """
-                        Configures the action to take on packets that conform 
+                        Configures the action to take on packets that conform
                         to the rate limit.
                         
                         .. attribute:: transmit
@@ -4619,7 +4619,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction, self).__init__()
@@ -4674,7 +4674,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4695,7 +4695,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4742,14 +4742,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4794,7 +4794,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, self).__init__()
@@ -4854,7 +4854,7 @@ class PolicyManager(Entity):
 
                     class ExceedAction(Entity):
                         """
-                        Configures the action to take on packets that exceed 
+                        Configures the action to take on packets that exceed
                         the rate limit.
                         
                         .. attribute:: transmit
@@ -4877,7 +4877,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction, self).__init__()
@@ -4932,7 +4932,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4953,7 +4953,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5000,14 +5000,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5052,7 +5052,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, self).__init__()
@@ -5135,7 +5135,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction, self).__init__()
@@ -5190,7 +5190,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5211,7 +5211,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5258,14 +5258,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5310,7 +5310,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, self).__init__()
@@ -5392,7 +5392,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, self).__init__()
@@ -5433,7 +5433,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: flow_idle_timeout
                     
-                    	The interval after which a flow is removed,  if there is no activity. If timeout is 0 this flow does not expire
+                    	The interval after which a flow is removed, if there is no activity. If timeout is 0 this flow does not expire
                     	**type**\: union of the below types:
                     
                     		**type**\: int
@@ -5449,7 +5449,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal, self).__init__()
@@ -5502,7 +5502,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, self).__init__()
@@ -5550,7 +5550,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, self).__init__()
@@ -5617,7 +5617,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, self).__init__()
@@ -5665,7 +5665,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr, self).__init__()
@@ -5728,7 +5728,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, self).__init__()
@@ -5782,7 +5782,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, self).__init__()
@@ -5862,7 +5862,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React, self).__init__()
@@ -5925,7 +5925,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, self).__init__()
@@ -5971,7 +5971,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm, self).__init__()
@@ -6008,7 +6008,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: group_count
                             
-                            	Number of flows to reach before  triggering alarm
+                            	Number of flows to reach before triggering alarm
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -6029,7 +6029,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, self).__init__()
@@ -6076,7 +6076,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold, self).__init__()
@@ -6137,7 +6137,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, self).__init__()
@@ -6189,7 +6189,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, self).__init__()
@@ -6240,7 +6240,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect, self).__init__()
@@ -6292,7 +6292,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, self).__init__()
@@ -6338,7 +6338,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, self).__init__()
@@ -6377,7 +6377,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop, self).__init__()
@@ -6428,7 +6428,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-03-02'
+                            _revision = '2018-09-30'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget, self).__init__()
@@ -6477,7 +6477,7 @@ class PolicyManager(Entity):
                                 """
 
                                 _prefix = 'infra-policymgr-cfg'
-                                _revision = '2018-03-02'
+                                _revision = '2018-09-30'
 
                                 def __init__(self):
                                     super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, self).__init__()
@@ -6516,7 +6516,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: next_hop
                     
-                    	Use specific next\-hop. Here we present 5 different combination  for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4 address  5. v6 address
+                    	Use specific next\-hop. Here we present 5 different combination for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf  4. v4 address  5. v6 address
                     	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
                     
                     
@@ -6524,7 +6524,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward, self).__init__()
@@ -6553,11 +6553,11 @@ class PolicyManager(Entity):
                     class NextHop(Entity):
                         """
                         Use specific next\-hop.
-                        Here we present 5 different combination 
+                        Here we present 5 different combination
                         for the pbf next\-hop.
                          1. vrf with v6 address
                          2. vrf with v4 address
-                         3. vrf 
+                         3. vrf
                          4. v4 address
                          5. v6 address
                         
@@ -6585,7 +6585,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-03-02'
+                        _revision = '2018-09-30'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, self).__init__()
@@ -6647,7 +6647,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, self).__init__()
@@ -6704,7 +6704,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-03-02'
+                    _revision = '2018-09-30'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment, self).__init__()

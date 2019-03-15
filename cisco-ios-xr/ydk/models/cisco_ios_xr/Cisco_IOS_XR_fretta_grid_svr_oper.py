@@ -285,7 +285,7 @@ class Grid(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Grid.Nodes.Node.ClientXr.Client.ClientData, [u'res_id'], name, value)
+                            self._perform_setattr(Grid.Nodes.Node.ClientXr.Client.ClientData, ['res_id'], name, value)
 
 
 
@@ -414,7 +414,7 @@ class Grid(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Grid.Nodes.Node.Clients.Client.ClientData, [u'res_id'], name, value)
+                            self._perform_setattr(Grid.Nodes.Node.Clients.Client.ClientData, ['res_id'], name, value)
 
 
 

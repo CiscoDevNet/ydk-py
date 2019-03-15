@@ -34,6 +34,10 @@ submodule Cisco-IOS-XE-logging {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-07-11 {
+    description
+      "Add full support for logging discriminator";
+  }
   revision 2018-03-18 {
     description
       "Add diff-dependency for logging discriminator,
@@ -85,6 +89,13 @@ submodule Cisco-IOS-XE-logging {
         enum "debugging";
         enum "bogus";
       }
+    }
+  }
+
+  typedef severity-group-type {
+    type string {
+      pattern
+        "([0|1|3|6|7],){0,4}[0|1|3|6|7]";
     }
   }
 
@@ -143,11 +154,42 @@ submodule Cisco-IOS-XE-logging {
     }
   }
 
+  grouping config-logging-discriminator-severity-actions {
+    choice actions {
+      leaf drops {
+        description
+           "To drop messages including the specified regular expression string";
+        type severity-group-type; 
+      }
+      leaf includes {
+        description
+         "To deliver messages including the specified regular expression string";
+        type severity-group-type; 
+      } 
+    }
+  }
+
+  grouping config-logging-discriminator-common-actions {
+    choice actions {
+      leaf drops {
+        description
+           "To drop messages including the specified regular expression string";
+        type string;
+      }
+      leaf includes {
+        description
+         "To deliver messages including the specified regular expression string";
+        type string;
+      } 
+    }
+  }
+  
   grouping config-logging-grouping {
     container logging {
       description
         "Modify message logging facilities";
-
+      
+      // logging descriminator 
       list discriminator {
         description
           "Create or modify a message discriminator";
@@ -158,32 +200,32 @@ submodule Cisco-IOS-XE-logging {
         container severity {
           description
             "Msg-body pattern for messsage filtering";
-          leaf drops {
-            description
-              "To drop messages including the specified regular expression string";
-            type string;
-          }
-          leaf includes {
-            description
-             "To deliver messages including the specified regular expression string";
-            type string;
-          }
-          container facility {
-            description
-              "Msg-body pattern for messsage filtering";
-            leaf drops {
-              description
-                 "To drop messages including the specified regular expression string";
-              type string;
-            }
-            leaf includes {
-              description
-               "To deliver messages including the specified regular expression string";
-              type string;
-            }
+          uses config-logging-discriminator-severity-actions;
+        }
+        container facility {
+          description
+            "Facility pattern for messsage filtering";
+          uses config-logging-discriminator-common-actions;
+        }
+        container mnemonics {
+          description
+            "Mnemonics pattern for messsage filtering";
+          uses config-logging-discriminator-common-actions;
+        }
+        leaf rate-limit {
+          description
+            "Rate-limit value for messsage rate control"; 
+          type uint16 {
+            range "1..10000";
           }
         }
+        container msg-body {
+          description
+            "Msg-body pattern for messsage filtering";
+          uses config-logging-discriminator-common-actions;
+        }
       }
+
       container persistent {
         description
           "Set persistent logging parameters";

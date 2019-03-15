@@ -307,7 +307,7 @@ class Ipv4arm(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: handle
+                        .. attribute:: interface
                         
                         	Interface
                         	**type**\: str
@@ -363,14 +363,14 @@ class Ipv4arm(Entity):
                             self._leafs = OrderedDict([
                                 ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                 ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
-                                ('handle', (YLeaf(YType.str, 'handle'), ['str'])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                                 ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                 ('referenced_interface', (YLeaf(YType.str, 'referenced-interface'), ['str'])),
                                 ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.address = None
                             self.prefix_length = None
-                            self.handle = None
+                            self.interface = None
                             self.interface_name = None
                             self.referenced_interface = None
                             self.vrf_name = None
@@ -382,7 +382,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'interface', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -480,7 +480,7 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address(Entity):
@@ -542,7 +542,7 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -651,7 +651,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class Address(Entity):
@@ -749,7 +749,7 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address_(Entity):
@@ -811,7 +811,7 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
 
 
 
@@ -903,7 +903,7 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
+            self._perform_setattr(Ipv4arm.Summary, [u'producer_count', u'address_conflict_count', u'unnumbered_conflict_count', u'db_master_version', u'vrf_count'], name, value)
 
 
 
@@ -1001,7 +1001,7 @@ class Ipv4arm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
+                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', u'vrf_id', u'vrf_name_xr'], name, value)
 
 
 
@@ -1073,7 +1073,7 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
+            self._perform_setattr(Ipv4arm.RouterId, [u'vrf_id', u'vrf_name', u'interface_name', u'router_id'], name, value)
 
 
     def clone_ptr(self):

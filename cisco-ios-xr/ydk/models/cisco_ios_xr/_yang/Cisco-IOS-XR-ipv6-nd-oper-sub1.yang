@@ -411,6 +411,16 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
       description
         "Preffered lifetime of a Prefix";
     }
+    leaf prefix-length {
+      type uint32;
+      description
+        "Prefix length";
+    }
+    leaf flags {
+      type uint32;
+      description
+        "Address flags";
+    }
   }
 
   grouping IPV6-ND-IF-PARAMS {

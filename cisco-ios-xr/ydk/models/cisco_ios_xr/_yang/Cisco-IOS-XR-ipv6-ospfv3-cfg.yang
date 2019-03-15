@@ -720,16 +720,16 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               "EIGRP route type";
           }
           leaf preserve-med {
-            type empty;
+            type boolean;
             description
               "Preserve (Multi-Exit Discriminator) of BGP
                routes";
           }
-          leaf preserve-med-info {
-            type empty;
+          leaf bgp-preserve-default-info {
+            type boolean;
             description
-              "Preserve Information (Multi-Exit
-               Discriminator) of BGP routes";
+              "Preserve Metric and Metric Type ofBGP Default
+               Route";
           }
           leaf use-rib-metric {
             type boolean;

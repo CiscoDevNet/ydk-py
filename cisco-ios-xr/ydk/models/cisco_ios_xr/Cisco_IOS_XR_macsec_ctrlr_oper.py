@@ -293,7 +293,7 @@ class MacsecCtrlrOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo, ['state', 'replay_window_size', 'must_secure', 'secure_mode'], name, value)
+                    self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo, [u'state', u'replay_window_size', u'must_secure', u'secure_mode'], name, value)
 
 
                 class EncryptScStatus(Entity):
@@ -391,7 +391,7 @@ class MacsecCtrlrOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'max_packet_number', 'recent_packet_number'], name, value)
+                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus, [u'protection_enabled', u'secure_channel_id', u'confidentiality_offset', u'cipher_suite', u'max_packet_number', u'recent_packet_number'], name, value)
 
 
                     class ActiveAssociation(Entity):
@@ -442,7 +442,7 @@ class MacsecCtrlrOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation, ['association_number', 'short_secure_channel_id'], name, value)
+                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation, [u'association_number', u'short_secure_channel_id'], name, value)
 
 
 
@@ -542,7 +542,7 @@ class MacsecCtrlrOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'max_packet_number', 'recent_packet_number'], name, value)
+                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, [u'protection_enabled', u'secure_channel_id', u'confidentiality_offset', u'cipher_suite', u'max_packet_number', u'recent_packet_number'], name, value)
 
 
                     class ActiveAssociation(Entity):
@@ -593,7 +593,7 @@ class MacsecCtrlrOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, ['association_number', 'short_secure_channel_id'], name, value)
+                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, [u'association_number', u'short_secure_channel_id'], name, value)
 
 
 

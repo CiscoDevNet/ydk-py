@@ -32,12 +32,17 @@ module Cisco-IOS-XE-bfd {
 
   description
     "Cisco XE Bidirectional Forwarding Detection (BFD) Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-10-10 {
+     description
+       "Added dependency for interface bfd echo";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -106,7 +111,10 @@ module Cisco-IOS-XE-bfd {
     leaf echo {
       description
         "Use echo adjunct as bfd detection mechanism";
+      when "../interval/msecs" {
+      }
       type boolean;
+      default true;
     }
   }
 
@@ -242,6 +250,51 @@ module Cisco-IOS-XE-bfd {
     list single-hop {
       description
         "Single-hop template";
+      key "name";
+      leaf name {
+        type string;
+      }
+      container interval {
+        description
+          "Transmit interval between BFD packets";
+        leaf microseconds {
+          description
+            "Specify BFD timers in microseconds";
+          type empty;
+        }
+        choice both-or-tx-rx {
+          case both {
+            leaf both {
+              description
+                "Minimum transmit and receive interval capability";
+              type range-type;  
+            }
+          }  
+          case tx-rx {
+            leaf min-tx {
+              description
+                "Minimum transmit interval capability";
+              type range-type;
+            }
+            leaf min-rx {
+              description
+                "Minimum receive interval capability";
+              type range-type;
+            }
+          }
+        }
+        leaf multiplier {
+          description
+            "Multiplier value used to compute holddown";
+          type uint8 {
+            range "3..50";
+          }
+        }
+      }        
+    }
+    list multi-hop {
+      description
+        "Multi-hop template";
       key "name";
       leaf name {
         type string;

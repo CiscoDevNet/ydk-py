@@ -1,7 +1,6 @@
 module Cisco-IOS-XR-sysadmin-sdr-mgr {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr";
   prefix calvados_sdr;
-
   import tailf-common {
     prefix tailf;
   }
@@ -11,9 +10,7 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
   import Cisco-IOS-XR-sysadmin-show-trace {
     prefix show_trace;
   }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -24,25 +21,26 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     This module contains a collection of YANG
-     definitions for Cisco IOS-XR SysAdmin configuration.
-     
-     This module defines the SDR-SM support config for SDR
-     
-     Copyright(c) 2011-2017 by Cisco Systems, Inc.
-     All rights reserved.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
-  revision 2018-05-15 {
+    This module contains a collection of YANG
+definitions for Cisco IOS-XR SysAdmin configuration.
+
+This module defines the SDR-SM support config for SDR
+
+Copyright(c) 2011-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
+  revision 2018-10-22 {
     description
-      "Added node-type leaf in sdr-operation container";
+      "Removed choice for action re_pair";
   }
+
 
   typedef Location {
     type string {
@@ -103,12 +101,11 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
     description
       "The List of vm reload reasons";
   }
-
   container sdr-config {
     list sdr {
-      key "name";
       description
         "Add/Edit a Secure Domain Router by name";
+      key "name";
       leaf name {
         type string {
           pattern "[a-zA-Z0-9_-]{1,30}";
@@ -187,11 +184,11 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
         }
       }
       list location {
-        key "node-location";
         min-elements 1;
         max-elements "64";
         description
           "Enter list of nodes' location to add to this LR";
+        key "node-location";
         leaf node-location {
           type Location;
           description
@@ -201,11 +198,7 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
       container Action {
         config false;
         tailf:action "re_pair" {
-          input {
-            choice what_act {
-              mandatory true;
-            }
-          }
+          input;
           output {
             leaf result {
               type string;
@@ -214,9 +207,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
           }
         }
         list location {
-          key "node-location";
           min-elements 1;
           max-elements "64";
+          key "node-location";
           leaf node-location {
             type VMLocationall;
             description
@@ -270,9 +263,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
       container detail {
         config false;
         list location {
-          key "node-location";
           min-elements 1;
           max-elements "64";
+          key "node-location";
           leaf node-location {
             type VMLocation;
           }
@@ -361,12 +354,18 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
       }
       container reboot-history {
         config false;
+        container reverse {
+          uses rebhist;
+        }
+        container default-disp {
+          uses rebhist;
+        }
 
         grouping rebhist {
           list location {
-            key "node-location";
             min-elements 1;
             max-elements "64";
+            key "node-location";
             leaf node-location {
               type VMLocation;
             }
@@ -396,19 +395,13 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
             }
           }
         }
-        container reverse {
-          uses rebhist;
-        }
-        container default-disp {
-          uses rebhist;
-        }
       }
       container nodes {
         config false;
         list location {
-          key "node-location";
           min-elements 1;
           max-elements "64";
+          key "node-location";
           leaf node-location {
             type VMLocation;
           }
@@ -466,9 +459,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
           }
         }
         list pairing {
-          key "name";
           min-elements 1;
           max-elements "64";
+          key "name";
           leaf name {
             type string;
           }
@@ -481,9 +474,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
         }
       }
       list pairing {
-        key "name";
         description
           "Add/Edit a RP Pairing by name";
+        key "name";
         leaf name {
           type string {
             pattern "[a-zA-Z0-9_-]{1,64}";
@@ -491,15 +484,15 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
         }
         leaf rp1 {
           type RPLocation;
-          mandatory true;
           description
             "Enter RP Node location";
+          mandatory true;
         }
         leaf rp2 {
           type RPLocation;
-          mandatory true;
           description
             "Enter RP Node location";
+          mandatory true;
         }
       }
     }
@@ -513,9 +506,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
   container sdr-operation {
     config false;
     list sdr {
-      key "name";
       description
         "SDR";
+      key "name";
       leaf name {
         type string {
           pattern "[a-zA-Z0-9_-]{1,30}";
@@ -526,9 +519,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
       container nodes {
         config false;
         list location {
-          key "node-location node-type";
           min-elements 1;
           max-elements "64";
+          key "node-location node-type";
           leaf node-location {
             type string;
           }
@@ -551,9 +544,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
   }
   container private-sdr {
     list sdr-name {
-      key "name";
       min-elements 0;
       max-elements "64";
+      key "name";
       leaf name {
         type string;
       }
@@ -567,9 +560,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
         type uint32;
       }
       list pairing {
-        key "num";
         min-elements 0;
         max-elements "64";
+        key "num";
         leaf num {
           type uint32;
         }

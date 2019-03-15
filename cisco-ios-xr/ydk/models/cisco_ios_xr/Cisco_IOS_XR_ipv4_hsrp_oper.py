@@ -1328,7 +1328,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -1383,7 +1383,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -1439,7 +1439,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -1495,7 +1495,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -1551,7 +1551,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -1746,7 +1746,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
 
 
 
@@ -1787,7 +1787,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -1855,7 +1855,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -1910,7 +1910,7 @@ class Hsrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -2077,7 +2077,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
 
 
 
@@ -2189,7 +2189,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -2317,7 +2317,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
 
 
 
@@ -2460,7 +2460,7 @@ class Hsrp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', u'primary_session_name', u'primary_session_interface', u'primary_af_name', u'primary_session_number', u'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -2511,7 +2511,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, ['slave_group_interface', 'slave_group_number'], name, value)
+                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, [u'slave_group_interface', u'slave_group_number'], name, value)
 
 
 
@@ -2739,7 +2739,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
 
 
 
@@ -3596,7 +3596,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -3651,7 +3651,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -3707,7 +3707,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -3763,7 +3763,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -3819,7 +3819,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -4014,7 +4014,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
 
 
 
@@ -4055,7 +4055,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
 
 
 
@@ -4123,7 +4123,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -4178,7 +4178,7 @@ class Hsrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
 
@@ -4292,7 +4292,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -4420,7 +4420,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
 
 
 
@@ -4602,7 +4602,7 @@ class Hsrp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', 'bfd_interface_name', 'session_address_family', 'destination_address', 'destination_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier'], name, value)
+                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', u'bfd_interface_name', u'session_address_family', u'destination_address', u'destination_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier'], name, value)
 
 
             class Group(Entity):
@@ -4653,7 +4653,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, ['interface_name', 'hsrp_group_number'], name, value)
+                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, [u'interface_name', u'hsrp_group_number'], name, value)
 
 
 
@@ -5357,7 +5357,7 @@ class Hsrp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Hsrp.Summary, ['ipv4_sessions_active', 'ipv4_sessions_standby', 'ipv4_sessions_speak', 'ipv4_sessions_listen', 'ipv4_sessions_learn', 'ipv4_sessions_init', 'ipv4_slaves_active', 'ipv4_slaves_standby', 'ipv4_slaves_speak', 'ipv4_slaves_listen', 'ipv4_slaves_learn', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_active_up', 'ipv4_virtual_ip_addresses_active_down', 'ipv4_virtual_ip_addresses_standby_up', 'ipv4_virtual_ip_addresses_standby_down', 'ipv4_virtual_ip_addresses_speak_up', 'ipv4_virtual_ip_addresses_speak_down', 'ipv4_virtual_ip_addresses_listen_up', 'ipv4_virtual_ip_addresses_listen_down', 'ipv4_virtual_ip_addresses_learn_up', 'ipv4_virtual_ip_addresses_learn_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_active', 'ipv6_sessions_standby', 'ipv6_sessions_speak', 'ipv6_sessions_listen', 'ipv6_sessions_learn', 'ipv6_sessions_init', 'ipv6_slaves_active', 'ipv6_slaves_standby', 'ipv6_slaves_speak', 'ipv6_slaves_listen', 'ipv6_slaves_learn', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_active_up', 'ipv6_virtual_ip_addresses_active_down', 'ipv6_virtual_ip_addresses_standby_up', 'ipv6_virtual_ip_addresses_standby_down', 'ipv6_virtual_ip_addresses_speak_up', 'ipv6_virtual_ip_addresses_speak_down', 'ipv6_virtual_ip_addresses_listen_up', 'ipv6_virtual_ip_addresses_listen_down', 'ipv6_virtual_ip_addresses_learn_up', 'ipv6_virtual_ip_addresses_learn_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'tracked_objects_up', 'tracked_objects_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive'], name, value)
+            self._perform_setattr(Hsrp.Summary, [u'ipv4_sessions_active', u'ipv4_sessions_standby', u'ipv4_sessions_speak', u'ipv4_sessions_listen', u'ipv4_sessions_learn', u'ipv4_sessions_init', u'ipv4_slaves_active', u'ipv4_slaves_standby', u'ipv4_slaves_speak', u'ipv4_slaves_listen', u'ipv4_slaves_learn', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_active_up', u'ipv4_virtual_ip_addresses_active_down', u'ipv4_virtual_ip_addresses_standby_up', u'ipv4_virtual_ip_addresses_standby_down', u'ipv4_virtual_ip_addresses_speak_up', u'ipv4_virtual_ip_addresses_speak_down', u'ipv4_virtual_ip_addresses_listen_up', u'ipv4_virtual_ip_addresses_listen_down', u'ipv4_virtual_ip_addresses_learn_up', u'ipv4_virtual_ip_addresses_learn_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_active', u'ipv6_sessions_standby', u'ipv6_sessions_speak', u'ipv6_sessions_listen', u'ipv6_sessions_learn', u'ipv6_sessions_init', u'ipv6_slaves_active', u'ipv6_slaves_standby', u'ipv6_slaves_speak', u'ipv6_slaves_listen', u'ipv6_slaves_learn', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_active_up', u'ipv6_virtual_ip_addresses_active_down', u'ipv6_virtual_ip_addresses_standby_up', u'ipv6_virtual_ip_addresses_standby_down', u'ipv6_virtual_ip_addresses_speak_up', u'ipv6_virtual_ip_addresses_speak_down', u'ipv6_virtual_ip_addresses_listen_up', u'ipv6_virtual_ip_addresses_listen_down', u'ipv6_virtual_ip_addresses_learn_up', u'ipv6_virtual_ip_addresses_learn_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'tracked_objects_up', u'tracked_objects_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive'], name, value)
 
 
     def clone_ptr(self):

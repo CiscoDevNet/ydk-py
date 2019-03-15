@@ -441,10 +441,10 @@ class HardwareModule(Entity):
                         
                         .. attribute:: capture_length
                         
-                        	Capture Length in Km, supported values [0 ,150]
+                        	Capture Length in Km, supported values [1 ,150]
                         	**type**\: int
                         
-                        	**range:** 0..150
+                        	**range:** 1..150
                         
                         .. attribute:: pulse_width
                         
@@ -457,10 +457,10 @@ class HardwareModule(Entity):
                         
                         .. attribute:: measure_time
                         
-                        	Measure time in seconds, supported values [0,360]
+                        	Measure time in seconds, supported values [1,360]
                         	**type**\: int
                         
-                        	**range:** 0..360
+                        	**range:** 1..360
                         
                         	**units**\: second
                         
@@ -480,10 +480,10 @@ class HardwareModule(Entity):
                         
                         .. attribute:: span_length
                         
-                        	Span Length in Km, supported values [0,150]
+                        	Span Length in Km, supported values [1,150]
                         	**type**\: int
                         
-                        	**range:** 0..150
+                        	**range:** 1..150
                         
                         .. attribute:: reflection_sensitivity
                         

@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixed yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

@@ -85,7 +85,7 @@ class ModulesState(Entity):
         	The YANG module or submodule name
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+        	**length:** 1..18446744073709551615
         
         	**config**\: False
         
@@ -125,7 +125,7 @@ class ModulesState(Entity):
         	List of YANG feature names from this module that are supported by the server, regardless of whether they are defined in the module or any included submodule
         	**type**\: list of str
         
-        	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+        	**length:** 1..18446744073709551615
         
         	**config**\: False
         
@@ -266,7 +266,7 @@ class ModulesState(Entity):
             	The YANG module or submodule name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+            	**length:** 1..18446744073709551615
             
             	**config**\: False
             
@@ -325,7 +325,7 @@ class ModulesState(Entity):
             	The YANG module or submodule name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+            	**length:** 1..18446744073709551615
             
             	**config**\: False
             

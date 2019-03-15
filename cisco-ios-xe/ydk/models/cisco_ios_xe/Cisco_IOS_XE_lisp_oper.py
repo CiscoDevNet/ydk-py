@@ -197,7 +197,7 @@ class LispState(Entity):
     """
 
     _prefix = 'lisp-ios-xe-oper'
-    _revision = '2018-02-20'
+    _revision = '2018-02-01'
 
     def __init__(self):
         super(LispState, self).__init__()
@@ -283,7 +283,7 @@ class LispState(Entity):
         """
 
         _prefix = 'lisp-ios-xe-oper'
-        _revision = '2018-02-20'
+        _revision = '2018-02-01'
 
         def __init__(self):
             super(LispState.LispRouters, self).__init__()
@@ -368,7 +368,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2018-02-20'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(LispState.LispRouters.Instances, self).__init__()
@@ -1163,7 +1163,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2018-02-20'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.Af, self).__init__()
@@ -1403,7 +1403,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.Role, self).__init__()
@@ -1566,7 +1566,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapCache, self).__init__()
@@ -1682,7 +1682,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2018-02-20'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc, self).__init__()
@@ -1763,7 +1763,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2018-02-20'
+                            _revision = '2018-02-01'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params, self).__init__()
@@ -1847,7 +1847,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.LocalDbase, self).__init__()
@@ -1923,7 +1923,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2018-02-20'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc, self).__init__()
@@ -2000,7 +2000,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2018-02-20'
+                            _revision = '2018-02-01'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params, self).__init__()
@@ -2134,7 +2134,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MsRegistrations, self).__init__()
@@ -2204,7 +2204,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2018-02-20'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource, self).__init__()
@@ -2304,7 +2304,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2018-02-20'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations, self).__init__()
@@ -2382,7 +2382,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2018-02-20'
+                            _revision = '2018-02-01'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc, self).__init__()
@@ -2459,7 +2459,7 @@ class LispState(Entity):
                                 """
 
                                 _prefix = 'lisp-ios-xe-oper'
-                                _revision = '2018-02-20'
+                                _revision = '2018-02-01'
 
                                 def __init__(self):
                                     super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params, self).__init__()
@@ -2521,7 +2521,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapServers, self).__init__()
@@ -2579,7 +2579,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapResolvers, self).__init__()
@@ -2644,7 +2644,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2018-02-20'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.ProxyEtrs, self).__init__()
@@ -2719,7 +2719,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2018-02-20'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.ProxyEtrs.Params, self).__init__()
@@ -2799,7 +2799,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2018-02-20'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.MsEidMembership, self).__init__()
@@ -2876,7 +2876,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2018-02-20'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.EtrEidMembership, self).__init__()
@@ -3029,7 +3029,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2018-02-20'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(LispState.LispRouters.Sessions, self).__init__()
@@ -3112,7 +3112,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2018-02-20'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(LispState.LispRouters.LocalRlocs, self).__init__()
@@ -3173,7 +3173,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2018-02-20'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(LispState.LispRouters.PrefixLists, self).__init__()
@@ -3243,7 +3243,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2018-02-20'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(LispState.LispRouters.PrefixLists.PrefixListEntry, self).__init__()

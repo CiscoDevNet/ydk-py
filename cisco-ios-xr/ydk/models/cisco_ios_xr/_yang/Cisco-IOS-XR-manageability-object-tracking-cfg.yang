@@ -84,28 +84,16 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
     container threshold-limits {
       description
         "Threshold Limits";
-      container threshold-up-values {
+      leaf up {
+        type uint32;
         description
-          "Threshold limit at which track is set to UP
-           state";
-        list threshold-up-value {
-          key "up";
-          description
-            "Threshold limit at which track is set to UP
-             state";
-          leaf threshold-down {
-            type uint32;
-            default "0";
-            description
-              "Threshold limit at which track is set to Down
-               state";
-          }
-          leaf up {
-            type uint32;
-            description
-              "Up value";
-          }
-        }
+          "Up threshold value";
+      }
+      leaf down {
+        type uint32;
+        default "0";
+        description
+          "Down threshold value";
       }
     }
   }

@@ -461,7 +461,7 @@ class DhcpClient(Entity):
     """
 
     _prefix = 'ipv4-dhcpd-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-09-20'
 
     def __init__(self):
         super(DhcpClient, self).__init__()
@@ -501,7 +501,7 @@ class DhcpClient(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(DhcpClient.Nodes, self).__init__()
@@ -555,7 +555,7 @@ class DhcpClient(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(DhcpClient.Nodes.Node, self).__init__()
@@ -602,7 +602,7 @@ class DhcpClient(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(DhcpClient.Nodes.Node.ClientStats, self).__init__()
@@ -1091,7 +1091,7 @@ class DhcpClient(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(DhcpClient.Nodes.Node.ClientStats.ClientStat, self).__init__()
@@ -1231,7 +1231,7 @@ class DhcpClient(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(DhcpClient.Nodes.Node.Clients, self).__init__()
@@ -1374,7 +1374,7 @@ class DhcpClient(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(DhcpClient.Nodes.Node.Clients.Client, self).__init__()
@@ -1452,7 +1452,7 @@ class Ipv4Dhcpd(Entity):
     """
 
     _prefix = 'ipv4-dhcpd-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-09-20'
 
     def __init__(self):
         super(Ipv4Dhcpd, self).__init__()
@@ -1524,7 +1524,7 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(Ipv4Dhcpd.Snoop, self).__init__()
@@ -1580,7 +1580,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Snoop.Bindings, self).__init__()
@@ -1719,7 +1719,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Snoop.Bindings.Binding, self).__init__()
@@ -1793,7 +1793,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Snoop.BindingStatistics, self).__init__()
@@ -1837,7 +1837,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Snoop.StatisticsInfo, self).__init__()
@@ -1877,7 +1877,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Snoop.Profiles, self).__init__()
@@ -1971,7 +1971,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Snoop.Profiles.Profile, self).__init__()
@@ -2024,7 +2024,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Snoop.Statistics, self).__init__()
@@ -2082,7 +2082,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Snoop.Statistics.Statistic, self).__init__()
@@ -2129,7 +2129,7 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(Ipv4Dhcpd.Nodes, self).__init__()
@@ -2204,7 +2204,7 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Ipv4Dhcpd.Nodes.Node, self).__init__()
@@ -2279,6 +2279,13 @@ class Ipv4Dhcpd(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: disconnect_histories
+                
+                	DHCP proxy disconnect history
+                	**type**\:  :py:class:`DisconnectHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories>`
+                
+                	**config**\: False
+                
                 .. attribute:: binding
                 
                 	DHCP proxy bindings
@@ -2291,7 +2298,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Nodes.Node.Proxy, self).__init__()
@@ -2301,7 +2308,7 @@ class Ipv4Dhcpd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("statistics-info", ("statistics_info", Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs)), ("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles)), ("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics)), ("binding", ("binding", Ipv4Dhcpd.Nodes.Node.Proxy.Binding))])
+                    self._child_classes = OrderedDict([("statistics-info", ("statistics_info", Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs)), ("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles)), ("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics)), ("disconnect-histories", ("disconnect_histories", Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories)), ("binding", ("binding", Ipv4Dhcpd.Nodes.Node.Proxy.Binding))])
                     self._leafs = OrderedDict()
 
                     self.statistics_info = Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo()
@@ -2319,6 +2326,10 @@ class Ipv4Dhcpd(Entity):
                     self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
+
+                    self.disconnect_histories = Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories()
+                    self.disconnect_histories.parent = self
+                    self._children_name_map["disconnect_histories"] = "disconnect-histories"
 
                     self.binding = Ipv4Dhcpd.Nodes.Node.Proxy.Binding()
                     self.binding.parent = self
@@ -2348,7 +2359,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, self).__init__()
@@ -2387,7 +2398,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, self).__init__()
@@ -2433,7 +2444,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
@@ -2566,7 +2577,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
@@ -2677,7 +2688,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, self).__init__()
@@ -2740,7 +2751,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, self).__init__()
@@ -2803,7 +2814,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -2866,7 +2877,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -2929,7 +2940,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, self).__init__()
@@ -2992,7 +3003,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, self).__init__()
@@ -3055,7 +3066,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -3118,7 +3129,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -3181,7 +3192,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -3244,7 +3255,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
@@ -3307,7 +3318,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
@@ -3370,7 +3381,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
@@ -3433,7 +3444,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
@@ -3496,7 +3507,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
@@ -3542,7 +3553,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, self).__init__()
@@ -3712,7 +3723,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
@@ -3788,7 +3799,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, self).__init__()
@@ -3827,7 +3838,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, self).__init__()
@@ -3867,7 +3878,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, self).__init__()
@@ -3906,7 +3917,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, self).__init__()
@@ -3948,7 +3959,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, self).__init__()
@@ -3994,7 +4005,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, self).__init__()
@@ -4056,7 +4067,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
@@ -4085,6 +4096,140 @@ class Ipv4Dhcpd(Entity):
 
 
 
+                class DisconnectHistories(Entity):
+                    """
+                    DHCP proxy disconnect history
+                    
+                    .. attribute:: disconnect_history
+                    
+                    	Single DHCP proxy disconnect history
+                    	**type**\: list of  		 :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2018-09-20'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
+
+                        self.yang_name = "disconnect-histories"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("disconnect-history", ("disconnect_history", Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory))])
+                        self._leafs = OrderedDict()
+
+                        self.disconnect_history = YList(self)
+                        self._segment_path = lambda: "disconnect-histories"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories, [], name, value)
+
+
+                    class DisconnectHistory(Entity):
+                        """
+                        Single DHCP proxy disconnect history
+                        
+                        .. attribute:: index  (key)
+                        
+                        	Index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_start_time_epoch
+                        
+                        	session start time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_end_time_epoch
+                        
+                        	session end time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: disc_reason
+                        
+                        	DiscReason
+                        	**type**\: str
+                        
+                        	**length:** 0..256
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sub_label
+                        
+                        	sub label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mac_address
+                        
+                        	MACAddress
+                        	**type**\: str
+                        
+                        	**length:** 0..17
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2018-09-20'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
+
+                            self.yang_name = "disconnect-history"
+                            self.yang_parent_name = "disconnect-histories"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['index']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
+                                ('session_end_time_epoch', (YLeaf(YType.uint64, 'session-end-time-epoch'), ['int'])),
+                                ('disc_reason', (YLeaf(YType.str, 'disc-reason'), ['str'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ])
+                            self.index = None
+                            self.session_start_time_epoch = None
+                            self.session_end_time_epoch = None
+                            self.disc_reason = None
+                            self.sub_label = None
+                            self.mac_address = None
+                            self._segment_path = lambda: "disconnect-history" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', u'session_start_time_epoch', u'session_end_time_epoch', u'disc_reason', u'sub_label', u'mac_address'], name, value)
+
+
+
+
                 class Binding(Entity):
                     """
                     DHCP proxy bindings
@@ -4108,7 +4253,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding, self).__init__()
@@ -4151,7 +4296,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients, self).__init__()
@@ -4458,9 +4603,9 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: session_start_time
+                            .. attribute:: session_start_time_epoch
                             
-                            	session start time
+                            	session start time epoch
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -4490,7 +4635,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
@@ -4534,7 +4679,7 @@ class Ipv4Dhcpd(Entity):
                                     ('is_mbl_subscriber', (YLeaf(YType.boolean, 'is-mbl-subscriber'), ['bool'])),
                                     ('param_request', (YLeaf(YType.str, 'param-request'), ['str'])),
                                     ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
-                                    ('session_start_time', (YLeaf(YType.uint64, 'session-start-time'), ['int'])),
+                                    ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
                                     ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
                                     ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
@@ -4570,14 +4715,14 @@ class Ipv4Dhcpd(Entity):
                                 self.is_mbl_subscriber = None
                                 self.param_request = None
                                 self.param_response = None
-                                self.session_start_time = None
+                                self.session_start_time_epoch = None
                                 self.srg_state = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time_epoch', u'srg_state', u'event_history'], name, value)
 
 
 
@@ -4762,7 +4907,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, self).__init__()
@@ -4839,7 +4984,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Nodes.Node.Interfaces, self).__init__()
@@ -4955,7 +5100,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, self).__init__()
@@ -5041,7 +5186,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Nodes.Node.Base, self).__init__()
@@ -5096,7 +5241,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Base.Statistics, self).__init__()
@@ -5142,7 +5287,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, self).__init__()
@@ -5204,7 +5349,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
@@ -5332,7 +5477,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, self).__init__()
@@ -5389,7 +5534,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, self).__init__()
@@ -5435,7 +5580,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, self).__init__()
@@ -5568,7 +5713,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, self).__init__()
@@ -5679,7 +5824,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, self).__init__()
@@ -5742,7 +5887,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, self).__init__()
@@ -5805,7 +5950,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -5868,7 +6013,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -5931,7 +6076,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, self).__init__()
@@ -5994,7 +6139,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, self).__init__()
@@ -6057,7 +6202,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -6120,7 +6265,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -6183,7 +6328,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -6246,7 +6391,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
@@ -6309,7 +6454,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
@@ -6372,7 +6517,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
@@ -6435,7 +6580,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
@@ -6498,7 +6643,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
@@ -6544,7 +6689,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Base.Profiles, self).__init__()
@@ -6649,7 +6794,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, self).__init__()
@@ -6707,7 +6852,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, self).__init__()
@@ -6746,7 +6891,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, self).__init__()
@@ -6786,7 +6931,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, self).__init__()
@@ -6861,7 +7006,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, self).__init__()
@@ -7050,7 +7195,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Base.Database, self).__init__()
@@ -7129,6 +7274,13 @@ class Ipv4Dhcpd(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: disconnect_histories
+                
+                	DHCP server disconnect history
+                	**type**\:  :py:class:`DisconnectHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories>`
+                
+                	**config**\: False
+                
                 .. attribute:: statistics_info
                 
                 	DHCP proxy stats info
@@ -7148,7 +7300,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Nodes.Node.Server, self).__init__()
@@ -7158,7 +7310,7 @@ class Ipv4Dhcpd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Server.Profiles)), ("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Statistics)), ("binding", ("binding", Ipv4Dhcpd.Nodes.Node.Server.Binding)), ("statistics-info", ("statistics_info", Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Server.Vrfs))])
+                    self._child_classes = OrderedDict([("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Server.Profiles)), ("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Statistics)), ("binding", ("binding", Ipv4Dhcpd.Nodes.Node.Server.Binding)), ("disconnect-histories", ("disconnect_histories", Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories)), ("statistics-info", ("statistics_info", Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Server.Vrfs))])
                     self._leafs = OrderedDict()
 
                     self.profiles = Ipv4Dhcpd.Nodes.Node.Server.Profiles()
@@ -7172,6 +7324,10 @@ class Ipv4Dhcpd(Entity):
                     self.binding = Ipv4Dhcpd.Nodes.Node.Server.Binding()
                     self.binding.parent = self
                     self._children_name_map["binding"] = "binding"
+
+                    self.disconnect_histories = Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories()
+                    self.disconnect_histories.parent = self
+                    self._children_name_map["disconnect_histories"] = "disconnect-histories"
 
                     self.statistics_info = Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo()
                     self.statistics_info.parent = self
@@ -7203,7 +7359,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Server.Profiles, self).__init__()
@@ -7464,7 +7620,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, self).__init__()
@@ -7556,7 +7712,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Server.Statistics, self).__init__()
@@ -7602,7 +7758,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, self).__init__()
@@ -7664,7 +7820,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
@@ -7716,7 +7872,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Server.Binding, self).__init__()
@@ -7923,7 +8079,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, self).__init__()
@@ -7998,7 +8154,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, self).__init__()
@@ -8305,9 +8461,9 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: session_start_time
+                            .. attribute:: session_start_time_epoch
                             
-                            	session start time
+                            	session start time epoch
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -8337,7 +8493,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
@@ -8381,7 +8537,7 @@ class Ipv4Dhcpd(Entity):
                                     ('is_mbl_subscriber', (YLeaf(YType.boolean, 'is-mbl-subscriber'), ['bool'])),
                                     ('param_request', (YLeaf(YType.str, 'param-request'), ['str'])),
                                     ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
-                                    ('session_start_time', (YLeaf(YType.uint64, 'session-start-time'), ['int'])),
+                                    ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
                                     ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
                                     ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
@@ -8417,15 +8573,149 @@ class Ipv4Dhcpd(Entity):
                                 self.is_mbl_subscriber = None
                                 self.param_request = None
                                 self.param_response = None
-                                self.session_start_time = None
+                                self.session_start_time_epoch = None
                                 self.srg_state = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time_epoch', u'srg_state', u'event_history'], name, value)
 
+
+
+
+
+                class DisconnectHistories(Entity):
+                    """
+                    DHCP server disconnect history
+                    
+                    .. attribute:: disconnect_history
+                    
+                    	Single DHCP server disconnect history
+                    	**type**\: list of  		 :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2018-09-20'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories, self).__init__()
+
+                        self.yang_name = "disconnect-histories"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("disconnect-history", ("disconnect_history", Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory))])
+                        self._leafs = OrderedDict()
+
+                        self.disconnect_history = YList(self)
+                        self._segment_path = lambda: "disconnect-histories"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories, [], name, value)
+
+
+                    class DisconnectHistory(Entity):
+                        """
+                        Single DHCP server disconnect history
+                        
+                        .. attribute:: index  (key)
+                        
+                        	Index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_start_time_epoch
+                        
+                        	session start time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_end_time_epoch
+                        
+                        	session end time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: disc_reason
+                        
+                        	DiscReason
+                        	**type**\: str
+                        
+                        	**length:** 0..256
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sub_label
+                        
+                        	sub label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mac_address
+                        
+                        	MACAddress
+                        	**type**\: str
+                        
+                        	**length:** 0..17
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2018-09-20'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
+
+                            self.yang_name = "disconnect-history"
+                            self.yang_parent_name = "disconnect-histories"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['index']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
+                                ('session_end_time_epoch', (YLeaf(YType.uint64, 'session-end-time-epoch'), ['int'])),
+                                ('disc_reason', (YLeaf(YType.str, 'disc-reason'), ['str'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ])
+                            self.index = None
+                            self.session_start_time_epoch = None
+                            self.session_end_time_epoch = None
+                            self.disc_reason = None
+                            self.sub_label = None
+                            self.mac_address = None
+                            self._segment_path = lambda: "disconnect-history" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', u'session_start_time_epoch', u'session_end_time_epoch', u'disc_reason', u'sub_label', u'mac_address'], name, value)
 
 
 
@@ -8448,7 +8738,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, self).__init__()
@@ -8487,7 +8777,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs, self).__init__()
@@ -8533,7 +8823,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
@@ -8666,7 +8956,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
@@ -8777,7 +9067,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, self).__init__()
@@ -8840,7 +9130,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, self).__init__()
@@ -8903,7 +9193,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -8966,7 +9256,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -9029,7 +9319,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, self).__init__()
@@ -9092,7 +9382,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, self).__init__()
@@ -9155,7 +9445,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -9218,7 +9508,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -9281,7 +9571,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -9344,7 +9634,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
@@ -9407,7 +9697,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
@@ -9470,7 +9760,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
@@ -9533,7 +9823,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
@@ -9596,7 +9886,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
@@ -9664,7 +9954,7 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Ipv4Dhcpd.Nodes.Node.Relay, self).__init__()
@@ -9715,7 +10005,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, self).__init__()
@@ -9887,7 +10177,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, self).__init__()
@@ -9959,7 +10249,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, self).__init__()
@@ -9998,7 +10288,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, self).__init__()
@@ -10044,7 +10334,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, self).__init__()
@@ -10106,7 +10396,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, self).__init__()
@@ -10151,7 +10441,7 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, self).__init__()
@@ -10197,7 +10487,7 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
@@ -10330,7 +10620,7 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, self).__init__()
@@ -10441,7 +10731,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, self).__init__()
@@ -10504,7 +10794,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, self).__init__()
@@ -10567,7 +10857,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, self).__init__()
@@ -10630,7 +10920,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, self).__init__()
@@ -10693,7 +10983,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, self).__init__()
@@ -10756,7 +11046,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, self).__init__()
@@ -10819,7 +11109,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, self).__init__()
@@ -10882,7 +11172,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, self).__init__()
@@ -10945,7 +11235,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, self).__init__()
@@ -11008,7 +11298,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, self).__init__()
@@ -11071,7 +11361,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, self).__init__()
@@ -11134,7 +11424,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, self).__init__()
@@ -11197,7 +11487,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, self).__init__()
@@ -11260,7 +11550,7 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, self).__init__()

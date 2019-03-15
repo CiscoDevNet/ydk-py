@@ -614,7 +614,7 @@ class Ipv6AclAndPrefixList(Entity):
                     
                     .. attribute:: dscp
                     
-                    	DSCP value to match without using any operators.  Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparion is not to be performed. For Setting dscp values, use the dscp container as this leaf will be deprecated soon
+                    	DSCP value to match without any operators. Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparison is not to be performed. For Setting dscp values, use the dscp container as this leaf will be deprecated soon
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
@@ -722,7 +722,7 @@ class Ipv6AclAndPrefixList(Entity):
                     
                     .. attribute:: sequence_str
                     
-                    	Sequence string for the ace
+                    	Sequence String for the ace
                     	**type**\: str
                     
                     	**length:** 1..64
@@ -833,7 +833,7 @@ class Ipv6AclAndPrefixList(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', u'grant', u'protocol_operator', u'protocol', u'protocol2', u'dscp', u'precedence', u'counter_name', u'log_option', u'capture', u'undetermined_transport', u'icmp_off', u'qos_group', u'set_ttl', u'remark', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'sequence_str'], name, value)
+                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'protocol_operator', 'protocol', 'protocol2', 'dscp', 'precedence', 'counter_name', 'log_option', 'capture', 'undetermined_transport', 'icmp_off', 'qos_group', 'set_ttl', 'remark', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -856,7 +856,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: source_mask
                         
-                        	Source address mask. Either  source\-wild\-card\-bits or source\-mask is  supported, not both. Leave unspecified  for any
+                        	Source address mask. Either source\-wild\-card\-bits or source\-mask is. supported, not both. Leave unspecified. for any
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -889,7 +889,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, [u'source_address', u'source_wild_card_bits', u'source_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits', 'source_mask'], name, value)
 
 
 
@@ -899,21 +899,21 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: destination_address
                         
-                        	Destination IPv6 address, leave  unspecified if inputting as IPv6 address with  wildcarding
+                        	Destination IPv6 address, leave unspecified if inputting as IPv6 address with wildcarding
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: destination_wild_card_bits
                         
-                        	Wildcard bits to apply to destination  destination\-address (if specified),  leave unspecified for no wildcarding
+                        	Wildcard bits to apply to destination destination\-address (if specified), leave unspecified for no wildcarding
                         	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: destination_mask
                         
-                        	Destination address mask. Either  destination\-wild\-card\-bits or destination\-mask  is supported, not both. Leave unspecified for any
+                        	Destination address mask. Either destination\-wild\-card\-bits or destination\-mask. is supported, not both. Leave unspecified for any
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -946,7 +946,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, [u'destination_address', u'destination_wild_card_bits', u'destination_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits', 'destination_mask'], name, value)
 
 
 
@@ -1009,7 +1009,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, [u'source_operator', u'first_source_port', u'second_source_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, ['source_operator', 'first_source_port', 'second_source_port'], name, value)
 
 
 
@@ -1072,7 +1072,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, [u'destination_operator', u'first_destination_port', u'second_destination_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, ['destination_operator', 'first_destination_port', 'second_destination_port'], name, value)
 
 
 
@@ -1082,7 +1082,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: icmp_type_code
                         
-                        	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
+                        	Well known ICMP message code types to match, leave unspecified if ICMP message code type comparion is not to be performed
                         	**type**\:  :py:class:`Ipv6AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnum>`
                         
                         
@@ -1109,7 +1109,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, [u'icmp_type_code'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, ['icmp_type_code'], name, value)
 
 
 
@@ -1119,12 +1119,12 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: tcp_bits_match_operator
                         
-                        	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
+                        	TCP Bits match operator. Leave unspecified if flexible comparison of TCP bits is not required
                         	**type**\:  :py:class:`Ipv6AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnum>`
                         
                         .. attribute:: tcp_bits
                         
-                        	TCP bits to match. Leave unspecified if  comparison of TCP bits is not required
+                        	TCP bits to match. Leave unspecified if comparison of TCP bits is not required
                         	**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
                         .. attribute:: tcp_bits_mask
@@ -1160,7 +1160,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, [u'tcp_bits_match_operator', u'tcp_bits', u'tcp_bits_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, ['tcp_bits_match_operator', 'tcp_bits', 'tcp_bits_mask'], name, value)
 
 
 
@@ -1170,7 +1170,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: packet_length_operator
                         
-                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config  will be rejected
+                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config will be rejected
                         	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: packet_length_min
@@ -1215,7 +1215,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, [u'packet_length_operator', u'packet_length_min', u'packet_length_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, ['packet_length_operator', 'packet_length_min', 'packet_length_max'], name, value)
 
 
 
@@ -1270,7 +1270,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, [u'time_to_live_operator', u'time_to_live_min', u'time_to_live_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, ['time_to_live_operator', 'time_to_live_min', 'time_to_live_max'], name, value)
 
 
 
@@ -1280,12 +1280,12 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: dscp_operator
                         
-                        	Enumerated DSCP operator values. Used when operator needs to be configured. Leave unspecified if DSCP operator is not required. Note\: if the  dscp operator is not set, it logically behaves  same as equal operator
+                        	Enumerated DSCP operator values. Used when operator needs to be configured. Leave unspecified if DSCP operator is not required. Note\: if the dscp operator is not set, it logically behaves same as equal operator
                         	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: dscp_lower
                         
-                        	DSCP value to match (if a value was specified). It can be used for the lower bound (range operator) or single value (equal, less, greater..etc) or without any operator. Any value not in the permissible range  will be rejected. Leave unspecified if DSCP  comparison is not to be performed
+                        	DSCP value to match (if a value was specified). It can be used for the lower bound (range operator) or single value (equal, less, greater..etc) or without any operator. Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparison is not to be performed
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
@@ -1296,7 +1296,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: dscp_upper
                         
-                        	DSCP2 value to match (if a value was specified), It can be used in the upper bound (range operator) Any value not in the permissible range will be rejected. leave unspecified if DSCP range comparison is not to be performed
+                        	DSCP value to match (if a value was specified). It can be used in the upper bound (range operator) Any value not in the permissible range will be rejected. Leave unspecified if DSCP range comparison is not to be performed
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
@@ -1333,7 +1333,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, [u'dscp_operator', u'dscp_lower', u'dscp_upper'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, ['dscp_operator', 'dscp_lower', 'dscp_upper'], name, value)
 
 
 
@@ -1397,7 +1397,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, [u'next_hop_type'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, ['next_hop_type'], name, value)
 
 
                         class NextHop1(Entity):
@@ -1453,7 +1453,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, [u'next_hop', u'vrf_name', u'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
 
 
@@ -1510,7 +1510,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, [u'next_hop', u'vrf_name', u'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
 
 
@@ -1567,7 +1567,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, [u'next_hop', u'vrf_name', u'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
 
 
@@ -1633,7 +1633,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, [u'routing', u'destopts', u'hop_by_hop', u'fragments', u'authen'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, ['routing', 'destopts', 'hop_by_hop', 'fragments', 'authen'], name, value)
 
 
 

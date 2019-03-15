@@ -35,7 +35,7 @@ class ControlPlane(Entity):
     """
 
     _prefix = 'lib-mpp-cfg'
-    _revision = '2017-09-07'
+    _revision = '2018-07-23'
 
     def __init__(self):
         super(ControlPlane, self).__init__()
@@ -73,17 +73,12 @@ class ControlPlane(Entity):
         	Inband Configuration
         	**type**\:  :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband>`
         
-        .. attribute:: tpa
-        
-        	MPP Third Party Application Configuration Commands
-        	**type**\:  :py:class:`Tpa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa>`
-        
         
 
         """
 
         _prefix = 'lib-mpp-cfg'
-        _revision = '2017-09-07'
+        _revision = '2018-07-23'
 
         def __init__(self):
             super(ControlPlane.ManagementPlaneProtection, self).__init__()
@@ -93,7 +88,7 @@ class ControlPlane(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("outband", ("outband", ControlPlane.ManagementPlaneProtection.Outband)), ("inband", ("inband", ControlPlane.ManagementPlaneProtection.Inband)), ("tpa", ("tpa", ControlPlane.ManagementPlaneProtection.Tpa))])
+            self._child_classes = OrderedDict([("outband", ("outband", ControlPlane.ManagementPlaneProtection.Outband)), ("inband", ("inband", ControlPlane.ManagementPlaneProtection.Inband))])
             self._leafs = OrderedDict()
 
             self.outband = ControlPlane.ManagementPlaneProtection.Outband()
@@ -103,10 +98,6 @@ class ControlPlane(Entity):
             self.inband = ControlPlane.ManagementPlaneProtection.Inband()
             self.inband.parent = self
             self._children_name_map["inband"] = "inband"
-
-            self.tpa = ControlPlane.ManagementPlaneProtection.Tpa()
-            self.tpa.parent = self
-            self._children_name_map["tpa"] = "tpa"
             self._segment_path = lambda: "management-plane-protection"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/%s" % self._segment_path()
             self._is_frozen = True
@@ -134,7 +125,7 @@ class ControlPlane(Entity):
             """
 
             _prefix = 'lib-mpp-cfg'
-            _revision = '2017-09-07'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(ControlPlane.ManagementPlaneProtection.Outband, self).__init__()
@@ -180,7 +171,7 @@ class ControlPlane(Entity):
                 """
 
                 _prefix = 'lib-mpp-cfg'
-                _revision = '2017-09-07'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, self).__init__()
@@ -222,7 +213,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, self).__init__()
@@ -300,7 +291,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, self).__init__()
@@ -369,7 +360,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
@@ -416,7 +407,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
@@ -465,7 +456,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -506,7 +497,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -549,7 +540,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -587,7 +578,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -630,7 +621,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -674,7 +665,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -715,7 +706,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -758,7 +749,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -796,7 +787,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -839,7 +830,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -880,7 +871,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
@@ -927,7 +918,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
@@ -976,7 +967,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -1017,7 +1008,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -1060,7 +1051,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -1098,7 +1089,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -1141,7 +1132,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1185,7 +1176,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -1226,7 +1217,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -1269,7 +1260,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -1307,7 +1298,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -1350,7 +1341,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1391,7 +1382,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
@@ -1438,7 +1429,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
@@ -1487,7 +1478,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -1528,7 +1519,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -1571,7 +1562,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -1609,7 +1600,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -1652,7 +1643,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1696,7 +1687,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -1737,7 +1728,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -1780,7 +1771,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -1818,7 +1809,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -1861,7 +1852,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1902,7 +1893,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
@@ -1949,7 +1940,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
@@ -1998,7 +1989,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
@@ -2039,7 +2030,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -2082,7 +2073,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -2120,7 +2111,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -2163,7 +2154,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2207,7 +2198,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
@@ -2248,7 +2239,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -2291,7 +2282,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -2329,7 +2320,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -2372,7 +2363,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2413,7 +2404,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
@@ -2460,7 +2451,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
@@ -2509,7 +2500,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -2550,7 +2541,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -2593,7 +2584,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -2631,7 +2622,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -2674,7 +2665,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2718,7 +2709,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -2759,7 +2750,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -2802,7 +2793,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -2840,7 +2831,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -2883,7 +2874,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2924,7 +2915,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
@@ -2971,7 +2962,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
@@ -3020,7 +3011,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -3061,7 +3052,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -3104,7 +3095,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -3142,7 +3133,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -3185,7 +3176,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3229,7 +3220,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -3270,7 +3261,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -3313,7 +3304,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -3351,7 +3342,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -3394,7 +3385,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3435,7 +3426,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
@@ -3482,7 +3473,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
@@ -3531,7 +3522,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -3572,7 +3563,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -3615,7 +3606,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -3653,7 +3644,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -3696,7 +3687,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3740,7 +3731,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -3781,7 +3772,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -3824,7 +3815,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -3862,7 +3853,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -3905,7 +3896,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3946,7 +3937,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
@@ -3993,7 +3984,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
@@ -4042,7 +4033,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -4083,7 +4074,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -4126,7 +4117,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -4164,7 +4155,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -4207,7 +4198,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4251,7 +4242,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -4292,7 +4283,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -4335,7 +4326,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -4373,7 +4364,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -4416,7 +4407,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4494,7 +4485,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, self).__init__()
@@ -4560,7 +4551,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
@@ -4608,7 +4599,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
@@ -4658,7 +4649,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -4700,7 +4691,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -4744,7 +4735,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -4783,7 +4774,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -4827,7 +4818,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4872,7 +4863,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -4914,7 +4905,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -4958,7 +4949,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -4997,7 +4988,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -5041,7 +5032,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5083,7 +5074,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
@@ -5131,7 +5122,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
@@ -5181,7 +5172,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -5223,7 +5214,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -5267,7 +5258,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -5306,7 +5297,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -5350,7 +5341,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5395,7 +5386,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -5437,7 +5428,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -5481,7 +5472,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -5520,7 +5511,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -5564,7 +5555,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5606,7 +5597,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
@@ -5654,7 +5645,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
@@ -5704,7 +5695,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -5746,7 +5737,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -5790,7 +5781,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -5829,7 +5820,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -5873,7 +5864,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5918,7 +5909,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -5960,7 +5951,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -6004,7 +5995,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -6043,7 +6034,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -6087,7 +6078,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6129,7 +6120,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
@@ -6177,7 +6168,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
@@ -6227,7 +6218,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
@@ -6269,7 +6260,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -6313,7 +6304,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -6352,7 +6343,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -6396,7 +6387,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6441,7 +6432,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
@@ -6483,7 +6474,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -6527,7 +6518,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -6566,7 +6557,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -6610,7 +6601,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6652,7 +6643,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
@@ -6700,7 +6691,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
@@ -6750,7 +6741,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -6792,7 +6783,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -6836,7 +6827,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -6875,7 +6866,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -6919,7 +6910,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6964,7 +6955,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -7006,7 +6997,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -7050,7 +7041,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -7089,7 +7080,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -7133,7 +7124,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7175,7 +7166,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
@@ -7223,7 +7214,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
@@ -7273,7 +7264,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -7315,7 +7306,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -7359,7 +7350,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -7398,7 +7389,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -7442,7 +7433,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7487,7 +7478,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -7529,7 +7520,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -7573,7 +7564,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -7612,7 +7603,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -7656,7 +7647,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7698,7 +7689,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
@@ -7746,7 +7737,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
@@ -7796,7 +7787,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -7838,7 +7829,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -7882,7 +7873,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -7921,7 +7912,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -7965,7 +7956,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8010,7 +8001,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -8052,7 +8043,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -8096,7 +8087,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -8135,7 +8126,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -8179,7 +8170,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8221,7 +8212,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
@@ -8269,7 +8260,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
@@ -8319,7 +8310,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -8361,7 +8352,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -8405,7 +8396,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -8444,7 +8435,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -8488,7 +8479,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8533,7 +8524,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -8575,7 +8566,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -8619,7 +8610,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -8658,7 +8649,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -8702,7 +8693,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8747,7 +8738,7 @@ class ControlPlane(Entity):
             """
 
             _prefix = 'lib-mpp-cfg'
-            _revision = '2017-09-07'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(ControlPlane.ManagementPlaneProtection.Inband, self).__init__()
@@ -8790,7 +8781,7 @@ class ControlPlane(Entity):
                 """
 
                 _prefix = 'lib-mpp-cfg'
-                _revision = '2017-09-07'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, self).__init__()
@@ -8832,7 +8823,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, self).__init__()
@@ -8910,7 +8901,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, self).__init__()
@@ -8979,7 +8970,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
@@ -9026,7 +9017,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
@@ -9075,7 +9066,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -9116,7 +9107,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -9159,7 +9150,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -9197,7 +9188,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -9240,7 +9231,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9284,7 +9275,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -9325,7 +9316,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -9368,7 +9359,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -9406,7 +9397,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -9449,7 +9440,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9490,7 +9481,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
@@ -9537,7 +9528,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
@@ -9586,7 +9577,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -9627,7 +9618,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -9670,7 +9661,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -9708,7 +9699,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -9751,7 +9742,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9795,7 +9786,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -9836,7 +9827,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -9879,7 +9870,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -9917,7 +9908,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -9960,7 +9951,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10001,7 +9992,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
@@ -10048,7 +10039,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
@@ -10097,7 +10088,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -10138,7 +10129,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -10181,7 +10172,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -10219,7 +10210,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -10262,7 +10253,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10306,7 +10297,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -10347,7 +10338,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -10390,7 +10381,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -10428,7 +10419,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -10471,7 +10462,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10512,7 +10503,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
@@ -10559,7 +10550,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
@@ -10608,7 +10599,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
@@ -10649,7 +10640,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -10692,7 +10683,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -10730,7 +10721,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -10773,7 +10764,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10817,7 +10808,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
@@ -10858,7 +10849,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -10901,7 +10892,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -10939,7 +10930,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -10982,7 +10973,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11023,7 +11014,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
@@ -11070,7 +11061,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
@@ -11119,7 +11110,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -11160,7 +11151,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -11203,7 +11194,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -11241,7 +11232,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -11284,7 +11275,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11328,7 +11319,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -11369,7 +11360,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -11412,7 +11403,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -11450,7 +11441,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -11493,7 +11484,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11534,7 +11525,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
@@ -11581,7 +11572,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
@@ -11630,7 +11621,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -11671,7 +11662,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -11714,7 +11705,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -11752,7 +11743,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -11795,7 +11786,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11839,7 +11830,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -11880,7 +11871,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -11923,7 +11914,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -11961,7 +11952,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -12004,7 +11995,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12045,7 +12036,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
@@ -12092,7 +12083,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
@@ -12141,7 +12132,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -12182,7 +12173,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -12225,7 +12216,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -12263,7 +12254,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -12306,7 +12297,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12350,7 +12341,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -12391,7 +12382,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -12434,7 +12425,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -12472,7 +12463,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -12515,7 +12506,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12556,7 +12547,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
@@ -12603,7 +12594,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
@@ -12652,7 +12643,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -12693,7 +12684,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -12736,7 +12727,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -12774,7 +12765,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -12817,7 +12808,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12861,7 +12852,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -12902,7 +12893,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -12945,7 +12936,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -12983,7 +12974,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -13026,7 +13017,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-09-07'
+                                            _revision = '2018-07-23'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13104,7 +13095,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, self).__init__()
@@ -13170,7 +13161,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
@@ -13218,7 +13209,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
@@ -13268,7 +13259,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -13310,7 +13301,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -13354,7 +13345,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -13393,7 +13384,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -13437,7 +13428,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13482,7 +13473,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -13524,7 +13515,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -13568,7 +13559,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -13607,7 +13598,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -13651,7 +13642,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13693,7 +13684,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
@@ -13741,7 +13732,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
@@ -13791,7 +13782,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -13833,7 +13824,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -13877,7 +13868,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -13916,7 +13907,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -13960,7 +13951,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14005,7 +13996,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -14047,7 +14038,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -14091,7 +14082,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -14130,7 +14121,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -14174,7 +14165,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14216,7 +14207,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
@@ -14264,7 +14255,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
@@ -14314,7 +14305,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -14356,7 +14347,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -14400,7 +14391,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -14439,7 +14430,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -14483,7 +14474,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14528,7 +14519,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -14570,7 +14561,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -14614,7 +14605,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -14653,7 +14644,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -14697,7 +14688,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14739,7 +14730,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
@@ -14787,7 +14778,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
@@ -14837,7 +14828,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
@@ -14879,7 +14870,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -14923,7 +14914,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -14962,7 +14953,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -15006,7 +14997,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15051,7 +15042,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
@@ -15093,7 +15084,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -15137,7 +15128,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -15176,7 +15167,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -15220,7 +15211,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15262,7 +15253,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
@@ -15310,7 +15301,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
@@ -15360,7 +15351,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -15402,7 +15393,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -15446,7 +15437,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -15485,7 +15476,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -15529,7 +15520,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15574,7 +15565,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -15616,7 +15607,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -15660,7 +15651,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -15699,7 +15690,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -15743,7 +15734,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15785,7 +15776,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
@@ -15833,7 +15824,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
@@ -15883,7 +15874,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -15925,7 +15916,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -15969,7 +15960,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -16008,7 +15999,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -16052,7 +16043,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16097,7 +16088,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -16139,7 +16130,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -16183,7 +16174,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -16222,7 +16213,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -16266,7 +16257,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16308,7 +16299,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
@@ -16356,7 +16347,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
@@ -16406,7 +16397,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -16448,7 +16439,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -16492,7 +16483,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -16531,7 +16522,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -16575,7 +16566,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16620,7 +16611,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -16662,7 +16653,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -16706,7 +16697,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -16745,7 +16736,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -16789,7 +16780,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16831,7 +16822,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
@@ -16879,7 +16870,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-23'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
@@ -16929,7 +16920,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -16971,7 +16962,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -17015,7 +17006,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -17054,7 +17045,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -17098,7 +17089,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -17143,7 +17134,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2018-07-23'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -17185,7 +17176,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -17229,7 +17220,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -17268,7 +17259,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2018-07-23'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -17312,7 +17303,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-09-07'
+                                        _revision = '2018-07-23'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -17335,449 +17326,6 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
 
-
-
-
-
-
-
-
-
-        class Tpa(Entity):
-            """
-            MPP Third Party Application Configuration
-            Commands
-            
-            .. attribute:: vrfs
-            
-            	VRF configuration
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs>`
-            
-            
-
-            """
-
-            _prefix = 'lib-mpp-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(ControlPlane.ManagementPlaneProtection.Tpa, self).__init__()
-
-                self.yang_name = "tpa"
-                self.yang_parent_name = "management-plane-protection"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("vrfs", ("vrfs", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs))])
-                self._leafs = OrderedDict()
-
-                self.vrfs = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs()
-                self.vrfs.parent = self
-                self._children_name_map["vrfs"] = "vrfs"
-                self._segment_path = lambda: "tpa"
-                self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa, [], name, value)
-
-
-            class Vrfs(Entity):
-                """
-                VRF configuration
-                
-                .. attribute:: vrf
-                
-                	VRF configuration
-                	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf>`
-                
-                
-
-                """
-
-                _prefix = 'lib-mpp-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs, self).__init__()
-
-                    self.yang_name = "vrfs"
-                    self.yang_parent_name = "tpa"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("vrf", ("vrf", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf))])
-                    self._leafs = OrderedDict()
-
-                    self.vrf = YList(self)
-                    self._segment_path = lambda: "vrfs"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs, [], name, value)
-
-
-                class Vrf(Entity):
-                    """
-                    VRF configuration
-                    
-                    .. attribute:: vrf_name  (key)
-                    
-                    	VRF name
-                    	**type**\: str
-                    
-                    	**length:** 1..32
-                    
-                    .. attribute:: address_family
-                    
-                    	Address family
-                    	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf, self).__init__()
-
-                        self.yang_name = "vrf"
-                        self.yang_parent_name = "vrfs"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['vrf_name']
-                        self._child_classes = OrderedDict([("address-family", ("address_family", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily))])
-                        self._leafs = OrderedDict([
-                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                        ])
-                        self.vrf_name = None
-
-                        self.address_family = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily()
-                        self.address_family.parent = self
-                        self._children_name_map["address_family"] = "address-family"
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf, ['vrf_name'], name, value)
-
-
-                    class AddressFamily(Entity):
-                        """
-                        Address family
-                        
-                        .. attribute:: ipv4_table
-                        
-                        	IPv4 configuration
-                        	**type**\:  :py:class:`Ipv4Table <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table>`
-                        
-                        .. attribute:: ipv6_table
-                        
-                        	IPv6 configuration
-                        	**type**\:  :py:class:`Ipv6Table <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-09-07'
-
-                        def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily, self).__init__()
-
-                            self.yang_name = "address-family"
-                            self.yang_parent_name = "vrf"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("ipv4-table", ("ipv4_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table)), ("ipv6-table", ("ipv6_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table))])
-                            self._leafs = OrderedDict()
-
-                            self.ipv4_table = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table()
-                            self.ipv4_table.parent = self
-                            self._children_name_map["ipv4_table"] = "ipv4-table"
-
-                            self.ipv6_table = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table()
-                            self.ipv6_table.parent = self
-                            self._children_name_map["ipv6_table"] = "ipv6-table"
-                            self._segment_path = lambda: "address-family"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily, [], name, value)
-
-
-                        class Ipv4Table(Entity):
-                            """
-                            IPv4 configuration
-                            
-                            .. attribute:: tpa_allow
-                            
-                            	MPP TPA control entries
-                            	**type**\: list of  		 :py:class:`TpaAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table, self).__init__()
-
-                                self.yang_name = "ipv4-table"
-                                self.yang_parent_name = "address-family"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow))])
-                                self._leafs = OrderedDict()
-
-                                self.tpa_allow = YList(self)
-                                self._segment_path = lambda: "ipv4-table"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table, [], name, value)
-
-
-                            class TpaAllow(Entity):
-                                """
-                                MPP TPA control entries
-                                
-                                .. attribute:: local_port  (key)
-                                
-                                	Local port value
-                                	**type**\: int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: protocol  (key)
-                                
-                                	L4 protocol value
-                                	**type**\: int
-                                
-                                	**range:** 1..255
-                                
-                                .. attribute:: interface_name
-                                
-                                	Interface name for allow command, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: remote_address
-                                
-                                	IPv4/6 remote\-address prefix to match, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: remote_address_prefix
-                                
-                                	IPv4/6 remote\-address prefix length
-                                	**type**\: int
-                                
-                                	**range:** 0..128
-                                
-                                .. attribute:: local_address
-                                
-                                	IPv4/6 local\-address prefix to match, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: local_address_prefix
-                                
-                                	IPv4/6 local\-address prefix length
-                                	**type**\: int
-                                
-                                	**range:** 0..128
-                                
-                                
-
-                                """
-
-                                _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow, self).__init__()
-
-                                    self.yang_name = "tpa-allow"
-                                    self.yang_parent_name = "ipv4-table"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['local_port','protocol']
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
-                                        ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
-                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                                        ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
-                                        ('remote_address_prefix', (YLeaf(YType.uint32, 'remote-address-prefix'), ['int'])),
-                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
-                                        ('local_address_prefix', (YLeaf(YType.uint32, 'local-address-prefix'), ['int'])),
-                                    ])
-                                    self.local_port = None
-                                    self.protocol = None
-                                    self.interface_name = None
-                                    self.remote_address = None
-                                    self.remote_address_prefix = None
-                                    self.local_address = None
-                                    self.local_address_prefix = None
-                                    self._segment_path = lambda: "tpa-allow" + "[local-port='" + str(self.local_port) + "']" + "[protocol='" + str(self.protocol) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)
-
-
-
-
-                        class Ipv6Table(Entity):
-                            """
-                            IPv6 configuration
-                            
-                            .. attribute:: tpa_allow
-                            
-                            	MPP TPA control entries
-                            	**type**\: list of  		 :py:class:`TpaAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table, self).__init__()
-
-                                self.yang_name = "ipv6-table"
-                                self.yang_parent_name = "address-family"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow))])
-                                self._leafs = OrderedDict()
-
-                                self.tpa_allow = YList(self)
-                                self._segment_path = lambda: "ipv6-table"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table, [], name, value)
-
-
-                            class TpaAllow(Entity):
-                                """
-                                MPP TPA control entries
-                                
-                                .. attribute:: local_port  (key)
-                                
-                                	Local port value
-                                	**type**\: int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: protocol  (key)
-                                
-                                	L4 protocol value
-                                	**type**\: int
-                                
-                                	**range:** 1..255
-                                
-                                .. attribute:: interface_name
-                                
-                                	Interface name for allow command, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: remote_address
-                                
-                                	IPv4/6 remote\-address prefix to match, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: remote_address_prefix
-                                
-                                	IPv4/6 remote\-address prefix length
-                                	**type**\: int
-                                
-                                	**range:** 0..128
-                                
-                                .. attribute:: local_address
-                                
-                                	IPv4/6 local\-address prefix to match, or 'any'
-                                	**type**\: str
-                                
-                                	**length:** 1..32
-                                
-                                	**mandatory**\: True
-                                
-                                .. attribute:: local_address_prefix
-                                
-                                	IPv4/6 local\-address prefix length
-                                	**type**\: int
-                                
-                                	**range:** 0..128
-                                
-                                
-
-                                """
-
-                                _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow, self).__init__()
-
-                                    self.yang_name = "tpa-allow"
-                                    self.yang_parent_name = "ipv6-table"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['local_port','protocol']
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
-                                        ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
-                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                                        ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
-                                        ('remote_address_prefix', (YLeaf(YType.uint32, 'remote-address-prefix'), ['int'])),
-                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
-                                        ('local_address_prefix', (YLeaf(YType.uint32, 'local-address-prefix'), ['int'])),
-                                    ])
-                                    self.local_port = None
-                                    self.protocol = None
-                                    self.interface_name = None
-                                    self.remote_address = None
-                                    self.remote_address_prefix = None
-                                    self.local_address = None
-                                    self.local_address_prefix = None
-                                    self._segment_path = lambda: "tpa-allow" + "[local-port='" + str(self.local_port) + "']" + "[protocol='" + str(self.protocol) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)
 
 
 

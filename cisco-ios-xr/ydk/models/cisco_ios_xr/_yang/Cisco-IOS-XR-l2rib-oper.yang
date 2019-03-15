@@ -30,7 +30,7 @@ module Cisco-IOS-XR-l2rib-oper {
      
      This module contains definitions
      for the following management objects:
-       l2rib: L2RIB operational information 
+       l2rib: L2RIB operational information
      
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
@@ -146,11 +146,6 @@ module Cisco-IOS-XR-l2rib-oper {
             description
               "EVPN ID";
           }
-          leaf tag-id {
-            type uint32;
-            description
-              "Tag ID";
-          }
           leaf mac-addr {
             type yang:mac-address;
             description
@@ -160,11 +155,6 @@ module Cisco-IOS-XR-l2rib-oper {
             type inet:ip-address-no-zone;
             description
               "IP Address";
-          }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
           }
           leaf prod-id {
             type uint32;
@@ -185,11 +175,6 @@ module Cisco-IOS-XR-l2rib-oper {
             description
               "EVPN ID";
           }
-          leaf tag-id {
-            type uint32;
-            description
-              "Tag ID";
-          }
           leaf mac-addr {
             type yang:mac-address;
             description
@@ -199,11 +184,6 @@ module Cisco-IOS-XR-l2rib-oper {
             type inet:ip-address-no-zone;
             description
               "IP Address";
-          }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
           }
           leaf prod-id {
             type uint32;
@@ -224,20 +204,10 @@ module Cisco-IOS-XR-l2rib-oper {
             description
               "EVPN ID";
           }
-          leaf tag-id {
-            type uint32;
-            description
-              "Tag ID";
-          }
           leaf mac-addr {
             type yang:mac-address;
             description
               "MAC Address";
-          }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
           }
           leaf prod-id {
             type uint32;
@@ -292,20 +262,10 @@ module Cisco-IOS-XR-l2rib-oper {
             description
               "EVPN ID";
           }
-          leaf tag-id {
-            type uint32;
-            description
-              "Tag ID";
-          }
           leaf mac-addr {
             type yang:mac-address;
             description
               "MAC Address";
-          }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
           }
           leaf prod-id {
             type uint32;

@@ -52,10 +52,10 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
         description
           "Stream available";
       }
-      enum "stream-available-acquiring" {
+      enum "stream-acquiring" {
         value 3;
         description
-          "Stream available acquiring";
+          "Stream acquiring";
       }
       enum "stream-locked" {
         value 4;
@@ -1665,6 +1665,15 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
         "Clock ID";
       uses FSYNC-BAG-CLOCK-ID;
     }
+    container internal-clock-id {
+      when "../source-class = 'internal-clock-source'" {
+        description
+          "../SourceClass = 'InternalClockSource'";
+      }
+      description
+        "Internal Clock ID";
+      uses FSYNC-BAG-CLOCK-ID;
+    }
     container gnss-receiver-id {
       when "../source-class = 'gnss-receiver'" {
         description
@@ -1696,15 +1705,6 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       type xr:Interface-name;
       description
         "SONET interfaces";
-    }
-    leaf node {
-      when "../source-class = 'internal-clock-source'" {
-        description
-          "../SourceClass = 'InternalClockSource'";
-      }
-      type xr:Node-id;
-      description
-        "Internal Clock Node";
     }
     leaf ptp-node {
       when "../source-class = 'ptp-source'" {

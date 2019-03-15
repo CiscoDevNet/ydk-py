@@ -8696,12 +8696,12 @@ class Ospfv3(Entity):
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: bool
                             
-                            .. attribute:: preserve_med_info
+                            .. attribute:: bgp_preserve_default_info
                             
-                            	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Preserve Metric and Metric Type ofBGP Default Route
+                            	**type**\: bool
                             
                             .. attribute:: use_rib_metric
                             
@@ -8738,8 +8738,8 @@ class Ospfv3(Entity):
                                     ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                     ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                     ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                    ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                    ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                    ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                    ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                     ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                 ])
                                 self.internal_route_type = None
@@ -8753,13 +8753,13 @@ class Ospfv3(Entity):
                                 self.isis_route_type = None
                                 self.eigrp_route_type = None
                                 self.preserve_med = None
-                                self.preserve_med_info = None
+                                self.bgp_preserve_default_info = None
                                 self.use_rib_metric = None
                                 self._segment_path = lambda: "connected-or-static-or-subscriber-or-mobile"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -8838,12 +8838,12 @@ class Ospfv3(Entity):
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: bool
                             
-                            .. attribute:: preserve_med_info
+                            .. attribute:: bgp_preserve_default_info
                             
-                            	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Preserve Metric and Metric Type ofBGP Default Route
+                            	**type**\: bool
                             
                             .. attribute:: use_rib_metric
                             
@@ -8879,8 +8879,8 @@ class Ospfv3(Entity):
                                     ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                     ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                     ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                    ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                    ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                    ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                    ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                     ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                 ])
                                 self.as_xx = None
@@ -8896,13 +8896,13 @@ class Ospfv3(Entity):
                                 self.isis_route_type = None
                                 self.eigrp_route_type = None
                                 self.preserve_med = None
-                                self.preserve_med_info = None
+                                self.bgp_preserve_default_info = None
                                 self.use_rib_metric = None
                                 self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -8974,12 +8974,12 @@ class Ospfv3(Entity):
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: bool
                             
-                            .. attribute:: preserve_med_info
+                            .. attribute:: bgp_preserve_default_info
                             
-                            	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Preserve Metric and Metric Type ofBGP Default Route
+                            	**type**\: bool
                             
                             .. attribute:: use_rib_metric
                             
@@ -9014,8 +9014,8 @@ class Ospfv3(Entity):
                                     ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                     ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                     ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                    ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                    ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                    ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                    ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                     ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                 ])
                                 self.process_name = None
@@ -9030,13 +9030,13 @@ class Ospfv3(Entity):
                                 self.isis_route_type = None
                                 self.eigrp_route_type = None
                                 self.preserve_med = None
-                                self.preserve_med_info = None
+                                self.bgp_preserve_default_info = None
                                 self.use_rib_metric = None
                                 self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + str(self.process_name) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -9108,12 +9108,12 @@ class Ospfv3(Entity):
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: bool
                             
-                            .. attribute:: preserve_med_info
+                            .. attribute:: bgp_preserve_default_info
                             
-                            	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Preserve Metric and Metric Type ofBGP Default Route
+                            	**type**\: bool
                             
                             .. attribute:: use_rib_metric
                             
@@ -9148,8 +9148,8 @@ class Ospfv3(Entity):
                                     ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                     ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                     ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                    ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                    ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                    ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                    ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                     ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                 ])
                                 self.as_xx = None
@@ -9164,13 +9164,13 @@ class Ospfv3(Entity):
                                 self.isis_route_type = None
                                 self.eigrp_route_type = None
                                 self.preserve_med = None
-                                self.preserve_med_info = None
+                                self.bgp_preserve_default_info = None
                                 self.use_rib_metric = None
                                 self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -19199,12 +19199,12 @@ class Ospfv3(Entity):
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: bool
                                 
-                                .. attribute:: preserve_med_info
+                                .. attribute:: bgp_preserve_default_info
                                 
-                                	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Preserve Metric and Metric Type ofBGP Default Route
+                                	**type**\: bool
                                 
                                 .. attribute:: use_rib_metric
                                 
@@ -19241,8 +19241,8 @@ class Ospfv3(Entity):
                                         ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                         ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                         ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                        ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                        ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                        ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                        ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                         ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                     ])
                                     self.internal_route_type = None
@@ -19256,13 +19256,13 @@ class Ospfv3(Entity):
                                     self.isis_route_type = None
                                     self.eigrp_route_type = None
                                     self.preserve_med = None
-                                    self.preserve_med_info = None
+                                    self.bgp_preserve_default_info = None
                                     self.use_rib_metric = None
                                     self._segment_path = lambda: "connected-or-static-or-subscriber-or-mobile"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -19341,12 +19341,12 @@ class Ospfv3(Entity):
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: bool
                                 
-                                .. attribute:: preserve_med_info
+                                .. attribute:: bgp_preserve_default_info
                                 
-                                	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Preserve Metric and Metric Type ofBGP Default Route
+                                	**type**\: bool
                                 
                                 .. attribute:: use_rib_metric
                                 
@@ -19382,8 +19382,8 @@ class Ospfv3(Entity):
                                         ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                         ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                         ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                        ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                        ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                        ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                        ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                         ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                     ])
                                     self.as_xx = None
@@ -19399,13 +19399,13 @@ class Ospfv3(Entity):
                                     self.isis_route_type = None
                                     self.eigrp_route_type = None
                                     self.preserve_med = None
-                                    self.preserve_med_info = None
+                                    self.bgp_preserve_default_info = None
                                     self.use_rib_metric = None
                                     self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -19477,12 +19477,12 @@ class Ospfv3(Entity):
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: bool
                                 
-                                .. attribute:: preserve_med_info
+                                .. attribute:: bgp_preserve_default_info
                                 
-                                	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Preserve Metric and Metric Type ofBGP Default Route
+                                	**type**\: bool
                                 
                                 .. attribute:: use_rib_metric
                                 
@@ -19517,8 +19517,8 @@ class Ospfv3(Entity):
                                         ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                         ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                         ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                        ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                        ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                        ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                        ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                         ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                     ])
                                     self.process_name = None
@@ -19533,13 +19533,13 @@ class Ospfv3(Entity):
                                     self.isis_route_type = None
                                     self.eigrp_route_type = None
                                     self.preserve_med = None
-                                    self.preserve_med_info = None
+                                    self.bgp_preserve_default_info = None
                                     self.use_rib_metric = None
                                     self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + str(self.process_name) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
@@ -19611,12 +19611,12 @@ class Ospfv3(Entity):
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: bool
                                 
-                                .. attribute:: preserve_med_info
+                                .. attribute:: bgp_preserve_default_info
                                 
-                                	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Preserve Metric and Metric Type ofBGP Default Route
+                                	**type**\: bool
                                 
                                 .. attribute:: use_rib_metric
                                 
@@ -19651,8 +19651,8 @@ class Ospfv3(Entity):
                                         ('redistribute_route', (YLeaf(YType.boolean, 'redistribute-route'), ['bool'])),
                                         ('isis_route_type', (YLeaf(YType.enumeration, 'isis-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute', '')])),
                                         ('eigrp_route_type', (YLeaf(YType.enumeration, 'eigrp-route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute', '')])),
-                                        ('preserve_med', (YLeaf(YType.empty, 'preserve-med'), ['Empty'])),
-                                        ('preserve_med_info', (YLeaf(YType.empty, 'preserve-med-info'), ['Empty'])),
+                                        ('preserve_med', (YLeaf(YType.boolean, 'preserve-med'), ['bool'])),
+                                        ('bgp_preserve_default_info', (YLeaf(YType.boolean, 'bgp-preserve-default-info'), ['bool'])),
                                         ('use_rib_metric', (YLeaf(YType.boolean, 'use-rib-metric'), ['bool'])),
                                     ])
                                     self.as_xx = None
@@ -19667,13 +19667,13 @@ class Ospfv3(Entity):
                                     self.isis_route_type = None
                                     self.eigrp_route_type = None
                                     self.preserve_med = None
-                                    self.preserve_med_info = None
+                                    self.bgp_preserve_default_info = None
                                     self.use_rib_metric = None
                                     self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
 
 
