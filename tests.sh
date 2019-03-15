@@ -83,6 +83,21 @@ MSG_COLOR=$YELLOW
 
 test_python_installation
 
+os_type=$(uname)
+if [[ ${os_type} == "Linux" ]] ; then
+    os_info=$(cat /etc/*-release)
+else
+    os_info=$(sw_vers)
+fi
+print_msg "Running OS type: $os_type"
+print_msg "OS info: $os_info"
+
+YDK_HOME=`pwd`
+if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* ]] ; then
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$YDK_HOME/grpc/libs/opt:$YDK_HOME/protobuf-3.5.0/src/.libs:/usr/local/lib64
+   print_msg "LD_LIBRARY_PATH is set to: $LD_LIBRARY_PATH"
+fi
+
 print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
