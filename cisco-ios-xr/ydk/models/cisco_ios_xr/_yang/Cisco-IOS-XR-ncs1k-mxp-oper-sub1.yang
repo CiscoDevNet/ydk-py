@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-20 {
+    description
+      "Modify the existing variable name.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -192,10 +196,10 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
       description
         "TrunkRate";
     }
-    leaf hardware-status {
+    leaf status {
       type Hw-module-slice-status;
       description
-        "HardwareStatus";
+        "Status";
     }
     leaf dp-fpga-fw-type {
       type string {

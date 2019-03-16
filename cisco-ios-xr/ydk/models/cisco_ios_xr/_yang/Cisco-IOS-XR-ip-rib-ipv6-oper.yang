@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2019-01-11;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-01-11 {
+    description
+      "Route lookup key is limited to Prefix and Prefix Length";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -83,6 +87,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                         description
                           "Quarantine";
                         list dest-q-route {
+                          key "address prefix-length";
                           description
                             "Route information of a specific Backup
                              Address ";
@@ -103,6 +108,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                         description
                           "Backup";
                         list dest-backup-route {
+                          key "address prefix-length";
                           description
                             "Route information of a specific Backup
                              Address ";
@@ -156,6 +162,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                       description
                         "Route advertiser information ";
                       list advert {
+                        key "address prefix-length";
                         description
                           "Route information of a specific Network
                            Address ";
@@ -176,6 +183,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                       description
                         "Deleted";
                       list deleted-route {
+                        key "address prefix-length";
                         description
                           "Route information for a specific
                            deleted address ";
@@ -269,6 +277,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                       description
                         "Route information ";
                       list route {
+                        key "address prefix-length";
                         description
                           "Route information of a specific Network
                            Address ";
@@ -282,16 +291,6 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                           description
                             "Prefix Length ";
                         }
-                        leaf next-hop-address {
-                          type inet:ipv6-address-no-zone;
-                          description
-                            "NextHop Address ";
-                        }
-                        leaf interface-name {
-                          type xr:Interface-name;
-                          description
-                            "Outgoing Interface ";
-                        }
                         uses IPV6-RIB-EDM-ROUTE;
                       }
                     }
@@ -299,6 +298,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                       description
                         "Quarantine";
                       list q-route {
+                        key "address prefix-length";
                         description
                           "Route information for a specific
                            quarantined address ";
@@ -320,6 +320,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
                         "Backup route information for the given
                          table";
                       list backup-route {
+                        key "address prefix-length protoid";
                         description
                           "Route information for a specific backup
                            address ";
@@ -483,6 +484,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
       description
         "Protocol specific Route";
       list protocol-route {
+        key "address prefix-length";
         description
           "Route information of a specific Network Address";
         leaf address {

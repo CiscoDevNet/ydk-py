@@ -26,6 +26,11 @@ module Cisco-IOS-XR-spirit-install-act {
      Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
   
+    revision "2018-09-10" {
+        description
+            "Added output container with op-id and Error as leaf node";
+    }
+
     revision "2017-10-23" {
         description
             "Yang support for all install action cli's";
@@ -48,6 +53,16 @@ module Cisco-IOS-XR-spirit-install-act {
                 max-elements 31;
             }
         }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
+        }
     }
 
    rpc install-commit {
@@ -56,6 +71,16 @@ module Cisco-IOS-XR-spirit-install-act {
             leaf sdr {
                description "commit packages in the system";
                type empty;
+            }
+        }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
             }
         }
    }
@@ -85,6 +110,16 @@ module Cisco-IOS-XR-spirit-install-act {
                type empty;
            }
 
+        }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
         }
    }
 
@@ -117,6 +152,16 @@ module Cisco-IOS-XR-spirit-install-act {
                  max-elements 32;
                }
            }
+        }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
         }
    }
 
@@ -267,6 +312,16 @@ module Cisco-IOS-XR-spirit-install-act {
                type empty;
            }
         }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
+        }
    }
 
    rpc install-deactivate {
@@ -300,6 +355,16 @@ module Cisco-IOS-XR-spirit-install-act {
                type empty;
            }
         }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
+        }
    }
 
    rpc install-extract {
@@ -312,6 +377,16 @@ module Cisco-IOS-XR-spirit-install-act {
                }
            }
         }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
+        }
    }
 
    rpc install-verify {
@@ -320,6 +395,16 @@ module Cisco-IOS-XR-spirit-install-act {
             leaf-list location {
                type string;
                max-elements 32;
+            }
+        }
+        output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
             }
         }
    }
@@ -435,6 +520,16 @@ module Cisco-IOS-XR-spirit-install-act {
                }
            }
            
+       }
+       output {
+            leaf op-id {
+                description "operation id of the triggered action";
+                type string; 
+            }
+            leaf Error {
+                description "case when op-id is not triggered";
+                type string;
+            }
        }
    }
 }

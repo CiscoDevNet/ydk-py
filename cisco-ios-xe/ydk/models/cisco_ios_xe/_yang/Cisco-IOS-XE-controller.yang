@@ -37,6 +37,14 @@ module Cisco-IOS-XE-controller {
     description
       "Add tailf:cli-remove-before-change for channel group timeslots";
   }
+  revision 2018-03-28 {
+    description 
+      "Add configs for VDSL controller";
+  }
+  revision 2018-03-06 {
+    description
+      "Add model for VDSL controller";
+  }
   revision 2018-02-21 {
     description
       "Add options for lte modem and lte event";

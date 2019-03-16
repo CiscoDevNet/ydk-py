@@ -1,9 +1,15 @@
 """ Cisco_IOS_XR_sysadmin_entity_sensor_mib 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Copyright(c) 2015\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """

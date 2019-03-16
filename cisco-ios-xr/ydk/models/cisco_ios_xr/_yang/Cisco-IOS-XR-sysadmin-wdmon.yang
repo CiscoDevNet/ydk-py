@@ -1,10 +1,6 @@
 module Cisco-IOS-XR-sysadmin-wdmon {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-wdmon";
   prefix wdmonh;
-
-  import tailf-common {
-    prefix tailf;
-  }
   import tailf-xsd-types {
     prefix xs;
   }
@@ -12,56 +8,40 @@ module Cisco-IOS-XR-sysadmin-wdmon {
     prefix show_trace;
   }
 
+  organization "Cisco Systems, Inc.";
+
+  contact
+    "Cisco Systems, Inc.
+     Customer Service
+
+     Postal: 170 West Tasman Drive
+     San Jose, CA 95134
+
+     Tel: +1 800 553-NETS
+
+     E-mail: cs-yang@cisco.com";
+
+  description 
+    "This module contains definitions
+     for the Calvados model objects.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
-  tailf:id "http://cisco.com/calvados/wdmon";
 
   container wdmon {
     config false;
-    tailf:cli-incomplete-show-path;
     uses show_trace:traceable;
   }
   container wdmon-info {
     config false;
-    tailf:callpoint "wdmon_info_show_location";
-    tailf:hidden "internal-command";
     list all-locations {
       key "location";
-      tailf:cli-drop-node-name;
-      tailf:cli-show-template
-        "----------------------------------------------------------------------
-         node\\\\:      $(location)
-         ----------------------------------------------------------------------
-                                  Start Time\\\\: $(start-timestamp)
-                            Hushd connection\\\\: $(hushd-capi-up|dict:true=Up:false=Down)
-          Hushd last connection Up timestamp\\\\: $(hushd-capi-up-timestamp)
-                      Hushd pending response\\\\: $(hushd-pending-resp|dict:true=Y:false=N)
-                      Hushd last HB response\\\\: $(hushd-last-hb-resp|floatformat:-3) sec ago
-           wdmon/Calv/Hushd liveness timeout\\\\: $(hushd-timeout|floatformat:-3) sec
-                 Calvados restart WD timeout\\\\: $(calv-restart-timeout) sec
-                Hushd watchdog expire action\\\\: $(hushd-wd-action-disable|dict:true=Disabled:false=Enabled)
-                 Hushd last action timestamp\\\\: $(hushd-wd-action-timestamp)
-             Wdmon stopped punching Hushd HB\\\\: $(hushd-stop-punching|dict:true=Y:false=N)
-                       Num of Hushd connects\\\\: $(hushd-num-capi-connects)
-                     Wdmon client connection\\\\: $(wds-client-up|dict:true=Up:false=Down)
-              Wdmon last client Up timestamp\\\\: $(wds-client-up-timestamp)
-                            Wdmon client PID\\\\: $(wds-client-pid)
-                        Wdmon client last HB\\\\: $(wds-client-last-hb|floatformat:-3) sec ago
-             Status reported by wdmon client\\\\: $(wds-client-reported-status)
-                Num of wdmon client connects\\\\: $(wds-client-num-connects)
-                 Wdmon client timeout action\\\\: $(wds-action-disable|dict:true=Disabled:false=Enabled)
-          Wdmon client last action timestamp\\\\: $(wds-action-timestamp)
-            Wdmon client num restart timeout\\\\: $(wds-num-restart-timeout)
-           Wdmon client num liveness timeout\\\\: $(wds-num-liveness-timeout)
-                Wdmon client restart timeout\\\\: $(wds-restart-timeout) sec
-               Wdmon client liveness timeout\\\\: $(wds-liveness-timeout) sec
-        ";
       leaf location {
         type string;
-        tailf:cli-allow-range;
-        tailf:cli-expose-key-name;
       }
       leaf start-timestamp {
         type string;

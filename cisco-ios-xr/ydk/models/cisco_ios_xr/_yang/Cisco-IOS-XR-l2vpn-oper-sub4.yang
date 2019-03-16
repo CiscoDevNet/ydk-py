@@ -4863,7 +4863,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
           "../DataType != 'MGMT_L2FIB_DATA_TYPE_AC' and .
            ./DataType != 'MGMT_L2FIB_DATA_TYPE_PBB' and .
            ./DataType != 'MGMT_L2FIB_DATA_TYPE_VNI' and .
-           ./DataType != 'MGMT_L2FIB_DATA_TYPE_EVPN' and 
+           ./DataType != 'MGMT_L2FIB_DATA_TYPE_EVPN' and
            ../DataType != 'MGMT_L2FIB_DATA_TYPE_SPAN'";
       }
       description

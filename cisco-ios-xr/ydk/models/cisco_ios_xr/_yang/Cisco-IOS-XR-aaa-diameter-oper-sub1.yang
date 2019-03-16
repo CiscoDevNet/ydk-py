@@ -1103,6 +1103,11 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
       description
         "Transaction timer in seconds";
     }
+    leaf peer-num {
+      type uint32;
+      description
+        "Total no.of peers";
+    }
     leaf trans-total {
       type uint32;
       description

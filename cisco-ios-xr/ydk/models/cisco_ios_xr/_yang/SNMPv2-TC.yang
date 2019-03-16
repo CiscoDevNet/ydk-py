@@ -1,6 +1,7 @@
 module SNMPv2-TC {
   namespace "http://tail-f.com/ns/mibs/SNMPv2-TC/1.0";
   prefix SNMPv2_TC;
+
   import ietf-yang-types {
     prefix yang;
   }
@@ -11,30 +12,10 @@ module SNMPv2-TC {
     prefix smiv2;
   }
 
-  organization "Cisco Systems, Inc.";
-
-  contact
-    "Cisco Systems, Inc.
-     Customer Service
-
-     Postal: 170 West Tasman Drive
-     San Jose, CA 95134
-
-     Tel: +1 800 553-NETS
-
-     E-mail: cs-yang@cisco.com";
-
-  description 
-    "This module contains definitions
-     for the Calvados model objects.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
   revision 2016-08-18 {
     description
       "Initial revision";
   }
-
 
   typedef DisplayString {
     type string {
@@ -51,6 +32,7 @@ module SNMPv2-TC {
   typedef MacAddress {
     type tailf:hex-list {
       pattern "(((([0-9A-Fa-f]{2}):){5,5})([0-9A-Fa-f]{2}))";
+      tailf:value-length "6";
     }
   }
 
@@ -123,8 +105,8 @@ module SNMPv2-TC {
   }
 
   typedef DateAndTime {
-    smiv2:display-hint "2d-1d-1d,1d:1d:1d.1d,1a1d:1d";
     type string;
+    smiv2:display-hint "2d-1d-1d,1d:1d:1d.1d,1a1d:1d";
   }
 
   typedef StorageType {
@@ -153,6 +135,9 @@ module SNMPv2-TC {
 
   typedef TAddress {
     type tailf:octet-list {
+      tailf:value-length "1 .. 255";
     }
   }
+  tailf:id "";
+  tailf:snmp-mib-module-name "SNMPv2-TC";
 }

@@ -603,7 +603,7 @@ class Sla(Entity):
                         
                         .. attribute:: probe_interval_day
                         
-                        	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
+                        	Day of week on which to schedule probes. This must be specified if, and only if, ProbeIntervalUnit is 'Week'
                         	**type**\:  :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
                         
                         .. attribute:: probe_interval_unit
@@ -697,7 +697,7 @@ class Sla(Entity):
                         
                         .. attribute:: send
                         
-                        	Schedule to use for packets within a burst.  The default value is to send a single packet once
+                        	Schedule to use for packets within a burst. The default value is to send a single packet once
                         	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
                         
                         	**presence node**\: True
@@ -760,7 +760,7 @@ class Sla(Entity):
 
                         class Send(Entity):
                             """
-                            Schedule to use for packets within a burst. 
+                            Schedule to use for packets within a burst.
                             The default value is to send a single packet
                             once.
                             

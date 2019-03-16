@@ -39,6 +39,10 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-16 {
+    description
+      "Fixed yang gap";
+  }
   revision 2017-11-13 {
     description
       "Fixed yang gap";
@@ -296,6 +300,20 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
                   type Aaa-diameter-attr;
                   description
                     "Dataypte of attribute";
+                }
+                leaf type-ulonglong {
+                  type uint32 {
+                    range "0..4294967295";
+                  }
+                  description
+                    "Numeric type";
+                }
+                leaf type-utc {
+                  type uint32 {
+                    range "0..4294967295";
+                  }
+                  description
+                    "Numeric type";
                 }
                 leaf mandatory {
                   type uint32 {

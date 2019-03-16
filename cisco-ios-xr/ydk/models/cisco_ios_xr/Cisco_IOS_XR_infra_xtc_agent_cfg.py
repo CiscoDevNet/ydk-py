@@ -110,6 +110,21 @@ class XtcBindingSid(Enum):
     mpls_label_any = Enum.YLeaf(2, "mpls-label-any")
 
 
+class XtcBindingSidDynamicRule(Enum):
+    """
+    XtcBindingSidDynamicRule (Enum Class)
+
+    Xtc binding sid dynamic rule
+
+    .. data:: disable = 1
+
+    	Disable dynamic binding SID allocation
+
+    """
+
+    disable = Enum.YLeaf(1, "disable")
+
+
 class XtcBindingSidexplicitRule(Enum):
     """
     XtcBindingSidexplicitRule (Enum Class)
@@ -199,7 +214,11 @@ class XtcMetric(Enum):
 
     	TE metric type
 
-    .. data:: latency = 3
+    .. data:: hopcount = 3
+
+    	Hopcount metric type
+
+    .. data:: latency = 12
 
     	Latency metric type
 
@@ -209,7 +228,9 @@ class XtcMetric(Enum):
 
     te = Enum.YLeaf(2, "te")
 
-    latency = Enum.YLeaf(3, "latency")
+    hopcount = Enum.YLeaf(3, "hopcount")
+
+    latency = Enum.YLeaf(12, "latency")
 
 
 class XtcMetricValue(Enum):

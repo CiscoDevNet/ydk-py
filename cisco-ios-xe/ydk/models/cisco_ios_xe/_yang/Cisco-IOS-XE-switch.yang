@@ -551,6 +551,9 @@ module Cisco-IOS-XE-switch {
         description
           "Security related command";
         presence "true";
+	must "../mode/access or ../mode/trunk" {
+	  error-message "mode access/trunk has to be configured 1st, vice versa for delete";
+	}
         container aging {
           description
             "Port-security aging commands";

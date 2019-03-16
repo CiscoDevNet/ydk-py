@@ -41,6 +41,10 @@ module Cisco-IOS-XE-device-tracking {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-29 {
+    description
+      "Add device-tracking tracking reachable-lifetime";
+  }
   revision 2017-06-07 {
     description
       "Add device-tracking tracking support";

@@ -28,12 +28,22 @@ submodule Cisco-IOS-XE-ipv6 {
 
   description
     "Cisco XE Native IPv6 Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2019 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-08-31{
+      description
+          "Added model for ipv6 route static *";
+  }
+
+  revision 2018-07-19{
+    description
+        "Removed tag option under ipv6 route * multicast";
+  }
+
   revision 2018-06-28{
     description
         "Added must constraints for deleting vrf";
@@ -78,6 +88,7 @@ submodule Cisco-IOS-XE-ipv6 {
       description
         "Tag value";
       type uint32;
+      when not(../multicast);
     }
     leaf track {
       description
@@ -90,8 +101,8 @@ submodule Cisco-IOS-XE-ipv6 {
       type string;
     }
   }
-
-  grouping ipv6-route-grouping {
+  
+grouping ipv6-route-grouping {
     list ipv6-route-list {
       key "prefix";
       leaf prefix {
@@ -122,6 +133,60 @@ submodule Cisco-IOS-XE-ipv6 {
       }
     }
   }
+
+grouping ipv6-route-grouping-min-elements {
+    list ipv6-route-list {
+      key "prefix";
+      min-elements 1;
+      leaf prefix {
+        type ios-types:ipv6-prefix;
+      }
+      list ipv6-fwd-list {
+        key fwd;
+        leaf fwd {
+          type union {
+             type enumeration {
+                 enum "Null0" {
+                 }
+             }
+             type inet:ipv6-address;
+             type string;
+           }
+        }
+        list interface-next-hop {
+          description
+            "IPv6 address of next-hop";
+          key ipv6-address;
+          leaf ipv6-address {
+            type inet:ipv6-address;
+          }
+          uses ipv6-route-options-grouping;
+        }
+        uses ipv6-route-options-grouping;
+      }
+    }
+  }
+
+grouping ipv6-bfd-unassociate-grouping {
+  leaf interface {
+    type union {
+      type enumeration {
+        enum "Null0" {
+        }
+      }
+      type string;
+    }
+  }
+  leaf ipv6 {
+    description "IPv6 address of BFD neighbor";
+    type inet:ipv6-address;
+  }
+  leaf unassociate {
+    description "Unassociated Neighbor";
+    when "../ipv6";
+    type empty;
+  }
+}
 
   /////////////////////////////////////////////////////////
   // native / ipv6
@@ -267,9 +332,42 @@ submodule Cisco-IOS-XE-ipv6 {
             }
             type string;
           }
-          uses ipv6-route-grouping;
+          uses ipv6-route-grouping-min-elements;
         }
-      }
+        container static {
+          description "Configure static route attributes";
+          // ip route static bfd *
+          container bfd {
+            description "Configure a Static Route BFD neighbor";
+            list iface_name {
+              key "interface ipv6";
+              uses ipv6-bfd-unassociate-grouping;
+            } 
+            list vrf {
+              description "IPv6 Routing table";
+              key "name interface ipv6";
+              leaf name {
+                must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and 
+                       /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6) or 
+                       /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+                  error-message "IPv6 routing table vrf does not exist";
+                }
+                type string;
+              }
+              uses ipv6-bfd-unassociate-grouping;
+            }           
+          }
+          // ip route static resolve * 
+          container resolve {
+            description "Configure static route resolution";
+            leaf default {
+              description "Static route resolution via default";
+                type empty;
+              }
+            }
+          }
+        }
+
 
       /////////////////////////////////////////////////////////
       // native / ipv6 / router

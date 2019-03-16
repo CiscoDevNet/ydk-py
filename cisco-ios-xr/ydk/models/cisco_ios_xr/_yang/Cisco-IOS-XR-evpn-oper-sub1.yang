@@ -1888,6 +1888,16 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "EVI is connected to multicast source";
     }
+    leaf bgp-implicit-import-disabled {
+      type boolean;
+      description
+        "BGP implicit import is disabled";
+    }
+    leaf vrf-name {
+      type string;
+      description
+        "L3 VRF name from BVI";
+    }
   }
 
   grouping L2VPN-EVPN-SUMMARY {

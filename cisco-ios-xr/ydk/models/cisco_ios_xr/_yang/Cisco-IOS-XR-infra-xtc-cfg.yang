@@ -32,6 +32,10 @@ module Cisco-IOS-XR-infra-xtc-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-25 {
+    description
+      "Removed incorrect mandatory specifications.";
+  }
   revision 2018-07-02 {
     description
       "Removed mandatory specification from Netconf SSH username/password";
@@ -176,6 +180,16 @@ module Cisco-IOS-XR-infra-xtc-cfg {
         value 2;
         description
           "TE metric type";
+      }
+      enum "hopcount" {
+        value 3;
+        description
+          "Hopcount metric type";
+      }
+      enum "latency" {
+        value 12;
+        description
+          "Latency metric type";
       }
     }
     description
@@ -403,7 +417,6 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       }
     }
     container rest {
-      presence "Indicates a rest node is configured.";
       description
         "REST configuration";
       container rest-users {
@@ -415,7 +428,6 @@ module Cisco-IOS-XR-infra-xtc-cfg {
             "REST authorized user";
           leaf rest-user-password {
             type xr:Proprietary-password;
-            mandatory true;
             description
               "REST user password configuration";
           }
@@ -429,7 +441,6 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       }
       leaf rest-authentication {
         type Pcerest-authentication;
-        mandatory true;
         description
           "REST authentication type";
       }
@@ -743,10 +754,10 @@ module Cisco-IOS-XR-infra-xtc-cfg {
         "PCE Timers configuration";
       leaf reoptimization-timer {
         type uint32 {
-          range "10..3600";
+          range "600..86400";
         }
         units "second";
-        default "60";
+        default "1800";
         description
           "Topology reoptimization timer configuration";
       }
@@ -825,9 +836,11 @@ module Cisco-IOS-XR-infra-xtc-cfg {
                   "Identifying name for LSP";
               }
               leaf disj-path {
-                type uint32;
+                type uint32 {
+                  range "0..1";
+                }
                 description
-                  "Set LSP to follow shortest-path";
+                  "Set to 1 to follow shortest-path";
               }
             }
           }

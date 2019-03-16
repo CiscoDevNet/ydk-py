@@ -573,6 +573,11 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       description
         "Buffer is selected for OBAND";
     }
+    leaf packet-extended {
+      type boolean;
+      description
+        "Packet Buffer is extended";
+    }
   }
 
   grouping SACKHOLE-BAG {
@@ -850,6 +855,16 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       type boolean;
       description
         "Nonblocking socket I/O operation";
+    }
+    leaf snd-buf-scaled {
+      type boolean;
+      description
+        "Send buffer scaled";
+    }
+    leaf rcv-buf-scaled {
+      type boolean;
+      description
+        "Receive buffer scaled";
     }
   }
 
@@ -1838,6 +1853,18 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       type uint32;
       description
         "Number of TCP internal queues in use";
+    }
+    leaf sockbuf-pak-res-cur {
+      type uint32;
+      description
+        "Current number of packets extended for scaled
+         sockets";
+    }
+    leaf sockbuf-pak-res-max {
+      type uint32;
+      description
+        "Maximum number of packets extended for scaled
+         sockets";
     }
     list iqs-total-ingpacket {
       max-elements "20";

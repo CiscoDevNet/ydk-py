@@ -208,8 +208,13 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "100GBASE PL";
       }
-      enum "optics-eth-undefined" {
+      enum "optics-eth-100gbase-srbd" {
         value 29;
+        description
+          "100GBASE SRBD";
+      }
+      enum "optics-eth-undefined" {
+        value 30;
         description
           "Eth Undefined";
       }
@@ -812,6 +817,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         value 66;
         description
           "OneGig CSFP optics";
+      }
+      enum "short-reach-bd" {
+        value 67;
+        description
+          "Short reach Bi-Directional";
       }
     }
     description

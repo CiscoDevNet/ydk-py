@@ -1,7 +1,6 @@
 module Cisco-IOS-XR-sysadmin-ethsw-esdma-cli-ncs5500 {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-ethsw-esdma-cli-ncs5500";
   prefix esdma;
-
   import Cisco-IOS-XR-sysadmin-ethsw-esdma-admin-exec {
     prefix esdma_admin_exec;
   }
@@ -38,9 +37,7 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-cli-ncs5500 {
   import Cisco-IOS-XR-sysadmin-ethsw-esdma-vlan {
     prefix esdma_vlan;
   }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -51,34 +48,35 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-cli-ncs5500 {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     This module contains a collection of YANG
-     definitions for Cisco IOS-XR SysAdmin configuration.
-     
-     The 'switch' module provides support for configuring and
-     monitoring the control Ethernet switches, ports,
-     and port PHYs. Support includes basic switch and port
-     statistics.
-     
-     Copyright(c) 2011-2017 by Cisco Systems, Inc.
-     All rights reserved.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
+    This module contains a collection of YANG
+definitions for Cisco IOS-XR SysAdmin configuration.
+
+The 'switch' module provides support for configuring and
+monitoring the control Ethernet switches, ports,
+and port PHYs. Support includes basic switch and port
+statistics.
+
+Copyright(c) 2011-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
 
+
   grouping switch_clear {
     container oper {
-      config false;
       description
         "Control Ethernet switch operational data.";
+      config false;
       uses esdma_clear:switch-clear-fdb;
       uses esdma_clear:switch-clear-statistics;
     }
@@ -86,9 +84,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-cli-ncs5500 {
 
   grouping switch {
     container oper {
-      config false;
       description
         "Control Ethernet switch operational data.";
+      config false;
       uses esdma_reachable:switch-reachable-data;
       uses esdma_summary:switch-summary-group;
       uses esdma_statistics:switch-statistics-group;

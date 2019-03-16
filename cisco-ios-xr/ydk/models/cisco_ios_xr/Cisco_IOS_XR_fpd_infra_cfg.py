@@ -5,7 +5,7 @@ for Cisco IOS\-XR fpd\-infra package configuration.
 
 This module contains definitions
 for the following management objects\:
-  fpd\: Configuration for fpd auto\-upgrade enable/disable 
+  fpd\: Configuration for fpd auto\-upgrade enable/disable
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.

@@ -2121,6 +2121,24 @@ class Ipsla(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: local_ipv6_address
+                
+                	IPv6 address of Responder
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: family
+                
+                	Represent if v4 or v6
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
+                
                 .. attribute:: sender
                 
                 	List of senders
@@ -2156,6 +2174,8 @@ class Ipsla(Entity):
                         ('is_ipsla', (YLeaf(YType.boolean, 'is-ipsla'), ['bool'])),
                         ('drop_counter', (YLeaf(YType.uint32, 'drop-counter'), ['int'])),
                         ('socket', (YLeaf(YType.int32, 'socket'), ['int'])),
+                        ('local_ipv6_address', (YLeaf(YType.str, 'local-ipv6-address'), ['str'])),
+                        ('family', (YLeaf(YType.int32, 'family'), ['int'])),
                     ])
                     self.port = None
                     self.port_xr = None
@@ -2168,6 +2188,8 @@ class Ipsla(Entity):
                     self.is_ipsla = None
                     self.drop_counter = None
                     self.socket = None
+                    self.local_ipv6_address = None
+                    self.family = None
 
                     self.sender = YList(self)
                     self._segment_path = lambda: "port" + "[port='" + str(self.port) + "']"
@@ -2175,7 +2197,7 @@ class Ipsla(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', u'port_xr', u'local_address', u'num_probes', u'ctrl_probes', u'permanent', u'discard_on', u'pd_time_stamp_failed', u'is_ipsla', u'drop_counter', u'socket'], name, value)
+                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', u'port_xr', u'local_address', u'num_probes', u'ctrl_probes', u'permanent', u'discard_on', u'pd_time_stamp_failed', u'is_ipsla', u'drop_counter', u'socket', u'local_ipv6_address', u'family'], name, value)
 
 
                 class Sender(Entity):
@@ -2185,9 +2207,9 @@ class Ipsla(Entity):
                     .. attribute:: ip_address
                     
                     	IP address of Sender
-                    	**type**\: int
+                    	**type**\: str
                     
-                    	**range:** 0..4294967295
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     	**config**\: False
                     
@@ -2209,6 +2231,15 @@ class Ipsla(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: ipv6_address
+                    
+                    	IPv6 address of Sender
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2226,18 +2257,20 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip_address', (YLeaf(YType.uint32, 'ip-address'), ['int'])),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                             ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                             ('last_recv_time', (YLeaf(YType.uint64, 'last-recv-time'), ['int'])),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.ip_address = None
                         self.port = None
                         self.last_recv_time = None
+                        self.ipv6_address = None
                         self._segment_path = lambda: "sender"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, [u'ip_address', u'port', u'last_recv_time'], name, value)
+                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, [u'ip_address', u'port', u'last_recv_time', u'ipv6_address'], name, value)
 
 
 

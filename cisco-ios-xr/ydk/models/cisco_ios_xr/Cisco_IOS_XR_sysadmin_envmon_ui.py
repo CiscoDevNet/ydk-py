@@ -2955,29 +2955,17 @@ class Environment(Entity):
         .. attribute:: raise_fan_speed
         
         	
-        	**type**\: int
-        
-        	**range:** 0..100
-        
-        	**config**\: False
+        	**type**\:  :py:class:`RaiseFanSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed>`
         
         .. attribute:: fan_ctrl_optics
         
         	
-        	**type**\: int
-        
-        	**range:** 0..1
-        
-        	**config**\: False
+        	**type**\:  :py:class:`FanCtrlOptics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics>`
         
         .. attribute:: graceful_shutdown
         
         	
-        	**type**\: int
-        
-        	**range:** 0..1
-        
-        	**config**\: False
+        	**type**\:  :py:class:`GracefulShutdown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown>`
         
         
 
@@ -2994,15 +2982,8 @@ class Environment(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("router", ("router", Environment.Config.Router)), ("air-filter", ("air_filter", Environment.Config.AirFilter)), ("fan-ctrl", ("fan_ctrl", Environment.Config.FanCtrl)), ("temperature", ("temperature", Environment.Config.Temperature)), ("monitoring", ("monitoring", Environment.Config.Monitoring))])
-            self._leafs = OrderedDict([
-                ('raise_fan_speed', (YLeaf(YType.uint32, 'raise-fan-speed'), ['int'])),
-                ('fan_ctrl_optics', (YLeaf(YType.uint32, 'fan-ctrl-optics'), ['int'])),
-                ('graceful_shutdown', (YLeaf(YType.uint32, 'graceful-shutdown'), ['int'])),
-            ])
-            self.raise_fan_speed = None
-            self.fan_ctrl_optics = None
-            self.graceful_shutdown = None
+            self._child_classes = OrderedDict([("router", ("router", Environment.Config.Router)), ("air-filter", ("air_filter", Environment.Config.AirFilter)), ("fan-ctrl", ("fan_ctrl", Environment.Config.FanCtrl)), ("temperature", ("temperature", Environment.Config.Temperature)), ("monitoring", ("monitoring", Environment.Config.Monitoring)), ("raise-fan-speed", ("raise_fan_speed", Environment.Config.RaiseFanSpeed)), ("fan-ctrl-optics", ("fan_ctrl_optics", Environment.Config.FanCtrlOptics)), ("graceful-shutdown", ("graceful_shutdown", Environment.Config.GracefulShutdown))])
+            self._leafs = OrderedDict()
 
             self.router = Environment.Config.Router()
             self.router.parent = self
@@ -3023,12 +3004,24 @@ class Environment(Entity):
             self.monitoring = Environment.Config.Monitoring()
             self.monitoring.parent = self
             self._children_name_map["monitoring"] = "monitoring"
+
+            self.raise_fan_speed = Environment.Config.RaiseFanSpeed()
+            self.raise_fan_speed.parent = self
+            self._children_name_map["raise_fan_speed"] = "raise-fan-speed"
+
+            self.fan_ctrl_optics = Environment.Config.FanCtrlOptics()
+            self.fan_ctrl_optics.parent = self
+            self._children_name_map["fan_ctrl_optics"] = "fan-ctrl-optics"
+
+            self.graceful_shutdown = Environment.Config.GracefulShutdown()
+            self.graceful_shutdown.parent = self
+            self._children_name_map["graceful_shutdown"] = "graceful-shutdown"
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Environment.Config, [u'raise_fan_speed', u'fan_ctrl_optics', u'graceful_shutdown'], name, value)
+            self._perform_setattr(Environment.Config, [], name, value)
 
 
         class Router(Entity):
@@ -3932,6 +3925,500 @@ class Environment(Entity):
 
 
 
+        class RaiseFanSpeed(Entity):
+            """
+            
+            
+            .. attribute:: all
+            
+            	
+            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.All>`
+            
+            .. attribute:: rack_loc
+            
+            	
+            	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.RackLoc>`
+            
+            
+
+            """
+
+            _prefix = 'envmon'
+            _revision = '2018-02-06'
+
+            def __init__(self):
+                super(Environment.Config.RaiseFanSpeed, self).__init__()
+
+                self.yang_name = "raise-fan-speed"
+                self.yang_parent_name = "config"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("all", ("all", Environment.Config.RaiseFanSpeed.All)), ("rack_loc", ("rack_loc", Environment.Config.RaiseFanSpeed.RackLoc))])
+                self._leafs = OrderedDict()
+
+                self.all = Environment.Config.RaiseFanSpeed.All()
+                self.all.parent = self
+                self._children_name_map["all"] = "all"
+
+                self.rack_loc = Environment.Config.RaiseFanSpeed.RackLoc()
+                self.rack_loc.parent = self
+                self._children_name_map["rack_loc"] = "rack_loc"
+                self._segment_path = lambda: "raise-fan-speed"
+                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Environment.Config.RaiseFanSpeed, [], name, value)
+
+
+            class All(Entity):
+                """
+                
+                
+                .. attribute:: speed_pwm
+                
+                	
+                	**type**\: int
+                
+                	**range:** 0..100
+                
+                
+
+                """
+
+                _prefix = 'envmon'
+                _revision = '2018-02-06'
+
+                def __init__(self):
+                    super(Environment.Config.RaiseFanSpeed.All, self).__init__()
+
+                    self.yang_name = "all"
+                    self.yang_parent_name = "raise-fan-speed"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('speed_pwm', (YLeaf(YType.uint32, 'speed_pwm'), ['int'])),
+                    ])
+                    self.speed_pwm = None
+                    self._segment_path = lambda: "all"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Environment.Config.RaiseFanSpeed.All, [u'speed_pwm'], name, value)
+
+
+
+            class RackLoc(Entity):
+                """
+                
+                
+                .. attribute:: location
+                
+                	
+                	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.RackLoc.Location>`
+                
+                
+
+                """
+
+                _prefix = 'envmon'
+                _revision = '2018-02-06'
+
+                def __init__(self):
+                    super(Environment.Config.RaiseFanSpeed.RackLoc, self).__init__()
+
+                    self.yang_name = "rack_loc"
+                    self.yang_parent_name = "raise-fan-speed"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("location", ("location", Environment.Config.RaiseFanSpeed.RackLoc.Location))])
+                    self._leafs = OrderedDict()
+
+                    self.location = YList(self)
+                    self._segment_path = lambda: "rack_loc"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Environment.Config.RaiseFanSpeed.RackLoc, [], name, value)
+
+
+                class Location(Entity):
+                    """
+                    
+                    
+                    .. attribute:: rackid  (key)
+                    
+                    	
+                    	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
+                    
+                    .. attribute:: speed_pwm
+                    
+                    	
+                    	**type**\: int
+                    
+                    	**range:** 0..100
+                    
+                    
+
+                    """
+
+                    _prefix = 'envmon'
+                    _revision = '2018-02-06'
+
+                    def __init__(self):
+                        super(Environment.Config.RaiseFanSpeed.RackLoc.Location, self).__init__()
+
+                        self.yang_name = "location"
+                        self.yang_parent_name = "rack_loc"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['rackid']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
+                            ('speed_pwm', (YLeaf(YType.uint32, 'speed_pwm'), ['int'])),
+                        ])
+                        self.rackid = None
+                        self.speed_pwm = None
+                        self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/rack_loc/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Environment.Config.RaiseFanSpeed.RackLoc.Location, [u'rackid', u'speed_pwm'], name, value)
+
+
+
+
+
+        class FanCtrlOptics(Entity):
+            """
+            
+            
+            .. attribute:: enable
+            
+            	
+            	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable>`
+            
+            
+
+            """
+
+            _prefix = 'envmon'
+            _revision = '2018-02-06'
+
+            def __init__(self):
+                super(Environment.Config.FanCtrlOptics, self).__init__()
+
+                self.yang_name = "fan-ctrl-optics"
+                self.yang_parent_name = "config"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("enable", ("enable", Environment.Config.FanCtrlOptics.Enable))])
+                self._leafs = OrderedDict()
+
+                self.enable = Environment.Config.FanCtrlOptics.Enable()
+                self.enable.parent = self
+                self._children_name_map["enable"] = "enable"
+                self._segment_path = lambda: "fan-ctrl-optics"
+                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Environment.Config.FanCtrlOptics, [], name, value)
+
+
+            class Enable(Entity):
+                """
+                
+                
+                .. attribute:: rack_loc
+                
+                	
+                	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable.RackLoc>`
+                
+                
+
+                """
+
+                _prefix = 'envmon'
+                _revision = '2018-02-06'
+
+                def __init__(self):
+                    super(Environment.Config.FanCtrlOptics.Enable, self).__init__()
+
+                    self.yang_name = "enable"
+                    self.yang_parent_name = "fan-ctrl-optics"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("rack_loc", ("rack_loc", Environment.Config.FanCtrlOptics.Enable.RackLoc))])
+                    self._leafs = OrderedDict()
+
+                    self.rack_loc = Environment.Config.FanCtrlOptics.Enable.RackLoc()
+                    self.rack_loc.parent = self
+                    self._children_name_map["rack_loc"] = "rack_loc"
+                    self._segment_path = lambda: "enable"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Environment.Config.FanCtrlOptics.Enable, [], name, value)
+
+
+                class RackLoc(Entity):
+                    """
+                    
+                    
+                    .. attribute:: all
+                    
+                    	
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: location
+                    
+                    	
+                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable.RackLoc.Location>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'envmon'
+                    _revision = '2018-02-06'
+
+                    def __init__(self):
+                        super(Environment.Config.FanCtrlOptics.Enable.RackLoc, self).__init__()
+
+                        self.yang_name = "rack_loc"
+                        self.yang_parent_name = "enable"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("location", ("location", Environment.Config.FanCtrlOptics.Enable.RackLoc.Location))])
+                        self._leafs = OrderedDict([
+                            ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                        ])
+                        self.all = None
+
+                        self.location = YList(self)
+                        self._segment_path = lambda: "rack_loc"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Environment.Config.FanCtrlOptics.Enable.RackLoc, [u'all'], name, value)
+
+
+                    class Location(Entity):
+                        """
+                        
+                        
+                        .. attribute:: rackid  (key)
+                        
+                        	
+                        	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'envmon'
+                        _revision = '2018-02-06'
+
+                        def __init__(self):
+                            super(Environment.Config.FanCtrlOptics.Enable.RackLoc.Location, self).__init__()
+
+                            self.yang_name = "location"
+                            self.yang_parent_name = "rack_loc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['rackid']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
+                            ])
+                            self.rackid = None
+                            self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/rack_loc/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Environment.Config.FanCtrlOptics.Enable.RackLoc.Location, [u'rackid'], name, value)
+
+
+
+
+
+
+        class GracefulShutdown(Entity):
+            """
+            
+            
+            .. attribute:: disable
+            
+            	
+            	**type**\:  :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable>`
+            
+            
+
+            """
+
+            _prefix = 'envmon'
+            _revision = '2018-02-06'
+
+            def __init__(self):
+                super(Environment.Config.GracefulShutdown, self).__init__()
+
+                self.yang_name = "graceful-shutdown"
+                self.yang_parent_name = "config"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("disable", ("disable", Environment.Config.GracefulShutdown.Disable))])
+                self._leafs = OrderedDict()
+
+                self.disable = Environment.Config.GracefulShutdown.Disable()
+                self.disable.parent = self
+                self._children_name_map["disable"] = "disable"
+                self._segment_path = lambda: "graceful-shutdown"
+                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Environment.Config.GracefulShutdown, [], name, value)
+
+
+            class Disable(Entity):
+                """
+                
+                
+                .. attribute:: rack_loc
+                
+                	
+                	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable.RackLoc>`
+                
+                
+
+                """
+
+                _prefix = 'envmon'
+                _revision = '2018-02-06'
+
+                def __init__(self):
+                    super(Environment.Config.GracefulShutdown.Disable, self).__init__()
+
+                    self.yang_name = "disable"
+                    self.yang_parent_name = "graceful-shutdown"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("rack_loc", ("rack_loc", Environment.Config.GracefulShutdown.Disable.RackLoc))])
+                    self._leafs = OrderedDict()
+
+                    self.rack_loc = Environment.Config.GracefulShutdown.Disable.RackLoc()
+                    self.rack_loc.parent = self
+                    self._children_name_map["rack_loc"] = "rack_loc"
+                    self._segment_path = lambda: "disable"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Environment.Config.GracefulShutdown.Disable, [], name, value)
+
+
+                class RackLoc(Entity):
+                    """
+                    
+                    
+                    .. attribute:: all
+                    
+                    	
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: location
+                    
+                    	
+                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable.RackLoc.Location>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'envmon'
+                    _revision = '2018-02-06'
+
+                    def __init__(self):
+                        super(Environment.Config.GracefulShutdown.Disable.RackLoc, self).__init__()
+
+                        self.yang_name = "rack_loc"
+                        self.yang_parent_name = "disable"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("location", ("location", Environment.Config.GracefulShutdown.Disable.RackLoc.Location))])
+                        self._leafs = OrderedDict([
+                            ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                        ])
+                        self.all = None
+
+                        self.location = YList(self)
+                        self._segment_path = lambda: "rack_loc"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Environment.Config.GracefulShutdown.Disable.RackLoc, [u'all'], name, value)
+
+
+                    class Location(Entity):
+                        """
+                        
+                        
+                        .. attribute:: rackid  (key)
+                        
+                        	
+                        	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'envmon'
+                        _revision = '2018-02-06'
+
+                        def __init__(self):
+                            super(Environment.Config.GracefulShutdown.Disable.RackLoc.Location, self).__init__()
+
+                            self.yang_name = "location"
+                            self.yang_parent_name = "rack_loc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['rackid']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
+                            ])
+                            self.rackid = None
+                            self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/rack_loc/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Environment.Config.GracefulShutdown.Disable.RackLoc.Location, [u'rackid'], name, value)
+
+
+
+
+
+
 
     class Trace(Entity):
         """
@@ -4773,7 +5260,7 @@ class PowerMgmt(Entity):
                 	
                 	**type**\: int
                 
-                	**range:** 0..1
+                	**range:** 0..5
                 
                 
 
@@ -4854,7 +5341,7 @@ class PowerMgmt(Entity):
                     	
                     	**type**\: int
                     
-                    	**range:** 0..1
+                    	**range:** 0..5
                     
                     
 

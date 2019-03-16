@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_ds 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The Directory Services (DS).
 
 Copyright(c) 2010\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -108,7 +114,7 @@ class Services(Entity):
     """
 
     _prefix = 'ds'
-    _revision = '2017-04-12'
+    _revision = '2018-05-21'
 
     def __init__(self):
         super(Services, self).__init__()
@@ -153,7 +159,7 @@ class Services(Entity):
         """
 
         _prefix = 'ds'
-        _revision = '2017-04-12'
+        _revision = '2018-05-21'
 
         def __init__(self):
             super(Services.AllLocations, self).__init__()
@@ -208,7 +214,7 @@ class Services(Entity):
             """
 
             _prefix = 'ds'
-            _revision = '2017-04-12'
+            _revision = '2018-05-21'
 
             def __init__(self):
                 super(Services.AllLocations.Services_, self).__init__()
@@ -288,7 +294,7 @@ class Services(Entity):
                 """
 
                 _prefix = 'ds'
-                _revision = '2017-04-12'
+                _revision = '2018-05-21'
 
                 def __init__(self):
                     super(Services.AllLocations.Services_.Endpoint, self).__init__()
@@ -346,7 +352,7 @@ class Services(Entity):
                 """
 
                 _prefix = 'ds'
-                _revision = '2017-04-12'
+                _revision = '2018-05-21'
 
                 def __init__(self):
                     super(Services.AllLocations.Services_.Registrations, self).__init__()
@@ -401,7 +407,7 @@ class ServicesStats(Entity):
     """
 
     _prefix = 'ds'
-    _revision = '2017-04-12'
+    _revision = '2018-05-21'
 
     def __init__(self):
         super(ServicesStats, self).__init__()
@@ -443,7 +449,7 @@ class ServicesStats(Entity):
         """
 
         _prefix = 'ds'
-        _revision = '2017-04-12'
+        _revision = '2018-05-21'
 
         def __init__(self):
             super(ServicesStats.Ds, self).__init__()
@@ -488,7 +494,7 @@ class ServicesStats(Entity):
             """
 
             _prefix = 'ds'
-            _revision = '2017-04-12'
+            _revision = '2018-05-21'
 
             def __init__(self):
                 super(ServicesStats.Ds.Trace, self).__init__()
@@ -536,7 +542,7 @@ class ServicesStats(Entity):
                 """
 
                 _prefix = 'ds'
-                _revision = '2017-04-12'
+                _revision = '2018-05-21'
 
                 def __init__(self):
                     super(ServicesStats.Ds.Trace.Location, self).__init__()
@@ -583,7 +589,7 @@ class ServicesStats(Entity):
                     """
 
                     _prefix = 'ds'
-                    _revision = '2017-04-12'
+                    _revision = '2018-05-21'
 
                     def __init__(self):
                         super(ServicesStats.Ds.Trace.Location.AllOptions, self).__init__()
@@ -623,7 +629,7 @@ class ServicesStats(Entity):
                         """
 
                         _prefix = 'ds'
-                        _revision = '2017-04-12'
+                        _revision = '2018-05-21'
 
                         def __init__(self):
                             super(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -673,7 +679,7 @@ class ServicesStats(Entity):
         """
 
         _prefix = 'ds'
-        _revision = '2017-04-12'
+        _revision = '2018-05-21'
 
         def __init__(self):
             super(ServicesStats.AllLocations, self).__init__()
@@ -786,7 +792,7 @@ class ServicesStats(Entity):
             """
 
             _prefix = 'ds'
-            _revision = '2017-04-12'
+            _revision = '2018-05-21'
 
             def __init__(self):
                 super(ServicesStats.AllLocations.Stats, self).__init__()

@@ -1313,7 +1313,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       type boolean;
       description
         "TRUE to send extended communities to the
-         external neighbor/neighbor-group/af-group. 
+         external neighbor/neighbor-group/af-group.
          FALSE not to send and to prevent inheritance
          from a parent";
     }
@@ -2487,7 +2487,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "Common node of global-af, vrf-global-af";
     container dampening {
-      presence "enable dampening";
+      presence "Indicates a dampening node is configured.";
       description
         "Enable route-flap dampening";
       leaf half-life {
@@ -2502,6 +2502,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..20000";
         }
+        mandatory true;
         description
           "Value to start reusing a route.";
       }
@@ -2509,6 +2510,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..20000";
         }
+        mandatory true;
         description
           "Value to start suppressing a route.";
       }
@@ -2517,6 +2519,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           range "1..255";
         }
         units "second";
+        mandatory true;
         description
           "Maximum duration to suppress a stable route
            (seconds).";
@@ -2588,7 +2591,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf accept-route-legacy-rt {
       type boolean;
       description
-        "TRUE to configure as a accept-route-legacy-RT. 
+        "TRUE to configure as a accept-route-legacy-RT.
          FALSE to prevent accept-route-legacy-RT from
          being inherited.";
     }
@@ -2820,7 +2823,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf route-reflector-client {
       type boolean;
       description
-        "TRUE to configure as a route-reflector-client. 
+        "TRUE to configure as a route-reflector-client.
          FALSE to prevent route-reflector-client from
          being inherited.";
     }
@@ -3280,7 +3283,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf suppress-four-byte-as-capability {
       type boolean;
       description
-        "TRUE to suppress BGP 4-byte-as capability. 
+        "TRUE to suppress BGP 4-byte-as capability.
          FALSE to not suppress it and to prevent
          inheritance from a parent";
     }
@@ -5429,7 +5432,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     leaf source-rt-import-policy {
                       type empty;
                       description
-                        "Enable sourcing of import route-targets 
+                        "Enable sourcing of import route-targets
                          from import-policy";
                     }
                     leaf srv6-label-allocation-mode {
@@ -5843,21 +5846,25 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 description
                   "RPKI static route configuration";
                 list rpki-static-route {
-                  key "addrress minimum maximum as";
+                  key "address minimum maximum as";
                   description
                     "RPKI static route";
-                  leaf addrress {
+                  leaf address {
                     type inet:ip-address-no-zone;
                     description
                       "Address";
                   }
                   leaf minimum {
-                    type uint32;
+                    type uint32 {
+                      range "0..128";
+                    }
                     description
                       "Minimum Prefix Length";
                   }
                   leaf maximum {
-                    type uint32;
+                    type uint32 {
+                      range "1..128";
+                    }
                     description
                       "Maximum Prefix Length";
                   }
@@ -5934,7 +5941,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 }
                 units "second";
                 description
-                  "Prefix validation time (in seconds). Range 
+                  "Prefix validation time (in seconds). Range
                    : 5 - 60. Specify 0 to disable the timer";
               }
               leaf rpki-bestpath-origin-as-allow-invalid {

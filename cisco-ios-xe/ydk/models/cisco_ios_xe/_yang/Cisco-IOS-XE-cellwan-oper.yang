@@ -28,7 +28,7 @@ module Cisco-IOS-XE-cellwan-oper {
      Copyright (c) 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-09-04 {
+  revision 2018-05-18 {
     description
       "Addition of Cellular Sim Security, GPS and SMS data";
     reference "1.1.0";

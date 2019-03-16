@@ -247,6 +247,11 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                 "Enter remote-id value";
             }
           }
+          leaf link-address {
+            type inet:ip-address-no-zone;
+            description
+              "IPv6 address to be filled in link-address";
+          }
           leaf src-intf-name {
             type xr:Interface-name;
             description

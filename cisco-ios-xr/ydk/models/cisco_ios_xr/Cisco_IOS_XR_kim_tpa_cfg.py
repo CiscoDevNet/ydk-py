@@ -20,6 +20,27 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class IpProtocol(Enum):
+    """
+    IpProtocol (Enum Class)
+
+    Ip protocol
+
+    .. data:: tcp = 6
+
+    	Transmission Control Protocol, RFC 793
+
+    .. data:: udp = 17
+
+    	User Datagram Protocol, RFC 768
+
+    """
+
+    tcp = Enum.YLeaf(6, "tcp")
+
+    udp = Enum.YLeaf(17, "udp")
+
+
 
 class Tpa(Entity):
     """
@@ -45,7 +66,7 @@ class Tpa(Entity):
     """
 
     _prefix = 'kim-tpa-cfg'
-    _revision = '2017-09-07'
+    _revision = '2018-07-27'
 
     def __init__(self):
         super(Tpa, self).__init__()
@@ -91,7 +112,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2017-09-07'
+        _revision = '2018-07-27'
 
         def __init__(self):
             super(Tpa.VrfNames, self).__init__()
@@ -144,7 +165,7 @@ class Tpa(Entity):
             """
 
             _prefix = 'kim-tpa-cfg'
-            _revision = '2017-09-07'
+            _revision = '2018-07-27'
 
             def __init__(self):
                 super(Tpa.VrfNames.VrfName, self).__init__()
@@ -191,7 +212,7 @@ class Tpa(Entity):
                 """
 
                 _prefix = 'kim-tpa-cfg'
-                _revision = '2017-09-07'
+                _revision = '2018-07-27'
 
                 def __init__(self):
                     super(Tpa.VrfNames.VrfName.EastWestNames, self).__init__()
@@ -238,7 +259,7 @@ class Tpa(Entity):
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__init__()
@@ -285,7 +306,7 @@ class Tpa(Entity):
                 """
 
                 _prefix = 'kim-tpa-cfg'
-                _revision = '2017-09-07'
+                _revision = '2018-07-27'
 
                 def __init__(self):
                     super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
@@ -326,6 +347,11 @@ class Tpa(Entity):
                     	Interface used for source address for egress interface
                     	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames>`
                     
+                    .. attribute:: allow_entries
+                    
+                    	Traffic protection configuration
+                    	**type**\:  :py:class:`AllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries>`
+                    
                     .. attribute:: update_source
                     
                     	Interface used for Source Address
@@ -336,7 +362,7 @@ class Tpa(Entity):
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
@@ -346,7 +372,7 @@ class Tpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource))])
+                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames)), ("allow-entries", ("allow_entries", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource))])
                         self._leafs = OrderedDict([
                             ('default_route', (YLeaf(YType.str, 'default-route'), ['str'])),
                         ])
@@ -355,6 +381,10 @@ class Tpa(Entity):
                         self.interface_names = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames()
                         self.interface_names.parent = self
                         self._children_name_map["interface_names"] = "interface-names"
+
+                        self.allow_entries = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries()
+                        self.allow_entries.parent = self
+                        self._children_name_map["allow_entries"] = "allow-entries"
 
                         self.update_source = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource()
                         self.update_source.parent = self
@@ -381,7 +411,7 @@ class Tpa(Entity):
                         """
 
                         _prefix = 'kim-tpa-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, self).__init__()
@@ -425,7 +455,7 @@ class Tpa(Entity):
                             """
 
                             _prefix = 'kim-tpa-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, self).__init__()
@@ -451,6 +481,608 @@ class Tpa(Entity):
 
 
 
+                    class AllowEntries(Entity):
+                        """
+                        Traffic protection configuration
+                        
+                        .. attribute:: allow_entry
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry>`
+                        
+                        .. attribute:: allow_entry_local_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress>`
+                        
+                        .. attribute:: allow_entry_remote_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryRemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress>`
+                        
+                        .. attribute:: allow_entry_local_address_remote_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressRemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress>`
+                        
+                        .. attribute:: allow_entry_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName>`
+                        
+                        .. attribute:: allow_entry_local_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName>`
+                        
+                        .. attribute:: allow_entry_remote_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryRemoteAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName>`
+                        
+                        .. attribute:: allow_entry_local_address_remote_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressRemoteAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2018-07-27'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries, self).__init__()
+
+                            self.yang_name = "allow-entries"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("allow-entry", ("allow_entry", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry)), ("allow-entry-local-address", ("allow_entry_local_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress)), ("allow-entry-remote-address", ("allow_entry_remote_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress)), ("allow-entry-local-address-remote-address", ("allow_entry_local_address_remote_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress)), ("allow-entry-interface-name", ("allow_entry_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName)), ("allow-entry-local-address-interface-name", ("allow_entry_local_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName)), ("allow-entry-remote-address-interface-name", ("allow_entry_remote_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName)), ("allow-entry-local-address-remote-address-interface-name", ("allow_entry_local_address_remote_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName))])
+                            self._leafs = OrderedDict()
+
+                            self.allow_entry = YList(self)
+                            self.allow_entry_local_address = YList(self)
+                            self.allow_entry_remote_address = YList(self)
+                            self.allow_entry_local_address_remote_address = YList(self)
+                            self.allow_entry_interface_name = YList(self)
+                            self.allow_entry_local_address_interface_name = YList(self)
+                            self.allow_entry_remote_address_interface_name = YList(self)
+                            self.allow_entry_local_address_remote_address_interface_name = YList(self)
+                            self._segment_path = lambda: "allow-entries"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries, [], name, value)
+
+
+                        class AllowEntry(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry, self).__init__()
+
+                                self.yang_name = "allow-entry"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry, ['protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address" + "[local-address='" + str(self.local_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress, ['local_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryRemoteAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-remote-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['remote_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.remote_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-remote-address" + "[remote-address='" + str(self.remote_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress, ['remote_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressRemoteAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-remote-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','remote_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.remote_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-remote-address" + "[local-address='" + str(self.local_address) + "']" + "[remote-address='" + str(self.remote_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress, ['local_address', 'remote_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-interface-name" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName, ['interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-interface-name" + "[local-address='" + str(self.local_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName, ['local_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryRemoteAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-remote-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['remote_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.remote_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-remote-address-interface-name" + "[remote-address='" + str(self.remote_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName, ['remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressRemoteAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-remote-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','remote_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.remote_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-remote-address-interface-name" + "[local-address='" + str(self.local_address) + "']" + "[remote-address='" + str(self.remote_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, ['local_address', 'remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+
                     class UpdateSource(Entity):
                         """
                         Interface used for Source Address
@@ -472,7 +1104,7 @@ class Tpa(Entity):
                         """
 
                         _prefix = 'kim-tpa-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, self).__init__()
@@ -512,6 +1144,11 @@ class Tpa(Entity):
                     	Interface used for source address for egress interface
                     	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames>`
                     
+                    .. attribute:: allow_entries
+                    
+                    	Traffic protection configuration
+                    	**type**\:  :py:class:`AllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries>`
+                    
                     .. attribute:: update_source
                     
                     	Interface used for Source Address
@@ -522,7 +1159,7 @@ class Tpa(Entity):
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
@@ -532,7 +1169,7 @@ class Tpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource))])
+                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames)), ("allow-entries", ("allow_entries", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource))])
                         self._leafs = OrderedDict([
                             ('default_route', (YLeaf(YType.str, 'default-route'), ['str'])),
                         ])
@@ -541,6 +1178,10 @@ class Tpa(Entity):
                         self.interface_names = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames()
                         self.interface_names.parent = self
                         self._children_name_map["interface_names"] = "interface-names"
+
+                        self.allow_entries = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries()
+                        self.allow_entries.parent = self
+                        self._children_name_map["allow_entries"] = "allow-entries"
 
                         self.update_source = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource()
                         self.update_source.parent = self
@@ -567,7 +1208,7 @@ class Tpa(Entity):
                         """
 
                         _prefix = 'kim-tpa-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, self).__init__()
@@ -611,7 +1252,7 @@ class Tpa(Entity):
                             """
 
                             _prefix = 'kim-tpa-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, self).__init__()
@@ -637,6 +1278,608 @@ class Tpa(Entity):
 
 
 
+                    class AllowEntries(Entity):
+                        """
+                        Traffic protection configuration
+                        
+                        .. attribute:: allow_entry
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry>`
+                        
+                        .. attribute:: allow_entry_local_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress>`
+                        
+                        .. attribute:: allow_entry_remote_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryRemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress>`
+                        
+                        .. attribute:: allow_entry_local_address_remote_address
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressRemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress>`
+                        
+                        .. attribute:: allow_entry_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName>`
+                        
+                        .. attribute:: allow_entry_local_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName>`
+                        
+                        .. attribute:: allow_entry_remote_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryRemoteAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName>`
+                        
+                        .. attribute:: allow_entry_local_address_remote_address_interface_name
+                        
+                        	Allow traffic matching a filter
+                        	**type**\: list of  		 :py:class:`AllowEntryLocalAddressRemoteAddressInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2018-07-27'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries, self).__init__()
+
+                            self.yang_name = "allow-entries"
+                            self.yang_parent_name = "ipv4"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("allow-entry", ("allow_entry", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry)), ("allow-entry-local-address", ("allow_entry_local_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress)), ("allow-entry-remote-address", ("allow_entry_remote_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress)), ("allow-entry-local-address-remote-address", ("allow_entry_local_address_remote_address", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress)), ("allow-entry-interface-name", ("allow_entry_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName)), ("allow-entry-local-address-interface-name", ("allow_entry_local_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName)), ("allow-entry-remote-address-interface-name", ("allow_entry_remote_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName)), ("allow-entry-local-address-remote-address-interface-name", ("allow_entry_local_address_remote_address_interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName))])
+                            self._leafs = OrderedDict()
+
+                            self.allow_entry = YList(self)
+                            self.allow_entry_local_address = YList(self)
+                            self.allow_entry_remote_address = YList(self)
+                            self.allow_entry_local_address_remote_address = YList(self)
+                            self.allow_entry_interface_name = YList(self)
+                            self.allow_entry_local_address_interface_name = YList(self)
+                            self.allow_entry_remote_address_interface_name = YList(self)
+                            self.allow_entry_local_address_remote_address_interface_name = YList(self)
+                            self._segment_path = lambda: "allow-entries"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries, [], name, value)
+
+
+                        class AllowEntry(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry, self).__init__()
+
+                                self.yang_name = "allow-entry"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry, ['protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address" + "[local-address='" + str(self.local_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress, ['local_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryRemoteAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-remote-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['remote_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.remote_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-remote-address" + "[remote-address='" + str(self.remote_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress, ['remote_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressRemoteAddress(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-remote-address"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','remote_address','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.remote_address = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-remote-address" + "[local-address='" + str(self.local_address) + "']" + "[remote-address='" + str(self.remote_address) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress, ['local_address', 'remote_address', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-interface-name" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName, ['interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-interface-name" + "[local-address='" + str(self.local_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName, ['local_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryRemoteAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-remote-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['remote_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.remote_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-remote-address-interface-name" + "[remote-address='" + str(self.remote_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName, ['remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+                        class AllowEntryLocalAddressRemoteAddressInterfaceName(Entity):
+                            """
+                            Allow traffic matching a filter
+                            
+                            .. attribute:: local_address  (key)
+                            
+                            	local prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: remote_address  (key)
+                            
+                            	remote prefix/length
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            .. attribute:: protocol  (key)
+                            
+                            	L4 protocol
+                            	**type**\:  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.IpProtocol>`
+                            
+                            .. attribute:: local_port  (key)
+                            
+                            	Local port
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2018-07-27'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
+
+                                self.yang_name = "allow-entry-local-address-remote-address-interface-name"
+                                self.yang_parent_name = "allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['local_address','remote_address','interface_name','protocol','local_port']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg', 'IpProtocol', '')])),
+                                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ])
+                                self.local_address = None
+                                self.remote_address = None
+                                self.interface_name = None
+                                self.protocol = None
+                                self.local_port = None
+                                self._segment_path = lambda: "allow-entry-local-address-remote-address-interface-name" + "[local-address='" + str(self.local_address) + "']" + "[remote-address='" + str(self.remote_address) + "']" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol='" + str(self.protocol) + "']" + "[local-port='" + str(self.local_port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, ['local_address', 'remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
+
+
+
+
                     class UpdateSource(Entity):
                         """
                         Interface used for Source Address
@@ -658,7 +1901,7 @@ class Tpa(Entity):
                         """
 
                         _prefix = 'kim-tpa-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, self).__init__()
@@ -701,7 +1944,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2017-09-07'
+        _revision = '2018-07-27'
 
         def __init__(self):
             super(Tpa.Logging, self).__init__()
@@ -750,7 +1993,7 @@ class Tpa(Entity):
             """
 
             _prefix = 'kim-tpa-cfg'
-            _revision = '2017-09-07'
+            _revision = '2018-07-27'
 
             def __init__(self):
                 super(Tpa.Logging.Kim, self).__init__()
@@ -809,7 +2052,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2017-09-07'
+        _revision = '2018-07-27'
 
         def __init__(self):
             super(Tpa.Statistics, self).__init__()

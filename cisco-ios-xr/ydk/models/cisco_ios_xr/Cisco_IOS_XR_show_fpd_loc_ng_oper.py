@@ -167,10 +167,10 @@ class ShowFpd(Entity):
             
             	**config**\: False
             
-            .. attribute:: details
+            .. attribute:: fpds
             
             	Display fpds on given locations
-            	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details>`
+            	**type**\:  :py:class:`Fpds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpds>`
             
             	**config**\: False
             
@@ -189,15 +189,15 @@ class ShowFpd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location_name']
-                self._child_classes = OrderedDict([("details", ("details", ShowFpd.Locations.Location.Details))])
+                self._child_classes = OrderedDict([("fpds", ("fpds", ShowFpd.Locations.Location.Fpds))])
                 self._leafs = OrderedDict([
                     ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
-                self.details = ShowFpd.Locations.Location.Details()
-                self.details.parent = self
-                self._children_name_map["details"] = "details"
+                self.fpds = ShowFpd.Locations.Location.Fpds()
+                self.fpds.parent = self
+                self._children_name_map["fpds"] = "fpds"
                 self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/%s" % self._segment_path()
                 self._is_frozen = True
@@ -206,14 +206,14 @@ class ShowFpd(Entity):
                 self._perform_setattr(ShowFpd.Locations.Location, ['location_name'], name, value)
 
 
-            class Details(Entity):
+            class Fpds(Entity):
                 """
                 Display fpds on given locations
                 
-                .. attribute:: detail
+                .. attribute:: fpd
                 
                 	Display fpds detail
-                	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details.Detail>`
+                	**type**\: list of  		 :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpds.Fpd>`
                 
                 	**config**\: False
                 
@@ -225,25 +225,25 @@ class ShowFpd(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ShowFpd.Locations.Location.Details, self).__init__()
+                    super(ShowFpd.Locations.Location.Fpds, self).__init__()
 
-                    self.yang_name = "details"
+                    self.yang_name = "fpds"
                     self.yang_parent_name = "location"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("detail", ("detail", ShowFpd.Locations.Location.Details.Detail))])
+                    self._child_classes = OrderedDict([("fpd", ("fpd", ShowFpd.Locations.Location.Fpds.Fpd))])
                     self._leafs = OrderedDict()
 
-                    self.detail = YList(self)
-                    self._segment_path = lambda: "details"
+                    self.fpd = YList(self)
+                    self._segment_path = lambda: "fpds"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ShowFpd.Locations.Location.Details, [], name, value)
+                    self._perform_setattr(ShowFpd.Locations.Location.Fpds, [], name, value)
 
 
-                class Detail(Entity):
+                class Fpd(Entity):
                     """
                     Display fpds detail
                     
@@ -266,7 +266,7 @@ class ShowFpd(Entity):
                     .. attribute:: fpd_info_detaile
                     
                     	 fpd list with all detailes
-                    	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile>`
+                    	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile>`
                     
                     	**config**\: False
                     
@@ -278,14 +278,14 @@ class ShowFpd(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ShowFpd.Locations.Location.Details.Detail, self).__init__()
+                        super(ShowFpd.Locations.Location.Fpds.Fpd, self).__init__()
 
-                        self.yang_name = "detail"
-                        self.yang_parent_name = "details"
+                        self.yang_name = "fpd"
+                        self.yang_parent_name = "fpds"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fpd_name']
-                        self._child_classes = OrderedDict([("fpd-info-detaile", ("fpd_info_detaile", ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile))])
+                        self._child_classes = OrderedDict([("fpd-info-detaile", ("fpd_info_detaile", ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile))])
                         self._leafs = OrderedDict([
                             ('fpd_name', (YLeaf(YType.str, 'fpd-name'), ['str'])),
                             ('upgrade_status', (YLeaf(YType.str, 'upgrade-status'), ['str'])),
@@ -294,11 +294,11 @@ class ShowFpd(Entity):
                         self.upgrade_status = None
 
                         self.fpd_info_detaile = YList(self)
-                        self._segment_path = lambda: "detail" + "[fpd-name='" + str(self.fpd_name) + "']"
+                        self._segment_path = lambda: "fpd" + "[fpd-name='" + str(self.fpd_name) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ShowFpd.Locations.Location.Details.Detail, ['fpd_name', u'upgrade_status'], name, value)
+                        self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd, ['fpd_name', u'upgrade_status'], name, value)
 
 
                     class FpdInfoDetaile(Entity):
@@ -369,10 +369,10 @@ class ShowFpd(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile, self).__init__()
+                            super(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, self).__init__()
 
                             self.yang_name = "fpd-info-detaile"
-                            self.yang_parent_name = "detail"
+                            self.yang_parent_name = "fpd"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
@@ -399,7 +399,7 @@ class ShowFpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
+                            self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
 
 
 

@@ -4174,6 +4174,20 @@ class Evpn(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: bgp_implicit_import_disabled
+                        
+                        	BGP implicit import is disabled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: vrf_name
+                        
+                        	L3 VRF name from BVI
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4212,6 +4226,8 @@ class Evpn(Entity):
                                 ('reoriginate_disabled', (YLeaf(YType.boolean, 'reoriginate-disabled'), ['bool'])),
                                 ('stitching', (YLeaf(YType.boolean, 'stitching'), ['bool'])),
                                 ('multicast_source_connected', (YLeaf(YType.boolean, 'multicast-source-connected'), ['bool'])),
+                                ('bgp_implicit_import_disabled', (YLeaf(YType.boolean, 'bgp-implicit-import-disabled'), ['bool'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.evi = None
                             self.encapsulation = None
@@ -4234,6 +4250,8 @@ class Evpn(Entity):
                             self.reoriginate_disabled = None
                             self.stitching = None
                             self.multicast_source_connected = None
+                            self.bgp_implicit_import_disabled = None
+                            self.vrf_name = None
 
                             self.evpn_instance = Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance()
                             self.evpn_instance.parent = self
@@ -4258,7 +4276,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected', u'bgp_implicit_import_disabled', u'vrf_name'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -12866,6 +12884,20 @@ class Evpn(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: bgp_implicit_import_disabled
+                    
+                    	BGP implicit import is disabled
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vrf_name
+                    
+                    	L3 VRF name from BVI
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -12904,6 +12936,8 @@ class Evpn(Entity):
                             ('reoriginate_disabled', (YLeaf(YType.boolean, 'reoriginate-disabled'), ['bool'])),
                             ('stitching', (YLeaf(YType.boolean, 'stitching'), ['bool'])),
                             ('multicast_source_connected', (YLeaf(YType.boolean, 'multicast-source-connected'), ['bool'])),
+                            ('bgp_implicit_import_disabled', (YLeaf(YType.boolean, 'bgp-implicit-import-disabled'), ['bool'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                         ])
                         self.evi = None
                         self.encapsulation = None
@@ -12926,6 +12960,8 @@ class Evpn(Entity):
                         self.reoriginate_disabled = None
                         self.stitching = None
                         self.multicast_source_connected = None
+                        self.bgp_implicit_import_disabled = None
+                        self.vrf_name = None
 
                         self.evpn_instance = Evpn.Active.EviDetail.Elements.Element.EvpnInstance()
                         self.evpn_instance.parent = self
@@ -12951,7 +12987,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected', u'bgp_implicit_import_disabled', u'vrf_name'], name, value)
 
 
                     class EvpnInstance(Entity):
@@ -21627,6 +21663,20 @@ class Evpn(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: bgp_implicit_import_disabled
+                    
+                    	BGP implicit import is disabled
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vrf_name
+                    
+                    	L3 VRF name from BVI
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -21665,6 +21715,8 @@ class Evpn(Entity):
                             ('reoriginate_disabled', (YLeaf(YType.boolean, 'reoriginate-disabled'), ['bool'])),
                             ('stitching', (YLeaf(YType.boolean, 'stitching'), ['bool'])),
                             ('multicast_source_connected', (YLeaf(YType.boolean, 'multicast-source-connected'), ['bool'])),
+                            ('bgp_implicit_import_disabled', (YLeaf(YType.boolean, 'bgp-implicit-import-disabled'), ['bool'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                         ])
                         self.evi = None
                         self.encapsulation = None
@@ -21687,6 +21739,8 @@ class Evpn(Entity):
                         self.reoriginate_disabled = None
                         self.stitching = None
                         self.multicast_source_connected = None
+                        self.bgp_implicit_import_disabled = None
+                        self.vrf_name = None
 
                         self.evpn_instance = Evpn.Standby.EviDetail.Elements.Element.EvpnInstance()
                         self.evpn_instance.parent = self
@@ -21712,7 +21766,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected', u'bgp_implicit_import_disabled', u'vrf_name'], name, value)
 
 
                     class EvpnInstance(Entity):

@@ -156,25 +156,20 @@ class NvoInstances(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: bgp
-            
-            	Use control protocol BGP to discover  peers
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: multicast
             
             	Mulitcast group range associated  with the VxLAN segment(s)
             	**type**\:  :py:class:`Multicast <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Multicast>`
             
+            .. attribute:: bgp
+            
+            	Use control protocol BGP to discover  peers
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: peers
             
             	List of VTEP peers
             	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
-            
-            .. attribute:: suppress_arp
-            
-            	Enable ARP request suppression for this VNI
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: end_host_discovery
             
@@ -182,6 +177,11 @@ class NvoInstances(Entity):
             	**type**\:  :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
             
             	**default value**\: flood-and-learn
+            
+            .. attribute:: suppress_arp
+            
+            	Enable ARP request suppression for this VNI
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: routing_instance
             
@@ -210,15 +210,15 @@ class NvoInstances(Entity):
                     ('vni_start', (YLeaf(YType.uint32, 'vni-start'), ['int'])),
                     ('vni_end', (YLeaf(YType.uint32, 'vni-end'), ['int'])),
                     ('bgp', (YLeaf(YType.empty, 'bgp'), ['Empty'])),
-                    ('suppress_arp', (YLeaf(YType.empty, 'suppress-arp'), ['Empty'])),
                     ('end_host_discovery', (YLeaf(YType.enumeration, 'end-host-discovery'), [('ydk.models.cisco_ios_xe.nvo', 'NvoInstances', 'NvoInstance.VirtualNetwork.EndHostDiscovery')])),
+                    ('suppress_arp', (YLeaf(YType.empty, 'suppress-arp'), ['Empty'])),
                     ('routing_instance', (YLeaf(YType.str, 'routing-instance'), ['str'])),
                 ])
                 self.vni_start = None
                 self.vni_end = None
                 self.bgp = None
-                self.suppress_arp = None
                 self.end_host_discovery = None
+                self.suppress_arp = None
                 self.routing_instance = None
 
                 self.multicast = NvoInstances.NvoInstance.VirtualNetwork.Multicast()
@@ -230,7 +230,7 @@ class NvoInstances(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, [u'vni_start', u'vni_end', u'bgp', u'suppress_arp', u'end_host_discovery', u'routing_instance'], name, value)
+                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, [u'vni_start', u'vni_end', u'bgp', u'end_host_discovery', u'suppress_arp', u'routing_instance'], name, value)
 
             class EndHostDiscovery(Enum):
                 """

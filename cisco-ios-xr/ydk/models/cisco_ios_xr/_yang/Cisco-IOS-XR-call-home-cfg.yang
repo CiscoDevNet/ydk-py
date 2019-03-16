@@ -29,6 +29,10 @@ module Cisco-IOS-XR-call-home-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-24 {
+    description
+      "Add resolution for YANG enter-tuple issue.";
+  }
   revision 2018-06-21 {
     description
       "Remove container smart-licensing.";
@@ -515,11 +519,6 @@ module Cisco-IOS-XR-call-home-cfg {
               }
             }
           }
-        }
-        leaf create {
-          type empty;
-          description
-            "Create a profile";
         }
         leaf message-format {
           type string;

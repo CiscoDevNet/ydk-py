@@ -10376,7 +10376,7 @@ class L2tpv2(Entity):
         
         .. attribute:: average_packet_processing_time
         
-        	Average processing time for received packets  (in micro seconds)
+        	Average processing time for received packets (in micro seconds)
         	**type**\: int
         
         	**range:** 0..4294967295

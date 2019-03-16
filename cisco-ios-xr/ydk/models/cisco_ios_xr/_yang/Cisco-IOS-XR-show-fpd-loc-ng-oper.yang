@@ -52,10 +52,10 @@ module Cisco-IOS-XR-show-fpd-loc-ng-oper {
         key "location-name";
         description
           "location";
-        container details {
+        container fpds {
           description
             "Display fpds on given locations";
-          list detail {
+          list fpd {
             key "fpd-name";
             description
               "Display fpds detail";

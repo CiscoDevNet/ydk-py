@@ -530,6 +530,75 @@ class FibafiProto(Enum):
     ipv6_mpls = Enum.YLeaf(3, "ipv6-mpls")
 
 
+class Fibfrr(Enum):
+    """
+    Fibfrr (Enum Class)
+
+    Fibfrr
+
+    .. data:: fib_te_frr_node = 0
+
+    	TE FRR
+
+    .. data:: fib_te_frr_intf = 1
+
+    	TE Interface FRR
+
+    .. data:: fib_te_frr_protected_nh = 2
+
+    	TE Protected FRR
+
+    .. data:: fib_te_frr_backup_nh = 3
+
+    	TE Backup FRR
+
+    .. data:: fib_per_link_frr_protected_nh = 4
+
+    	Per Link Protected FRR
+
+    .. data:: fib_per_link_frr_backup_nh = 5
+
+    	Per Link Backup FRR
+
+    .. data:: fib_prefix_frr_protected_nh = 6
+
+    	Per Prefix Protected FRR
+
+    .. data:: fib_prefix_frr_backup_nh = 7
+
+    	Per Prefix Backup FRR
+
+    .. data:: fib_pic_frr_protected_nh = 8
+
+    	BGP PIC Protected FRR
+
+    .. data:: fib_pic_frr_backup_nh = 9
+
+    	BGP PIC Backup FRR
+
+    """
+
+    fib_te_frr_node = Enum.YLeaf(0, "fib-te-frr-node")
+
+    fib_te_frr_intf = Enum.YLeaf(1, "fib-te-frr-intf")
+
+    fib_te_frr_protected_nh = Enum.YLeaf(2, "fib-te-frr-protected-nh")
+
+    fib_te_frr_backup_nh = Enum.YLeaf(3, "fib-te-frr-backup-nh")
+
+    fib_per_link_frr_protected_nh = Enum.YLeaf(4, "fib-per-link-frr-protected-nh")
+
+    fib_per_link_frr_backup_nh = Enum.YLeaf(5, "fib-per-link-frr-backup-nh")
+
+    fib_prefix_frr_protected_nh = Enum.YLeaf(6, "fib-prefix-frr-protected-nh")
+
+    fib_prefix_frr_backup_nh = Enum.YLeaf(7, "fib-prefix-frr-backup-nh")
+
+    fib_pic_frr_protected_nh = Enum.YLeaf(8, "fib-pic-frr-protected-nh")
+
+    fib_pic_frr_backup_nh = Enum.YLeaf(9, "fib-pic-frr-backup-nh")
+
+
 class FibidbOper(Enum):
     """
     FibidbOper (Enum Class)
@@ -588,6 +657,39 @@ class FibllcEntry(Enum):
     xc = Enum.YLeaf(1, "xc")
 
     pfx = Enum.YLeaf(2, "pfx")
+
+
+class FibnhInfoRepl(Enum):
+    """
+    FibnhInfoRepl (Enum Class)
+
+    Fibnh info repl
+
+    .. data:: fib_nh_repl_none = 0
+
+    	None Replicated NHINFO
+
+    .. data:: fib_nh_repl_rsvpte = 1
+
+    	Replicated NHINFO for TE Accounting
+
+    .. data:: fib_nh_repl_sr_mpls = 2
+
+    	Replicated NHINFO for SR MPLS Accounting
+
+    .. data:: fib_nh_repl_bm = 3
+
+    	Replicated NHINFO for Bundle member
+
+    """
+
+    fib_nh_repl_none = Enum.YLeaf(0, "fib-nh-repl-none")
+
+    fib_nh_repl_rsvpte = Enum.YLeaf(1, "fib-nh-repl-rsvpte")
+
+    fib_nh_repl_sr_mpls = Enum.YLeaf(2, "fib-nh-repl-sr-mpls")
+
+    fib_nh_repl_bm = Enum.YLeaf(3, "fib-nh-repl-bm")
 
 
 class MgmtFibMplsFrrState(Enum):
@@ -3507,6 +3609,13 @@ class Fib(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: frr_nhinfo_pendings
+                    
+                    	FIB FRR NHINFO pending information
+                    	**type**\:  :py:class:`FrrNhinfoPendings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: external_client_summaries
                     
                     	External Client Summary Table
@@ -3543,7 +3652,7 @@ class Fib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['protocol_name']
-                        self._child_classes = OrderedDict([("issu-state", ("issu_state", Fib.Nodes.Node.Protocols.Protocol.IssuState)), ("resource", ("resource", Fib.Nodes.Node.Protocols.Protocol.Resource)), ("fib-summaries", ("fib_summaries", Fib.Nodes.Node.Protocols.Protocol.FibSummaries)), ("external-summary-all", ("external_summary_all", Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll)), ("frr-log", ("frr_log", Fib.Nodes.Node.Protocols.Protocol.FrrLog)), ("vrfs", ("vrfs", Fib.Nodes.Node.Protocols.Protocol.Vrfs)), ("exact-routes", ("exact_routes", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes)), ("protocol-global", ("protocol_global", Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal)), ("nh-ids", ("nh_ids", Fib.Nodes.Node.Protocols.Protocol.NhIds)), ("external-client-summaries", ("external_client_summaries", Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries)), ("misc", ("misc", Fib.Nodes.Node.Protocols.Protocol.Misc)), ("local-label", ("local_label", Fib.Nodes.Node.Protocols.Protocol.LocalLabel))])
+                        self._child_classes = OrderedDict([("issu-state", ("issu_state", Fib.Nodes.Node.Protocols.Protocol.IssuState)), ("resource", ("resource", Fib.Nodes.Node.Protocols.Protocol.Resource)), ("fib-summaries", ("fib_summaries", Fib.Nodes.Node.Protocols.Protocol.FibSummaries)), ("external-summary-all", ("external_summary_all", Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll)), ("frr-log", ("frr_log", Fib.Nodes.Node.Protocols.Protocol.FrrLog)), ("vrfs", ("vrfs", Fib.Nodes.Node.Protocols.Protocol.Vrfs)), ("exact-routes", ("exact_routes", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes)), ("protocol-global", ("protocol_global", Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal)), ("nh-ids", ("nh_ids", Fib.Nodes.Node.Protocols.Protocol.NhIds)), ("frr-nhinfo-pendings", ("frr_nhinfo_pendings", Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings)), ("external-client-summaries", ("external_client_summaries", Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries)), ("misc", ("misc", Fib.Nodes.Node.Protocols.Protocol.Misc)), ("local-label", ("local_label", Fib.Nodes.Node.Protocols.Protocol.LocalLabel))])
                         self._leafs = OrderedDict([
                             ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibProtocol', '')])),
                         ])
@@ -3584,6 +3693,10 @@ class Fib(Entity):
                         self.nh_ids = Fib.Nodes.Node.Protocols.Protocol.NhIds()
                         self.nh_ids.parent = self
                         self._children_name_map["nh_ids"] = "nh-ids"
+
+                        self.frr_nhinfo_pendings = Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings()
+                        self.frr_nhinfo_pendings.parent = self
+                        self._children_name_map["frr_nhinfo_pendings"] = "frr-nhinfo-pendings"
 
                         self.external_client_summaries = Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries()
                         self.external_client_summaries.parent = self
@@ -7985,6 +8098,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -8013,16 +8135,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -8985,6 +9109,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -9013,16 +9146,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -9985,6 +10120,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -10013,16 +10157,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -10985,6 +11131,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -11013,16 +11168,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -12064,6 +12221,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -12092,16 +12258,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -13144,6 +13312,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -13172,16 +13349,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -13580,6 +13759,13 @@ class Fib(Entity):
                                     
                                     	**config**\: False
                                     
+                                    .. attribute:: route_source_not_preferred
+                                    
+                                    	The source of this route is not preferred over other sources with the same prefix
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: route_is_sr_flag
                                     
                                     	Route is a MPLS Segment\-Routing prefix
@@ -13651,6 +13837,7 @@ class Fib(Entity):
                                             ('l2_subscriber_ip_protocol', (YLeaf(YType.uint32, 'l2-subscriber-ip-protocol'), ['int'])),
                                             ('l2tpv3_cookie_length_bits', (YLeaf(YType.uint32, 'l2tpv3-cookie-length-bits'), ['int'])),
                                             ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
+                                            ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                             ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
                                         ])
                                         self.prefix = None
@@ -13693,6 +13880,7 @@ class Fib(Entity):
                                         self.l2_subscriber_ip_protocol = None
                                         self.l2tpv3_cookie_length_bits = None
                                         self.route_for_external_reach_linecard_flag = None
+                                        self.route_source_not_preferred = None
                                         self.route_is_sr_flag = None
 
                                         self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation()
@@ -13708,7 +13896,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_is_sr_flag'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
 
 
                                     class DetailFibEntryInformation(Entity):
@@ -17185,6 +17373,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -17213,16 +17410,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -18257,6 +18456,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -18285,16 +18493,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -19256,6 +19466,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -19284,16 +19503,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -20255,6 +20476,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -20283,16 +20513,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -21254,6 +21486,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -21282,16 +21523,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -22333,6 +22576,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -22361,16 +22613,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -25125,6 +25379,13 @@ class Fib(Entity):
                                     
                                     	**config**\: False
                                     
+                                    .. attribute:: route_source_not_preferred
+                                    
+                                    	The source of this route is not preferred over other sources with the same prefix
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: route_is_sr_flag
                                     
                                     	Route is a MPLS Segment\-Routing prefix
@@ -25196,6 +25457,7 @@ class Fib(Entity):
                                             ('l2_subscriber_ip_protocol', (YLeaf(YType.uint32, 'l2-subscriber-ip-protocol'), ['int'])),
                                             ('l2tpv3_cookie_length_bits', (YLeaf(YType.uint32, 'l2tpv3-cookie-length-bits'), ['int'])),
                                             ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
+                                            ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                             ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
                                         ])
                                         self.prefix = None
@@ -25238,6 +25500,7 @@ class Fib(Entity):
                                         self.l2_subscriber_ip_protocol = None
                                         self.l2tpv3_cookie_length_bits = None
                                         self.route_for_external_reach_linecard_flag = None
+                                        self.route_source_not_preferred = None
                                         self.route_is_sr_flag = None
 
                                         self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation()
@@ -25253,7 +25516,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_is_sr_flag'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
 
 
                                     class DetailFibEntryInformation(Entity):
@@ -28731,6 +28994,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -28759,16 +29031,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -29810,6 +30084,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -29838,16 +30121,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -30883,6 +31168,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -30911,16 +31205,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -31883,6 +32179,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -31911,16 +32216,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -32883,6 +33190,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -32911,16 +33227,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -33883,6 +34201,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -33911,16 +34238,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -35018,6 +35347,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -35046,16 +35384,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -36017,6 +36357,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -36045,16 +36394,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -37016,6 +37367,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -37044,16 +37404,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -38015,6 +38377,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -38043,16 +38414,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -39094,6 +39467,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -39122,16 +39504,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -40173,6 +40557,15 @@ class Fib(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: nh_info_replicated_encap_id
+                                                        
+                                                        	ENCAP ID of the replicated NHINFO
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: nh_info_replicated_interface
                                                         
                                                         	Interface of the replicated NHINFO
@@ -40201,16 +40594,18 @@ class Fib(Entity):
                                                             self._leafs = OrderedDict([
                                                                 ('nh_info_replicated_type', (YLeaf(YType.uint8, 'nh-info-replicated-type'), ['int'])),
                                                                 ('nh_info_replicated_nh_id', (YLeaf(YType.uint32, 'nh-info-replicated-nh-id'), ['int'])),
+                                                                ('nh_info_replicated_encap_id', (YLeaf(YType.uint64, 'nh-info-replicated-encap-id'), ['int'])),
                                                                 ('nh_info_replicated_interface', (YLeaf(YType.str, 'nh-info-replicated-interface'), ['str'])),
                                                             ])
                                                             self.nh_info_replicated_type = None
                                                             self.nh_info_replicated_nh_id = None
+                                                            self.nh_info_replicated_encap_id = None
                                                             self.nh_info_replicated_interface = None
                                                             self._segment_path = lambda: "snecd-nhr"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
 
 
 
@@ -40631,6 +41026,13 @@ class Fib(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: route_source_not_preferred
+                            
+                            	The source of this route is not preferred over other sources with the same prefix
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
                             .. attribute:: route_is_sr_flag
                             
                             	Route is a MPLS Segment\-Routing prefix
@@ -40705,6 +41107,7 @@ class Fib(Entity):
                                     ('l2_subscriber_ip_protocol', (YLeaf(YType.uint32, 'l2-subscriber-ip-protocol'), ['int'])),
                                     ('l2tpv3_cookie_length_bits', (YLeaf(YType.uint32, 'l2tpv3-cookie-length-bits'), ['int'])),
                                     ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
+                                    ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                     ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
                                 ])
                                 self.protocol_name = None
@@ -40750,6 +41153,7 @@ class Fib(Entity):
                                 self.l2_subscriber_ip_protocol = None
                                 self.l2tpv3_cookie_length_bits = None
                                 self.route_for_external_reach_linecard_flag = None
+                                self.route_source_not_preferred = None
                                 self.route_is_sr_flag = None
 
                                 self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation()
@@ -40765,7 +41169,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute, ['protocol_name', 'vrf_name', 'source', 'destination', 'ipv6_flow_label', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_is_sr_flag'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute, ['protocol_name', 'vrf_name', 'source', 'destination', 'ipv6_flow_label', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
 
 
                             class DetailFibEntryInformation(Entity):
@@ -43503,6 +43907,15 @@ class Fib(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: encap_id
+                            
+                            	ENCAP ID value
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
@@ -43532,6 +43945,7 @@ class Fib(Entity):
                                     ('nh_id_application', (YLeaf(YType.uint8, 'nh-id-application'), ['int'])),
                                     ('version', (YLeaf(YType.uint64, 'version'), ['int'])),
                                     ('time_of_last_update_in_msec', (YLeaf(YType.uint64, 'time-of-last-update-in-msec'), ['int'])),
+                                    ('encap_id', (YLeaf(YType.uint64, 'encap-id'), ['int'])),
                                 ])
                                 self.nh_id = None
                                 self.nh_interface_name = None
@@ -43545,11 +43959,333 @@ class Fib(Entity):
                                 self.nh_id_application = None
                                 self.version = None
                                 self.time_of_last_update_in_msec = None
+                                self.encap_id = None
                                 self._segment_path = lambda: "nh-id"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId, ['nh_id', 'nh_interface_name', 'nh_address', u'nh_interface_name_xr', u'nh_address_xr', u'nh_protocol', u'nh_link_type', u'nh_table_id', u'nh_id_xr', u'nh_id_application', u'version', u'time_of_last_update_in_msec'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId, ['nh_id', 'nh_interface_name', 'nh_address', u'nh_interface_name_xr', u'nh_address_xr', u'nh_protocol', u'nh_link_type', u'nh_table_id', u'nh_id_xr', u'nh_id_application', u'version', u'time_of_last_update_in_msec', u'encap_id'], name, value)
+
+
+
+
+                    class FrrNhinfoPendings(Entity):
+                        """
+                        FIB FRR NHINFO pending information
+                        
+                        .. attribute:: frr_nhinfo_pending
+                        
+                        	FIB FRR Nhinfo pending information
+                        	**type**\: list of  		 :py:class:`FrrNhinfoPending <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings, self).__init__()
+
+                            self.yang_name = "frr-nhinfo-pendings"
+                            self.yang_parent_name = "protocol"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("frr-nhinfo-pending", ("frr_nhinfo_pending", Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending))])
+                            self._leafs = OrderedDict()
+
+                            self.frr_nhinfo_pending = YList(self)
+                            self._segment_path = lambda: "frr-nhinfo-pendings"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings, [], name, value)
+
+
+                        class FrrNhinfoPending(Entity):
+                            """
+                            FIB FRR Nhinfo pending information
+                            
+                            .. attribute:: queue_index
+                            
+                            	Queue Index
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: frr_type
+                            
+                            	FRR Type
+                            	**type**\:  :py:class:`Fibfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fibfrr>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: link_type
+                            
+                            	Link Type
+                            	**type**\:  :py:class:`FibLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLink>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: prefix_length
+                            
+                            	Prefix Length
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: main_interface_name
+                            
+                            	Main Interface Name
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: next_hop_prefix
+                            
+                            	NextHop Address
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: replicated_nh_type
+                            
+                            	Replicated NextHop Type
+                            	**type**\:  :py:class:`FibnhInfoRepl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibnhInfoRepl>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_frrtype
+                            
+                            	FRR\-NHinfo Type
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_refcount
+                            
+                            	refcount
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_flags
+                            
+                            	frr nhinfo flags
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_ifh
+                            
+                            	ifh assoc w frr nh
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_main_ifh
+                            
+                            	main ifh assoc w prot\-frr nh
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_linktype
+                            
+                            	Linktype using this FRR object
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_nh_pfx_proto
+                            
+                            	Protocol for next\-hop prefix
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_nh_pfx
+                            
+                            	nh prefix
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_nh_pfx_len
+                            
+                            	prefix len
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_tunid
+                            
+                            	tunnel id for c12k
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_frr_ptr
+                            
+                            	frr\-nhinfo pointer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_prot_frr_ptr
+                            
+                            	prot\-frr\-nhinfo pointer for a bkup\-frr
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_parent_nh_ptr
+                            
+                            	parent nhinfo pointer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_repl_parent_type
+                            
+                            	replicated parent nhinfo type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: si_upd_ts
+                            
+                            	update timestamp
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending, self).__init__()
+
+                                self.yang_name = "frr-nhinfo-pending"
+                                self.yang_parent_name = "frr-nhinfo-pendings"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('queue_index', (YLeaf(YType.uint32, 'queue-index'), ['int'])),
+                                    ('frr_type', (YLeaf(YType.enumeration, 'frr-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fibfrr', '')])),
+                                    ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibLink', '')])),
+                                    ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('main_interface_name', (YLeaf(YType.str, 'main-interface-name'), ['str'])),
+                                    ('next_hop_prefix', (YLeaf(YType.str, 'next-hop-prefix'), ['str','str'])),
+                                    ('replicated_nh_type', (YLeaf(YType.enumeration, 'replicated-nh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibnhInfoRepl', '')])),
+                                    ('si_frrtype', (YLeaf(YType.uint32, 'si-frrtype'), ['int'])),
+                                    ('si_refcount', (YLeaf(YType.uint32, 'si-refcount'), ['int'])),
+                                    ('si_flags', (YLeaf(YType.uint32, 'si-flags'), ['int'])),
+                                    ('si_ifh', (YLeaf(YType.uint32, 'si-ifh'), ['int'])),
+                                    ('si_main_ifh', (YLeaf(YType.uint32, 'si-main-ifh'), ['int'])),
+                                    ('si_linktype', (YLeaf(YType.uint32, 'si-linktype'), ['int'])),
+                                    ('si_nh_pfx_proto', (YLeaf(YType.uint32, 'si-nh-pfx-proto'), ['int'])),
+                                    ('si_nh_pfx', (YLeaf(YType.str, 'si-nh-pfx'), ['str'])),
+                                    ('si_nh_pfx_len', (YLeaf(YType.uint32, 'si-nh-pfx-len'), ['int'])),
+                                    ('si_tunid', (YLeaf(YType.uint32, 'si-tunid'), ['int'])),
+                                    ('si_frr_ptr', (YLeaf(YType.uint32, 'si-frr-ptr'), ['int'])),
+                                    ('si_prot_frr_ptr', (YLeaf(YType.uint32, 'si-prot-frr-ptr'), ['int'])),
+                                    ('si_parent_nh_ptr', (YLeaf(YType.uint32, 'si-parent-nh-ptr'), ['int'])),
+                                    ('si_repl_parent_type', (YLeaf(YType.uint8, 'si-repl-parent-type'), ['int'])),
+                                    ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
+                                ])
+                                self.queue_index = None
+                                self.frr_type = None
+                                self.link_type = None
+                                self.prefix_length = None
+                                self.interface_name = None
+                                self.main_interface_name = None
+                                self.next_hop_prefix = None
+                                self.replicated_nh_type = None
+                                self.si_frrtype = None
+                                self.si_refcount = None
+                                self.si_flags = None
+                                self.si_ifh = None
+                                self.si_main_ifh = None
+                                self.si_linktype = None
+                                self.si_nh_pfx_proto = None
+                                self.si_nh_pfx = None
+                                self.si_nh_pfx_len = None
+                                self.si_tunid = None
+                                self.si_frr_ptr = None
+                                self.si_prot_frr_ptr = None
+                                self.si_parent_nh_ptr = None
+                                self.si_repl_parent_type = None
+                                self.si_upd_ts = None
+                                self._segment_path = lambda: "frr-nhinfo-pending"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending, ['queue_index', 'frr_type', 'link_type', 'prefix_length', 'interface_name', 'main_interface_name', 'next_hop_prefix', 'replicated_nh_type', u'si_frrtype', u'si_refcount', u'si_flags', u'si_ifh', u'si_main_ifh', u'si_linktype', u'si_nh_pfx_proto', u'si_nh_pfx', u'si_nh_pfx_len', u'si_tunid', u'si_frr_ptr', u'si_prot_frr_ptr', u'si_parent_nh_ptr', u'si_repl_parent_type', u'si_upd_ts'], name, value)
 
 
 
@@ -45802,14 +46538,14 @@ class Fib(Entity):
                             
                             .. attribute:: fpd_gbltbl_src_entry
                             
-                            	Number of global routes from                      each route source
+                            	Number of global routes from  each route source
                             	**type**\: list of  		 :py:class:`FpdGbltblSrcEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGbltblSrcEntry>`
                             
                             	**config**\: False
                             
                             .. attribute:: fpd_vrftbl_src_entry
                             
-                            	Number of vrf routes from                         each route source
+                            	Number of vrf routes from  each route source
                             	**type**\: list of  		 :py:class:`FpdVrftblSrcEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdVrftblSrcEntry>`
                             
                             	**config**\: False
@@ -46364,7 +47100,7 @@ class Fib(Entity):
 
                             class FpdGbltblSrcEntry(Entity):
                                 """
-                                Number of global routes from                    
+                                Number of global routes from
                                 
                                 each route source
                                 
@@ -46407,7 +47143,7 @@ class Fib(Entity):
 
                             class FpdVrftblSrcEntry(Entity):
                                 """
-                                Number of vrf routes from                       
+                                Number of vrf routes from
                                 
                                 each route source
                                 
@@ -47456,10 +48192,10 @@ class OcAftL3(Entity):
                     """
                     MPLS abstract forwarding table
                     
-                    .. attribute:: label_entries
+                    .. attribute:: labels
                     
                     	Table of MPLS labels
-                    	**type**\:  :py:class:`LabelEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries>`
+                    	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels>`
                     
                     	**config**\: False
                     
@@ -47478,12 +48214,12 @@ class OcAftL3(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("label-entries", ("label_entries", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries))])
+                        self._child_classes = OrderedDict([("labels", ("labels", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels))])
                         self._leafs = OrderedDict()
 
-                        self.label_entries = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries()
-                        self.label_entries.parent = self
-                        self._children_name_map["label_entries"] = "label-entries"
+                        self.labels = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels()
+                        self.labels.parent = self
+                        self._children_name_map["labels"] = "labels"
                         self._segment_path = lambda: "mpls"
                         self._is_frozen = True
 
@@ -47491,14 +48227,14 @@ class OcAftL3(Entity):
                         self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls, [], name, value)
 
 
-                    class LabelEntries(Entity):
+                    class Labels(Entity):
                         """
                         Table of MPLS labels
                         
-                        .. attribute:: label_entry
+                        .. attribute:: label
                         
                         	Label data
-                        	**type**\: list of  		 :py:class:`LabelEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry>`
+                        	**type**\: list of  		 :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label>`
                         
                         	**config**\: False
                         
@@ -47510,57 +48246,46 @@ class OcAftL3(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries, self).__init__()
+                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels, self).__init__()
 
-                            self.yang_name = "label-entries"
+                            self.yang_name = "labels"
                             self.yang_parent_name = "mpls"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("label-entry", ("label_entry", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry))])
+                            self._child_classes = OrderedDict([("label", ("label", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label))])
                             self._leafs = OrderedDict()
 
-                            self.label_entry = YList(self)
-                            self._segment_path = lambda: "label-entries"
+                            self.label = YList(self)
+                            self._segment_path = lambda: "labels"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries, [], name, value)
+                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels, [], name, value)
 
 
-                        class LabelEntry(Entity):
+                        class Label(Entity):
                             """
                             Label data
                             
                             .. attribute:: label  (key)
                             
-                            	MPLS label
+                            	Label
                             	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             	**config**\: False
                             
-                            .. attribute:: label_length  (key)
+                            .. attribute:: next_hops
                             
-                            	Internal representation of a mask\-length of MPLS label
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	A next\-hop associated with the forwarding instance
+                            	**type**\:  :py:class:`NextHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops>`
                             
                             	**config**\: False
                             
                             .. attribute:: state
                             
-                            	State
-                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.State>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: next_hop
-                            
-                            	Next hops
-                            	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop>`
+                            	Operational data
+                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State>`
                             
                             	**config**\: False
                             
@@ -47572,48 +48297,42 @@ class OcAftL3(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry, self).__init__()
+                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label, self).__init__()
 
-                                self.yang_name = "label-entry"
-                                self.yang_parent_name = "label-entries"
+                                self.yang_name = "label"
+                                self.yang_parent_name = "labels"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self.ylist_key_names = ['label','label_length']
-                                self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.State)), ("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop))])
+                                self.ylist_key_names = ['label']
+                                self._child_classes = OrderedDict([("next-hops", ("next_hops", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops)), ("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State))])
                                 self._leafs = OrderedDict([
                                     ('label', (YLeaf(YType.str, 'label'), ['str'])),
-                                    ('label_length', (YLeaf(YType.uint32, 'label-length'), ['int'])),
                                 ])
                                 self.label = None
-                                self.label_length = None
 
-                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.State()
+                                self.next_hops = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops()
+                                self.next_hops.parent = self
+                                self._children_name_map["next_hops"] = "next-hops"
+
+                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-
-                                self.next_hop = YList(self)
-                                self._segment_path = lambda: "label-entry" + "[label='" + str(self.label) + "']" + "[label-length='" + str(self.label_length) + "']"
+                                self._segment_path = lambda: "label" + "[label='" + str(self.label) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry, ['label', 'label_length'], name, value)
+                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label, ['label'], name, value)
 
 
-                            class State(Entity):
+                            class NextHops(Entity):
                                 """
-                                State
+                                A next\-hop associated with the forwarding
+                                instance
                                 
-                                .. attribute:: prefix_index
+                                .. attribute:: next_hop
                                 
-                                	IP prefix
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: label_index
-                                
-                                	MPLS label
-                                	**type**\: str
+                                	A next\-hop associated with the forwarding instance
+                                	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop>`
                                 
                                 	**config**\: False
                                 
@@ -47625,174 +48344,49 @@ class OcAftL3(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.State, self).__init__()
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "label-entry"
+                                    self.yang_name = "next-hops"
+                                    self.yang_parent_name = "label"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
-                                        ('label_index', (YLeaf(YType.str, 'label-index'), ['str'])),
-                                    ])
-                                    self.prefix_index = None
-                                    self.label_index = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.State, [u'prefix_index', u'label_index'], name, value)
-
-
-
-                            class NextHop(Entity):
-                                """
-                                Next hops
-                                
-                                .. attribute:: state
-                                
-                                	OC AFT entry next\-hop state
-                                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.State>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: interface_ref
-                                
-                                	AFT entry next\-hop interface ref
-                                	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef>`
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop, self).__init__()
-
-                                    self.yang_name = "next-hop"
-                                    self.yang_parent_name = "label-entry"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef))])
+                                    self._child_classes = OrderedDict([("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop))])
                                     self._leafs = OrderedDict()
 
-                                    self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-
-                                    self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef()
-                                    self.interface_ref.parent = self
-                                    self._children_name_map["interface_ref"] = "interface-ref"
-                                    self._segment_path = lambda: "next-hop"
+                                    self.next_hop = YList(self)
+                                    self._segment_path = lambda: "next-hops"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop, [], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops, [], name, value)
 
 
-                                class State(Entity):
+                                class NextHop(Entity):
                                     """
-                                    OC AFT entry next\-hop state
+                                    A next\-hop associated with the forwarding
+                                    instance
                                     
-                                    .. attribute:: index
+                                    .. attribute:: index  (key)
                                     
-                                    	Index
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: weight
-                                    
-                                    	Weight
+                                    	A unique index identifying the next\-hop entry for the AFT entry
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     	**config**\: False
                                     
-                                    .. attribute:: ip_address
-                                    
-                                    	IP address
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: network_instance
-                                    
-                                    	VRF name where the nexthop is resolved
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: popped_mpls_label_stack
-                                    
-                                    	Popped mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: pushed_mpls_label_stack
-                                    
-                                    	Pushed mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2017-09-07'
-
-                                    def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "next-hop"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
-                                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
-                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
-                                            ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
-                                            ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
-                                            ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
-                                        ])
-                                        self.index = None
-                                        self.weight = None
-                                        self.ip_address = None
-                                        self.network_instance = None
-                                        self.popped_mpls_label_stack = []
-                                        self.pushed_mpls_label_stack = []
-                                        self._segment_path = lambda: "state"
-                                        self._is_frozen = True
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
-
-
-
-                                class InterfaceRef(Entity):
-                                    """
-                                    AFT entry next\-hop interface ref
-                                    
                                     .. attribute:: state
                                     
-                                    	AFT entry interface ref state
-                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef.State>`
+                                    	OC AFT entry next\-hop state
+                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: interface_ref
+                                    
+                                    	AFT entry next\-hop interface ref
+                                    	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef>`
                                     
                                     	**config**\: False
                                     
@@ -47804,43 +48398,80 @@ class OcAftL3(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef, self).__init__()
+                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop, self).__init__()
 
-                                        self.yang_name = "interface-ref"
-                                        self.yang_parent_name = "next-hop"
+                                        self.yang_name = "next-hop"
+                                        self.yang_parent_name = "next-hops"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef.State))])
-                                        self._leafs = OrderedDict()
+                                        self.ylist_key_names = ['index']
+                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef))])
+                                        self._leafs = OrderedDict([
+                                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                        ])
+                                        self.index = None
 
-                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef.State()
+                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._segment_path = lambda: "interface-ref"
+
+                                        self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef()
+                                        self.interface_ref.parent = self
+                                        self._children_name_map["interface_ref"] = "interface-ref"
+                                        self._segment_path = lambda: "next-hop" + "[index='" + str(self.index) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef, [], name, value)
+                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop, ['index'], name, value)
 
 
                                     class State(Entity):
                                         """
-                                        AFT entry interface ref state
+                                        OC AFT entry next\-hop state
                                         
-                                        .. attribute:: interface
+                                        .. attribute:: index
                                         
-                                        	Interface name
+                                        	Index
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: weight
+                                        
+                                        	Weight
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ip_address
+                                        
+                                        	IP address
                                         	**type**\: str
                                         
                                         	**config**\: False
                                         
-                                        .. attribute:: subinterface
+                                        .. attribute:: network_instance
                                         
-                                        	Sub\-Interface index
-                                        	**type**\: int
+                                        	VRF name where the nexthop is resolved
+                                        	**type**\: str
                                         
-                                        	**range:** 0..4294967295
+                                        	**config**\: False
+                                        
+                                        .. attribute:: popped_mpls_label_stack
+                                        
+                                        	Popped mpls label stack
+                                        	**type**\: list of str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: pushed_mpls_label_stack
+                                        
+                                        	Pushed mpls label stack
+                                        	**type**\: list of str
                                         
                                         	**config**\: False
                                         
@@ -47852,27 +48483,164 @@ class OcAftL3(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef.State, self).__init__()
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State, self).__init__()
 
                                             self.yang_name = "state"
-                                            self.yang_parent_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
-                                                ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
+                                                ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
+                                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                                ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
+                                                ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
+                                                ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
                                             ])
-                                            self.interface = None
-                                            self.subinterface = None
+                                            self.index = None
+                                            self.weight = None
+                                            self.ip_address = None
+                                            self.network_instance = None
+                                            self.popped_mpls_label_stack = []
+                                            self.pushed_mpls_label_stack = []
                                             self._segment_path = lambda: "state"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.LabelEntries.LabelEntry.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
 
 
+
+                                    class InterfaceRef(Entity):
+                                        """
+                                        AFT entry next\-hop interface ref
+                                        
+                                        .. attribute:: state
+                                        
+                                        	AFT entry interface ref state
+                                        	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State>`
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef, self).__init__()
+
+                                            self.yang_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State))])
+                                            self._leafs = OrderedDict()
+
+                                            self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State()
+                                            self.state.parent = self
+                                            self._children_name_map["state"] = "state"
+                                            self._segment_path = lambda: "interface-ref"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef, [], name, value)
+
+
+                                        class State(Entity):
+                                            """
+                                            AFT entry interface ref state
+                                            
+                                            .. attribute:: interface
+                                            
+                                            	Interface name
+                                            	**type**\: str
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: subinterface
+                                            
+                                            	Sub\-Interface index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-09-07'
+
+                                            def __init__(self):
+                                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State, self).__init__()
+
+                                                self.yang_name = "state"
+                                                self.yang_parent_name = "interface-ref"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                                    ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ])
+                                                self.interface = None
+                                                self.subinterface = None
+                                                self._segment_path = lambda: "state"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
+
+
+                            class State(Entity):
+                                """
+                                Operational data
+                                
+                                .. attribute:: prefix_index
+                                
+                                	IP prefix or MPLS label
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "label"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
+                                    ])
+                                    self.prefix_index = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State, [u'prefix_index'], name, value)
 
 
 
@@ -47883,10 +48651,10 @@ class OcAftL3(Entity):
                     """
                     IPv6 abstract forwarding table
                     
-                    .. attribute:: prefix_entries
+                    .. attribute:: prefixes
                     
                     	Table of IP prefixes
-                    	**type**\:  :py:class:`PrefixEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries>`
+                    	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes>`
                     
                     	**config**\: False
                     
@@ -47905,12 +48673,12 @@ class OcAftL3(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("prefix-entries", ("prefix_entries", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries))])
+                        self._child_classes = OrderedDict([("prefixes", ("prefixes", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes))])
                         self._leafs = OrderedDict()
 
-                        self.prefix_entries = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries()
-                        self.prefix_entries.parent = self
-                        self._children_name_map["prefix_entries"] = "prefix-entries"
+                        self.prefixes = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes()
+                        self.prefixes.parent = self
+                        self._children_name_map["prefixes"] = "prefixes"
                         self._segment_path = lambda: "ipv6-unicast"
                         self._is_frozen = True
 
@@ -47918,14 +48686,14 @@ class OcAftL3(Entity):
                         self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast, [], name, value)
 
 
-                    class PrefixEntries(Entity):
+                    class Prefixes(Entity):
                         """
                         Table of IP prefixes
                         
-                        .. attribute:: prefix_entry
+                        .. attribute:: prefix
                         
                         	Prefix data
-                        	**type**\: list of  		 :py:class:`PrefixEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry>`
+                        	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix>`
                         
                         	**config**\: False
                         
@@ -47937,54 +48705,46 @@ class OcAftL3(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries, self).__init__()
+                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes, self).__init__()
 
-                            self.yang_name = "prefix-entries"
+                            self.yang_name = "prefixes"
                             self.yang_parent_name = "ipv6-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("prefix-entry", ("prefix_entry", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry))])
+                            self._child_classes = OrderedDict([("prefix", ("prefix", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix))])
                             self._leafs = OrderedDict()
 
-                            self.prefix_entry = YList(self)
-                            self._segment_path = lambda: "prefix-entries"
+                            self.prefix = YList(self)
+                            self._segment_path = lambda: "prefixes"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries, [], name, value)
+                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes, [], name, value)
 
 
-                        class PrefixEntry(Entity):
+                        class Prefix(Entity):
                             """
                             Prefix data
                             
-                            .. attribute:: network  (key)
+                            .. attribute:: prefix  (key)
                             
-                            	Network address
-                            	**type**\: union of the below types:
+                            	Prefix
+                            	**type**\: str
                             
-                            		**type**\: str
+                            	**config**\: False
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            .. attribute:: next_hops
                             
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            	A next\-hop associated with the forwarding instance
+                            	**type**\:  :py:class:`NextHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops>`
                             
                             	**config**\: False
                             
                             .. attribute:: state
                             
-                            	State
-                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.State>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: next_hop
-                            
-                            	Next hops
-                            	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop>`
+                            	Operational data
+                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State>`
                             
                             	**config**\: False
                             
@@ -47996,46 +48756,42 @@ class OcAftL3(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry, self).__init__()
+                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix, self).__init__()
 
-                                self.yang_name = "prefix-entry"
-                                self.yang_parent_name = "prefix-entries"
+                                self.yang_name = "prefix"
+                                self.yang_parent_name = "prefixes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self.ylist_key_names = ['network']
-                                self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.State)), ("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop))])
+                                self.ylist_key_names = ['prefix']
+                                self._child_classes = OrderedDict([("next-hops", ("next_hops", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops)), ("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State))])
                                 self._leafs = OrderedDict([
-                                    ('network', (YLeaf(YType.str, 'network'), ['str','str'])),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                                 ])
-                                self.network = None
+                                self.prefix = None
 
-                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.State()
+                                self.next_hops = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops()
+                                self.next_hops.parent = self
+                                self._children_name_map["next_hops"] = "next-hops"
+
+                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-
-                                self.next_hop = YList(self)
-                                self._segment_path = lambda: "prefix-entry" + "[network='" + str(self.network) + "']"
+                                self._segment_path = lambda: "prefix" + "[prefix='" + str(self.prefix) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry, ['network'], name, value)
+                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix, ['prefix'], name, value)
 
 
-                            class State(Entity):
+                            class NextHops(Entity):
                                 """
-                                State
+                                A next\-hop associated with the forwarding
+                                instance
                                 
-                                .. attribute:: prefix_index
+                                .. attribute:: next_hop
                                 
-                                	IP prefix
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: label_index
-                                
-                                	MPLS label
-                                	**type**\: str
+                                	A next\-hop associated with the forwarding instance
+                                	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop>`
                                 
                                 	**config**\: False
                                 
@@ -48047,174 +48803,49 @@ class OcAftL3(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.State, self).__init__()
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "prefix-entry"
+                                    self.yang_name = "next-hops"
+                                    self.yang_parent_name = "prefix"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
-                                        ('label_index', (YLeaf(YType.str, 'label-index'), ['str'])),
-                                    ])
-                                    self.prefix_index = None
-                                    self.label_index = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.State, [u'prefix_index', u'label_index'], name, value)
-
-
-
-                            class NextHop(Entity):
-                                """
-                                Next hops
-                                
-                                .. attribute:: state
-                                
-                                	OC AFT entry next\-hop state
-                                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.State>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: interface_ref
-                                
-                                	AFT entry next\-hop interface ref
-                                	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef>`
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop, self).__init__()
-
-                                    self.yang_name = "next-hop"
-                                    self.yang_parent_name = "prefix-entry"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef))])
+                                    self._child_classes = OrderedDict([("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop))])
                                     self._leafs = OrderedDict()
 
-                                    self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-
-                                    self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef()
-                                    self.interface_ref.parent = self
-                                    self._children_name_map["interface_ref"] = "interface-ref"
-                                    self._segment_path = lambda: "next-hop"
+                                    self.next_hop = YList(self)
+                                    self._segment_path = lambda: "next-hops"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop, [], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops, [], name, value)
 
 
-                                class State(Entity):
+                                class NextHop(Entity):
                                     """
-                                    OC AFT entry next\-hop state
+                                    A next\-hop associated with the forwarding
+                                    instance
                                     
-                                    .. attribute:: index
+                                    .. attribute:: index  (key)
                                     
-                                    	Index
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: weight
-                                    
-                                    	Weight
+                                    	A unique index identifying the next\-hop entry for the AFT entry
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     	**config**\: False
                                     
-                                    .. attribute:: ip_address
-                                    
-                                    	IP address
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: network_instance
-                                    
-                                    	VRF name where the nexthop is resolved
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: popped_mpls_label_stack
-                                    
-                                    	Popped mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: pushed_mpls_label_stack
-                                    
-                                    	Pushed mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2017-09-07'
-
-                                    def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "next-hop"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
-                                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
-                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
-                                            ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
-                                            ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
-                                            ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
-                                        ])
-                                        self.index = None
-                                        self.weight = None
-                                        self.ip_address = None
-                                        self.network_instance = None
-                                        self.popped_mpls_label_stack = []
-                                        self.pushed_mpls_label_stack = []
-                                        self._segment_path = lambda: "state"
-                                        self._is_frozen = True
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
-
-
-
-                                class InterfaceRef(Entity):
-                                    """
-                                    AFT entry next\-hop interface ref
-                                    
                                     .. attribute:: state
                                     
-                                    	AFT entry interface ref state
-                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State>`
+                                    	OC AFT entry next\-hop state
+                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: interface_ref
+                                    
+                                    	AFT entry next\-hop interface ref
+                                    	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef>`
                                     
                                     	**config**\: False
                                     
@@ -48226,43 +48857,80 @@ class OcAftL3(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef, self).__init__()
+                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop, self).__init__()
 
-                                        self.yang_name = "interface-ref"
-                                        self.yang_parent_name = "next-hop"
+                                        self.yang_name = "next-hop"
+                                        self.yang_parent_name = "next-hops"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State))])
-                                        self._leafs = OrderedDict()
+                                        self.ylist_key_names = ['index']
+                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef))])
+                                        self._leafs = OrderedDict([
+                                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                        ])
+                                        self.index = None
 
-                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State()
+                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._segment_path = lambda: "interface-ref"
+
+                                        self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef()
+                                        self.interface_ref.parent = self
+                                        self._children_name_map["interface_ref"] = "interface-ref"
+                                        self._segment_path = lambda: "next-hop" + "[index='" + str(self.index) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef, [], name, value)
+                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop, ['index'], name, value)
 
 
                                     class State(Entity):
                                         """
-                                        AFT entry interface ref state
+                                        OC AFT entry next\-hop state
                                         
-                                        .. attribute:: interface
+                                        .. attribute:: index
                                         
-                                        	Interface name
+                                        	Index
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: weight
+                                        
+                                        	Weight
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ip_address
+                                        
+                                        	IP address
                                         	**type**\: str
                                         
                                         	**config**\: False
                                         
-                                        .. attribute:: subinterface
+                                        .. attribute:: network_instance
                                         
-                                        	Sub\-Interface index
-                                        	**type**\: int
+                                        	VRF name where the nexthop is resolved
+                                        	**type**\: str
                                         
-                                        	**range:** 0..4294967295
+                                        	**config**\: False
+                                        
+                                        .. attribute:: popped_mpls_label_stack
+                                        
+                                        	Popped mpls label stack
+                                        	**type**\: list of str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: pushed_mpls_label_stack
+                                        
+                                        	Pushed mpls label stack
+                                        	**type**\: list of str
                                         
                                         	**config**\: False
                                         
@@ -48274,27 +48942,164 @@ class OcAftL3(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State, self).__init__()
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State, self).__init__()
 
                                             self.yang_name = "state"
-                                            self.yang_parent_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
-                                                ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
+                                                ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
+                                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                                ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
+                                                ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
+                                                ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
                                             ])
-                                            self.interface = None
-                                            self.subinterface = None
+                                            self.index = None
+                                            self.weight = None
+                                            self.ip_address = None
+                                            self.network_instance = None
+                                            self.popped_mpls_label_stack = []
+                                            self.pushed_mpls_label_stack = []
                                             self._segment_path = lambda: "state"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
 
 
+
+                                    class InterfaceRef(Entity):
+                                        """
+                                        AFT entry next\-hop interface ref
+                                        
+                                        .. attribute:: state
+                                        
+                                        	AFT entry interface ref state
+                                        	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State>`
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef, self).__init__()
+
+                                            self.yang_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State))])
+                                            self._leafs = OrderedDict()
+
+                                            self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State()
+                                            self.state.parent = self
+                                            self._children_name_map["state"] = "state"
+                                            self._segment_path = lambda: "interface-ref"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef, [], name, value)
+
+
+                                        class State(Entity):
+                                            """
+                                            AFT entry interface ref state
+                                            
+                                            .. attribute:: interface
+                                            
+                                            	Interface name
+                                            	**type**\: str
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: subinterface
+                                            
+                                            	Sub\-Interface index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-09-07'
+
+                                            def __init__(self):
+                                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, self).__init__()
+
+                                                self.yang_name = "state"
+                                                self.yang_parent_name = "interface-ref"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                                    ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ])
+                                                self.interface = None
+                                                self.subinterface = None
+                                                self._segment_path = lambda: "state"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
+
+
+                            class State(Entity):
+                                """
+                                Operational data
+                                
+                                .. attribute:: prefix_index
+                                
+                                	IP prefix or MPLS label
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "prefix"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
+                                    ])
+                                    self.prefix_index = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State, [u'prefix_index'], name, value)
 
 
 
@@ -48305,10 +49110,10 @@ class OcAftL3(Entity):
                     """
                     IPv4 abstract forwarding table
                     
-                    .. attribute:: prefix_entries
+                    .. attribute:: prefixes
                     
                     	Table of IP prefixes
-                    	**type**\:  :py:class:`PrefixEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries>`
+                    	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes>`
                     
                     	**config**\: False
                     
@@ -48327,12 +49132,12 @@ class OcAftL3(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("prefix-entries", ("prefix_entries", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries))])
+                        self._child_classes = OrderedDict([("prefixes", ("prefixes", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes))])
                         self._leafs = OrderedDict()
 
-                        self.prefix_entries = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries()
-                        self.prefix_entries.parent = self
-                        self._children_name_map["prefix_entries"] = "prefix-entries"
+                        self.prefixes = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes()
+                        self.prefixes.parent = self
+                        self._children_name_map["prefixes"] = "prefixes"
                         self._segment_path = lambda: "ipv4-unicast"
                         self._is_frozen = True
 
@@ -48340,14 +49145,14 @@ class OcAftL3(Entity):
                         self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast, [], name, value)
 
 
-                    class PrefixEntries(Entity):
+                    class Prefixes(Entity):
                         """
                         Table of IP prefixes
                         
-                        .. attribute:: prefix_entry
+                        .. attribute:: prefix
                         
                         	Prefix data
-                        	**type**\: list of  		 :py:class:`PrefixEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry>`
+                        	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix>`
                         
                         	**config**\: False
                         
@@ -48359,54 +49164,46 @@ class OcAftL3(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries, self).__init__()
+                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes, self).__init__()
 
-                            self.yang_name = "prefix-entries"
+                            self.yang_name = "prefixes"
                             self.yang_parent_name = "ipv4-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("prefix-entry", ("prefix_entry", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry))])
+                            self._child_classes = OrderedDict([("prefix", ("prefix", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix))])
                             self._leafs = OrderedDict()
 
-                            self.prefix_entry = YList(self)
-                            self._segment_path = lambda: "prefix-entries"
+                            self.prefix = YList(self)
+                            self._segment_path = lambda: "prefixes"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries, [], name, value)
+                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes, [], name, value)
 
 
-                        class PrefixEntry(Entity):
+                        class Prefix(Entity):
                             """
                             Prefix data
                             
-                            .. attribute:: network  (key)
+                            .. attribute:: prefix  (key)
                             
-                            	Network address
-                            	**type**\: union of the below types:
+                            	Prefix
+                            	**type**\: str
                             
-                            		**type**\: str
+                            	**config**\: False
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            .. attribute:: next_hops
                             
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            	A next\-hop associated with the forwarding instance
+                            	**type**\:  :py:class:`NextHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops>`
                             
                             	**config**\: False
                             
                             .. attribute:: state
                             
-                            	State
-                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.State>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: next_hop
-                            
-                            	Next hops
-                            	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop>`
+                            	Operational data
+                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State>`
                             
                             	**config**\: False
                             
@@ -48418,46 +49215,42 @@ class OcAftL3(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry, self).__init__()
+                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix, self).__init__()
 
-                                self.yang_name = "prefix-entry"
-                                self.yang_parent_name = "prefix-entries"
+                                self.yang_name = "prefix"
+                                self.yang_parent_name = "prefixes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self.ylist_key_names = ['network']
-                                self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.State)), ("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop))])
+                                self.ylist_key_names = ['prefix']
+                                self._child_classes = OrderedDict([("next-hops", ("next_hops", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops)), ("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State))])
                                 self._leafs = OrderedDict([
-                                    ('network', (YLeaf(YType.str, 'network'), ['str','str'])),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                                 ])
-                                self.network = None
+                                self.prefix = None
 
-                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.State()
+                                self.next_hops = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops()
+                                self.next_hops.parent = self
+                                self._children_name_map["next_hops"] = "next-hops"
+
+                                self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-
-                                self.next_hop = YList(self)
-                                self._segment_path = lambda: "prefix-entry" + "[network='" + str(self.network) + "']"
+                                self._segment_path = lambda: "prefix" + "[prefix='" + str(self.prefix) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry, ['network'], name, value)
+                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix, ['prefix'], name, value)
 
 
-                            class State(Entity):
+                            class NextHops(Entity):
                                 """
-                                State
+                                A next\-hop associated with the forwarding
+                                instance
                                 
-                                .. attribute:: prefix_index
+                                .. attribute:: next_hop
                                 
-                                	IP prefix
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: label_index
-                                
-                                	MPLS label
-                                	**type**\: str
+                                	A next\-hop associated with the forwarding instance
+                                	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop>`
                                 
                                 	**config**\: False
                                 
@@ -48469,174 +49262,49 @@ class OcAftL3(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.State, self).__init__()
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "prefix-entry"
+                                    self.yang_name = "next-hops"
+                                    self.yang_parent_name = "prefix"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
-                                        ('label_index', (YLeaf(YType.str, 'label-index'), ['str'])),
-                                    ])
-                                    self.prefix_index = None
-                                    self.label_index = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.State, [u'prefix_index', u'label_index'], name, value)
-
-
-
-                            class NextHop(Entity):
-                                """
-                                Next hops
-                                
-                                .. attribute:: state
-                                
-                                	OC AFT entry next\-hop state
-                                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.State>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: interface_ref
-                                
-                                	AFT entry next\-hop interface ref
-                                	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef>`
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop, self).__init__()
-
-                                    self.yang_name = "next-hop"
-                                    self.yang_parent_name = "prefix-entry"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef))])
+                                    self._child_classes = OrderedDict([("next-hop", ("next_hop", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop))])
                                     self._leafs = OrderedDict()
 
-                                    self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-
-                                    self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef()
-                                    self.interface_ref.parent = self
-                                    self._children_name_map["interface_ref"] = "interface-ref"
-                                    self._segment_path = lambda: "next-hop"
+                                    self.next_hop = YList(self)
+                                    self._segment_path = lambda: "next-hops"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop, [], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops, [], name, value)
 
 
-                                class State(Entity):
+                                class NextHop(Entity):
                                     """
-                                    OC AFT entry next\-hop state
+                                    A next\-hop associated with the forwarding
+                                    instance
                                     
-                                    .. attribute:: index
+                                    .. attribute:: index  (key)
                                     
-                                    	Index
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: weight
-                                    
-                                    	Weight
+                                    	A unique index identifying the next\-hop entry for the AFT entry
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     	**config**\: False
                                     
-                                    .. attribute:: ip_address
-                                    
-                                    	IP address
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: network_instance
-                                    
-                                    	VRF name where the nexthop is resolved
-                                    	**type**\: str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: popped_mpls_label_stack
-                                    
-                                    	Popped mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: pushed_mpls_label_stack
-                                    
-                                    	Pushed mpls label stack
-                                    	**type**\: list of str
-                                    
-                                    	**config**\: False
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2017-09-07'
-
-                                    def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "next-hop"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
-                                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
-                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
-                                            ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
-                                            ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
-                                            ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
-                                        ])
-                                        self.index = None
-                                        self.weight = None
-                                        self.ip_address = None
-                                        self.network_instance = None
-                                        self.popped_mpls_label_stack = []
-                                        self.pushed_mpls_label_stack = []
-                                        self._segment_path = lambda: "state"
-                                        self._is_frozen = True
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
-
-
-
-                                class InterfaceRef(Entity):
-                                    """
-                                    AFT entry next\-hop interface ref
-                                    
                                     .. attribute:: state
                                     
-                                    	AFT entry interface ref state
-                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State>`
+                                    	OC AFT entry next\-hop state
+                                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: interface_ref
+                                    
+                                    	AFT entry next\-hop interface ref
+                                    	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef>`
                                     
                                     	**config**\: False
                                     
@@ -48648,43 +49316,80 @@ class OcAftL3(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef, self).__init__()
+                                        super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop, self).__init__()
 
-                                        self.yang_name = "interface-ref"
-                                        self.yang_parent_name = "next-hop"
+                                        self.yang_name = "next-hop"
+                                        self.yang_parent_name = "next-hops"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State))])
-                                        self._leafs = OrderedDict()
+                                        self.ylist_key_names = ['index']
+                                        self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State)), ("interface-ref", ("interface_ref", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef))])
+                                        self._leafs = OrderedDict([
+                                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                        ])
+                                        self.index = None
 
-                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State()
+                                        self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._segment_path = lambda: "interface-ref"
+
+                                        self.interface_ref = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef()
+                                        self.interface_ref.parent = self
+                                        self._children_name_map["interface_ref"] = "interface-ref"
+                                        self._segment_path = lambda: "next-hop" + "[index='" + str(self.index) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef, [], name, value)
+                                        self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop, ['index'], name, value)
 
 
                                     class State(Entity):
                                         """
-                                        AFT entry interface ref state
+                                        OC AFT entry next\-hop state
                                         
-                                        .. attribute:: interface
+                                        .. attribute:: index
                                         
-                                        	Interface name
+                                        	Index
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: weight
+                                        
+                                        	Weight
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ip_address
+                                        
+                                        	IP address
                                         	**type**\: str
                                         
                                         	**config**\: False
                                         
-                                        .. attribute:: subinterface
+                                        .. attribute:: network_instance
                                         
-                                        	Sub\-Interface index
-                                        	**type**\: int
+                                        	VRF name where the nexthop is resolved
+                                        	**type**\: str
                                         
-                                        	**range:** 0..4294967295
+                                        	**config**\: False
+                                        
+                                        .. attribute:: popped_mpls_label_stack
+                                        
+                                        	Popped mpls label stack
+                                        	**type**\: list of str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: pushed_mpls_label_stack
+                                        
+                                        	Pushed mpls label stack
+                                        	**type**\: list of str
                                         
                                         	**config**\: False
                                         
@@ -48696,27 +49401,164 @@ class OcAftL3(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State, self).__init__()
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State, self).__init__()
 
                                             self.yang_name = "state"
-                                            self.yang_parent_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
-                                                ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ('index', (YLeaf(YType.uint64, 'index'), ['int'])),
+                                                ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
+                                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                                ('network_instance', (YLeaf(YType.str, 'network-instance'), ['str'])),
+                                                ('popped_mpls_label_stack', (YLeafList(YType.str, 'popped-mpls-label-stack'), ['str'])),
+                                                ('pushed_mpls_label_stack', (YLeafList(YType.str, 'pushed-mpls-label-stack'), ['str'])),
                                             ])
-                                            self.interface = None
-                                            self.subinterface = None
+                                            self.index = None
+                                            self.weight = None
+                                            self.ip_address = None
+                                            self.network_instance = None
+                                            self.popped_mpls_label_stack = []
+                                            self.pushed_mpls_label_stack = []
                                             self._segment_path = lambda: "state"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.PrefixEntries.PrefixEntry.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
 
 
+
+                                    class InterfaceRef(Entity):
+                                        """
+                                        AFT entry next\-hop interface ref
+                                        
+                                        .. attribute:: state
+                                        
+                                        	AFT entry interface ref state
+                                        	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State>`
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef, self).__init__()
+
+                                            self.yang_name = "interface-ref"
+                                            self.yang_parent_name = "next-hop"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("state", ("state", OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State))])
+                                            self._leafs = OrderedDict()
+
+                                            self.state = OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State()
+                                            self.state.parent = self
+                                            self._children_name_map["state"] = "state"
+                                            self._segment_path = lambda: "interface-ref"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef, [], name, value)
+
+
+                                        class State(Entity):
+                                            """
+                                            AFT entry interface ref state
+                                            
+                                            .. attribute:: interface
+                                            
+                                            	Interface name
+                                            	**type**\: str
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: subinterface
+                                            
+                                            	Sub\-Interface index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-09-07'
+
+                                            def __init__(self):
+                                                super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, self).__init__()
+
+                                                self.yang_name = "state"
+                                                self.yang_parent_name = "interface-ref"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                                    ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                                ])
+                                                self.interface = None
+                                                self.subinterface = None
+                                                self._segment_path = lambda: "state"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
+
+
+                            class State(Entity):
+                                """
+                                Operational data
+                                
+                                .. attribute:: prefix_index
+                                
+                                	IP prefix or MPLS label
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "prefix"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_index', (YLeaf(YType.str, 'prefix-index'), ['str'])),
+                                    ])
+                                    self.prefix_index = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State, [u'prefix_index'], name, value)
 
 
 
@@ -49781,6 +50623,26 @@ class MplsForwarding(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: total_number_of_packets_switched
+                        
+                        	The total number of packets switched on all paths
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_number_of_bytes_switched
+                        
+                        	The total number of bytes switched on all paths
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        	**units**\: byte
+                        
                         .. attribute:: label_information
                         
                         	Label\-infos in FIB leaf
@@ -49826,6 +50688,8 @@ class MplsForwarding(Entity):
                                 ('afi_table_id', (YLeaf(YType.uint32, 'afi-table-id'), ['int'])),
                                 ('multicast_label', (YLeaf(YType.boolean, 'multicast-label'), ['bool'])),
                                 ('leaf_time_in_milli_seconds', (YLeaf(YType.uint64, 'leaf-time-in-milli-seconds'), ['int'])),
+                                ('total_number_of_packets_switched', (YLeaf(YType.uint64, 'total-number-of-packets-switched'), ['int'])),
+                                ('total_number_of_bytes_switched', (YLeaf(YType.uint64, 'total-number-of-bytes-switched'), ['int'])),
                             ])
                             self.label_value = None
                             self.eos = None
@@ -49848,6 +50712,8 @@ class MplsForwarding(Entity):
                             self.afi_table_id = None
                             self.multicast_label = None
                             self.leaf_time_in_milli_seconds = None
+                            self.total_number_of_packets_switched = None
+                            self.total_number_of_bytes_switched = None
 
                             self.ldi_information = MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation()
                             self.ldi_information.parent = self
@@ -49862,7 +50728,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
 
 
                         class LdiInformation(Entity):
@@ -50151,42 +51017,6 @@ class MplsForwarding(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: outgoing_interface
-                            
-                            	Outgoing interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: outgoing_physical_interface
-                            
-                            	Outgoing Physical Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: outgoing_parent_interface
-                            
-                            	Outgoing Parent Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_interface
-                            
-                            	Tunnel Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
                             .. attribute:: label_information_path_index
                             
                             	LabelInformationPathIndex
@@ -50230,9 +51060,30 @@ class MplsForwarding(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: outgoing_interface_string
+                            .. attribute:: outgoing_interface
                             
                             	Output Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: outgoing_physical_interface
+                            
+                            	Output Physical Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: outgoing_parent_interface
+                            
+                            	Output Parent Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: tunnel_interface
+                            
+                            	Tunnel Interface in string format
                             	**type**\: str
                             
                             	**config**\: False
@@ -50298,16 +51149,15 @@ class MplsForwarding(Entity):
                                     ('outgoing_label', (YLeaf(YType.uint32, 'outgoing-label'), ['int'])),
                                     ('mpls_adjacency_flags', (YLeaf(YType.uint32, 'mpls-adjacency-flags'), ['int'])),
                                     ('tunnel_id_present', (YLeaf(YType.boolean, 'tunnel-id-present'), ['bool'])),
-                                    ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                                    ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
-                                    ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
-                                    ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                     ('label_information_path_index', (YLeaf(YType.uint32, 'label-information-path-index'), ['int'])),
                                     ('label_information_next_hop_type', (YLeaf(YType.enumeration, 'label-information-next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'NextHop', '')])),
                                     ('label_information_next_hop_protocol', (YLeaf(YType.enumeration, 'label-information-next-hop-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Proto', '')])),
                                     ('tx_bytes', (YLeaf(YType.uint64, 'tx-bytes'), ['int'])),
                                     ('tx_packets', (YLeaf(YType.uint64, 'tx-packets'), ['int'])),
-                                    ('outgoing_interface_string', (YLeaf(YType.str, 'outgoing-interface-string'), ['str'])),
+                                    ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                    ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
+                                    ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
+                                    ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                     ('outgoing_label_string', (YLeaf(YType.str, 'outgoing-label-string'), ['str'])),
                                     ('prefix_or_id', (YLeaf(YType.str, 'prefix-or-id'), ['str'])),
                                     ('label_information_next_hop_string', (YLeaf(YType.str, 'label-information-next-hop-string'), ['str'])),
@@ -50319,16 +51169,15 @@ class MplsForwarding(Entity):
                                 self.outgoing_label = None
                                 self.mpls_adjacency_flags = None
                                 self.tunnel_id_present = None
-                                self.outgoing_interface = None
-                                self.outgoing_physical_interface = None
-                                self.outgoing_parent_interface = None
-                                self.tunnel_interface = None
                                 self.label_information_path_index = None
                                 self.label_information_next_hop_type = None
                                 self.label_information_next_hop_protocol = None
                                 self.tx_bytes = None
                                 self.tx_packets = None
-                                self.outgoing_interface_string = None
+                                self.outgoing_interface = None
+                                self.outgoing_physical_interface = None
+                                self.outgoing_parent_interface = None
+                                self.tunnel_interface = None
                                 self.outgoing_label_string = None
                                 self.prefix_or_id = None
                                 self.label_information_next_hop_string = None
@@ -50346,7 +51195,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface_string', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
 
 
                             class LabelInformationDetail(Entity):
@@ -50819,6 +51668,26 @@ class MplsForwarding(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: total_number_of_packets_switched
+                        
+                        	The total number of packets switched on all paths
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_number_of_bytes_switched
+                        
+                        	The total number of bytes switched on all paths
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        	**units**\: byte
+                        
                         .. attribute:: label_information
                         
                         	Label\-infos in FIB leaf
@@ -50864,6 +51733,8 @@ class MplsForwarding(Entity):
                                 ('afi_table_id', (YLeaf(YType.uint32, 'afi-table-id'), ['int'])),
                                 ('multicast_label', (YLeaf(YType.boolean, 'multicast-label'), ['bool'])),
                                 ('leaf_time_in_milli_seconds', (YLeaf(YType.uint64, 'leaf-time-in-milli-seconds'), ['int'])),
+                                ('total_number_of_packets_switched', (YLeaf(YType.uint64, 'total-number-of-packets-switched'), ['int'])),
+                                ('total_number_of_bytes_switched', (YLeaf(YType.uint64, 'total-number-of-bytes-switched'), ['int'])),
                             ])
                             self.label_value = None
                             self.eos = None
@@ -50886,6 +51757,8 @@ class MplsForwarding(Entity):
                             self.afi_table_id = None
                             self.multicast_label = None
                             self.leaf_time_in_milli_seconds = None
+                            self.total_number_of_packets_switched = None
+                            self.total_number_of_bytes_switched = None
 
                             self.ldi_information = MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation()
                             self.ldi_information.parent = self
@@ -50900,7 +51773,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
 
 
                         class LdiInformation(Entity):
@@ -51189,42 +52062,6 @@ class MplsForwarding(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: outgoing_interface
-                            
-                            	Outgoing interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: outgoing_physical_interface
-                            
-                            	Outgoing Physical Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: outgoing_parent_interface
-                            
-                            	Outgoing Parent Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_interface
-                            
-                            	Tunnel Interface
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
                             .. attribute:: label_information_path_index
                             
                             	LabelInformationPathIndex
@@ -51268,9 +52105,30 @@ class MplsForwarding(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: outgoing_interface_string
+                            .. attribute:: outgoing_interface
                             
                             	Output Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: outgoing_physical_interface
+                            
+                            	Output Physical Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: outgoing_parent_interface
+                            
+                            	Output Parent Interface in string format
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: tunnel_interface
+                            
+                            	Tunnel Interface in string format
                             	**type**\: str
                             
                             	**config**\: False
@@ -51336,16 +52194,15 @@ class MplsForwarding(Entity):
                                     ('outgoing_label', (YLeaf(YType.uint32, 'outgoing-label'), ['int'])),
                                     ('mpls_adjacency_flags', (YLeaf(YType.uint32, 'mpls-adjacency-flags'), ['int'])),
                                     ('tunnel_id_present', (YLeaf(YType.boolean, 'tunnel-id-present'), ['bool'])),
-                                    ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                                    ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
-                                    ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
-                                    ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                     ('label_information_path_index', (YLeaf(YType.uint32, 'label-information-path-index'), ['int'])),
                                     ('label_information_next_hop_type', (YLeaf(YType.enumeration, 'label-information-next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'NextHop', '')])),
                                     ('label_information_next_hop_protocol', (YLeaf(YType.enumeration, 'label-information-next-hop-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Proto', '')])),
                                     ('tx_bytes', (YLeaf(YType.uint64, 'tx-bytes'), ['int'])),
                                     ('tx_packets', (YLeaf(YType.uint64, 'tx-packets'), ['int'])),
-                                    ('outgoing_interface_string', (YLeaf(YType.str, 'outgoing-interface-string'), ['str'])),
+                                    ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                    ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
+                                    ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
+                                    ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                     ('outgoing_label_string', (YLeaf(YType.str, 'outgoing-label-string'), ['str'])),
                                     ('prefix_or_id', (YLeaf(YType.str, 'prefix-or-id'), ['str'])),
                                     ('label_information_next_hop_string', (YLeaf(YType.str, 'label-information-next-hop-string'), ['str'])),
@@ -51357,16 +52214,15 @@ class MplsForwarding(Entity):
                                 self.outgoing_label = None
                                 self.mpls_adjacency_flags = None
                                 self.tunnel_id_present = None
-                                self.outgoing_interface = None
-                                self.outgoing_physical_interface = None
-                                self.outgoing_parent_interface = None
-                                self.tunnel_interface = None
                                 self.label_information_path_index = None
                                 self.label_information_next_hop_type = None
                                 self.label_information_next_hop_protocol = None
                                 self.tx_bytes = None
                                 self.tx_packets = None
-                                self.outgoing_interface_string = None
+                                self.outgoing_interface = None
+                                self.outgoing_physical_interface = None
+                                self.outgoing_parent_interface = None
+                                self.tunnel_interface = None
                                 self.outgoing_label_string = None
                                 self.prefix_or_id = None
                                 self.label_information_next_hop_string = None
@@ -51384,7 +52240,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface_string', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
 
 
                             class LabelInformationDetail(Entity):
@@ -52304,6 +53160,26 @@ class MplsForwarding(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: total_number_of_packets_switched
+                            
+                            	The total number of packets switched on all paths
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_number_of_bytes_switched
+                            
+                            	The total number of bytes switched on all paths
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            	**units**\: byte
+                            
                             .. attribute:: label_information
                             
                             	Label\-infos in FIB leaf
@@ -52347,6 +53223,8 @@ class MplsForwarding(Entity):
                                     ('afi_table_id', (YLeaf(YType.uint32, 'afi-table-id'), ['int'])),
                                     ('multicast_label', (YLeaf(YType.boolean, 'multicast-label'), ['bool'])),
                                     ('leaf_time_in_milli_seconds', (YLeaf(YType.uint64, 'leaf-time-in-milli-seconds'), ['int'])),
+                                    ('total_number_of_packets_switched', (YLeaf(YType.uint64, 'total-number-of-packets-switched'), ['int'])),
+                                    ('total_number_of_bytes_switched', (YLeaf(YType.uint64, 'total-number-of-bytes-switched'), ['int'])),
                                 ])
                                 self.leaf_local_label = None
                                 self.eos_bit = None
@@ -52367,6 +53245,8 @@ class MplsForwarding(Entity):
                                 self.afi_table_id = None
                                 self.multicast_label = None
                                 self.leaf_time_in_milli_seconds = None
+                                self.total_number_of_packets_switched = None
+                                self.total_number_of_bytes_switched = None
 
                                 self.ldi_information = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation()
                                 self.ldi_information.parent = self
@@ -52381,7 +53261,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg, [u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg, [u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
 
 
                             class LdiInformation(Entity):
@@ -52670,42 +53550,6 @@ class MplsForwarding(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: outgoing_interface
-                                
-                                	Outgoing interface
-                                	**type**\: str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: outgoing_physical_interface
-                                
-                                	Outgoing Physical Interface
-                                	**type**\: str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: outgoing_parent_interface
-                                
-                                	Outgoing Parent Interface
-                                	**type**\: str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: tunnel_interface
-                                
-                                	Tunnel Interface
-                                	**type**\: str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: label_information_path_index
                                 
                                 	LabelInformationPathIndex
@@ -52749,9 +53593,30 @@ class MplsForwarding(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: outgoing_interface_string
+                                .. attribute:: outgoing_interface
                                 
                                 	Output Interface in string format
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: outgoing_physical_interface
+                                
+                                	Output Physical Interface in string format
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: outgoing_parent_interface
+                                
+                                	Output Parent Interface in string format
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: tunnel_interface
+                                
+                                	Tunnel Interface in string format
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -52817,16 +53682,15 @@ class MplsForwarding(Entity):
                                         ('outgoing_label', (YLeaf(YType.uint32, 'outgoing-label'), ['int'])),
                                         ('mpls_adjacency_flags', (YLeaf(YType.uint32, 'mpls-adjacency-flags'), ['int'])),
                                         ('tunnel_id_present', (YLeaf(YType.boolean, 'tunnel-id-present'), ['bool'])),
-                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                                        ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
-                                        ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
-                                        ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                         ('label_information_path_index', (YLeaf(YType.uint32, 'label-information-path-index'), ['int'])),
                                         ('label_information_next_hop_type', (YLeaf(YType.enumeration, 'label-information-next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'NextHop', '')])),
                                         ('label_information_next_hop_protocol', (YLeaf(YType.enumeration, 'label-information-next-hop-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Proto', '')])),
                                         ('tx_bytes', (YLeaf(YType.uint64, 'tx-bytes'), ['int'])),
                                         ('tx_packets', (YLeaf(YType.uint64, 'tx-packets'), ['int'])),
-                                        ('outgoing_interface_string', (YLeaf(YType.str, 'outgoing-interface-string'), ['str'])),
+                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                        ('outgoing_physical_interface', (YLeaf(YType.str, 'outgoing-physical-interface'), ['str'])),
+                                        ('outgoing_parent_interface', (YLeaf(YType.str, 'outgoing-parent-interface'), ['str'])),
+                                        ('tunnel_interface', (YLeaf(YType.str, 'tunnel-interface'), ['str'])),
                                         ('outgoing_label_string', (YLeaf(YType.str, 'outgoing-label-string'), ['str'])),
                                         ('prefix_or_id', (YLeaf(YType.str, 'prefix-or-id'), ['str'])),
                                         ('label_information_next_hop_string', (YLeaf(YType.str, 'label-information-next-hop-string'), ['str'])),
@@ -52838,16 +53702,15 @@ class MplsForwarding(Entity):
                                     self.outgoing_label = None
                                     self.mpls_adjacency_flags = None
                                     self.tunnel_id_present = None
-                                    self.outgoing_interface = None
-                                    self.outgoing_physical_interface = None
-                                    self.outgoing_parent_interface = None
-                                    self.tunnel_interface = None
                                     self.label_information_path_index = None
                                     self.label_information_next_hop_type = None
                                     self.label_information_next_hop_protocol = None
                                     self.tx_bytes = None
                                     self.tx_packets = None
-                                    self.outgoing_interface_string = None
+                                    self.outgoing_interface = None
+                                    self.outgoing_physical_interface = None
+                                    self.outgoing_parent_interface = None
+                                    self.tunnel_interface = None
                                     self.outgoing_label_string = None
                                     self.prefix_or_id = None
                                     self.label_information_next_hop_string = None
@@ -52865,7 +53728,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface_string', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
 
 
                                 class LabelInformationDetail(Entity):

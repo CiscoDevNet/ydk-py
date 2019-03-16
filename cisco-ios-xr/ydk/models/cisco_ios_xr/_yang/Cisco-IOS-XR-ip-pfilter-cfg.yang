@@ -75,7 +75,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
           }
           description
             "Reserved for backward compatibility. IPv6
-             Packet Filter Name to be applied to Inbound 
+             Packet Filter Name to be applied to Inbound
              NOTE: This parameter is mandatory if
              'CommonACLName' is not specified.";
         }
@@ -132,7 +132,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
           }
           description
             "Reserved for backward compatibility. IPv6
-             Packet Filter Name to be applied to Outbound 
+             Packet Filter Name to be applied to Outbound
              packets.";
         }
         leaf interface-statistics {

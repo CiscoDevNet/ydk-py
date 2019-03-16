@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 cmake_policy(SET CMP0048 NEW)
 
-project(path VERSION 0.8.1 LANGUAGES C CXX)
+project(path VERSION 0.8.2 LANGUAGES C CXX)
 
 set(CMAKE_MACOSX_RPATH 1)
 

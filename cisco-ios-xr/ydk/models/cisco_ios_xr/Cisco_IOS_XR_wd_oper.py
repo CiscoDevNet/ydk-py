@@ -700,7 +700,7 @@ class Watchdog(Entity):
                     
                     .. attribute:: start_time
                     
-                    	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	Current throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\: str
                     
                     	**length:** 0..25

@@ -1543,7 +1543,7 @@ class Syslog(Entity):
         	Logging buffered size
         	**type**\: int
         
-        	**range:** 4096..4294967295
+        	**range:** 2097152..125000000
         
         	**default value**\: 2097152
         

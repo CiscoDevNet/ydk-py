@@ -2,6 +2,9 @@ module Cisco-IOS-XR-kim-tpa-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-kim-tpa-cfg";
   prefix kim-tpa-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
   import Cisco-IOS-XR-types {
     prefix xr;
   }
@@ -29,6 +32,10 @@ module Cisco-IOS-XR-kim-tpa-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-27 {
+    description
+      "Added support for protection configuration";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -36,6 +43,23 @@ module Cisco-IOS-XR-kim-tpa-cfg {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Ip-protocol {
+    type enumeration {
+      enum "tcp" {
+        value 6;
+        description
+          "Transmission Control Protocol, RFC 793";
+      }
+      enum "udp" {
+        value 17;
+        description
+          "User Datagram Protocol, RFC 768";
+      }
+    }
+    description
+      "Ip protocol";
   }
 
   grouping UPDATE-SOURCE {
@@ -55,6 +79,195 @@ module Cisco-IOS-XR-kim-tpa-cfg {
         must "not(../interface-name)";
         description
           "Use the management port on the Active RP";
+      }
+    }
+  }
+
+  grouping PROTECTION {
+    description
+      "Common node of ipv4, ipv6";
+    container allow-entries {
+      description
+        "Traffic protection configuration";
+      list allow-entry {
+        key "protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-local-address {
+        key "local-address protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf local-address {
+          type inet:ip-prefix;
+          description
+            "local prefix/length";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-remote-address {
+        key "remote-address protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf remote-address {
+          type inet:ip-prefix;
+          description
+            "remote prefix/length";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-local-address-remote-address {
+        key "local-address remote-address protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf local-address {
+          type inet:ip-prefix;
+          description
+            "local prefix/length";
+        }
+        leaf remote-address {
+          type inet:ip-prefix;
+          description
+            "remote prefix/length";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-interface-name {
+        key "interface-name protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-local-address-interface-name {
+        key "local-address interface-name protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf local-address {
+          type inet:ip-prefix;
+          description
+            "local prefix/length";
+        }
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-remote-address-interface-name {
+        key "remote-address interface-name protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf remote-address {
+          type inet:ip-prefix;
+          description
+            "remote prefix/length";
+        }
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
+      }
+      list allow-entry-local-address-remote-address-interface-name {
+        key "local-address remote-address interface-name protocol local-port";
+        description
+          "Allow traffic matching a filter";
+        leaf local-address {
+          type inet:ip-prefix;
+          description
+            "local prefix/length";
+        }
+        leaf remote-address {
+          type inet:ip-prefix;
+          description
+            "remote prefix/length";
+        }
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        leaf protocol {
+          type Ip-protocol;
+          description
+            "L4 protocol";
+        }
+        leaf local-port {
+          type xr:Cisco-ios-xr-port-number;
+          description
+            "Local port";
+        }
       }
     }
   }
@@ -136,6 +349,7 @@ module Cisco-IOS-XR-kim-tpa-cfg {
               "IPv6 configuration";
             uses DEFAULT-ROUTE;
             uses EGRESS-UPDATE-SOURCE;
+            uses PROTECTION;
             uses UPDATE-SOURCE;
           }
           container ipv4 {
@@ -143,6 +357,7 @@ module Cisco-IOS-XR-kim-tpa-cfg {
               "IPv4 configuration";
             uses DEFAULT-ROUTE;
             uses EGRESS-UPDATE-SOURCE;
+            uses PROTECTION;
             uses UPDATE-SOURCE;
           }
         }

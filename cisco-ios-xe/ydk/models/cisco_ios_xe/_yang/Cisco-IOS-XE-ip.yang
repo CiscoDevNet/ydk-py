@@ -32,12 +32,44 @@ submodule Cisco-IOS-XE-ip {
 
   description
     "Cisco XE Native IP Yang Model.
-     Copyright (c) 2016-2018 by Cisco Systems, Inc.
+     Copyright (c) 2016-2019 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-10-13 {                                                          
+     description                                                                  
+       "added model for ip route vrf topology and ip route topology";             
+  }
+  revision 2018-10-09 {
+    description
+      "Make dhcp option available to 'ip route' following outgoing interface";
+  }
+  revision 2018-10-08 {
+    description
+      "Add must constraint to ip route vrf, on vrf & address-family";
+  }
+  revision 2018-09-26 {
+    description
+      "Add cli-disallow-value 'dhcp|DHCP' to 'ip route' for non-dhcp configs";
+  }
+  revision 2018-09-06 {
+    description
+      "Added support to all option under 'ip route static install-routes-recurse-via-nexthop'";
+  }
+  revision 2018-08-20 {
+    description
+      "add more support to vrf definition";
+  }
+  revision 2018-08-03 {
+    description
+      "Corrected ip prefix-list model to make one entry with one representation with seq";
+  }
+  revision 2018-07-11 {
+    description
+     "add support to vrf definition rd to use rd asn dot notation";
+  }
   revision 2018-05-09 {
     description
       "stitching leaf moved to the vrf group";
@@ -158,56 +190,87 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
-  grouping ip-prefix-lists-grouping {
-    list prefix-only-list {
-      key "prefix";
-      leaf prefix {
-        type inet:ipv4-prefix;
+  grouping ip-route-static-bfd-group-grouping {
+    leaf group {
+      description "assign a bfd group";
+      type string;
+    }
+    leaf passive {
+      description "passive member of the group";
+      when "../group";
+      type empty;
+    }
+    leaf log {
+      description "Log changes in BFD Up/Down events";
+      type empty;
+    }
+    leaf unassociate {
+      description "Static Route not associated";
+      type empty;
+    }
+  }
+
+  grouping ip-route-static-bfd-ip-grouping {
+    list ipv4_addr {
+      key "ipv4_des";
+      leaf ipv4_des {
+        description "Multihop BFD Destination IP address";
+        type inet:ipv4-address;
+      }
+      list vrf {
+        description "Source VRF name";
+        key "name ipv4_source";
+        leaf name {
+          must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
+                 /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+                 /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+            error-message "% vrf does not exist. Create first";
+          }
+          type string;
+        }
+        leaf ipv4_source {
+          type inet:ipv4-address;
+        }
+        uses ip-route-static-bfd-group-grouping;
+      }
+      list ipv4 {
+        key "ipv4_source";
+        leaf ipv4_source {
+          type inet:ipv4-address;
+        }
+        uses ip-route-static-bfd-group-grouping;
       }
     }
-    list prefix-ge-list {
-      key "prefix ge";
-      leaf prefix {
-        type inet:ipv4-prefix;
+  }
+
+  grouping vrf-default-route-target-grouping {
+    choice export-choice {
+      leaf export {
+        type empty;
       }
-      leaf ge {
-        description
-          "Minimum prefix length to be matched";
-        type uint8 {
-          range "1..32";
+      container export-asn {
+        list export {
+          description
+            "Export Target-VPN community";
+          key "asn-ip";
+          leaf asn-ip {
+            type ios-types:asn-ip-type;
+          }
         }
       }
     }
-    list prefix-le-list {
-      key "prefix le";
-      leaf prefix {
-        type inet:ipv4-prefix;
+    choice import-choice {
+      leaf import {
+        type empty;
       }
-      leaf le {
-        description
-          "Maximum prefix length to be matched";
-        type uint8 {
-          range "1..32";
-        }
-      }
-    }
-    list prefix-ge-le-list {
-      key "prefix ge le";
-      leaf prefix {
-        type inet:ipv4-prefix;
-      }
-      leaf ge {
-        description
-          "Minimum prefix length to be matched";
-        type uint8 {
-          range "1..32";
-        }
-      }
-      leaf le {
-        description
-          "Maximum prefix length to be matched";
-        type uint8 {
-          range "1..32";
+      container import-asn {
+        list import {
+          description
+            "Import Target-VPN community";
+          key "asn-ip";
+          leaf asn-ip {
+            type ios-types:asn-ip-type;
+          }
         }
       }
     }
@@ -292,6 +355,119 @@ submodule Cisco-IOS-XE-ip {
       }
     }
   }
+
+  grouping conf-vrf-definition-default-grouping {
+    // vrf definition * / description
+    leaf description {
+      description
+        "VRF specific description";
+        type empty;
+    }
+    // vrf definition * / ipv4
+    container ipv4 {
+      description 
+        "VRF IPv4 configuration";
+      container multicast {
+        description
+          "IP multicast configuration";
+        leaf multitopology {
+          description
+            "Enable Multicast-Specific RPF Topology";
+          type empty;
+        }
+      } 
+    }
+    // vrf definition * / ipv6
+    container ipv6 {
+      description 
+        "VRF IPv6 configuration";
+      container multicast {
+        description
+          "IP multicast configuration";
+        leaf multitopology {
+          description
+            "Enable Multicast-Specific RPF Topology";
+          type empty;
+        }
+      } 
+    }
+    // vrf definition * / rd
+    leaf rd {
+      description
+        "Specify Route Distinguisher";
+      type ios-types:asn-ip-type;
+    }
+
+    // vrf definition * / address-family
+    container address-family {
+      description
+        "Enter Address Family command mode";
+      // vrf definition * / address-family ipv4
+      container ipv4 {
+        description
+          "Address family";
+        presence "true";
+        choice modifier {
+          leaf unicast {
+            type empty;
+          }
+          leaf multicast {
+            type empty;
+          }
+        }
+      }
+      container ipv6 {
+        description
+          "Address family";
+        presence "true";
+        choice modifier {
+          leaf unicast {
+            type empty;
+          }
+          leaf multicast {
+            type empty;
+          }
+        }
+      }
+    }
+    // vrf definition * / route-target
+    container route-target {
+      description
+        "Specify Target VPN Extended Communities";
+      choice def-route-target {
+        case emtpy-rt-case {
+          leaf empty-rt {
+            type empty;
+          }
+        }
+        case default-rt { 
+          uses vrf-default-route-target-grouping;
+        }    
+      }
+    }
+    //  vnet            Virtual NETworking configuration
+    container vnet {
+      description
+        "Virtual NETworking configuration";
+      leaf tag {
+        description
+          "use default tag";
+        type empty;
+      }
+    }
+
+    // vrf definition * / vpn
+    container vpn {
+      description
+        "Configure VPN ID as specified in rfc2685";
+      leaf id {
+        description
+          "use default VPN ID";
+        type empty;
+      }
+    }
+  }
+
   grouping config-vrf-definition-grouping {
     container vrf { 
       description
@@ -306,6 +482,10 @@ submodule Cisco-IOS-XE-ip {
             "WORD;;VRF name";
           type string;
         }
+        // vrf definition * / default
+        container default {
+          uses conf-vrf-definition-default-grouping;
+        } 
         // vrf definition * / description
         leaf description {
           description
@@ -314,17 +494,39 @@ submodule Cisco-IOS-XE-ip {
             length "1..244";
           }
         }
+        // vrf definition * / ipv4
+        container ipv4 {
+          description 
+            "VRF IPv4 configuration";
+          container multicast {
+            description
+              "IP multicast configuration";
+            leaf multitopology {
+              description
+                "Enable Multicast-Specific RPF Topology";
+              type empty;
+            }
+          } 
+        }
+        // vrf definition * / ipv6
+        container ipv6 {
+          description 
+            "VRF IPv6 configuration";
+          container multicast {
+            description
+              "IP multicast configuration";
+            leaf multitopology {
+              description
+                "Enable Multicast-Specific RPF Topology";
+              type empty;
+            }
+          } 
+        }
         // vrf definition * / rd
         leaf rd {
           description
             "Specify Route Distinguisher";
-          type union {
-            type string {
-              pattern "[0-9]+:[0-9]+";
-            }
-            type inet:ipv4-address;
-            type ios-types:asn-ip-type;
-          }
+          type ios-types:asn-ip-type;
         }
         // vrf definition * / address-family
         container address-family {
@@ -534,6 +736,17 @@ submodule Cisco-IOS-XE-ip {
           uses vrf-route-target-grouping;
         }
         //  vnet            Virtual NETworking configuration
+        container vnet {
+          description
+            "Virtual NETworking configuration";
+          leaf tag {
+            description
+              "Identifier used to tag packets associated with this VNET";
+            type uint16 {
+              range "2..4094";
+            }
+          }
+        }
         // vrf definition * / vpn
         container vpn {
           description
@@ -569,12 +782,16 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
-  grouping ip-route-dhcp-only-options-grouping {
+  grouping ip-route-dhcp-grouping {
     leaf dhcp {
       description
         "Default Gateway obtained from DHCP";
       type empty;
     }
+  }
+
+  grouping ip-route-dhcp-only-options-grouping {
+    uses ip-route-dhcp-grouping;
     leaf metric {
       type uint8 {
         range "1..255";
@@ -582,11 +799,6 @@ submodule Cisco-IOS-XE-ip {
     }
   }
   grouping ip-route-options-grouping {
-    leaf dhcp {
-      description
-        "Default Gateway obtained from DHCP";
-      type empty;
-    }
     leaf metric {
       type uint8 {
         range "1..255";
@@ -628,6 +840,42 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
+ grouping ip-route-grouping-min-elements {
+    list ip-route-interface-forwarding-list {
+      key "prefix mask";
+      min-elements 1;
+      leaf prefix {
+        type inet:ipv4-address;
+      }
+      leaf mask {
+        type inet:ipv4-address;
+      }
+      uses ip-route-dhcp-only-options-grouping;
+      list fwd-list {
+        key fwd;
+        leaf fwd {
+            type union {
+               type enumeration {
+                  enum "Null0" {
+                  }
+               }
+               type inet:ipv4-address;
+               type string;
+            }
+        }
+        list interface-next-hop {
+          key ip-address;
+          leaf ip-address {
+            type inet:ipv4-address;
+          }
+          uses ip-route-options-grouping;
+        }
+        uses ip-route-dhcp-grouping;
+        uses ip-route-options-grouping;
+      }
+    }
+  }
+
   grouping ip-route-grouping {
     list ip-route-interface-forwarding-list {
       key "prefix mask";
@@ -653,10 +901,11 @@ submodule Cisco-IOS-XE-ip {
         list interface-next-hop {
           key ip-address;
           leaf ip-address {
-             type inet:ipv4-address;
+            type inet:ipv4-address;
           }
           uses ip-route-options-grouping;
         }
+        uses ip-route-dhcp-grouping;
         uses ip-route-options-grouping;
       }
     }
@@ -1645,18 +1894,6 @@ submodule Cisco-IOS-XE-ip {
               length "1..80";
             }
           }
-          // ip prefix-list * permit
-          container permit {
-            description
-              "Specify packets to forward";
-            uses ip-prefix-lists-grouping;
-          }
-          // ip prefix-list * deny
-          container deny {
-            description
-              "Specify packets to reject";
-            uses ip-prefix-lists-grouping;
-          }
           // ip prefix-list * seq *
           list seq {
             // NOTE: the seq element is not actually mandatory
@@ -1669,48 +1906,27 @@ submodule Cisco-IOS-XE-ip {
                 range "1..4294967294";
               }
             }
-            // ip prefix-list * seq * deny
-            container deny {
+	    leaf action {
+	      type enumeration {
+	        enum permit;
+		enum deny;
+	      }
+	    }
+            leaf ip {
+              type inet:ipv4-prefix;
+            }
+            leaf ge {
               description
-                "Specify packets to reject";
-              leaf ip {
-                type inet:ipv4-prefix;
-              }
-              leaf ge {
-                description
-                  "Minimum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-              leaf le {
-                description
-                  "Maximum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
+                "Minimum prefix length to be matched";
+              type uint8 {
+                range "1..32";
               }
             }
-            // ip prefix-list * seq * permit
-            container permit {
+            leaf le {
               description
-                "Specify packets to forward";
-              leaf ip {
-                type inet:ipv4-prefix;
-              }
-              leaf ge {
-                description
-                  "Minimum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-              leaf le {
-                description
-                  "Maximum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
+                "Maximum prefix length to be matched";
+              type uint8 {
+                range "1..32";
               }
             }
           }
@@ -1746,23 +1962,79 @@ submodule Cisco-IOS-XE-ip {
             }
           }
           container bfd {
-            description
+            description  
               "BFD tracked";
-            leaf interface {
-              type string;
+            list iface_name {
+              key "interface ipv4_source";
+              leaf interface {
+                type union {
+                  type enumeration {
+                    enum "Null0" {
+                    }
+                  }
+                  type string;
+                }
+              }
+              leaf ipv4_source {
+                type inet:ipv4-address;
+              }
+              uses ip-route-static-bfd-group-grouping;
             }
-            leaf gateway-ip {
-              type inet:ipv4-address;
+            uses ip-route-static-bfd-ip-grouping;
+            list vrf {
+              description "Destination VRF name";
+              key "destination_vrf";
+              leaf destination_vrf {
+                must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and 
+                       /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or 
+                       /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+                  error-message "% vrf does not exist. Create first";
+                }
+                type string;
+              }
+              uses ip-route-static-bfd-ip-grouping;
             }
           }
           container install-routes-recurse-via-nexthop {
             description 
               "installing recursive route next hop";
-            leaf vrf {
+            leaf all {
               description
-                "Configure static route for a VPN Routing/Forwarding instance";
-              type string;
+                "Configure for all default topologies";
+              type empty;
             }
+
+            container recurse-nexthop {
+              description 
+                "Recursive route next hop's";
+
+              list topology {
+                key "topology-id";
+                leaf topology-id {
+                  description
+                    "Configure recursive static route for a Topology";
+                  type string;
+                }
+                uses routes-recurse-grouping;
+              }
+              list vrf {
+                key "vrf-id";
+                leaf vrf-id {
+                  description 
+                    "Configure static route for a VPN Routing/Forwarding instance";
+                  type string;
+                }
+                uses routes-recurse-grouping;
+              }
+              uses routes-recurse-grouping;
+            }
+
+            leaf install-routes-recurse-via-nexthop {
+              description 
+                "installing recursive route next hop";
+              type empty;
+            }
+
           }
           leaf inter-vrf {
             description
@@ -1776,6 +2048,73 @@ submodule Cisco-IOS-XE-ip {
             "Configure static route for a VPN Routing/Forwarding instance";
           key "name";
           leaf name {
+            must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and " +
+                  "/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or " +
+                 "/ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+              error-message "Please create ipv4 vrf first, and delete the last";
+            }
+            type string;
+          }
+          list topology {
+            description
+              "Configure static route for a Topology Routing/Forwarding instance";
+            key name;
+            leaf "name" {
+              must "not (current() = 'base')" {
+                error-message "only non 'base' topology is allowed";
+              }
+              type string;
+            }
+            list ip-route-interface-forwarding-list {
+              key "prefix mask";
+              leaf prefix {
+                type inet:ipv4-address;
+              }
+              leaf mask {
+                type inet:ipv4-address;
+              }
+              uses ip-route-dhcp-only-options-grouping;
+              list fwd-list {
+                key fwd;
+                leaf fwd {
+                  type union {
+                    type enumeration {
+                      enum "Null0" {
+                      }
+                    }
+                    type inet:ipv4-address;
+                    type string;
+                  }
+                }
+                list interface-next-hop {
+                  key ip-address;
+                  leaf ip-address {
+                    type inet:ipv4-address;
+                  }
+                  uses ip-route-options-grouping {
+                    refine multicast {
+                      mandatory true;
+                    }
+                  }
+                }
+                uses ip-route-options-grouping {
+                  refine multicast {
+                    mandatory true;
+                  }
+                }
+              }
+            }
+          }
+          uses ip-route-grouping-min-elements;
+        }
+        list topology {
+          description
+            "Configure static route for a Topology Routing/Forwarding instance";
+          key name;
+          leaf "name" {
+            must "not (current() = 'base')" {
+              error-message "only non 'base' topology is allowed";
+            }
             type string;
           }
           uses ip-route-grouping;
@@ -2143,6 +2482,18 @@ submodule Cisco-IOS-XE-ip {
       //@ mount Cisco-IOS-XE-wccp
 
       //@ mount Cisco-IOS-XE-sla
+    }
+  }
+  grouping routes-recurse-grouping {
+    leaf route-map {
+      description
+        "Configure route-map";
+      type string;
+    }
+    leaf multicast {
+      description
+        "Configure multicast topology";
+      type empty;
     }
   }
 }

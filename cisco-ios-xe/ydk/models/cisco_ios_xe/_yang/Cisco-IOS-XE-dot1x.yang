@@ -27,12 +27,17 @@ module Cisco-IOS-XE-dot1x {
 
   description
     "Cisco XE Native dot1x Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-30 {
+     description
+       "Added dot1x logging";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";

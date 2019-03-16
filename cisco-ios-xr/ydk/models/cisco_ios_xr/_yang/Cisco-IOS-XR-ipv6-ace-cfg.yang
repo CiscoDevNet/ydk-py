@@ -2,6 +2,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
   belongs-to Cisco-IOS-XR-ipv6-acl-cfg {
     prefix ipv6-acl-cfg;
   }
+
   import Cisco-IOS-XR-ipv6-acl-datatypes {
     prefix ipv6-acl-dt;
   }
@@ -54,7 +55,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
   revision 2017-12-04 {
     description
       "6.4.1 revision.
-       Updated the when statement for icmp constainer to match 
+       Updated the when statement for icmp constainer to match
        icmpv6 protocol.";
   }
   revision 2017-11-13 {
@@ -157,9 +158,9 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf source-mask {
         type inet:ipv6-address-no-zone;
         description
-          "Source address mask. Either 
-           source-wild-card-bits or source-mask is 
-           supported, not both. Leave unspecified 
+          "Source address mask. Either
+           source-wild-card-bits or source-mask is.
+           supported, not both. Leave unspecified.
            for any.";
         reference "RFC 4291";
       }
@@ -170,24 +171,24 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf destination-address {
         type inet:ipv6-address;
         description
-          "Destination IPv6 address, leave 
-           unspecified if inputting as IPv6 address with 
+          "Destination IPv6 address, leave unspecified
+           if inputting as IPv6 address with
            wildcarding.";
         reference "RFC 4291";
       }
       leaf destination-wild-card-bits {
         type xr:Ipv6-prefix-length;
         description
-          "Wildcard bits to apply to destination 
-           destination-address (if specified), 
+          "Wildcard bits to apply to destination
+           destination-address (if specified),
            leave unspecified for no wildcarding.";
         reference "RFC 4291";
       }
       leaf destination-mask {
         type inet:ipv6-address-no-zone;
         description
-          "Destination address mask. Either 
-           destination-wild-card-bits or destination-mask 
+          "Destination address mask. Either
+           destination-wild-card-bits or destination-mask.
            is supported, not both. Leave unspecified
            for any.";
         reference "RFC 4291";
@@ -274,8 +275,8 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf icmp-type-code {
         type ipv6-acl-dt:Ipv6-acl-icmp-type-code-enum;
         description
-          "Well known ICMP message code types to match, 
-           leave unspecified if ICMP message code type 
+          "Well known ICMP message code types to match,
+           leave unspecified if ICMP message code type
            comparion is not to be performed.";
         reference "RFC 2463";
       }
@@ -290,14 +291,14 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf tcp-bits-match-operator {
         type ipv6-acl-dt:Ipv6-acl-tcp-match-operator-enum;
         description
-          "TCP Bits match operator. Leave unspecified if 
-           flexible comparison of TCP bits is not 
+          "TCP Bits match operator. Leave unspecified if
+           flexible comparison of TCP bits is not
            required.";
       }
       leaf tcp-bits {
         type ipv6-acl-dt:Ipv6-acl-tcp-bits-number;
         description
-          "TCP bits to match. Leave unspecified if 
+          "TCP bits to match. Leave unspecified if
            comparison of TCP bits is not required.";
         reference "RFC 793 Section 3.1 Control Bits";
       }
@@ -316,7 +317,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         description
           "Packet length operator applicable if packet length
            is to be compared. This is a required field if any
-           packet-length value is given, otherwise, config 
+           packet-length value is given, otherwise, config
            will be rejected.";
       }
       leaf packet-length-min {
@@ -376,8 +377,8 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
             description
               "Enumerated DSCP operator values. Used when
                operator needs to be configured. Leave unspecified
-               if DSCP operator is not required. Note: if the 
-               dscp operator is not set, it logically behaves 
+               if DSCP operator is not required. Note: if the
+               dscp operator is not set, it logically behaves
                same as equal operator.";
           }
           leaf dscp-lower {
@@ -386,18 +387,18 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
               "DSCP value to match (if a value was specified).
                It can be used for the lower bound (range operator) or
                single value (equal, less, greater..etc) or without
-               any operator. Any value not in the permissible range 
-               will be rejected. Leave unspecified if DSCP 
+               any operator. Any value not in the permissible range
+               will be rejected. Leave unspecified if DSCP
                comparison is not to be performed.";
             reference "RFC 2474";
           }
           leaf dscp-upper {
             type ipv6-acl-dt:Ipv6-acl-dscp-number;
             description
-              "DSCP2 value to match (if a value was specified),
+              "DSCP value to match (if a value was specified).
                It can be used in the upper bound (range operator)
                Any value not in the permissible range will be rejected.
-               leave unspecified if DSCP range comparison is not to be
+               Leave unspecified if DSCP range comparison is not to be
                performed.";
             reference "RFC 2474";
           }
@@ -407,9 +408,9 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         leaf dscp {
           type ipv6-acl-dt:Ipv6-acl-dscp-number;
           description
-            "DSCP value to match without using any operators. 
+            "DSCP value to match without any operators.
              Any value not in the permissible range will be rejected.
-             Leave unspecified if DSCP comparion is not to be
+             Leave unspecified if DSCP comparison is not to be
              performed. For Setting dscp values, use the dscp
              container as this leaf will be deprecated soon.";
           reference "RFC 2474";
@@ -616,7 +617,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         length "1..64";
       }
       description
-        "Sequence string for the ace.";
+        "Sequence String for the ace.";
     }
   }
 }

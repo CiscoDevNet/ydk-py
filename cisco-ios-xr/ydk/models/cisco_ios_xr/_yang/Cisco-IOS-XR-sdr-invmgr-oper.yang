@@ -129,6 +129,14 @@ module Cisco-IOS-XR-sdr-invmgr-oper {
                 description
                   "Node Name String";
               }
+              leaf card-valid {
+                type uint32 {
+                  range "0..4294967295";
+                }
+                default "0";
+                description
+                  "Card Valid";
+              }
               leaf pi-slot-number {
                 type uint32 {
                   range "0..4294967295";

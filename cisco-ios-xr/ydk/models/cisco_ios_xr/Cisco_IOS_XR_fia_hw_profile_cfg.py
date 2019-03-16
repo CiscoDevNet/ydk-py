@@ -109,10 +109,10 @@ class HwModuleProfileConfig(Entity):
         	Configure Netflow profile
         	**type**\:  :py:class:`Netflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Netflow>`
         
-        .. attribute:: flowspecs
+        .. attribute:: flowspec_table
         
         	Configure Flowspec profile
-        	**type**\:  :py:class:`Flowspecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Flowspecs>`
+        	**type**\:  :py:class:`FlowspecTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.FlowspecTable>`
         
         .. attribute:: segment_routings
         
@@ -133,6 +133,11 @@ class HwModuleProfileConfig(Entity):
         
         	Configure acl profile
         	**type**\:  :py:class:`ProfileAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.ProfileAcl>`
+        
+        .. attribute:: sr_policies
+        
+        	Configure IPV6 NULL label autopush for SR policy
+        	**type**\:  :py:class:`SrPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.SrPolicies>`
         
         .. attribute:: bundle_scale
         
@@ -164,7 +169,7 @@ class HwModuleProfileConfig(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("tcam-table", ("tcam_table", HwModuleProfileConfig.Profile.TcamTable)), ("netflow", ("netflow", HwModuleProfileConfig.Profile.Netflow)), ("flowspecs", ("flowspecs", HwModuleProfileConfig.Profile.Flowspecs)), ("segment-routings", ("segment_routings", HwModuleProfileConfig.Profile.SegmentRoutings)), ("load-balance", ("load_balance", HwModuleProfileConfig.Profile.LoadBalance)), ("stats", ("stats", HwModuleProfileConfig.Profile.Stats)), ("profile-acl", ("profile_acl", HwModuleProfileConfig.Profile.ProfileAcl)), ("bundle-scale", ("bundle_scale", HwModuleProfileConfig.Profile.BundleScale)), ("profile-tcam", ("profile_tcam", HwModuleProfileConfig.Profile.ProfileTcam)), ("qos", ("qos", HwModuleProfileConfig.Profile.Qos))])
+            self._child_classes = OrderedDict([("tcam-table", ("tcam_table", HwModuleProfileConfig.Profile.TcamTable)), ("netflow", ("netflow", HwModuleProfileConfig.Profile.Netflow)), ("flowspec-table", ("flowspec_table", HwModuleProfileConfig.Profile.FlowspecTable)), ("segment-routings", ("segment_routings", HwModuleProfileConfig.Profile.SegmentRoutings)), ("load-balance", ("load_balance", HwModuleProfileConfig.Profile.LoadBalance)), ("stats", ("stats", HwModuleProfileConfig.Profile.Stats)), ("profile-acl", ("profile_acl", HwModuleProfileConfig.Profile.ProfileAcl)), ("sr-policies", ("sr_policies", HwModuleProfileConfig.Profile.SrPolicies)), ("bundle-scale", ("bundle_scale", HwModuleProfileConfig.Profile.BundleScale)), ("profile-tcam", ("profile_tcam", HwModuleProfileConfig.Profile.ProfileTcam)), ("qos", ("qos", HwModuleProfileConfig.Profile.Qos))])
             self._leafs = OrderedDict()
 
             self.tcam_table = HwModuleProfileConfig.Profile.TcamTable()
@@ -175,9 +180,9 @@ class HwModuleProfileConfig(Entity):
             self.netflow.parent = self
             self._children_name_map["netflow"] = "netflow"
 
-            self.flowspecs = HwModuleProfileConfig.Profile.Flowspecs()
-            self.flowspecs.parent = self
-            self._children_name_map["flowspecs"] = "flowspecs"
+            self.flowspec_table = HwModuleProfileConfig.Profile.FlowspecTable()
+            self.flowspec_table.parent = self
+            self._children_name_map["flowspec_table"] = "flowspec-table"
 
             self.segment_routings = HwModuleProfileConfig.Profile.SegmentRoutings()
             self.segment_routings.parent = self
@@ -194,6 +199,10 @@ class HwModuleProfileConfig(Entity):
             self.profile_acl = HwModuleProfileConfig.Profile.ProfileAcl()
             self.profile_acl.parent = self
             self._children_name_map["profile_acl"] = "profile-acl"
+
+            self.sr_policies = HwModuleProfileConfig.Profile.SrPolicies()
+            self.sr_policies.parent = self
+            self._children_name_map["sr_policies"] = "sr-policies"
 
             self.bundle_scale = HwModuleProfileConfig.Profile.BundleScale()
             self.bundle_scale.parent = self
@@ -875,14 +884,14 @@ class HwModuleProfileConfig(Entity):
 
 
 
-        class Flowspecs(Entity):
+        class FlowspecTable(Entity):
             """
             Configure Flowspec profile.
             
-            .. attribute:: flowspec
+            .. attribute:: flowspecs
             
-            	none
-            	**type**\: list of  		 :py:class:`Flowspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Flowspecs.Flowspec>`
+            	Configure v6 enable on Flowspec profile
+            	**type**\:  :py:class:`Flowspecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs>`
             
             
 
@@ -892,58 +901,35 @@ class HwModuleProfileConfig(Entity):
             _revision = '2016-06-22'
 
             def __init__(self):
-                super(HwModuleProfileConfig.Profile.Flowspecs, self).__init__()
+                super(HwModuleProfileConfig.Profile.FlowspecTable, self).__init__()
 
-                self.yang_name = "flowspecs"
+                self.yang_name = "flowspec-table"
                 self.yang_parent_name = "profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("flowspec", ("flowspec", HwModuleProfileConfig.Profile.Flowspecs.Flowspec))])
+                self._child_classes = OrderedDict([("flowspecs", ("flowspecs", HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs))])
                 self._leafs = OrderedDict()
 
-                self.flowspec = YList(self)
-                self._segment_path = lambda: "flowspecs"
+                self.flowspecs = HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs()
+                self.flowspecs.parent = self
+                self._children_name_map["flowspecs"] = "flowspecs"
+                self._segment_path = lambda: "flowspec-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModuleProfileConfig.Profile.Flowspecs, [], name, value)
+                self._perform_setattr(HwModuleProfileConfig.Profile.FlowspecTable, [], name, value)
 
 
-            class Flowspec(Entity):
+            class Flowspecs(Entity):
                 """
-                none
+                Configure v6 enable on Flowspec profile.
                 
-                .. attribute:: v6_enable  (key)
+                .. attribute:: flowspec
                 
                 	none
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: location_string  (key)
-                
-                	Location of FLOWSPEC config
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: location_id  (key)
-                
-                	Location ID hex to Decimal 0xffff for all
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: enable_val
-                
-                	If Enabled set value to 65535
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**mandatory**\: True
+                	**type**\: list of  		 :py:class:`Flowspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs.Flowspec>`
                 
                 
 
@@ -953,30 +939,83 @@ class HwModuleProfileConfig(Entity):
                 _revision = '2016-06-22'
 
                 def __init__(self):
-                    super(HwModuleProfileConfig.Profile.Flowspecs.Flowspec, self).__init__()
+                    super(HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs, self).__init__()
 
-                    self.yang_name = "flowspec"
-                    self.yang_parent_name = "flowspecs"
+                    self.yang_name = "flowspecs"
+                    self.yang_parent_name = "flowspec-table"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['v6_enable','location_string','location_id']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('v6_enable', (YLeaf(YType.str, 'v6-enable'), ['str'])),
-                        ('location_string', (YLeaf(YType.str, 'location-string'), ['str'])),
-                        ('location_id', (YLeaf(YType.uint32, 'location-id'), ['int'])),
-                        ('enable_val', (YLeaf(YType.uint32, 'enable-val'), ['int'])),
-                    ])
-                    self.v6_enable = None
-                    self.location_string = None
-                    self.location_id = None
-                    self.enable_val = None
-                    self._segment_path = lambda: "flowspec" + "[v6-enable='" + str(self.v6_enable) + "']" + "[location-string='" + str(self.location_string) + "']" + "[location-id='" + str(self.location_id) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspecs/%s" % self._segment_path()
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("flowspec", ("flowspec", HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs.Flowspec))])
+                    self._leafs = OrderedDict()
+
+                    self.flowspec = YList(self)
+                    self._segment_path = lambda: "flowspecs"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModuleProfileConfig.Profile.Flowspecs.Flowspec, ['v6_enable', 'location_string', 'location_id', 'enable_val'], name, value)
+                    self._perform_setattr(HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs, [], name, value)
+
+
+                class Flowspec(Entity):
+                    """
+                    none
+                    
+                    .. attribute:: location_string  (key)
+                    
+                    	Location of FLOWSPEC config
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: location_id  (key)
+                    
+                    	Location ID hex to Decimal 65535
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: enable_val
+                    
+                    	If Enabled set value to 1
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'fia-hw-profile-cfg'
+                    _revision = '2016-06-22'
+
+                    def __init__(self):
+                        super(HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs.Flowspec, self).__init__()
+
+                        self.yang_name = "flowspec"
+                        self.yang_parent_name = "flowspecs"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['location_string','location_id']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('location_string', (YLeaf(YType.str, 'location-string'), ['str'])),
+                            ('location_id', (YLeaf(YType.uint32, 'location-id'), ['int'])),
+                            ('enable_val', (YLeaf(YType.uint32, 'enable-val'), ['int'])),
+                        ])
+                        self.location_string = None
+                        self.location_id = None
+                        self.enable_val = None
+                        self._segment_path = lambda: "flowspec" + "[location-string='" + str(self.location_string) + "']" + "[location-id='" + str(self.location_id) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/flowspecs/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(HwModuleProfileConfig.Profile.FlowspecTable.Flowspecs.Flowspec, ['location_string', 'location_id', 'enable_val'], name, value)
+
 
 
 
@@ -1154,7 +1193,7 @@ class HwModuleProfileConfig(Entity):
                 
                 .. attribute:: stats_profile_mode
                 
-                	Configure stats for qos\-enhanced and acl\-permit
+                	Configure stats for qos\-enhanced, acl\-permit and ingress\-sr
                 	**type**\: list of  		 :py:class:`StatsProfileMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Stats.StatsProfileModes.StatsProfileMode>`
                 
                 
@@ -1186,8 +1225,8 @@ class HwModuleProfileConfig(Entity):
 
                 class StatsProfileMode(Entity):
                     """
-                    Configure stats for qos\-enhanced and
-                    acl\-permit
+                    Configure stats for qos\-enhanced, acl\-permit
+                    and ingress\-sr
                     
                     .. attribute:: stats_mode_default  (key)
                     
@@ -1273,6 +1312,95 @@ class HwModuleProfileConfig(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModuleProfileConfig.Profile.ProfileAcl, ['egress'], name, value)
+
+
+
+        class SrPolicies(Entity):
+            """
+            Configure IPV6 NULL label autopush for SR
+            policy.
+            
+            .. attribute:: sr_policy
+            
+            	none
+            	**type**\: list of  		 :py:class:`SrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.SrPolicies.SrPolicy>`
+            
+            
+
+            """
+
+            _prefix = 'fia-hw-profile-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(HwModuleProfileConfig.Profile.SrPolicies, self).__init__()
+
+                self.yang_name = "sr-policies"
+                self.yang_parent_name = "profile"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("sr-policy", ("sr_policy", HwModuleProfileConfig.Profile.SrPolicies.SrPolicy))])
+                self._leafs = OrderedDict()
+
+                self.sr_policy = YList(self)
+                self._segment_path = lambda: "sr-policies"
+                self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HwModuleProfileConfig.Profile.SrPolicies, [], name, value)
+
+
+            class SrPolicy(Entity):
+                """
+                none
+                
+                .. attribute:: null_label_autopush  (key)
+                
+                	none
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: enable_val
+                
+                	If Enabled set value to 1
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'fia-hw-profile-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(HwModuleProfileConfig.Profile.SrPolicies.SrPolicy, self).__init__()
+
+                    self.yang_name = "sr-policy"
+                    self.yang_parent_name = "sr-policies"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['null_label_autopush']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('null_label_autopush', (YLeaf(YType.str, 'null-label-autopush'), ['str'])),
+                        ('enable_val', (YLeaf(YType.uint32, 'enable-val'), ['int'])),
+                    ])
+                    self.null_label_autopush = None
+                    self.enable_val = None
+                    self._segment_path = lambda: "sr-policy" + "[null-label-autopush='" + str(self.null_label_autopush) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/sr-policies/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(HwModuleProfileConfig.Profile.SrPolicies.SrPolicy, ['null_label_autopush', 'enable_val'], name, value)
+
 
 
 

@@ -31,12 +31,17 @@ module Cisco-IOS-XE-call-home {
 
   description
     "Cisco XE Call Home Yang Model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-10-11 {
+    description
+      "add anonymous-reporting-only and server-identity-check";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -95,6 +100,11 @@ module Cisco-IOS-XE-call-home {
       description
         "Activate the current profile";
       type boolean;
+    }
+    leaf anonymous-reporting-only {
+      description
+        "Enable call-home anonymous reporting only";
+      type empty;
     }
     container destination {
       description
@@ -220,6 +230,20 @@ module Cisco-IOS-XE-call-home {
       description
         "Source interface name to send call-home messages using email";
       uses ios-ifc:interface-grouping;
+    }
+    container http {
+      description
+        "Set parameters for http transport method";
+      container secure {
+        description
+          "Specify secure settings for http transport method";
+        leaf server-identity-check {
+          description
+            "check server identity";
+          type boolean;
+          default true;
+        }
+      }
     }
 
     container http-proxy {

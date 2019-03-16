@@ -2182,6 +2182,8 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..20000
                                         
+                                        	**mandatory**\: True
+                                        
                                         .. attribute:: suppress_threshold
                                         
                                         	Value to start suppressing a route
@@ -2189,12 +2191,16 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..20000
                                         
+                                        	**mandatory**\: True
+                                        
                                         .. attribute:: suppress_time
                                         
                                         	Maximum duration to suppress a stable route (seconds)
                                         	**type**\: int
                                         
                                         	**range:** 1..255
+                                        
+                                        	**mandatory**\: True
                                         
                                         	**units**\: second
                                         
@@ -3814,7 +3820,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -4046,12 +4052,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -4208,7 +4214,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -7054,7 +7060,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -7288,12 +7294,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -7450,7 +7456,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -10444,7 +10450,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -10681,12 +10687,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -10843,7 +10849,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -13606,7 +13612,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -13845,12 +13851,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -14007,7 +14013,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -16793,7 +16799,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -17037,12 +17043,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -17204,7 +17210,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -19921,12 +19927,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -20083,7 +20089,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -21737,7 +21743,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -23252,7 +23258,7 @@ class Bgp(Entity):
                         
                         .. attribute:: rpki_origin_as_validation_time
                         
-                        	Prefix validation time (in seconds). Range  \: 5 \- 60. Specify 0 to disable the timer
+                        	Prefix validation time (in seconds). Range \: 5 \- 60. Specify 0 to disable the timer
                         	**type**\: int
                         
                         	**range:** 0..60
@@ -25592,7 +25598,7 @@ class Bgp(Entity):
                                     
                                     .. attribute:: source_rt_import_policy
                                     
-                                    	Enable sourcing of import route\-targets  from import\-policy
+                                    	Enable sourcing of import route\-targets from import\-policy
                                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: srv6_label_allocation_mode
@@ -26491,6 +26497,8 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..20000
                                     
+                                    	**mandatory**\: True
+                                    
                                     .. attribute:: suppress_threshold
                                     
                                     	Value to start suppressing a route
@@ -26498,12 +26506,16 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..20000
                                     
+                                    	**mandatory**\: True
+                                    
                                     .. attribute:: suppress_time
                                     
                                     	Maximum duration to suppress a stable route (seconds)
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**mandatory**\: True
                                     
                                     	**units**\: second
                                     
@@ -27537,7 +27549,7 @@ class Bgp(Entity):
                                 """
                                 RPKI static route
                                 
-                                .. attribute:: addrress  (key)
+                                .. attribute:: address  (key)
                                 
                                 	Address
                                 	**type**\: union of the below types:
@@ -27555,14 +27567,14 @@ class Bgp(Entity):
                                 	Minimum Prefix Length
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 0..128
                                 
                                 .. attribute:: maximum  (key)
                                 
                                 	Maximum Prefix Length
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 1..128
                                 
                                 .. attribute:: as_  (key)
                                 
@@ -27585,23 +27597,23 @@ class Bgp(Entity):
                                     self.yang_parent_name = "rpki-static-routes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = ['addrress','minimum','maximum','as_']
+                                    self.ylist_key_names = ['address','minimum','maximum','as_']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('addrress', (YLeaf(YType.str, 'addrress'), ['str','str'])),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                         ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
                                         ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                                         ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
                                     ])
-                                    self.addrress = None
+                                    self.address = None
                                     self.minimum = None
                                     self.maximum = None
                                     self.as_ = None
-                                    self._segment_path = lambda: "rpki-static-route" + "[addrress='" + str(self.addrress) + "']" + "[minimum='" + str(self.minimum) + "']" + "[maximum='" + str(self.maximum) + "']" + "[as='" + str(self.as_) + "']"
+                                    self._segment_path = lambda: "rpki-static-route" + "[address='" + str(self.address) + "']" + "[minimum='" + str(self.minimum) + "']" + "[maximum='" + str(self.maximum) + "']" + "[as='" + str(self.as_) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, ['addrress', 'minimum', 'maximum', 'as_'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, ['address', 'minimum', 'maximum', 'as_'], name, value)
 
 
 

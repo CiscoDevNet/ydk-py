@@ -32,6 +32,10 @@ module Cisco-IOS-XR-lib-mpp-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-23 {
+    description
+      "Removing Third Party Applications schema.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -151,66 +155,6 @@ module Cisco-IOS-XR-lib-mpp-cfg {
     }
   }
 
-  grouping TPA-ALLOW {
-    description
-      "Common node of ipv4-table, ipv6-table";
-    list tpa-allow {
-      key "local-port protocol";
-      description
-        "MPP TPA control entries";
-      leaf local-port {
-        type xr:Cisco-ios-xr-port-number;
-        description
-          "Local port value";
-      }
-      leaf protocol {
-        type uint32 {
-          range "1..255";
-        }
-        description
-          "L4 protocol value";
-      }
-      leaf interface-name {
-        type xr:Cisco-ios-xr-string {
-          length "1..32";
-        }
-        mandatory true;
-        description
-          "Interface name for allow command, or 'any'";
-      }
-      leaf remote-address {
-        type string {
-          length "1..32";
-        }
-        mandatory true;
-        description
-          "IPv4/6 remote-address prefix to match, or 'any'";
-      }
-      leaf remote-address-prefix {
-        type uint32 {
-          range "0..128";
-        }
-        description
-          "IPv4/6 remote-address prefix length";
-      }
-      leaf local-address {
-        type string {
-          length "1..32";
-        }
-        mandatory true;
-        description
-          "IPv4/6 local-address prefix to match, or 'any'";
-      }
-      leaf local-address-prefix {
-        type uint32 {
-          range "0..128";
-        }
-        description
-          "IPv4/6 local-address prefix length";
-      }
-    }
-  }
-
   grouping PEER-NO-PREFIX-CLASS {
     description
       "Common node of peer-v4, peer-v6";
@@ -318,41 +262,6 @@ module Cisco-IOS-XR-lib-mpp-cfg {
         description
           "Inband Configuration";
         uses INTERFACE-SELECTION;
-      }
-      container tpa {
-        description
-          "MPP Third Party Application Configuration
-           Commands";
-        container vrfs {
-          description
-            "VRF configuration";
-          list vrf {
-            key "vrf-name";
-            description
-              "VRF configuration";
-            container address-family {
-              description
-                "Address family";
-              container ipv4-table {
-                description
-                  "IPv4 configuration";
-                uses TPA-ALLOW;
-              }
-              container ipv6-table {
-                description
-                  "IPv6 configuration";
-                uses TPA-ALLOW;
-              }
-            }
-            leaf vrf-name {
-              type xr:Cisco-ios-xr-string {
-                length "1..32";
-              }
-              description
-                "VRF name";
-            }
-          }
-        }
       }
     }
   }

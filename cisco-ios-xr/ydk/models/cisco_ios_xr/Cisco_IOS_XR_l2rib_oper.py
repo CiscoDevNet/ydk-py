@@ -5,7 +5,7 @@ for Cisco IOS\-XR l2rib package operational data.
 
 This module contains definitions
 for the following management objects\:
-  l2rib\: L2RIB operational information 
+  l2rib\: L2RIB operational information
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
@@ -2486,15 +2486,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC IP Address
@@ -2516,15 +2507,6 @@ class L2rib(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -2612,10 +2594,8 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("mac-ip-route", ("mac_ip_route", L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute)), ("rt-tlv", ("rt_tlv", L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv)), ("nh-tlv", ("nh_tlv", L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
                         ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
@@ -2623,10 +2603,8 @@ class L2rib(Entity):
                         ('last_update_timestamp', (YLeaf(YType.uint64, 'last-update-timestamp'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.sequence_number = None
                     self.flags = None
@@ -2649,7 +2627,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail, ['evi', 'tag_id', 'mac_addr', 'ip_addr', 'admin_dist', 'prod_id', 'sequence_number', 'flags', 'soo', 'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail, ['evi', 'mac_addr', 'ip_addr', 'prod_id', 'sequence_number', 'flags', 'soo', 'last_update_timestamp'], name, value)
 
 
                 class MacIpRoute(Entity):
@@ -3247,15 +3225,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC\-IP Address
@@ -3277,15 +3246,6 @@ class L2rib(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -3366,10 +3326,8 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("next-hop", ("next_hop", L2rib.EviChildTables.MacIps.MacIp.NextHop))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                         ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
@@ -3378,10 +3336,8 @@ class L2rib(Entity):
                         ('topology_id', (YLeaf(YType.uint32, 'topology-id'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.mac_address = None
                     self.ip_address = None
@@ -3397,7 +3353,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp, ['evi', 'tag_id', 'mac_addr', 'ip_addr', 'admin_dist', 'prod_id', 'mac_address', 'ip_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp, ['evi', 'mac_addr', 'ip_addr', 'prod_id', 'mac_address', 'ip_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                 class NextHop(Entity):
@@ -3692,30 +3648,12 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -3789,9 +3727,7 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("route", ("route", L2rib.EviChildTables.Macs.Mac.Route))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                         ('admin_distance', (YLeaf(YType.uint8, 'admin-distance'), ['int'])),
@@ -3799,9 +3735,7 @@ class L2rib(Entity):
                         ('topology_id', (YLeaf(YType.uint32, 'topology-id'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.mac_address = None
                     self.admin_distance = None
@@ -3816,7 +3750,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac, ['evi', 'tag_id', 'mac_addr', 'admin_dist', 'prod_id', 'mac_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.Macs.Mac, ['evi', 'mac_addr', 'prod_id', 'mac_address', 'admin_distance', 'producer_id', 'topology_id'], name, value)
 
 
                 class Route(Entity):
@@ -6189,30 +6123,12 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: tag_id
-                
-                	Tag ID
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: mac_addr
                 
                 	MAC Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                	**config**\: False
-                
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -6318,9 +6234,7 @@ class L2rib(Entity):
                     self._child_classes = OrderedDict([("mac-route", ("mac_route", L2rib.EviChildTables.MacDetails.MacDetail.MacRoute)), ("rt-tlv", ("rt_tlv", L2rib.EviChildTables.MacDetails.MacDetail.RtTlv))])
                     self._leafs = OrderedDict([
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
-                        ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
                         ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
@@ -6331,9 +6245,7 @@ class L2rib(Entity):
                         ('last_update_timestamp', (YLeaf(YType.uint64, 'last-update-timestamp'), ['int'])),
                     ])
                     self.evi = None
-                    self.tag_id = None
                     self.mac_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.sequence_number = None
                     self.flags = None
@@ -6355,7 +6267,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail, ['evi', 'tag_id', 'mac_addr', 'admin_dist', 'prod_id', 'sequence_number', 'flags', 'baseflags', 'soo', 'slot_id', 'esi', 'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail, ['evi', 'mac_addr', 'prod_id', 'sequence_number', 'flags', 'baseflags', 'soo', 'slot_id', 'esi', 'last_update_timestamp'], name, value)
 
 
                 class MacRoute(Entity):

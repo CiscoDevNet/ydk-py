@@ -863,6 +863,24 @@ class PceLspData(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: absolute_margin
+                
+                	Absolute Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: relative_margin
+                
+                	Relative Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 
 
                 """
@@ -887,6 +905,8 @@ class PceLspData(Entity):
                         ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
                         ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
                         ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
+                        ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                        ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
                     ])
                     self.tunnel_id = None
                     self.lspid = None
@@ -895,6 +915,8 @@ class PceLspData(Entity):
                     self.operational_state = None
                     self.administrative_state = None
                     self.msd = None
+                    self.absolute_margin = None
+                    self.relative_margin = None
 
                     self.source_address = PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress()
                     self.source_address.parent = self
@@ -907,7 +929,7 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd', u'absolute_margin', u'relative_margin'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -1970,6 +1992,24 @@ class PceLspData(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: absolute_margin
+                    
+                    	Absolute Margin
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: relative_margin
+                    
+                    	Relative Margin
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1994,6 +2034,8 @@ class PceLspData(Entity):
                             ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
                             ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
                             ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
+                            ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                            ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
                         ])
                         self.tunnel_id = None
                         self.lspid = None
@@ -2002,6 +2044,8 @@ class PceLspData(Entity):
                         self.operational_state = None
                         self.administrative_state = None
                         self.msd = None
+                        self.absolute_margin = None
+                        self.relative_margin = None
 
                         self.source_address = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress()
                         self.source_address.parent = self
@@ -2014,7 +2058,7 @@ class PceLspData(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd', u'absolute_margin', u'relative_margin'], name, value)
 
 
                     class SourceAddress(Entity):
@@ -10507,6 +10551,13 @@ class Pce(Entity):
     """
     pce
     
+    .. attribute:: cspf_sr_mpls
+    
+    	CSPF for SR MPLS path info
+    	**type**\:  :py:class:`CspfSrMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls>`
+    
+    	**config**\: False
+    
     .. attribute:: verification_events
     
     	PCE Verification events in XTC
@@ -10600,8 +10651,12 @@ class Pce(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("verification-events", ("verification_events", Pce.VerificationEvents)), ("association-infos", ("association_infos", Pce.AssociationInfos)), ("cspf", ("cspf", Pce.Cspf)), ("topology-summary", ("topology_summary", Pce.TopologySummary)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
+        self._child_classes = OrderedDict([("cspf-sr-mpls", ("cspf_sr_mpls", Pce.CspfSrMpls)), ("verification-events", ("verification_events", Pce.VerificationEvents)), ("association-infos", ("association_infos", Pce.AssociationInfos)), ("cspf", ("cspf", Pce.Cspf)), ("topology-summary", ("topology_summary", Pce.TopologySummary)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
         self._leafs = OrderedDict()
+
+        self.cspf_sr_mpls = Pce.CspfSrMpls()
+        self.cspf_sr_mpls.parent = self
+        self._children_name_map["cspf_sr_mpls"] = "cspf-sr-mpls"
 
         self.verification_events = Pce.VerificationEvents()
         self.verification_events.parent = self
@@ -10651,6 +10706,743 @@ class Pce(Entity):
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pce, [], name, value)
+
+
+    class CspfSrMpls(Entity):
+        """
+        CSPF for SR MPLS path info
+        
+        .. attribute:: cspf_sr_mpls_paths
+        
+        	This table models the path calculation capabilities in XTC.A GET operation for the complete table will return no entries
+        	**type**\:  :py:class:`CspfSrMplsPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(Pce.CspfSrMpls, self).__init__()
+
+            self.yang_name = "cspf-sr-mpls"
+            self.yang_parent_name = "pce"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("cspf-sr-mpls-paths", ("cspf_sr_mpls_paths", Pce.CspfSrMpls.CspfSrMplsPaths))])
+            self._leafs = OrderedDict()
+
+            self.cspf_sr_mpls_paths = Pce.CspfSrMpls.CspfSrMplsPaths()
+            self.cspf_sr_mpls_paths.parent = self
+            self._children_name_map["cspf_sr_mpls_paths"] = "cspf-sr-mpls-paths"
+            self._segment_path = lambda: "cspf-sr-mpls"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pce.CspfSrMpls, [], name, value)
+
+
+        class CspfSrMplsPaths(Entity):
+            """
+            This table models the path calculation
+            capabilities in XTC.A GET operation for the
+            complete table will return no entries.
+            
+            .. attribute:: cspf_sr_mpls_path
+            
+            	A GET operation on this class returns the path 
+            	**type**\: list of  		 :py:class:`CspfSrMplsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Pce.CspfSrMpls.CspfSrMplsPaths, self).__init__()
+
+                self.yang_name = "cspf-sr-mpls-paths"
+                self.yang_parent_name = "cspf-sr-mpls"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("cspf-sr-mpls-path", ("cspf_sr_mpls_path", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath))])
+                self._leafs = OrderedDict()
+
+                self.cspf_sr_mpls_path = YList(self)
+                self._segment_path = lambda: "cspf-sr-mpls-paths"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths, [], name, value)
+
+
+            class CspfSrMplsPath(Entity):
+                """
+                A GET operation on this class returns the path
+                .
+                
+                .. attribute:: af
+                
+                	Address Family
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: source1
+                
+                	Source of path 1
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: destination1
+                
+                	Destination of path 1
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: metric_type
+                
+                	Metric type
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: source2
+                
+                	Source of path 2
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: destination2
+                
+                	Destination of path 2
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: disjoint_level
+                
+                	Disjointness level
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: disjoint_strict
+                
+                	Strict disjointness required
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: shortest_path
+                
+                	Whether path 1 or 2 should be shortest
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: msd1
+                
+                	MSD for path 1
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: msd2
+                
+                	MSD for path 2
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: relative_margin
+                
+                	Relative Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: absolute_margin
+                
+                	Absolute Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: affinity_include_all
+                
+                	Affinity include\-all constraint
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: affinity_include_any
+                
+                	Affinity include\-any constraint
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: affinity_exclude_any
+                
+                	Affinity exclude\-any constraint
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: cspf_result
+                
+                	Result of the computation
+                	**type**\:  :py:class:`PceCspfRc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceCspfRc>`
+                
+                	**config**\: False
+                
+                .. attribute:: iterations_done
+                
+                	Iterations performed of the Suurballe\-Tarjan algorithm
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: output_path
+                
+                	Output SR MPLS paths
+                	**type**\: list of  		 :py:class:`OutputPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath, self).__init__()
+
+                    self.yang_name = "cspf-sr-mpls-path"
+                    self.yang_parent_name = "cspf-sr-mpls-paths"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("output-path", ("output_path", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath))])
+                    self._leafs = OrderedDict([
+                        ('af', (YLeaf(YType.uint32, 'af'), ['int'])),
+                        ('source1', (YLeaf(YType.str, 'source1'), ['str','str'])),
+                        ('destination1', (YLeaf(YType.str, 'destination1'), ['str','str'])),
+                        ('metric_type', (YLeaf(YType.uint32, 'metric-type'), ['int'])),
+                        ('source2', (YLeaf(YType.str, 'source2'), ['str','str'])),
+                        ('destination2', (YLeaf(YType.str, 'destination2'), ['str','str'])),
+                        ('disjoint_level', (YLeaf(YType.uint32, 'disjoint-level'), ['int'])),
+                        ('disjoint_strict', (YLeaf(YType.uint32, 'disjoint-strict'), ['int'])),
+                        ('shortest_path', (YLeaf(YType.uint32, 'shortest-path'), ['int'])),
+                        ('msd1', (YLeaf(YType.uint32, 'msd1'), ['int'])),
+                        ('msd2', (YLeaf(YType.uint32, 'msd2'), ['int'])),
+                        ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
+                        ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                        ('affinity_include_all', (YLeaf(YType.uint32, 'affinity-include-all'), ['int'])),
+                        ('affinity_include_any', (YLeaf(YType.uint32, 'affinity-include-any'), ['int'])),
+                        ('affinity_exclude_any', (YLeaf(YType.uint32, 'affinity-exclude-any'), ['int'])),
+                        ('cspf_result', (YLeaf(YType.enumeration, 'cspf-result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceCspfRc', '')])),
+                        ('iterations_done', (YLeaf(YType.uint32, 'iterations-done'), ['int'])),
+                    ])
+                    self.af = None
+                    self.source1 = None
+                    self.destination1 = None
+                    self.metric_type = None
+                    self.source2 = None
+                    self.destination2 = None
+                    self.disjoint_level = None
+                    self.disjoint_strict = None
+                    self.shortest_path = None
+                    self.msd1 = None
+                    self.msd2 = None
+                    self.relative_margin = None
+                    self.absolute_margin = None
+                    self.affinity_include_all = None
+                    self.affinity_include_any = None
+                    self.affinity_exclude_any = None
+                    self.cspf_result = None
+                    self.iterations_done = None
+
+                    self.output_path = YList(self)
+                    self._segment_path = lambda: "cspf-sr-mpls-path"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', 'msd1', 'msd2', 'relative_margin', 'absolute_margin', 'affinity_include_all', 'affinity_include_any', 'affinity_exclude_any', u'cspf_result', u'iterations_done'], name, value)
+
+
+                class OutputPath(Entity):
+                    """
+                    Output SR MPLS paths
+                    
+                    .. attribute:: source
+                    
+                    	Source of path
+                    	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: destination
+                    
+                    	Destination of path
+                    	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: cost
+                    
+                    	Cost
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: hops
+                    
+                    	SR hops
+                    	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath, self).__init__()
+
+                        self.yang_name = "output-path"
+                        self.yang_parent_name = "cspf-sr-mpls-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("source", ("source", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source)), ("destination", ("destination", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination)), ("hops", ("hops", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops))])
+                        self._leafs = OrderedDict([
+                            ('cost', (YLeaf(YType.uint64, 'cost'), ['int'])),
+                        ])
+                        self.cost = None
+
+                        self.source = Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source()
+                        self.source.parent = self
+                        self._children_name_map["source"] = "source"
+
+                        self.destination = Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination()
+                        self.destination.parent = self
+                        self._children_name_map["destination"] = "destination"
+
+                        self.hops = YList(self)
+                        self._segment_path = lambda: "output-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath, [u'cost'], name, value)
+
+
+                    class Source(Entity):
+                        """
+                        Source of path
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source, self).__init__()
+
+                            self.yang_name = "source"
+                            self.yang_parent_name = "output-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self._segment_path = lambda: "source"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+
+                    class Destination(Entity):
+                        """
+                        Destination of path
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination, self).__init__()
+
+                            self.yang_name = "destination"
+                            self.yang_parent_name = "output-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self._segment_path = lambda: "destination"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+
+                    class Hops(Entity):
+                        """
+                        SR hops
+                        
+                        .. attribute:: local_addr
+                        
+                        	Local Address
+                        	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: remote_addr
+                        
+                        	Remote Address
+                        	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sid_type
+                        
+                        	SID type
+                        	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mpls_label
+                        
+                        	Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops, self).__init__()
+
+                            self.yang_name = "hops"
+                            self.yang_parent_name = "output-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("local-addr", ("local_addr", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr)), ("remote-addr", ("remote_addr", Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr))])
+                            self._leafs = OrderedDict([
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+
+                            self.local_addr = Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr()
+                            self.local_addr.parent = self
+                            self._children_name_map["local_addr"] = "local-addr"
+
+                            self.remote_addr = Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr()
+                            self.remote_addr.parent = self
+                            self._children_name_map["remote_addr"] = "remote-addr"
+                            self._segment_path = lambda: "hops"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops, [u'sid_type', u'mpls_label'], name, value)
+
+
+                        class LocalAddr(Entity):
+                            """
+                            Local Address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-oper'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr, self).__init__()
+
+                                self.yang_name = "local-addr"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "local-addr"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/hops/%s" % self._segment_path()
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+
+                        class RemoteAddr(Entity):
+                            """
+                            Remote Address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-oper'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr, self).__init__()
+
+                                self.yang_name = "remote-addr"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "remote-addr"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/hops/%s" % self._segment_path()
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+
+
+
+
 
 
     class VerificationEvents(Entity):
@@ -12241,6 +13033,24 @@ class Pce(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: absolute_margin
+                
+                	Absolute Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: relative_margin
+                
+                	Relative Margin
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 
 
                 """
@@ -12265,6 +13075,8 @@ class Pce(Entity):
                         ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
                         ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
                         ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
+                        ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                        ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
                     ])
                     self.tunnel_id = None
                     self.lspid = None
@@ -12273,6 +13085,8 @@ class Pce(Entity):
                     self.operational_state = None
                     self.administrative_state = None
                     self.msd = None
+                    self.absolute_margin = None
+                    self.relative_margin = None
 
                     self.source_address = Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress()
                     self.source_address.parent = self
@@ -12285,7 +13099,7 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd', u'absolute_margin', u'relative_margin'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -19850,6 +20664,24 @@ class Pce(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: absolute_margin
+                    
+                    	Absolute Margin
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: relative_margin
+                    
+                    	Relative Margin
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -19874,6 +20706,8 @@ class Pce(Entity):
                             ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
                             ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
                             ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
+                            ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                            ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
                         ])
                         self.tunnel_id = None
                         self.lspid = None
@@ -19882,6 +20716,8 @@ class Pce(Entity):
                         self.operational_state = None
                         self.administrative_state = None
                         self.msd = None
+                        self.absolute_margin = None
+                        self.relative_margin = None
 
                         self.source_address = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress()
                         self.source_address.parent = self
@@ -19894,7 +20730,7 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd', u'absolute_margin', u'relative_margin'], name, value)
 
 
                     class SourceAddress(Entity):

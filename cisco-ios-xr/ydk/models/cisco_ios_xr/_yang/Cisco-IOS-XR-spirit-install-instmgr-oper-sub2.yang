@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-08-24 {
+    description
+      "Changed model structure for software version and deprecated img-info node.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -113,6 +117,11 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
       type string;
       description
         "duration since when system is up";
+    }
+    leaf img-info {
+      type string;
+      description
+        "this tag is deprecated";
     }
     list package {
       description

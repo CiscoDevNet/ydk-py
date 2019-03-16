@@ -2,6 +2,7 @@ submodule Cisco-IOS-XR-es-ace-cfg {
   belongs-to Cisco-IOS-XR-es-acl-cfg {
     prefix es-acl-cfg;
   }
+
   import Cisco-IOS-XR-es-acl-datatypes {
     prefix es-acl-dt;
   }
@@ -174,16 +175,16 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf inner-cos {
       type es-acl-dt:Es-acl-cos-range;
       description
-        "Class of Service of Inner Header. Range from 0 to 7.
-         Any value beyond this range will be rejected by ACL
-         verifier.";
+        "Class of Service of Inner Header. Any value not in the
+         permissible range will be rejected.";
       reference "IEEE 802.1p";
     }
     leaf inner-dei {
       type es-acl-dt:Es-acl-dei-range;
       description
-        "Class of Service of Inner Header. Any value not in the
-         permissible range will be rejected.";
+        "Discard Eligibility Indication for Inner Header. User
+         can specify 1 to indicate the bit is set. Leave
+         unspecified otherwise.";
       reference "RFC 7180 Section 7";
     }
     leaf remark {

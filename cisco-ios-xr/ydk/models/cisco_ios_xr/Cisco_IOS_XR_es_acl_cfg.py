@@ -271,14 +271,14 @@ class EsAcl(Entity):
                     
                     .. attribute:: inner_cos
                     
-                    	Class of Service of Inner Header. Range from 0 to 7. Any value beyond this range will be rejected by ACL verifier
+                    	Class of Service of Inner Header. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: inner_dei
                     
-                    	Class of Service of Inner Header. Any value not in the permissible range will be rejected
+                    	Discard Eligibility Indication for Inner Header. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..1

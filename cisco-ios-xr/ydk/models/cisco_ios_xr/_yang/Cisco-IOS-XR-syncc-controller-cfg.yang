@@ -256,7 +256,7 @@ module Cisco-IOS-XR-syncc-controller-cfg {
             }
             leaf option2 {
               type uint32 {
-                range "0..4";
+                range "0..10";
               }
               mandatory true;
               description
@@ -264,7 +264,7 @@ module Cisco-IOS-XR-syncc-controller-cfg {
             }
             leaf option3 {
               type uint32 {
-                range "0..1";
+                range "0..10";
               }
               mandatory true;
               description
@@ -272,7 +272,7 @@ module Cisco-IOS-XR-syncc-controller-cfg {
             }
             leaf option4 {
               type uint32 {
-                range "0..1";
+                range "0..10";
               }
               mandatory true;
               description

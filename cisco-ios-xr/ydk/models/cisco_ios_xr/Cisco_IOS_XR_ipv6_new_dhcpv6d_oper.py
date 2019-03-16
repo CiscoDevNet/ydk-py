@@ -363,7 +363,7 @@ class Dhcpv6(Entity):
     """
 
     _prefix = 'ipv6-new-dhcpv6d-oper'
-    _revision = '2017-12-06'
+    _revision = '2018-10-09'
 
     def __init__(self):
         super(Dhcpv6, self).__init__()
@@ -494,7 +494,7 @@ class Dhcpv6(Entity):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-oper'
-        _revision = '2017-12-06'
+        _revision = '2018-10-09'
 
         def __init__(self):
             super(Dhcpv6.IssuStatus, self).__init__()
@@ -552,7 +552,7 @@ class Dhcpv6(Entity):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-oper'
-        _revision = '2017-12-06'
+        _revision = '2018-10-09'
 
         def __init__(self):
             super(Dhcpv6.Nodes, self).__init__()
@@ -620,7 +620,7 @@ class Dhcpv6(Entity):
             """
 
             _prefix = 'ipv6-new-dhcpv6d-oper'
-            _revision = '2017-12-06'
+            _revision = '2018-10-09'
 
             def __init__(self):
                 super(Dhcpv6.Nodes.Node, self).__init__()
@@ -677,6 +677,13 @@ class Dhcpv6(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: disconnect_histories
+                
+                	DHCPv6 proxy disconnect history
+                	**type**\:  :py:class:`DisconnectHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.DisconnectHistories>`
+                
+                	**config**\: False
+                
                 .. attribute:: interfaces
                 
                 	DHCPV6 proxy interface
@@ -703,7 +710,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2017-12-06'
+                _revision = '2018-10-09'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Proxy, self).__init__()
@@ -713,7 +720,7 @@ class Dhcpv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Proxy.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Proxy.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Proxy.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics)), ("binding", ("binding", Dhcpv6.Nodes.Node.Proxy.Binding))])
+                    self._child_classes = OrderedDict([("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Proxy.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Proxy.Profiles)), ("disconnect-histories", ("disconnect_histories", Dhcpv6.Nodes.Node.Proxy.DisconnectHistories)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Proxy.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics)), ("binding", ("binding", Dhcpv6.Nodes.Node.Proxy.Binding))])
                     self._leafs = OrderedDict()
 
                     self.vrfs = Dhcpv6.Nodes.Node.Proxy.Vrfs()
@@ -723,6 +730,10 @@ class Dhcpv6(Entity):
                     self.profiles = Dhcpv6.Nodes.Node.Proxy.Profiles()
                     self.profiles.parent = self
                     self._children_name_map["profiles"] = "profiles"
+
+                    self.disconnect_histories = Dhcpv6.Nodes.Node.Proxy.DisconnectHistories()
+                    self.disconnect_histories.parent = self
+                    self._children_name_map["disconnect_histories"] = "disconnect-histories"
 
                     self.interfaces = Dhcpv6.Nodes.Node.Proxy.Interfaces()
                     self.interfaces.parent = self
@@ -758,7 +769,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Vrfs, self).__init__()
@@ -804,7 +815,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
@@ -958,7 +969,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
@@ -1081,7 +1092,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -1144,7 +1155,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -1207,7 +1218,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -1270,7 +1281,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -1333,7 +1344,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -1396,7 +1407,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -1459,7 +1470,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -1522,7 +1533,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -1585,7 +1596,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -1648,7 +1659,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -1711,7 +1722,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -1774,7 +1785,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -1837,7 +1848,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -1900,7 +1911,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -1963,7 +1974,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -2026,7 +2037,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -2089,7 +2100,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
@@ -2135,7 +2146,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Profiles, self).__init__()
@@ -2195,7 +2206,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
@@ -2245,7 +2256,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, self).__init__()
@@ -2322,7 +2333,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
@@ -2370,7 +2381,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, self).__init__()
@@ -2436,7 +2447,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, self).__init__()
@@ -2557,7 +2568,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, self).__init__()
@@ -2619,7 +2630,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, self).__init__()
@@ -2667,7 +2678,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, self).__init__()
@@ -2709,7 +2720,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, self).__init__()
@@ -2748,7 +2759,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, self).__init__()
@@ -2788,7 +2799,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, self).__init__()
@@ -2827,7 +2838,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, self).__init__()
@@ -2854,6 +2865,173 @@ class Dhcpv6(Entity):
 
 
 
+                class DisconnectHistories(Entity):
+                    """
+                    DHCPv6 proxy disconnect history
+                    
+                    .. attribute:: disconnect_history
+                    
+                    	Single DHCPv6 proxy disconnect history
+                    	**type**\: list of  		 :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2018-10-09'
+
+                    def __init__(self):
+                        super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
+
+                        self.yang_name = "disconnect-histories"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("disconnect-history", ("disconnect_history", Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory))])
+                        self._leafs = OrderedDict()
+
+                        self.disconnect_history = YList(self)
+                        self._segment_path = lambda: "disconnect-histories"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories, [], name, value)
+
+
+                    class DisconnectHistory(Entity):
+                        """
+                        Single DHCPv6 proxy disconnect history
+                        
+                        .. attribute:: index  (key)
+                        
+                        	Index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_start_time_epoch
+                        
+                        	session start time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_end_time_epoch
+                        
+                        	session end time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: disc_reason
+                        
+                        	DiscReason
+                        	**type**\: str
+                        
+                        	**length:** 0..256
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sub_label
+                        
+                        	sub label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: duid
+                        
+                        	Client DUID
+                        	**type**\: str
+                        
+                        	**length:** 0..131
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ia_type
+                        
+                        	IAType
+                        	**type**\: str
+                        
+                        	**length:** 0..6
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ia_id
+                        
+                        	ia id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mac_address
+                        
+                        	MACAddress
+                        	**type**\: str
+                        
+                        	**length:** 0..17
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2018-10-09'
+
+                        def __init__(self):
+                            super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
+
+                            self.yang_name = "disconnect-history"
+                            self.yang_parent_name = "disconnect-histories"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['index']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
+                                ('session_end_time_epoch', (YLeaf(YType.uint64, 'session-end-time-epoch'), ['int'])),
+                                ('disc_reason', (YLeaf(YType.str, 'disc-reason'), ['str'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                ('ia_type', (YLeaf(YType.str, 'ia-type'), ['str'])),
+                                ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ])
+                            self.index = None
+                            self.session_start_time_epoch = None
+                            self.session_end_time_epoch = None
+                            self.disc_reason = None
+                            self.sub_label = None
+                            self.duid = None
+                            self.ia_type = None
+                            self.ia_id = None
+                            self.mac_address = None
+                            self._segment_path = lambda: "disconnect-history" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'duid', 'ia_type', 'ia_id', 'mac_address'], name, value)
+
+
+
+
                 class Interfaces(Entity):
                     """
                     DHCPV6 proxy interface
@@ -2870,7 +3048,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Interfaces, self).__init__()
@@ -2996,7 +3174,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, self).__init__()
@@ -3058,7 +3236,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Statistics, self).__init__()
@@ -3104,7 +3282,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, self).__init__()
@@ -3166,7 +3344,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, self).__init__()
@@ -3218,7 +3396,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Binding, self).__init__()
@@ -3261,7 +3439,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, self).__init__()
@@ -3551,7 +3729,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
@@ -3649,7 +3827,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, self).__init__()
@@ -3727,7 +3905,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
@@ -3777,7 +3955,7 @@ class Dhcpv6(Entity):
                                         """
 
                                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                                        _revision = '2017-12-06'
+                                        _revision = '2018-10-09'
 
                                         def __init__(self):
                                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
@@ -3847,7 +4025,7 @@ class Dhcpv6(Entity):
                                             """
 
                                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                                            _revision = '2017-12-06'
+                                            _revision = '2018-10-09'
 
                                             def __init__(self):
                                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
@@ -3913,7 +4091,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, self).__init__()
@@ -4015,7 +4193,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, self).__init__()
@@ -4122,7 +4300,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, self).__init__()
@@ -4183,7 +4361,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2017-12-06'
+                _revision = '2018-10-09'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Base, self).__init__()
@@ -4365,7 +4543,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Base.Database, self).__init__()
@@ -4434,7 +4612,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Base.AddrBindings, self).__init__()
@@ -4687,7 +4865,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, self).__init__()
@@ -4764,6 +4942,13 @@ class Dhcpv6(Entity):
                 """
                 IPv6 DHCP server operational data
                 
+                .. attribute:: disconnect_histories
+                
+                	DHCPv6 server disconnect history
+                	**type**\:  :py:class:`DisconnectHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.DisconnectHistories>`
+                
+                	**config**\: False
+                
                 .. attribute:: binding
                 
                 	DHCPV6 server bindings
@@ -4811,7 +4996,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2017-12-06'
+                _revision = '2018-10-09'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Server, self).__init__()
@@ -4821,8 +5006,12 @@ class Dhcpv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("binding", ("binding", Dhcpv6.Nodes.Node.Server.Binding)), ("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Server.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Server.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Server.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Statistics)), ("binding-options", ("binding_options", Dhcpv6.Nodes.Node.Server.BindingOptions))])
+                    self._child_classes = OrderedDict([("disconnect-histories", ("disconnect_histories", Dhcpv6.Nodes.Node.Server.DisconnectHistories)), ("binding", ("binding", Dhcpv6.Nodes.Node.Server.Binding)), ("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Server.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Server.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Server.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Statistics)), ("binding-options", ("binding_options", Dhcpv6.Nodes.Node.Server.BindingOptions))])
                     self._leafs = OrderedDict()
+
+                    self.disconnect_histories = Dhcpv6.Nodes.Node.Server.DisconnectHistories()
+                    self.disconnect_histories.parent = self
+                    self._children_name_map["disconnect_histories"] = "disconnect-histories"
 
                     self.binding = Dhcpv6.Nodes.Node.Server.Binding()
                     self.binding.parent = self
@@ -4854,6 +5043,173 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Server, [], name, value)
 
 
+                class DisconnectHistories(Entity):
+                    """
+                    DHCPv6 server disconnect history
+                    
+                    .. attribute:: disconnect_history
+                    
+                    	Single DHCPv6 server disconnect history
+                    	**type**\: list of  		 :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2018-10-09'
+
+                    def __init__(self):
+                        super(Dhcpv6.Nodes.Node.Server.DisconnectHistories, self).__init__()
+
+                        self.yang_name = "disconnect-histories"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("disconnect-history", ("disconnect_history", Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory))])
+                        self._leafs = OrderedDict()
+
+                        self.disconnect_history = YList(self)
+                        self._segment_path = lambda: "disconnect-histories"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Nodes.Node.Server.DisconnectHistories, [], name, value)
+
+
+                    class DisconnectHistory(Entity):
+                        """
+                        Single DHCPv6 server disconnect history
+                        
+                        .. attribute:: index  (key)
+                        
+                        	Index
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_start_time_epoch
+                        
+                        	session start time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_end_time_epoch
+                        
+                        	session end time epoch
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: disc_reason
+                        
+                        	DiscReason
+                        	**type**\: str
+                        
+                        	**length:** 0..256
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sub_label
+                        
+                        	sub label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: duid
+                        
+                        	Client DUID
+                        	**type**\: str
+                        
+                        	**length:** 0..131
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ia_type
+                        
+                        	IAType
+                        	**type**\: str
+                        
+                        	**length:** 0..6
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ia_id
+                        
+                        	ia id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mac_address
+                        
+                        	MACAddress
+                        	**type**\: str
+                        
+                        	**length:** 0..17
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2018-10-09'
+
+                        def __init__(self):
+                            super(Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
+
+                            self.yang_name = "disconnect-history"
+                            self.yang_parent_name = "disconnect-histories"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['index']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
+                                ('session_end_time_epoch', (YLeaf(YType.uint64, 'session-end-time-epoch'), ['int'])),
+                                ('disc_reason', (YLeaf(YType.str, 'disc-reason'), ['str'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                ('ia_type', (YLeaf(YType.str, 'ia-type'), ['str'])),
+                                ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ])
+                            self.index = None
+                            self.session_start_time_epoch = None
+                            self.session_end_time_epoch = None
+                            self.disc_reason = None
+                            self.sub_label = None
+                            self.duid = None
+                            self.ia_type = None
+                            self.ia_id = None
+                            self.mac_address = None
+                            self._segment_path = lambda: "disconnect-history" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'duid', 'ia_type', 'ia_id', 'mac_address'], name, value)
+
+
+
+
                 class Binding(Entity):
                     """
                     DHCPV6 server bindings
@@ -4877,7 +5233,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Binding, self).__init__()
@@ -4936,7 +5292,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Binding.Summary, self).__init__()
@@ -5038,7 +5394,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, self).__init__()
@@ -5145,7 +5501,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, self).__init__()
@@ -5197,7 +5553,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Binding.Clients, self).__init__()
@@ -5505,7 +5861,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
@@ -5607,7 +5963,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, self).__init__()
@@ -5685,7 +6041,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
@@ -5735,7 +6091,7 @@ class Dhcpv6(Entity):
                                         """
 
                                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                                        _revision = '2017-12-06'
+                                        _revision = '2018-10-09'
 
                                         def __init__(self):
                                             super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
@@ -5805,7 +6161,7 @@ class Dhcpv6(Entity):
                                             """
 
                                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                                            _revision = '2017-12-06'
+                                            _revision = '2018-10-09'
 
                                             def __init__(self):
                                                 super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
@@ -5856,7 +6212,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Vrfs, self).__init__()
@@ -5902,7 +6258,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
@@ -6056,7 +6412,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
@@ -6179,7 +6535,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -6242,7 +6598,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -6305,7 +6661,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -6368,7 +6724,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -6431,7 +6787,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -6494,7 +6850,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -6557,7 +6913,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -6620,7 +6976,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -6683,7 +7039,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -6746,7 +7102,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -6809,7 +7165,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -6872,7 +7228,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -6935,7 +7291,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -6998,7 +7354,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -7061,7 +7417,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -7124,7 +7480,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -7187,7 +7543,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
@@ -7233,7 +7589,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Profiles, self).__init__()
@@ -7293,7 +7649,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Profiles.Profile, self).__init__()
@@ -7429,7 +7785,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, self).__init__()
@@ -7504,7 +7860,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, self).__init__()
@@ -7545,7 +7901,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, self).__init__()
@@ -7584,7 +7940,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2017-12-06'
+                                    _revision = '2018-10-09'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, self).__init__()
@@ -7625,7 +7981,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, self).__init__()
@@ -7702,7 +8058,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
@@ -7750,7 +8106,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, self).__init__()
@@ -7843,7 +8199,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, self).__init__()
@@ -7897,7 +8253,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Interfaces, self).__init__()
@@ -8023,7 +8379,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, self).__init__()
@@ -8085,7 +8441,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Statistics, self).__init__()
@@ -8131,7 +8487,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, self).__init__()
@@ -8193,7 +8549,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, self).__init__()
@@ -8245,7 +8601,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.BindingOptions, self).__init__()
@@ -8288,7 +8644,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, self).__init__()
@@ -8366,7 +8722,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, self).__init__()
@@ -8416,7 +8772,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, self).__init__()
@@ -8494,7 +8850,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, self).__init__()
@@ -8560,7 +8916,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2017-12-06'
+                _revision = '2018-10-09'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Relay, self).__init__()
@@ -8607,7 +8963,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Statistics, self).__init__()
@@ -8653,7 +9009,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, self).__init__()
@@ -8715,7 +9071,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, self).__init__()
@@ -8767,7 +9123,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Binding, self).__init__()
@@ -8812,7 +9168,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Binding.Summary, self).__init__()
@@ -8851,7 +9207,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Binding.Clients, self).__init__()
@@ -8987,7 +9343,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, self).__init__()
@@ -9050,7 +9406,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2017-12-06'
+                    _revision = '2018-10-09'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Vrfs, self).__init__()
@@ -9096,7 +9452,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2017-12-06'
+                        _revision = '2018-10-09'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
@@ -9250,7 +9606,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2017-12-06'
+                            _revision = '2018-10-09'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, self).__init__()
@@ -9373,7 +9729,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -9436,7 +9792,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -9499,7 +9855,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -9562,7 +9918,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -9625,7 +9981,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -9688,7 +10044,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -9751,7 +10107,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -9814,7 +10170,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -9877,7 +10233,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -9940,7 +10296,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -10003,7 +10359,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -10066,7 +10422,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -10129,7 +10485,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -10192,7 +10548,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -10255,7 +10611,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -10318,7 +10674,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -10381,7 +10737,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2017-12-06'
+                                _revision = '2018-10-09'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()

@@ -204,6 +204,9 @@ module Cisco-IOS-XE-interfaces-oper {
       enum "speed-unknown" {
         value 8;
       }
+      enum "speed-auto" {
+        value 9;
+      }
     }
     description
       "The speed setting of the interface";

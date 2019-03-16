@@ -382,26 +382,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
       description
         "Tunnel id present?";
     }
-    leaf outgoing-interface {
-      type xr:Interface-name;
-      description
-        "Outgoing interface";
-    }
-    leaf outgoing-physical-interface {
-      type xr:Interface-name;
-      description
-        "Outgoing Physical Interface";
-    }
-    leaf outgoing-parent-interface {
-      type xr:Interface-name;
-      description
-        "Outgoing Parent Interface";
-    }
-    leaf tunnel-interface {
-      type xr:Interface-name;
-      description
-        "Tunnel Interface";
-    }
     leaf label-information-path-index {
       type uint32;
       description
@@ -428,10 +408,25 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
       description
         "Packets transmitted per LSP";
     }
-    leaf outgoing-interface-string {
+    leaf outgoing-interface {
       type string;
       description
         "Output Interface in string format";
+    }
+    leaf outgoing-physical-interface {
+      type string;
+      description
+        "Output Physical Interface in string format";
+    }
+    leaf outgoing-parent-interface {
+      type string;
+      description
+        "Output Parent Interface in string format";
+    }
+    leaf tunnel-interface {
+      type string;
+      description
+        "Tunnel Interface in string format";
     }
     leaf outgoing-label-string {
       type string;
@@ -567,6 +562,18 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
       type uint64;
       description
         "The time of last update in msec";
+    }
+    leaf total-number-of-packets-switched {
+      type uint64;
+      description
+        "The total number of packets switched on all
+         paths";
+    }
+    leaf total-number-of-bytes-switched {
+      type uint64;
+      units "byte";
+      description
+        "The total number of bytes switched on all paths";
     }
     list label-information {
       description

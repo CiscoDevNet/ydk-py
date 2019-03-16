@@ -1,16 +1,13 @@
 module Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb";
   prefix esdma_fdb;
-
   import ietf-yang-types {
     prefix ietf;
   }
   import Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
     prefix esdma_types;
   }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -21,24 +18,25 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     This module contains the YANG definitions
-     for the Cisco IOS-XR SysAdmin
-     'show controller switch fdb' commands.
-     
-     Copyright(c) 2011-2017 by Cisco Systems, Inc.
-     All rights reserved.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
-  revision 2017-05-01 {
+    This module contains the YANG definitions
+for the Cisco IOS-XR SysAdmin
+'show controller switch fdb' commands.
+
+Copyright(c) 2011-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
+  revision 2018-10-26 {
     description
-      "Namespace change to comply with Cisco guidelines on namespace";
+      "Modified FDB port leaf to use new ESDMA type esdma-switch-fdb-ports";
   }
+
 
   grouping switch-fdb-location {
     container switch-fdb-common {
@@ -90,7 +88,7 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb {
               }
             }
             leaf fdb-port {
-              type esdma_types:esdma-switch-port-type;
+              type esdma_types:esdma-switch-fdb-ports;
               description
                 "Switch port MAC address learned on.";
             }

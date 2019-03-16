@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-01-11 {
+    description
+      "Route lookup key is limited to Prefix and Prefix Length";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

@@ -37,6 +37,10 @@ module Cisco-IOS-XE-acl {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-11-13 {
+    description
+      "Moved the uses acl-tcp-common-match statement";
+  }
   revision 2018-05-31 {
     description
       "Updated missing ace rule with dst for IPv4 rolebased";
@@ -1227,8 +1231,8 @@ module Cisco-IOS-XE-acl {
           }
 	    }
         uses ipv6-acl-src-dst-addr-port-grouping;
-        uses ipv6-acl-match-common-attribute;
 	    uses acl-tcp-common-match;
+        uses ipv6-acl-match-common-attribute;
         uses ipv6-acl-icmp-match;
       }
       uses acl-remark-grouping;
@@ -1306,9 +1310,9 @@ module Cisco-IOS-XE-acl {
           type string;
 	    }
         uses ipv4-acl-src-dst-addr-port-grouping;
+	    uses acl-tcp-common-match;
         uses ipv4-acl-match-common-attribute;
         uses ipv4-acl-tcp-match;
-	    uses acl-tcp-common-match;
         uses ipv4-acl-icmp-match;
       }
       uses acl-remark-grouping;
@@ -1360,9 +1364,9 @@ module Cisco-IOS-XE-acl {
 	        "Service object group name";
           type string;
 	    }
+	    uses acl-tcp-common-match;
         uses ipv4-acl-match-common-attribute;
 	    uses ipv4-acl-tcp-match;
-	    uses acl-tcp-common-match;
         uses ipv4-acl-icmp-match;
         uses acl-role-src-dst-grouping; 
       }

@@ -20709,6 +20709,11 @@ class Evpn(Entity):
                     	Route Distinguisher
                     	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher>`
                     
+                    .. attribute:: implicit_import_disable
+                    
+                    	Disables BGP Implicit Import
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     .. attribute:: evpn_route_targets
                     
                     	Route Target
@@ -20733,9 +20738,11 @@ class Evpn(Entity):
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                            ('implicit_import_disable', (YLeaf(YType.empty, 'implicit-import-disable'), ['Empty'])),
                         ])
                         self.enable = None
                         self.table_policy = None
+                        self.implicit_import_disable = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -20748,7 +20755,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, ['enable', 'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):
@@ -22106,6 +22113,11 @@ class Evpn(Entity):
                     	Route Distinguisher
                     	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher>`
                     
+                    .. attribute:: implicit_import_disable
+                    
+                    	Disables BGP Implicit Import
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     .. attribute:: evpn_route_targets
                     
                     	Route Target
@@ -22130,9 +22142,11 @@ class Evpn(Entity):
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                            ('implicit_import_disable', (YLeaf(YType.empty, 'implicit-import-disable'), ['Empty'])),
                         ])
                         self.enable = None
                         self.table_policy = None
+                        self.implicit_import_disable = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -22145,7 +22159,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, ['enable', 'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):

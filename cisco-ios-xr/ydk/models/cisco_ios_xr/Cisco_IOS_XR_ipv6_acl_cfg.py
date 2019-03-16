@@ -614,7 +614,7 @@ class Ipv6AclAndPrefixList(Entity):
                     
                     .. attribute:: dscp
                     
-                    	DSCP value to match without using any operators.  Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparion is not to be performed. For Setting dscp values, use the dscp container as this leaf will be deprecated soon
+                    	DSCP value to match without any operators. Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparison is not to be performed. For Setting dscp values, use the dscp container as this leaf will be deprecated soon
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
@@ -722,7 +722,7 @@ class Ipv6AclAndPrefixList(Entity):
                     
                     .. attribute:: sequence_str
                     
-                    	Sequence string for the ace
+                    	Sequence String for the ace
                     	**type**\: str
                     
                     	**length:** 1..64
@@ -856,7 +856,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: source_mask
                         
-                        	Source address mask. Either  source\-wild\-card\-bits or source\-mask is  supported, not both. Leave unspecified  for any
+                        	Source address mask. Either source\-wild\-card\-bits or source\-mask is. supported, not both. Leave unspecified. for any
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -899,21 +899,21 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: destination_address
                         
-                        	Destination IPv6 address, leave  unspecified if inputting as IPv6 address with  wildcarding
+                        	Destination IPv6 address, leave unspecified if inputting as IPv6 address with wildcarding
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: destination_wild_card_bits
                         
-                        	Wildcard bits to apply to destination  destination\-address (if specified),  leave unspecified for no wildcarding
+                        	Wildcard bits to apply to destination destination\-address (if specified), leave unspecified for no wildcarding
                         	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: destination_mask
                         
-                        	Destination address mask. Either  destination\-wild\-card\-bits or destination\-mask  is supported, not both. Leave unspecified for any
+                        	Destination address mask. Either destination\-wild\-card\-bits or destination\-mask. is supported, not both. Leave unspecified for any
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -1082,7 +1082,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: icmp_type_code
                         
-                        	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
+                        	Well known ICMP message code types to match, leave unspecified if ICMP message code type comparion is not to be performed
                         	**type**\:  :py:class:`Ipv6AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnum>`
                         
                         
@@ -1119,12 +1119,12 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: tcp_bits_match_operator
                         
-                        	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
+                        	TCP Bits match operator. Leave unspecified if flexible comparison of TCP bits is not required
                         	**type**\:  :py:class:`Ipv6AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnum>`
                         
                         .. attribute:: tcp_bits
                         
-                        	TCP bits to match. Leave unspecified if  comparison of TCP bits is not required
+                        	TCP bits to match. Leave unspecified if comparison of TCP bits is not required
                         	**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
                         .. attribute:: tcp_bits_mask
@@ -1170,7 +1170,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: packet_length_operator
                         
-                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config  will be rejected
+                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config will be rejected
                         	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: packet_length_min
@@ -1280,12 +1280,12 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: dscp_operator
                         
-                        	Enumerated DSCP operator values. Used when operator needs to be configured. Leave unspecified if DSCP operator is not required. Note\: if the  dscp operator is not set, it logically behaves  same as equal operator
+                        	Enumerated DSCP operator values. Used when operator needs to be configured. Leave unspecified if DSCP operator is not required. Note\: if the dscp operator is not set, it logically behaves same as equal operator
                         	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: dscp_lower
                         
-                        	DSCP value to match (if a value was specified). It can be used for the lower bound (range operator) or single value (equal, less, greater..etc) or without any operator. Any value not in the permissible range  will be rejected. Leave unspecified if DSCP  comparison is not to be performed
+                        	DSCP value to match (if a value was specified). It can be used for the lower bound (range operator) or single value (equal, less, greater..etc) or without any operator. Any value not in the permissible range will be rejected. Leave unspecified if DSCP comparison is not to be performed
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
@@ -1296,7 +1296,7 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         .. attribute:: dscp_upper
                         
-                        	DSCP2 value to match (if a value was specified), It can be used in the upper bound (range operator) Any value not in the permissible range will be rejected. leave unspecified if DSCP range comparison is not to be performed
+                        	DSCP value to match (if a value was specified). It can be used in the upper bound (range operator) Any value not in the permissible range will be rejected. Leave unspecified if DSCP range comparison is not to be performed
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`

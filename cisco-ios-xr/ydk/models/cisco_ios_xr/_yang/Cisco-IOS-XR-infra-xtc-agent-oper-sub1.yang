@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-28 {
+    description
+      "Various modifications to policy-related models for better compatibility with the IETF policy draft.";
+  }
   revision 2017-09-11 {
     description
       "Initial version";
@@ -119,6 +123,81 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       "XTC policy path type";
   }
 
+  typedef Xtc-policy-lsp-sm-state {
+    type enumeration {
+      enum "unknown" {
+        description
+          "Unknown";
+      }
+      enum "initialized" {
+        description
+          "Initialized";
+      }
+      enum "deleted" {
+        description
+          "Deleted";
+      }
+      enum "programmed" {
+        description
+          "Programmed; all forwarding rewrites created";
+      }
+      enum "egress-paths-pending" {
+        description
+          "Waiting for egress paths";
+      }
+      enum "label-allocation-pending" {
+        description
+          "Waiting for label allocation result";
+      }
+      enum "label-allocation-cleanup-pending" {
+        description
+          "Waiting for label free result";
+      }
+      enum "label-rewrite-pending" {
+        description
+          "Waiting for label rewrite create result";
+      }
+      enum "label-rewrite-cleanup-pending" {
+        description
+          "Waiting for label rewrite delete result";
+      }
+      enum "bsid-allocation-pending" {
+        description
+          "Waiting for BSID label allocation result";
+      }
+      enum "bsid-allocation-cleanup-pending" {
+        description
+          "Waiting for BSID label free result";
+      }
+      enum "bsid-rewrite-pending" {
+        description
+          "Waiting for BSID rewrite create result";
+      }
+      enum "bsid-rewrite-cleanup-pending" {
+        description
+          "Waiting for BSID rewrite delete result";
+      }
+      enum "tunnel-rewrite-pending" {
+        description
+          "Waiting for tunnel rewrite create result";
+      }
+      enum "tunnel-rewrite-cleanup-pending" {
+        description
+          "Waiting for tunnel rewrite delete result";
+      }
+      enum "install-timer-pending" {
+        description
+          "Waiting for install timer to expire";
+      }
+      enum "cleanup-timer-pending" {
+        description
+          "Waiting for cleanup timer to expire";
+      }
+    }
+    description
+      "XTC policy LSP FSM states";
+  }
+
   typedef Xtc-sr-sid {
     type enumeration {
       enum "ipv4-node-sid" {
@@ -157,58 +236,31 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       "XTC policy path type";
   }
 
-  typedef Xtc-bsid-error {
+  typedef Xtc-policy-cpath-proto-origin {
     type enumeration {
-      enum "none" {
+      enum "unknown" {
+        value 0;
         description
-          "No error";
+          "unknown";
       }
-      enum "allocating" {
+      enum "pcep" {
+        value 10;
         description
-          "Error allocating via LSD";
+          "pcep";
       }
-      enum "exists" {
+      enum "bgp" {
+        value 20;
         description
-          "Explicitly configured BSID already exists";
+          "bgp";
       }
-      enum "internal" {
+      enum "configuration" {
+        value 30;
         description
-          "Internal error";
-      }
-      enum "color-endpoint-exists" {
-        description
-          "Configured BSID used by another color/end-point";
-      }
-      enum "forwarding-rewrite-error" {
-        description
-          "BSID Forwarding rewrite (label xconnect) failed";
-      }
-      enum "srlb-invalid-label" {
-        description
-          "BSID not valid within SRLB range";
-      }
-      enum "internal-error" {
-        description
-          "Internal error";
+          "configuration";
       }
     }
     description
-      "Xtc bsid error";
-  }
-
-  typedef Xtc-bsid-mode {
-    type enumeration {
-      enum "explicit" {
-        description
-          "Explicit binding SID";
-      }
-      enum "dynamic" {
-        description
-          "Dynamic binding SID";
-      }
-    }
-    description
-      "XTC BSID MODE type";
+      "Policy candidate path protocol origin";
   }
 
   typedef Xtc-sid {
@@ -669,10 +721,87 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Last updated time of the request in seconds";
     }
-    list paths {
+    list segment-list {
       description
-        "Path options";
-      uses XTC-POLICY-PATH-BAG;
+        "Segment lists";
+      uses XTC-POLICY-SL-BAG;
+    }
+  }
+
+  grouping XTC-DIST-INFO-BAG {
+    description
+      "Disjoint path information";
+    leaf disjointness-type {
+      type Xtc-disjointness;
+      description
+        "Disjointness type";
+    }
+    leaf group-id {
+      type uint32;
+      description
+        "Group ID";
+    }
+    leaf sub-id {
+      type uint32;
+      description
+        "Sub ID";
+    }
+  }
+
+  grouping XTC-ON-DEMAND-COLOR-BAG {
+    description
+      "On-Demand Color information";
+    container disjoint-path-info {
+      description
+        "Disjoint path information";
+      uses XTC-DIST-INFO-BAG;
+    }
+    leaf color-xr {
+      type uint32;
+      description
+        "Color";
+    }
+    leaf absolute-margin {
+      type uint32;
+      description
+        "Absolute Metric Margin";
+    }
+    leaf relative-margin {
+      type uint32;
+      description
+        " Relative Metric Margin";
+    }
+    leaf maximum-sid-depth {
+      type uint32;
+      description
+        "Maximum SID Depth";
+    }
+  }
+
+  grouping XTC-POLICY-SUMMARY-BAG {
+    description
+      "Policy summary information";
+    container ipv4-source-address {
+      description
+        "IPv4 address used for IPv4 policies";
+      uses XTC-IP-ADDR-TYPE;
+    }
+    leaf configured-total-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies";
+    }
+    leaf configured-up-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies that are
+         operationally up";
+    }
+    leaf configured-down-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies that are
+         operationally down";
     }
   }
 
@@ -750,10 +879,20 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
   grouping XTC-FWDING-POLICY-BAG {
     description
       "Policy forwarding information";
+    container endpoint-address {
+      description
+        "Endpoint address";
+      uses XTC-IP-ADDR-TYPE;
+    }
     leaf policy-name {
       type string;
       description
         "Policy name";
+    }
+    leaf color {
+      type uint32;
+      description
+        "Color";
     }
     leaf is-local-label-valid {
       type boolean;
@@ -788,90 +927,116 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
-  grouping XTC-DIST-INFO-BAG {
+  grouping XTC-EVENT-INFO {
     description
-      "Disjoint path information";
-    leaf disjointness-type {
-      type Xtc-disjointness;
-      description
-        "Disjointness type";
-    }
-    leaf group-id {
-      type uint32;
-      description
-        "Group ID";
-    }
-    leaf sub-id {
-      type uint32;
-      description
-        "Sub ID";
-    }
-  }
-
-  grouping XTC-ON-DEMAND-COLOR-BAG {
-    description
-      "On-Demand Color information";
-    container disjoint-path-info {
-      description
-        "Disjoint path information";
-      uses XTC-DIST-INFO-BAG;
-    }
-    leaf color-xr {
-      type uint32;
-      description
-        "Color";
-    }
-    leaf maximum-sid-depth {
-      type uint32;
-      description
-        "Maximum SID Depth";
-    }
-  }
-
-  grouping XTC-POLICY-SUMMARY-BAG {
-    description
-      "Policy summary information";
-    container ipv4-source-address {
-      description
-        "IPv4 address used for IPv4 policies";
-      uses XTC-IP-ADDR-TYPE;
-    }
-    leaf configured-total-policy-count {
-      type uint32;
-      description
-        "Total number of configured policies";
-    }
-    leaf configured-up-policy-count {
-      type uint32;
-      description
-        "Total number of configured policies that are
-         operationally up";
-    }
-    leaf configured-down-policy-count {
-      type uint32;
-      description
-        "Total number of configured policies that are
-         operationally down";
-    }
-  }
-
-  grouping XTC-POLICY-AUTO-BAG {
-    description
-      "XTC autopolicy info";
-    leaf creator-name {
+      "XTC Event information";
+    leaf event-message {
       type string;
       description
-        "Name of client who created policy";
+        "Event message";
     }
-    leaf distinguisher {
+    leaf time-stamp {
       type uint32;
       description
-        "Distinguisher";
+        "Event time, relative to Jan 1, 1970";
     }
-    leaf preference {
+  }
+
+  grouping XTC-POLICY-LSP-BAG {
+    description
+      "XTC Policy LSP";
+    container binding-sid {
+      description
+        "Binding SID information";
+      uses XTC-POLICY-BSID-BAG;
+    }
+    container install-timer {
+      description
+        "Install timer information";
+      uses XTC-TIMER-INFO;
+    }
+    container cleanup-timer {
+      description
+        "Cleanup timer information";
+      uses XTC-TIMER-INFO;
+    }
+    leaf lsp-id {
+      type uint16;
+      description
+        "LSP ID";
+    }
+    leaf policy-id {
+      type uint16;
+      description
+        "Policy ID";
+    }
+    leaf local-label {
       type uint32;
       description
-        "Preference of the policy";
+        "Local label of the LSP";
+    }
+    leaf state {
+      type Xtc-policy-lsp-sm-state;
+      description
+        "Current LSP state";
+    }
+    leaf is-current-lsp {
+      type boolean;
+      description
+        "Whether this is the current LSP";
+    }
+    leaf is-reoptimized-lsp {
+      type boolean;
+      description
+        "Whether this is the reoptimized LSP";
+    }
+  }
+
+  grouping XTC-TIMER-INFO {
+    description
+      "XTC Timer information";
+    leaf running {
+      type boolean;
+      description
+        "Whether the timer is running";
+    }
+    leaf remaining-seconds {
+      type int64;
+      units "second";
+      description
+        "Number of remaining seconds";
+    }
+    leaf remaining-nano-seconds {
+      type int64;
+      units "nanosecond";
+      description
+        "Number of remaining nanoseconds";
+    }
+  }
+
+  grouping XTC-PCC-INFO-BAG {
+    description
+      "XTC PCC info";
+    container orphan-timer {
+      description
+        "Orphan timer for PCE-initiated candidate paths
+         in orphan state";
+      uses XTC-TIMER-INFO;
+    }
+    leaf symbolic-name {
+      type string;
+      description
+        "Symbolic name of the PLSP";
+    }
+    leaf plsp-id {
+      type uint32;
+      description
+        "PLSP-ID associated with the PCC info";
+    }
+    leaf is-orphan {
+      type boolean;
+      description
+        "Whether the candidate path is in orphan state";
     }
   }
 
@@ -889,12 +1054,12 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     description
       "SR path metrics bag";
     leaf margin-relative {
-      type uint8;
+      type uint32;
       description
         "Margin Relative";
     }
     leaf margin-absolute {
-      type uint8;
+      type uint32;
       description
         "Margin Absolute";
     }
@@ -1000,48 +1165,38 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
-  grouping XTC-POLICY-PATH-BAG {
+  grouping XTC-POLICY-SL-BAG {
     description
-      "XTC policy path information bag";
-    container sr-path-constraints {
+      "XTC policy segment list information bag";
+    leaf name {
+      type string;
       description
-        "SR path constraints";
-      uses XTC-PATH-CONSTRAINTS-BAG;
-    }
-    leaf index {
-      type uint32;
-      description
-        "Index number";
+        "Explicit segment list name";
     }
     leaf type {
       type Xtc-policy-path;
       description
-        "Path option type";
-    }
-    leaf name {
-      type string;
-      description
-        "Explicit path option name";
+        "Segment list type";
     }
     leaf active {
       type boolean;
       description
-        "Whether the path is active (used)";
+        "Whether the segment list is active (used)";
     }
     leaf weight {
       type uint32;
       description
-        "Configured weight of the path-option";
+        "Weight of the segment list";
     }
     leaf metric-type {
       type uint8;
       description
-        "Configured path metric type";
+        "Metric type of the segment list";
     }
     leaf metric-value {
-      type uint32;
+      type uint64;
       description
-        "Path metric value";
+        "Accumulated metric of the segment list";
     }
     leaf is-valid {
       type boolean;
@@ -1067,6 +1222,94 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "SR hop list";
       uses XTC-SR-HOP-TYPE;
+    }
+  }
+
+  grouping XTC-POLICY-CPATH-ORIGINATOR-BAG {
+    description
+      "XTC POLICY CPATH ORIGINATOR BAG";
+    container node-address {
+      description
+        "Originator node address";
+      uses XTC-IP-ADDR-TYPE;
+    }
+    leaf autonomous-system-number {
+      type uint32;
+      description
+        "Originator Autonomous System Number";
+    }
+  }
+
+  grouping XTC-POLICY-CPATH-BAG {
+    description
+      "XTC policy candidate path bag";
+    container originator {
+      description
+        "Candidate path originator";
+      uses XTC-POLICY-CPATH-ORIGINATOR-BAG;
+    }
+    container sr-path-constraints {
+      description
+        "SR candidate path constraints";
+      uses XTC-PATH-CONSTRAINTS-BAG;
+    }
+    container requested-bsid {
+      description
+        "Requested binding SID";
+      uses XTC-PREFIX-SID-TYPE;
+    }
+    container pcc-information {
+      description
+        "PCC PCEP-related information";
+      uses XTC-PCC-INFO-BAG;
+    }
+    leaf name {
+      type string;
+      description
+        "Candidate path name";
+    }
+    leaf preference {
+      type uint32;
+      description
+        "Candidate path preference";
+    }
+    leaf protocol-originator {
+      type Xtc-policy-cpath-proto-origin;
+      description
+        "Candidate path protocol origin";
+    }
+    leaf discriminator {
+      type uint32;
+      description
+        "Candidate path discriminator";
+    }
+    leaf is-current {
+      type boolean;
+      description
+        "Whether this is the currently used candidate
+         path";
+    }
+    leaf is-reoptimizing {
+      type boolean;
+      description
+        "Whether this is the candidate path that the
+         policy is reoptimizing to";
+    }
+    leaf shutdown {
+      type boolean;
+      description
+        "If set, the candidate path is administratively
+         shutdown";
+    }
+    leaf error {
+      type string;
+      description
+        "Candidate path error (for display only)";
+    }
+    list segment-list {
+      description
+        "Segment lists of the candidate path";
+      uses XTC-POLICY-SL-BAG;
     }
   }
 
@@ -1106,31 +1349,15 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Binding SID value";
       uses XTC-PREFIX-SID-TYPE;
     }
-    leaf bsid-mode {
-      type Xtc-bsid-mode;
-      description
-        "Binding SID Mode";
-    }
-    leaf error {
-      type Xtc-bsid-error;
-      description
-        "Binding SID error, if any";
-    }
-    leaf state {
-      type string;
-      description
-        "State of the binding SID";
-    }
-    leaf explicit-based {
+    leaf is-fallback-dynamic {
       type boolean;
       description
-        "Whether the binding SID is explicit-based";
+        "Whether the BSID is in fallback dynamic mode";
     }
-    leaf policy-selected {
+    leaf is-within-srlb-range {
       type boolean;
       description
-        "Whether the policy is selected for forwarding on
-         this BSID";
+        "Whether the BSID is within SRLB range";
     }
   }
 
@@ -1175,11 +1402,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Binding SID information";
       uses XTC-POLICY-BSID-BAG;
     }
-    container auto-policy-info {
-      description
-        "Autopolicy information";
-      uses XTC-POLICY-AUTO-BAG;
-    }
     leaf policy-name {
       type string;
       description
@@ -1199,12 +1421,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Color";
-    }
-    leaf is-auto-policy {
-      type boolean;
-      description
-        "Whether policy was automatically created or
-         configured";
     }
     leaf transition-count {
       type uint32;
@@ -1240,11 +1456,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Policy down age (since) in nano seconds";
     }
-    leaf lsp-id {
-      type uint32;
-      description
-        "LSP ID";
-    }
     leaf steering-bgp-disabled {
       type boolean;
       description
@@ -1254,21 +1465,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Interface handle";
-    }
-    leaf policy-group-identifier {
-      type uint16;
-      description
-        "Policy group identifier";
-    }
-    leaf local-label-identifier {
-      type uint16;
-      description
-        "Local label identifier";
-    }
-    leaf local-label {
-      type uint32;
-      description
-        "Local label";
     }
     leaf profile-id {
       type uint16;
@@ -1280,10 +1476,20 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "IPv6 caps enabled";
     }
-    list paths {
+    list candidate-path {
       description
-        "Path options";
-      uses XTC-POLICY-PATH-BAG;
+        "Candidate paths";
+      uses XTC-POLICY-CPATH-BAG;
+    }
+    list ls-ps {
+      description
+        "LSPs";
+      uses XTC-POLICY-LSP-BAG;
+    }
+    list event-buffer {
+      description
+        "Policy Event buffer";
+      uses XTC-EVENT-INFO;
     }
   }
 }

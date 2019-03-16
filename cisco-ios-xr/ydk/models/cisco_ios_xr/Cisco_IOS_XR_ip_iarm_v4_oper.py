@@ -307,7 +307,7 @@ class Ipv4arm(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: handle
+                        .. attribute:: interface
                         
                         	Interface
                         	**type**\: str
@@ -363,14 +363,14 @@ class Ipv4arm(Entity):
                             self._leafs = OrderedDict([
                                 ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                 ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
-                                ('handle', (YLeaf(YType.str, 'handle'), ['str'])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                                 ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                 ('referenced_interface', (YLeaf(YType.str, 'referenced-interface'), ['str'])),
                                 ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.address = None
                             self.prefix_length = None
-                            self.handle = None
+                            self.interface = None
                             self.interface_name = None
                             self.referenced_interface = None
                             self.vrf_name = None
@@ -382,7 +382,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'interface', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):

@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixing yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -1226,10 +1230,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
       description
         "DHCP saved options";
     }
-    leaf session-start-time {
+    leaf session-start-time-epoch {
       type uint64;
       description
-        "session start time";
+        "session start time epoch";
     }
     leaf srg-state {
       type uint32;
@@ -1241,6 +1245,40 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
       max-elements "20";
       description
         "event history";
+    }
+  }
+
+  grouping IPV4-DHCPD-DISC-HISTORY {
+    description
+      "DHCP IPv4 disconnect history entry";
+    leaf session-start-time-epoch {
+      type uint64;
+      description
+        "session start time epoch";
+    }
+    leaf session-end-time-epoch {
+      type uint64;
+      description
+        "session end time epoch";
+    }
+    leaf disc-reason {
+      type string {
+        length "0..256";
+      }
+      description
+        "DiscReason";
+    }
+    leaf sub-label {
+      type uint32;
+      description
+        "sub label";
+    }
+    leaf mac-address {
+      type string {
+        length "0..17";
+      }
+      description
+        "MACAddress";
     }
   }
 

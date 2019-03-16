@@ -122,6 +122,13 @@ class NetconfYang(Entity):
         
         	**default value**\: true
         
+        .. attribute:: missing_prc_method
+        
+        	Process any parser output from configuration changes and compare against either a known set of errors  (blacklist) or a known set of messages to ignore  (whitelist)
+        	**type**\:  :py:class:`ParserMsgProcessingMethod <ydk.models.cisco_ios_xe.cisco_ia.ParserMsgProcessingMethod>`
+        
+        	**default value**\: blacklist
+        
         .. attribute:: snmp_community_string
         
         	The community string for communication with the SNMP         agent
@@ -152,6 +159,18 @@ class NetconfYang(Entity):
         
         	Parser output from configuration  change that is informational only, not an error
         	**type**\: list of  		 :py:class:`ConfParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfParserMsgIgnore>`
+        
+        .. attribute:: parser_msg_error
+        
+        	Parser output from configuration  change that indicates an error that cannot be ignored (must abort the transaction). This is a read only list containing known error messages
+        	**type**\: list of  		 :py:class:`ParserMsgError <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ParserMsgError>`
+        
+        	**config**\: False
+        
+        .. attribute:: conf_parser_msg_error
+        
+        	Parser output from configuration  change that indicates an error that cannot be ignored (must abort the transaction)
+        	**type**\: list of  		 :py:class:`ConfParserMsgError <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfParserMsgError>`
         
         .. attribute:: full_sync_cli
         
@@ -191,12 +210,17 @@ class NetconfYang(Entity):
         	Controls blocking of command lines, either  from the NE to Confd or disallowing manual input from the console/vty
         	**type**\:  :py:class:`Blocking <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking>`
         
+        .. attribute:: pivot_commands
+        
+        	WARNING\: These configuration commands should not be used unless          directed to by Cisco. Some IOS configuration commands may have a vitally important relationship to other IOS configuration commands. These so called pivotal commands have to be handled as an  execption to the normal processing flow. The pivotal commands and their special handling actions are described in this list
+        	**type**\:  :py:class:`PivotCommands <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.PivotCommands>`
+        
         
 
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(NetconfYang.CiscoIa, self).__init__()
@@ -206,7 +230,7 @@ class NetconfYang(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("snmp-trap-control", ("snmp_trap_control", NetconfYang.CiscoIa.SnmpTrapControl)), ("preserve-ned-path", ("preserve_ned_path", NetconfYang.CiscoIa.PreserveNedPath)), ("parser-msg-ignore", ("parser_msg_ignore", NetconfYang.CiscoIa.ParserMsgIgnore)), ("conf-parser-msg-ignore", ("conf_parser_msg_ignore", NetconfYang.CiscoIa.ConfParserMsgIgnore)), ("full-sync-cli", ("full_sync_cli", NetconfYang.CiscoIa.FullSyncCli)), ("conf-full-sync-cli", ("conf_full_sync_cli", NetconfYang.CiscoIa.ConfFullSyncCli)), ("logging", ("logging", NetconfYang.CiscoIa.Logging)), ("blocking", ("blocking", NetconfYang.CiscoIa.Blocking))])
+            self._child_classes = OrderedDict([("snmp-trap-control", ("snmp_trap_control", NetconfYang.CiscoIa.SnmpTrapControl)), ("preserve-ned-path", ("preserve_ned_path", NetconfYang.CiscoIa.PreserveNedPath)), ("parser-msg-ignore", ("parser_msg_ignore", NetconfYang.CiscoIa.ParserMsgIgnore)), ("conf-parser-msg-ignore", ("conf_parser_msg_ignore", NetconfYang.CiscoIa.ConfParserMsgIgnore)), ("parser-msg-error", ("parser_msg_error", NetconfYang.CiscoIa.ParserMsgError)), ("conf-parser-msg-error", ("conf_parser_msg_error", NetconfYang.CiscoIa.ConfParserMsgError)), ("full-sync-cli", ("full_sync_cli", NetconfYang.CiscoIa.FullSyncCli)), ("conf-full-sync-cli", ("conf_full_sync_cli", NetconfYang.CiscoIa.ConfFullSyncCli)), ("logging", ("logging", NetconfYang.CiscoIa.Logging)), ("blocking", ("blocking", NetconfYang.CiscoIa.Blocking)), ("pivot-commands", ("pivot_commands", NetconfYang.CiscoIa.PivotCommands))])
             self._leafs = OrderedDict([
                 ('auto_sync', (YLeaf(YType.enumeration, 'auto-sync'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaSyncType', '')])),
                 ('init_sync', (YLeaf(YType.enumeration, 'init-sync'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaSyncType', '')])),
@@ -216,6 +240,7 @@ class NetconfYang(Entity):
                 ('post_sync_acl_process', (YLeaf(YType.boolean, 'post-sync-acl-process'), ['bool'])),
                 ('config_change_delay', (YLeaf(YType.int16, 'config-change-delay'), ['int'])),
                 ('process_missing_prc', (YLeaf(YType.boolean, 'process-missing-prc'), ['bool'])),
+                ('missing_prc_method', (YLeaf(YType.enumeration, 'missing-prc-method'), [('ydk.models.cisco_ios_xe.cisco_ia', 'ParserMsgProcessingMethod', '')])),
                 ('snmp_community_string', (YLeaf(YType.str, 'snmp-community-string'), ['str'])),
                 ('preserve_paths_enabled', (YLeaf(YType.boolean, 'preserve-paths-enabled'), ['bool'])),
                 ('nes_ttynum', (YLeaf(YType.int16, 'nes-ttynum'), ['int'])),
@@ -229,6 +254,7 @@ class NetconfYang(Entity):
             self.post_sync_acl_process = None
             self.config_change_delay = None
             self.process_missing_prc = None
+            self.missing_prc_method = None
             self.snmp_community_string = None
             self.preserve_paths_enabled = None
             self.nes_ttynum = None
@@ -246,9 +272,15 @@ class NetconfYang(Entity):
             self.blocking.parent = self
             self._children_name_map["blocking"] = "blocking"
 
+            self.pivot_commands = NetconfYang.CiscoIa.PivotCommands()
+            self.pivot_commands.parent = self
+            self._children_name_map["pivot_commands"] = "pivot-commands"
+
             self.preserve_ned_path = YList(self)
             self.parser_msg_ignore = YList(self)
             self.conf_parser_msg_ignore = YList(self)
+            self.parser_msg_error = YList(self)
+            self.conf_parser_msg_error = YList(self)
             self.full_sync_cli = YList(self)
             self.conf_full_sync_cli = YList(self)
             self._segment_path = lambda: "cisco-ia:cisco-ia"
@@ -256,7 +288,7 @@ class NetconfYang(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NetconfYang.CiscoIa, ['auto_sync', 'init_sync', 'intelligent_sync', 'message_diag_level', 'max_diag_messages_saved', 'post_sync_acl_process', 'config_change_delay', 'process_missing_prc', 'snmp_community_string', 'preserve_paths_enabled', 'nes_ttynum', 'restored'], name, value)
+            self._perform_setattr(NetconfYang.CiscoIa, ['auto_sync', 'init_sync', 'intelligent_sync', 'message_diag_level', 'max_diag_messages_saved', 'post_sync_acl_process', 'config_change_delay', 'process_missing_prc', 'missing_prc_method', 'snmp_community_string', 'preserve_paths_enabled', 'nes_ttynum', 'restored'], name, value)
 
 
         class SnmpTrapControl(Entity):
@@ -281,7 +313,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.SnmpTrapControl, self).__init__()
@@ -336,7 +368,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-03-28'
+                _revision = '2018-08-03'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.SnmpTrapControl.TrapList, self).__init__()
@@ -386,7 +418,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.PreserveNedPath, self).__init__()
@@ -432,7 +464,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ParserMsgIgnore, self).__init__()
@@ -474,7 +506,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ConfParserMsgIgnore, self).__init__()
@@ -498,6 +530,95 @@ class NetconfYang(Entity):
 
 
 
+        class ParserMsgError(Entity):
+            """
+            Parser output from configuration 
+            change that indicates an error
+            that cannot be ignored (must abort
+            the transaction). This is a read only
+            list containing known error messages.
+            
+            .. attribute:: message  (key)
+            
+            	A regular expression to match parser output to be considered an error
+            	**type**\: str
+            
+            	**length:** 1..255
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'cisco-ia'
+            _revision = '2018-08-03'
+
+            def __init__(self):
+                super(NetconfYang.CiscoIa.ParserMsgError, self).__init__()
+
+                self.yang_name = "parser-msg-error"
+                self.yang_parent_name = "cisco-ia"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['message']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('message', (YLeaf(YType.str, 'message'), ['str'])),
+                ])
+                self.message = None
+                self._segment_path = lambda: "parser-msg-error" + "[message='" + str(self.message) + "']"
+                self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NetconfYang.CiscoIa.ParserMsgError, ['message'], name, value)
+
+
+
+        class ConfParserMsgError(Entity):
+            """
+            Parser output from configuration 
+            change that indicates an error
+            that cannot be ignored (must abort
+            the transaction).
+            
+            .. attribute:: message  (key)
+            
+            	A regular expression to match parser output to be considered an error
+            	**type**\: str
+            
+            	**length:** 1..255
+            
+            
+
+            """
+
+            _prefix = 'cisco-ia'
+            _revision = '2018-08-03'
+
+            def __init__(self):
+                super(NetconfYang.CiscoIa.ConfParserMsgError, self).__init__()
+
+                self.yang_name = "conf-parser-msg-error"
+                self.yang_parent_name = "cisco-ia"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['message']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('message', (YLeaf(YType.str, 'message'), ['str'])),
+                ])
+                self.message = None
+                self._segment_path = lambda: "conf-parser-msg-error" + "[message='" + str(self.message) + "']"
+                self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NetconfYang.CiscoIa.ConfParserMsgError, ['message'], name, value)
+
+
+
         class FullSyncCli(Entity):
             """
             IOS commands that result in other
@@ -518,7 +639,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.FullSyncCli, self).__init__()
@@ -561,7 +682,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ConfFullSyncCli, self).__init__()
@@ -638,7 +759,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.Logging, self).__init__()
@@ -707,7 +828,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-03-28'
+            _revision = '2018-08-03'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.Blocking, self).__init__()
@@ -752,7 +873,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-03-28'
+                _revision = '2018-08-03'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.Blocking.NetworkElementCommand, self).__init__()
@@ -790,7 +911,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-03-28'
+                _revision = '2018-08-03'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.Blocking.ConfdCfgCommand, self).__init__()
@@ -811,6 +932,165 @@ class NetconfYang(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.CiscoIa.Blocking.ConfdCfgCommand, ['command'], name, value)
+
+
+
+
+        class PivotCommands(Entity):
+            """
+            WARNING\: These configuration commands should not be used unless
+                     directed to by Cisco.
+            Some IOS configuration commands may have a vitally important
+            relationship to other IOS configuration commands.
+            These so called pivotal commands have to be handled as an 
+            execption to the normal processing flow. The pivotal commands
+            and their special handling actions are described in this list.
+            
+            .. attribute:: pivot_command
+            
+            	Static list of pivot commands
+            	**type**\: list of  		 :py:class:`PivotCommand <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.PivotCommands.PivotCommand>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'cisco-ia'
+            _revision = '2018-08-03'
+
+            def __init__(self):
+                super(NetconfYang.CiscoIa.PivotCommands, self).__init__()
+
+                self.yang_name = "pivot-commands"
+                self.yang_parent_name = "cisco-ia"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("pivot-command", ("pivot_command", NetconfYang.CiscoIa.PivotCommands.PivotCommand))])
+                self._leafs = OrderedDict()
+
+                self.pivot_command = YList(self)
+                self._segment_path = lambda: "pivot-commands"
+                self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NetconfYang.CiscoIa.PivotCommands, [], name, value)
+
+
+            class PivotCommand(Entity):
+                """
+                Static list of pivot commands.
+                
+                .. attribute:: command  (key)
+                
+                	The command prefix to match.  Leading spaces are counted towards the match
+                	**type**\: str
+                
+                	**length:** 1..255
+                
+                	**config**\: False
+                
+                .. attribute:: retry
+                
+                	Whether or not the command will be retried if it fails and associated parameters
+                	**type**\:  :py:class:`Retry <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.PivotCommands.PivotCommand.Retry>`
+                
+                	**presence node**\: True
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'cisco-ia'
+                _revision = '2018-08-03'
+
+                def __init__(self):
+                    super(NetconfYang.CiscoIa.PivotCommands.PivotCommand, self).__init__()
+
+                    self.yang_name = "pivot-command"
+                    self.yang_parent_name = "pivot-commands"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['command']
+                    self._child_classes = OrderedDict([("retry", ("retry", NetconfYang.CiscoIa.PivotCommands.PivotCommand.Retry))])
+                    self._leafs = OrderedDict([
+                        ('command', (YLeaf(YType.str, 'command'), ['str'])),
+                    ])
+                    self.command = None
+
+                    self.retry = None
+                    self._children_name_map["retry"] = "retry"
+                    self._segment_path = lambda: "pivot-command" + "[command='" + str(self.command) + "']"
+                    self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/pivot-commands/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NetconfYang.CiscoIa.PivotCommands.PivotCommand, ['command'], name, value)
+
+
+                class Retry(Entity):
+                    """
+                    Whether or not the command will be retried if it
+                    fails and associated parameters.
+                    
+                    .. attribute:: min_retry_time
+                    
+                    	The minimum time to wait before retrying a failed command
+                    	**type**\: int
+                    
+                    	**range:** 10..60000
+                    
+                    	**config**\: False
+                    
+                    	**units**\: milliseconds
+                    
+                    .. attribute:: max_retry_time
+                    
+                    	The maximum time to wait before retrying a failed command.  Commands that continue to fail after having waited this amount of time are considered to have permanently failed
+                    	**type**\: int
+                    
+                    	**range:** 10..60000
+                    
+                    	**config**\: False
+                    
+                    	**units**\: milliseconds
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'cisco-ia'
+                    _revision = '2018-08-03'
+
+                    def __init__(self):
+                        super(NetconfYang.CiscoIa.PivotCommands.PivotCommand.Retry, self).__init__()
+
+                        self.yang_name = "retry"
+                        self.yang_parent_name = "pivot-command"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_retry_time', (YLeaf(YType.uint16, 'min-retry-time'), ['int'])),
+                            ('max_retry_time', (YLeaf(YType.uint16, 'max-retry-time'), ['int'])),
+                        ])
+                        self.min_retry_time = None
+                        self.max_retry_time = None
+                        self._segment_path = lambda: "retry"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(NetconfYang.CiscoIa.PivotCommands.PivotCommand.Retry, ['min_retry_time', 'max_retry_time'], name, value)
+
 
 
 

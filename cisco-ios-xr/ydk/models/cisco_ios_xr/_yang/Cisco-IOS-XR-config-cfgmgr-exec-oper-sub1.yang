@@ -276,7 +276,7 @@ submodule Cisco-IOS-XR-config-cfgmgr-exec-oper-sub1 {
            ./type != 'CFGHIST_BAG_RECORD_CFSCHECK' and .
            ./type != 'CFGHIST_BAG_RECORD_COMMIT' and .
            ./type != 'CFGHIST_BAG_RECORD_OIR' and ../type
-           != 'CFGHIST_BAG_RECORD_SHUTDOWN' and ../type 
+           != 'CFGHIST_BAG_RECORD_SHUTDOWN' and ../type
            != 'CFGHIST_BAG_RECORD_STARTUP' and ../type !=
            'CFGHIST_BAG_RECORD_BACKUP'";
       }

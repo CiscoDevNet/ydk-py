@@ -3,7 +3,7 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ping action package configuration.
 
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -36,7 +36,7 @@ class Ping(Entity):
     """
 
     _prefix = 'ping-act'
-    _revision = '2016-09-28'
+    _revision = '2018-10-01'
 
     def __init__(self):
         super(Ping, self).__init__()
@@ -70,6 +70,8 @@ class Ping(Entity):
         	
         	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Destination>`
         
+        	**presence node**\: True
+        
         .. attribute:: ipv4
         
         	
@@ -80,12 +82,14 @@ class Ping(Entity):
         	
         	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Ipv6>`
         
+        	**presence node**\: True
+        
         
 
         """
 
         _prefix = 'ping-act'
-        _revision = '2016-09-28'
+        _revision = '2018-10-01'
 
         def __init__(self):
             super(Ping.Input, self).__init__()
@@ -98,12 +102,10 @@ class Ping(Entity):
             self._child_classes = OrderedDict([("destination", ("destination", Ping.Input.Destination)), ("ipv4", ("ipv4", Ping.Input.Ipv4)), ("ipv6", ("ipv6", Ping.Input.Ipv6))])
             self._leafs = OrderedDict()
 
-            self.destination = Ping.Input.Destination()
-            self.destination.parent = self
+            self.destination = None
             self._children_name_map["destination"] = "destination"
 
-            self.ipv6 = Ping.Input.Ipv6()
-            self.ipv6.parent = self
+            self.ipv6 = None
             self._children_name_map["ipv6"] = "ipv6"
 
             self.ipv4 = YList(self)
@@ -220,10 +222,12 @@ class Ping(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'ping-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Ping.Input.Destination, self).__init__()
@@ -234,6 +238,7 @@ class Ping(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                     ('repeat_count', (YLeaf(YType.uint64, 'repeat-count'), ['int'])),
@@ -371,7 +376,7 @@ class Ping(Entity):
             """
 
             _prefix = 'ping-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Ping.Input.Ipv4, self).__init__()
@@ -507,10 +512,12 @@ class Ping(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'ping-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Ping.Input.Ipv6, self).__init__()
@@ -521,6 +528,7 @@ class Ping(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                     ('repeat_count', (YLeaf(YType.uint64, 'repeat-count'), ['int'])),
@@ -571,7 +579,7 @@ class Ping(Entity):
         """
 
         _prefix = 'ping-act'
-        _revision = '2016-09-28'
+        _revision = '2018-10-01'
 
         def __init__(self):
             super(Ping.Output, self).__init__()
@@ -609,12 +617,14 @@ class Ping(Entity):
             	
             	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6>`
             
+            	**presence node**\: True
+            
             
 
             """
 
             _prefix = 'ping-act'
-            _revision = '2016-09-28'
+            _revision = '2018-10-01'
 
             def __init__(self):
                 super(Ping.Output.PingResponse, self).__init__()
@@ -627,8 +637,7 @@ class Ping(Entity):
                 self._child_classes = OrderedDict([("ipv4", ("ipv4", Ping.Output.PingResponse.Ipv4)), ("ipv6", ("ipv6", Ping.Output.PingResponse.Ipv6))])
                 self._leafs = OrderedDict()
 
-                self.ipv6 = Ping.Output.PingResponse.Ipv6()
-                self.ipv6.parent = self
+                self.ipv6 = None
                 self._children_name_map["ipv6"] = "ipv6"
 
                 self.ipv4 = YList(self)
@@ -775,7 +784,7 @@ class Ping(Entity):
                 """
 
                 _prefix = 'ping-act'
-                _revision = '2016-09-28'
+                _revision = '2018-10-01'
 
                 def __init__(self):
                     super(Ping.Output.PingResponse.Ipv4, self).__init__()
@@ -848,7 +857,7 @@ class Ping(Entity):
                     """
 
                     _prefix = 'ping-act'
-                    _revision = '2016-09-28'
+                    _revision = '2018-10-01'
 
                     def __init__(self):
                         super(Ping.Output.PingResponse.Ipv4.Replies, self).__init__()
@@ -895,7 +904,7 @@ class Ping(Entity):
                         """
 
                         _prefix = 'ping-act'
-                        _revision = '2016-09-28'
+                        _revision = '2018-10-01'
 
                         def __init__(self):
                             super(Ping.Output.PingResponse.Ipv4.Replies.Reply, self).__init__()
@@ -937,7 +946,7 @@ class Ping(Entity):
                             """
 
                             _prefix = 'ping-act'
-                            _revision = '2016-09-28'
+                            _revision = '2018-10-01'
 
                             def __init__(self):
                                 super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, self).__init__()
@@ -977,7 +986,7 @@ class Ping(Entity):
                                 """
 
                                 _prefix = 'ping-act'
-                                _revision = '2016-09-28'
+                                _revision = '2018-10-01'
 
                                 def __init__(self):
                                     super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, self).__init__()
@@ -1133,10 +1142,12 @@ class Ping(Entity):
                 
                 
 
+                This class is a :ref:`presence class<presence-class>`
+
                 """
 
                 _prefix = 'ping-act'
-                _revision = '2016-09-28'
+                _revision = '2018-10-01'
 
                 def __init__(self):
                     super(Ping.Output.PingResponse.Ipv6, self).__init__()
@@ -1147,6 +1158,7 @@ class Ping(Entity):
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv6.Replies))])
+                    self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
                         ('repeat_count', (YLeaf(YType.uint64, 'repeat-count'), ['int'])),
@@ -1207,7 +1219,7 @@ class Ping(Entity):
                     """
 
                     _prefix = 'ping-act'
-                    _revision = '2016-09-28'
+                    _revision = '2018-10-01'
 
                     def __init__(self):
                         super(Ping.Output.PingResponse.Ipv6.Replies, self).__init__()
@@ -1250,7 +1262,7 @@ class Ping(Entity):
                         """
 
                         _prefix = 'ping-act'
-                        _revision = '2016-09-28'
+                        _revision = '2018-10-01'
 
                         def __init__(self):
                             super(Ping.Output.PingResponse.Ipv6.Replies.Reply, self).__init__()

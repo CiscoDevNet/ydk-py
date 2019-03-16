@@ -1,13 +1,7 @@
 module Cisco-IOS-XR-sysadmin-rvm-mgr {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-rvm-mgr";
   prefix rvmmh;
-
-  import tailf-common {
-    prefix tailf;
-  }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -18,21 +12,24 @@ module Cisco-IOS-XR-sysadmin-rvm-mgr {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
-    "This module contains a collection of YANG
-     definitions for Cisco IOS-XR SysAdmin configuration.
-     
-     Copyright(c) 2013-2017 by Cisco Systems, Inc.
-     All rights reserved.";
 
+  description 
+    "This module contains definitions
+     for the Calvados model objects.
+
+    This module contains a collection of YANG
+definitions for Cisco IOS-XR SysAdmin configuration.
+
+Copyright(c) 2013-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-04-12 {
     description
       "Changed the namespace and module name";
   }
-  revision 2016-05-12 {
-    description
-      "Initial Version";
-  }
+
 
   typedef nodetype_td {
     type enumeration {
@@ -55,44 +52,21 @@ module Cisco-IOS-XR-sysadmin-rvm-mgr {
       }
     }
   }
-  tailf:id "http://cisco.com/calvados/rvmm";
-
   container RVM {
-    config false;
     description
       "RVM Manager Info";
-    tailf:callpoint "rvmm_show_location";
+    config false;
     list all-locations {
       key "location";
-      tailf:cli-drop-node-name;
-      tailf:cli-suppress-table;
-      tailf:cli-show-template-enter "------ RVMs Info for location $(location) ------\n";
       leaf location {
         type string;
-        tailf:cli-expose-key-name;
       }
       container objects {
-        config false;
         description
           "RVM Manager Info";
-        tailf:callpoint "rvmm_show_location";
+        config false;
         list all-objs {
           key "index";
-          tailf:cli-show-template-enter
-            "
-             ---- Object DB Info -----
-              ";
-          tailf:cli-suppress-table;
-          tailf:cli-suppress-show-path;
-          tailf:cli-suppress-show-match;
-          tailf:cli-show-template
-            " ------------------
-               Index     : $(index)
-               Allocated : $(num_allocated)
-               Freed     : $(num_freed)
-               Objects   : $(num_objects)
-              ------------------
-            ";
           leaf index {
             type uint32;
             description
@@ -116,27 +90,11 @@ module Cisco-IOS-XR-sysadmin-rvm-mgr {
         }
       }
       container node {
-        config false;
         description
           "RVM Manager Node Info";
-        tailf:callpoint "rvmm_show_location";
+        config false;
         list all-nodes {
           key "ipv4_addr";
-          tailf:cli-show-template-enter
-            "
-             ---- Node Info -----
-              ";
-          tailf:cli-suppress-table;
-          tailf:cli-suppress-show-path;
-          tailf:cli-suppress-show-match;
-          tailf:cli-show-template
-            " ------------------
-               IP Address: $(ipv4_addr_str)
-               Info      : $(node_info)
-               Heartbeat : $(node_hb_info)
-               Card Info : $(node_card_info)
-              ------------------
-            ";
           leaf ipv4_addr {
             type uint32;
             description
@@ -165,28 +123,11 @@ module Cisco-IOS-XR-sysadmin-rvm-mgr {
         }
       }
       container card {
-        config false;
         description
           "RVM Manager Card Info";
-        tailf:callpoint "rvmm_show_location";
+        config false;
         list all-cards {
           key "serial_num";
-          tailf:cli-show-template-enter
-            "
-             ---- Card Info -----
-              ";
-          tailf:cli-suppress-table;
-          tailf:cli-suppress-show-path;
-          tailf:cli-suppress-show-match;
-          tailf:cli-show-template
-            " ------------------
-               Serial Num     : $(serial_num)
-               Flags          : $(card_flag)
-               Card Info      : $(card_info)
-               Sysadmin Nodes : $(sysadmin_nodes)
-               XR Nodes       : $(xr_nodes)
-              ------------------
-            ";
           leaf serial_num {
             type string;
             description

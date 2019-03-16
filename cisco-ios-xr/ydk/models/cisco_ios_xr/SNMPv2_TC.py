@@ -1,10 +1,5 @@
 """ SNMPv2_TC 
 
-This module contains definitions
-for the Calvados model objects.
-
-Copyright (c) 2012\-2018 by Cisco Systems, Inc.
-All rights reserved.
 
 """
 from collections import OrderedDict

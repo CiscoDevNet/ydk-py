@@ -41,6 +41,22 @@ module Cisco-IOS-XE-dhcp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2019-01-04 {
+    description
+        "dhcp pool utilization mark command model creation";
+  }
+  revision 2018-11-29 {
+    description
+        "make dhcp snooping changes updated in the netconf datastore";
+  }
+  revision 2018-07-25 {
+    description
+        "Add ip dhcp route";
+  } 
+  revision 2018-07-24 {
+    description
+        "Fix ip dhcp secondary address and inline lease";
+  } 
   revision 2018-06-16 {
     description
         "Fix ip dhcp database";
@@ -589,6 +605,19 @@ module Cisco-IOS-XE-dhcp {
         type empty;
       }
     }
+    // ip dhcp route
+    container route {
+      description
+        "Specify the type of routes for clients on unnumbered interfaces";
+      leaf route {
+        type enumeration {
+          enum "connected";
+          enum "static";
+        }
+        default "static";
+      }
+    }
+
     // ip dhcp relay
     container relay {
       description
@@ -693,35 +722,100 @@ module Cisco-IOS-XE-dhcp {
       }
       leaf vrf {
         description "Associate this pool with a VRF";
-        type string;
+              type string;
       }
-      list lease {
+      container lease {
         description
           "Address lease time";
-        key "Days";
-        leaf Days {
-            type uint16 {
-            range "0..365";
+        choice lease {
+          container lease-value {
+            description "lease in numbers";
+            leaf days {
+              description "Days";
+              type uint16 {
+                range "0..365";
+              }
+            }
+            leaf hours {
+              description "Hours";
+              type uint8 {
+                range "0..23";
+              }
+            }
+            leaf minutes {
+               description "Minutes";
+               type uint8 {
+                 range "0..59";
+               }
+            }
+          }
+          leaf infinite {
+            description
+              "Infinite lease";
+            type empty;
           }
         }
-        leaf Hours {
-          description
-            "Hours";
-          type uint8;
-        }
-        leaf Minutes {
-          description
-            "Minutes";
-          type uint8;
-        }
       }
+
       container default-router {
         leaf-list default-router-list {
           description
             "Default routers";
-          type union {
-            type inet:ipv4-address;
-            type string;
+      type union {
+        type inet:ipv4-address;
+        type string;
+      }
+        }
+      }
+
+      container utilization {
+        description "Configure various utilization commands";
+
+        container mark {
+          description "Configure thresholds for subnet release or request";
+
+          container high {
+            description "Specify high utilization mark of the pool";
+
+            leaf high-value {
+              description "Specify high utilization mark of the pool";
+
+              type uint8 {
+                range "1..100";
+              }
+              must "(not (../../low/low-value)) or "+
+                    "(current() > ../../low/low-value)" {
+                error-message "High utilization must be greater than "+
+                              "low utilization percentage.";
+              }
+            }
+            leaf log {
+              description "Log a system message when high/low state is detected";
+              type empty;
+            }
+
+          }
+          container low {
+            description "Specify low utilization mark of the pool";
+
+            leaf low-value {
+              description "Specify low utilization mark of the pool";
+
+              type uint8 {
+                range "1..100";
+              }
+
+              must "(not (../../high/high-value)) or"+
+                   "(current() < ../../high/high-value)" {
+                error-message "Low utilization must be less than "+
+                              "high utilization percentage.";
+              }
+            }
+            leaf log {
+              description "Log a system message when high/low state is detected";
+
+              type empty;
+            }
           }
         }
       }
@@ -743,19 +837,42 @@ module Cisco-IOS-XE-dhcp {
       container network {
         description
           "Network number and mask";
-        leaf number {
-          type inet:ipv4-address;
-        }
-        leaf mask {
-          type union {
-            type string;
+        container primary-network {
+          description
+            "Network number and mask";
+          leaf number {
+            description
+              "Network number";
             type inet:ipv4-address;
           }
+          leaf mask {
+            description
+              "Network mask";
+            type union {
+              type string;
+              type inet:ipv4-address;
+            }
+          }
         }
-        leaf secondary {
+        list secondary-network {
           description
-            "Configure as secondary subnet";
-          type empty;
+            "Secondary number and mask";
+          key "number";
+          leaf number {
+            description "Network number";
+            type inet:ipv4-address;
+          }
+          leaf mask {
+            description "Secondary mask";
+            type union {
+              type string;
+              type inet:ipv4-address;
+            }
+          }
+          leaf secondary {
+            description "Configure as secondary subnet";
+            type empty;
+          }
         }
       }
       container host {
@@ -903,7 +1020,9 @@ module Cisco-IOS-XE-dhcp {
             "DHCP Snooping vlan";
           key "id";
           leaf id {
-            type string;
+            type uint16 {
+              range "1..4094";
+            }
           }
         }
         container wireless {
@@ -925,8 +1044,13 @@ module Cisco-IOS-XE-dhcp {
     container use {
       description
         "Configure use of certain parameters during allocation";
-      container class {
-        presence "true";
+      container class-name {
+				description
+					"Configure use of DHCP classes";
+				leaf class {
+					type boolean;
+					default true;
+				}
         leaf aaa {
           description
             "Configure use of aaa to get class";

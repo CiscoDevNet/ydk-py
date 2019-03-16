@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-28 {
+    description
+      "Various modifications to policy-related models for better compatibility with the IETF policy draft.";
+  }
   revision 2017-09-11 {
     description
       "Initial version";

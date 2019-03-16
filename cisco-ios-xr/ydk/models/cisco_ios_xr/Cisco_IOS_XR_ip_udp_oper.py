@@ -2656,9 +2656,9 @@ class UdpConnection(Entity):
                                 .. attribute:: pcb_address  (key)
                                 
                                 	PCB address
-                                	**type**\: int
+                                	**type**\: str
                                 
-                                	**range:** 0..4294967295
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 	**config**\: False
                                 
@@ -2727,7 +2727,7 @@ class UdpConnection(Entity):
                                     self.ylist_key_names = ['pcb_address']
                                     self._child_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress)), ("common", ("common", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common))])
                                     self._leafs = OrderedDict([
-                                        ('pcb_address', (YLeaf(YType.uint32, 'pcb-address'), ['int'])),
+                                        ('pcb_address', (YLeaf(YType.str, 'pcb-address'), ['str'])),
                                         ('l4_protocol', (YLeaf(YType.uint32, 'l4-protocol'), ['int'])),
                                         ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
                                         ('foreign_port', (YLeaf(YType.uint16, 'foreign-port'), ['int'])),

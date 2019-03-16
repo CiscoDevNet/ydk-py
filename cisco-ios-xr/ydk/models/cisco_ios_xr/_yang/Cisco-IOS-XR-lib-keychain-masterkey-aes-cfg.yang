@@ -34,6 +34,18 @@ module Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Key-encryption {
+    type enumeration {
+      enum "type6" {
+        value 2;
+        description
+          "Type6";
+      }
+    }
+    description
+      "Key encryption";
+  }
+
   container password {
     description
       "Configure masterkey";
@@ -41,8 +53,7 @@ module Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg {
       description
         "Enable password encryption";
       leaf aes {
-        type uint32;
-        default "0";
+        type Key-encryption;
         description
           "encryption type used to store key";
       }

@@ -465,15 +465,6 @@ class AddressPoolService(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: pool_scope
-                            
-                            	Pool scope
-                            	**type**\: str
-                            
-                            	**length:** 0..64
-                            
-                            	**config**\: False
-                            
                             .. attribute:: allocated_addresses
                             
                             	Number of addresses allocated
@@ -539,7 +530,6 @@ class AddressPoolService(Entity):
                                     ('start_address', (YLeaf(YType.str, 'start-address'), ['str','str'])),
                                     ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
                                     ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                                    ('pool_scope', (YLeaf(YType.str, 'pool-scope'), ['str'])),
                                     ('allocated_addresses', (YLeaf(YType.uint32, 'allocated-addresses'), ['int'])),
                                     ('free_addresses', (YLeaf(YType.uint32, 'free-addresses'), ['int'])),
                                     ('excluded_addresses', (YLeaf(YType.uint32, 'excluded-addresses'), ['int'])),
@@ -549,7 +539,6 @@ class AddressPoolService(Entity):
                                 self.start_address = None
                                 self.pool_name = None
                                 self.vrf_name = None
-                                self.pool_scope = None
                                 self.allocated_addresses = None
                                 self.free_addresses = None
                                 self.excluded_addresses = None
@@ -571,7 +560,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', u'pool_name', u'vrf_name', u'pool_scope', u'allocated_addresses', u'free_addresses', u'excluded_addresses', u'network_blocked_status', u'network_blocked_status_trp'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', u'pool_name', u'vrf_name', u'allocated_addresses', u'free_addresses', u'excluded_addresses', u'network_blocked_status', u'network_blocked_status_trp'], name, value)
 
 
                             class StartAddressXr(Entity):

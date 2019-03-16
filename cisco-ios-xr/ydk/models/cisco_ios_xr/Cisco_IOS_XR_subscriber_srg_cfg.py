@@ -138,6 +138,15 @@ class SubscriberRedundancy(Entity):
     
     	**units**\: minute
     
+    .. attribute:: sync_timer
+    
+    	Set sync time (in Minutes)
+    	**type**\: int
+    
+    	**range:** 1..255
+    
+    	**units**\: minute
+    
     .. attribute:: redundancy_disable
     
     	Disable
@@ -170,6 +179,7 @@ class SubscriberRedundancy(Entity):
             ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
             ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupSlaveMode', '')])),
             ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+            ('sync_timer', (YLeaf(YType.uint32, 'sync-timer'), ['int'])),
             ('redundancy_disable', (YLeaf(YType.empty, 'redundancy-disable'), ['Empty'])),
         ])
         self.enable = None
@@ -178,6 +188,7 @@ class SubscriberRedundancy(Entity):
         self.source_interface = None
         self.slave_mode = None
         self.hold_timer = None
+        self.sync_timer = None
         self.redundancy_disable = None
 
         self.groups = SubscriberRedundancy.Groups()
@@ -191,7 +202,7 @@ class SubscriberRedundancy(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SubscriberRedundancy, ['enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'redundancy_disable'], name, value)
+        self._perform_setattr(SubscriberRedundancy, ['enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'sync_timer', 'redundancy_disable'], name, value)
 
 
     class Groups(Entity):

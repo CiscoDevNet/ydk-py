@@ -71,7 +71,7 @@ submodule Cisco-IOS-XR-shellutil-oper-sub1 {
       type uint32;
       units "second";
       description
-        "Amount of time in seconds since this system    
+        "Amount of time in seconds since this system
          was last initialized";
     }
   }

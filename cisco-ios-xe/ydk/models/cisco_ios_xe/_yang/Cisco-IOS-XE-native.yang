@@ -49,6 +49,14 @@ module Cisco-IOS-XE-native {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-07-27 {
+    description
+      "Add default value 'v2' for fhrp version vrrp";
+  }
+  revision 2018-07-10 {
+    description
+      "Remove 'presence true' from top level 'native / qos'";
+  }
   revision 2018-05-22 {
     description
       "Remove wireless model";
@@ -4417,7 +4425,6 @@ module Cisco-IOS-XE-native {
     container qos { 
       description
         "Global QoS configuration commands";
-      presence true;
       // @mount Cisco-IOS-XE-qos
     }
 
@@ -4488,6 +4495,7 @@ module Cisco-IOS-XE-native {
             enum "v2";
             enum "v3";
           }
+	  default "v2";
         }
       }
     }

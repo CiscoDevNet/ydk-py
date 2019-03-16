@@ -572,9 +572,9 @@ class FsyncBagStreamState(Enum):
 
     	Stream available
 
-    .. data:: stream_available_acquiring = 3
+    .. data:: stream_acquiring = 3
 
-    	Stream available acquiring
+    	Stream acquiring
 
     .. data:: stream_locked = 4
 
@@ -608,7 +608,7 @@ class FsyncBagStreamState(Enum):
 
     stream_available = Enum.YLeaf(2, "stream-available")
 
-    stream_available_acquiring = Enum.YLeaf(3, "stream-available-acquiring")
+    stream_acquiring = Enum.YLeaf(3, "stream-acquiring")
 
     stream_locked = Enum.YLeaf(4, "stream-locked")
 
@@ -1158,6 +1158,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -1187,15 +1194,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -1241,12 +1239,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -1254,7 +1251,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -1263,6 +1259,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -1270,7 +1270,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -1333,6 +1333,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "selected-source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -1732,6 +1795,13 @@ class FrequencySynchronization(Entity):
                                 
                                 	**config**\: False
                                 
+                                .. attribute:: internal_clock_id
+                                
+                                	Internal Clock ID
+                                	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId>`
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: gnss_receiver_id
                                 
                                 	GNSS Receiver ID
@@ -1761,15 +1831,6 @@ class FrequencySynchronization(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: node
-                                
-                                	Internal Clock Node
-                                	**type**\: str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
                                 	**config**\: False
                                 
@@ -1815,12 +1876,11 @@ class FrequencySynchronization(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
+                                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
                                     self._leafs = OrderedDict([
                                         ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                         ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                         ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                         ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                         ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                         ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -1828,7 +1888,6 @@ class FrequencySynchronization(Entity):
                                     self.source_class = None
                                     self.ethernet_interface = None
                                     self.sonet_interface = None
-                                    self.node = None
                                     self.ptp_node = None
                                     self.satellite_access_interface = None
                                     self.ntp_node = None
@@ -1837,6 +1896,10 @@ class FrequencySynchronization(Entity):
                                     self.clock_id.parent = self
                                     self._children_name_map["clock_id"] = "clock-id"
 
+                                    self.internal_clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId()
+                                    self.internal_clock_id.parent = self
+                                    self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                                     self.gnss_receiver_id = FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId()
                                     self.gnss_receiver_id.parent = self
                                     self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -1844,7 +1907,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                                 class ClockId(Entity):
@@ -1907,6 +1970,69 @@ class FrequencySynchronization(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                                class InternalClockId(Entity):
+                                    """
+                                    Internal Clock ID
+                                    
+                                    .. attribute:: node
+                                    
+                                    	Node
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: id
+                                    
+                                    	ID (port number for clock interface, receiver number for GNSS receiver)
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: clock_name
+                                    
+                                    	Name
+                                    	**type**\: str
+                                    
+                                    	**length:** 0..144
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'freqsync-oper'
+                                    _revision = '2017-10-20'
+
+                                    def __init__(self):
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+
+                                        self.yang_name = "internal-clock-id"
+                                        self.yang_parent_name = "source"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                            ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                        ])
+                                        self.node = None
+                                        self.id = None
+                                        self.clock_name = None
+                                        self._segment_path = lambda: "internal-clock-id"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -2038,6 +2164,13 @@ class FrequencySynchronization(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: internal_clock_id
+                    
+                    	Internal Clock ID
+                    	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: gnss_receiver_id
                     
                     	GNSS Receiver ID
@@ -2067,15 +2200,6 @@ class FrequencySynchronization(Entity):
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: node
-                    
-                    	Internal Clock Node
-                    	**type**\: str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     	**config**\: False
                     
@@ -2121,12 +2245,11 @@ class FrequencySynchronization(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId))])
+                        self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId))])
                         self._leafs = OrderedDict([
                             ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                             ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                             ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
                             ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                             ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                             ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -2134,7 +2257,6 @@ class FrequencySynchronization(Entity):
                         self.source_class = None
                         self.ethernet_interface = None
                         self.sonet_interface = None
-                        self.node = None
                         self.ptp_node = None
                         self.satellite_access_interface = None
                         self.ntp_node = None
@@ -2143,6 +2265,10 @@ class FrequencySynchronization(Entity):
                         self.clock_id.parent = self
                         self._children_name_map["clock_id"] = "clock-id"
 
+                        self.internal_clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId()
+                        self.internal_clock_id.parent = self
+                        self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                         self.gnss_receiver_id = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId()
                         self.gnss_receiver_id.parent = self
                         self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -2150,7 +2276,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                     class ClockId(Entity):
@@ -2213,6 +2339,69 @@ class FrequencySynchronization(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                    class InternalClockId(Entity):
+                        """
+                        Internal Clock ID
+                        
+                        .. attribute:: node
+                        
+                        	Node
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: id
+                        
+                        	ID (port number for clock interface, receiver number for GNSS receiver)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: clock_name
+                        
+                        	Name
+                        	**type**\: str
+                        
+                        	**length:** 0..144
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'freqsync-oper'
+                        _revision = '2017-10-20'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, self).__init__()
+
+                            self.yang_name = "internal-clock-id"
+                            self.yang_parent_name = "selected-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                            ])
+                            self.node = None
+                            self.id = None
+                            self.clock_name = None
+                            self._segment_path = lambda: "internal-clock-id"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -2552,6 +2741,13 @@ class FrequencySynchronization(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: internal_clock_id
+                            
+                            	Internal Clock ID
+                            	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId>`
+                            
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
@@ -2581,15 +2777,6 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             	**config**\: False
                             
@@ -2635,12 +2822,11 @@ class FrequencySynchronization(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
+                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
                                 self._leafs = OrderedDict([
                                     ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                     ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                     ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                     ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                     ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                     ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -2648,7 +2834,6 @@ class FrequencySynchronization(Entity):
                                 self.source_class = None
                                 self.ethernet_interface = None
                                 self.sonet_interface = None
-                                self.node = None
                                 self.ptp_node = None
                                 self.satellite_access_interface = None
                                 self.ntp_node = None
@@ -2657,6 +2842,10 @@ class FrequencySynchronization(Entity):
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
 
+                                self.internal_clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId()
+                                self.internal_clock_id.parent = self
+                                self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                                 self.gnss_receiver_id = FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId()
                                 self.gnss_receiver_id.parent = self
                                 self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -2664,7 +2853,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -2727,6 +2916,69 @@ class FrequencySynchronization(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                            class InternalClockId(Entity):
+                                """
+                                Internal Clock ID
+                                
+                                .. attribute:: node
+                                
+                                	Node
+                                	**type**\: str
+                                
+                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: id
+                                
+                                	ID (port number for clock interface, receiver number for GNSS receiver)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: clock_name
+                                
+                                	Name
+                                	**type**\: str
+                                
+                                	**length:** 0..144
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'freqsync-oper'
+                                _revision = '2017-10-20'
+
+                                def __init__(self):
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+
+                                    self.yang_name = "internal-clock-id"
+                                    self.yang_parent_name = "source"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                        ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                    ])
+                                    self.node = None
+                                    self.id = None
+                                    self.clock_name = None
+                                    self._segment_path = lambda: "internal-clock-id"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -3007,6 +3259,13 @@ class FrequencySynchronization(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: internal_clock_id
+                            
+                            	Internal Clock ID
+                            	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId>`
+                            
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
@@ -3036,15 +3295,6 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             	**config**\: False
                             
@@ -3090,12 +3340,11 @@ class FrequencySynchronization(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
+                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
                                 self._leafs = OrderedDict([
                                     ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                     ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                     ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                     ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                     ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                     ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -3103,7 +3352,6 @@ class FrequencySynchronization(Entity):
                                 self.source_class = None
                                 self.ethernet_interface = None
                                 self.sonet_interface = None
-                                self.node = None
                                 self.ptp_node = None
                                 self.satellite_access_interface = None
                                 self.ntp_node = None
@@ -3112,6 +3360,10 @@ class FrequencySynchronization(Entity):
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
 
+                                self.internal_clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId()
+                                self.internal_clock_id.parent = self
+                                self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                                 self.gnss_receiver_id = FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId()
                                 self.gnss_receiver_id.parent = self
                                 self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -3119,7 +3371,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -3182,6 +3434,69 @@ class FrequencySynchronization(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                            class InternalClockId(Entity):
+                                """
+                                Internal Clock ID
+                                
+                                .. attribute:: node
+                                
+                                	Node
+                                	**type**\: str
+                                
+                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: id
+                                
+                                	ID (port number for clock interface, receiver number for GNSS receiver)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: clock_name
+                                
+                                	Name
+                                	**type**\: str
+                                
+                                	**length:** 0..144
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'freqsync-oper'
+                                _revision = '2017-10-20'
+
+                                def __init__(self):
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+
+                                    self.yang_name = "internal-clock-id"
+                                    self.yang_parent_name = "source"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                        ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                    ])
+                                    self.node = None
+                                    self.id = None
+                                    self.clock_name = None
+                                    self._segment_path = lambda: "internal-clock-id"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -3566,6 +3881,13 @@ class FrequencySynchronization(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: internal_clock_id
+                            
+                            	Internal Clock ID
+                            	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId>`
+                            
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
@@ -3595,15 +3917,6 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             	**config**\: False
                             
@@ -3649,12 +3962,11 @@ class FrequencySynchronization(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
+                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId))])
                                 self._leafs = OrderedDict([
                                     ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                     ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                     ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                     ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                     ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                     ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -3662,7 +3974,6 @@ class FrequencySynchronization(Entity):
                                 self.source_class = None
                                 self.ethernet_interface = None
                                 self.sonet_interface = None
-                                self.node = None
                                 self.ptp_node = None
                                 self.satellite_access_interface = None
                                 self.ntp_node = None
@@ -3671,6 +3982,10 @@ class FrequencySynchronization(Entity):
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
 
+                                self.internal_clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId()
+                                self.internal_clock_id.parent = self
+                                self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                                 self.gnss_receiver_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId()
                                 self.gnss_receiver_id.parent = self
                                 self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -3678,7 +3993,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -3741,6 +4056,69 @@ class FrequencySynchronization(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                            class InternalClockId(Entity):
+                                """
+                                Internal Clock ID
+                                
+                                .. attribute:: node
+                                
+                                	Node
+                                	**type**\: str
+                                
+                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: id
+                                
+                                	ID (port number for clock interface, receiver number for GNSS receiver)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: clock_name
+                                
+                                	Name
+                                	**type**\: str
+                                
+                                	**length:** 0..144
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'freqsync-oper'
+                                _revision = '2017-10-20'
+
+                                def __init__(self):
+                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+
+                                    self.yang_name = "internal-clock-id"
+                                    self.yang_parent_name = "source"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                        ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                    ])
+                                    self.node = None
+                                    self.id = None
+                                    self.clock_name = None
+                                    self._segment_path = lambda: "internal-clock-id"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -3871,6 +4249,13 @@ class FrequencySynchronization(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: internal_clock_id
+                    
+                    	Internal Clock ID
+                    	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: gnss_receiver_id
                     
                     	GNSS Receiver ID
@@ -3900,15 +4285,6 @@ class FrequencySynchronization(Entity):
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: node
-                    
-                    	Internal Clock Node
-                    	**type**\: str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     	**config**\: False
                     
@@ -3954,12 +4330,11 @@ class FrequencySynchronization(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId))])
+                        self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId))])
                         self._leafs = OrderedDict([
                             ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                             ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                             ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
                             ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                             ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                             ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -3967,7 +4342,6 @@ class FrequencySynchronization(Entity):
                         self.source_class = None
                         self.ethernet_interface = None
                         self.sonet_interface = None
-                        self.node = None
                         self.ptp_node = None
                         self.satellite_access_interface = None
                         self.ntp_node = None
@@ -3976,6 +4350,10 @@ class FrequencySynchronization(Entity):
                         self.clock_id.parent = self
                         self._children_name_map["clock_id"] = "clock-id"
 
+                        self.internal_clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId()
+                        self.internal_clock_id.parent = self
+                        self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                         self.gnss_receiver_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId()
                         self.gnss_receiver_id.parent = self
                         self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -3983,7 +4361,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                     class ClockId(Entity):
@@ -4046,6 +4424,69 @@ class FrequencySynchronization(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                    class InternalClockId(Entity):
+                        """
+                        Internal Clock ID
+                        
+                        .. attribute:: node
+                        
+                        	Node
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: id
+                        
+                        	ID (port number for clock interface, receiver number for GNSS receiver)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: clock_name
+                        
+                        	Name
+                        	**type**\: str
+                        
+                        	**length:** 0..144
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'freqsync-oper'
+                        _revision = '2017-10-20'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
+
+                            self.yang_name = "internal-clock-id"
+                            self.yang_parent_name = "selected-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                            ])
+                            self.node = None
+                            self.id = None
+                            self.clock_name = None
+                            self._segment_path = lambda: "internal-clock-id"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -4309,6 +4750,13 @@ class FrequencySynchronization(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: internal_clock_id
+                
+                	Internal Clock ID
+                	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId>`
+                
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
@@ -4338,15 +4786,6 @@ class FrequencySynchronization(Entity):
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 	**config**\: False
                 
@@ -4392,12 +4831,11 @@ class FrequencySynchronization(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Summary.FrequencySummary.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId))])
+                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Summary.FrequencySummary.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId))])
                     self._leafs = OrderedDict([
                         ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                         ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                         ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                         ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                         ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                         ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -4405,7 +4843,6 @@ class FrequencySynchronization(Entity):
                     self.source_class = None
                     self.ethernet_interface = None
                     self.sonet_interface = None
-                    self.node = None
                     self.ptp_node = None
                     self.satellite_access_interface = None
                     self.ntp_node = None
@@ -4413,6 +4850,10 @@ class FrequencySynchronization(Entity):
                     self.clock_id = FrequencySynchronization.Summary.FrequencySummary.Source.ClockId()
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
+
+                    self.internal_clock_id = FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId()
+                    self.internal_clock_id.parent = self
+                    self._children_name_map["internal_clock_id"] = "internal-clock-id"
 
                     self.gnss_receiver_id = FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId()
                     self.gnss_receiver_id.parent = self
@@ -4422,7 +4863,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -4486,6 +4927,70 @@ class FrequencySynchronization(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                class InternalClockId(Entity):
+                    """
+                    Internal Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: id
+                    
+                    	ID (port number for clock interface, receiver number for GNSS receiver)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: clock_name
+                    
+                    	Name
+                    	**type**\: str
+                    
+                    	**length:** 0..144
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'freqsync-oper'
+                    _revision = '2017-10-20'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, self).__init__()
+
+                        self.yang_name = "internal-clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                        ])
+                        self.node = None
+                        self.id = None
+                        self.clock_name = None
+                        self._segment_path = lambda: "internal-clock-id"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -4619,6 +5124,13 @@ class FrequencySynchronization(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: internal_clock_id
+                
+                	Internal Clock ID
+                	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId>`
+                
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
@@ -4648,15 +5160,6 @@ class FrequencySynchronization(Entity):
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 	**config**\: False
                 
@@ -4702,12 +5205,11 @@ class FrequencySynchronization(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId))])
+                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId))])
                     self._leafs = OrderedDict([
                         ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                         ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                         ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                         ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                         ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                         ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -4715,7 +5217,6 @@ class FrequencySynchronization(Entity):
                     self.source_class = None
                     self.ethernet_interface = None
                     self.sonet_interface = None
-                    self.node = None
                     self.ptp_node = None
                     self.satellite_access_interface = None
                     self.ntp_node = None
@@ -4723,6 +5224,10 @@ class FrequencySynchronization(Entity):
                     self.clock_id = FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId()
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
+
+                    self.internal_clock_id = FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId()
+                    self.internal_clock_id.parent = self
+                    self._children_name_map["internal_clock_id"] = "internal-clock-id"
 
                     self.gnss_receiver_id = FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId()
                     self.gnss_receiver_id.parent = self
@@ -4732,7 +5237,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -4796,6 +5301,70 @@ class FrequencySynchronization(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                class InternalClockId(Entity):
+                    """
+                    Internal Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: id
+                    
+                    	ID (port number for clock interface, receiver number for GNSS receiver)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: clock_name
+                    
+                    	Name
+                    	**type**\: str
+                    
+                    	**length:** 0..144
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'freqsync-oper'
+                    _revision = '2017-10-20'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, self).__init__()
+
+                        self.yang_name = "internal-clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                        ])
+                        self.node = None
+                        self.id = None
+                        self.clock_name = None
+                        self._segment_path = lambda: "internal-clock-id"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -5188,6 +5757,13 @@ class FrequencySynchronization(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: internal_clock_id
+                
+                	Internal Clock ID
+                	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId>`
+                
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
@@ -5217,15 +5793,6 @@ class FrequencySynchronization(Entity):
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 	**config**\: False
                 
@@ -5271,12 +5838,11 @@ class FrequencySynchronization(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId))])
+                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId))])
                     self._leafs = OrderedDict([
                         ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                         ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                         ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                         ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                         ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                         ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -5284,7 +5850,6 @@ class FrequencySynchronization(Entity):
                     self.source_class = None
                     self.ethernet_interface = None
                     self.sonet_interface = None
-                    self.node = None
                     self.ptp_node = None
                     self.satellite_access_interface = None
                     self.ntp_node = None
@@ -5293,6 +5858,10 @@ class FrequencySynchronization(Entity):
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
 
+                    self.internal_clock_id = FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId()
+                    self.internal_clock_id.parent = self
+                    self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                     self.gnss_receiver_id = FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId()
                     self.gnss_receiver_id.parent = self
                     self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -5300,7 +5869,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -5363,6 +5932,69 @@ class FrequencySynchronization(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                class InternalClockId(Entity):
+                    """
+                    Internal Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: id
+                    
+                    	ID (port number for clock interface, receiver number for GNSS receiver)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: clock_name
+                    
+                    	Name
+                    	**type**\: str
+                    
+                    	**length:** 0..144
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'freqsync-oper'
+                    _revision = '2017-10-20'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, self).__init__()
+
+                        self.yang_name = "internal-clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                        ])
+                        self.node = None
+                        self.id = None
+                        self.clock_name = None
+                        self._segment_path = lambda: "internal-clock-id"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -5441,6 +6073,13 @@ class FrequencySynchronization(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: internal_clock_id
+                
+                	Internal Clock ID
+                	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId>`
+                
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
@@ -5470,15 +6109,6 @@ class FrequencySynchronization(Entity):
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 	**config**\: False
                 
@@ -5524,12 +6154,11 @@ class FrequencySynchronization(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId))])
+                    self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId))])
                     self._leafs = OrderedDict([
                         ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                         ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                         ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                         ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                         ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                         ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -5537,7 +6166,6 @@ class FrequencySynchronization(Entity):
                     self.source_class = None
                     self.ethernet_interface = None
                     self.sonet_interface = None
-                    self.node = None
                     self.ptp_node = None
                     self.satellite_access_interface = None
                     self.ntp_node = None
@@ -5546,6 +6174,10 @@ class FrequencySynchronization(Entity):
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
 
+                    self.internal_clock_id = FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId()
+                    self.internal_clock_id.parent = self
+                    self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                     self.gnss_receiver_id = FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId()
                     self.gnss_receiver_id.parent = self
                     self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -5553,7 +6185,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -5616,6 +6248,69 @@ class FrequencySynchronization(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                class InternalClockId(Entity):
+                    """
+                    Internal Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: id
+                    
+                    	ID (port number for clock interface, receiver number for GNSS receiver)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: clock_name
+                    
+                    	Name
+                    	**type**\: str
+                    
+                    	**length:** 0..144
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'freqsync-oper'
+                    _revision = '2017-10-20'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, self).__init__()
+
+                        self.yang_name = "internal-clock-id"
+                        self.yang_parent_name = "selected-source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                        ])
+                        self.node = None
+                        self.id = None
+                        self.clock_name = None
+                        self._segment_path = lambda: "internal-clock-id"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -7661,6 +8356,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -7690,15 +8392,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -7744,12 +8437,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -7757,7 +8449,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -7766,6 +8457,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -7773,7 +8468,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -7836,6 +8531,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -9098,6 +9856,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -9127,15 +9892,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -9181,12 +9937,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -9194,7 +9949,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -9203,6 +9957,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -9210,7 +9968,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -9273,6 +10031,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -9351,6 +10172,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -9380,15 +10208,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -9434,12 +10253,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -9447,7 +10265,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -9456,6 +10273,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -9463,7 +10284,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -9526,6 +10347,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "selected-source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -10387,6 +11271,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -10416,15 +11307,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -10470,12 +11352,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -10483,7 +11364,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -10492,6 +11372,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -10499,7 +11383,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -10562,6 +11446,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -10640,6 +11587,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -10669,15 +11623,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -10723,12 +11668,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -10736,7 +11680,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -10745,6 +11688,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -10752,7 +11699,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -10815,6 +11762,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "selected-source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -11721,6 +12731,13 @@ class FrequencySynchronization(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: internal_clock_id
+                            
+                            	Internal Clock ID
+                            	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId>`
+                            
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
@@ -11750,15 +12767,6 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             	**config**\: False
                             
@@ -11804,12 +12812,11 @@ class FrequencySynchronization(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId))])
+                                self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId))])
                                 self._leafs = OrderedDict([
                                     ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                     ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                     ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                     ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                     ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                     ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -11817,7 +12824,6 @@ class FrequencySynchronization(Entity):
                                 self.source_class = None
                                 self.ethernet_interface = None
                                 self.sonet_interface = None
-                                self.node = None
                                 self.ptp_node = None
                                 self.satellite_access_interface = None
                                 self.ntp_node = None
@@ -11826,6 +12832,10 @@ class FrequencySynchronization(Entity):
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
 
+                                self.internal_clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId()
+                                self.internal_clock_id.parent = self
+                                self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                                 self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId()
                                 self.gnss_receiver_id.parent = self
                                 self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -11833,7 +12843,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -11896,6 +12906,69 @@ class FrequencySynchronization(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                            class InternalClockId(Entity):
+                                """
+                                Internal Clock ID
+                                
+                                .. attribute:: node
+                                
+                                	Node
+                                	**type**\: str
+                                
+                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: id
+                                
+                                	ID (port number for clock interface, receiver number for GNSS receiver)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: clock_name
+                                
+                                	Name
+                                	**type**\: str
+                                
+                                	**length:** 0..144
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'freqsync-oper'
+                                _revision = '2017-10-20'
+
+                                def __init__(self):
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, self).__init__()
+
+                                    self.yang_name = "internal-clock-id"
+                                    self.yang_parent_name = "source-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                        ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                    ])
+                                    self.node = None
+                                    self.id = None
+                                    self.clock_name = None
+                                    self._segment_path = lambda: "internal-clock-id"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 
@@ -12088,6 +13161,13 @@ class FrequencySynchronization(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: internal_clock_id
+                        
+                        	Internal Clock ID
+                        	**type**\:  :py:class:`InternalClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
@@ -12117,15 +13197,6 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         	**config**\: False
                         
@@ -12171,12 +13242,11 @@ class FrequencySynchronization(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId))])
+                            self._child_classes = OrderedDict([("clock-id", ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId)), ("internal-clock-id", ("internal_clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId)), ("gnss-receiver-id", ("gnss_receiver_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId))])
                             self._leafs = OrderedDict([
                                 ('source_class', (YLeaf(YType.enumeration, 'source-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper', 'FsyncBagSourceClass', '')])),
                                 ('ethernet_interface', (YLeaf(YType.str, 'ethernet-interface'), ['str'])),
                                 ('sonet_interface', (YLeaf(YType.str, 'sonet-interface'), ['str'])),
-                                ('node', (YLeaf(YType.str, 'node'), ['str'])),
                                 ('ptp_node', (YLeaf(YType.str, 'ptp-node'), ['str'])),
                                 ('satellite_access_interface', (YLeaf(YType.str, 'satellite-access-interface'), ['str'])),
                                 ('ntp_node', (YLeaf(YType.str, 'ntp-node'), ['str'])),
@@ -12184,7 +13254,6 @@ class FrequencySynchronization(Entity):
                             self.source_class = None
                             self.ethernet_interface = None
                             self.sonet_interface = None
-                            self.node = None
                             self.ptp_node = None
                             self.satellite_access_interface = None
                             self.ntp_node = None
@@ -12193,6 +13262,10 @@ class FrequencySynchronization(Entity):
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
 
+                            self.internal_clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId()
+                            self.internal_clock_id.parent = self
+                            self._children_name_map["internal_clock_id"] = "internal-clock-id"
+
                             self.gnss_receiver_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId()
                             self.gnss_receiver_id.parent = self
                             self._children_name_map["gnss_receiver_id"] = "gnss-receiver-id"
@@ -12200,7 +13273,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'node', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -12263,6 +13336,69 @@ class FrequencySynchronization(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+
+
+
+                        class InternalClockId(Entity):
+                            """
+                            Internal Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: id
+                            
+                            	ID (port number for clock interface, receiver number for GNSS receiver)
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: clock_name
+                            
+                            	Name
+                            	**type**\: str
+                            
+                            	**length:** 0..144
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-oper'
+                            _revision = '2017-10-20'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, self).__init__()
+
+                                self.yang_name = "internal-clock-id"
+                                self.yang_parent_name = "original-source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                    ('clock_name', (YLeaf(YType.str, 'clock-name'), ['str'])),
+                                ])
+                                self.node = None
+                                self.id = None
+                                self.clock_name = None
+                                self._segment_path = lambda: "internal-clock-id"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
 

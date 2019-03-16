@@ -37,6 +37,11 @@ module Cisco-IOS-XE-utd {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-07-11{
+    description
+      "fixed must constraints for default vrf 'global'";
+  }  
+
   revision 2018-06-28{
     description
         "Added must constraints for deleting vrf";
@@ -892,7 +897,7 @@ module Cisco-IOS-XE-utd {
                     "Associate a VRF with this policy";
                   key name;
                   leaf name {
-		    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+		    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()] or (.='global') = 0" {
 		      error-message "VRF must be created 1st, deleted last";
                     }
                     type string {

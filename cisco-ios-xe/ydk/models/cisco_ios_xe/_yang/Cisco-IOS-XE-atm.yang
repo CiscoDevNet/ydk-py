@@ -37,6 +37,11 @@ module Cisco-IOS-XE-atm {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-28 {
+    description 
+        "Enhancements for configuring PVCs under ATM";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";

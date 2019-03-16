@@ -53,6 +53,23 @@ module Cisco-IOS-XR-dot1x-cfg {
       "Dot1x reauth local interval";
   }
 
+  typedef Dot1x-server-dead-action {
+    type enumeration {
+      enum "auth-fail" {
+        value 0;
+        description
+          "server dead action auth-fail";
+      }
+      enum "auth-retry" {
+        value 1;
+        description
+          "server dead action auth-retry";
+      }
+    }
+    description
+      "Dot1x server dead action";
+  }
+
   container dot1x {
     description
       "Global Dot1x Configuration";
@@ -102,6 +119,12 @@ module Cisco-IOS-XR-dot1x-cfg {
           }
           description
             "EAP Profile for Local EAP Server";
+        }
+        leaf server-dead {
+          type Dot1x-server-dead-action;
+          description
+            "dot1x authenticator action on AAA server
+             unreachability";
         }
       }
       leaf pae {

@@ -2,29 +2,30 @@ module Cisco-IOS-XR-sysadmin-fabric-types {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-fabric-types";
   prefix fabric-types;
 
-  organization
-    "Cisco Systems, Inc.";
+  organization "Cisco Systems, Inc.";
+
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
+
 
   typedef instance_type {
     type string {
@@ -189,25 +190,25 @@ module Cisco-IOS-XR-sysadmin-fabric-types {
 
   typedef fabric_nc55_fixed_fgid_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_elements_type {
     type int32 {
-      range "0..65536";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_start_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_end_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 

@@ -553,7 +553,7 @@ class Pim(Entity):
                         
                         .. attribute:: access_list_name
                         
-                        	Access list of groups that should map to a  given RP
+                        	Access list of groups that should map to a given RP
                         	**type**\: str
                         
                         	**length:** 1..64
@@ -2852,7 +2852,7 @@ class Pim(Entity):
                         
                         .. attribute:: access_list_name
                         
-                        	Access list of groups that should map to a  given RP
+                        	Access list of groups that should map to a given RP
                         	**type**\: str
                         
                         	**length:** 1..64
@@ -5136,7 +5136,7 @@ class Pim(Entity):
                     
                     .. attribute:: access_list_name
                     
-                    	Access list of groups that should map to a  given RP
+                    	Access list of groups that should map to a given RP
                     	**type**\: str
                     
                     	**length:** 1..64
@@ -8003,7 +8003,7 @@ class Pim(Entity):
                     
                     .. attribute:: access_list_name
                     
-                    	Access list of groups that should map to a  given RP
+                    	Access list of groups that should map to a given RP
                     	**type**\: str
                     
                     	**length:** 1..64

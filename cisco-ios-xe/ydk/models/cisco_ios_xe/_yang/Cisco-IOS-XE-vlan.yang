@@ -460,9 +460,9 @@ module Cisco-IOS-XE-vlan {
         key "vlan-id";
         leaf vlan-id {
           description
-            "a single VLAN id (allowed value range 1-4094) \
-             or Comma-separated VLAN id range. \
-             e.g. 99 or 1-30 or  1-20,30,40-50";
+            "a single VLAN id (allowed value range 1-4094)" +
+            "or Comma-separated VLAN id range." +
+            "e.g. 99 or 1-30 or  1-20,30,40-50";
           type union {
             type uint16 {
               range "1..4094";
@@ -476,9 +476,9 @@ module Cisco-IOS-XE-vlan {
       key "id";
       leaf id {
         description
-          "a single VLAN id (allowed value range 1-4094) \
-           or Comma-separated VLAN id range. \
-           e.g. 99 or 1-30 or  1-20,30,40-50";
+          "a single VLAN id (allowed value range 1-4094)" +
+          "or Comma-separated VLAN id range." +
+          "e.g. 99 or 1-30 or  1-20,30,40-50";
         type union {
           type uint16 {
             range "1..4094";

@@ -401,20 +401,23 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       description
         "Peer Status";
     }
-    leaf peer-last-negotiation-time {
-      type string;
+    leaf peer-last-negotiation-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Last Negotiation time of Peer";
+        "Last Negotiation time of Peer in epoch seconds";
     }
-    leaf peer-last-up-time {
-      type string;
+    leaf peer-last-up-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Last UP time of Peer";
+        "Last UP time of Peer in epoch seconds";
     }
-    leaf peer-last-down-time {
-      type string;
+    leaf peer-last-down-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Last Down time of Peer";
+        "Last Down time of Peer in epoch seconds";
     }
     leaf peer-init-role {
       type Srg-show-role;
@@ -436,10 +439,11 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       description
         "Peer Object Tracking Status";
     }
-    leaf last-switchover-time {
-      type string;
+    leaf last-switchover-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Last Switchover time";
+        "Last Switchover time in epoch seconds";
     }
     leaf switchover-count {
       type uint32;
@@ -922,6 +926,11 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       type uint32;
       description
         "Switch Over Hold Time";
+    }
+    leaf sync-time {
+      type uint32;
+      description
+        "Sync Time";
     }
     leaf source-interface-name {
       type string;

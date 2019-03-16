@@ -3650,6 +3650,24 @@ class TcpConnection(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: sockbuf_pak_res_cur
+                    
+                    	Current number of packets extended for scaled sockets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: sockbuf_pak_res_max
+                    
+                    	Maximum number of packets extended for scaled sockets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: iqs_total_ingpacket
                     
                     	Total Number of Ingress packets on TCP iqs
@@ -3769,6 +3787,8 @@ class TcpConnection(Entity):
                             ('iq_sock_aborts', (YLeaf(YType.uint32, 'iq-sock-aborts'), ['int'])),
                             ('iq_ingress_drops', (YLeaf(YType.uint32, 'iq-ingress-drops'), ['int'])),
                             ('total_i_qs', (YLeaf(YType.uint32, 'total-i-qs'), ['int'])),
+                            ('sockbuf_pak_res_cur', (YLeaf(YType.uint32, 'sockbuf-pak-res-cur'), ['int'])),
+                            ('sockbuf_pak_res_max', (YLeaf(YType.uint32, 'sockbuf-pak-res-max'), ['int'])),
                         ])
                         self.syn_cache_count = None
                         self.num_open_sockets = None
@@ -3858,6 +3878,8 @@ class TcpConnection(Entity):
                         self.iq_sock_aborts = None
                         self.iq_ingress_drops = None
                         self.total_i_qs = None
+                        self.sockbuf_pak_res_cur = None
+                        self.sockbuf_pak_res_max = None
 
                         self.iqs_total_ingpacket = YList(self)
                         self.iqs_total_egpacket = YList(self)
@@ -3865,7 +3887,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs', 'sockbuf_pak_res_cur', 'sockbuf_pak_res_max'], name, value)
 
 
                     class IqsTotalIngpacket(Entity):
@@ -6252,6 +6274,20 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: snd_buf_scaled
+                        
+                        	Send buffer scaled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: rcv_buf_scaled
+                        
+                        	Receive buffer scaled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6280,6 +6316,8 @@ class TcpConnection(Entity):
                                 ('out_of_band_inline', (YLeaf(YType.boolean, 'out-of-band-inline'), ['bool'])),
                                 ('reuse_port', (YLeaf(YType.boolean, 'reuse-port'), ['bool'])),
                                 ('nonblocking_io', (YLeaf(YType.boolean, 'nonblocking-io'), ['bool'])),
+                                ('snd_buf_scaled', (YLeaf(YType.boolean, 'snd-buf-scaled'), ['bool'])),
+                                ('rcv_buf_scaled', (YLeaf(YType.boolean, 'rcv-buf-scaled'), ['bool'])),
                             ])
                             self.debug = None
                             self.accept_connection = None
@@ -6292,11 +6330,13 @@ class TcpConnection(Entity):
                             self.out_of_band_inline = None
                             self.reuse_port = None
                             self.nonblocking_io = None
+                            self.snd_buf_scaled = None
+                            self.rcv_buf_scaled = None
                             self._segment_path = lambda: "socket-option-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, ['debug', 'accept_connection', 'reuse_address', 'keep_alive', 'dont_route', 'broadcast', 'use_loopback', 'linger', 'out_of_band_inline', 'reuse_port', 'nonblocking_io'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, ['debug', 'accept_connection', 'reuse_address', 'keep_alive', 'dont_route', 'broadcast', 'use_loopback', 'linger', 'out_of_band_inline', 'reuse_port', 'nonblocking_io', 'snd_buf_scaled', 'rcv_buf_scaled'], name, value)
 
 
 
@@ -6877,6 +6917,13 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: packet_extended
+                        
+                        	Packet Buffer is extended
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6906,6 +6953,7 @@ class TcpConnection(Entity):
                                 ('connect_wakeup', (YLeaf(YType.boolean, 'connect-wakeup'), ['bool'])),
                                 ('output_select', (YLeaf(YType.boolean, 'output-select'), ['bool'])),
                                 ('out_of_band_select', (YLeaf(YType.boolean, 'out-of-band-select'), ['bool'])),
+                                ('packet_extended', (YLeaf(YType.boolean, 'packet-extended'), ['bool'])),
                             ])
                             self.locked = None
                             self.waiting_for_lock = None
@@ -6919,11 +6967,12 @@ class TcpConnection(Entity):
                             self.connect_wakeup = None
                             self.output_select = None
                             self.out_of_band_select = None
+                            self.packet_extended = None
                             self._segment_path = lambda: "receive-buf-state-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
 
 
@@ -7015,6 +7064,13 @@ class TcpConnection(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: packet_extended
+                        
+                        	Packet Buffer is extended
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -7044,6 +7100,7 @@ class TcpConnection(Entity):
                                 ('connect_wakeup', (YLeaf(YType.boolean, 'connect-wakeup'), ['bool'])),
                                 ('output_select', (YLeaf(YType.boolean, 'output-select'), ['bool'])),
                                 ('out_of_band_select', (YLeaf(YType.boolean, 'out-of-band-select'), ['bool'])),
+                                ('packet_extended', (YLeaf(YType.boolean, 'packet-extended'), ['bool'])),
                             ])
                             self.locked = None
                             self.waiting_for_lock = None
@@ -7057,11 +7114,12 @@ class TcpConnection(Entity):
                             self.connect_wakeup = None
                             self.output_select = None
                             self.out_of_band_select = None
+                            self.packet_extended = None
                             self._segment_path = lambda: "send-buf-state-flags"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
 
 

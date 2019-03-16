@@ -175,10 +175,10 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
               }
               leaf capture-length {
                 type uint32 {
-                  range "0..150";
+                  range "1..150";
                 }
                 description
-                  "Capture Length in Km, supported values [0
+                  "Capture Length in Km, supported values [1
                    ,150]";
               }
               leaf pulse-width {
@@ -192,12 +192,12 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
               }
               leaf measure-time {
                 type uint32 {
-                  range "0..360";
+                  range "1..360";
                 }
                 units "second";
                 description
                   "Measure time in seconds, supported values
-                   [0,360]";
+                   [1,360]";
               }
               leaf loss-sensitivity {
                 type uint32 {
@@ -217,10 +217,10 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
               }
               leaf span-length {
                 type uint32 {
-                  range "0..150";
+                  range "1..150";
                 }
                 description
-                  "Span Length in Km, supported values [0,150]";
+                  "Span Length in Km, supported values [1,150]";
               }
               leaf reflection-sensitivity {
                 type int32 {

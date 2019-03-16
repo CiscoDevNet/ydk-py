@@ -142,7 +142,11 @@ class EthernetPmd(Enum):
 
     	100GBASE PL
 
-    .. data:: optics_eth_undefined = 29
+    .. data:: optics_eth_100gbase_srbd = 29
+
+    	100GBASE SRBD
+
+    .. data:: optics_eth_undefined = 30
 
     	Eth Undefined
 
@@ -206,7 +210,9 @@ class EthernetPmd(Enum):
 
     optics_eth_100gbase_pl = Enum.YLeaf(28, "optics-eth-100gbase-pl")
 
-    optics_eth_undefined = Enum.YLeaf(29, "optics-eth-undefined")
+    optics_eth_100gbase_srbd = Enum.YLeaf(29, "optics-eth-100gbase-srbd")
+
+    optics_eth_undefined = Enum.YLeaf(30, "optics-eth-undefined")
 
 
 class FiberConnector(Enum):
@@ -1023,6 +1029,10 @@ class OpticsPhy(Enum):
 
     	OneGig CSFP optics
 
+    .. data:: short_reach_bd = 67
+
+    	Short reach Bi-Directional
+
     """
 
     not_set = Enum.YLeaf(0, "not-set")
@@ -1158,6 +1168,8 @@ class OpticsPhy(Enum):
     ten_gig_e_edge_performance = Enum.YLeaf(65, "ten-gig-e-edge-performance")
 
     one_gig_csfp = Enum.YLeaf(66, "one-gig-csfp")
+
+    short_reach_bd = Enum.YLeaf(67, "short-reach-bd")
 
 
 class OpticsPort(Enum):

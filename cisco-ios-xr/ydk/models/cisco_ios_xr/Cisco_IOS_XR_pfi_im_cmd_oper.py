@@ -2653,6 +2653,10 @@ class ImAttrMedia(Enum):
 
     	im attr media 100gbase sm sr
 
+    .. data:: im_attr_media_100gbase_sr_bd = 382
+
+    	im attr media 100gbase sr bd
+
     """
 
     im_attr_media_other = Enum.YLeaf(0, "im-attr-media-other")
@@ -3418,6 +3422,8 @@ class ImAttrMedia(Enum):
     im_attr_media_25gbase_cu5m = Enum.YLeaf(380, "im-attr-media-25gbase-cu5m")
 
     im_attr_media_100gbase_sm_sr = Enum.YLeaf(381, "im-attr-media-100gbase-sm-sr")
+
+    im_attr_media_100gbase_sr_bd = Enum.YLeaf(382, "im-attr-media-100gbase-sr-bd")
 
 
 class ImAttrTransportMode(Enum):

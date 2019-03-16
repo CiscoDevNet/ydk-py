@@ -43,6 +43,13 @@ class Lldp(Entity):
     
     	**range:** 0..65535
     
+    .. attribute:: enable_priority_addr
+    
+    	Enable or disable Priority to advertise Mgmt\-interface Addr First
+    	**type**\: bool
+    
+    	**default value**\: false
+    
     .. attribute:: extended_show_width
     
     	Enable or disable LLDP Show LLDP Neighbor Extended Width
@@ -108,6 +115,7 @@ class Lldp(Entity):
         self._child_classes = OrderedDict([("tlv-select", ("tlv_select", Lldp.TlvSelect))])
         self._leafs = OrderedDict([
             ('holdtime', (YLeaf(YType.uint32, 'holdtime'), ['int'])),
+            ('enable_priority_addr', (YLeaf(YType.boolean, 'enable-priority-addr'), ['bool'])),
             ('extended_show_width', (YLeaf(YType.boolean, 'extended-show-width'), ['bool'])),
             ('enable_subintf', (YLeaf(YType.boolean, 'enable-subintf'), ['bool'])),
             ('enable_mgmtintf', (YLeaf(YType.boolean, 'enable-mgmtintf'), ['bool'])),
@@ -116,6 +124,7 @@ class Lldp(Entity):
             ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
         ])
         self.holdtime = None
+        self.enable_priority_addr = None
         self.extended_show_width = None
         self.enable_subintf = None
         self.enable_mgmtintf = None
@@ -129,7 +138,7 @@ class Lldp(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Lldp, ['holdtime', 'extended_show_width', 'enable_subintf', 'enable_mgmtintf', 'timer', 'reinit', 'enable'], name, value)
+        self._perform_setattr(Lldp, ['holdtime', 'enable_priority_addr', 'extended_show_width', 'enable_subintf', 'enable_mgmtintf', 'timer', 'reinit', 'enable'], name, value)
 
 
     class TlvSelect(Entity):

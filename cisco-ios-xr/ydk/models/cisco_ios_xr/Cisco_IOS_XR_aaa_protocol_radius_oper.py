@@ -599,15 +599,6 @@ class Radius(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: server_address
-                    
-                    	IP address of RADIUS server
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**config**\: False
-                    
                     .. attribute:: port
                     
                     	Authentication port number
@@ -648,12 +639,10 @@ class Radius(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("authentication", ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_))])
                         self._leafs = OrderedDict([
-                            ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
                             ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
                             ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                             ('family', (YLeaf(YType.str, 'family'), ['str'])),
                         ])
-                        self.server_address = None
                         self.port = None
                         self.ip_address = None
                         self.family = None
@@ -665,7 +654,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, [u'port', u'ip_address', u'family'], name, value)
 
 
                     class Authentication_(Entity):
@@ -782,15 +771,6 @@ class Radius(Entity):
                         
                         	**units**\: millisecond
                         
-                        .. attribute:: authen_response_time
-                        
-                        	Average response time for authentication requests
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
                         .. attribute:: authen_transaction_successess
                         
                         	Number of succeeded authentication transactions
@@ -836,6 +816,60 @@ class Radius(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: auth_throttled_transactions
+                        
+                        	Estimated Throttled Authentication Transactions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: auth_max_transactions
+                        
+                        	Maximum Throttled Authentication Transactions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_auth_reqs
+                        
+                        	Automated Test Stats for authentication requests
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_auth_timeouts
+                        
+                        	Automated Test Stats for authentication timeouts
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_auth_response
+                        
+                        	Automated Test Stats for authentication response
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_auth_pending
+                        
+                        	Automated Test Stats for authentication pending
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -865,12 +899,17 @@ class Radius(Entity):
                                 ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
                                 ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
                                 ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
-                                ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
                                 ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
                                 ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
                                 ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
                                 ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
                                 ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
+                                ('auth_throttled_transactions', (YLeaf(YType.uint32, 'auth-throttled-transactions'), ['int'])),
+                                ('auth_max_transactions', (YLeaf(YType.uint32, 'auth-max-transactions'), ['int'])),
+                                ('total_test_auth_reqs', (YLeaf(YType.uint32, 'total-test-auth-reqs'), ['int'])),
+                                ('total_test_auth_timeouts', (YLeaf(YType.uint32, 'total-test-auth-timeouts'), ['int'])),
+                                ('total_test_auth_response', (YLeaf(YType.uint32, 'total-test-auth-response'), ['int'])),
+                                ('total_test_auth_pending', (YLeaf(YType.uint32, 'total-test-auth-pending'), ['int'])),
                             ])
                             self.access_requests = None
                             self.pending_access_requests = None
@@ -884,17 +923,22 @@ class Radius(Entity):
                             self.unknown_access_types = None
                             self.dropped_access_responses = None
                             self.rtt = None
-                            self.authen_response_time = None
                             self.authen_transaction_successess = None
                             self.authen_transaction_failure = None
                             self.authen_unexpected_responses = None
                             self.authen_server_error_responses = None
                             self.authen_incorrect_responses = None
+                            self.auth_throttled_transactions = None
+                            self.auth_max_transactions = None
+                            self.total_test_auth_reqs = None
+                            self.total_test_auth_timeouts = None
+                            self.total_test_auth_response = None
+                            self.total_test_auth_pending = None
                             self._segment_path = lambda: "authentication"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses', u'auth_throttled_transactions', u'auth_max_transactions', u'total_test_auth_reqs', u'total_test_auth_timeouts', u'total_test_auth_response', u'total_test_auth_pending'], name, value)
 
 
 
@@ -948,15 +992,6 @@ class Radius(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: server_address
-                    
-                    	IP address of RADIUS server
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**config**\: False
-                    
                     .. attribute:: port
                     
                     	Accounting port number
@@ -997,12 +1032,10 @@ class Radius(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_))])
                         self._leafs = OrderedDict([
-                            ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
                             ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
                             ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                             ('family', (YLeaf(YType.str, 'family'), ['str'])),
                         ])
-                        self.server_address = None
                         self.port = None
                         self.ip_address = None
                         self.family = None
@@ -1014,7 +1047,7 @@ class Radius(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, [u'port', u'ip_address', u'family'], name, value)
 
 
                     class Accounting_(Entity):
@@ -1122,33 +1155,6 @@ class Radius(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: acct_server_error_responses
-                        
-                        	Number of server error accounting responses
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: acct_incorrect_responses
-                        
-                        	Number of incorrect accounting responses
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: acct_response_time
-                        
-                        	Average response time for authentication requests
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
                         .. attribute:: acct_transaction_successess
                         
                         	Number of succeeded authentication transactions
@@ -1161,6 +1167,60 @@ class Radius(Entity):
                         .. attribute:: acct_transaction_failure
                         
                         	Number of failed authentication transactions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: acct_throttled_transactions
+                        
+                        	Estimated Throttled Accounting Transactions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: acct_max_throttle_trans
+                        
+                        	Maximum Throttled Accounting Transactions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_acct_reqs
+                        
+                        	Automated Test Stats for accounting requests
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_acct_timeouts
+                        
+                        	Automated Test Stats for accounting timeouts
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_acct_response
+                        
+                        	Automated Test Stats for accounting response
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_test_acct_pending
+                        
+                        	Automated Test Stats for accounting pending
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1195,11 +1255,14 @@ class Radius(Entity):
                                 ('dropped_responses', (YLeaf(YType.uint32, 'dropped-responses'), ['int'])),
                                 ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                                 ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
-                                ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
-                                ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
-                                ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
                                 ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
                                 ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
+                                ('acct_throttled_transactions', (YLeaf(YType.uint32, 'acct-throttled-transactions'), ['int'])),
+                                ('acct_max_throttle_trans', (YLeaf(YType.uint32, 'acct-max-throttle-trans'), ['int'])),
+                                ('total_test_acct_reqs', (YLeaf(YType.uint32, 'total-test-acct-reqs'), ['int'])),
+                                ('total_test_acct_timeouts', (YLeaf(YType.uint32, 'total-test-acct-timeouts'), ['int'])),
+                                ('total_test_acct_response', (YLeaf(YType.uint32, 'total-test-acct-response'), ['int'])),
+                                ('total_test_acct_pending', (YLeaf(YType.uint32, 'total-test-acct-pending'), ['int'])),
                             ])
                             self.requests = None
                             self.pending_requests = None
@@ -1212,16 +1275,19 @@ class Radius(Entity):
                             self.dropped_responses = None
                             self.rtt = None
                             self.acct_unexpected_responses = None
-                            self.acct_server_error_responses = None
-                            self.acct_incorrect_responses = None
-                            self.acct_response_time = None
                             self.acct_transaction_successess = None
                             self.acct_transaction_failure = None
+                            self.acct_throttled_transactions = None
+                            self.acct_max_throttle_trans = None
+                            self.total_test_acct_reqs = None
+                            self.total_test_acct_timeouts = None
+                            self.total_test_acct_response = None
+                            self.total_test_acct_pending = None
                             self._segment_path = lambda: "accounting"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_transaction_successess', u'acct_transaction_failure', u'acct_throttled_transactions', u'acct_max_throttle_trans', u'total_test_acct_reqs', u'total_test_acct_timeouts', u'total_test_acct_response', u'total_test_acct_pending'], name, value)
 
 
 
@@ -1267,15 +1333,6 @@ class Radius(Entity):
                 class DynamicAuthorClient(Entity):
                     """
                     List of dynamic author clients
-                    
-                    .. attribute:: client_address
-                    
-                    	Client's Internet address
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**config**\: False
                     
                     .. attribute:: disc_reqs
                     
@@ -1482,12 +1539,10 @@ class Radius(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: addr_buf
+                    .. attribute:: client_address
                     
                     	Address Buffer
                     	**type**\: str
-                    
-                    	**length:** 0..46
                     
                     	**config**\: False
                     
@@ -1508,7 +1563,6 @@ class Radius(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
                             ('disc_reqs', (YLeaf(YType.uint32, 'disc-reqs'), ['int'])),
                             ('disc_acks', (YLeaf(YType.uint32, 'disc-acks'), ['int'])),
                             ('disc_naks', (YLeaf(YType.uint32, 'disc-naks'), ['int'])),
@@ -1532,9 +1586,8 @@ class Radius(Entity):
                             ('service_not_present', (YLeaf(YType.uint32, 'service-not-present'), ['int'])),
                             ('send_to_ch_fail', (YLeaf(YType.uint32, 'send-to-ch-fail'), ['int'])),
                             ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
                         ])
-                        self.client_address = None
                         self.disc_reqs = None
                         self.disc_acks = None
                         self.disc_naks = None
@@ -1558,12 +1611,12 @@ class Radius(Entity):
                         self.service_not_present = None
                         self.send_to_ch_fail = None
                         self.vrf_name = None
-                        self.addr_buf = None
+                        self.client_address = None
                         self._segment_path = lambda: "dynamic-author-client"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, [u'client_address', u'disc_reqs', u'disc_acks', u'disc_naks', u'disc_bad_auth', u'drop_disc_reqs', u'coa_reqs', u'coa_acks', u'coa_naks', u'coa_bad_auth', u'drop_coa_reqs', u'unknown_types', u'internal_error', u'pak_decode_fail', u'vrf_parse_fail_err', u'unknown_vsa_error', u'send_msg_failed', u'radius_to_ch', u'ch_to_radius', u'service_parse_fail', u'multi_subs_error', u'service_not_present', u'send_to_ch_fail', u'vrf_name', u'addr_buf'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, [u'disc_reqs', u'disc_acks', u'disc_naks', u'disc_bad_auth', u'drop_disc_reqs', u'coa_reqs', u'coa_acks', u'coa_naks', u'coa_bad_auth', u'drop_coa_reqs', u'unknown_types', u'internal_error', u'pak_decode_fail', u'vrf_parse_fail_err', u'unknown_vsa_error', u'send_msg_failed', u'radius_to_ch', u'ch_to_radius', u'service_parse_fail', u'multi_subs_error', u'service_not_present', u'send_to_ch_fail', u'vrf_name', u'client_address'], name, value)
 
 
 
@@ -1723,15 +1776,6 @@ class Radius(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: server_address
-                        
-                        	Server address
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**config**\: False
-                        
                         .. attribute:: authentication_port
                         
                         	Authentication port
@@ -1797,7 +1841,6 @@ class Radius(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting)), ("authentication", ("authentication", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication)), ("authorization", ("authorization", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization))])
                             self._leafs = OrderedDict([
-                                ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
                                 ('authentication_port', (YLeaf(YType.uint32, 'authentication-port'), ['int'])),
                                 ('accounting_port', (YLeaf(YType.uint32, 'accounting-port'), ['int'])),
                                 ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
@@ -1805,7 +1848,6 @@ class Radius(Entity):
                                 ('family', (YLeaf(YType.str, 'family'), ['str'])),
                                 ('redirected_requests', (YLeaf(YType.uint32, 'redirected-requests'), ['int'])),
                             ])
-                            self.server_address = None
                             self.authentication_port = None
                             self.accounting_port = None
                             self.is_private = None
@@ -1828,7 +1870,7 @@ class Radius(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, [u'server_address', u'authentication_port', u'accounting_port', u'is_private', u'ip_address', u'family', u'redirected_requests'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, [u'authentication_port', u'accounting_port', u'is_private', u'ip_address', u'family', u'redirected_requests'], name, value)
 
 
                         class Accounting(Entity):
@@ -1936,33 +1978,6 @@ class Radius(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: acct_server_error_responses
-                            
-                            	Number of server error accounting responses
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: acct_incorrect_responses
-                            
-                            	Number of incorrect accounting responses
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: acct_response_time
-                            
-                            	Average response time for authentication requests
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
                             .. attribute:: acct_transaction_successess
                             
                             	Number of succeeded authentication transactions
@@ -1975,6 +1990,60 @@ class Radius(Entity):
                             .. attribute:: acct_transaction_failure
                             
                             	Number of failed authentication transactions
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: acct_throttled_transactions
+                            
+                            	Estimated Throttled Accounting Transactions
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: acct_max_throttle_trans
+                            
+                            	Maximum Throttled Accounting Transactions
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_acct_reqs
+                            
+                            	Automated Test Stats for accounting requests
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_acct_timeouts
+                            
+                            	Automated Test Stats for accounting timeouts
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_acct_response
+                            
+                            	Automated Test Stats for accounting response
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_acct_pending
+                            
+                            	Automated Test Stats for accounting pending
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2009,11 +2078,14 @@ class Radius(Entity):
                                     ('dropped_responses', (YLeaf(YType.uint32, 'dropped-responses'), ['int'])),
                                     ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                                     ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
-                                    ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
-                                    ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
-                                    ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
                                     ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
                                     ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
+                                    ('acct_throttled_transactions', (YLeaf(YType.uint32, 'acct-throttled-transactions'), ['int'])),
+                                    ('acct_max_throttle_trans', (YLeaf(YType.uint32, 'acct-max-throttle-trans'), ['int'])),
+                                    ('total_test_acct_reqs', (YLeaf(YType.uint32, 'total-test-acct-reqs'), ['int'])),
+                                    ('total_test_acct_timeouts', (YLeaf(YType.uint32, 'total-test-acct-timeouts'), ['int'])),
+                                    ('total_test_acct_response', (YLeaf(YType.uint32, 'total-test-acct-response'), ['int'])),
+                                    ('total_test_acct_pending', (YLeaf(YType.uint32, 'total-test-acct-pending'), ['int'])),
                                 ])
                                 self.requests = None
                                 self.pending_requests = None
@@ -2026,16 +2098,19 @@ class Radius(Entity):
                                 self.dropped_responses = None
                                 self.rtt = None
                                 self.acct_unexpected_responses = None
-                                self.acct_server_error_responses = None
-                                self.acct_incorrect_responses = None
-                                self.acct_response_time = None
                                 self.acct_transaction_successess = None
                                 self.acct_transaction_failure = None
+                                self.acct_throttled_transactions = None
+                                self.acct_max_throttle_trans = None
+                                self.total_test_acct_reqs = None
+                                self.total_test_acct_timeouts = None
+                                self.total_test_acct_response = None
+                                self.total_test_acct_pending = None
                                 self._segment_path = lambda: "accounting"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_transaction_successess', u'acct_transaction_failure', u'acct_throttled_transactions', u'acct_max_throttle_trans', u'total_test_acct_reqs', u'total_test_acct_timeouts', u'total_test_acct_response', u'total_test_acct_pending'], name, value)
 
 
 
@@ -2153,15 +2228,6 @@ class Radius(Entity):
                             
                             	**units**\: millisecond
                             
-                            .. attribute:: authen_response_time
-                            
-                            	Average response time for authentication requests
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
                             .. attribute:: authen_transaction_successess
                             
                             	Number of succeeded authentication transactions
@@ -2207,6 +2273,60 @@ class Radius(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: auth_throttled_transactions
+                            
+                            	Estimated Throttled Authentication Transactions
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: auth_max_transactions
+                            
+                            	Maximum Throttled Authentication Transactions
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_auth_reqs
+                            
+                            	Automated Test Stats for authentication requests
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_auth_timeouts
+                            
+                            	Automated Test Stats for authentication timeouts
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_auth_response
+                            
+                            	Automated Test Stats for authentication response
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: total_test_auth_pending
+                            
+                            	Automated Test Stats for authentication pending
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
                             
 
                             """
@@ -2236,12 +2356,17 @@ class Radius(Entity):
                                     ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
                                     ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
                                     ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
-                                    ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
                                     ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
                                     ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
                                     ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
                                     ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
                                     ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
+                                    ('auth_throttled_transactions', (YLeaf(YType.uint32, 'auth-throttled-transactions'), ['int'])),
+                                    ('auth_max_transactions', (YLeaf(YType.uint32, 'auth-max-transactions'), ['int'])),
+                                    ('total_test_auth_reqs', (YLeaf(YType.uint32, 'total-test-auth-reqs'), ['int'])),
+                                    ('total_test_auth_timeouts', (YLeaf(YType.uint32, 'total-test-auth-timeouts'), ['int'])),
+                                    ('total_test_auth_response', (YLeaf(YType.uint32, 'total-test-auth-response'), ['int'])),
+                                    ('total_test_auth_pending', (YLeaf(YType.uint32, 'total-test-auth-pending'), ['int'])),
                                 ])
                                 self.access_requests = None
                                 self.pending_access_requests = None
@@ -2255,17 +2380,22 @@ class Radius(Entity):
                                 self.unknown_access_types = None
                                 self.dropped_access_responses = None
                                 self.rtt = None
-                                self.authen_response_time = None
                                 self.authen_transaction_successess = None
                                 self.authen_transaction_failure = None
                                 self.authen_unexpected_responses = None
                                 self.authen_server_error_responses = None
                                 self.authen_incorrect_responses = None
+                                self.auth_throttled_transactions = None
+                                self.auth_max_transactions = None
+                                self.total_test_auth_reqs = None
+                                self.total_test_auth_timeouts = None
+                                self.total_test_auth_response = None
+                                self.total_test_auth_pending = None
                                 self._segment_path = lambda: "authentication"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses', u'auth_throttled_transactions', u'auth_max_transactions', u'total_test_auth_reqs', u'total_test_auth_timeouts', u'total_test_auth_response', u'total_test_auth_pending'], name, value)
 
 
 

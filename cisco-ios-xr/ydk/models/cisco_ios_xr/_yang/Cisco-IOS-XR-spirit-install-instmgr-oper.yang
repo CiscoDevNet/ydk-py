@@ -3,10 +3,10 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
   prefix spirit-install-instmgr-oper;
 
   include Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
-    revision-date 2017-09-07;
+    revision-date 2019-08-24;
   }
   include Cisco-IOS-XR-spirit-install-instmgr-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2019-08-24;
   }
 
   organization
@@ -32,6 +32,10 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-08-24 {
+    description
+      "Changed model structure for software version and deprecated img-info node.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

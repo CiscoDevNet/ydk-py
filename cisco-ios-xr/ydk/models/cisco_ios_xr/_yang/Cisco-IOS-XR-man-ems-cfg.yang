@@ -199,6 +199,16 @@ module Cisco-IOS-XR-man-ems-cfg {
           "Disable ciphers if default is enabled.";
       }
     }
+    container tls {
+      description
+        "Transport Layer Security (TLS)";
+      leaf enable {
+        type empty;
+        status deprecated;
+        description
+          "Enable TLS";
+      }
+    }
     leaf port {
       type uint32 {
         range "10000..57999";
@@ -221,6 +231,7 @@ module Cisco-IOS-XR-man-ems-cfg {
     }
     leaf enable {
       type empty;
+      status deprecated;
       description
         "Enable GRPC";
     }

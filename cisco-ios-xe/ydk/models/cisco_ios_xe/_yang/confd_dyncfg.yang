@@ -21,6 +21,24 @@ module confd_dyncfg {
     "This module defines the Tail-f ConfD configuration parameters
      that can be modified in runtime.";
 
+  revision 2018-07-31 {
+    description
+      "Released as part of ConfD-6.5.7.
+
+       Added /confdConfig/cli/maxLineLength.
+
+       Added /confdConfig/newlinesInBinaryBase64.
+
+       Added /confdConfig/ha/extraIpPorts.";
+  }
+  revision 2018-05-31 {
+    description
+      "Released as part of ConfD-6.5.6.
+
+       Added /confdConfig/ha/dscp.
+
+       Added /confdConfig/confdIpcKeepalive.";
+  }
   revision 2018-03-15 {
     description
       "Released as part of ConfD-6.5.5.
@@ -2381,6 +2399,16 @@ module confd_dyncfg {
           "
            When set to true, the CLI server is started.";
       }
+      leaf maxLineLength {
+        type uint32;
+        default "0";
+        tailf:info
+          "When set to a number larger than zero, this number will
+           be the maximum line length which can be entered into the CLI.
+           This allows ConfD to reject extremely large lines that can
+           otherwise potentially consume all memory. Note that this
+           option does not take effect in the J-style load command.";
+      }
       leaf allowImplicitWildcard {
         type boolean;
         default "true";
@@ -2661,6 +2689,15 @@ module confd_dyncfg {
           "whoHistoryDateTimeFormat decides if the date should always
            include the date (long), or only include the date when different
            from today (short).";
+      }
+      leaf resetScreenAfterMore {
+        type boolean;
+        default "true";
+        tailf:info
+          "resetScreenAfterMore is used to control if a terminal reset
+           sequence should be sent if control characters have been
+           printed. This is to restore the terminal after showing
+           potentially terminal controlling sequences.";
       }
       leaf editWrapMode {
         type editWrapModeType;
@@ -3269,6 +3306,19 @@ module confd_dyncfg {
         tailf:info
           "If set to true then the \\m and \\M will be expandes just as in C-
            and I-style";
+      }
+      leaf waitLockedConfigMode {
+        type boolean;
+        default "true";
+        tailf:info
+          "waitLockedConfigMode is either 'true' or 'false'.
+           This setting controls the behaviour when trying to enter
+           configure mode while another entity is locking the database,
+           e.g. some other commit is in progress or some managed object
+           is locking the database. If set to 'true' then the CLI will wait
+           with entering configure mode, rendering the CLI unusable
+           until the database is unlocked. If set to 'false' the CLI
+           will not wait but instead display an error message.";
       }
       leaf promptHostnameDelimiter {
         type string;
@@ -4086,6 +4136,15 @@ module confd_dyncfg {
            on the first error but continue to process commands form
            the file.";
       }
+      leaf suppressBurstErrors {
+        type boolean;
+        default "true";
+        tailf:info
+          "suppressBurstErrors is either 'true' or 'false'. If 'true' then
+           only the first error in a series of consecutive load errors
+           will be reported. If set to 'false' then all errors will be
+           reported.";
+      }
       leaf allOrNothingLoad {
         type boolean;
         default "false";
@@ -4575,6 +4634,38 @@ module confd_dyncfg {
            J-style CLI when using the commands 'delete' and 'edit'. In
            the C/I-style CLIs when using the commands 'no',
            'show configuration' and for commands to enter submodes.";
+      }
+      leaf jEnableLoadMergeLeafList {
+        type boolean;
+        default "false";
+        tailf:info
+          "DEPRECATED - use enableLoadMergeLeafList instead.
+
+           jEnableLoadMergeLeafList is either 'true' or 'false'. If
+           'true' then the 'load merge' command in the J-style CLI
+           will merge the leaf-list elements in a config file with
+           the existing leaf-list elements. If set to 'false' then
+           the 'load merge' will have same effect as 'load replace'
+           for leaf-list when loading the config file.";
+      }
+      leaf enableLoadMergeLeafList {
+        type boolean;
+        default "false";
+        tailf:info
+          "enableLoadMergeLeafList is either 'true' or 'false'. If
+           'true' then the 'load merge' command will merge the leaf-list
+           elements in a config file with the existing leaf-list elements.
+           If set to 'false' then the 'load merge' will have same effect
+           as 'load replace' for leaf-list when loading the config file.";
+      }
+      leaf enableCliCache {
+        type boolean;
+        default "true";
+        tailf:info
+          "enableCliCache is either 'true' or 'false'. If true the CLI will
+           operate with a builtin caching mechanism to speed up some
+           of its operations. This is the default and preferred
+           method. Only turn this off for very special cases.";
       }
     }
     container webui {

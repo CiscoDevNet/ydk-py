@@ -42,6 +42,10 @@ module Cisco-IOS-XR-clns-isis-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-23 {
+    description
+      "Added advertise-definition configuration item.";
+  }
   revision 2018-06-14 {
     description
       "Added FRR InitialDelay under address-family fast-reroute submode.";
@@ -1592,6 +1596,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "Enable per bundle member adjacency SID";
                 }
+                leaf labeled-only {
+                  type empty;
+                  description
+                    "Only install SR labeled paths";
+                }
                 leaf mpls {
                   type Isis-label-preference;
                   description
@@ -1672,11 +1681,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "FRR prefix-limit configuration";
                   list priority-limit {
-                    must "priority-limit-data or frr-type" {
-                      description
-                        "priority-limit-data or frr-type must be
-                         present.";
-                    }
                     key "level";
                     description
                       "Limit backup computation upto the prefix
@@ -1692,11 +1696,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
                           "Compute for all prefixes upto the
                            specified priority";
                       }
-                    }
-                    container priority-limit-data {
-                      description
-                        "Data container.";
-                      uses PRIORITY-LIMIT-CONTENT;
                     }
                     leaf level {
                       type dt1:Isis-internal-level;
@@ -2640,6 +2639,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
               }
               description
                 "Set the Flex-Algo priority";
+            }
+            leaf advertise-definition {
+              type boolean;
+              description
+                "If TRUE, Flex-Algo definition is advertised";
             }
             leaf flex-algo {
               type uint32 {

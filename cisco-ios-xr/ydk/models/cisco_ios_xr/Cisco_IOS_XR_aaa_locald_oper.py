@@ -3047,7 +3047,7 @@ class Aaa(Entity):
                 
                 .. attribute:: priority
                 
-                	A number that indicates the priority             of the server
+                	A number that indicates the priority of the server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3132,7 +3132,7 @@ class Aaa(Entity):
                 
                 .. attribute:: current_state_duration
                 
-                	Elapsed time the server has been in              current state
+                	Elapsed time the server has been in current state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3141,7 +3141,7 @@ class Aaa(Entity):
                 
                 .. attribute:: previous_state_duration
                 
-                	Elapsed time the server was been in              previous state
+                	Elapsed time the server was been in previous state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3204,7 +3204,7 @@ class Aaa(Entity):
                 
                 .. attribute:: authentication_rtt
                 
-                	Round\-trip time for authentication               in milliseconds
+                	Round\-trip time for authentication in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3224,7 +3224,7 @@ class Aaa(Entity):
                 
                 .. attribute:: access_request_retransmits
                 
-                	Number of retransmitted                          access requests
+                	Number of retransmitted access requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3296,7 +3296,7 @@ class Aaa(Entity):
                 
                 .. attribute:: unknown_access_types
                 
-                	Number of packets received with unknown          type from authentication server
+                	Number of packets received with unknown type from authentication server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3485,7 +3485,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_rtt
                 
-                	Round\-trip time for accounting                   in milliseconds
+                	Round\-trip time for accounting in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3505,7 +3505,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_retransmits
                 
-                	Number of retransmitted                          accounting requests
+                	Number of retransmitted accounting requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3532,7 +3532,7 @@ class Aaa(Entity):
                 
                 .. attribute:: bad_accounting_authenticators
                 
-                	Number of bad accounting                         authenticators
+                	Number of bad accounting authenticators
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3550,7 +3550,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_timeouts
                 
-                	Number of accounting packets                     timed\-out
+                	Number of accounting packets timed\-out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3559,7 +3559,7 @@ class Aaa(Entity):
                 
                 .. attribute:: unknown_accounting_types
                 
-                	Number of packets received with unknown          type from accounting server
+                	Number of packets received with unknown type from accounting server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3568,7 +3568,7 @@ class Aaa(Entity):
                 
                 .. attribute:: dropped_accounting_responses
                 
-                	Number of accounting responses                   dropped
+                	Number of accounting responses dropped
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3755,7 +3755,7 @@ class Aaa(Entity):
                 
                 .. attribute:: total_deadtime
                 
-                	Total time of Server being in DEAD               state
+                	Total time of Server being in DEAD state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3764,7 +3764,7 @@ class Aaa(Entity):
                 
                 .. attribute:: last_deadtime
                 
-                	Time of Server being in DEAD state,              after last UP
+                	Time of Server being in DEAD state, after last UP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3773,7 +3773,7 @@ class Aaa(Entity):
                 
                 .. attribute:: is_quarantined
                 
-                	flag to indicate Server is quarantined           or not (Automated TEST in progress)
+                	flag to indicate Server is quarantined or not (Automated TEST in progress)
                 	**type**\: bool
                 
                 	**config**\: False
@@ -4898,6 +4898,15 @@ class Aaa(Entity):
             
             	**units**\: second
             
+            .. attribute:: peer_num
+            
+            	Total no.of peers
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
             .. attribute:: trans_total
             
             	Total number of transactions
@@ -4947,6 +4956,7 @@ class Aaa(Entity):
                     ('conn_retry_timer', (YLeaf(YType.uint32, 'conn-retry-timer'), ['int'])),
                     ('watchdog_timer', (YLeaf(YType.uint32, 'watchdog-timer'), ['int'])),
                     ('transaction_timer', (YLeaf(YType.uint32, 'transaction-timer'), ['int'])),
+                    ('peer_num', (YLeaf(YType.uint32, 'peer-num'), ['int'])),
                     ('trans_total', (YLeaf(YType.uint32, 'trans-total'), ['int'])),
                     ('trans_max', (YLeaf(YType.uint32, 'trans-max'), ['int'])),
                 ])
@@ -4957,6 +4967,7 @@ class Aaa(Entity):
                 self.conn_retry_timer = None
                 self.watchdog_timer = None
                 self.transaction_timer = None
+                self.peer_num = None
                 self.trans_total = None
                 self.trans_max = None
 
@@ -4966,7 +4977,7 @@ class Aaa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Diameter.Peers, ['origin_host', 'origin_realm', 'source_interface', 'tls_trustpoint', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'trans_total', 'trans_max'], name, value)
+                self._perform_setattr(Aaa.Diameter.Peers, ['origin_host', 'origin_realm', 'source_interface', 'tls_trustpoint', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'peer_num', 'trans_total', 'trans_max'], name, value)
 
 
             class Peer(Entity):

@@ -375,7 +375,7 @@ class CallHome(Entity):
     """
 
     _prefix = 'call-home-cfg'
-    _revision = '2018-06-21'
+    _revision = '2018-07-24'
 
     def __init__(self):
         super(CallHome, self).__init__()
@@ -468,7 +468,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.MailServers, self).__init__()
@@ -511,7 +511,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2018-06-21'
+            _revision = '2018-07-24'
 
             def __init__(self):
                 super(CallHome.MailServers.MailServer, self).__init__()
@@ -553,7 +553,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.SyslogThrottling, self).__init__()
@@ -598,7 +598,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.HttpProxy, self).__init__()
@@ -638,7 +638,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.Profiles, self).__init__()
@@ -691,11 +691,6 @@ class CallHome(Entity):
             	Subscribe to alert\-group
             	**type**\:  :py:class:`SubscribeAlertGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup>`
             
-            .. attribute:: create
-            
-            	Create a profile
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: message_format
             
             	none
@@ -723,7 +718,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2018-06-21'
+            _revision = '2018-07-24'
 
             def __init__(self):
                 super(CallHome.Profiles.Profile, self).__init__()
@@ -736,14 +731,12 @@ class CallHome(Entity):
                 self._child_classes = OrderedDict([("report-type", ("report_type", CallHome.Profiles.Profile.ReportType)), ("methods", ("methods", CallHome.Profiles.Profile.Methods)), ("addresses", ("addresses", CallHome.Profiles.Profile.Addresses)), ("subscribe-alert-group", ("subscribe_alert_group", CallHome.Profiles.Profile.SubscribeAlertGroup))])
                 self._leafs = OrderedDict([
                     ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
-                    ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                     ('message_format', (YLeaf(YType.str, 'message-format'), ['str'])),
                     ('anonymous', (YLeaf(YType.boolean, 'anonymous'), ['bool'])),
                     ('message_size_limit', (YLeaf(YType.uint32, 'message-size-limit'), ['int'])),
                     ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
                 ])
                 self.profile_name = None
-                self.create = None
                 self.message_format = None
                 self.anonymous = None
                 self.message_size_limit = None
@@ -769,7 +762,7 @@ class CallHome(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CallHome.Profiles.Profile, ['profile_name', 'create', 'message_format', 'anonymous', 'message_size_limit', 'active'], name, value)
+                self._perform_setattr(CallHome.Profiles.Profile, ['profile_name', 'message_format', 'anonymous', 'message_size_limit', 'active'], name, value)
 
 
             class ReportType(Entity):
@@ -791,7 +784,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2018-06-21'
+                _revision = '2018-07-24'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.ReportType, self).__init__()
@@ -832,7 +825,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, self).__init__()
@@ -869,7 +862,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, self).__init__()
@@ -907,7 +900,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2018-06-21'
+                _revision = '2018-07-24'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.Methods, self).__init__()
@@ -947,7 +940,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.Methods.Method, self).__init__()
@@ -987,7 +980,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2018-06-21'
+                _revision = '2018-07-24'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.Addresses, self).__init__()
@@ -1034,7 +1027,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.Addresses.Address, self).__init__()
@@ -1101,7 +1094,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2018-06-21'
+                _revision = '2018-07-24'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.SubscribeAlertGroup, self).__init__()
@@ -1158,7 +1151,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, self).__init__()
@@ -1200,7 +1193,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, self).__init__()
@@ -1266,7 +1259,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2018-06-21'
+                        _revision = '2018-07-24'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, self).__init__()
@@ -1312,7 +1305,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, self).__init__()
@@ -1375,7 +1368,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2018-06-21'
+                        _revision = '2018-07-24'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, self).__init__()
@@ -1426,7 +1419,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, self).__init__()
@@ -1492,7 +1485,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2018-06-21'
+                        _revision = '2018-07-24'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, self).__init__()
@@ -1538,7 +1531,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, self).__init__()
@@ -1575,7 +1568,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2018-06-21'
+                    _revision = '2018-07-24'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, self).__init__()
@@ -1617,7 +1610,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2018-06-21'
+                        _revision = '2018-07-24'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, self).__init__()
@@ -1660,7 +1653,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.AlertGroups, self).__init__()
@@ -1708,7 +1701,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2018-06-21'
+            _revision = '2018-07-24'
 
             def __init__(self):
                 super(CallHome.AlertGroups.AlertGroup, self).__init__()
@@ -1751,7 +1744,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.DataPrivacies, self).__init__()
@@ -1792,7 +1785,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2018-06-21'
+            _revision = '2018-07-24'
 
             def __init__(self):
                 super(CallHome.DataPrivacies.DataPrivacy, self).__init__()
@@ -1833,7 +1826,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.AlertGroupConfig, self).__init__()
@@ -1871,7 +1864,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2018-06-21'
+            _revision = '2018-07-24'
 
             def __init__(self):
                 super(CallHome.AlertGroupConfig.SnapshotCommands, self).__init__()
@@ -1914,7 +1907,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2018-06-21'
+                _revision = '2018-07-24'
 
                 def __init__(self):
                     super(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, self).__init__()
@@ -1964,7 +1957,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2018-06-21'
+        _revision = '2018-07-24'
 
         def __init__(self):
             super(CallHome.Authorization, self).__init__()

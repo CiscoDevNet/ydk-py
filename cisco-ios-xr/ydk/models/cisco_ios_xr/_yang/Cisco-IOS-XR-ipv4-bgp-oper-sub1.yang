@@ -652,7 +652,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "scoped-sync-retry" {
         value 31;
         description
-          "Scoped sync is repeated due to strict          
+          "Scoped sync is repeated due to strict
            prefix check failure";
       }
       enum "cluster-id-changed" {
@@ -663,13 +663,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "rr-disable-changed" {
         value 33;
         description
-          "Client-to-client reflection disabled/enabled   
+          "Client-to-client reflection disabled/enabled
            for cluster to which neighbor belongs";
       }
       enum "aigp-changed" {
         value 34;
         description
-          "AIGP configuration has changed                 
+          "AIGP configuration has changed
            for cluster to which neighbor belongs";
       }
       enum "signalling-changed" {
@@ -3220,7 +3220,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment                    
+        "Neighbor TCP Maximum Segment
          size";
     }
     leaf msg-log-in {
@@ -7141,6 +7141,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Extended community attribute sent to neighbor";
     }
+    leaf default-originate-vpn-index {
+      type uint32;
+      description
+        "Default orig vpn indexto find bitfield for a nbr
+         af";
+    }
     leaf neighbor-default-originate {
       type boolean;
       description
@@ -7792,7 +7798,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       units "millisecond";
       description
-        "Time spent processing sub-group message list 
+        "Time spent processing sub-group message list
          (milliseconds)";
     }
     leaf write-queue-calls-count {
@@ -8211,7 +8217,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment                    
+        "Neighbor TCP Maximum Segment
          size";
     }
     leaf msg-log-in {
@@ -9033,7 +9039,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised                         
+        "Net could be advertised
          to PE peers";
     }
     leaf has-local-label {
@@ -9075,7 +9081,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf net-flags {
       type uint32;
       description
-        "Flags associated with                           
+        "Flags associated with
          net";
     }
     leaf net-extended-flags {
@@ -10219,11 +10225,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Is IO write event pending";
     }
-    leaf update-default-route-sent {
-      type boolean;
-      description
-        "Is default route sent";
-    }
     leaf merge-count {
       type uint32;
       description
@@ -10833,6 +10834,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Table ID";
+    }
+    leaf def-orig-enabled {
+      type boolean;
+      description
+        "Default Orig enabled for a vrf afi";
     }
     leaf table-version {
       type uint32;
@@ -13237,6 +13243,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Tunnel registered flag";
     }
+    leaf is-bgp-te-registered {
+      type boolean;
+      description
+        "BGPTE registered flag";
+    }
     leaf tunnel-v6-required {
       type boolean;
       description
@@ -13286,6 +13297,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type Bgp-afi;
       description
         "AFI of the Null Endpoint (IPv4/IPv6)";
+    }
+    leaf flags {
+      type uint32;
+      description
+        "SR Tunnel specific flags ";
     }
   }
 
@@ -13696,13 +13712,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised                         
+        "Net could be advertised
          to PE peers";
     }
     leaf rib-failed {
       type boolean;
       description
-        "Is net failed installed                         
+        "Is net failed installed
          in RIB";
     }
     leaf sn-rpki-origin-as-validity {

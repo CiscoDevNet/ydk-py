@@ -5933,7 +5933,7 @@ class Ospf(Entity):
                             
                             .. attribute:: as_xx
                             
-                            	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                            	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -22462,7 +22462,7 @@ class Ospf(Entity):
                         
                         .. attribute:: as_xx
                         
-                        	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                        	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                         	**type**\: int
                         
                         	**range:** 0..65535

@@ -1,8 +1,8 @@
 """ Cisco_IOS_XR_group_cfg 
 
-This module contains IOS\-XR group YANG data 
-for flexible cli groups 
-    
+This module contains IOS\-XR group YANG data
+for flexible cli groups
+
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 

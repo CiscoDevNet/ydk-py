@@ -666,10 +666,21 @@ class ObjectTrackings(Entity):
                     """
                     Threshold Limits
                     
-                    .. attribute:: threshold_up_values
+                    .. attribute:: up
                     
-                    	Threshold limit at which track is set to UP state
-                    	**type**\:  :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues>`
+                    	Up threshold value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: down
+                    
+                    	Down threshold value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**default value**\: 0
                     
                     
 
@@ -686,105 +697,18 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues))])
-                        self._leafs = OrderedDict()
-
-                        self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues()
-                        self.threshold_up_values.parent = self
-                        self._children_name_map["threshold_up_values"] = "threshold-up-values"
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                            ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                        ])
+                        self.up = None
+                        self.down = None
                         self._segment_path = lambda: "threshold-limits"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, [], name, value)
-
-
-                    class ThresholdUpValues(Entity):
-                        """
-                        Threshold limit at which track is set to UP
-                        state
-                        
-                        .. attribute:: threshold_up_value
-                        
-                        	Threshold limit at which track is set to UP state
-                        	**type**\: list of  		 :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'manageability-object-tracking-cfg'
-                        _revision = '2017-09-07'
-
-                        def __init__(self):
-                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues, self).__init__()
-
-                            self.yang_name = "threshold-up-values"
-                            self.yang_parent_name = "threshold-limits"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
-                            self._leafs = OrderedDict()
-
-                            self.threshold_up_value = YList(self)
-                            self._segment_path = lambda: "threshold-up-values"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues, [], name, value)
-
-
-                        class ThresholdUpValue(Entity):
-                            """
-                            Threshold limit at which track is set to UP
-                            state
-                            
-                            .. attribute:: up  (key)
-                            
-                            	Up value
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: threshold_down
-                            
-                            	Threshold limit at which track is set to Down state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**default value**\: 0
-                            
-                            
-
-                            """
-
-                            _prefix = 'manageability-object-tracking-cfg'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, self).__init__()
-
-                                self.yang_name = "threshold-up-value"
-                                self.yang_parent_name = "threshold-up-values"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['up']
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
-                                    ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
-                                ])
-                                self.up = None
-                                self.threshold_down = None
-                                self._segment_path = lambda: "threshold-up-value" + "[up='" + str(self.up) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
-
-
+                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, ['up', 'down'], name, value)
 
 
 
@@ -916,10 +840,21 @@ class ObjectTrackings(Entity):
                     """
                     Threshold Limits
                     
-                    .. attribute:: threshold_up_values
+                    .. attribute:: up
                     
-                    	Threshold limit at which track is set to UP state
-                    	**type**\:  :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues>`
+                    	Up threshold value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: down
+                    
+                    	Down threshold value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**default value**\: 0
                     
                     
 
@@ -936,105 +871,18 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues))])
-                        self._leafs = OrderedDict()
-
-                        self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues()
-                        self.threshold_up_values.parent = self
-                        self._children_name_map["threshold_up_values"] = "threshold-up-values"
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                            ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                        ])
+                        self.up = None
+                        self.down = None
                         self._segment_path = lambda: "threshold-limits"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, [], name, value)
-
-
-                    class ThresholdUpValues(Entity):
-                        """
-                        Threshold limit at which track is set to UP
-                        state
-                        
-                        .. attribute:: threshold_up_value
-                        
-                        	Threshold limit at which track is set to UP state
-                        	**type**\: list of  		 :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'manageability-object-tracking-cfg'
-                        _revision = '2017-09-07'
-
-                        def __init__(self):
-                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues, self).__init__()
-
-                            self.yang_name = "threshold-up-values"
-                            self.yang_parent_name = "threshold-limits"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
-                            self._leafs = OrderedDict()
-
-                            self.threshold_up_value = YList(self)
-                            self._segment_path = lambda: "threshold-up-values"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues, [], name, value)
-
-
-                        class ThresholdUpValue(Entity):
-                            """
-                            Threshold limit at which track is set to UP
-                            state
-                            
-                            .. attribute:: up  (key)
-                            
-                            	Up value
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: threshold_down
-                            
-                            	Threshold limit at which track is set to Down state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**default value**\: 0
-                            
-                            
-
-                            """
-
-                            _prefix = 'manageability-object-tracking-cfg'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, self).__init__()
-
-                                self.yang_name = "threshold-up-value"
-                                self.yang_parent_name = "threshold-up-values"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['up']
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
-                                    ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
-                                ])
-                                self.up = None
-                                self.threshold_down = None
-                                self._segment_path = lambda: "threshold-up-value" + "[up='" + str(self.up) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
-
-
+                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, ['up', 'down'], name, value)
 
 
 

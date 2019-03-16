@@ -1,6 +1,12 @@
 """ Cisco_IOS_XR_sysadmin_led_mgr_ui 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module provides CLI for Status, ATTN, ALARM LED's.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict

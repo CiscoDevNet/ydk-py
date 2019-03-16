@@ -21,577 +21,148 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class AaaAuthService(Enum):
+class IedgeOperService(Enum):
     """
-    AaaAuthService (Enum Class)
+    IedgeOperService (Enum Class)
 
-    AAA authorization service types
+    Service types
 
-    .. data:: none = 0
+    .. data:: unknown = 0
 
-    	None
+    	Unknown Service
 
-    .. data:: login = 1
+    .. data:: profile = 1
 
-    	Login
+    	Profile
 
-    .. data:: framed = 2
+    .. data:: template = 2
 
-    	Framed
+    	Template
 
-    .. data:: callback_login = 3
+    .. data:: grp_template = 3
 
-    	Callback login
+    	GRP Template
 
-    .. data:: callback_framed = 4
+    .. data:: ppp_template = 4
 
-    	Callback framed
+    	PPP Template
 
-    .. data:: outbound = 5
+    .. data:: eth_template = 5
 
-    	Outbound
+    	ETH Template
 
-    .. data:: administrator = 6
+    .. data:: ip_sub_template = 6
 
-    	Administrator
+    	IPSub Template
 
-    .. data:: prompt = 7
+    .. data:: multi_template = 7
 
-    	Prompt
+    	Multi Template
 
-    .. data:: authentication_only = 8
+    .. data:: max_templae = 8
 
-    	Authentication only
-
-    .. data:: callback_nas_prompt = 9
-
-    	Callback NAS prompt
-
-    .. data:: call_check = 10
-
-    	Call check
-
-    .. data:: callback_administrator = 11
-
-    	Callback administrator
-
-    .. data:: voice = 12
-
-    	Voice
-
-    .. data:: fax = 13
-
-    	Fax
-
-    .. data:: modem_relay = 14
-
-    	Modem relay
-
-    .. data:: eap_over_udp = 15
-
-    	EAP over UDP
+    	MAX Template
 
     """
 
-    none = Enum.YLeaf(0, "none")
+    unknown = Enum.YLeaf(0, "unknown")
 
-    login = Enum.YLeaf(1, "login")
+    profile = Enum.YLeaf(1, "profile")
 
-    framed = Enum.YLeaf(2, "framed")
+    template = Enum.YLeaf(2, "template")
 
-    callback_login = Enum.YLeaf(3, "callback-login")
+    grp_template = Enum.YLeaf(3, "grp-template")
 
-    callback_framed = Enum.YLeaf(4, "callback-framed")
+    ppp_template = Enum.YLeaf(4, "ppp-template")
 
-    outbound = Enum.YLeaf(5, "outbound")
+    eth_template = Enum.YLeaf(5, "eth-template")
 
-    administrator = Enum.YLeaf(6, "administrator")
+    ip_sub_template = Enum.YLeaf(6, "ip-sub-template")
 
-    prompt = Enum.YLeaf(7, "prompt")
+    multi_template = Enum.YLeaf(7, "multi-template")
 
-    authentication_only = Enum.YLeaf(8, "authentication-only")
-
-    callback_nas_prompt = Enum.YLeaf(9, "callback-nas-prompt")
-
-    call_check = Enum.YLeaf(10, "call-check")
-
-    callback_administrator = Enum.YLeaf(11, "callback-administrator")
-
-    voice = Enum.YLeaf(12, "voice")
-
-    fax = Enum.YLeaf(13, "fax")
-
-    modem_relay = Enum.YLeaf(14, "modem-relay")
-
-    eap_over_udp = Enum.YLeaf(15, "eap-over-udp")
+    max_templae = Enum.YLeaf(8, "max-templae")
 
 
-class AaaInterface(Enum):
+class IedgeOperServiceStatus(Enum):
     """
-    AaaInterface (Enum Class)
+    IedgeOperServiceStatus (Enum Class)
 
-    AAA interface types
+    Subscriber service status
 
-    .. data:: none = 0
+    .. data:: unknown = 0
 
-    	None
+    	Unknown
 
-    .. data:: primary_rate = 1
+    .. data:: error = 1
 
-    	Primary rate
+    	Error
 
-    .. data:: basic_rate = 2
+    .. data:: new = 2
 
-    	Basic rate
+    	New
 
-    .. data:: serial = 3
+    .. data:: loading = 3
 
-    	Serial
+    	Loading
 
-    .. data:: asynchronous = 4
+    .. data:: req_association = 4
 
-    	Asynchronous
+    	Request Association
 
-    .. data:: vty = 5
+    .. data:: associated = 5
 
-    	VTY
+    	Associated
 
-    .. data:: atm = 6
+    .. data:: req_pd_association = 6
 
-    	ATM
+    	Request PD Association
 
-    .. data:: ethernet = 7
+    .. data:: applied = 7
 
-    	Ethernet
+    	Applied
 
-    .. data:: ppp_over_atm = 8
+    .. data:: req_unassociation = 8
 
-    	PPP over ATM
+    	Request Unassociation
 
-    .. data:: pppoe_over_atm = 9
+    .. data:: req_pd_unassociation = 9
 
-    	PPPoE over ATM
+    	Request PD Unassociation
 
-    .. data:: pppoe_over_ethernet = 10
+    .. data:: unapplied = 10
 
-    	PPPoE over ethernet
+    	Unapplied
 
-    .. data:: ppp_over_vlan = 11
+    .. data:: max = 11
 
-    	PPP over VLAN
-
-    .. data:: ppp_over_qinq = 12
-
-    	PPP over Q in Q
-
-    .. data:: v120 = 13
-
-    	V120
-
-    .. data:: v110 = 14
-
-    	V110
-
-    .. data:: piafs = 15
-
-    	PHS internet access forum standard
-
-    .. data:: x75 = 16
-
-    	X75
-
-    .. data:: ip_sec = 17
-
-    	IP sec
-
-    .. data:: other = 18
-
-    	Other
-
-    .. data:: virtual_pppoe_over_ethernet = 19
-
-    	Virtual PPPoE over ethernet
-
-    .. data:: virtual_pppoe_over_vlan = 20
-
-    	Virtual PPPoE over VLAN
-
-    .. data:: virtual_pppoe_over_qinq = 21
-
-    	Virtual PPPoE over Q in Q
-
-    .. data:: ipo_e_over_ethernet = 22
-
-    	IPoE over ethernet
-
-    .. data:: ipo_e_over_vlan = 23
-
-    	IPoE over VLAN
-
-    .. data:: ipo_e_over_qinq = 24
-
-    	IPoE over Q in Q
-
-    .. data:: virtual_i_po_e_over_ethernet = 25
-
-    	Virtual IPoE over ethernet
-
-    .. data:: virtual_i_po_e_over_vlan = 26
-
-    	Virtual IPoE over VLAN
-
-    .. data:: virtual_i_po_e_over_qinq = 27
-
-    	Virtual IPoE over Q in Q
+    	Max
 
     """
 
-    none = Enum.YLeaf(0, "none")
+    unknown = Enum.YLeaf(0, "unknown")
 
-    primary_rate = Enum.YLeaf(1, "primary-rate")
+    error = Enum.YLeaf(1, "error")
 
-    basic_rate = Enum.YLeaf(2, "basic-rate")
+    new = Enum.YLeaf(2, "new")
 
-    serial = Enum.YLeaf(3, "serial")
+    loading = Enum.YLeaf(3, "loading")
 
-    asynchronous = Enum.YLeaf(4, "asynchronous")
+    req_association = Enum.YLeaf(4, "req-association")
 
-    vty = Enum.YLeaf(5, "vty")
+    associated = Enum.YLeaf(5, "associated")
 
-    atm = Enum.YLeaf(6, "atm")
+    req_pd_association = Enum.YLeaf(6, "req-pd-association")
 
-    ethernet = Enum.YLeaf(7, "ethernet")
+    applied = Enum.YLeaf(7, "applied")
 
-    ppp_over_atm = Enum.YLeaf(8, "ppp-over-atm")
+    req_unassociation = Enum.YLeaf(8, "req-unassociation")
 
-    pppoe_over_atm = Enum.YLeaf(9, "pppoe-over-atm")
+    req_pd_unassociation = Enum.YLeaf(9, "req-pd-unassociation")
 
-    pppoe_over_ethernet = Enum.YLeaf(10, "pppoe-over-ethernet")
+    unapplied = Enum.YLeaf(10, "unapplied")
 
-    ppp_over_vlan = Enum.YLeaf(11, "ppp-over-vlan")
-
-    ppp_over_qinq = Enum.YLeaf(12, "ppp-over-qinq")
-
-    v120 = Enum.YLeaf(13, "v120")
-
-    v110 = Enum.YLeaf(14, "v110")
-
-    piafs = Enum.YLeaf(15, "piafs")
-
-    x75 = Enum.YLeaf(16, "x75")
-
-    ip_sec = Enum.YLeaf(17, "ip-sec")
-
-    other = Enum.YLeaf(18, "other")
-
-    virtual_pppoe_over_ethernet = Enum.YLeaf(19, "virtual-pppoe-over-ethernet")
-
-    virtual_pppoe_over_vlan = Enum.YLeaf(20, "virtual-pppoe-over-vlan")
-
-    virtual_pppoe_over_qinq = Enum.YLeaf(21, "virtual-pppoe-over-qinq")
-
-    ipo_e_over_ethernet = Enum.YLeaf(22, "ipo-e-over-ethernet")
-
-    ipo_e_over_vlan = Enum.YLeaf(23, "ipo-e-over-vlan")
-
-    ipo_e_over_qinq = Enum.YLeaf(24, "ipo-e-over-qinq")
-
-    virtual_i_po_e_over_ethernet = Enum.YLeaf(25, "virtual-i-po-e-over-ethernet")
-
-    virtual_i_po_e_over_vlan = Enum.YLeaf(26, "virtual-i-po-e-over-vlan")
-
-    virtual_i_po_e_over_qinq = Enum.YLeaf(27, "virtual-i-po-e-over-qinq")
-
-
-class AaaTerminateCause(Enum):
-    """
-    AaaTerminateCause (Enum Class)
-
-    AAA terminate cause types
-
-    .. data:: none = 0
-
-    	None
-
-    .. data:: user_request = 1
-
-    	User request
-
-    .. data:: lost_carrier = 2
-
-    	Lost carrier
-
-    .. data:: lost_service = 3
-
-    	Lost service
-
-    .. data:: idle_timeout = 4
-
-    	Idle timeout
-
-    .. data:: session_timeout = 5
-
-    	Session timeout
-
-    .. data:: admin_reset = 6
-
-    	Admin reset
-
-    .. data:: admin_reboot = 7
-
-    	Admin reboot
-
-    .. data:: port_error = 8
-
-    	Port error
-
-    .. data:: nas_error = 9
-
-    	NAS error
-
-    .. data:: nas_request = 10
-
-    	NAS request
-
-    .. data:: nas_reboot = 11
-
-    	NAS reboot
-
-    .. data:: port_unneeded = 12
-
-    	Port unneeded
-
-    .. data:: port_preempted = 13
-
-    	Port preempted
-
-    .. data:: port_suspended = 14
-
-    	Port suspended
-
-    .. data:: service_unavailable = 15
-
-    	Service unavailable
-
-    .. data:: callback = 16
-
-    	Callback
-
-    .. data:: user_error = 17
-
-    	User error
-
-    .. data:: host_request = 18
-
-    	Host request
-
-    .. data:: supplicant_restart = 19
-
-    	Supplicant restart
-
-    .. data:: reauthorization_failure = 20
-
-    	Reauthorization failure
-
-    .. data:: port_reinitialized = 21
-
-    	Port reinitialized
-
-    .. data:: admin_disabled = 22
-
-    	Admin disabled
-
-    """
-
-    none = Enum.YLeaf(0, "none")
-
-    user_request = Enum.YLeaf(1, "user-request")
-
-    lost_carrier = Enum.YLeaf(2, "lost-carrier")
-
-    lost_service = Enum.YLeaf(3, "lost-service")
-
-    idle_timeout = Enum.YLeaf(4, "idle-timeout")
-
-    session_timeout = Enum.YLeaf(5, "session-timeout")
-
-    admin_reset = Enum.YLeaf(6, "admin-reset")
-
-    admin_reboot = Enum.YLeaf(7, "admin-reboot")
-
-    port_error = Enum.YLeaf(8, "port-error")
-
-    nas_error = Enum.YLeaf(9, "nas-error")
-
-    nas_request = Enum.YLeaf(10, "nas-request")
-
-    nas_reboot = Enum.YLeaf(11, "nas-reboot")
-
-    port_unneeded = Enum.YLeaf(12, "port-unneeded")
-
-    port_preempted = Enum.YLeaf(13, "port-preempted")
-
-    port_suspended = Enum.YLeaf(14, "port-suspended")
-
-    service_unavailable = Enum.YLeaf(15, "service-unavailable")
-
-    callback = Enum.YLeaf(16, "callback")
-
-    user_error = Enum.YLeaf(17, "user-error")
-
-    host_request = Enum.YLeaf(18, "host-request")
-
-    supplicant_restart = Enum.YLeaf(19, "supplicant-restart")
-
-    reauthorization_failure = Enum.YLeaf(20, "reauthorization-failure")
-
-    port_reinitialized = Enum.YLeaf(21, "port-reinitialized")
-
-    admin_disabled = Enum.YLeaf(22, "admin-disabled")
-
-
-class AaaTunnelMedium(Enum):
-    """
-    AaaTunnelMedium (Enum Class)
-
-    Tunnel medium types
-
-    .. data:: none = 0
-
-    	None
-
-    .. data:: ipv4 = 1
-
-    	IPv4
-
-    .. data:: ipv6 = 2
-
-    	IPv6
-
-    .. data:: nsap = 3
-
-    	NSAP
-
-    .. data:: hdlc = 4
-
-    	HDLC
-
-    .. data:: bbn = 5
-
-    	BBN
-
-    .. data:: all802 = 6
-
-    	ALL 802
-
-    """
-
-    none = Enum.YLeaf(0, "none")
-
-    ipv4 = Enum.YLeaf(1, "ipv4")
-
-    ipv6 = Enum.YLeaf(2, "ipv6")
-
-    nsap = Enum.YLeaf(3, "nsap")
-
-    hdlc = Enum.YLeaf(4, "hdlc")
-
-    bbn = Enum.YLeaf(5, "bbn")
-
-    all802 = Enum.YLeaf(6, "all802")
-
-
-class AaaTunnelProto(Enum):
-    """
-    AaaTunnelProto (Enum Class)
-
-    Tunnel protocol types
-
-    .. data:: none = 0
-
-    	None
-
-    .. data:: pptp = 1
-
-    	Point-to-point tunneling protocol
-
-    .. data:: l2f = 2
-
-    	Layer 2 forwarding
-
-    .. data:: l2tp = 3
-
-    	Layer 2 tunneling protocol
-
-    .. data:: atmp = 4
-
-    	Ascend tunnel management protocol
-
-    .. data:: vtp = 5
-
-    	VLAN trunk protocol
-
-    .. data:: ah = 6
-
-    	Authentication header
-
-    .. data:: ip_over_ip = 7
-
-    	IP over IP
-
-    .. data:: minimum_ip_over_ip = 8
-
-    	Minimum IP over IP
-
-    .. data:: esp = 9
-
-    	Encapsulating security payload
-
-    .. data:: gre = 10
-
-    	Generic routing encapsulation
-
-    .. data:: bay_dvs = 11
-
-    	Bay dial virtual services
-
-    .. data:: ip_in_ip = 12
-
-    	IP in IP
-
-    .. data:: vlan = 13
-
-    	VLAN
-
-    """
-
-    none = Enum.YLeaf(0, "none")
-
-    pptp = Enum.YLeaf(1, "pptp")
-
-    l2f = Enum.YLeaf(2, "l2f")
-
-    l2tp = Enum.YLeaf(3, "l2tp")
-
-    atmp = Enum.YLeaf(4, "atmp")
-
-    vtp = Enum.YLeaf(5, "vtp")
-
-    ah = Enum.YLeaf(6, "ah")
-
-    ip_over_ip = Enum.YLeaf(7, "ip-over-ip")
-
-    minimum_ip_over_ip = Enum.YLeaf(8, "minimum-ip-over-ip")
-
-    esp = Enum.YLeaf(9, "esp")
-
-    gre = Enum.YLeaf(10, "gre")
-
-    bay_dvs = Enum.YLeaf(11, "bay-dvs")
-
-    ip_in_ip = Enum.YLeaf(12, "ip-in-ip")
-
-    vlan = Enum.YLeaf(13, "vlan")
+    max = Enum.YLeaf(11, "max")
 
 
 class IedgeOperSession(Enum):
@@ -631,39 +202,6 @@ class IedgeOperSession(Enum):
     ip_packet_trigger = Enum.YLeaf(3, "ip-packet-trigger")
 
     ip_packet_dhcp_trigger = Enum.YLeaf(4, "ip-packet-dhcp-trigger")
-
-
-class IedgeOperSessionAfState(Enum):
-    """
-    IedgeOperSessionAfState (Enum Class)
-
-    Subscriber session address family state
-
-    .. data:: not_started = 0
-
-    	Not started
-
-    .. data:: down = 1
-
-    	Down
-
-    .. data:: up_pending = 2
-
-    	Up Pending
-
-    .. data:: up = 3
-
-    	Up
-
-    """
-
-    not_started = Enum.YLeaf(0, "not-started")
-
-    down = Enum.YLeaf(1, "down")
-
-    up_pending = Enum.YLeaf(2, "up-pending")
-
-    up = Enum.YLeaf(3, "up")
 
 
 class IedgeOperSessionState(Enum):
@@ -837,6 +375,39 @@ class SubscriberAuthorStateFilterFlag(Enum):
     authorized = Enum.YLeaf(1, "authorized")
 
 
+class SubscriberSrgOperFilterFlag(Enum):
+    """
+    SubscriberSrgOperFilterFlag (Enum Class)
+
+    Subscriber srg oper filter flag
+
+    .. data:: srg_none = 0
+
+    	SRG Role None
+
+    .. data:: srg_master = 16384
+
+    	SRG Role Master
+
+    .. data:: srg_slave = 65536
+
+    	SRG Role Slave
+
+    .. data:: srg_both = 81920
+
+    	SRG Role Master Slave
+
+    """
+
+    srg_none = Enum.YLeaf(0, "srg-none")
+
+    srg_master = Enum.YLeaf(16384, "srg-master")
+
+    srg_slave = Enum.YLeaf(65536, "srg-slave")
+
+    srg_both = Enum.YLeaf(81920, "srg-both")
+
+
 class SubscriberStateFilterFlag(Enum):
     """
     SubscriberStateFilterFlag (Enum Class)
@@ -912,7 +483,7 @@ class Subscriber(Entity):
     """
 
     _prefix = 'iedge4710-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-09-20'
 
     def __init__(self):
         super(Subscriber, self).__init__()
@@ -956,7 +527,7 @@ class Subscriber(Entity):
         """
 
         _prefix = 'iedge4710-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(Subscriber.Manager, self).__init__()
@@ -996,7 +567,7 @@ class Subscriber(Entity):
             """
 
             _prefix = 'iedge4710-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Subscriber.Manager.Nodes, self).__init__()
@@ -1044,7 +615,7 @@ class Subscriber(Entity):
                 """
 
                 _prefix = 'iedge4710-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Subscriber.Manager.Nodes.Node, self).__init__()
@@ -1089,6 +660,13 @@ class Subscriber(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: disconn_unique
+                    
+                    	Disconnect Unique Summary statistics
+                    	**type**\:  :py:class:`DisconnUnique <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: srg
                     
                     	Geo Redundancy statistics
@@ -1101,7 +679,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Manager.Nodes.Node.Statistics, self).__init__()
@@ -1111,7 +689,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("aaa", ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa)), ("aggregate-summary", ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary)), ("srg", ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg))])
+                        self._child_classes = OrderedDict([("aaa", ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa)), ("aggregate-summary", ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary)), ("disconn-unique", ("disconn_unique", Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique)), ("srg", ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg))])
                         self._leafs = OrderedDict()
 
                         self.aaa = Subscriber.Manager.Nodes.Node.Statistics.Aaa()
@@ -1121,6 +699,10 @@ class Subscriber(Entity):
                         self.aggregate_summary = Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary()
                         self.aggregate_summary.parent = self
                         self._children_name_map["aggregate_summary"] = "aggregate-summary"
+
+                        self.disconn_unique = Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique()
+                        self.disconn_unique.parent = self
+                        self._children_name_map["disconn_unique"] = "disconn-unique"
 
                         self.srg = Subscriber.Manager.Nodes.Node.Statistics.Srg()
                         self.srg.parent = self
@@ -1225,7 +807,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Manager.Nodes.Node.Statistics.Aaa, self).__init__()
@@ -1388,7 +970,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, self).__init__()
@@ -1505,7 +1087,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, self).__init__()
@@ -1601,7 +1183,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, self).__init__()
@@ -1697,7 +1279,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, self).__init__()
@@ -1793,7 +1375,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, self).__init__()
@@ -1889,7 +1471,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, self).__init__()
@@ -1985,7 +1567,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, self).__init__()
@@ -2077,15 +1659,6 @@ class Subscriber(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: incomplete_requests
-                            
-                            	Incomplete requests \- missing attributes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**config**\: False
-                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
@@ -2100,7 +1673,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, self).__init__()
@@ -2118,7 +1691,6 @@ class Subscriber(Entity):
                                     ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                     ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                     ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                     ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
@@ -2127,13 +1699,12 @@ class Subscriber(Entity):
                                 self.rejected_requests = None
                                 self.unreachable_requests = None
                                 self.errored_requests = None
-                                self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "authentication"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -2182,7 +1753,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, self).__init__()
@@ -2269,15 +1840,6 @@ class Subscriber(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: incomplete_requests
-                            
-                            	Incomplete requests \- missing attributes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**config**\: False
-                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
@@ -2292,7 +1854,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, self).__init__()
@@ -2310,7 +1872,6 @@ class Subscriber(Entity):
                                     ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                     ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                     ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                     ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
@@ -2319,13 +1880,12 @@ class Subscriber(Entity):
                                 self.rejected_requests = None
                                 self.unreachable_requests = None
                                 self.errored_requests = None
-                                self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authentication"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -2374,7 +1934,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, self).__init__()
@@ -2509,7 +2069,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, self).__init__()
@@ -2626,7 +2186,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, self).__init__()
@@ -2722,7 +2282,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, self).__init__()
@@ -2818,7 +2378,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, self).__init__()
@@ -2914,7 +2474,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
@@ -3010,7 +2570,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, self).__init__()
@@ -3106,7 +2666,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
@@ -3198,15 +2758,6 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: incomplete_requests
-                                
-                                	Incomplete requests \- missing attributes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
@@ -3221,7 +2772,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, self).__init__()
@@ -3239,7 +2790,6 @@ class Subscriber(Entity):
                                         ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                         ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                         ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                         ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
@@ -3248,13 +2798,12 @@ class Subscriber(Entity):
                                     self.rejected_requests = None
                                     self.unreachable_requests = None
                                     self.errored_requests = None
-                                    self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -3316,15 +2865,6 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: incomplete_requests
-                                
-                                	Incomplete requests \- missing attributes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
@@ -3339,7 +2879,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, self).__init__()
@@ -3357,7 +2897,6 @@ class Subscriber(Entity):
                                         ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                         ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                         ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                         ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
@@ -3366,13 +2905,12 @@ class Subscriber(Entity):
                                     self.rejected_requests = None
                                     self.unreachable_requests = None
                                     self.errored_requests = None
-                                    self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -3531,7 +3069,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
@@ -3639,7 +3177,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
@@ -3702,7 +3240,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
@@ -3765,7 +3303,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
@@ -3828,7 +3366,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
@@ -3891,7 +3429,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
@@ -3954,7 +3492,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
@@ -4017,7 +3555,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
@@ -4080,7 +3618,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
@@ -4153,7 +3691,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, self).__init__()
@@ -4338,7 +3876,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, self).__init__()
@@ -4446,7 +3984,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, self).__init__()
@@ -4509,7 +4047,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, self).__init__()
@@ -4572,7 +4110,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, self).__init__()
@@ -4635,7 +4173,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, self).__init__()
@@ -4698,7 +4236,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, self).__init__()
@@ -4761,7 +4299,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, self).__init__()
@@ -4824,7 +4362,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, self).__init__()
@@ -4887,7 +4425,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, self).__init__()
@@ -4973,15 +4511,6 @@ class Subscriber(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: incomplete_requests
-                            
-                            	Incomplete requests \- missing attributes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**config**\: False
-                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
@@ -4996,7 +4525,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, self).__init__()
@@ -5014,7 +4543,6 @@ class Subscriber(Entity):
                                     ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                     ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                     ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                     ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
@@ -5023,13 +4551,12 @@ class Subscriber(Entity):
                                 self.rejected_requests = None
                                 self.unreachable_requests = None
                                 self.errored_requests = None
-                                self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "authorization"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -5091,15 +4618,6 @@ class Subscriber(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: incomplete_requests
-                            
-                            	Incomplete requests \- missing attributes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**config**\: False
-                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
@@ -5114,7 +4632,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, self).__init__()
@@ -5132,7 +4650,6 @@ class Subscriber(Entity):
                                     ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                     ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                     ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                     ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
@@ -5141,13 +4658,12 @@ class Subscriber(Entity):
                                 self.rejected_requests = None
                                 self.unreachable_requests = None
                                 self.errored_requests = None
-                                self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authorization"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -5196,7 +4712,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, self).__init__()
@@ -5331,7 +4847,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, self).__init__()
@@ -5448,7 +4964,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, self).__init__()
@@ -5544,7 +5060,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, self).__init__()
@@ -5640,7 +5156,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, self).__init__()
@@ -5736,7 +5252,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
@@ -5832,7 +5348,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, self).__init__()
@@ -5928,7 +5444,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
@@ -6020,15 +5536,6 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: incomplete_requests
-                                
-                                	Incomplete requests \- missing attributes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
@@ -6043,7 +5550,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, self).__init__()
@@ -6061,7 +5568,6 @@ class Subscriber(Entity):
                                         ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                         ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                         ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                         ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
@@ -6070,13 +5576,12 @@ class Subscriber(Entity):
                                     self.rejected_requests = None
                                     self.unreachable_requests = None
                                     self.errored_requests = None
-                                    self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -6138,15 +5643,6 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: incomplete_requests
-                                
-                                	Incomplete requests \- missing attributes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
@@ -6161,7 +5657,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, self).__init__()
@@ -6179,7 +5675,6 @@ class Subscriber(Entity):
                                         ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
                                         ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
                                         ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
-                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
                                         ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
@@ -6188,13 +5683,12 @@ class Subscriber(Entity):
                                     self.rejected_requests = None
                                     self.unreachable_requests = None
                                     self.errored_requests = None
-                                    self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
 
 
 
@@ -6353,7 +5847,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
@@ -6461,7 +5955,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
@@ -6524,7 +6018,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
@@ -6587,7 +6081,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
@@ -6650,7 +6144,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
@@ -6713,7 +6207,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
@@ -6776,7 +6270,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
@@ -6839,7 +6333,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
@@ -6902,7 +6396,7 @@ class Subscriber(Entity):
                                     """
 
                                     _prefix = 'iedge4710-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2018-09-20'
 
                                     def __init__(self):
                                         super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
@@ -6975,7 +6469,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, self).__init__()
@@ -7101,7 +6595,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, self).__init__()
@@ -7218,7 +6712,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, self).__init__()
@@ -7314,7 +6808,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, self).__init__()
@@ -7410,7 +6904,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, self).__init__()
@@ -7506,7 +7000,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, self).__init__()
@@ -7602,7 +7096,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, self).__init__()
@@ -7698,7 +7192,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, self).__init__()
@@ -7777,7 +7271,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, self).__init__()
@@ -7962,7 +7456,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, self).__init__()
@@ -8070,7 +7564,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, self).__init__()
@@ -8133,7 +7627,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, self).__init__()
@@ -8196,7 +7690,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, self).__init__()
@@ -8259,7 +7753,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, self).__init__()
@@ -8322,7 +7816,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, self).__init__()
@@ -8385,7 +7879,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, self).__init__()
@@ -8448,7 +7942,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, self).__init__()
@@ -8511,7 +8005,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, self).__init__()
@@ -8720,7 +8214,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, self).__init__()
@@ -8776,6 +8270,114 @@ class Subscriber(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, [u'no_subscriber_control_policy_on_interface', u'no_class_match_in_start_request', u'nas_port_attribute_format_warnings', u'nas_port_id_attribute_format_warnings', u'destination_station_id_attribute_format_warnings', u'calling_station_id_attribute_format_warnings', u'username_attribute_format_warnings', u'install_user_profiles', u'user_profile_install_errors', u'user_profile_removals', u'user_profile_errors', u'sess_disc_quota_exhausts', u'sess_disc_no_quota', u'sess_disc_quota_avail', u'sess_disc_recon_ip', u'sess_disc_none_started', u'sess_disc_quota', u'sess_disc_quota_remaining', u'sess_disc_q_count'], name, value)
+
+
+
+                    class DisconnUnique(Entity):
+                        """
+                        Disconnect Unique Summary statistics
+                        
+                        .. attribute:: history_data
+                        
+                        	List of disconnect history items
+                        	**type**\: list of  		 :py:class:`HistoryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'iedge4710-oper'
+                        _revision = '2018-09-20'
+
+                        def __init__(self):
+                            super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique, self).__init__()
+
+                            self.yang_name = "disconn-unique"
+                            self.yang_parent_name = "statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("history-data", ("history_data", Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData))])
+                            self._leafs = OrderedDict()
+
+                            self.history_data = YList(self)
+                            self._segment_path = lambda: "disconn-unique"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique, [], name, value)
+
+
+                        class HistoryData(Entity):
+                            """
+                            List of disconnect history items
+                            
+                            .. attribute:: disc_reason
+                            
+                            	Disconnect reason
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: session_count
+                            
+                            	Number of sessions that disconnected this way
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: latest_activity
+                            
+                            	Latest activity
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: if_name
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, self).__init__()
+
+                                self.yang_name = "history-data"
+                                self.yang_parent_name = "disconn-unique"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('disc_reason', (YLeaf(YType.str, 'disc-reason'), ['str'])),
+                                    ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                                    ('latest_activity', (YLeaf(YType.uint32, 'latest-activity'), ['int'])),
+                                    ('if_name', (YLeaf(YType.str, 'if-name'), ['str'])),
+                                ])
+                                self.disc_reason = None
+                                self.session_count = None
+                                self.latest_activity = None
+                                self.if_name = None
+                                self._segment_path = lambda: "history-data"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, [u'disc_reason', u'session_count', u'latest_activity', u'if_name'], name, value)
+
 
 
 
@@ -9263,7 +8865,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Manager.Nodes.Node.Statistics.Srg, self).__init__()
@@ -9410,7 +9012,7 @@ class Subscriber(Entity):
         """
 
         _prefix = 'iedge4710-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(Subscriber.Session, self).__init__()
@@ -9450,7 +9052,7 @@ class Subscriber(Entity):
             """
 
             _prefix = 'iedge4710-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(Subscriber.Session.Nodes, self).__init__()
@@ -9483,6 +9085,13 @@ class Subscriber(Entity):
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
+                
+                .. attribute:: srg_roles
+                
+                	List of subscriber session supported srg roles
+                	**type**\:  :py:class:`SrgRoles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles>`
                 
                 	**config**\: False
                 
@@ -9582,7 +9191,7 @@ class Subscriber(Entity):
                 """
 
                 _prefix = 'iedge4710-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(Subscriber.Session.Nodes.Node, self).__init__()
@@ -9592,11 +9201,15 @@ class Subscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_name']
-                    self._child_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
+                    self._child_classes = OrderedDict([("srg-roles", ("srg_roles", Subscriber.Session.Nodes.Node.SrgRoles)), ("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
                     self._leafs = OrderedDict([
                         ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                     ])
                     self.node_name = None
+
+                    self.srg_roles = Subscriber.Session.Nodes.Node.SrgRoles()
+                    self.srg_roles.parent = self
+                    self._children_name_map["srg_roles"] = "srg-roles"
 
                     self.author_summaries = Subscriber.Session.Nodes.Node.AuthorSummaries()
                     self.author_summaries.parent = self
@@ -9657,6 +9270,11012 @@ class Subscriber(Entity):
                     self._perform_setattr(Subscriber.Session.Nodes.Node, ['node_name'], name, value)
 
 
+                class SrgRoles(Entity):
+                    """
+                    List of subscriber session supported srg
+                    roles
+                    
+                    .. attribute:: srg_role
+                    
+                    	Subscriber session operational data based on srg role
+                    	**type**\: list of  		 :py:class:`SrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'iedge4710-oper'
+                    _revision = '2018-09-20'
+
+                    def __init__(self):
+                        super(Subscriber.Session.Nodes.Node.SrgRoles, self).__init__()
+
+                        self.yang_name = "srg-roles"
+                        self.yang_parent_name = "node"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("srg-role", ("srg_role", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole))])
+                        self._leafs = OrderedDict()
+
+                        self.srg_role = YList(self)
+                        self._segment_path = lambda: "srg-roles"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles, [], name, value)
+
+
+                    class SrgRole(Entity):
+                        """
+                        Subscriber session operational data based on
+                        srg role
+                        
+                        .. attribute:: srg  (key)
+                        
+                        	Subscriber srg role
+                        	**type**\:  :py:class:`SubscriberSrgOperFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberSrgOperFilterFlag>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: author_summaries
+                        
+                        	Summary information filtered by authorization state
+                        	**type**\:  :py:class:`AuthorSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: username_summaries
+                        
+                        	Summary information filtered by username
+                        	**type**\:  :py:class:`UsernameSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mac_summaries
+                        
+                        	Summary information filtered by MAC address
+                        	**type**\:  :py:class:`MacSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_summaries
+                        
+                        	Summary information filtered by interface
+                        	**type**\:  :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: state_summaries
+                        
+                        	Summary information filtered by session state
+                        	**type**\:  :py:class:`StateSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: authentication_summaries
+                        
+                        	Summary information filtered by authentication state
+                        	**type**\:  :py:class:`AuthenticationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: subscriber_sessions
+                        
+                        	IP subscriber sessions
+                        	**type**\:  :py:class:`SubscriberSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4_address_vrf_summaries
+                        
+                        	Summary information filtered by IPv4 address and VRF
+                        	**type**\:  :py:class:`Ipv4AddressVrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: srg_summary
+                        
+                        	Subscriber session summary information
+                        	**type**\:  :py:class:`SrgSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: access_interface_summaries
+                        
+                        	Summary information filtered by access interface
+                        	**type**\:  :py:class:`AccessInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: address_family_summaries
+                        
+                        	Summary information filtered by address family
+                        	**type**\:  :py:class:`AddressFamilySummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4_address_summaries
+                        
+                        	Summary information filtered by subscriber IPv4 address
+                        	**type**\:  :py:class:`Ipv4AddressSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: vrf_summaries
+                        
+                        	Summary information filtered by VRF
+                        	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'iedge4710-oper'
+                        _revision = '2018-09-20'
+
+                        def __init__(self):
+                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole, self).__init__()
+
+                            self.yang_name = "srg-role"
+                            self.yang_parent_name = "srg-roles"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['srg']
+                            self._child_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries)), ("subscriber-sessions", ("subscriber_sessions", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries)), ("srg-summary", ("srg_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries))])
+                            self._leafs = OrderedDict([
+                                ('srg', (YLeaf(YType.enumeration, 'srg'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberSrgOperFilterFlag', '')])),
+                            ])
+                            self.srg = None
+
+                            self.author_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries()
+                            self.author_summaries.parent = self
+                            self._children_name_map["author_summaries"] = "author-summaries"
+
+                            self.username_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries()
+                            self.username_summaries.parent = self
+                            self._children_name_map["username_summaries"] = "username-summaries"
+
+                            self.mac_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries()
+                            self.mac_summaries.parent = self
+                            self._children_name_map["mac_summaries"] = "mac-summaries"
+
+                            self.interface_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries()
+                            self.interface_summaries.parent = self
+                            self._children_name_map["interface_summaries"] = "interface-summaries"
+
+                            self.state_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries()
+                            self.state_summaries.parent = self
+                            self._children_name_map["state_summaries"] = "state-summaries"
+
+                            self.authentication_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries()
+                            self.authentication_summaries.parent = self
+                            self._children_name_map["authentication_summaries"] = "authentication-summaries"
+
+                            self.subscriber_sessions = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions()
+                            self.subscriber_sessions.parent = self
+                            self._children_name_map["subscriber_sessions"] = "subscriber-sessions"
+
+                            self.ipv4_address_vrf_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries()
+                            self.ipv4_address_vrf_summaries.parent = self
+                            self._children_name_map["ipv4_address_vrf_summaries"] = "ipv4-address-vrf-summaries"
+
+                            self.srg_summary = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary()
+                            self.srg_summary.parent = self
+                            self._children_name_map["srg_summary"] = "srg-summary"
+
+                            self.access_interface_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries()
+                            self.access_interface_summaries.parent = self
+                            self._children_name_map["access_interface_summaries"] = "access-interface-summaries"
+
+                            self.address_family_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries()
+                            self.address_family_summaries.parent = self
+                            self._children_name_map["address_family_summaries"] = "address-family-summaries"
+
+                            self.ipv4_address_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries()
+                            self.ipv4_address_summaries.parent = self
+                            self._children_name_map["ipv4_address_summaries"] = "ipv4-address-summaries"
+
+                            self.vrf_summaries = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries()
+                            self.vrf_summaries.parent = self
+                            self._children_name_map["vrf_summaries"] = "vrf-summaries"
+                            self._segment_path = lambda: "srg-role" + "[srg='" + str(self.srg) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole, ['srg'], name, value)
+
+
+                        class AuthorSummaries(Entity):
+                            """
+                            Summary information filtered by
+                            authorization state
+                            
+                            .. attribute:: author_summary
+                            
+                            	authorization summary
+                            	**type**\: list of  		 :py:class:`AuthorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries, self).__init__()
+
+                                self.yang_name = "author-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("author-summary", ("author_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.author_summary = YList(self)
+                                self._segment_path = lambda: "author-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries, [], name, value)
+
+
+                            class AuthorSummary(Entity):
+                                """
+                                authorization summary
+                                
+                                .. attribute:: author_state  (key)
+                                
+                                	Authorization state
+                                	**type**\:  :py:class:`SubscriberAuthorStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthorStateFilterFlag>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary, self).__init__()
+
+                                    self.yang_name = "author-summary"
+                                    self.yang_parent_name = "author-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['author_state']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('author_state', (YLeaf(YType.enumeration, 'author-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAuthorStateFilterFlag', '')])),
+                                    ])
+                                    self.author_state = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "author-summary" + "[author-state='" + str(self.author_state) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary, ['author_state'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "author-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "author-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class UsernameSummaries(Entity):
+                            """
+                            Summary information filtered by username
+                            
+                            .. attribute:: username_summary
+                            
+                            	Username summary
+                            	**type**\: list of  		 :py:class:`UsernameSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries, self).__init__()
+
+                                self.yang_name = "username-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("username-summary", ("username_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.username_summary = YList(self)
+                                self._segment_path = lambda: "username-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries, [], name, value)
+
+
+                            class UsernameSummary(Entity):
+                                """
+                                Username summary
+                                
+                                .. attribute:: username  (key)
+                                
+                                	Subscriber username
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary, self).__init__()
+
+                                    self.yang_name = "username-summary"
+                                    self.yang_parent_name = "username-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['username']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                                    ])
+                                    self.username = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "username-summary" + "[username='" + str(self.username) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary, ['username'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "username-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "username-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class MacSummaries(Entity):
+                            """
+                            Summary information filtered by MAC address
+                            
+                            .. attribute:: mac_summary
+                            
+                            	MAC address summary
+                            	**type**\: list of  		 :py:class:`MacSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries, self).__init__()
+
+                                self.yang_name = "mac-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("mac-summary", ("mac_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.mac_summary = YList(self)
+                                self._segment_path = lambda: "mac-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries, [], name, value)
+
+
+                            class MacSummary(Entity):
+                                """
+                                MAC address summary
+                                
+                                .. attribute:: mac_address  (key)
+                                
+                                	Subscriber MAC address
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary, self).__init__()
+
+                                    self.yang_name = "mac-summary"
+                                    self.yang_parent_name = "mac-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['mac_address']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ])
+                                    self.mac_address = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "mac-summary" + "[mac-address='" + str(self.mac_address) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary, ['mac_address'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "mac-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "mac-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class InterfaceSummaries(Entity):
+                            """
+                            Summary information filtered by interface
+                            
+                            .. attribute:: interface_summary
+                            
+                            	Interface summary
+                            	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries, self).__init__()
+
+                                self.yang_name = "interface-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("interface-summary", ("interface_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.interface_summary = YList(self)
+                                self._segment_path = lambda: "interface-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries, [], name, value)
+
+
+                            class InterfaceSummary(Entity):
+                                """
+                                Interface summary
+                                
+                                .. attribute:: interface_name  (key)
+                                
+                                	Interface name
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary, self).__init__()
+
+                                    self.yang_name = "interface-summary"
+                                    self.yang_parent_name = "interface-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ])
+                                    self.interface_name = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary, ['interface_name'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "interface-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "interface-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class StateSummaries(Entity):
+                            """
+                            Summary information filtered by session
+                            state
+                            
+                            .. attribute:: state_summary
+                            
+                            	State summary
+                            	**type**\: list of  		 :py:class:`StateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries, self).__init__()
+
+                                self.yang_name = "state-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("state-summary", ("state_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.state_summary = YList(self)
+                                self._segment_path = lambda: "state-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries, [], name, value)
+
+
+                            class StateSummary(Entity):
+                                """
+                                State summary
+                                
+                                .. attribute:: state  (key)
+                                
+                                	Subscriber state
+                                	**type**\:  :py:class:`SubscriberStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberStateFilterFlag>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary, self).__init__()
+
+                                    self.yang_name = "state-summary"
+                                    self.yang_parent_name = "state-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['state']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberStateFilterFlag', '')])),
+                                    ])
+                                    self.state = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "state-summary" + "[state='" + str(self.state) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary, ['state'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "state-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "state-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class AuthenticationSummaries(Entity):
+                            """
+                            Summary information filtered by
+                            authentication state
+                            
+                            .. attribute:: authentication_summary
+                            
+                            	authentication summary
+                            	**type**\: list of  		 :py:class:`AuthenticationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries, self).__init__()
+
+                                self.yang_name = "authentication-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("authentication-summary", ("authentication_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.authentication_summary = YList(self)
+                                self._segment_path = lambda: "authentication-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries, [], name, value)
+
+
+                            class AuthenticationSummary(Entity):
+                                """
+                                authentication summary
+                                
+                                .. attribute:: authentication_state  (key)
+                                
+                                	Authentication state
+                                	**type**\:  :py:class:`SubscriberAuthenStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthenStateFilterFlag>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary, self).__init__()
+
+                                    self.yang_name = "authentication-summary"
+                                    self.yang_parent_name = "authentication-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['authentication_state']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('authentication_state', (YLeaf(YType.enumeration, 'authentication-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAuthenStateFilterFlag', '')])),
+                                    ])
+                                    self.authentication_state = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "authentication-summary" + "[authentication-state='" + str(self.authentication_state) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary, ['authentication_state'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "authentication-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "authentication-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class SubscriberSessions(Entity):
+                            """
+                            IP subscriber sessions
+                            
+                            .. attribute:: subscriber_session
+                            
+                            	Subscriber session information
+                            	**type**\: list of  		 :py:class:`SubscriberSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions, self).__init__()
+
+                                self.yang_name = "subscriber-sessions"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("subscriber-session", ("subscriber_session", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession))])
+                                self._leafs = OrderedDict()
+
+                                self.subscriber_session = YList(self)
+                                self._segment_path = lambda: "subscriber-sessions"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions, [], name, value)
+
+
+                            class SubscriberSession(Entity):
+                                """
+                                Subscriber session information
+                                
+                                .. attribute:: session_id  (key)
+                                
+                                	Session ID
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: accounting
+                                
+                                	Accounting information
+                                	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_type
+                                
+                                	Subscriber session type
+                                	**type**\:  :py:class:`IedgeOperSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSession>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: pppoe_sub_type
+                                
+                                	PPPoE sub type
+                                	**type**\:  :py:class:`IedgePppSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgePppSub>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: interface_name
+                                
+                                	Interface name
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF name
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: circuit_id
+                                
+                                	Circuit ID
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: remote_id
+                                
+                                	Remote ID
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: lns_address
+                                
+                                	PPPoE LNS address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: lac_address
+                                
+                                	PPPoE LAC address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: tunnel_client_authentication_id
+                                
+                                	PPPoE LAC tunnel client authentication ID
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: tunnel_server_authentication_id
+                                
+                                	PPPoE LAC tunnel server authentication ID
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_ip_address
+                                
+                                	Session ip address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_ipv6_address
+                                
+                                	Session IPv6 address
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_ipv6_prefix
+                                
+                                	Session IPv6 prefix
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: delegated_ipv6_prefix
+                                
+                                	Session delegated IPv6 prefix
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ipv6_interface_id
+                                
+                                	IPv6 Interface ID
+                                	**type**\: str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: mac_address
+                                
+                                	MAC address
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: account_session_id
+                                
+                                	Accounting session ID
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: nas_port
+                                
+                                	NAS port
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: username
+                                
+                                	Username
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: clientname
+                                
+                                	Client Username
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: formattedname
+                                
+                                	Formatted Username
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: is_session_authentic
+                                
+                                	If true, session is authentic
+                                	**type**\: bool
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: is_session_author
+                                
+                                	If true, session is authorized
+                                	**type**\: bool
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_state
+                                
+                                	Session state
+                                	**type**\:  :py:class:`IedgeOperSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionState>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_creation_time_epoch
+                                
+                                	Session creation time in epoch seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: idle_state_change_time
+                                
+                                	Time when idle state change occurred in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: total_session_idle_time
+                                
+                                	Total session idle time (in seconds)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: access_interface_name
+                                
+                                	Access interface name associated with the session
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: sub_policy_data
+                                
+                                	Subscriber control policy applied to this session
+                                	**type**\: list of  		 :py:class:`SubPolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_service_info
+                                
+                                	List of subscriber services associated to this session
+                                	**type**\: list of  		 :py:class:`SessionServiceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: session_change_of_authorization
+                                
+                                	Subscriber change of authorization information
+                                	**type**\: list of  		 :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, self).__init__()
+
+                                    self.yang_name = "subscriber-session"
+                                    self.yang_parent_name = "subscriber-sessions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['session_id']
+                                    self._child_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting)), ("sub-policy-data", ("sub_policy_data", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData)), ("session-service-info", ("session_service_info", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo)), ("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization))])
+                                    self._leafs = OrderedDict([
+                                        ('session_id', (YLeaf(YType.str, 'session-id'), ['str'])),
+                                        ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSession', '')])),
+                                        ('pppoe_sub_type', (YLeaf(YType.enumeration, 'pppoe-sub-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgePppSub', '')])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                        ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                        ('lns_address', (YLeaf(YType.str, 'lns-address'), ['str'])),
+                                        ('lac_address', (YLeaf(YType.str, 'lac-address'), ['str'])),
+                                        ('tunnel_client_authentication_id', (YLeaf(YType.str, 'tunnel-client-authentication-id'), ['str'])),
+                                        ('tunnel_server_authentication_id', (YLeaf(YType.str, 'tunnel-server-authentication-id'), ['str'])),
+                                        ('session_ip_address', (YLeaf(YType.str, 'session-ip-address'), ['str'])),
+                                        ('session_ipv6_address', (YLeaf(YType.str, 'session-ipv6-address'), ['str'])),
+                                        ('session_ipv6_prefix', (YLeaf(YType.str, 'session-ipv6-prefix'), ['str'])),
+                                        ('delegated_ipv6_prefix', (YLeaf(YType.str, 'delegated-ipv6-prefix'), ['str'])),
+                                        ('ipv6_interface_id', (YLeaf(YType.str, 'ipv6-interface-id'), ['str'])),
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                        ('account_session_id', (YLeaf(YType.str, 'account-session-id'), ['str'])),
+                                        ('nas_port', (YLeaf(YType.str, 'nas-port'), ['str'])),
+                                        ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                                        ('clientname', (YLeaf(YType.str, 'clientname'), ['str'])),
+                                        ('formattedname', (YLeaf(YType.str, 'formattedname'), ['str'])),
+                                        ('is_session_authentic', (YLeaf(YType.boolean, 'is-session-authentic'), ['bool'])),
+                                        ('is_session_author', (YLeaf(YType.boolean, 'is-session-author'), ['bool'])),
+                                        ('session_state', (YLeaf(YType.enumeration, 'session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionState', '')])),
+                                        ('session_creation_time_epoch', (YLeaf(YType.uint64, 'session-creation-time-epoch'), ['int'])),
+                                        ('idle_state_change_time', (YLeaf(YType.str, 'idle-state-change-time'), ['str'])),
+                                        ('total_session_idle_time', (YLeaf(YType.uint32, 'total-session-idle-time'), ['int'])),
+                                        ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
+                                    ])
+                                    self.session_id = None
+                                    self.session_type = None
+                                    self.pppoe_sub_type = None
+                                    self.interface_name = None
+                                    self.vrf_name = None
+                                    self.circuit_id = None
+                                    self.remote_id = None
+                                    self.lns_address = None
+                                    self.lac_address = None
+                                    self.tunnel_client_authentication_id = None
+                                    self.tunnel_server_authentication_id = None
+                                    self.session_ip_address = None
+                                    self.session_ipv6_address = None
+                                    self.session_ipv6_prefix = None
+                                    self.delegated_ipv6_prefix = None
+                                    self.ipv6_interface_id = None
+                                    self.mac_address = None
+                                    self.account_session_id = None
+                                    self.nas_port = None
+                                    self.username = None
+                                    self.clientname = None
+                                    self.formattedname = None
+                                    self.is_session_authentic = None
+                                    self.is_session_author = None
+                                    self.session_state = None
+                                    self.session_creation_time_epoch = None
+                                    self.idle_state_change_time = None
+                                    self.total_session_idle_time = None
+                                    self.access_interface_name = None
+
+                                    self.accounting = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting()
+                                    self.accounting.parent = self
+                                    self._children_name_map["accounting"] = "accounting"
+
+                                    self.sub_policy_data = YList(self)
+                                    self.session_service_info = YList(self)
+                                    self.session_change_of_authorization = YList(self)
+                                    self._segment_path = lambda: "subscriber-session" + "[session-id='" + str(self.session_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time_epoch', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name'], name, value)
+
+
+                                class Accounting(Entity):
+                                    """
+                                    Accounting information
+                                    
+                                    .. attribute:: accounting_session
+                                    
+                                    	Accounting information
+                                    	**type**\: list of  		 :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting, self).__init__()
+
+                                        self.yang_name = "accounting"
+                                        self.yang_parent_name = "subscriber-session"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("accounting-session", ("accounting_session", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession))])
+                                        self._leafs = OrderedDict()
+
+                                        self.accounting_session = YList(self)
+                                        self._segment_path = lambda: "accounting"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting, [], name, value)
+
+
+                                    class AccountingSession(Entity):
+                                        """
+                                        Accounting information
+                                        
+                                        .. attribute:: accounting_state_rc
+                                        
+                                        	Accounting State Error Code for Accounting Session
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: accounting_stop_state
+                                        
+                                        	Accounting Stop State
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: record_context_name
+                                        
+                                        	Accounting record context name
+                                        	**type**\: str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: method_list_name
+                                        
+                                        	AAA method list name used to perform accounting
+                                        	**type**\: str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: account_session_id
+                                        
+                                        	Accounting session ID
+                                        	**type**\: str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: accounting_start_time_epoch
+                                        
+                                        	Accounting start time in epoch\-seconds
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: second
+                                        
+                                        .. attribute:: is_interim_accounting_enabled
+                                        
+                                        	True if interim accounting is enabled
+                                        	**type**\: bool
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: interim_interval
+                                        
+                                        	Interim accounting interval (in minutes)
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: minute
+                                        
+                                        .. attribute:: last_successful_interim_update_time_epoch
+                                        
+                                        	Time of last successful interim update in epoch\-seconds 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: second
+                                        
+                                        .. attribute:: next_interim_update_attempt_time
+                                        
+                                        	Time of next interim update attempt (in seconds)
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: second
+                                        
+                                        .. attribute:: last_interim_update_attempt_time_epoch
+                                        
+                                        	Time of last interim update attempt in epoch\-seconds
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: second
+                                        
+                                        .. attribute:: sent_interim_updates
+                                        
+                                        	Number of interim updates sent
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: accepted_interim_updates
+                                        
+                                        	Number of interim updates accepted
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: rejected_interim_updates
+                                        
+                                        	Number of interim updates rejected
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: sent_interim_update_failures
+                                        
+                                        	Number of interim update send failures
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, self).__init__()
+
+                                            self.yang_name = "accounting-session"
+                                            self.yang_parent_name = "accounting"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('accounting_state_rc', (YLeaf(YType.uint32, 'accounting-state-rc'), ['int'])),
+                                                ('accounting_stop_state', (YLeaf(YType.uint32, 'accounting-stop-state'), ['int'])),
+                                                ('record_context_name', (YLeaf(YType.str, 'record-context-name'), ['str'])),
+                                                ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                                                ('account_session_id', (YLeaf(YType.str, 'account-session-id'), ['str'])),
+                                                ('accounting_start_time_epoch', (YLeaf(YType.uint64, 'accounting-start-time-epoch'), ['int'])),
+                                                ('is_interim_accounting_enabled', (YLeaf(YType.boolean, 'is-interim-accounting-enabled'), ['bool'])),
+                                                ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
+                                                ('last_successful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-successful-interim-update-time-epoch'), ['int'])),
+                                                ('next_interim_update_attempt_time', (YLeaf(YType.uint32, 'next-interim-update-attempt-time'), ['int'])),
+                                                ('last_interim_update_attempt_time_epoch', (YLeaf(YType.uint64, 'last-interim-update-attempt-time-epoch'), ['int'])),
+                                                ('sent_interim_updates', (YLeaf(YType.uint32, 'sent-interim-updates'), ['int'])),
+                                                ('accepted_interim_updates', (YLeaf(YType.uint32, 'accepted-interim-updates'), ['int'])),
+                                                ('rejected_interim_updates', (YLeaf(YType.uint32, 'rejected-interim-updates'), ['int'])),
+                                                ('sent_interim_update_failures', (YLeaf(YType.uint32, 'sent-interim-update-failures'), ['int'])),
+                                            ])
+                                            self.accounting_state_rc = None
+                                            self.accounting_stop_state = None
+                                            self.record_context_name = None
+                                            self.method_list_name = None
+                                            self.account_session_id = None
+                                            self.accounting_start_time_epoch = None
+                                            self.is_interim_accounting_enabled = None
+                                            self.interim_interval = None
+                                            self.last_successful_interim_update_time_epoch = None
+                                            self.next_interim_update_attempt_time = None
+                                            self.last_interim_update_attempt_time_epoch = None
+                                            self.sent_interim_updates = None
+                                            self.accepted_interim_updates = None
+                                            self.rejected_interim_updates = None
+                                            self.sent_interim_update_failures = None
+                                            self._segment_path = lambda: "accounting-session"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time_epoch', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time_epoch', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time_epoch', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
+
+
+
+
+                                class SubPolicyData(Entity):
+                                    """
+                                    Subscriber control policy applied to this
+                                    session
+                                    
+                                    .. attribute:: policy_epoch
+                                    
+                                    	Matching event, condition and executed actions
+                                    	**type**\: str
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, self).__init__()
+
+                                        self.yang_name = "sub-policy-data"
+                                        self.yang_parent_name = "subscriber-session"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_epoch', (YLeaf(YType.str, 'policy-epoch'), ['str'])),
+                                        ])
+                                        self.policy_epoch = None
+                                        self._segment_path = lambda: "sub-policy-data"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, [u'policy_epoch'], name, value)
+
+
+
+                                class SessionServiceInfo(Entity):
+                                    """
+                                    List of subscriber services associated to this
+                                    session
+                                    
+                                    .. attribute:: service_name
+                                    
+                                    	ServiceName
+                                    	**type**\: str
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: service_params
+                                    
+                                    	ServiceParams
+                                    	**type**\: str
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: service_type
+                                    
+                                    	ServiceType
+                                    	**type**\:  :py:class:`IedgeOperService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperService>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: service_status
+                                    
+                                    	ServiceStatus
+                                    	**type**\:  :py:class:`IedgeOperServiceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperServiceStatus>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: service_id
+                                    
+                                    	ServiceIdentifier
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: service_prepaid
+                                    
+                                    	ServicePrepaid
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, self).__init__()
+
+                                        self.yang_name = "session-service-info"
+                                        self.yang_parent_name = "subscriber-session"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                                            ('service_params', (YLeaf(YType.str, 'service-params'), ['str'])),
+                                            ('service_type', (YLeaf(YType.enumeration, 'service-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperService', '')])),
+                                            ('service_status', (YLeaf(YType.enumeration, 'service-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperServiceStatus', '')])),
+                                            ('service_id', (YLeaf(YType.uint32, 'service-id'), ['int'])),
+                                            ('service_prepaid', (YLeaf(YType.boolean, 'service-prepaid'), ['bool'])),
+                                        ])
+                                        self.service_name = None
+                                        self.service_params = None
+                                        self.service_type = None
+                                        self.service_status = None
+                                        self.service_id = None
+                                        self.service_prepaid = None
+                                        self._segment_path = lambda: "session-service-info"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, [u'service_name', u'service_params', u'service_type', u'service_status', u'service_id', u'service_prepaid'], name, value)
+
+
+
+                                class SessionChangeOfAuthorization(Entity):
+                                    """
+                                    Subscriber change of authorization information
+                                    
+                                    .. attribute:: request_acked
+                                    
+                                    	Coa Request Acked
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: request_time_epoch
+                                    
+                                    	Request time in epoch seconds
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: reply_time_epoch
+                                    
+                                    	Reply time in epoch seconds
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
+                                    
+                                    	**units**\: second
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, self).__init__()
+
+                                        self.yang_name = "session-change-of-authorization"
+                                        self.yang_parent_name = "subscriber-session"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('request_acked', (YLeaf(YType.boolean, 'request-acked'), ['bool'])),
+                                            ('request_time_epoch', (YLeaf(YType.uint64, 'request-time-epoch'), ['int'])),
+                                            ('reply_time_epoch', (YLeaf(YType.uint64, 'reply-time-epoch'), ['int'])),
+                                        ])
+                                        self.request_acked = None
+                                        self.request_time_epoch = None
+                                        self.reply_time_epoch = None
+                                        self._segment_path = lambda: "session-change-of-authorization"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, [u'request_acked', u'request_time_epoch', u'reply_time_epoch'], name, value)
+
+
+
+
+
+                        class Ipv4AddressVrfSummaries(Entity):
+                            """
+                            Summary information filtered by IPv4
+                            address and VRF
+                            
+                            .. attribute:: ipv4_address_vrf_summary
+                            
+                            	IPv4 address and VRF summary
+                            	**type**\: list of  		 :py:class:`Ipv4AddressVrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries, self).__init__()
+
+                                self.yang_name = "ipv4-address-vrf-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("ipv4-address-vrf-summary", ("ipv4_address_vrf_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.ipv4_address_vrf_summary = YList(self)
+                                self._segment_path = lambda: "ipv4-address-vrf-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries, [], name, value)
+
+
+                            class Ipv4AddressVrfSummary(Entity):
+                                """
+                                IPv4 address and VRF summary
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF name
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address
+                                
+                                	Subscriber IPv4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
+
+                                    self.yang_name = "ipv4-address-vrf-summary"
+                                    self.yang_parent_name = "ipv4-address-vrf-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ])
+                                    self.vrf_name = None
+                                    self.address = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "ipv4-address-vrf-summary"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, ['vrf_name', 'address'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "ipv4-address-vrf-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "ipv4-address-vrf-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class SrgSummary(Entity):
+                            """
+                            Subscriber session summary information
+                            
+                            .. attribute:: state_xr
+                            
+                            	State summary
+                            	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: address_family_xr
+                            
+                            	Address family summary
+                            	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary, self).__init__()
+
+                                self.yang_name = "srg-summary"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr))])
+                                self._leafs = OrderedDict()
+
+                                self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr()
+                                self.state_xr.parent = self
+                                self._children_name_map["state_xr"] = "state-xr"
+
+                                self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr()
+                                self.address_family_xr.parent = self
+                                self._children_name_map["address_family_xr"] = "address-family-xr"
+                                self._segment_path = lambda: "srg-summary"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary, [], name, value)
+
+
+                            class StateXr(Entity):
+                                """
+                                State summary
+                                
+                                .. attribute:: pppoe
+                                
+                                	PPPoE summary
+                                	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ip_subscriber_dhcp
+                                
+                                	IP subscriber DHCP summary
+                                	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ip_subscriber_packet
+                                
+                                	IP subscriber packet summary
+                                	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr, self).__init__()
+
+                                    self.yang_name = "state-xr"
+                                    self.yang_parent_name = "srg-summary"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket))])
+                                    self._leafs = OrderedDict()
+
+                                    self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe()
+                                    self.pppoe.parent = self
+                                    self._children_name_map["pppoe"] = "pppoe"
+
+                                    self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp()
+                                    self.ip_subscriber_dhcp.parent = self
+                                    self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                    self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket()
+                                    self.ip_subscriber_packet.parent = self
+                                    self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                    self._segment_path = lambda: "state-xr"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr, [], name, value)
+
+
+                                class Pppoe(Entity):
+                                    """
+                                    PPPoE summary
+                                    
+                                    .. attribute:: initialized_sessions
+                                    
+                                    	Sessions in initialized state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connecting_sessions
+                                    
+                                    	Sessions in connecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connected_sessions
+                                    
+                                    	Sessions in connected state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: activated_sessions
+                                    
+                                    	Sessions in activated state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idle_sessions
+                                    
+                                    	Sessions in idle state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: disconnecting_sessions
+                                    
+                                    	Sessions in disconnecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: end_sessions
+                                    
+                                    	Sessions in end state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, self).__init__()
+
+                                        self.yang_name = "pppoe"
+                                        self.yang_parent_name = "state-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                            ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                            ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                            ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                            ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                            ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                            ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                        ])
+                                        self.initialized_sessions = None
+                                        self.connecting_sessions = None
+                                        self.connected_sessions = None
+                                        self.activated_sessions = None
+                                        self.idle_sessions = None
+                                        self.disconnecting_sessions = None
+                                        self.end_sessions = None
+                                        self._segment_path = lambda: "pppoe"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                class IpSubscriberDhcp(Entity):
+                                    """
+                                    IP subscriber DHCP summary
+                                    
+                                    .. attribute:: initialized_sessions
+                                    
+                                    	Sessions in initialized state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connecting_sessions
+                                    
+                                    	Sessions in connecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connected_sessions
+                                    
+                                    	Sessions in connected state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: activated_sessions
+                                    
+                                    	Sessions in activated state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idle_sessions
+                                    
+                                    	Sessions in idle state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: disconnecting_sessions
+                                    
+                                    	Sessions in disconnecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: end_sessions
+                                    
+                                    	Sessions in end state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                        self.yang_name = "ip-subscriber-dhcp"
+                                        self.yang_parent_name = "state-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                            ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                            ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                            ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                            ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                            ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                            ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                        ])
+                                        self.initialized_sessions = None
+                                        self.connecting_sessions = None
+                                        self.connected_sessions = None
+                                        self.activated_sessions = None
+                                        self.idle_sessions = None
+                                        self.disconnecting_sessions = None
+                                        self.end_sessions = None
+                                        self._segment_path = lambda: "ip-subscriber-dhcp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                class IpSubscriberPacket(Entity):
+                                    """
+                                    IP subscriber packet summary
+                                    
+                                    .. attribute:: initialized_sessions
+                                    
+                                    	Sessions in initialized state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connecting_sessions
+                                    
+                                    	Sessions in connecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: connected_sessions
+                                    
+                                    	Sessions in connected state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: activated_sessions
+                                    
+                                    	Sessions in activated state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: idle_sessions
+                                    
+                                    	Sessions in idle state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: disconnecting_sessions
+                                    
+                                    	Sessions in disconnecting state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: end_sessions
+                                    
+                                    	Sessions in end state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                        self.yang_name = "ip-subscriber-packet"
+                                        self.yang_parent_name = "state-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                            ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                            ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                            ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                            ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                            ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                            ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                        ])
+                                        self.initialized_sessions = None
+                                        self.connecting_sessions = None
+                                        self.connected_sessions = None
+                                        self.activated_sessions = None
+                                        self.idle_sessions = None
+                                        self.disconnecting_sessions = None
+                                        self.end_sessions = None
+                                        self._segment_path = lambda: "ip-subscriber-packet"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                            class AddressFamilyXr(Entity):
+                                """
+                                Address family summary
+                                
+                                .. attribute:: pppoe
+                                
+                                	PPPoE summary
+                                	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ip_subscriber_dhcp
+                                
+                                	IP subscriber DHCP summary
+                                	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ip_subscriber_packet
+                                
+                                	IP subscriber packet summary
+                                	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr, self).__init__()
+
+                                    self.yang_name = "address-family-xr"
+                                    self.yang_parent_name = "srg-summary"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                    self._leafs = OrderedDict()
+
+                                    self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe()
+                                    self.pppoe.parent = self
+                                    self._children_name_map["pppoe"] = "pppoe"
+
+                                    self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                    self.ip_subscriber_dhcp.parent = self
+                                    self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                    self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket()
+                                    self.ip_subscriber_packet.parent = self
+                                    self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                    self._segment_path = lambda: "address-family-xr"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr, [], name, value)
+
+
+                                class Pppoe(Entity):
+                                    """
+                                    PPPoE summary
+                                    
+                                    .. attribute:: in_progress_sessions
+                                    
+                                    	Sessions with undecided address family
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv4_only_sessions
+                                    
+                                    	IPv4 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv6_only_sessions
+                                    
+                                    	IPv6 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_part_up_sessions
+                                    
+                                    	Dual stack partially up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_up_sessions
+                                    
+                                    	Dual stack up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: lac_sessions
+                                    
+                                    	LAC sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                        self.yang_name = "pppoe"
+                                        self.yang_parent_name = "address-family-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                            ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                            ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                            ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                            ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                            ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                        ])
+                                        self.in_progress_sessions = None
+                                        self.ipv4_only_sessions = None
+                                        self.ipv6_only_sessions = None
+                                        self.dual_part_up_sessions = None
+                                        self.dual_up_sessions = None
+                                        self.lac_sessions = None
+                                        self._segment_path = lambda: "pppoe"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                class IpSubscriberDhcp(Entity):
+                                    """
+                                    IP subscriber DHCP summary
+                                    
+                                    .. attribute:: in_progress_sessions
+                                    
+                                    	Sessions with undecided address family
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv4_only_sessions
+                                    
+                                    	IPv4 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv6_only_sessions
+                                    
+                                    	IPv6 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_part_up_sessions
+                                    
+                                    	Dual stack partially up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_up_sessions
+                                    
+                                    	Dual stack up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: lac_sessions
+                                    
+                                    	LAC sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                        self.yang_name = "ip-subscriber-dhcp"
+                                        self.yang_parent_name = "address-family-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                            ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                            ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                            ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                            ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                            ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                        ])
+                                        self.in_progress_sessions = None
+                                        self.ipv4_only_sessions = None
+                                        self.ipv6_only_sessions = None
+                                        self.dual_part_up_sessions = None
+                                        self.dual_up_sessions = None
+                                        self.lac_sessions = None
+                                        self._segment_path = lambda: "ip-subscriber-dhcp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                class IpSubscriberPacket(Entity):
+                                    """
+                                    IP subscriber packet summary
+                                    
+                                    .. attribute:: in_progress_sessions
+                                    
+                                    	Sessions with undecided address family
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv4_only_sessions
+                                    
+                                    	IPv4 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ipv6_only_sessions
+                                    
+                                    	IPv6 only sessions 
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_part_up_sessions
+                                    
+                                    	Dual stack partially up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: dual_up_sessions
+                                    
+                                    	Dual stack up sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: lac_sessions
+                                    
+                                    	LAC sessions
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                        self.yang_name = "ip-subscriber-packet"
+                                        self.yang_parent_name = "address-family-xr"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                            ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                            ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                            ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                            ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                            ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                        ])
+                                        self.in_progress_sessions = None
+                                        self.ipv4_only_sessions = None
+                                        self.ipv6_only_sessions = None
+                                        self.dual_part_up_sessions = None
+                                        self.dual_up_sessions = None
+                                        self.lac_sessions = None
+                                        self._segment_path = lambda: "ip-subscriber-packet"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+                        class AccessInterfaceSummaries(Entity):
+                            """
+                            Summary information filtered by access
+                            interface
+                            
+                            .. attribute:: access_interface_summary
+                            
+                            	Access interface summary
+                            	**type**\: list of  		 :py:class:`AccessInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries, self).__init__()
+
+                                self.yang_name = "access-interface-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.access_interface_summary = YList(self)
+                                self._segment_path = lambda: "access-interface-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries, [], name, value)
+
+
+                            class AccessInterfaceSummary(Entity):
+                                """
+                                Access interface summary
+                                
+                                .. attribute:: interface_name  (key)
+                                
+                                	Interface name
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
+
+                                    self.yang_name = "access-interface-summary"
+                                    self.yang_parent_name = "access-interface-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ])
+                                    self.interface_name = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "access-interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary, ['interface_name'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "access-interface-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "access-interface-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class AddressFamilySummaries(Entity):
+                            """
+                            Summary information filtered by address
+                            family
+                            
+                            .. attribute:: address_family_summary
+                            
+                            	Address family summary
+                            	**type**\: list of  		 :py:class:`AddressFamilySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries, self).__init__()
+
+                                self.yang_name = "address-family-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("address-family-summary", ("address_family_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary))])
+                                self._leafs = OrderedDict()
+
+                                self.address_family_summary = YList(self)
+                                self._segment_path = lambda: "address-family-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries, [], name, value)
+
+
+                            class AddressFamilySummary(Entity):
+                                """
+                                Address family summary
+                                
+                                .. attribute:: address_family  (key)
+                                
+                                	Address family
+                                	**type**\:  :py:class:`SubscriberAddressFamilyFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAddressFamilyFilterFlag>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary, self).__init__()
+
+                                    self.yang_name = "address-family-summary"
+                                    self.yang_parent_name = "address-family-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['address_family']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAddressFamilyFilterFlag', '')])),
+                                    ])
+                                    self.address_family = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "address-family-summary" + "[address-family='" + str(self.address_family) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary, ['address_family'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "address-family-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "address-family-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class Ipv4AddressSummaries(Entity):
+                            """
+                            Summary information filtered by subscriber
+                            IPv4 address
+                            
+                            .. attribute:: ipv4_address_summary
+                            
+                            	IPv4 address summary
+                            	**type**\: list of  		 :py:class:`Ipv4AddressSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries, self).__init__()
+
+                                self.yang_name = "ipv4-address-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("ipv4-address-summary", ("ipv4_address_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.ipv4_address_summary = YList(self)
+                                self._segment_path = lambda: "ipv4-address-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries, [], name, value)
+
+
+                            class Ipv4AddressSummary(Entity):
+                                """
+                                IPv4 address summary
+                                
+                                .. attribute:: address  (key)
+                                
+                                	Subscriber IPv4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
+
+                                    self.yang_name = "ipv4-address-summary"
+                                    self.yang_parent_name = "ipv4-address-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['address']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ])
+                                    self.address = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "ipv4-address-summary" + "[address='" + str(self.address) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary, ['address'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "ipv4-address-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "ipv4-address-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+                        class VrfSummaries(Entity):
+                            """
+                            Summary information filtered by VRF
+                            
+                            .. attribute:: vrf_summary
+                            
+                            	VRF summary
+                            	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2018-09-20'
+
+                            def __init__(self):
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries, self).__init__()
+
+                                self.yang_name = "vrf-summaries"
+                                self.yang_parent_name = "srg-role"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("vrf-summary", ("vrf_summary", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary))])
+                                self._leafs = OrderedDict()
+
+                                self.vrf_summary = YList(self)
+                                self._segment_path = lambda: "vrf-summaries"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries, [], name, value)
+
+
+                            class VrfSummary(Entity):
+                                """
+                                VRF summary
+                                
+                                .. attribute:: vrf_name  (key)
+                                
+                                	VRF name
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: state_xr
+                                
+                                	State summary
+                                	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: address_family_xr
+                                
+                                	Address family summary
+                                	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2018-09-20'
+
+                                def __init__(self):
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary, self).__init__()
+
+                                    self.yang_name = "vrf-summary"
+                                    self.yang_parent_name = "vrf-summaries"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vrf_name']
+                                    self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr))])
+                                    self._leafs = OrderedDict([
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ])
+                                    self.vrf_name = None
+
+                                    self.state_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr()
+                                    self.state_xr.parent = self
+                                    self._children_name_map["state_xr"] = "state-xr"
+
+                                    self.address_family_xr = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr()
+                                    self.address_family_xr.parent = self
+                                    self._children_name_map["address_family_xr"] = "address-family-xr"
+                                    self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary, ['vrf_name'], name, value)
+
+
+                                class StateXr(Entity):
+                                    """
+                                    State summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr, self).__init__()
+
+                                        self.yang_name = "state-xr"
+                                        self.yang_parent_name = "vrf-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "state-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: initialized_sessions
+                                        
+                                        	Sessions in initialized state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connecting_sessions
+                                        
+                                        	Sessions in connecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: connected_sessions
+                                        
+                                        	Sessions in connected state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: activated_sessions
+                                        
+                                        	Sessions in activated state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: idle_sessions
+                                        
+                                        	Sessions in idle state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: disconnecting_sessions
+                                        
+                                        	Sessions in disconnecting state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: end_sessions
+                                        
+                                        	Sessions in end state
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "state-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                                ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                                ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                                ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                                ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                                ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                                ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
+                                            ])
+                                            self.initialized_sessions = None
+                                            self.connecting_sessions = None
+                                            self.connected_sessions = None
+                                            self.activated_sessions = None
+                                            self.idle_sessions = None
+                                            self.disconnecting_sessions = None
+                                            self.end_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+
+
+
+
+                                class AddressFamilyXr(Entity):
+                                    """
+                                    Address family summary
+                                    
+                                    .. attribute:: pppoe
+                                    
+                                    	PPPoE summary
+                                    	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_dhcp
+                                    
+                                    	IP subscriber DHCP summary
+                                    	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: ip_subscriber_packet
+                                    
+                                    	IP subscriber packet summary
+                                    	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
+
+                                        self.yang_name = "address-family-xr"
+                                        self.yang_parent_name = "vrf-summary"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pppoe = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe()
+                                        self.pppoe.parent = self
+                                        self._children_name_map["pppoe"] = "pppoe"
+
+                                        self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp()
+                                        self.ip_subscriber_dhcp.parent = self
+                                        self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
+
+                                        self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket()
+                                        self.ip_subscriber_packet.parent = self
+                                        self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
+                                        self._segment_path = lambda: "address-family-xr"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr, [], name, value)
+
+
+                                    class Pppoe(Entity):
+                                        """
+                                        PPPoE summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+
+                                            self.yang_name = "pppoe"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "pppoe"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberDhcp(Entity):
+                                        """
+                                        IP subscriber DHCP summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-dhcp"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-dhcp"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+                                    class IpSubscriberPacket(Entity):
+                                        """
+                                        IP subscriber packet summary
+                                        
+                                        .. attribute:: in_progress_sessions
+                                        
+                                        	Sessions with undecided address family
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv4_only_sessions
+                                        
+                                        	IPv4 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: ipv6_only_sessions
+                                        
+                                        	IPv6 only sessions 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_part_up_sessions
+                                        
+                                        	Dual stack partially up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: dual_up_sessions
+                                        
+                                        	Dual stack up sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: lac_sessions
+                                        
+                                        	LAC sessions
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'iedge4710-oper'
+                                        _revision = '2018-09-20'
+
+                                        def __init__(self):
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+
+                                            self.yang_name = "ip-subscriber-packet"
+                                            self.yang_parent_name = "address-family-xr"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                                ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                                ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                                ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                                ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                                ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
+                                            ])
+                                            self.in_progress_sessions = None
+                                            self.ipv4_only_sessions = None
+                                            self.ipv6_only_sessions = None
+                                            self.dual_part_up_sessions = None
+                                            self.dual_up_sessions = None
+                                            self.lac_sessions = None
+                                            self._segment_path = lambda: "ip-subscriber-packet"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+
+
+
+
+
+
+
+
                 class AuthorSummaries(Entity):
                     """
                     Summary information filtered by authorization
@@ -9674,7 +20293,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.AuthorSummaries, self).__init__()
@@ -9725,7 +20344,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, self).__init__()
@@ -9785,7 +20404,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
@@ -9888,7 +20507,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
@@ -9995,7 +20614,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -10102,7 +20721,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -10168,7 +20787,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
@@ -10262,7 +20881,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -10358,7 +20977,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -10454,7 +21073,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -10513,7 +21132,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.Summary, self).__init__()
@@ -10570,7 +21189,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.Summary.StateXr, self).__init__()
@@ -10673,7 +21292,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, self).__init__()
@@ -10780,7 +21399,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -10887,7 +21506,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, self).__init__()
@@ -10953,7 +21572,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, self).__init__()
@@ -11047,7 +21666,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, self).__init__()
@@ -11143,7 +21762,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -11239,7 +21858,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -11290,7 +21909,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.MacSummaries, self).__init__()
@@ -11343,7 +21962,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, self).__init__()
@@ -11403,7 +22022,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, self).__init__()
@@ -11506,7 +22125,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
@@ -11613,7 +22232,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -11720,7 +22339,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -11786,7 +22405,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
@@ -11880,7 +22499,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -11976,7 +22595,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -12072,7 +22691,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -12124,7 +22743,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.InterfaceSummaries, self).__init__()
@@ -12177,7 +22796,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, self).__init__()
@@ -12237,7 +22856,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
@@ -12340,7 +22959,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
@@ -12447,7 +23066,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -12554,7 +23173,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -12620,7 +23239,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
@@ -12714,7 +23333,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -12810,7 +23429,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -12906,7 +23525,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -12959,7 +23578,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.AuthenticationSummaries, self).__init__()
@@ -13010,7 +23629,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, self).__init__()
@@ -13070,7 +23689,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
@@ -13173,7 +23792,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
@@ -13280,7 +23899,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -13387,7 +24006,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -13453,7 +24072,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
@@ -13547,7 +24166,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -13643,7 +24262,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -13739,7 +24358,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -13791,7 +24410,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.StateSummaries, self).__init__()
@@ -13842,7 +24461,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, self).__init__()
@@ -13902,7 +24521,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, self).__init__()
@@ -14005,7 +24624,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
@@ -14112,7 +24731,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -14219,7 +24838,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -14285,7 +24904,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
@@ -14379,7 +24998,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -14475,7 +25094,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -14571,7 +25190,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -14624,7 +25243,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries, self).__init__()
@@ -14686,7 +25305,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
@@ -14748,7 +25367,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
@@ -14851,7 +25470,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
@@ -14958,7 +25577,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -15065,7 +25684,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -15131,7 +25750,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
@@ -15225,7 +25844,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -15321,7 +25940,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -15417,7 +26036,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -15470,7 +26089,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.AddressFamilySummaries, self).__init__()
@@ -15521,7 +26140,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, self).__init__()
@@ -15581,7 +26200,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
@@ -15684,7 +26303,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
@@ -15791,7 +26410,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -15898,7 +26517,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -15964,7 +26583,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
@@ -16058,7 +26677,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -16154,7 +26773,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -16250,7 +26869,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -16302,7 +26921,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.UsernameSummaries, self).__init__()
@@ -16355,7 +26974,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, self).__init__()
@@ -16415,7 +27034,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
@@ -16518,7 +27137,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
@@ -16625,7 +27244,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -16732,7 +27351,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -16798,7 +27417,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
@@ -16892,7 +27511,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -16988,7 +27607,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -17084,7 +27703,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -17137,7 +27756,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries, self).__init__()
@@ -17190,7 +27809,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
@@ -17250,7 +27869,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
@@ -17353,7 +27972,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
@@ -17460,7 +28079,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -17567,7 +28186,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -17633,7 +28252,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
@@ -17727,7 +28346,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -17823,7 +28442,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -17919,7 +28538,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -17972,7 +28591,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries, self).__init__()
@@ -18025,7 +28644,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
@@ -18085,7 +28704,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
@@ -18188,7 +28807,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
@@ -18295,7 +28914,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -18402,7 +29021,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -18468,7 +29087,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
@@ -18562,7 +29181,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -18658,7 +29277,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -18754,7 +29373,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -18806,7 +29425,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.VrfSummaries, self).__init__()
@@ -18859,7 +29478,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, self).__init__()
@@ -18919,7 +29538,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, self).__init__()
@@ -19022,7 +29641,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
@@ -19129,7 +29748,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
@@ -19236,7 +29855,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
@@ -19302,7 +29921,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
@@ -19396,7 +30015,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
@@ -19492,7 +30111,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
@@ -19588,7 +30207,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
@@ -19640,7 +30259,7 @@ class Subscriber(Entity):
                     """
 
                     _prefix = 'iedge4710-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-20'
 
                     def __init__(self):
                         super(Subscriber.Session.Nodes.Node.Sessions, self).__init__()
@@ -19678,20 +30297,6 @@ class Subscriber(Entity):
                         
                         	Accounting information
                         	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: user_profile_attributes
-                        
-                        	List of user profile attributes collected for subscriber session
-                        	**type**\:  :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: mobility_attributes
-                        
-                        	List of mobility attributes collected for subscriber session
-                        	**type**\:  :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes>`
                         
                         	**config**\: False
                         
@@ -19875,12 +30480,16 @@ class Subscriber(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: session_creation_time
+                        .. attribute:: session_creation_time_epoch
                         
-                        	Session creation time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                        	**type**\: str
+                        	Session creation time in epoch seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         	**config**\: False
+                        
+                        	**units**\: second
                         
                         .. attribute:: idle_state_change_time
                         
@@ -19909,35 +30518,17 @@ class Subscriber(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: pending_callbacks
+                        .. attribute:: sub_policy_data
                         
-                        	Active pending callbacks bitmask
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
+                        	Subscriber control policy applied to this session
+                        	**type**\: list of  		 :py:class:`SubPolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData>`
                         
                         	**config**\: False
                         
-                        .. attribute:: af_up_status
+                        .. attribute:: session_service_info
                         
-                        	AF status per Subscriber Session
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: session_ipv4_state
-                        
-                        	Session IPv4 state
-                        	**type**\:  :py:class:`IedgeOperSessionAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfState>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: session_ipv6_state
-                        
-                        	Session IPv6 state
-                        	**type**\:  :py:class:`IedgeOperSessionAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfState>`
+                        	List of subscriber services associated to this session
+                        	**type**\: list of  		 :py:class:`SessionServiceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo>`
                         
                         	**config**\: False
                         
@@ -19953,7 +30544,7 @@ class Subscriber(Entity):
                         """
 
                         _prefix = 'iedge4710-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-20'
 
                         def __init__(self):
                             super(Subscriber.Session.Nodes.Node.Sessions.Session_, self).__init__()
@@ -19963,7 +30554,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['session_id']
-                            self._child_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("user-profile-attributes", ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes)), ("mobility-attributes", ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes)), ("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
+                            self._child_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("sub-policy-data", ("sub_policy_data", Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData)), ("session-service-info", ("session_service_info", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo)), ("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
                             self._leafs = OrderedDict([
                                 ('session_id', (YLeaf(YType.str, 'session-id'), ['str'])),
                                 ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSession', '')])),
@@ -19990,14 +30581,10 @@ class Subscriber(Entity):
                                 ('is_session_authentic', (YLeaf(YType.boolean, 'is-session-authentic'), ['bool'])),
                                 ('is_session_author', (YLeaf(YType.boolean, 'is-session-author'), ['bool'])),
                                 ('session_state', (YLeaf(YType.enumeration, 'session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionState', '')])),
-                                ('session_creation_time', (YLeaf(YType.str, 'session-creation-time'), ['str'])),
+                                ('session_creation_time_epoch', (YLeaf(YType.uint64, 'session-creation-time-epoch'), ['int'])),
                                 ('idle_state_change_time', (YLeaf(YType.str, 'idle-state-change-time'), ['str'])),
                                 ('total_session_idle_time', (YLeaf(YType.uint32, 'total-session-idle-time'), ['int'])),
                                 ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
-                                ('pending_callbacks', (YLeaf(YType.uint64, 'pending-callbacks'), ['int'])),
-                                ('af_up_status', (YLeaf(YType.uint32, 'af-up-status'), ['int'])),
-                                ('session_ipv4_state', (YLeaf(YType.enumeration, 'session-ipv4-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionAfState', '')])),
-                                ('session_ipv6_state', (YLeaf(YType.enumeration, 'session-ipv6-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionAfState', '')])),
                             ])
                             self.session_id = None
                             self.session_type = None
@@ -20024,33 +30611,23 @@ class Subscriber(Entity):
                             self.is_session_authentic = None
                             self.is_session_author = None
                             self.session_state = None
-                            self.session_creation_time = None
+                            self.session_creation_time_epoch = None
                             self.idle_state_change_time = None
                             self.total_session_idle_time = None
                             self.access_interface_name = None
-                            self.pending_callbacks = None
-                            self.af_up_status = None
-                            self.session_ipv4_state = None
-                            self.session_ipv6_state = None
 
                             self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting()
                             self.accounting.parent = self
                             self._children_name_map["accounting"] = "accounting"
 
-                            self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes()
-                            self.user_profile_attributes.parent = self
-                            self._children_name_map["user_profile_attributes"] = "user-profile-attributes"
-
-                            self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes()
-                            self.mobility_attributes.parent = self
-                            self._children_name_map["mobility_attributes"] = "mobility-attributes"
-
+                            self.sub_policy_data = YList(self)
+                            self.session_service_info = YList(self)
                             self.session_change_of_authorization = YList(self)
                             self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name', u'pending_callbacks', u'af_up_status', u'session_ipv4_state', u'session_ipv6_state'], name, value)
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time_epoch', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name'], name, value)
 
 
                         class Accounting(Entity):
@@ -20069,7 +30646,7 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, self).__init__()
@@ -20133,12 +30710,16 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: accounting_start_time
+                                .. attribute:: accounting_start_time_epoch
                                 
-                                	Accounting start time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Feb 15 15\:12\:49 2011
-                                	**type**\: str
+                                	Accounting start time in epoch\-seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
                                 
                                 	**config**\: False
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: is_interim_accounting_enabled
                                 
@@ -20158,12 +30739,16 @@ class Subscriber(Entity):
                                 
                                 	**units**\: minute
                                 
-                                .. attribute:: last_successful_interim_update_time
+                                .. attribute:: last_successful_interim_update_time_epoch
                                 
-                                	Time of last successful interim update in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30 \:47 2011
-                                	**type**\: str
+                                	Time of last successful interim update in epoch\-seconds 
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
                                 
                                 	**config**\: False
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: next_interim_update_attempt_time
                                 
@@ -20176,12 +30761,16 @@ class Subscriber(Entity):
                                 
                                 	**units**\: second
                                 
-                                .. attribute:: last_interim_update_attempt_time
+                                .. attribute:: last_interim_update_attempt_time_epoch
                                 
-                                	Time of last interim update attempt in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                                	**type**\: str
+                                	Time of last interim update attempt in epoch\-seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
                                 
                                 	**config**\: False
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: sent_interim_updates
                                 
@@ -20224,7 +30813,7 @@ class Subscriber(Entity):
                                 """
 
                                 _prefix = 'iedge4710-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-20'
 
                                 def __init__(self):
                                     super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, self).__init__()
@@ -20241,12 +30830,12 @@ class Subscriber(Entity):
                                         ('record_context_name', (YLeaf(YType.str, 'record-context-name'), ['str'])),
                                         ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
                                         ('account_session_id', (YLeaf(YType.str, 'account-session-id'), ['str'])),
-                                        ('accounting_start_time', (YLeaf(YType.str, 'accounting-start-time'), ['str'])),
+                                        ('accounting_start_time_epoch', (YLeaf(YType.uint64, 'accounting-start-time-epoch'), ['int'])),
                                         ('is_interim_accounting_enabled', (YLeaf(YType.boolean, 'is-interim-accounting-enabled'), ['bool'])),
                                         ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
-                                        ('last_successful_interim_update_time', (YLeaf(YType.str, 'last-successful-interim-update-time'), ['str'])),
+                                        ('last_successful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-successful-interim-update-time-epoch'), ['int'])),
                                         ('next_interim_update_attempt_time', (YLeaf(YType.uint32, 'next-interim-update-attempt-time'), ['int'])),
-                                        ('last_interim_update_attempt_time', (YLeaf(YType.str, 'last-interim-update-attempt-time'), ['str'])),
+                                        ('last_interim_update_attempt_time_epoch', (YLeaf(YType.uint64, 'last-interim-update-attempt-time-epoch'), ['int'])),
                                         ('sent_interim_updates', (YLeaf(YType.uint32, 'sent-interim-updates'), ['int'])),
                                         ('accepted_interim_updates', (YLeaf(YType.uint32, 'accepted-interim-updates'), ['int'])),
                                         ('rejected_interim_updates', (YLeaf(YType.uint32, 'rejected-interim-updates'), ['int'])),
@@ -20257,12 +30846,12 @@ class Subscriber(Entity):
                                     self.record_context_name = None
                                     self.method_list_name = None
                                     self.account_session_id = None
-                                    self.accounting_start_time = None
+                                    self.accounting_start_time_epoch = None
                                     self.is_interim_accounting_enabled = None
                                     self.interim_interval = None
-                                    self.last_successful_interim_update_time = None
+                                    self.last_successful_interim_update_time_epoch = None
                                     self.next_interim_update_attempt_time = None
-                                    self.last_interim_update_attempt_time = None
+                                    self.last_interim_update_attempt_time_epoch = None
                                     self.sent_interim_updates = None
                                     self.accepted_interim_updates = None
                                     self.rejected_interim_updates = None
@@ -20271,434 +30860,20 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time_epoch', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time_epoch', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time_epoch', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
 
 
 
 
-                        class UserProfileAttributes(Entity):
+                        class SubPolicyData(Entity):
                             """
-                            List of user profile attributes collected for
-                            subscriber session
+                            Subscriber control policy applied to this
+                            session
                             
-                            .. attribute:: ipv4mtu
+                            .. attribute:: policy_epoch
                             
-                            	IPv4 maximum transmission unit
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: ipv4_unnumbered
-                            
-                            	IPv4 unnumbered
+                            	Matching event, condition and executed actions
                             	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: authorization_service_type
-                            
-                            	Authorization service type
-                            	**type**\:  :py:class:`AaaAuthService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaAuthService>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_client_endpoint
-                            
-                            	Tunnel client endpoint
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_server_endpoint
-                            
-                            	Tunnel server endpoint
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_tos_setting
-                            
-                            	Tunnel TOS setting
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_medium
-                            
-                            	Tunnel medium
-                            	**type**\:  :py:class:`AaaTunnelMedium <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelMedium>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_preference
-                            
-                            	Tunnel preference
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_client_authentication_id
-                            
-                            	Tunnel client authentication ID
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: tunnel_protocol
-                            
-                            	Tunnel protocol
-                            	**type**\:  :py:class:`AaaTunnelProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelProto>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: actual_data_rate_upstream
-                            
-                            	Actual data rate upstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: actual_data_rate_downstream
-                            
-                            	Actual data rate downstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: attainable_data_rate_upstream
-                            
-                            	Attainable data rate upstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: attainable_data_rate_downstream
-                            
-                            	Attainable data rate downstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: pool_address
-                            
-                            	IP address pool
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: circuit_id
-                            
-                            	Circuit ID
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: connection_receive_speed
-                            
-                            	Connection receive speed
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: connection_transmission_speed
-                            
-                            	Connection transmission speed
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: destination_station_id
-                            
-                            	Destination station ID
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: primary_dns_server_address
-                            
-                            	Primary DNS server address
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: secondary_dns_server_address
-                            
-                            	Secondary DNS server address
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: formatted_calling_station_id
-                            
-                            	Formatted calling station id
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: interface_name
-                            
-                            	Interface name
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: interface_type
-                            
-                            	Interface type
-                            	**type**\:  :py:class:`AaaInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaInterface>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: interim_accounting_interval
-                            
-                            	Interim accounting interval
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: ingress_access_list
-                            
-                            	Ingress access list
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: egress_access_list
-                            
-                            	Egress access list
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: ip_netmask
-                            
-                            	IP netmask for the user
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: is_interworking_functionality
-                            
-                            	True, if interworking functionality
-                            	**type**\: bool
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: max_interleaving_delay_downstream
-                            
-                            	Maximum interleaving delay downstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: max_interleaving_delay_upstream
-                            
-                            	Maximum interleaving delay upstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: max_data_rate_upstream
-                            
-                            	Maximum data rate upstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: max_data_rate_downstream
-                            
-                            	Maximum data rate downstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: min_data_rate_downstream
-                            
-                            	Minimum data rate downstream (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: min_data_rate_downstream_low_power
-                            
-                            	Minimum data rate downstream low power (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: min_data_rate_upstream_low_power
-                            
-                            	Minimum data rate upstream low power (in Mbps)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: Mbit/s
-                            
-                            .. attribute:: primary_net_bios_server_address
-                            
-                            	Primary net bios server address
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: secondary_net_bios_server_address
-                            
-                            	Secondary net bios server address
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: parent_interface_name
-                            
-                            	Parent interface name
-                            	**type**\: str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: remote_id
-                            
-                            	Remote ID
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: route
-                            
-                            	Route information for a user session
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: session_timeout
-                            
-                            	Session timeout (in seconds)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: strict_rpf_packets
-                            
-                            	Strict RPF packets
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: accounting_session_id
-                            
-                            	Accounting session ID
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: upstream_parameterized_qos_policy
-                            
-                            	Upstream parameterized QoS policy to be applied on the subscriber side
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: downstream_parameterized_qos_policy
-                            
-                            	Downstream parameterized QoS policy to be applied on the subscriber side
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: upstream_qos_policy
-                            
-                            	Upstream QoS policy to be applied on the subscriber side
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: downstream_qos_policy
-                            
-                            	Downstream QoS policy to be applied on the subscriber side
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: session_termination_cause
-                            
-                            	Session termination cause
-                            	**type**\:  :py:class:`AaaTerminateCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTerminateCause>`
                             
                             	**config**\: False
                             
@@ -20707,245 +30882,113 @@ class Subscriber(Entity):
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, self).__init__()
 
-                                self.yang_name = "user-profile-attributes"
+                                self.yang_name = "sub-policy-data"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv4mtu', (YLeaf(YType.uint32, 'ipv4mtu'), ['int'])),
-                                    ('ipv4_unnumbered', (YLeaf(YType.str, 'ipv4-unnumbered'), ['str'])),
-                                    ('authorization_service_type', (YLeaf(YType.enumeration, 'authorization-service-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaAuthService', '')])),
-                                    ('tunnel_client_endpoint', (YLeaf(YType.str, 'tunnel-client-endpoint'), ['str'])),
-                                    ('tunnel_server_endpoint', (YLeaf(YType.str, 'tunnel-server-endpoint'), ['str'])),
-                                    ('tunnel_tos_setting', (YLeaf(YType.uint32, 'tunnel-tos-setting'), ['int'])),
-                                    ('tunnel_medium', (YLeaf(YType.enumeration, 'tunnel-medium'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTunnelMedium', '')])),
-                                    ('tunnel_preference', (YLeaf(YType.uint32, 'tunnel-preference'), ['int'])),
-                                    ('tunnel_client_authentication_id', (YLeaf(YType.str, 'tunnel-client-authentication-id'), ['str'])),
-                                    ('tunnel_protocol', (YLeaf(YType.enumeration, 'tunnel-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTunnelProto', '')])),
-                                    ('actual_data_rate_upstream', (YLeaf(YType.uint32, 'actual-data-rate-upstream'), ['int'])),
-                                    ('actual_data_rate_downstream', (YLeaf(YType.uint32, 'actual-data-rate-downstream'), ['int'])),
-                                    ('attainable_data_rate_upstream', (YLeaf(YType.uint32, 'attainable-data-rate-upstream'), ['int'])),
-                                    ('attainable_data_rate_downstream', (YLeaf(YType.uint32, 'attainable-data-rate-downstream'), ['int'])),
-                                    ('pool_address', (YLeaf(YType.str, 'pool-address'), ['str'])),
-                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
-                                    ('connection_receive_speed', (YLeaf(YType.uint32, 'connection-receive-speed'), ['int'])),
-                                    ('connection_transmission_speed', (YLeaf(YType.uint32, 'connection-transmission-speed'), ['int'])),
-                                    ('destination_station_id', (YLeaf(YType.str, 'destination-station-id'), ['str'])),
-                                    ('primary_dns_server_address', (YLeaf(YType.str, 'primary-dns-server-address'), ['str'])),
-                                    ('secondary_dns_server_address', (YLeaf(YType.str, 'secondary-dns-server-address'), ['str'])),
-                                    ('formatted_calling_station_id', (YLeaf(YType.str, 'formatted-calling-station-id'), ['str'])),
-                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                                    ('interface_type', (YLeaf(YType.enumeration, 'interface-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaInterface', '')])),
-                                    ('interim_accounting_interval', (YLeaf(YType.uint32, 'interim-accounting-interval'), ['int'])),
-                                    ('ingress_access_list', (YLeaf(YType.str, 'ingress-access-list'), ['str'])),
-                                    ('egress_access_list', (YLeaf(YType.str, 'egress-access-list'), ['str'])),
-                                    ('ip_netmask', (YLeaf(YType.str, 'ip-netmask'), ['str'])),
-                                    ('is_interworking_functionality', (YLeaf(YType.boolean, 'is-interworking-functionality'), ['bool'])),
-                                    ('max_interleaving_delay_downstream', (YLeaf(YType.uint32, 'max-interleaving-delay-downstream'), ['int'])),
-                                    ('max_interleaving_delay_upstream', (YLeaf(YType.uint32, 'max-interleaving-delay-upstream'), ['int'])),
-                                    ('max_data_rate_upstream', (YLeaf(YType.uint32, 'max-data-rate-upstream'), ['int'])),
-                                    ('max_data_rate_downstream', (YLeaf(YType.uint32, 'max-data-rate-downstream'), ['int'])),
-                                    ('min_data_rate_downstream', (YLeaf(YType.uint32, 'min-data-rate-downstream'), ['int'])),
-                                    ('min_data_rate_downstream_low_power', (YLeaf(YType.uint32, 'min-data-rate-downstream-low-power'), ['int'])),
-                                    ('min_data_rate_upstream_low_power', (YLeaf(YType.uint32, 'min-data-rate-upstream-low-power'), ['int'])),
-                                    ('primary_net_bios_server_address', (YLeaf(YType.str, 'primary-net-bios-server-address'), ['str'])),
-                                    ('secondary_net_bios_server_address', (YLeaf(YType.str, 'secondary-net-bios-server-address'), ['str'])),
-                                    ('parent_interface_name', (YLeaf(YType.str, 'parent-interface-name'), ['str'])),
-                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
-                                    ('route', (YLeaf(YType.str, 'route'), ['str'])),
-                                    ('session_timeout', (YLeaf(YType.uint32, 'session-timeout'), ['int'])),
-                                    ('strict_rpf_packets', (YLeaf(YType.uint32, 'strict-rpf-packets'), ['int'])),
-                                    ('accounting_session_id', (YLeaf(YType.str, 'accounting-session-id'), ['str'])),
-                                    ('upstream_parameterized_qos_policy', (YLeaf(YType.str, 'upstream-parameterized-qos-policy'), ['str'])),
-                                    ('downstream_parameterized_qos_policy', (YLeaf(YType.str, 'downstream-parameterized-qos-policy'), ['str'])),
-                                    ('upstream_qos_policy', (YLeaf(YType.str, 'upstream-qos-policy'), ['str'])),
-                                    ('downstream_qos_policy', (YLeaf(YType.str, 'downstream-qos-policy'), ['str'])),
-                                    ('session_termination_cause', (YLeaf(YType.enumeration, 'session-termination-cause'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTerminateCause', '')])),
+                                    ('policy_epoch', (YLeaf(YType.str, 'policy-epoch'), ['str'])),
                                 ])
-                                self.ipv4mtu = None
-                                self.ipv4_unnumbered = None
-                                self.authorization_service_type = None
-                                self.tunnel_client_endpoint = None
-                                self.tunnel_server_endpoint = None
-                                self.tunnel_tos_setting = None
-                                self.tunnel_medium = None
-                                self.tunnel_preference = None
-                                self.tunnel_client_authentication_id = None
-                                self.tunnel_protocol = None
-                                self.actual_data_rate_upstream = None
-                                self.actual_data_rate_downstream = None
-                                self.attainable_data_rate_upstream = None
-                                self.attainable_data_rate_downstream = None
-                                self.pool_address = None
-                                self.circuit_id = None
-                                self.connection_receive_speed = None
-                                self.connection_transmission_speed = None
-                                self.destination_station_id = None
-                                self.primary_dns_server_address = None
-                                self.secondary_dns_server_address = None
-                                self.formatted_calling_station_id = None
-                                self.interface_name = None
-                                self.interface_type = None
-                                self.interim_accounting_interval = None
-                                self.ingress_access_list = None
-                                self.egress_access_list = None
-                                self.ip_netmask = None
-                                self.is_interworking_functionality = None
-                                self.max_interleaving_delay_downstream = None
-                                self.max_interleaving_delay_upstream = None
-                                self.max_data_rate_upstream = None
-                                self.max_data_rate_downstream = None
-                                self.min_data_rate_downstream = None
-                                self.min_data_rate_downstream_low_power = None
-                                self.min_data_rate_upstream_low_power = None
-                                self.primary_net_bios_server_address = None
-                                self.secondary_net_bios_server_address = None
-                                self.parent_interface_name = None
-                                self.remote_id = None
-                                self.route = None
-                                self.session_timeout = None
-                                self.strict_rpf_packets = None
-                                self.accounting_session_id = None
-                                self.upstream_parameterized_qos_policy = None
-                                self.downstream_parameterized_qos_policy = None
-                                self.upstream_qos_policy = None
-                                self.downstream_qos_policy = None
-                                self.session_termination_cause = None
-                                self._segment_path = lambda: "user-profile-attributes"
+                                self.policy_epoch = None
+                                self._segment_path = lambda: "sub-policy-data"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, [u'ipv4mtu', u'ipv4_unnumbered', u'authorization_service_type', u'tunnel_client_endpoint', u'tunnel_server_endpoint', u'tunnel_tos_setting', u'tunnel_medium', u'tunnel_preference', u'tunnel_client_authentication_id', u'tunnel_protocol', u'actual_data_rate_upstream', u'actual_data_rate_downstream', u'attainable_data_rate_upstream', u'attainable_data_rate_downstream', u'pool_address', u'circuit_id', u'connection_receive_speed', u'connection_transmission_speed', u'destination_station_id', u'primary_dns_server_address', u'secondary_dns_server_address', u'formatted_calling_station_id', u'interface_name', u'interface_type', u'interim_accounting_interval', u'ingress_access_list', u'egress_access_list', u'ip_netmask', u'is_interworking_functionality', u'max_interleaving_delay_downstream', u'max_interleaving_delay_upstream', u'max_data_rate_upstream', u'max_data_rate_downstream', u'min_data_rate_downstream', u'min_data_rate_downstream_low_power', u'min_data_rate_upstream_low_power', u'primary_net_bios_server_address', u'secondary_net_bios_server_address', u'parent_interface_name', u'remote_id', u'route', u'session_timeout', u'strict_rpf_packets', u'accounting_session_id', u'upstream_parameterized_qos_policy', u'downstream_parameterized_qos_policy', u'upstream_qos_policy', u'downstream_qos_policy', u'session_termination_cause'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, [u'policy_epoch'], name, value)
 
 
 
-                        class MobilityAttributes(Entity):
+                        class SessionServiceInfo(Entity):
                             """
-                            List of mobility attributes collected for
-                            subscriber session
+                            List of subscriber services associated to this
+                            session
                             
-                            .. attribute:: mpc_protocol
+                            .. attribute:: service_name
                             
-                            	Cisco MPC Protocol
+                            	ServiceName
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_params
+                            
+                            	ServiceParams
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_type
+                            
+                            	ServiceType
+                            	**type**\:  :py:class:`IedgeOperService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperService>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_status
+                            
+                            	ServiceStatus
+                            	**type**\:  :py:class:`IedgeOperServiceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperServiceStatus>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_id
+                            
+                            	ServiceIdentifier
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_prepaid
+                            
+                            	ServicePrepaid
                             	**type**\: bool
                             
                             	**config**\: False
-                            
-                            .. attribute:: mobility_ipv4_address
-                            
-                            	IPv4 address of Mobility Node
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: mobility_default_ipv4_gateway
-                            
-                            	Default Gateway IPv4 Address
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: mobility_dns_server
-                            
-                            	DNS Server Primary
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: mobility_dhcp_server
-                            
-                            	DHCP Server
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: mobility_ipv4_netmask
-                            
-                            	IPv4 Netmask
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: domain_name
-                            
-                            	Domain Name
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: uplink_gre_key
-                            
-                            	Uplink GRE Key
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: downlink_gre_key
-                            
-                            	Downlink GRE Key
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: lease_time
-                            
-                            	Duration of lease in seconds
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            	**units**\: second
                             
                             
 
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, self).__init__()
 
-                                self.yang_name = "mobility-attributes"
+                                self.yang_name = "session-service-info"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('mpc_protocol', (YLeaf(YType.boolean, 'mpc-protocol'), ['bool'])),
-                                    ('mobility_ipv4_address', (YLeaf(YType.str, 'mobility-ipv4-address'), ['str'])),
-                                    ('mobility_default_ipv4_gateway', (YLeaf(YType.str, 'mobility-default-ipv4-gateway'), ['str'])),
-                                    ('mobility_dns_server', (YLeaf(YType.str, 'mobility-dns-server'), ['str'])),
-                                    ('mobility_dhcp_server', (YLeaf(YType.str, 'mobility-dhcp-server'), ['str'])),
-                                    ('mobility_ipv4_netmask', (YLeaf(YType.str, 'mobility-ipv4-netmask'), ['str'])),
-                                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
-                                    ('uplink_gre_key', (YLeaf(YType.str, 'uplink-gre-key'), ['str'])),
-                                    ('downlink_gre_key', (YLeaf(YType.str, 'downlink-gre-key'), ['str'])),
-                                    ('lease_time', (YLeaf(YType.str, 'lease-time'), ['str'])),
+                                    ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                                    ('service_params', (YLeaf(YType.str, 'service-params'), ['str'])),
+                                    ('service_type', (YLeaf(YType.enumeration, 'service-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperService', '')])),
+                                    ('service_status', (YLeaf(YType.enumeration, 'service-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperServiceStatus', '')])),
+                                    ('service_id', (YLeaf(YType.uint32, 'service-id'), ['int'])),
+                                    ('service_prepaid', (YLeaf(YType.boolean, 'service-prepaid'), ['bool'])),
                                 ])
-                                self.mpc_protocol = None
-                                self.mobility_ipv4_address = None
-                                self.mobility_default_ipv4_gateway = None
-                                self.mobility_dns_server = None
-                                self.mobility_dhcp_server = None
-                                self.mobility_ipv4_netmask = None
-                                self.domain_name = None
-                                self.uplink_gre_key = None
-                                self.downlink_gre_key = None
-                                self.lease_time = None
-                                self._segment_path = lambda: "mobility-attributes"
+                                self.service_name = None
+                                self.service_params = None
+                                self.service_type = None
+                                self.service_status = None
+                                self.service_id = None
+                                self.service_prepaid = None
+                                self._segment_path = lambda: "session-service-info"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, [u'mpc_protocol', u'mobility_ipv4_address', u'mobility_default_ipv4_gateway', u'mobility_dns_server', u'mobility_dhcp_server', u'mobility_ipv4_netmask', u'domain_name', u'uplink_gre_key', u'downlink_gre_key', u'lease_time'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, [u'service_name', u'service_params', u'service_type', u'service_status', u'service_id', u'service_prepaid'], name, value)
 
 
 
@@ -20960,44 +31003,34 @@ class Subscriber(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: request_time
+                            .. attribute:: request_time_epoch
                             
-                            	Request time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                            	**type**\: str
+                            	Request time in epoch seconds
+                            	**type**\: int
                             
-                            	**config**\: False
-                            
-                            .. attribute:: coa_request_attributes
-                            
-                            	List of Request Attributes collected in COA response
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**range:** 0..18446744073709551615
                             
                             	**config**\: False
                             
-                            .. attribute:: reply_time
+                            	**units**\: second
                             
-                            	Reply time in DDD MMM DD HH\:MM\:SS YYYY format eg \: Tue Apr 11 21\:30\:47 2011
-                            	**type**\: str
+                            .. attribute:: reply_time_epoch
                             
-                            	**config**\: False
+                            	Reply time in epoch seconds
+                            	**type**\: int
                             
-                            .. attribute:: coa_reply_attributes
-                            
-                            	List of Reply Attributes collected in COA response
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**range:** 0..18446744073709551615
                             
                             	**config**\: False
+                            
+                            	**units**\: second
                             
                             
 
                             """
 
                             _prefix = 'iedge4710-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-20'
 
                             def __init__(self):
                                 super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, self).__init__()
@@ -21010,21 +31043,17 @@ class Subscriber(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('request_acked', (YLeaf(YType.boolean, 'request-acked'), ['bool'])),
-                                    ('request_time', (YLeaf(YType.str, 'request-time'), ['str'])),
-                                    ('coa_request_attributes', (YLeaf(YType.str, 'coa-request-attributes'), ['str'])),
-                                    ('reply_time', (YLeaf(YType.str, 'reply-time'), ['str'])),
-                                    ('coa_reply_attributes', (YLeaf(YType.str, 'coa-reply-attributes'), ['str'])),
+                                    ('request_time_epoch', (YLeaf(YType.uint64, 'request-time-epoch'), ['int'])),
+                                    ('reply_time_epoch', (YLeaf(YType.uint64, 'reply-time-epoch'), ['int'])),
                                 ])
                                 self.request_acked = None
-                                self.request_time = None
-                                self.coa_request_attributes = None
-                                self.reply_time = None
-                                self.coa_reply_attributes = None
+                                self.request_time_epoch = None
+                                self.reply_time_epoch = None
                                 self._segment_path = lambda: "session-change-of-authorization"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time', u'coa_request_attributes', u'reply_time', u'coa_reply_attributes'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time_epoch', u'reply_time_epoch'], name, value)
 
 
 
@@ -21054,7 +31083,7 @@ class IedgeLicenseManager(Entity):
     """
 
     _prefix = 'iedge4710-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-09-20'
 
     def __init__(self):
         super(IedgeLicenseManager, self).__init__()
@@ -21095,7 +31124,7 @@ class IedgeLicenseManager(Entity):
         """
 
         _prefix = 'iedge4710-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-20'
 
         def __init__(self):
             super(IedgeLicenseManager.Nodes, self).__init__()
@@ -21142,7 +31171,7 @@ class IedgeLicenseManager(Entity):
             """
 
             _prefix = 'iedge4710-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-20'
 
             def __init__(self):
                 super(IedgeLicenseManager.Nodes.Node, self).__init__()
@@ -21214,7 +31243,7 @@ class IedgeLicenseManager(Entity):
                 """
 
                 _prefix = 'iedge4710-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-20'
 
                 def __init__(self):
                     super(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, self).__init__()

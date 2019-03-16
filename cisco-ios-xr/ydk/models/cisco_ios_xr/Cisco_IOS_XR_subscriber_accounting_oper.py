@@ -37,7 +37,7 @@ class SubscriberAccounting(Entity):
     """
 
     _prefix = 'subscriber-accounting-oper'
-    _revision = '2017-09-07'
+    _revision = '2018-10-30'
 
     def __init__(self):
         super(SubscriberAccounting, self).__init__()
@@ -78,7 +78,7 @@ class SubscriberAccounting(Entity):
         """
 
         _prefix = 'subscriber-accounting-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-10-30'
 
         def __init__(self):
             super(SubscriberAccounting.Nodes, self).__init__()
@@ -134,12 +134,19 @@ class SubscriberAccounting(Entity):
             
             	**config**\: False
             
+            .. attribute:: subscriber_accounting_srg_features
+            
+            	Subscriber accounting SRG feature data
+            	**type**\:  :py:class:`SubscriberAccountingSrgFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures>`
+            
+            	**config**\: False
+            
             
 
             """
 
             _prefix = 'subscriber-accounting-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-10-30'
 
             def __init__(self):
                 super(SubscriberAccounting.Nodes.Node, self).__init__()
@@ -149,7 +156,7 @@ class SubscriberAccounting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_id']
-                self._child_classes = OrderedDict([("subscriber-accounting-session-features", ("subscriber_accounting_session_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures)), ("subscriber-accounting-summary", ("subscriber_accounting_summary", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary)), ("subscriber-accounting-flow-features", ("subscriber_accounting_flow_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures))])
+                self._child_classes = OrderedDict([("subscriber-accounting-session-features", ("subscriber_accounting_session_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures)), ("subscriber-accounting-summary", ("subscriber_accounting_summary", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary)), ("subscriber-accounting-flow-features", ("subscriber_accounting_flow_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures)), ("subscriber-accounting-srg-features", ("subscriber_accounting_srg_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures))])
                 self._leafs = OrderedDict([
                     ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
                 ])
@@ -166,6 +173,10 @@ class SubscriberAccounting(Entity):
                 self.subscriber_accounting_flow_features = SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures()
                 self.subscriber_accounting_flow_features.parent = self
                 self._children_name_map["subscriber_accounting_flow_features"] = "subscriber-accounting-flow-features"
+
+                self.subscriber_accounting_srg_features = SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures()
+                self.subscriber_accounting_srg_features.parent = self
+                self._children_name_map["subscriber_accounting_srg_features"] = "subscriber-accounting-srg-features"
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/%s" % self._segment_path()
                 self._is_frozen = True
@@ -190,7 +201,7 @@ class SubscriberAccounting(Entity):
                 """
 
                 _prefix = 'subscriber-accounting-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-10-30'
 
                 def __init__(self):
                     super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures, self).__init__()
@@ -237,7 +248,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature, self).__init__()
@@ -482,7 +493,7 @@ class SubscriberAccounting(Entity):
                         """
 
                         _prefix = 'subscriber-accounting-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-10-30'
 
                         def __init__(self):
                             super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, self).__init__()
@@ -618,7 +629,7 @@ class SubscriberAccounting(Entity):
                             """
 
                             _prefix = 'subscriber-accounting-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2018-10-30'
 
                             def __init__(self):
                                 super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, self).__init__()
@@ -693,7 +704,7 @@ class SubscriberAccounting(Entity):
                 """
 
                 _prefix = 'subscriber-accounting-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-10-30'
 
                 def __init__(self):
                     super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary, self).__init__()
@@ -1052,7 +1063,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, self).__init__()
@@ -1224,7 +1235,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, self).__init__()
@@ -1289,7 +1300,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, self).__init__()
@@ -1369,7 +1380,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, self).__init__()
@@ -1417,7 +1428,7 @@ class SubscriberAccounting(Entity):
                 """
 
                 _prefix = 'subscriber-accounting-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-10-30'
 
                 def __init__(self):
                     super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures, self).__init__()
@@ -1464,7 +1475,7 @@ class SubscriberAccounting(Entity):
                     """
 
                     _prefix = 'subscriber-accounting-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-10-30'
 
                     def __init__(self):
                         super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature, self).__init__()
@@ -1978,7 +1989,7 @@ class SubscriberAccounting(Entity):
                         """
 
                         _prefix = 'subscriber-accounting-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-10-30'
 
                         def __init__(self):
                             super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, self).__init__()
@@ -2094,6 +2105,196 @@ class SubscriberAccounting(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, ['flow_accounting_enabled_flag', 'flow_idle_timeout_enabled_flag', 'prepaid_enabled_flag', 'prepaid_reauth_timer_enabled', 'prepaid_idle_timeout_enabled', 'prepaid_final_unit', 'unique_class_label', 'flow_direction', 'flow_accounting_periodic_interval', 'flow_idle_timeout_value', 'prepaid_time_quota', 'prepaid_time_threshold', 'prepaid_total_time_quota', 'prepaid_volume_threshold', 'prepaid_remaining_qt', 'prepaid_remaining_qat', 'prepaid_remaining_qit', 'prepaid_remaining_qtt', 'prepaid_remaining_wheel', 'prepaid_tariff_time', 'prepaid_idle_timeout_value', 'prepaid_reauth_timeout_value', 'prepaid_ccfh', 'prepaid_result_code', 'prepaid_volumei_quota', 'prepaid_volumeo_quota', 'prepaid_volumeb_quota', 'prepaid_total_volumei_quota', 'prepaid_total_volumeo_quota', 'prepaid_total_volumeb_quota', 'prepaid_volume_usedi_quota', 'prepaid_volume_usedo_quota', 'prepaid_volume_refi_quota', 'prepaid_volume_refo_quota', 'prepaid_volume_refb_quota', 'prepaid_volume_agg_refi_quota', 'prepaid_volume_agg_refo_quota', 'prepaid_volume_agg_refb_quota', 'prepaid_volume_newi_quota', 'prepaid_volume_newo_quota', 'prepaid_volume_newb_quota', 'prepaid_tariff_volumei_quota', 'prepaid_tariff_volumeo_quota', 'prepaid_tariff_volumeb_quota', 'flow_accounting_method_list_name', 'prepaid_cfg', 'prepaid_time_state', 'prepaid_volume_state', 'prepaid_charging_rule'], name, value)
+
+
+
+
+
+            class SubscriberAccountingSrgFeatures(Entity):
+                """
+                Subscriber accounting SRG feature data
+                
+                .. attribute:: subscriber_accounting_srg_feature
+                
+                	Display accounting SRG features by unique access interface\-name
+                	**type**\: list of  		 :py:class:`SubscriberAccountingSrgFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'subscriber-accounting-oper'
+                _revision = '2018-10-30'
+
+                def __init__(self):
+                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures, self).__init__()
+
+                    self.yang_name = "subscriber-accounting-srg-features"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("subscriber-accounting-srg-feature", ("subscriber_accounting_srg_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature))])
+                    self._leafs = OrderedDict()
+
+                    self.subscriber_accounting_srg_feature = YList(self)
+                    self._segment_path = lambda: "subscriber-accounting-srg-features"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures, [], name, value)
+
+
+                class SubscriberAccountingSrgFeature(Entity):
+                    """
+                    Display accounting SRG features by unique
+                    access interface\-name
+                    
+                    .. attribute:: interface_name  (key)
+                    
+                    	Interface name
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: srg_status_counters
+                    
+                    	Accounting's SRG Statistics Info Bag
+                    	**type**\:  :py:class:`SrgStatusCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-oper'
+                    _revision = '2018-10-30'
+
+                    def __init__(self):
+                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature, self).__init__()
+
+                        self.yang_name = "subscriber-accounting-srg-feature"
+                        self.yang_parent_name = "subscriber-accounting-srg-features"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['interface_name']
+                        self._child_classes = OrderedDict([("srg-status-counters", ("srg_status_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ])
+                        self.interface_name = None
+
+                        self.srg_status_counters = SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters()
+                        self.srg_status_counters.parent = self
+                        self._children_name_map["srg_status_counters"] = "srg-status-counters"
+                        self._segment_path = lambda: "subscriber-accounting-srg-feature" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature, ['interface_name'], name, value)
+
+
+                    class SrgStatusCounters(Entity):
+                        """
+                        Accounting's SRG Statistics Info Bag
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface name
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: access_interface_handle
+                        
+                        	Access Interface handle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: accounting_mode
+                        
+                        	Accounting Feature Mode
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: srg_node_role
+                        
+                        	SRG Role for given access interface
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: srg_master_eoms_pending_flag
+                        
+                        	True/False,if SRG Master Node Sync is still pending
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: srg_diameter_up_flag
+                        
+                        	True/False,SRG Node Diameter Notification flag
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: srg_role_upd_time
+                        
+                        	SRG Role Notification time in DDD MMM DD HH\:MM \:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-accounting-oper'
+                        _revision = '2018-10-30'
+
+                        def __init__(self):
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, self).__init__()
+
+                            self.yang_name = "srg-status-counters"
+                            self.yang_parent_name = "subscriber-accounting-srg-feature"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('access_interface_handle', (YLeaf(YType.uint32, 'access-interface-handle'), ['int'])),
+                                ('accounting_mode', (YLeaf(YType.uint32, 'accounting-mode'), ['int'])),
+                                ('srg_node_role', (YLeaf(YType.uint32, 'srg-node-role'), ['int'])),
+                                ('srg_master_eoms_pending_flag', (YLeaf(YType.boolean, 'srg-master-eoms-pending-flag'), ['bool'])),
+                                ('srg_diameter_up_flag', (YLeaf(YType.boolean, 'srg-diameter-up-flag'), ['bool'])),
+                                ('srg_role_upd_time', (YLeaf(YType.str, 'srg-role-upd-time'), ['str'])),
+                            ])
+                            self.interface_name = None
+                            self.access_interface_handle = None
+                            self.accounting_mode = None
+                            self.srg_node_role = None
+                            self.srg_master_eoms_pending_flag = None
+                            self.srg_diameter_up_flag = None
+                            self.srg_role_upd_time = None
+                            self._segment_path = lambda: "srg-status-counters"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, ['interface_name', 'access_interface_handle', 'accounting_mode', 'srg_node_role', 'srg_master_eoms_pending_flag', 'srg_diameter_up_flag', 'srg_role_upd_time'], name, value)
 
 
 

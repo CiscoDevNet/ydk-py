@@ -69,84 +69,6 @@ class XtcAfId(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-class XtcBsidError(Enum):
-    """
-    XtcBsidError (Enum Class)
-
-    Xtc bsid error
-
-    .. data:: none = 0
-
-    	No error
-
-    .. data:: allocating = 1
-
-    	Error allocating via LSD
-
-    .. data:: exists = 2
-
-    	Explicitly configured BSID already exists
-
-    .. data:: internal = 3
-
-    	Internal error
-
-    .. data:: color_endpoint_exists = 4
-
-    	Configured BSID used by another color/end-point
-
-    .. data:: forwarding_rewrite_error = 5
-
-    	BSID Forwarding rewrite (label xconnect) failed
-
-    .. data:: srlb_invalid_label = 6
-
-    	BSID not valid within SRLB range
-
-    .. data:: internal_error = 7
-
-    	Internal error
-
-    """
-
-    none = Enum.YLeaf(0, "none")
-
-    allocating = Enum.YLeaf(1, "allocating")
-
-    exists = Enum.YLeaf(2, "exists")
-
-    internal = Enum.YLeaf(3, "internal")
-
-    color_endpoint_exists = Enum.YLeaf(4, "color-endpoint-exists")
-
-    forwarding_rewrite_error = Enum.YLeaf(5, "forwarding-rewrite-error")
-
-    srlb_invalid_label = Enum.YLeaf(6, "srlb-invalid-label")
-
-    internal_error = Enum.YLeaf(7, "internal-error")
-
-
-class XtcBsidMode(Enum):
-    """
-    XtcBsidMode (Enum Class)
-
-    XTC BSID MODE type
-
-    .. data:: explicit = 0
-
-    	Explicit binding SID
-
-    .. data:: dynamic = 1
-
-    	Dynamic binding SID
-
-    """
-
-    explicit = Enum.YLeaf(0, "explicit")
-
-    dynamic = Enum.YLeaf(1, "dynamic")
-
-
 class XtcDisjointness(Enum):
     """
     XtcDisjointness (Enum Class)
@@ -211,6 +133,150 @@ class XtcIgpInfoId(Enum):
     ospf = Enum.YLeaf(2, "ospf")
 
     bgp = Enum.YLeaf(3, "bgp")
+
+
+class XtcPolicyCpathProtoOrigin(Enum):
+    """
+    XtcPolicyCpathProtoOrigin (Enum Class)
+
+    Policy candidate path protocol origin
+
+    .. data:: unknown = 0
+
+    	unknown
+
+    .. data:: pcep = 10
+
+    	pcep
+
+    .. data:: bgp = 20
+
+    	bgp
+
+    .. data:: configuration = 30
+
+    	configuration
+
+    """
+
+    unknown = Enum.YLeaf(0, "unknown")
+
+    pcep = Enum.YLeaf(10, "pcep")
+
+    bgp = Enum.YLeaf(20, "bgp")
+
+    configuration = Enum.YLeaf(30, "configuration")
+
+
+class XtcPolicyLspSmState(Enum):
+    """
+    XtcPolicyLspSmState (Enum Class)
+
+    XTC policy LSP FSM states
+
+    .. data:: unknown = 0
+
+    	Unknown
+
+    .. data:: initialized = 1
+
+    	Initialized
+
+    .. data:: deleted = 2
+
+    	Deleted
+
+    .. data:: programmed = 3
+
+    	Programmed; all forwarding rewrites created
+
+    .. data:: egress_paths_pending = 4
+
+    	Waiting for egress paths
+
+    .. data:: label_allocation_pending = 5
+
+    	Waiting for label allocation result
+
+    .. data:: label_allocation_cleanup_pending = 6
+
+    	Waiting for label free result
+
+    .. data:: label_rewrite_pending = 7
+
+    	Waiting for label rewrite create result
+
+    .. data:: label_rewrite_cleanup_pending = 8
+
+    	Waiting for label rewrite delete result
+
+    .. data:: bsid_allocation_pending = 9
+
+    	Waiting for BSID label allocation result
+
+    .. data:: bsid_allocation_cleanup_pending = 10
+
+    	Waiting for BSID label free result
+
+    .. data:: bsid_rewrite_pending = 11
+
+    	Waiting for BSID rewrite create result
+
+    .. data:: bsid_rewrite_cleanup_pending = 12
+
+    	Waiting for BSID rewrite delete result
+
+    .. data:: tunnel_rewrite_pending = 13
+
+    	Waiting for tunnel rewrite create result
+
+    .. data:: tunnel_rewrite_cleanup_pending = 14
+
+    	Waiting for tunnel rewrite delete result
+
+    .. data:: install_timer_pending = 15
+
+    	Waiting for install timer to expire
+
+    .. data:: cleanup_timer_pending = 16
+
+    	Waiting for cleanup timer to expire
+
+    """
+
+    unknown = Enum.YLeaf(0, "unknown")
+
+    initialized = Enum.YLeaf(1, "initialized")
+
+    deleted = Enum.YLeaf(2, "deleted")
+
+    programmed = Enum.YLeaf(3, "programmed")
+
+    egress_paths_pending = Enum.YLeaf(4, "egress-paths-pending")
+
+    label_allocation_pending = Enum.YLeaf(5, "label-allocation-pending")
+
+    label_allocation_cleanup_pending = Enum.YLeaf(6, "label-allocation-cleanup-pending")
+
+    label_rewrite_pending = Enum.YLeaf(7, "label-rewrite-pending")
+
+    label_rewrite_cleanup_pending = Enum.YLeaf(8, "label-rewrite-cleanup-pending")
+
+    bsid_allocation_pending = Enum.YLeaf(9, "bsid-allocation-pending")
+
+    bsid_allocation_cleanup_pending = Enum.YLeaf(10, "bsid-allocation-cleanup-pending")
+
+    bsid_rewrite_pending = Enum.YLeaf(11, "bsid-rewrite-pending")
+
+    bsid_rewrite_cleanup_pending = Enum.YLeaf(12, "bsid-rewrite-cleanup-pending")
+
+    tunnel_rewrite_pending = Enum.YLeaf(13, "tunnel-rewrite-pending")
+
+    tunnel_rewrite_cleanup_pending = Enum.YLeaf(14, "tunnel-rewrite-cleanup-pending")
+
+    install_timer_pending = Enum.YLeaf(15, "install-timer-pending")
+
+    cleanup_timer_pending = Enum.YLeaf(16, "cleanup-timer-pending")
 
 
 class XtcPolicyPath(Enum):
@@ -357,7 +423,7 @@ class Pcc(Entity):
     """
 
     _prefix = 'infra-xtc-agent-oper'
-    _revision = '2017-09-11'
+    _revision = '2018-11-28'
 
     def __init__(self):
         super(Pcc, self).__init__()
@@ -401,7 +467,7 @@ class Pcc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Pcc.Plsps, self).__init__()
@@ -496,7 +562,7 @@ class Pcc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Pcc.Plsps.Plsp, self).__init__()
@@ -606,7 +672,7 @@ class Pcc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Pcc.Plsps.Plsp.Stats, self).__init__()
@@ -666,7 +732,7 @@ class Pcc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Pcc.Plsps.Plsp.EventHistory, self).__init__()
@@ -916,7 +982,7 @@ class Pcc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Pcc.Plsps.Plsp.Path, self).__init__()
@@ -1025,7 +1091,7 @@ class Pcc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Pcc.Plsps.Plsp.Path.Stats, self).__init__()
@@ -1075,7 +1141,7 @@ class Pcc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Pcc.Plsps.Plsp.Path.EroHop, self).__init__()
@@ -1133,7 +1199,7 @@ class Pcc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Pcc.Plsps.Plsp.Path.EroHop.Data, self).__init__()
@@ -1190,7 +1256,7 @@ class Pcc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4, self).__init__()
@@ -1267,7 +1333,7 @@ class Pcc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4, self).__init__()
@@ -1323,7 +1389,7 @@ class Pcc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Pcc.Plsps.Plsp.Path.RroHop, self).__init__()
@@ -1381,7 +1447,7 @@ class Pcc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Pcc.Plsps.Plsp.Path.RroHop.Data, self).__init__()
@@ -1438,7 +1504,7 @@ class Pcc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4, self).__init__()
@@ -1515,7 +1581,7 @@ class Pcc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4, self).__init__()
@@ -1567,7 +1633,7 @@ class Pcc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Pcc.Peers, self).__init__()
@@ -1862,7 +1928,7 @@ class Pcc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Pcc.Peers.Peer, self).__init__()
@@ -2022,7 +2088,7 @@ class Pcc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Pcc.Peers.Peer.SocketInfo, self).__init__()
@@ -2545,7 +2611,7 @@ class Pcc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Pcc.Peers.Peer.Stats, self).__init__()
@@ -2690,6 +2756,13 @@ class Xtc(Entity):
     
     	**config**\: False
     
+    .. attribute:: policy_forwardings
+    
+    	Forwarding information for policies
+    	**type**\:  :py:class:`PolicyForwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicyForwardings>`
+    
+    	**config**\: False
+    
     .. attribute:: policy_summary
     
     	Summary of all policies
@@ -2701,13 +2774,6 @@ class Xtc(Entity):
     
     	On\-Demand Color database in XTC Agent
     	**type**\:  :py:class:`OnDemandColors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.OnDemandColors>`
-    
-    	**config**\: False
-    
-    .. attribute:: forwarding
-    
-    	Forwarding information
-    	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding>`
     
     	**config**\: False
     
@@ -2744,7 +2810,7 @@ class Xtc(Entity):
     """
 
     _prefix = 'infra-xtc-agent-oper'
-    _revision = '2017-09-11'
+    _revision = '2018-11-28'
 
     def __init__(self):
         super(Xtc, self).__init__()
@@ -2755,12 +2821,16 @@ class Xtc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("policy-summary", ("policy_summary", Xtc.PolicySummary)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("forwarding", ("forwarding", Xtc.Forwarding)), ("controller", ("controller", Xtc.Controller)), ("topology-summary", ("topology_summary", Xtc.TopologySummary)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
+        self._child_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("policy-forwardings", ("policy_forwardings", Xtc.PolicyForwardings)), ("policy-summary", ("policy_summary", Xtc.PolicySummary)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("controller", ("controller", Xtc.Controller)), ("topology-summary", ("topology_summary", Xtc.TopologySummary)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
         self._leafs = OrderedDict()
 
         self.policies = Xtc.Policies()
         self.policies.parent = self
         self._children_name_map["policies"] = "policies"
+
+        self.policy_forwardings = Xtc.PolicyForwardings()
+        self.policy_forwardings.parent = self
+        self._children_name_map["policy_forwardings"] = "policy-forwardings"
 
         self.policy_summary = Xtc.PolicySummary()
         self.policy_summary.parent = self
@@ -2769,10 +2839,6 @@ class Xtc(Entity):
         self.on_demand_colors = Xtc.OnDemandColors()
         self.on_demand_colors.parent = self
         self._children_name_map["on_demand_colors"] = "on-demand-colors"
-
-        self.forwarding = Xtc.Forwarding()
-        self.forwarding.parent = self
-        self._children_name_map["forwarding"] = "forwarding"
 
         self.controller = Xtc.Controller()
         self.controller.parent = self
@@ -2812,7 +2878,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.Policies, self).__init__()
@@ -2861,13 +2927,6 @@ class Xtc(Entity):
             
             	**config**\: False
             
-            .. attribute:: auto_policy_info
-            
-            	Autopolicy information
-            	**type**\:  :py:class:`AutoPolicyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.AutoPolicyInfo>`
-            
-            	**config**\: False
-            
             .. attribute:: policy_name
             
             	Policy name
@@ -2899,13 +2958,6 @@ class Xtc(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: is_auto_policy
-            
-            	Whether policy was automatically created or configured
-            	**type**\: bool
             
             	**config**\: False
             
@@ -2971,15 +3023,6 @@ class Xtc(Entity):
             
             	**units**\: nanosecond
             
-            .. attribute:: lsp_id
-            
-            	LSP ID
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
             .. attribute:: steering_bgp_disabled
             
             	Whether steering to BGP client is disabled
@@ -2990,33 +3033,6 @@ class Xtc(Entity):
             .. attribute:: interface_handle
             
             	Interface handle
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: policy_group_identifier
-            
-            	Policy group identifier
-            	**type**\: int
-            
-            	**range:** 0..65535
-            
-            	**config**\: False
-            
-            .. attribute:: local_label_identifier
-            
-            	Local label identifier
-            	**type**\: int
-            
-            	**range:** 0..65535
-            
-            	**config**\: False
-            
-            .. attribute:: local_label
-            
-            	Local label
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -3039,10 +3055,24 @@ class Xtc(Entity):
             
             	**config**\: False
             
-            .. attribute:: paths
+            .. attribute:: candidate_path
             
-            	Path options
-            	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths>`
+            	Candidate paths
+            	**type**\: list of  		 :py:class:`CandidatePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath>`
+            
+            	**config**\: False
+            
+            .. attribute:: ls_ps
+            
+            	LSPs
+            	**type**\: list of  		 :py:class:`LsPs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.LsPs>`
+            
+            	**config**\: False
+            
+            .. attribute:: event_buffer
+            
+            	Policy Event buffer
+            	**type**\: list of  		 :py:class:`EventBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.EventBuffer>`
             
             	**config**\: False
             
@@ -3051,7 +3081,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.Policies.Policy, self).__init__()
@@ -3061,26 +3091,21 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['id']
-                self._child_classes = OrderedDict([("destination-address", ("destination_address", Xtc.Policies.Policy.DestinationAddress)), ("binding-sid", ("binding_sid", Xtc.Policies.Policy.BindingSid)), ("auto-policy-info", ("auto_policy_info", Xtc.Policies.Policy.AutoPolicyInfo)), ("paths", ("paths", Xtc.Policies.Policy.Paths))])
+                self._child_classes = OrderedDict([("destination-address", ("destination_address", Xtc.Policies.Policy.DestinationAddress)), ("binding-sid", ("binding_sid", Xtc.Policies.Policy.BindingSid)), ("candidate-path", ("candidate_path", Xtc.Policies.Policy.CandidatePath)), ("ls-ps", ("ls_ps", Xtc.Policies.Policy.LsPs)), ("event-buffer", ("event_buffer", Xtc.Policies.Policy.EventBuffer))])
                 self._leafs = OrderedDict([
                     ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
                     ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
                     ('administrative_up', (YLeaf(YType.uint32, 'administrative-up'), ['int'])),
                     ('operational_up', (YLeaf(YType.uint32, 'operational-up'), ['int'])),
                     ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
-                    ('is_auto_policy', (YLeaf(YType.boolean, 'is-auto-policy'), ['bool'])),
                     ('transition_count', (YLeaf(YType.uint32, 'transition-count'), ['int'])),
                     ('forward_class', (YLeaf(YType.uint32, 'forward-class'), ['int'])),
                     ('up_time', (YLeaf(YType.uint64, 'up-time'), ['int'])),
                     ('up_age', (YLeaf(YType.uint64, 'up-age'), ['int'])),
                     ('down_time', (YLeaf(YType.uint64, 'down-time'), ['int'])),
                     ('down_age', (YLeaf(YType.uint64, 'down-age'), ['int'])),
-                    ('lsp_id', (YLeaf(YType.uint32, 'lsp-id'), ['int'])),
                     ('steering_bgp_disabled', (YLeaf(YType.boolean, 'steering-bgp-disabled'), ['bool'])),
                     ('interface_handle', (YLeaf(YType.uint32, 'interface-handle'), ['int'])),
-                    ('policy_group_identifier', (YLeaf(YType.uint16, 'policy-group-identifier'), ['int'])),
-                    ('local_label_identifier', (YLeaf(YType.uint16, 'local-label-identifier'), ['int'])),
-                    ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
                     ('profile_id', (YLeaf(YType.uint16, 'profile-id'), ['int'])),
                     ('ipv6_caps_enabled', (YLeaf(YType.boolean, 'ipv6-caps-enabled'), ['bool'])),
                 ])
@@ -3089,19 +3114,14 @@ class Xtc(Entity):
                 self.administrative_up = None
                 self.operational_up = None
                 self.color = None
-                self.is_auto_policy = None
                 self.transition_count = None
                 self.forward_class = None
                 self.up_time = None
                 self.up_age = None
                 self.down_time = None
                 self.down_age = None
-                self.lsp_id = None
                 self.steering_bgp_disabled = None
                 self.interface_handle = None
-                self.policy_group_identifier = None
-                self.local_label_identifier = None
-                self.local_label = None
                 self.profile_id = None
                 self.ipv6_caps_enabled = None
 
@@ -3113,17 +3133,15 @@ class Xtc(Entity):
                 self.binding_sid.parent = self
                 self._children_name_map["binding_sid"] = "binding-sid"
 
-                self.auto_policy_info = Xtc.Policies.Policy.AutoPolicyInfo()
-                self.auto_policy_info.parent = self
-                self._children_name_map["auto_policy_info"] = "auto-policy-info"
-
-                self.paths = YList(self)
+                self.candidate_path = YList(self)
+                self.ls_ps = YList(self)
+                self.event_buffer = YList(self)
                 self._segment_path = lambda: "policy" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Xtc.Policies.Policy, ['id', 'policy_name', 'administrative_up', 'operational_up', 'color', 'is_auto_policy', 'transition_count', 'forward_class', 'up_time', 'up_age', 'down_time', 'down_age', 'lsp_id', 'steering_bgp_disabled', 'interface_handle', 'policy_group_identifier', 'local_label_identifier', 'local_label', 'profile_id', 'ipv6_caps_enabled'], name, value)
+                self._perform_setattr(Xtc.Policies.Policy, ['id', 'policy_name', 'administrative_up', 'operational_up', 'color', 'transition_count', 'forward_class', 'up_time', 'up_age', 'down_time', 'down_age', 'steering_bgp_disabled', 'interface_handle', 'profile_id', 'ipv6_caps_enabled'], name, value)
 
 
             class DestinationAddress(Entity):
@@ -3160,7 +3178,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.Policies.Policy.DestinationAddress, self).__init__()
@@ -3198,37 +3216,16 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: bsid_mode
+                .. attribute:: is_fallback_dynamic
                 
-                	Binding SID Mode
-                	**type**\:  :py:class:`XtcBsidMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcBsidMode>`
-                
-                	**config**\: False
-                
-                .. attribute:: error
-                
-                	Binding SID error, if any
-                	**type**\:  :py:class:`XtcBsidError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcBsidError>`
-                
-                	**config**\: False
-                
-                .. attribute:: state
-                
-                	State of the binding SID
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: explicit_based
-                
-                	Whether the binding SID is explicit\-based
+                	Whether the BSID is in fallback dynamic mode
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: policy_selected
+                .. attribute:: is_within_srlb_range
                 
-                	Whether the policy is selected for forwarding on this BSID
+                	Whether the BSID is within SRLB range
                 	**type**\: bool
                 
                 	**config**\: False
@@ -3238,7 +3235,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.Policies.Policy.BindingSid, self).__init__()
@@ -3250,17 +3247,11 @@ class Xtc(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("value", ("value", Xtc.Policies.Policy.BindingSid.Value))])
                     self._leafs = OrderedDict([
-                        ('bsid_mode', (YLeaf(YType.enumeration, 'bsid-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcBsidMode', '')])),
-                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcBsidError', '')])),
-                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
-                        ('explicit_based', (YLeaf(YType.boolean, 'explicit-based'), ['bool'])),
-                        ('policy_selected', (YLeaf(YType.boolean, 'policy-selected'), ['bool'])),
+                        ('is_fallback_dynamic', (YLeaf(YType.boolean, 'is-fallback-dynamic'), ['bool'])),
+                        ('is_within_srlb_range', (YLeaf(YType.boolean, 'is-within-srlb-range'), ['bool'])),
                     ])
-                    self.bsid_mode = None
-                    self.error = None
-                    self.state = None
-                    self.explicit_based = None
-                    self.policy_selected = None
+                    self.is_fallback_dynamic = None
+                    self.is_within_srlb_range = None
 
                     self.value = Xtc.Policies.Policy.BindingSid.Value()
                     self.value.parent = self
@@ -3269,7 +3260,7 @@ class Xtc(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Policies.Policy.BindingSid, ['bsid_mode', 'error', 'state', 'explicit_based', 'policy_selected'], name, value)
+                    self._perform_setattr(Xtc.Policies.Policy.BindingSid, ['is_fallback_dynamic', 'is_within_srlb_range'], name, value)
 
 
                 class Value(Entity):
@@ -3306,7 +3297,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.Policies.Policy.BindingSid.Value, self).__init__()
@@ -3334,169 +3325,102 @@ class Xtc(Entity):
 
 
 
-            class AutoPolicyInfo(Entity):
+            class CandidatePath(Entity):
                 """
-                Autopolicy information
+                Candidate paths
                 
-                .. attribute:: creator_name
+                .. attribute:: originator
                 
-                	Name of client who created policy
-                	**type**\: str
+                	Candidate path originator
+                	**type**\:  :py:class:`Originator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.Originator>`
                 
                 	**config**\: False
-                
-                .. attribute:: distinguisher
-                
-                	Distinguisher
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: preference
-                
-                	Preference of the policy
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
-
-                def __init__(self):
-                    super(Xtc.Policies.Policy.AutoPolicyInfo, self).__init__()
-
-                    self.yang_name = "auto-policy-info"
-                    self.yang_parent_name = "policy"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('creator_name', (YLeaf(YType.str, 'creator-name'), ['str'])),
-                        ('distinguisher', (YLeaf(YType.uint32, 'distinguisher'), ['int'])),
-                        ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
-                    ])
-                    self.creator_name = None
-                    self.distinguisher = None
-                    self.preference = None
-                    self._segment_path = lambda: "auto-policy-info"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Policies.Policy.AutoPolicyInfo, ['creator_name', 'distinguisher', 'preference'], name, value)
-
-
-
-            class Paths(Entity):
-                """
-                Path options
                 
                 .. attribute:: sr_path_constraints
                 
-                	SR path constraints
-                	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints>`
+                	SR candidate path constraints
+                	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SrPathConstraints>`
                 
                 	**config**\: False
                 
-                .. attribute:: index
+                .. attribute:: requested_bsid
                 
-                	Index number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	Requested binding SID
+                	**type**\:  :py:class:`RequestedBsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.RequestedBsid>`
                 
                 	**config**\: False
                 
-                .. attribute:: type
+                .. attribute:: pcc_information
                 
-                	Path option type
-                	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
+                	PCC PCEP\-related information
+                	**type**\:  :py:class:`PccInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.PccInformation>`
                 
                 	**config**\: False
                 
                 .. attribute:: name
                 
-                	Explicit path option name
+                	Candidate path name
                 	**type**\: str
                 
                 	**config**\: False
                 
-                .. attribute:: active
+                .. attribute:: preference
                 
-                	Whether the path is active (used)
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: weight
-                
-                	Configured weight of the path\-option
+                	Candidate path preference
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 	**config**\: False
                 
-                .. attribute:: metric_type
+                .. attribute:: protocol_originator
                 
-                	Configured path metric type
-                	**type**\: int
-                
-                	**range:** 0..255
+                	Candidate path protocol origin
+                	**type**\:  :py:class:`XtcPolicyCpathProtoOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyCpathProtoOrigin>`
                 
                 	**config**\: False
                 
-                .. attribute:: metric_value
+                .. attribute:: discriminator
                 
-                	Path metric value
+                	Candidate path discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 	**config**\: False
                 
-                .. attribute:: is_valid
+                .. attribute:: is_current
                 
-                	True if path is valid
+                	Whether this is the currently used candidate path
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: pce_based_path
+                .. attribute:: is_reoptimizing
                 
-                	True if the path is to be computed by PCE
+                	Whether this is the candidate path that the policy is reoptimizing to
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: pce_address
+                .. attribute:: shutdown
                 
-                	Address of the PCE computed the path
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	If set, the candidate path is administratively shutdown
+                	**type**\: bool
                 
                 	**config**\: False
                 
                 .. attribute:: error
                 
-                	Error (for display only)
+                	Candidate path error (for display only)
                 	**type**\: str
                 
                 	**config**\: False
                 
-                .. attribute:: hops
+                .. attribute:: segment_list
                 
-                	SR hop list
-                	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops>`
+                	Segment lists of the candidate path
+                	**type**\: list of  		 :py:class:`SegmentList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SegmentList>`
                 
                 	**config**\: False
                 
@@ -3505,76 +3429,77 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
-                    super(Xtc.Policies.Policy.Paths, self).__init__()
+                    super(Xtc.Policies.Policy.CandidatePath, self).__init__()
 
-                    self.yang_name = "paths"
+                    self.yang_name = "candidate-path"
                     self.yang_parent_name = "policy"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.Paths.SrPathConstraints)), ("hops", ("hops", Xtc.Policies.Policy.Paths.Hops))])
+                    self._child_classes = OrderedDict([("originator", ("originator", Xtc.Policies.Policy.CandidatePath.Originator)), ("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.CandidatePath.SrPathConstraints)), ("requested-bsid", ("requested_bsid", Xtc.Policies.Policy.CandidatePath.RequestedBsid)), ("pcc-information", ("pcc_information", Xtc.Policies.Policy.CandidatePath.PccInformation)), ("segment-list", ("segment_list", Xtc.Policies.Policy.CandidatePath.SegmentList))])
                     self._leafs = OrderedDict([
-                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
-                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyPath', '')])),
                         ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                        ('active', (YLeaf(YType.boolean, 'active'), ['bool'])),
-                        ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
-                        ('metric_type', (YLeaf(YType.uint8, 'metric-type'), ['int'])),
-                        ('metric_value', (YLeaf(YType.uint32, 'metric-value'), ['int'])),
-                        ('is_valid', (YLeaf(YType.boolean, 'is-valid'), ['bool'])),
-                        ('pce_based_path', (YLeaf(YType.boolean, 'pce-based-path'), ['bool'])),
-                        ('pce_address', (YLeaf(YType.str, 'pce-address'), ['str'])),
+                        ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
+                        ('protocol_originator', (YLeaf(YType.enumeration, 'protocol-originator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyCpathProtoOrigin', '')])),
+                        ('discriminator', (YLeaf(YType.uint32, 'discriminator'), ['int'])),
+                        ('is_current', (YLeaf(YType.boolean, 'is-current'), ['bool'])),
+                        ('is_reoptimizing', (YLeaf(YType.boolean, 'is-reoptimizing'), ['bool'])),
+                        ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                         ('error', (YLeaf(YType.str, 'error'), ['str'])),
                     ])
-                    self.index = None
-                    self.type = None
                     self.name = None
-                    self.active = None
-                    self.weight = None
-                    self.metric_type = None
-                    self.metric_value = None
-                    self.is_valid = None
-                    self.pce_based_path = None
-                    self.pce_address = None
+                    self.preference = None
+                    self.protocol_originator = None
+                    self.discriminator = None
+                    self.is_current = None
+                    self.is_reoptimizing = None
+                    self.shutdown = None
                     self.error = None
 
-                    self.sr_path_constraints = Xtc.Policies.Policy.Paths.SrPathConstraints()
+                    self.originator = Xtc.Policies.Policy.CandidatePath.Originator()
+                    self.originator.parent = self
+                    self._children_name_map["originator"] = "originator"
+
+                    self.sr_path_constraints = Xtc.Policies.Policy.CandidatePath.SrPathConstraints()
                     self.sr_path_constraints.parent = self
                     self._children_name_map["sr_path_constraints"] = "sr-path-constraints"
 
-                    self.hops = YList(self)
-                    self._segment_path = lambda: "paths"
+                    self.requested_bsid = Xtc.Policies.Policy.CandidatePath.RequestedBsid()
+                    self.requested_bsid.parent = self
+                    self._children_name_map["requested_bsid"] = "requested-bsid"
+
+                    self.pcc_information = Xtc.Policies.Policy.CandidatePath.PccInformation()
+                    self.pcc_information.parent = self
+                    self._children_name_map["pcc_information"] = "pcc-information"
+
+                    self.segment_list = YList(self)
+                    self._segment_path = lambda: "candidate-path"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Policies.Policy.Paths, ['index', 'type', 'name', 'active', 'weight', 'metric_type', 'metric_value', 'is_valid', 'pce_based_path', 'pce_address', 'error'], name, value)
+                    self._perform_setattr(Xtc.Policies.Policy.CandidatePath, ['name', 'preference', 'protocol_originator', 'discriminator', 'is_current', 'is_reoptimizing', 'shutdown', 'error'], name, value)
 
 
-                class SrPathConstraints(Entity):
+                class Originator(Entity):
                     """
-                    SR path constraints
+                    Candidate path originator
                     
-                    .. attribute:: path_metrics
+                    .. attribute:: node_address
                     
-                    	Path metrics
-                    	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: segments
-                    
-                    	Segments constraints
-                    	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.Segments>`
+                    	Originator node address
+                    	**type**\:  :py:class:`NodeAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.Originator.NodeAddress>`
                     
                     	**config**\: False
                     
-                    .. attribute:: affinity_constraint
+                    .. attribute:: autonomous_system_number
                     
-                    	Affinity constraints list
-                    	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint>`
+                    	Originator Autonomous System Number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     	**config**\: False
                     
@@ -3583,24 +3508,142 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
-                        super(Xtc.Policies.Policy.Paths.SrPathConstraints, self).__init__()
+                        super(Xtc.Policies.Policy.CandidatePath.Originator, self).__init__()
 
-                        self.yang_name = "sr-path-constraints"
-                        self.yang_parent_name = "paths"
+                        self.yang_name = "originator"
+                        self.yang_parent_name = "candidate-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics)), ("segments", ("segments", Xtc.Policies.Policy.Paths.SrPathConstraints.Segments)), ("affinity-constraint", ("affinity_constraint", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint))])
+                        self._child_classes = OrderedDict([("node-address", ("node_address", Xtc.Policies.Policy.CandidatePath.Originator.NodeAddress))])
+                        self._leafs = OrderedDict([
+                            ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                        ])
+                        self.autonomous_system_number = None
+
+                        self.node_address = Xtc.Policies.Policy.CandidatePath.Originator.NodeAddress()
+                        self.node_address.parent = self
+                        self._children_name_map["node_address"] = "node-address"
+                        self._segment_path = lambda: "originator"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.Originator, ['autonomous_system_number'], name, value)
+
+
+                    class NodeAddress(Entity):
+                        """
+                        Originator node address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-oper'
+                        _revision = '2018-11-28'
+
+                        def __init__(self):
+                            super(Xtc.Policies.Policy.CandidatePath.Originator.NodeAddress, self).__init__()
+
+                            self.yang_name = "node-address"
+                            self.yang_parent_name = "originator"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self._segment_path = lambda: "node-address"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.Originator.NodeAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+
+
+                class SrPathConstraints(Entity):
+                    """
+                    SR candidate path constraints
+                    
+                    .. attribute:: path_metrics
+                    
+                    	Path metrics
+                    	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SrPathConstraints.PathMetrics>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: segments
+                    
+                    	Segments constraints
+                    	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SrPathConstraints.Segments>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: affinity_constraint
+                    
+                    	Affinity constraints list
+                    	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.CandidatePath.SrPathConstraints, self).__init__()
+
+                        self.yang_name = "sr-path-constraints"
+                        self.yang_parent_name = "candidate-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Policies.Policy.CandidatePath.SrPathConstraints.PathMetrics)), ("segments", ("segments", Xtc.Policies.Policy.CandidatePath.SrPathConstraints.Segments)), ("affinity-constraint", ("affinity_constraint", Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint))])
                         self._leafs = OrderedDict()
 
-                        self.path_metrics = Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics()
+                        self.path_metrics = Xtc.Policies.Policy.CandidatePath.SrPathConstraints.PathMetrics()
                         self.path_metrics.parent = self
                         self._children_name_map["path_metrics"] = "path-metrics"
 
-                        self.segments = Xtc.Policies.Policy.Paths.SrPathConstraints.Segments()
+                        self.segments = Xtc.Policies.Policy.CandidatePath.SrPathConstraints.Segments()
                         self.segments.parent = self
                         self._children_name_map["segments"] = "segments"
 
@@ -3609,7 +3652,7 @@ class Xtc(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints, [], name, value)
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints, [], name, value)
 
 
                     class PathMetrics(Entity):
@@ -3621,7 +3664,7 @@ class Xtc(Entity):
                         	Margin Relative
                         	**type**\: int
                         
-                        	**range:** 0..255
+                        	**range:** 0..4294967295
                         
                         	**config**\: False
                         
@@ -3630,7 +3673,7 @@ class Xtc(Entity):
                         	Margin Absolute
                         	**type**\: int
                         
-                        	**range:** 0..255
+                        	**range:** 0..4294967295
                         
                         	**config**\: False
                         
@@ -3675,10 +3718,10 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics, self).__init__()
+                            super(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.PathMetrics, self).__init__()
 
                             self.yang_name = "path-metrics"
                             self.yang_parent_name = "sr-path-constraints"
@@ -3687,8 +3730,8 @@ class Xtc(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('margin_relative', (YLeaf(YType.uint8, 'margin-relative'), ['int'])),
-                                ('margin_absolute', (YLeaf(YType.uint8, 'margin-absolute'), ['int'])),
+                                ('margin_relative', (YLeaf(YType.uint32, 'margin-relative'), ['int'])),
+                                ('margin_absolute', (YLeaf(YType.uint32, 'margin-absolute'), ['int'])),
                                 ('maximum_segments', (YLeaf(YType.uint16, 'maximum-segments'), ['int'])),
                                 ('accumulative_te_metric', (YLeaf(YType.uint32, 'accumulative-te-metric'), ['int'])),
                                 ('accumulative_igp_metric', (YLeaf(YType.uint32, 'accumulative-igp-metric'), ['int'])),
@@ -3704,7 +3747,7 @@ class Xtc(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
 
 
 
@@ -3726,10 +3769,10 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.SrPathConstraints.Segments, self).__init__()
+                            super(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.Segments, self).__init__()
 
                             self.yang_name = "segments"
                             self.yang_parent_name = "sr-path-constraints"
@@ -3745,7 +3788,7 @@ class Xtc(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.Segments, ['segment_algorithm'], name, value)
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.Segments, ['segment_algorithm'], name, value)
 
 
 
@@ -3774,7 +3817,7 @@ class Xtc(Entity):
                         .. attribute:: color
                         
                         	Colors
-                        	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color>`
+                        	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint.Color>`
                         
                         	**config**\: False
                         
@@ -3783,17 +3826,17 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint, self).__init__()
+                            super(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint, self).__init__()
 
                             self.yang_name = "affinity-constraint"
                             self.yang_parent_name = "sr-path-constraints"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("color", ("color", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color))])
+                            self._child_classes = OrderedDict([("color", ("color", Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint.Color))])
                             self._leafs = OrderedDict([
                                 ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
                                 ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
@@ -3806,7 +3849,7 @@ class Xtc(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint, ['type', 'value'], name, value)
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint, ['type', 'value'], name, value)
 
 
                         class Color(Entity):
@@ -3825,10 +3868,10 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
-                                super(Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color, self).__init__()
+                                super(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint.Color, self).__init__()
 
                                 self.yang_name = "color"
                                 self.yang_parent_name = "affinity-constraint"
@@ -3844,50 +3887,38 @@ class Xtc(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
+                                self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
 
 
 
 
 
-                class Hops(Entity):
+                class RequestedBsid(Entity):
                     """
-                    SR hop list
-                    
-                    .. attribute:: sid
-                    
-                    	SID value
-                    	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.Sid>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: local_address
-                    
-                    	Local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.LocalAddress>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: remote_address
-                    
-                    	Remote address
-                    	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.RemoteAddress>`
-                    
-                    	**config**\: False
+                    Requested binding SID
                     
                     .. attribute:: sid_type
                     
-                    	SID type
-                    	**type**\:  :py:class:`XtcSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSrSid>`
+                    	SIDType
+                    	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
                     
                     	**config**\: False
                     
-                    .. attribute:: algorithm
+                    .. attribute:: label
                     
-                    	Algorithim
+                    	MPLS label
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**config**\: False
                     
@@ -3896,45 +3927,756 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
-                        super(Xtc.Policies.Policy.Paths.Hops, self).__init__()
+                        super(Xtc.Policies.Policy.CandidatePath.RequestedBsid, self).__init__()
 
-                        self.yang_name = "hops"
-                        self.yang_parent_name = "paths"
+                        self.yang_name = "requested-bsid"
+                        self.yang_parent_name = "candidate-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("sid", ("sid", Xtc.Policies.Policy.Paths.Hops.Sid)), ("local-address", ("local_address", Xtc.Policies.Policy.Paths.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Policies.Policy.Paths.Hops.RemoteAddress))])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSrSid', '')])),
-                            ('algorithm', (YLeaf(YType.uint8, 'algorithm'), ['int'])),
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSid', '')])),
+                            ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.sid_type = None
-                        self.algorithm = None
-
-                        self.sid = Xtc.Policies.Policy.Paths.Hops.Sid()
-                        self.sid.parent = self
-                        self._children_name_map["sid"] = "sid"
-
-                        self.local_address = Xtc.Policies.Policy.Paths.Hops.LocalAddress()
-                        self.local_address.parent = self
-                        self._children_name_map["local_address"] = "local-address"
-
-                        self.remote_address = Xtc.Policies.Policy.Paths.Hops.RemoteAddress()
-                        self.remote_address.parent = self
-                        self._children_name_map["remote_address"] = "remote-address"
-                        self._segment_path = lambda: "hops"
+                        self.label = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "requested-bsid"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Xtc.Policies.Policy.Paths.Hops, ['sid_type', 'algorithm'], name, value)
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.RequestedBsid, ['sid_type', 'label', 'ipv6'], name, value)
 
 
-                    class Sid(Entity):
+
+                class PccInformation(Entity):
+                    """
+                    PCC PCEP\-related information
+                    
+                    .. attribute:: orphan_timer
+                    
+                    	Orphan timer for PCE\-initiated candidate paths in orphan state
+                    	**type**\:  :py:class:`OrphanTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.PccInformation.OrphanTimer>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: symbolic_name
+                    
+                    	Symbolic name of the PLSP
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: plsp_id
+                    
+                    	PLSP\-ID associated with the PCC info
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_orphan
+                    
+                    	Whether the candidate path is in orphan state
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.CandidatePath.PccInformation, self).__init__()
+
+                        self.yang_name = "pcc-information"
+                        self.yang_parent_name = "candidate-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("orphan-timer", ("orphan_timer", Xtc.Policies.Policy.CandidatePath.PccInformation.OrphanTimer))])
+                        self._leafs = OrderedDict([
+                            ('symbolic_name', (YLeaf(YType.str, 'symbolic-name'), ['str'])),
+                            ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
+                            ('is_orphan', (YLeaf(YType.boolean, 'is-orphan'), ['bool'])),
+                        ])
+                        self.symbolic_name = None
+                        self.plsp_id = None
+                        self.is_orphan = None
+
+                        self.orphan_timer = Xtc.Policies.Policy.CandidatePath.PccInformation.OrphanTimer()
+                        self.orphan_timer.parent = self
+                        self._children_name_map["orphan_timer"] = "orphan-timer"
+                        self._segment_path = lambda: "pcc-information"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.PccInformation, ['symbolic_name', 'plsp_id', 'is_orphan'], name, value)
+
+
+                    class OrphanTimer(Entity):
                         """
-                        SID value
+                        Orphan timer for PCE\-initiated candidate paths
+                        in orphan state
+                        
+                        .. attribute:: running
+                        
+                        	Whether the timer is running
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: remaining_seconds
+                        
+                        	Number of remaining seconds
+                        	**type**\: int
+                        
+                        	**range:** \-9223372036854775808..9223372036854775807
+                        
+                        	**config**\: False
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: remaining_nano_seconds
+                        
+                        	Number of remaining nanoseconds
+                        	**type**\: int
+                        
+                        	**range:** \-9223372036854775808..9223372036854775807
+                        
+                        	**config**\: False
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-oper'
+                        _revision = '2018-11-28'
+
+                        def __init__(self):
+                            super(Xtc.Policies.Policy.CandidatePath.PccInformation.OrphanTimer, self).__init__()
+
+                            self.yang_name = "orphan-timer"
+                            self.yang_parent_name = "pcc-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                                ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                                ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                            ])
+                            self.running = None
+                            self.remaining_seconds = None
+                            self.remaining_nano_seconds = None
+                            self._segment_path = lambda: "orphan-timer"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.PccInformation.OrphanTimer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
+
+
+
+
+                class SegmentList(Entity):
+                    """
+                    Segment lists of the candidate path
+                    
+                    .. attribute:: name
+                    
+                    	Explicit segment list name
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: type
+                    
+                    	Segment list type
+                    	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: active
+                    
+                    	Whether the segment list is active (used)
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: weight
+                    
+                    	Weight of the segment list
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: metric_type
+                    
+                    	Metric type of the segment list
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: metric_value
+                    
+                    	Accumulated metric of the segment list
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_valid
+                    
+                    	True if path is valid
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pce_based_path
+                    
+                    	True if the path is to be computed by PCE
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pce_address
+                    
+                    	Address of the PCE computed the path
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: error
+                    
+                    	Error (for display only)
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: hops
+                    
+                    	SR hop list
+                    	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SegmentList.Hops>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.CandidatePath.SegmentList, self).__init__()
+
+                        self.yang_name = "segment-list"
+                        self.yang_parent_name = "candidate-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("hops", ("hops", Xtc.Policies.Policy.CandidatePath.SegmentList.Hops))])
+                        self._leafs = OrderedDict([
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyPath', '')])),
+                            ('active', (YLeaf(YType.boolean, 'active'), ['bool'])),
+                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
+                            ('metric_type', (YLeaf(YType.uint8, 'metric-type'), ['int'])),
+                            ('metric_value', (YLeaf(YType.uint64, 'metric-value'), ['int'])),
+                            ('is_valid', (YLeaf(YType.boolean, 'is-valid'), ['bool'])),
+                            ('pce_based_path', (YLeaf(YType.boolean, 'pce-based-path'), ['bool'])),
+                            ('pce_address', (YLeaf(YType.str, 'pce-address'), ['str'])),
+                            ('error', (YLeaf(YType.str, 'error'), ['str'])),
+                        ])
+                        self.name = None
+                        self.type = None
+                        self.active = None
+                        self.weight = None
+                        self.metric_type = None
+                        self.metric_value = None
+                        self.is_valid = None
+                        self.pce_based_path = None
+                        self.pce_address = None
+                        self.error = None
+
+                        self.hops = YList(self)
+                        self._segment_path = lambda: "segment-list"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SegmentList, ['name', 'type', 'active', 'weight', 'metric_type', 'metric_value', 'is_valid', 'pce_based_path', 'pce_address', 'error'], name, value)
+
+
+                    class Hops(Entity):
+                        """
+                        SR hop list
+                        
+                        .. attribute:: sid
+                        
+                        	SID value
+                        	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.Sid>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: local_address
+                        
+                        	Local address
+                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.LocalAddress>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: remote_address
+                        
+                        	Remote address
+                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.RemoteAddress>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sid_type
+                        
+                        	SID type
+                        	**type**\:  :py:class:`XtcSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSrSid>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: algorithm
+                        
+                        	Algorithim
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-oper'
+                        _revision = '2018-11-28'
+
+                        def __init__(self):
+                            super(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops, self).__init__()
+
+                            self.yang_name = "hops"
+                            self.yang_parent_name = "segment-list"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("sid", ("sid", Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.Sid)), ("local-address", ("local_address", Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.RemoteAddress))])
+                            self._leafs = OrderedDict([
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSrSid', '')])),
+                                ('algorithm', (YLeaf(YType.uint8, 'algorithm'), ['int'])),
+                            ])
+                            self.sid_type = None
+                            self.algorithm = None
+
+                            self.sid = Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.Sid()
+                            self.sid.parent = self
+                            self._children_name_map["sid"] = "sid"
+
+                            self.local_address = Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.LocalAddress()
+                            self.local_address.parent = self
+                            self._children_name_map["local_address"] = "local-address"
+
+                            self.remote_address = Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.RemoteAddress()
+                            self.remote_address.parent = self
+                            self._children_name_map["remote_address"] = "remote-address"
+                            self._segment_path = lambda: "hops"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops, ['sid_type', 'algorithm'], name, value)
+
+
+                        class Sid(Entity):
+                            """
+                            SID value
+                            
+                            .. attribute:: sid_type
+                            
+                            	SIDType
+                            	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: label
+                            
+                            	MPLS label
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2018-11-28'
+
+                            def __init__(self):
+                                super(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.Sid, self).__init__()
+
+                                self.yang_name = "sid"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSid', '')])),
+                                    ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ])
+                                self.sid_type = None
+                                self.label = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "sid"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
+
+
+
+                        class LocalAddress(Entity):
+                            """
+                            Local address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2018-11-28'
+
+                            def __init__(self):
+                                super(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.LocalAddress, self).__init__()
+
+                                self.yang_name = "local-address"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "local-address"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+
+                        class RemoteAddress(Entity):
+                            """
+                            Remote address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2018-11-28'
+
+                            def __init__(self):
+                                super(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.RemoteAddress, self).__init__()
+
+                                self.yang_name = "remote-address"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "remote-address"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SegmentList.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+
+
+
+
+            class LsPs(Entity):
+                """
+                LSPs
+                
+                .. attribute:: binding_sid
+                
+                	Binding SID information
+                	**type**\:  :py:class:`BindingSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.LsPs.BindingSid>`
+                
+                	**config**\: False
+                
+                .. attribute:: install_timer
+                
+                	Install timer information
+                	**type**\:  :py:class:`InstallTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.LsPs.InstallTimer>`
+                
+                	**config**\: False
+                
+                .. attribute:: cleanup_timer
+                
+                	Cleanup timer information
+                	**type**\:  :py:class:`CleanupTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.LsPs.CleanupTimer>`
+                
+                	**config**\: False
+                
+                .. attribute:: lsp_id
+                
+                	LSP ID
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**config**\: False
+                
+                .. attribute:: policy_id
+                
+                	Policy ID
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**config**\: False
+                
+                .. attribute:: local_label
+                
+                	Local label of the LSP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: state
+                
+                	Current LSP state
+                	**type**\:  :py:class:`XtcPolicyLspSmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyLspSmState>`
+                
+                	**config**\: False
+                
+                .. attribute:: is_current_lsp
+                
+                	Whether this is the current LSP
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: is_reoptimized_lsp
+                
+                	Whether this is the reoptimized LSP
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Xtc.Policies.Policy.LsPs, self).__init__()
+
+                    self.yang_name = "ls-ps"
+                    self.yang_parent_name = "policy"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("binding-sid", ("binding_sid", Xtc.Policies.Policy.LsPs.BindingSid)), ("install-timer", ("install_timer", Xtc.Policies.Policy.LsPs.InstallTimer)), ("cleanup-timer", ("cleanup_timer", Xtc.Policies.Policy.LsPs.CleanupTimer))])
+                    self._leafs = OrderedDict([
+                        ('lsp_id', (YLeaf(YType.uint16, 'lsp-id'), ['int'])),
+                        ('policy_id', (YLeaf(YType.uint16, 'policy-id'), ['int'])),
+                        ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyLspSmState', '')])),
+                        ('is_current_lsp', (YLeaf(YType.boolean, 'is-current-lsp'), ['bool'])),
+                        ('is_reoptimized_lsp', (YLeaf(YType.boolean, 'is-reoptimized-lsp'), ['bool'])),
+                    ])
+                    self.lsp_id = None
+                    self.policy_id = None
+                    self.local_label = None
+                    self.state = None
+                    self.is_current_lsp = None
+                    self.is_reoptimized_lsp = None
+
+                    self.binding_sid = Xtc.Policies.Policy.LsPs.BindingSid()
+                    self.binding_sid.parent = self
+                    self._children_name_map["binding_sid"] = "binding-sid"
+
+                    self.install_timer = Xtc.Policies.Policy.LsPs.InstallTimer()
+                    self.install_timer.parent = self
+                    self._children_name_map["install_timer"] = "install-timer"
+
+                    self.cleanup_timer = Xtc.Policies.Policy.LsPs.CleanupTimer()
+                    self.cleanup_timer.parent = self
+                    self._children_name_map["cleanup_timer"] = "cleanup-timer"
+                    self._segment_path = lambda: "ls-ps"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.Policies.Policy.LsPs, ['lsp_id', 'policy_id', 'local_label', 'state', 'is_current_lsp', 'is_reoptimized_lsp'], name, value)
+
+
+                class BindingSid(Entity):
+                    """
+                    Binding SID information
+                    
+                    .. attribute:: value
+                    
+                    	Binding SID value
+                    	**type**\:  :py:class:`Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.LsPs.BindingSid.Value>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_fallback_dynamic
+                    
+                    	Whether the BSID is in fallback dynamic mode
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_within_srlb_range
+                    
+                    	Whether the BSID is within SRLB range
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.LsPs.BindingSid, self).__init__()
+
+                        self.yang_name = "binding-sid"
+                        self.yang_parent_name = "ls-ps"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("value", ("value", Xtc.Policies.Policy.LsPs.BindingSid.Value))])
+                        self._leafs = OrderedDict([
+                            ('is_fallback_dynamic', (YLeaf(YType.boolean, 'is-fallback-dynamic'), ['bool'])),
+                            ('is_within_srlb_range', (YLeaf(YType.boolean, 'is-within-srlb-range'), ['bool'])),
+                        ])
+                        self.is_fallback_dynamic = None
+                        self.is_within_srlb_range = None
+
+                        self.value = Xtc.Policies.Policy.LsPs.BindingSid.Value()
+                        self.value.parent = self
+                        self._children_name_map["value"] = "value"
+                        self._segment_path = lambda: "binding-sid"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.LsPs.BindingSid, ['is_fallback_dynamic', 'is_within_srlb_range'], name, value)
+
+
+                    class Value(Entity):
+                        """
+                        Binding SID value
                         
                         .. attribute:: sid_type
                         
@@ -3966,13 +4708,13 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.Hops.Sid, self).__init__()
+                            super(Xtc.Policies.Policy.LsPs.BindingSid.Value, self).__init__()
 
-                            self.yang_name = "sid"
-                            self.yang_parent_name = "hops"
+                            self.yang_name = "value"
+                            self.yang_parent_name = "binding-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
@@ -3985,135 +4727,595 @@ class Xtc(Entity):
                             self.sid_type = None
                             self.label = None
                             self.ipv6 = None
-                            self._segment_path = lambda: "sid"
+                            self._segment_path = lambda: "value"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
+                            self._perform_setattr(Xtc.Policies.Policy.LsPs.BindingSid.Value, ['sid_type', 'label', 'ipv6'], name, value)
 
 
 
-                    class LocalAddress(Entity):
-                        """
-                        Local address
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: ipv4
-                        
-                        	IPv4 address type
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: ipv6
-                        
-                        	IPv6 address type
-                        	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**config**\: False
-                        
-                        
 
-                        """
+                class InstallTimer(Entity):
+                    """
+                    Install timer information
+                    
+                    .. attribute:: running
+                    
+                    	Whether the timer is running
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: remaining_seconds
+                    
+                    	Number of remaining seconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: remaining_nano_seconds
+                    
+                    	Number of remaining nanoseconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: nanosecond
+                    
+                    
 
-                        _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                    """
 
-                        def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.Hops.LocalAddress, self).__init__()
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
 
-                            self.yang_name = "local-address"
-                            self.yang_parent_name = "hops"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
-                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
-                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
-                            ])
-                            self.af_name = None
-                            self.ipv4 = None
-                            self.ipv6 = None
-                            self._segment_path = lambda: "local-address"
-                            self._is_frozen = True
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.LsPs.InstallTimer, self).__init__()
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+                        self.yang_name = "install-timer"
+                        self.yang_parent_name = "ls-ps"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                            ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                            ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                        ])
+                        self.running = None
+                        self.remaining_seconds = None
+                        self.remaining_nano_seconds = None
+                        self._segment_path = lambda: "install-timer"
+                        self._is_frozen = True
 
-
-
-                    class RemoteAddress(Entity):
-                        """
-                        Remote address
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: ipv4
-                        
-                        	IPv4 address type
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: ipv6
-                        
-                        	IPv6 address type
-                        	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
-
-                        def __init__(self):
-                            super(Xtc.Policies.Policy.Paths.Hops.RemoteAddress, self).__init__()
-
-                            self.yang_name = "remote-address"
-                            self.yang_parent_name = "hops"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
-                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
-                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
-                            ])
-                            self.af_name = None
-                            self.ipv4 = None
-                            self.ipv6 = None
-                            self._segment_path = lambda: "remote-address"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.LsPs.InstallTimer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
 
 
+
+                class CleanupTimer(Entity):
+                    """
+                    Cleanup timer information
+                    
+                    .. attribute:: running
+                    
+                    	Whether the timer is running
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: remaining_seconds
+                    
+                    	Number of remaining seconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: remaining_nano_seconds
+                    
+                    	Number of remaining nanoseconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.LsPs.CleanupTimer, self).__init__()
+
+                        self.yang_name = "cleanup-timer"
+                        self.yang_parent_name = "ls-ps"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                            ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                            ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                        ])
+                        self.running = None
+                        self.remaining_seconds = None
+                        self.remaining_nano_seconds = None
+                        self._segment_path = lambda: "cleanup-timer"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.LsPs.CleanupTimer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
+
+
+
+
+            class EventBuffer(Entity):
+                """
+                Policy Event buffer
+                
+                .. attribute:: event_message
+                
+                	Event message
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: time_stamp
+                
+                	Event time, relative to Jan 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Xtc.Policies.Policy.EventBuffer, self).__init__()
+
+                    self.yang_name = "event-buffer"
+                    self.yang_parent_name = "policy"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
+                        ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
+                    ])
+                    self.event_message = None
+                    self.time_stamp = None
+                    self._segment_path = lambda: "event-buffer"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.Policies.Policy.EventBuffer, ['event_message', 'time_stamp'], name, value)
+
+
+
+
+
+    class PolicyForwardings(Entity):
+        """
+        Forwarding information for policies
+        
+        .. attribute:: policy_forwarding
+        
+        	Forwarding information for the policy
+        	**type**\: list of  		 :py:class:`PolicyForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicyForwardings.PolicyForwarding>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-agent-oper'
+        _revision = '2018-11-28'
+
+        def __init__(self):
+            super(Xtc.PolicyForwardings, self).__init__()
+
+            self.yang_name = "policy-forwardings"
+            self.yang_parent_name = "xtc"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("policy-forwarding", ("policy_forwarding", Xtc.PolicyForwardings.PolicyForwarding))])
+            self._leafs = OrderedDict()
+
+            self.policy_forwarding = YList(self)
+            self._segment_path = lambda: "policy-forwardings"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Xtc.PolicyForwardings, [], name, value)
+
+
+        class PolicyForwarding(Entity):
+            """
+            Forwarding information for the policy
+            
+            .. attribute:: name  (key)
+            
+            	Policy Name
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            	**config**\: False
+            
+            .. attribute:: endpoint_address
+            
+            	Endpoint address
+            	**type**\:  :py:class:`EndpointAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress>`
+            
+            	**config**\: False
+            
+            .. attribute:: policy_name
+            
+            	Policy name
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: color
+            
+            	Color
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: is_local_label_valid
+            
+            	Is local label valid and allocated?
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            .. attribute:: local_label
+            
+            	Local label for SR MPLS policy
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: are_stats_valid
+            
+            	Are policy stats valid?
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            .. attribute:: forwarding_stats_pkts
+            
+            	Number of packets forwarded
+            	**type**\: int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**config**\: False
+            
+            .. attribute:: forwarding_stats_bytes
+            
+            	Number of bytes forwarded
+            	**type**\: int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**config**\: False
+            
+            	**units**\: byte
+            
+            .. attribute:: paths
+            
+            	Forwarding paths
+            	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicyForwardings.PolicyForwarding.Paths>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-agent-oper'
+            _revision = '2018-11-28'
+
+            def __init__(self):
+                super(Xtc.PolicyForwardings.PolicyForwarding, self).__init__()
+
+                self.yang_name = "policy-forwarding"
+                self.yang_parent_name = "policy-forwardings"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['name']
+                self._child_classes = OrderedDict([("endpoint-address", ("endpoint_address", Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress)), ("paths", ("paths", Xtc.PolicyForwardings.PolicyForwarding.Paths))])
+                self._leafs = OrderedDict([
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                    ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
+                    ('is_local_label_valid', (YLeaf(YType.boolean, 'is-local-label-valid'), ['bool'])),
+                    ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
+                    ('are_stats_valid', (YLeaf(YType.boolean, 'are-stats-valid'), ['bool'])),
+                    ('forwarding_stats_pkts', (YLeaf(YType.uint64, 'forwarding-stats-pkts'), ['int'])),
+                    ('forwarding_stats_bytes', (YLeaf(YType.uint64, 'forwarding-stats-bytes'), ['int'])),
+                ])
+                self.name = None
+                self.policy_name = None
+                self.color = None
+                self.is_local_label_valid = None
+                self.local_label = None
+                self.are_stats_valid = None
+                self.forwarding_stats_pkts = None
+                self.forwarding_stats_bytes = None
+
+                self.endpoint_address = Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress()
+                self.endpoint_address.parent = self
+                self._children_name_map["endpoint_address"] = "endpoint-address"
+
+                self.paths = YList(self)
+                self._segment_path = lambda: "policy-forwarding" + "[name='" + str(self.name) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-forwardings/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding, ['name', 'policy_name', 'color', 'is_local_label_valid', 'local_label', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes'], name, value)
+
+
+            class EndpointAddress(Entity):
+                """
+                Endpoint address
+                
+                .. attribute:: af_name
+                
+                	AFName
+                	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                
+                	**config**\: False
+                
+                .. attribute:: ipv4
+                
+                	IPv4 address type
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: ipv6
+                
+                	IPv6 address type
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress, self).__init__()
+
+                    self.yang_name = "endpoint-address"
+                    self.yang_parent_name = "policy-forwarding"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                    ])
+                    self.af_name = None
+                    self.ipv4 = None
+                    self.ipv6 = None
+                    self._segment_path = lambda: "endpoint-address"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+
+            class Paths(Entity):
+                """
+                Forwarding paths
+                
+                .. attribute:: outgoing_interface
+                
+                	Outgoing interface handle
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
+                
+                .. attribute:: next_hop_ipv4
+                
+                	IPv4 Next Hop
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: next_hop_table_id
+                
+                	Table ID for nexthop address
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: is_protected
+                
+                	Is this path protected ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: is_pure_bkup
+                
+                	Is this path a pure backup ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: load_metric
+                
+                	Path's load metric for load balancing
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: path_id
+                
+                	path Id
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                	**config**\: False
+                
+                .. attribute:: bkup_path_id
+                
+                	Backup path Id
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                	**config**\: False
+                
+                .. attribute:: segment_list_name
+                
+                	Associated segment\-list
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: are_stats_valid
+                
+                	Are per path stats valid?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: forwarding_stats_pkts
+                
+                	Number of packets forwarded on this path
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                .. attribute:: forwarding_stats_bytes
+                
+                	Number of bytes forwarded on this path
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: label_stack
+                
+                	Path outgoing labels
+                	**type**\: list of int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Xtc.PolicyForwardings.PolicyForwarding.Paths, self).__init__()
+
+                    self.yang_name = "paths"
+                    self.yang_parent_name = "policy-forwarding"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                        ('next_hop_ipv4', (YLeaf(YType.str, 'next-hop-ipv4'), ['str'])),
+                        ('next_hop_table_id', (YLeaf(YType.uint32, 'next-hop-table-id'), ['int'])),
+                        ('is_protected', (YLeaf(YType.boolean, 'is-protected'), ['bool'])),
+                        ('is_pure_bkup', (YLeaf(YType.boolean, 'is-pure-bkup'), ['bool'])),
+                        ('load_metric', (YLeaf(YType.uint32, 'load-metric'), ['int'])),
+                        ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                        ('bkup_path_id', (YLeaf(YType.uint8, 'bkup-path-id'), ['int'])),
+                        ('segment_list_name', (YLeaf(YType.str, 'segment-list-name'), ['str'])),
+                        ('are_stats_valid', (YLeaf(YType.boolean, 'are-stats-valid'), ['bool'])),
+                        ('forwarding_stats_pkts', (YLeaf(YType.uint64, 'forwarding-stats-pkts'), ['int'])),
+                        ('forwarding_stats_bytes', (YLeaf(YType.uint64, 'forwarding-stats-bytes'), ['int'])),
+                        ('label_stack', (YLeafList(YType.uint32, 'label-stack'), ['int'])),
+                    ])
+                    self.outgoing_interface = None
+                    self.next_hop_ipv4 = None
+                    self.next_hop_table_id = None
+                    self.is_protected = None
+                    self.is_pure_bkup = None
+                    self.load_metric = None
+                    self.path_id = None
+                    self.bkup_path_id = None
+                    self.segment_list_name = None
+                    self.are_stats_valid = None
+                    self.forwarding_stats_pkts = None
+                    self.forwarding_stats_bytes = None
+                    self.label_stack = []
+                    self._segment_path = lambda: "paths"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding.Paths, ['outgoing_interface', 'next_hop_ipv4', 'next_hop_table_id', 'is_protected', 'is_pure_bkup', 'load_metric', 'path_id', 'bkup_path_id', 'segment_list_name', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes', 'label_stack'], name, value)
 
 
 
@@ -4162,7 +5364,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.PolicySummary, self).__init__()
@@ -4227,7 +5429,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.PolicySummary.Ipv4SourceAddress, self).__init__()
@@ -4272,7 +5474,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.OnDemandColors, self).__init__()
@@ -4323,6 +5525,24 @@ class Xtc(Entity):
             
             	**config**\: False
             
+            .. attribute:: absolute_margin
+            
+            	Absolute Metric Margin
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: relative_margin
+            
+            	 Relative Metric Margin
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
             .. attribute:: maximum_sid_depth
             
             	Maximum SID Depth
@@ -4337,7 +5557,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.OnDemandColors.OnDemandColor, self).__init__()
@@ -4351,10 +5571,14 @@ class Xtc(Entity):
                 self._leafs = OrderedDict([
                     ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
                     ('color_xr', (YLeaf(YType.uint32, 'color-xr'), ['int'])),
+                    ('absolute_margin', (YLeaf(YType.uint32, 'absolute-margin'), ['int'])),
+                    ('relative_margin', (YLeaf(YType.uint32, 'relative-margin'), ['int'])),
                     ('maximum_sid_depth', (YLeaf(YType.uint32, 'maximum-sid-depth'), ['int'])),
                 ])
                 self.color = None
                 self.color_xr = None
+                self.absolute_margin = None
+                self.relative_margin = None
                 self.maximum_sid_depth = None
 
                 self.disjoint_path_info = Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo()
@@ -4365,7 +5589,7 @@ class Xtc(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Xtc.OnDemandColors.OnDemandColor, ['color', 'color_xr', 'maximum_sid_depth'], name, value)
+                self._perform_setattr(Xtc.OnDemandColors.OnDemandColor, ['color', 'color_xr', 'absolute_margin', 'relative_margin', 'maximum_sid_depth'], name, value)
 
 
             class DisjointPathInfo(Entity):
@@ -4402,7 +5626,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo, self).__init__()
@@ -4431,366 +5655,6 @@ class Xtc(Entity):
 
 
 
-    class Forwarding(Entity):
-        """
-        Forwarding information
-        
-        .. attribute:: policy_forwardings
-        
-        	Forwarding information for policies
-        	**type**\:  :py:class:`PolicyForwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
-
-        def __init__(self):
-            super(Xtc.Forwarding, self).__init__()
-
-            self.yang_name = "forwarding"
-            self.yang_parent_name = "xtc"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("policy-forwardings", ("policy_forwardings", Xtc.Forwarding.PolicyForwardings))])
-            self._leafs = OrderedDict()
-
-            self.policy_forwardings = Xtc.Forwarding.PolicyForwardings()
-            self.policy_forwardings.parent = self
-            self._children_name_map["policy_forwardings"] = "policy-forwardings"
-            self._segment_path = lambda: "forwarding"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Xtc.Forwarding, [], name, value)
-
-
-        class PolicyForwardings(Entity):
-            """
-            Forwarding information for policies
-            
-            .. attribute:: policy_forwarding
-            
-            	Forwarding information for the policy
-            	**type**\: list of  		 :py:class:`PolicyForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings.PolicyForwarding>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
-
-            def __init__(self):
-                super(Xtc.Forwarding.PolicyForwardings, self).__init__()
-
-                self.yang_name = "policy-forwardings"
-                self.yang_parent_name = "forwarding"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("policy-forwarding", ("policy_forwarding", Xtc.Forwarding.PolicyForwardings.PolicyForwarding))])
-                self._leafs = OrderedDict()
-
-                self.policy_forwarding = YList(self)
-                self._segment_path = lambda: "policy-forwardings"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Xtc.Forwarding.PolicyForwardings, [], name, value)
-
-
-            class PolicyForwarding(Entity):
-                """
-                Forwarding information for the policy
-                
-                .. attribute:: name  (key)
-                
-                	Policy Name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                	**config**\: False
-                
-                .. attribute:: policy_name
-                
-                	Policy name
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: is_local_label_valid
-                
-                	Is local label valid and allocated?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: local_label
-                
-                	Local label for SR MPLS policy
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: are_stats_valid
-                
-                	Are policy stats valid?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: forwarding_stats_pkts
-                
-                	Number of packets forwarded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**config**\: False
-                
-                .. attribute:: forwarding_stats_bytes
-                
-                	Number of bytes forwarded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**config**\: False
-                
-                	**units**\: byte
-                
-                .. attribute:: paths
-                
-                	Forwarding paths
-                	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
-
-                def __init__(self):
-                    super(Xtc.Forwarding.PolicyForwardings.PolicyForwarding, self).__init__()
-
-                    self.yang_name = "policy-forwarding"
-                    self.yang_parent_name = "policy-forwardings"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['name']
-                    self._child_classes = OrderedDict([("paths", ("paths", Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths))])
-                    self._leafs = OrderedDict([
-                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
-                        ('is_local_label_valid', (YLeaf(YType.boolean, 'is-local-label-valid'), ['bool'])),
-                        ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
-                        ('are_stats_valid', (YLeaf(YType.boolean, 'are-stats-valid'), ['bool'])),
-                        ('forwarding_stats_pkts', (YLeaf(YType.uint64, 'forwarding-stats-pkts'), ['int'])),
-                        ('forwarding_stats_bytes', (YLeaf(YType.uint64, 'forwarding-stats-bytes'), ['int'])),
-                    ])
-                    self.name = None
-                    self.policy_name = None
-                    self.is_local_label_valid = None
-                    self.local_label = None
-                    self.are_stats_valid = None
-                    self.forwarding_stats_pkts = None
-                    self.forwarding_stats_bytes = None
-
-                    self.paths = YList(self)
-                    self._segment_path = lambda: "policy-forwarding" + "[name='" + str(self.name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/policy-forwardings/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Forwarding.PolicyForwardings.PolicyForwarding, ['name', 'policy_name', 'is_local_label_valid', 'local_label', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes'], name, value)
-
-
-                class Paths(Entity):
-                    """
-                    Forwarding paths
-                    
-                    .. attribute:: outgoing_interface
-                    
-                    	Outgoing interface handle
-                    	**type**\: str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: next_hop_ipv4
-                    
-                    	IPv4 Next Hop
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: next_hop_table_id
-                    
-                    	Table ID for nexthop address
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: is_protected
-                    
-                    	Is this path protected ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: is_pure_bkup
-                    
-                    	Is this path a pure backup ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: load_metric
-                    
-                    	Path's load metric for load balancing
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: path_id
-                    
-                    	path Id
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: bkup_path_id
-                    
-                    	Backup path Id
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: segment_list_name
-                    
-                    	Associated segment\-list
-                    	**type**\: str
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: are_stats_valid
-                    
-                    	Are per path stats valid?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: forwarding_stats_pkts
-                    
-                    	Number of packets forwarded on this path
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: forwarding_stats_bytes
-                    
-                    	Number of bytes forwarded on this path
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**config**\: False
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: label_stack
-                    
-                    	Path outgoing labels
-                    	**type**\: list of int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
-
-                    def __init__(self):
-                        super(Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths, self).__init__()
-
-                        self.yang_name = "paths"
-                        self.yang_parent_name = "policy-forwarding"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                            ('next_hop_ipv4', (YLeaf(YType.str, 'next-hop-ipv4'), ['str'])),
-                            ('next_hop_table_id', (YLeaf(YType.uint32, 'next-hop-table-id'), ['int'])),
-                            ('is_protected', (YLeaf(YType.boolean, 'is-protected'), ['bool'])),
-                            ('is_pure_bkup', (YLeaf(YType.boolean, 'is-pure-bkup'), ['bool'])),
-                            ('load_metric', (YLeaf(YType.uint32, 'load-metric'), ['int'])),
-                            ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
-                            ('bkup_path_id', (YLeaf(YType.uint8, 'bkup-path-id'), ['int'])),
-                            ('segment_list_name', (YLeaf(YType.str, 'segment-list-name'), ['str'])),
-                            ('are_stats_valid', (YLeaf(YType.boolean, 'are-stats-valid'), ['bool'])),
-                            ('forwarding_stats_pkts', (YLeaf(YType.uint64, 'forwarding-stats-pkts'), ['int'])),
-                            ('forwarding_stats_bytes', (YLeaf(YType.uint64, 'forwarding-stats-bytes'), ['int'])),
-                            ('label_stack', (YLeafList(YType.uint32, 'label-stack'), ['int'])),
-                        ])
-                        self.outgoing_interface = None
-                        self.next_hop_ipv4 = None
-                        self.next_hop_table_id = None
-                        self.is_protected = None
-                        self.is_pure_bkup = None
-                        self.load_metric = None
-                        self.path_id = None
-                        self.bkup_path_id = None
-                        self.segment_list_name = None
-                        self.are_stats_valid = None
-                        self.forwarding_stats_pkts = None
-                        self.forwarding_stats_bytes = None
-                        self.label_stack = []
-                        self._segment_path = lambda: "paths"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths, ['outgoing_interface', 'next_hop_ipv4', 'next_hop_table_id', 'is_protected', 'is_pure_bkup', 'load_metric', 'path_id', 'bkup_path_id', 'segment_list_name', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes', 'label_stack'], name, value)
-
-
-
-
-
-
     class Controller(Entity):
         """
         Controller information
@@ -4807,7 +5671,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.Controller, self).__init__()
@@ -4847,7 +5711,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.Controller.PolicyRequests, self).__init__()
@@ -5002,10 +5866,10 @@ class Xtc(Entity):
                 
                 	**units**\: second
                 
-                .. attribute:: paths
+                .. attribute:: segment_list
                 
-                	Path options
-                	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths>`
+                	Segment lists
+                	**type**\: list of  		 :py:class:`SegmentList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList>`
                 
                 	**config**\: False
                 
@@ -5014,7 +5878,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.Controller.PolicyRequests.PolicyRequest, self).__init__()
@@ -5024,7 +5888,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['source_address','end_point_type','end_point_address','color','route_distinguisher']
-                    self._child_classes = OrderedDict([("end-point", ("end_point", Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint)), ("paths", ("paths", Xtc.Controller.PolicyRequests.PolicyRequest.Paths))])
+                    self._child_classes = OrderedDict([("end-point", ("end_point", Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint)), ("segment-list", ("segment_list", Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList))])
                     self._leafs = OrderedDict([
                         ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
                         ('end_point_type', (YLeaf(YType.enumeration, 'end-point-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAddressFamily', '')])),
@@ -5056,7 +5920,7 @@ class Xtc(Entity):
                     self.end_point.parent = self
                     self._children_name_map["end_point"] = "end-point"
 
-                    self.paths = YList(self)
+                    self.segment_list = YList(self)
                     self._segment_path = lambda: "policy-request" + "[source-address='" + str(self.source_address) + "']" + "[end-point-type='" + str(self.end_point_type) + "']" + "[end-point-address='" + str(self.end_point_address) + "']" + "[color='" + str(self.color) + "']" + "[route-distinguisher='" + str(self.route_distinguisher) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/%s" % self._segment_path()
                     self._is_frozen = True
@@ -5099,7 +5963,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint, self).__init__()
@@ -5126,50 +5990,34 @@ class Xtc(Entity):
 
 
 
-                class Paths(Entity):
+                class SegmentList(Entity):
                     """
-                    Path options
+                    Segment lists
                     
-                    .. attribute:: sr_path_constraints
+                    .. attribute:: name
                     
-                    	SR path constraints
-                    	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: index
-                    
-                    	Index number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Explicit segment list name
+                    	**type**\: str
                     
                     	**config**\: False
                     
                     .. attribute:: type
                     
-                    	Path option type
+                    	Segment list type
                     	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: name
-                    
-                    	Explicit path option name
-                    	**type**\: str
                     
                     	**config**\: False
                     
                     .. attribute:: active
                     
-                    	Whether the path is active (used)
+                    	Whether the segment list is active (used)
                     	**type**\: bool
                     
                     	**config**\: False
                     
                     .. attribute:: weight
                     
-                    	Configured weight of the path\-option
+                    	Weight of the segment list
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -5178,7 +6026,7 @@ class Xtc(Entity):
                     
                     .. attribute:: metric_type
                     
-                    	Configured path metric type
+                    	Metric type of the segment list
                     	**type**\: int
                     
                     	**range:** 0..255
@@ -5187,10 +6035,10 @@ class Xtc(Entity):
                     
                     .. attribute:: metric_value
                     
-                    	Path metric value
+                    	Accumulated metric of the segment list
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
                     
@@ -5227,7 +6075,7 @@ class Xtc(Entity):
                     .. attribute:: hops
                     
                     	SR hop list
-                    	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops>`
+                    	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops>`
                     
                     	**config**\: False
                     
@@ -5236,33 +6084,31 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
-                        super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths, self).__init__()
+                        super(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList, self).__init__()
 
-                        self.yang_name = "paths"
+                        self.yang_name = "segment-list"
                         self.yang_parent_name = "policy-request"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("sr-path-constraints", ("sr_path_constraints", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints)), ("hops", ("hops", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops))])
+                        self._child_classes = OrderedDict([("hops", ("hops", Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops))])
                         self._leafs = OrderedDict([
-                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
-                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyPath', '')])),
                             ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyPath', '')])),
                             ('active', (YLeaf(YType.boolean, 'active'), ['bool'])),
                             ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                             ('metric_type', (YLeaf(YType.uint8, 'metric-type'), ['int'])),
-                            ('metric_value', (YLeaf(YType.uint32, 'metric-value'), ['int'])),
+                            ('metric_value', (YLeaf(YType.uint64, 'metric-value'), ['int'])),
                             ('is_valid', (YLeaf(YType.boolean, 'is-valid'), ['bool'])),
                             ('pce_based_path', (YLeaf(YType.boolean, 'pce-based-path'), ['bool'])),
                             ('pce_address', (YLeaf(YType.str, 'pce-address'), ['str'])),
                             ('error', (YLeaf(YType.str, 'error'), ['str'])),
                         ])
-                        self.index = None
-                        self.type = None
                         self.name = None
+                        self.type = None
                         self.active = None
                         self.weight = None
                         self.metric_type = None
@@ -5272,313 +6118,12 @@ class Xtc(Entity):
                         self.pce_address = None
                         self.error = None
 
-                        self.sr_path_constraints = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints()
-                        self.sr_path_constraints.parent = self
-                        self._children_name_map["sr_path_constraints"] = "sr-path-constraints"
-
                         self.hops = YList(self)
-                        self._segment_path = lambda: "paths"
+                        self._segment_path = lambda: "segment-list"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths, ['index', 'type', 'name', 'active', 'weight', 'metric_type', 'metric_value', 'is_valid', 'pce_based_path', 'pce_address', 'error'], name, value)
-
-
-                    class SrPathConstraints(Entity):
-                        """
-                        SR path constraints
-                        
-                        .. attribute:: path_metrics
-                        
-                        	Path metrics
-                        	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: segments
-                        
-                        	Segments constraints
-                        	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: affinity_constraint
-                        
-                        	Affinity constraints list
-                        	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint>`
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
-
-                        def __init__(self):
-                            super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints, self).__init__()
-
-                            self.yang_name = "sr-path-constraints"
-                            self.yang_parent_name = "paths"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics)), ("segments", ("segments", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments)), ("affinity-constraint", ("affinity_constraint", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint))])
-                            self._leafs = OrderedDict()
-
-                            self.path_metrics = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics()
-                            self.path_metrics.parent = self
-                            self._children_name_map["path_metrics"] = "path-metrics"
-
-                            self.segments = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments()
-                            self.segments.parent = self
-                            self._children_name_map["segments"] = "segments"
-
-                            self.affinity_constraint = YList(self)
-                            self._segment_path = lambda: "sr-path-constraints"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints, [], name, value)
-
-
-                        class PathMetrics(Entity):
-                            """
-                            Path metrics
-                            
-                            .. attribute:: margin_relative
-                            
-                            	Margin Relative
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: margin_absolute
-                            
-                            	Margin Absolute
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: maximum_segments
-                            
-                            	Maximum number of segments
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: accumulative_te_metric
-                            
-                            	Accumulative TE metric
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: accumulative_igp_metric
-                            
-                            	Accumulative IGP metric
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: accumulative_delay
-                            
-                            	Accumulative delay
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
-
-                            def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics, self).__init__()
-
-                                self.yang_name = "path-metrics"
-                                self.yang_parent_name = "sr-path-constraints"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('margin_relative', (YLeaf(YType.uint8, 'margin-relative'), ['int'])),
-                                    ('margin_absolute', (YLeaf(YType.uint8, 'margin-absolute'), ['int'])),
-                                    ('maximum_segments', (YLeaf(YType.uint16, 'maximum-segments'), ['int'])),
-                                    ('accumulative_te_metric', (YLeaf(YType.uint32, 'accumulative-te-metric'), ['int'])),
-                                    ('accumulative_igp_metric', (YLeaf(YType.uint32, 'accumulative-igp-metric'), ['int'])),
-                                    ('accumulative_delay', (YLeaf(YType.uint32, 'accumulative-delay'), ['int'])),
-                                ])
-                                self.margin_relative = None
-                                self.margin_absolute = None
-                                self.maximum_segments = None
-                                self.accumulative_te_metric = None
-                                self.accumulative_igp_metric = None
-                                self.accumulative_delay = None
-                                self._segment_path = lambda: "path-metrics"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
-
-
-
-                        class Segments(Entity):
-                            """
-                            Segments constraints
-                            
-                            .. attribute:: segment_algorithm
-                            
-                            	Segment Algorithm
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
-
-                            def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments, self).__init__()
-
-                                self.yang_name = "segments"
-                                self.yang_parent_name = "sr-path-constraints"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('segment_algorithm', (YLeaf(YType.uint8, 'segment-algorithm'), ['int'])),
-                                ])
-                                self.segment_algorithm = None
-                                self._segment_path = lambda: "segments"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments, ['segment_algorithm'], name, value)
-
-
-
-                        class AffinityConstraint(Entity):
-                            """
-                            Affinity constraints list
-                            
-                            .. attribute:: type
-                            
-                            	Affinity type
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: value
-                            
-                            	Affinity value
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: color
-                            
-                            	Colors
-                            	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
-
-                            def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint, self).__init__()
-
-                                self.yang_name = "affinity-constraint"
-                                self.yang_parent_name = "sr-path-constraints"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("color", ("color", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color))])
-                                self._leafs = OrderedDict([
-                                    ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
-                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
-                                ])
-                                self.type = None
-                                self.value = None
-
-                                self.color = YList(self)
-                                self._segment_path = lambda: "affinity-constraint"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint, ['type', 'value'], name, value)
-
-
-                            class Color(Entity):
-                                """
-                                Colors
-                                
-                                .. attribute:: color
-                                
-                                	An affinity color
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
-
-                                def __init__(self):
-                                    super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color, self).__init__()
-
-                                    self.yang_name = "color"
-                                    self.yang_parent_name = "affinity-constraint"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('color', (YLeaf(YType.str, 'color'), ['str'])),
-                                    ])
-                                    self.color = None
-                                    self._segment_path = lambda: "color"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
-
-
-
+                        self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList, ['name', 'type', 'active', 'weight', 'metric_type', 'metric_value', 'is_valid', 'pce_based_path', 'pce_address', 'error'], name, value)
 
 
                     class Hops(Entity):
@@ -5588,21 +6133,21 @@ class Xtc(Entity):
                         .. attribute:: sid
                         
                         	SID value
-                        	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid>`
+                        	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.Sid>`
                         
                         	**config**\: False
                         
                         .. attribute:: local_address
                         
                         	Local address
-                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress>`
+                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.LocalAddress>`
                         
                         	**config**\: False
                         
                         .. attribute:: remote_address
                         
                         	Remote address
-                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress>`
+                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.RemoteAddress>`
                         
                         	**config**\: False
                         
@@ -5627,17 +6172,17 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
-                            super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops, self).__init__()
+                            super(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops, self).__init__()
 
                             self.yang_name = "hops"
-                            self.yang_parent_name = "paths"
+                            self.yang_parent_name = "segment-list"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("sid", ("sid", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid)), ("local-address", ("local_address", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress))])
+                            self._child_classes = OrderedDict([("sid", ("sid", Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.Sid)), ("local-address", ("local_address", Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.RemoteAddress))])
                             self._leafs = OrderedDict([
                                 ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSrSid', '')])),
                                 ('algorithm', (YLeaf(YType.uint8, 'algorithm'), ['int'])),
@@ -5645,22 +6190,22 @@ class Xtc(Entity):
                             self.sid_type = None
                             self.algorithm = None
 
-                            self.sid = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid()
+                            self.sid = Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.Sid()
                             self.sid.parent = self
                             self._children_name_map["sid"] = "sid"
 
-                            self.local_address = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress()
+                            self.local_address = Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.LocalAddress()
                             self.local_address.parent = self
                             self._children_name_map["local_address"] = "local-address"
 
-                            self.remote_address = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress()
+                            self.remote_address = Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.RemoteAddress()
                             self.remote_address.parent = self
                             self._children_name_map["remote_address"] = "remote-address"
                             self._segment_path = lambda: "hops"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops, ['sid_type', 'algorithm'], name, value)
+                            self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops, ['sid_type', 'algorithm'], name, value)
 
 
                         class Sid(Entity):
@@ -5697,10 +6242,10 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid, self).__init__()
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.Sid, self).__init__()
 
                                 self.yang_name = "sid"
                                 self.yang_parent_name = "hops"
@@ -5720,7 +6265,7 @@ class Xtc(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
 
 
 
@@ -5758,10 +6303,10 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress, self).__init__()
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.LocalAddress, self).__init__()
 
                                 self.yang_name = "local-address"
                                 self.yang_parent_name = "hops"
@@ -5781,7 +6326,7 @@ class Xtc(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -5819,10 +6364,10 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
-                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress, self).__init__()
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.RemoteAddress, self).__init__()
 
                                 self.yang_name = "remote-address"
                                 self.yang_parent_name = "hops"
@@ -5842,7 +6387,7 @@ class Xtc(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.SegmentList.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -5905,7 +6450,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.TopologySummary, self).__init__()
@@ -5953,7 +6498,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.TopologyNodes, self).__init__()
@@ -6037,7 +6582,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.TopologyNodes.TopologyNode, self).__init__()
@@ -6127,7 +6672,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
@@ -6184,7 +6729,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -6247,7 +6792,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -6306,7 +6851,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -6358,7 +6903,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -6401,7 +6946,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -6468,7 +7013,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.TopologyNodes.TopologyNode.PrefixSid, self).__init__()
@@ -6532,7 +7077,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, self).__init__()
@@ -6662,7 +7207,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
@@ -6733,7 +7278,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
@@ -6796,7 +7341,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, self).__init__()
@@ -6855,7 +7400,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -6907,7 +7452,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -6950,7 +7495,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -7030,7 +7575,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -7087,7 +7632,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -7150,7 +7695,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -7209,7 +7754,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -7261,7 +7806,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -7304,7 +7849,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -7371,7 +7916,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
@@ -7435,7 +7980,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
@@ -7548,7 +8093,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
@@ -7615,7 +8160,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
@@ -7678,7 +8223,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, self).__init__()
@@ -7737,7 +8282,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -7789,7 +8334,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -7832,7 +8377,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -7912,7 +8457,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -7969,7 +8514,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -8032,7 +8577,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -8091,7 +8636,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -8143,7 +8688,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -8186,7 +8731,7 @@ class Xtc(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-agent-oper'
-                                _revision = '2017-09-11'
+                                _revision = '2018-11-28'
 
                                 def __init__(self):
                                     super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -8253,7 +8798,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
@@ -8317,7 +8862,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
@@ -8364,7 +8909,7 @@ class Xtc(Entity):
         """
 
         _prefix = 'infra-xtc-agent-oper'
-        _revision = '2017-09-11'
+        _revision = '2018-11-28'
 
         def __init__(self):
             super(Xtc.PrefixInfos, self).__init__()
@@ -8427,7 +8972,7 @@ class Xtc(Entity):
             """
 
             _prefix = 'infra-xtc-agent-oper'
-            _revision = '2017-09-11'
+            _revision = '2018-11-28'
 
             def __init__(self):
                 super(Xtc.PrefixInfos.PrefixInfo, self).__init__()
@@ -8513,7 +9058,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
@@ -8570,7 +9115,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -8633,7 +9178,7 @@ class Xtc(Entity):
                         """
 
                         _prefix = 'infra-xtc-agent-oper'
-                        _revision = '2017-09-11'
+                        _revision = '2018-11-28'
 
                         def __init__(self):
                             super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -8692,7 +9237,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -8744,7 +9289,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -8787,7 +9332,7 @@ class Xtc(Entity):
                             """
 
                             _prefix = 'infra-xtc-agent-oper'
-                            _revision = '2017-09-11'
+                            _revision = '2018-11-28'
 
                             def __init__(self):
                                 super(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -8829,7 +9374,7 @@ class Xtc(Entity):
                 """
 
                 _prefix = 'infra-xtc-agent-oper'
-                _revision = '2017-09-11'
+                _revision = '2018-11-28'
 
                 def __init__(self):
                     super(Xtc.PrefixInfos.PrefixInfo.Address, self).__init__()
@@ -8886,7 +9431,7 @@ class Xtc(Entity):
                     """
 
                     _prefix = 'infra-xtc-agent-oper'
-                    _revision = '2017-09-11'
+                    _revision = '2018-11-28'
 
                     def __init__(self):
                         super(Xtc.PrefixInfos.PrefixInfo.Address.IpAddress, self).__init__()

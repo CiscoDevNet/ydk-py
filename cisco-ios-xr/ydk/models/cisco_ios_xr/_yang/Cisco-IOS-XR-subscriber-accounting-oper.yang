@@ -6,7 +6,7 @@ module Cisco-IOS-XR-subscriber-accounting-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-10-30;
   }
 
   organization
@@ -32,6 +32,10 @@ module Cisco-IOS-XR-subscriber-accounting-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-10-30 {
+    description
+      "Fixed for CSCvm83576.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -88,6 +92,22 @@ module Cisco-IOS-XR-subscriber-accounting-oper {
                 "Unique subscriber class label";
             }
             uses ACCT-MA-FLOW-FEATURES;
+          }
+        }
+        container subscriber-accounting-srg-features {
+          description
+            "Subscriber accounting SRG feature data";
+          list subscriber-accounting-srg-feature {
+            key "interface-name";
+            description
+              "Display accounting SRG features by unique
+               access interface-name";
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "Interface name";
+            }
+            uses ACCT-MA-SRG-STATS;
           }
         }
         leaf node-id {

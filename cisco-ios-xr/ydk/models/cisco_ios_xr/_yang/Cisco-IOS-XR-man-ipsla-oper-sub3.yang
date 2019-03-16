@@ -35,7 +35,7 @@ submodule Cisco-IOS-XR-man-ipsla-oper-sub3 {
     description
       "IPSLA sender id";
     leaf ip-address {
-      type uint32;
+      type inet:ipv4-address;
       description
         "IP address of Sender";
     }
@@ -48,6 +48,11 @@ submodule Cisco-IOS-XR-man-ipsla-oper-sub3 {
       type uint64;
       description
         "Last received time";
+    }
+    leaf ipv6-address {
+      type inet:ipv6-address;
+      description
+        "IPv6 address of Sender";
     }
   }
 
@@ -104,6 +109,16 @@ submodule Cisco-IOS-XR-man-ipsla-oper-sub3 {
       type int32;
       description
         "Socket";
+    }
+    leaf local-ipv6-address {
+      type inet:ipv6-address;
+      description
+        "IPv6 address of Responder";
+    }
+    leaf family {
+      type int32;
+      description
+        "Represent if v4 or v6";
     }
     list sender {
       description

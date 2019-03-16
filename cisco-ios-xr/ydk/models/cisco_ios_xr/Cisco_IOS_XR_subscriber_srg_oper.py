@@ -632,6 +632,15 @@ class SubscriberRedundancyManager(Entity):
         
         	**config**\: False
         
+        .. attribute:: sync_time
+        
+        	Sync Time
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
         .. attribute:: source_interface_name
         
         	Source Interface Name
@@ -749,6 +758,7 @@ class SubscriberRedundancyManager(Entity):
                 ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
                 ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSlaveMode', '')])),
                 ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                ('sync_time', (YLeaf(YType.uint32, 'sync-time'), ['int'])),
                 ('source_interface_name', (YLeaf(YType.str, 'source-interface-name'), ['str'])),
                 ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ('source_interface_ipv4_address', (YLeaf(YType.str, 'source-interface-ipv4-address'), ['str'])),
@@ -766,6 +776,7 @@ class SubscriberRedundancyManager(Entity):
             self.preferred_role = None
             self.slave_mode = None
             self.hold_timer = None
+            self.sync_time = None
             self.source_interface_name = None
             self.vrf_name = None
             self.source_interface_ipv4_address = None
@@ -782,7 +793,7 @@ class SubscriberRedundancyManager(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
+            self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'sync_time', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
 
 
 
@@ -2279,26 +2290,38 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: peer_last_negotiation_time
+                    .. attribute:: peer_last_negotiation_time_epoch
                     
-                    	Last Negotiation time of Peer
-                    	**type**\: str
+                    	Last Negotiation time of Peer in epoch seconds
+                    	**type**\: int
                     
-                    	**config**\: False
-                    
-                    .. attribute:: peer_last_up_time
-                    
-                    	Last UP time of Peer
-                    	**type**\: str
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
                     
-                    .. attribute:: peer_last_down_time
+                    	**units**\: second
                     
-                    	Last Down time of Peer
-                    	**type**\: str
+                    .. attribute:: peer_last_up_time_epoch
+                    
+                    	Last UP time of Peer in epoch seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: peer_last_down_time_epoch
+                    
+                    	Last Down time of Peer in epoch seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
                     
                     .. attribute:: peer_init_role
                     
@@ -2328,12 +2351,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: last_switchover_time
+                    .. attribute:: last_switchover_time_epoch
                     
-                    	Last Switchover time
-                    	**type**\: str
+                    	Last Switchover time in epoch seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
+                    
+                    	**units**\: second
                     
                     .. attribute:: switchover_count
                     
@@ -2480,14 +2507,14 @@ class SubscriberRedundancyAgent(Entity):
                             ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
                             ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
                             ('peer_status', (YLeaf(YType.enumeration, 'peer-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgPeerStatus', '')])),
-                            ('peer_last_negotiation_time', (YLeaf(YType.str, 'peer-last-negotiation-time'), ['str'])),
-                            ('peer_last_up_time', (YLeaf(YType.str, 'peer-last-up-time'), ['str'])),
-                            ('peer_last_down_time', (YLeaf(YType.str, 'peer-last-down-time'), ['str'])),
+                            ('peer_last_negotiation_time_epoch', (YLeaf(YType.uint64, 'peer-last-negotiation-time-epoch'), ['int'])),
+                            ('peer_last_up_time_epoch', (YLeaf(YType.uint64, 'peer-last-up-time-epoch'), ['int'])),
+                            ('peer_last_down_time_epoch', (YLeaf(YType.uint64, 'peer-last-down-time-epoch'), ['int'])),
                             ('peer_init_role', (YLeaf(YType.enumeration, 'peer-init-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
                             ('peer_negotiating_role', (YLeaf(YType.enumeration, 'peer-negotiating-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
                             ('peer_current_role', (YLeaf(YType.enumeration, 'peer-current-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
                             ('peer_object_tracking_status', (YLeaf(YType.boolean, 'peer-object-tracking-status'), ['bool'])),
-                            ('last_switchover_time', (YLeaf(YType.str, 'last-switchover-time'), ['str'])),
+                            ('last_switchover_time_epoch', (YLeaf(YType.uint64, 'last-switchover-time-epoch'), ['int'])),
                             ('switchover_count', (YLeaf(YType.uint32, 'switchover-count'), ['int'])),
                             ('last_switchover_reason', (YLeaf(YType.enumeration, 'last-switchover-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSoReason', '')])),
                             ('switchover_hold_time', (YLeaf(YType.uint32, 'switchover-hold-time'), ['int'])),
@@ -2520,14 +2547,14 @@ class SubscriberRedundancyAgent(Entity):
                         self.peer_ipv4_address = None
                         self.peer_ipv6_address = None
                         self.peer_status = None
-                        self.peer_last_negotiation_time = None
-                        self.peer_last_up_time = None
-                        self.peer_last_down_time = None
+                        self.peer_last_negotiation_time_epoch = None
+                        self.peer_last_up_time_epoch = None
+                        self.peer_last_down_time_epoch = None
                         self.peer_init_role = None
                         self.peer_negotiating_role = None
                         self.peer_current_role = None
                         self.peer_object_tracking_status = None
-                        self.last_switchover_time = None
+                        self.last_switchover_time_epoch = None
                         self.switchover_count = None
                         self.last_switchover_reason = None
                         self.switchover_hold_time = None
@@ -2545,7 +2572,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time_epoch', 'peer_last_up_time_epoch', 'peer_last_down_time_epoch', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time_epoch', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
 
 
                     class Interface(Entity):

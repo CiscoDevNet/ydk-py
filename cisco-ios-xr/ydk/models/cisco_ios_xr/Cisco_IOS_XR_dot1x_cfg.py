@@ -21,6 +21,27 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class Dot1xServerDeadAction(Enum):
+    """
+    Dot1xServerDeadAction (Enum Class)
+
+    Dot1x server dead action
+
+    .. data:: auth_fail = 0
+
+    	server dead action auth-fail
+
+    .. data:: auth_retry = 1
+
+    	server dead action auth-retry
+
+    """
+
+    auth_fail = Enum.YLeaf(0, "auth-fail")
+
+    auth_retry = Enum.YLeaf(1, "auth-retry")
+
+
 
 class Dot1x(Entity):
     """
@@ -179,6 +200,11 @@ class Dot1x(Entity):
             
             	**length:** 1..63
             
+            .. attribute:: server_dead
+            
+            	dot1x authenticator action on AAA server unreachability
+            	**type**\:  :py:class:`Dot1xServerDeadAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1xServerDeadAction>`
+            
             
 
             """
@@ -197,8 +223,10 @@ class Dot1x(Entity):
                 self._child_classes = OrderedDict([("timers", ("timers", Dot1x.Dot1xProfile.Authenticator.Timers))])
                 self._leafs = OrderedDict([
                     ('eap_profile', (YLeaf(YType.str, 'eap-profile'), ['str'])),
+                    ('server_dead', (YLeaf(YType.enumeration, 'server-dead'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg', 'Dot1xServerDeadAction', '')])),
                 ])
                 self.eap_profile = None
+                self.server_dead = None
 
                 self.timers = Dot1x.Dot1xProfile.Authenticator.Timers()
                 self.timers.parent = self
@@ -207,7 +235,7 @@ class Dot1x(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Dot1x.Dot1xProfile.Authenticator, ['eap_profile'], name, value)
+                self._perform_setattr(Dot1x.Dot1xProfile.Authenticator, ['eap_profile', 'server_dead'], name, value)
 
 
             class Timers(Entity):

@@ -79,20 +79,40 @@ class ActiveNodes(Entity):
         	Configuration for a clock interface
         	**type**\:  :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface>`
         
+        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
+        
+        	Watchdog threshold configuration
+        	**type**\:  :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
+        
         .. attribute:: ssrp_group
         
         	Per\-node SSRP configuration data
         	**type**\:  :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
         
-        .. attribute:: watchdog_node_threshold
+        .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold_
         
         	watchdog node threshold
-        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
+        
+        .. attribute:: fia_buffer_profile_cfg
+        
+        	fia buffer profile cfg
+        	**type**\:  :py:class:`FiaBufferProfileCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.FiaBufferProfileCfg>`
+        
+        .. attribute:: fia_vqi_shaper_cfg
+        
+        	fia vqi shaper cfg
+        	**type**\:  :py:class:`FiaVqiShaperCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.FiaVqiShaperCfg>`
+        
+        .. attribute:: port_queue_remaps
+        
+        	port queue remaps
+        	**type**\:  :py:class:`PortQueueRemaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.PortQueueRemaps>`
         
         
 
@@ -109,7 +129,7 @@ class ActiveNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold_", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal)), ("Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg", ("fia_buffer_profile_cfg", ActiveNodes.ActiveNode.FiaBufferProfileCfg)), ("Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg", ("fia_vqi_shaper_cfg", ActiveNodes.ActiveNode.FiaVqiShaperCfg)), ("Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps", ("port_queue_remaps", ActiveNodes.ActiveNode.PortQueueRemaps))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
@@ -123,17 +143,33 @@ class ActiveNodes(Entity):
             self.clock_interface.parent = self
             self._children_name_map["clock_interface"] = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
 
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+
             self.ssrp_group = ActiveNodes.ActiveNode.SsrpGroup()
             self.ssrp_group.parent = self
             self._children_name_map["ssrp_group"] = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group"
 
-            self.watchdog_node_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold()
-            self.watchdog_node_threshold.parent = self
-            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold_ = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold_.parent = self
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold_"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
             self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+            self.fia_buffer_profile_cfg = ActiveNodes.ActiveNode.FiaBufferProfileCfg()
+            self.fia_buffer_profile_cfg.parent = self
+            self._children_name_map["fia_buffer_profile_cfg"] = "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+
+            self.fia_vqi_shaper_cfg = ActiveNodes.ActiveNode.FiaVqiShaperCfg()
+            self.fia_vqi_shaper_cfg.parent = self
+            self._children_name_map["fia_vqi_shaper_cfg"] = "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+
+            self.port_queue_remaps = ActiveNodes.ActiveNode.PortQueueRemaps()
+            self.port_queue_remaps.parent = self
+            self._children_name_map["port_queue_remaps"] = "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
             self._segment_path = lambda: "active-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes/%s" % self._segment_path()
             self._is_frozen = True
@@ -898,7 +934,7 @@ class ActiveNodes(Entity):
                                     	Option value #2
                                     	**type**\: int
                                     
-                                    	**range:** 0..4
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -907,7 +943,7 @@ class ActiveNodes(Entity):
                                     	Option value #3
                                     	**type**\: int
                                     
-                                    	**range:** 0..1
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -916,7 +952,7 @@ class ActiveNodes(Entity):
                                     	Option value #4
                                     	**type**\: int
                                     
-                                    	**range:** 0..1
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -970,6 +1006,101 @@ class ActiveNodes(Entity):
 
 
 
+
+
+
+
+        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "watchdog-node-threshold"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._leafs = OrderedDict()
+
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, [], name, value)
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "memory-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -1094,19 +1225,19 @@ class ActiveNodes(Entity):
 
 
 
-        class WatchdogNodeThreshold(Entity):
+        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
             """
             watchdog node threshold
             
             .. attribute:: disk_threshold
             
             	Disk thresholds
-            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold>`
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold>`
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1116,28 +1247,28 @@ class ActiveNodes(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ActiveNodes.ActiveNode.WatchdogNodeThreshold, self).__init__()
+                super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
 
                 self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold))])
+                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold))])
                 self._leafs = OrderedDict()
 
-                self.disk_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold()
                 self.disk_threshold.parent = self
                 self._children_name_map["disk_threshold"] = "disk-threshold"
 
-                self.memory_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold, [], name, value)
+                self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, [], name, value)
 
 
             class DiskThreshold(Entity):
@@ -1173,7 +1304,7 @@ class ActiveNodes(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, self).__init__()
 
                     self.yang_name = "disk-threshold"
                     self.yang_parent_name = "watchdog-node-threshold"
@@ -1193,7 +1324,7 @@ class ActiveNodes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -1230,7 +1361,7 @@ class ActiveNodes(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
                     self.yang_parent_name = "watchdog-node-threshold"
@@ -1250,7 +1381,7 @@ class ActiveNodes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -1793,6 +1924,164 @@ class ActiveNodes(Entity):
 
 
 
+        class FiaBufferProfileCfg(Entity):
+            """
+            fia buffer profile cfg
+            
+            .. attribute:: xl
+            
+            	Enable to use Extra large Buffer profile
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.FiaBufferProfileCfg, self).__init__()
+
+                self.yang_name = "fia-buffer-profile-cfg"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('xl', (YLeaf(YType.boolean, 'xl'), ['bool'])),
+                ])
+                self.xl = None
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.FiaBufferProfileCfg, ['xl'], name, value)
+
+
+
+        class FiaVqiShaperCfg(Entity):
+            """
+            fia vqi shaper cfg
+            
+            .. attribute:: enhance
+            
+            	Enable to use Enhanced VQI shaper limit
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.FiaVqiShaperCfg, self).__init__()
+
+                self.yang_name = "fia-vqi-shaper-cfg"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enhance', (YLeaf(YType.boolean, 'enhance'), ['bool'])),
+                ])
+                self.enhance = None
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.FiaVqiShaperCfg, ['enhance'], name, value)
+
+
+
+        class PortQueueRemaps(Entity):
+            """
+            port queue remaps
+            
+            .. attribute:: port_queue_remap
+            
+            	Front panel port number
+            	**type**\: list of  		 :py:class:`PortQueueRemap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.PortQueueRemaps.PortQueueRemap>`
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.PortQueueRemaps, self).__init__()
+
+                self.yang_name = "port-queue-remaps"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("port-queue-remap", ("port_queue_remap", ActiveNodes.ActiveNode.PortQueueRemaps.PortQueueRemap))])
+                self._leafs = OrderedDict()
+
+                self.port_queue_remap = YList(self)
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.PortQueueRemaps, [], name, value)
+
+
+            class PortQueueRemap(Entity):
+                """
+                Front panel port number
+                
+                .. attribute:: port  (key)
+                
+                	port number <10,11,22,23 34,35,46,47>
+                	**type**\: int
+                
+                	**range:** 0..47
+                
+                .. attribute:: fabric_queue
+                
+                	queue number <0\-19>
+                	**type**\: int
+                
+                	**range:** 0..19
+                
+                
+
+                """
+
+                _prefix = 'asr9k-fia-cfg'
+                _revision = '2017-08-17'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.PortQueueRemaps.PortQueueRemap, self).__init__()
+
+                    self.yang_name = "port-queue-remap"
+                    self.yang_parent_name = "port-queue-remaps"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['port']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                        ('fabric_queue', (YLeaf(YType.uint32, 'fabric-queue'), ['int'])),
+                    ])
+                    self.port = None
+                    self.fabric_queue = None
+                    self._segment_path = lambda: "port-queue-remap" + "[port='" + str(self.port) + "']"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.PortQueueRemaps.PortQueueRemap, ['port', 'fabric_queue'], name, value)
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ActiveNodes()
         return self._top_entity
@@ -1856,15 +2145,35 @@ class PreconfiguredNodes(Entity):
         	Configuration for a clock interface
         	**type**\:  :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
         
-        .. attribute:: watchdog_node_threshold
+        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
+        
+        	Watchdog threshold configuration
+        	**type**\:  :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
+        
+        .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold_
         
         	watchdog node threshold
-        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
+        
+        .. attribute:: fia_buffer_profile_cfg
+        
+        	fia buffer profile cfg
+        	**type**\:  :py:class:`FiaBufferProfileCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.FiaBufferProfileCfg>`
+        
+        .. attribute:: fia_vqi_shaper_cfg
+        
+        	fia vqi shaper cfg
+        	**type**\:  :py:class:`FiaVqiShaperCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.FiaVqiShaperCfg>`
+        
+        .. attribute:: port_queue_remaps
+        
+        	port queue remaps
+        	**type**\:  :py:class:`PortQueueRemaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps>`
         
         
 
@@ -1881,7 +2190,7 @@ class PreconfiguredNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold_", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal)), ("Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg", ("fia_buffer_profile_cfg", PreconfiguredNodes.PreconfiguredNode.FiaBufferProfileCfg)), ("Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg", ("fia_vqi_shaper_cfg", PreconfiguredNodes.PreconfiguredNode.FiaVqiShaperCfg)), ("Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps", ("port_queue_remaps", PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
@@ -1895,13 +2204,29 @@ class PreconfiguredNodes(Entity):
             self.clock_interface.parent = self
             self._children_name_map["clock_interface"] = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
 
-            self.watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold()
-            self.watchdog_node_threshold.parent = self
-            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold_ = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold_.parent = self
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold_"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
             self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+            self.fia_buffer_profile_cfg = PreconfiguredNodes.PreconfiguredNode.FiaBufferProfileCfg()
+            self.fia_buffer_profile_cfg.parent = self
+            self._children_name_map["fia_buffer_profile_cfg"] = "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+
+            self.fia_vqi_shaper_cfg = PreconfiguredNodes.PreconfiguredNode.FiaVqiShaperCfg()
+            self.fia_vqi_shaper_cfg.parent = self
+            self._children_name_map["fia_vqi_shaper_cfg"] = "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+
+            self.port_queue_remaps = PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps()
+            self.port_queue_remaps.parent = self
+            self._children_name_map["port_queue_remaps"] = "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
             self._segment_path = lambda: "preconfigured-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/%s" % self._segment_path()
             self._is_frozen = True
@@ -2666,7 +2991,7 @@ class PreconfiguredNodes(Entity):
                                     	Option value #2
                                     	**type**\: int
                                     
-                                    	**range:** 0..4
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -2675,7 +3000,7 @@ class PreconfiguredNodes(Entity):
                                     	Option value #3
                                     	**type**\: int
                                     
-                                    	**range:** 0..1
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -2684,7 +3009,7 @@ class PreconfiguredNodes(Entity):
                                     	Option value #4
                                     	**type**\: int
                                     
-                                    	**range:** 0..1
+                                    	**range:** 0..10
                                     
                                     	**mandatory**\: True
                                     
@@ -2742,19 +3067,114 @@ class PreconfiguredNodes(Entity):
 
 
 
-        class WatchdogNodeThreshold(Entity):
+        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "watchdog-node-threshold"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._leafs = OrderedDict()
+
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, [], name, value)
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "memory-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+
+
+        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
             """
             watchdog node threshold
             
             .. attribute:: disk_threshold
             
             	Disk thresholds
-            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold>`
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold>`
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -2764,28 +3184,28 @@ class PreconfiguredNodes(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, self).__init__()
+                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
 
                 self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold))])
+                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold))])
                 self._leafs = OrderedDict()
 
-                self.disk_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold()
                 self.disk_threshold.parent = self
                 self._children_name_map["disk_threshold"] = "disk-threshold"
 
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, [], name, value)
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, [], name, value)
 
 
             class DiskThreshold(Entity):
@@ -2821,7 +3241,7 @@ class PreconfiguredNodes(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, self).__init__()
 
                     self.yang_name = "disk-threshold"
                     self.yang_parent_name = "watchdog-node-threshold"
@@ -2841,7 +3261,7 @@ class PreconfiguredNodes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -2878,7 +3298,7 @@ class PreconfiguredNodes(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
                     self.yang_parent_name = "watchdog-node-threshold"
@@ -2898,7 +3318,7 @@ class PreconfiguredNodes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -3437,6 +3857,164 @@ class PreconfiguredNodes(Entity):
 
 
 
+
+
+
+
+        class FiaBufferProfileCfg(Entity):
+            """
+            fia buffer profile cfg
+            
+            .. attribute:: xl
+            
+            	Enable to use Extra large Buffer profile
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.FiaBufferProfileCfg, self).__init__()
+
+                self.yang_name = "fia-buffer-profile-cfg"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('xl', (YLeaf(YType.boolean, 'xl'), ['bool'])),
+                ])
+                self.xl = None
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.FiaBufferProfileCfg, ['xl'], name, value)
+
+
+
+        class FiaVqiShaperCfg(Entity):
+            """
+            fia vqi shaper cfg
+            
+            .. attribute:: enhance
+            
+            	Enable to use Enhanced VQI shaper limit
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.FiaVqiShaperCfg, self).__init__()
+
+                self.yang_name = "fia-vqi-shaper-cfg"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enhance', (YLeaf(YType.boolean, 'enhance'), ['bool'])),
+                ])
+                self.enhance = None
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.FiaVqiShaperCfg, ['enhance'], name, value)
+
+
+
+        class PortQueueRemaps(Entity):
+            """
+            port queue remaps
+            
+            .. attribute:: port_queue_remap
+            
+            	Front panel port number
+            	**type**\: list of  		 :py:class:`PortQueueRemap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps.PortQueueRemap>`
+            
+            
+
+            """
+
+            _prefix = 'asr9k-fia-cfg'
+            _revision = '2017-08-17'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps, self).__init__()
+
+                self.yang_name = "port-queue-remaps"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("port-queue-remap", ("port_queue_remap", PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps.PortQueueRemap))])
+                self._leafs = OrderedDict()
+
+                self.port_queue_remap = YList(self)
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps, [], name, value)
+
+
+            class PortQueueRemap(Entity):
+                """
+                Front panel port number
+                
+                .. attribute:: port  (key)
+                
+                	port number <10,11,22,23 34,35,46,47>
+                	**type**\: int
+                
+                	**range:** 0..47
+                
+                .. attribute:: fabric_queue
+                
+                	queue number <0\-19>
+                	**type**\: int
+                
+                	**range:** 0..19
+                
+                
+
+                """
+
+                _prefix = 'asr9k-fia-cfg'
+                _revision = '2017-08-17'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps.PortQueueRemap, self).__init__()
+
+                    self.yang_name = "port-queue-remap"
+                    self.yang_parent_name = "port-queue-remaps"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['port']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                        ('fabric_queue', (YLeaf(YType.uint32, 'fabric-queue'), ['int'])),
+                    ])
+                    self.port = None
+                    self.fabric_queue = None
+                    self._segment_path = lambda: "port-queue-remap" + "[port='" + str(self.port) + "']"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.PortQueueRemaps.PortQueueRemap, ['port', 'fabric_queue'], name, value)
 
 
 

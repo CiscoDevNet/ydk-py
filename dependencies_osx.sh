@@ -6,12 +6,15 @@ function print_msg {
 
 function install_os_dependencies {
     brew install curl xml2 doxygen pybind11
-    brew rm -f --ignore-dependencies python python3
-
-    ./dependencies_gnmi.sh
 }
 
 function install_libssh {
+    print_msg "Checking installation of libssh"
+    locate libssh_threads.dylib
+    local status=$?
+    if [[ ${status} == 0 ]]; then
+        return
+    fi
     print_msg "Installing libssh-0.7.6"
     brew reinstall openssl
     export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
@@ -25,8 +28,30 @@ function install_libssh {
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.1/libydk-0.8.1-Darwin.pkg
-    sudo installer -pkg libydk-0.8.1-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
+    sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
+
+    print_msg "Installing YDK gNMI service library"
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk_gnmi-0.4.0-2_Darwin.pkg
+    sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
+}
+
+function check_python_installation {
+    locate libpython2.7.dylib
+    print_msg "Checking python3 and pip3 installation"
+    python3 -V
+    status=$?
+    if [ $status -ne 0 ]; then
+        print_msg "Installing python3"
+        brew install python@3
+    fi
+    pip3 -V
+    status=$?
+    if [ $status -ne 0 ]; then
+        print_msg "Installing pip3"
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo -H python3 get-pip.py
+    fi
 }
 
 # Terminal colors
@@ -39,18 +64,8 @@ install_os_dependencies
 
 install_libssh
 
+./dependencies_gnmi.sh
+
 install_libydk
 
-print_msg "Checking python3 and pip3 installation"
-python3 -V &> /dev/null
-status=$?
-if [ $status -ne 0 ]; then
-    print_msg "Installing python3"
-    brew install python@3
-fi
-pip3 -V &> /dev/null
-status=$?
-if [ $status -ne 0 ]; then
-    print_msg "Installing pip3"
-    sudo easy_install pip3
-fi
+check_python_installation

@@ -2384,7 +2384,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.ServerGroups.DiameterServerGroups, self).__init__()
@@ -2427,7 +2427,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2017-11-13'
+                _revision = '2018-09-16'
 
                 def __init__(self):
                     super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup, self).__init__()
@@ -2468,7 +2468,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2017-11-13'
+                    _revision = '2018-09-16'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers, self).__init__()
@@ -2512,7 +2512,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-diameter-cfg'
-                        _revision = '2017-11-13'
+                        _revision = '2018-09-16'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server, self).__init__()
@@ -7343,7 +7343,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-diameter-cfg'
-        _revision = '2017-11-13'
+        _revision = '2018-09-16'
 
         def __init__(self):
             super(Aaa.Diameter, self).__init__()
@@ -7434,7 +7434,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Gy, self).__init__()
@@ -7481,7 +7481,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Origin, self).__init__()
@@ -7521,7 +7521,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Nas, self).__init__()
@@ -7559,7 +7559,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.DiameterTls, self).__init__()
@@ -7597,7 +7597,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Peers, self).__init__()
@@ -7695,7 +7695,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2017-11-13'
+                _revision = '2018-09-16'
 
                 def __init__(self):
                     super(Aaa.Diameter.Peers.Peer, self).__init__()
@@ -7772,7 +7772,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2017-11-13'
+                    _revision = '2018-09-16'
 
                     def __init__(self):
                         super(Aaa.Diameter.Peers.Peer.PeerTimer, self).__init__()
@@ -7813,7 +7813,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2017-11-13'
+                    _revision = '2018-09-16'
 
                     def __init__(self):
                         super(Aaa.Diameter.Peers.Peer.PeerType, self).__init__()
@@ -7852,7 +7852,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Diams, self).__init__()
@@ -7895,7 +7895,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2017-11-13'
+                _revision = '2018-09-16'
 
                 def __init__(self):
                     super(Aaa.Diameter.Diams.Diam, self).__init__()
@@ -7936,7 +7936,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2017-11-13'
+                    _revision = '2018-09-16'
 
                     def __init__(self):
                         super(Aaa.Diameter.Diams.Diam.DiamAttrDefs, self).__init__()
@@ -7985,7 +7985,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-diameter-cfg'
-                        _revision = '2017-11-13'
+                        _revision = '2018-09-16'
 
                         def __init__(self):
                             super(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef, self).__init__()
@@ -8074,6 +8074,20 @@ class Aaa(Entity):
                             
                             	**range:** 0..23
                             
+                            .. attribute:: type_ulonglong
+                            
+                            	Numeric type
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: type_utc
+                            
+                            	Numeric type
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: mandatory
                             
                             	Is mandatory?
@@ -8086,7 +8100,7 @@ class Aaa(Entity):
                             """
 
                             _prefix = 'aaa-diameter-cfg'
-                            _revision = '2017-11-13'
+                            _revision = '2018-09-16'
 
                             def __init__(self):
                                 super(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue, self).__init__()
@@ -8107,6 +8121,8 @@ class Aaa(Entity):
                                     ('type_ulong', (YLeaf(YType.uint32, 'type-ulong'), ['int'])),
                                     ('type_identity', (YLeaf(YType.str, 'type-identity'), ['str'])),
                                     ('data_type', (YLeaf(YType.uint32, 'data-type'), ['int'])),
+                                    ('type_ulonglong', (YLeaf(YType.uint32, 'type-ulonglong'), ['int'])),
+                                    ('type_utc', (YLeaf(YType.uint32, 'type-utc'), ['int'])),
                                     ('mandatory', (YLeaf(YType.uint32, 'mandatory'), ['int'])),
                                 ])
                                 self.type_string = None
@@ -8118,12 +8134,14 @@ class Aaa(Entity):
                                 self.type_ulong = None
                                 self.type_identity = None
                                 self.data_type = None
+                                self.type_ulonglong = None
+                                self.type_utc = None
                                 self.mandatory = None
                                 self._segment_path = lambda: "diam-attr-value"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue, ['type_string', 'type_ipv4_address', 'type_binary', 'type_boolean', 'type_enum', 'type_grouped', 'type_ulong', 'type_identity', 'data_type', 'mandatory'], name, value)
+                                self._perform_setattr(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue, ['type_string', 'type_ipv4_address', 'type_binary', 'type_boolean', 'type_enum', 'type_grouped', 'type_ulong', 'type_identity', 'data_type', 'type_ulonglong', 'type_utc', 'mandatory'], name, value)
 
 
 
@@ -8159,7 +8177,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Gx, self).__init__()
@@ -8201,7 +8219,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Services, self).__init__()
@@ -8244,7 +8262,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2017-11-13'
+                _revision = '2018-09-16'
 
                 def __init__(self):
                     super(Aaa.Diameter.Services.Service, self).__init__()
@@ -8301,7 +8319,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.DiameterTimer, self).__init__()
@@ -8343,7 +8361,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2017-11-13'
+            _revision = '2018-09-16'
 
             def __init__(self):
                 super(Aaa.Diameter.Vendor, self).__init__()
@@ -8396,7 +8414,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2017-11-13'
+                _revision = '2018-09-16'
 
                 def __init__(self):
                     super(Aaa.Diameter.Vendor.Supported, self).__init__()

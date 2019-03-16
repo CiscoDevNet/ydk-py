@@ -1,8 +1,8 @@
 """ Cisco_IOS_XR_types 
 
-This module contains a collection of IOS\-XR derived YANG data 
+This module contains a collection of IOS\-XR derived YANG data
 types.
-    
+
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
@@ -32,13 +32,13 @@ class EncryptionType(Enum):
 
     .. data:: proprietary = 2
 
-    	The password is encrypted using Cisco type 7 
+    	The password is encrypted using Cisco type 7
 
     	password encryption.
 
     .. data:: type6 = 3
 
-    	The password is encrypted using Cisco type 6 
+    	The password is encrypted using Cisco type 6
 
     	password encryption.
 

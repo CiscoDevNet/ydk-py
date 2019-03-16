@@ -405,6 +405,19 @@ class Dhcpv6(Entity):
                 	Specify relay option configuration
                 	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.Option>`
                 
+                .. attribute:: link_address
+                
+                	IPv6 address to be filled in link\-address
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
                 .. attribute:: src_intf_name
                 
                 	Relay profile Source Interface Name
@@ -449,11 +462,13 @@ class Dhcpv6(Entity):
                     self._child_classes = OrderedDict([("helper-addresses", ("helper_addresses", Dhcpv6.Profiles.Profile.Relay.HelperAddresses)), ("option", ("option", Dhcpv6.Profiles.Profile.Relay.Option))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
+                        ('link_address', (YLeaf(YType.str, 'link-address'), ['str','str'])),
                         ('src_intf_name', (YLeaf(YType.str, 'src-intf-name'), ['str'])),
                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ('iana_route_add', (YLeaf(YType.empty, 'iana-route-add'), ['Empty'])),
                         ('relay_route_add_disable', (YLeaf(YType.empty, 'relay-route-add-disable'), ['Empty'])),
                     ])
+                    self.link_address = None
                     self.src_intf_name = None
                     self.enable = None
                     self.iana_route_add = None
@@ -470,7 +485,7 @@ class Dhcpv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['src_intf_name', 'enable', 'iana_route_add', 'relay_route_add_disable'], name, value)
+                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['link_address', 'src_intf_name', 'enable', 'iana_route_add', 'relay_route_add_disable'], name, value)
 
 
                 class HelperAddresses(Entity):

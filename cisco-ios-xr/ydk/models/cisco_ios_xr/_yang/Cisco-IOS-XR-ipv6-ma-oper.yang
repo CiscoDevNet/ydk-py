@@ -6,7 +6,7 @@ module Cisco-IOS-XR-ipv6-ma-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv6-ma-oper-sub1 {
-    revision-date 2017-08-09;
+    revision-date 2018-07-02;
   }
 
   organization
@@ -32,6 +32,14 @@ module Cisco-IOS-XR-ipv6-ma-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-02 {
+    description
+      "IPV6 MA added new fields to bag.";
+  }
+  revision 2018-05-16 {
+    description
+      "IPV6 MA added new fields to bag.";
+  }
   revision 2017-08-09 {
     description
       "IPV6 MA schema file has all the latest changes.";

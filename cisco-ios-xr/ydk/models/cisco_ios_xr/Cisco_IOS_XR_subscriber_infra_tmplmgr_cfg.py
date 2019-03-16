@@ -156,6 +156,16 @@ class DynamicTemplate(Entity):
             	Subscriber accounting dynamic\-template commands
             	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting>`
             
+            .. attribute:: span_monitor_sessions
+            
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
+            
             .. attribute:: ipv4_packet_filter
             
             	IPv4 Packet Filtering configuration for the template
@@ -203,7 +213,7 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template", ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.Ppps.Ppp.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.Ppps.Ppp.Accounting)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.Ppps.Ppp.Igmp)), ("Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template", ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template", ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)), ("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.Ppps.Ppp.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.Ppps.Ppp.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.Ppps.Ppp.Qos)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.Ppps.Ppp.Igmp)), ("Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template", ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
@@ -233,6 +243,14 @@ class DynamicTemplate(Entity):
                 self.accounting = DynamicTemplate.Ppps.Ppp.Accounting()
                 self.accounting.parent = self
                 self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+
+                self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+
+                self.qos = DynamicTemplate.Ppps.Ppp.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
@@ -1241,6 +1259,578 @@ class DynamicTemplate(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, ['method_list_name', 'accounting_interim_interval'], name, value)
+
+
+
+
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.Ppps.Ppp.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ppp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.Ppps.Ppp.Qos.Account)), ("output", ("output", DynamicTemplate.Ppps.Ppp.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
+                        self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.Ppps.Ppp.Qos.Output, ['minimum_bandwidth'], name, value)
 
 
 
@@ -2859,6 +3449,16 @@ class DynamicTemplate(Entity):
             	Subscriber accounting dynamic\-template commands
             	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting>`
             
+            .. attribute:: span_monitor_sessions
+            
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
+            
             .. attribute:: dhcpd
             
             	Interface dhcpv4 configuration data
@@ -2906,7 +3506,7 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)), ("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network)), ("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.IpSubscribers.IpSubscriber.Qos)), ("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network)), ("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
@@ -2933,6 +3533,14 @@ class DynamicTemplate(Entity):
                 self.accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting()
                 self.accounting.parent = self
                 self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+
+                self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+
+                self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.dhcpd = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd()
                 self.dhcpd.parent = self
@@ -3909,6 +4517,578 @@ class DynamicTemplate(Entity):
 
 
 
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ip-subscriber"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account)), ("output", ("output", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
+                        self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, ['minimum_bandwidth'], name, value)
+
+
+
+
             class Dhcpd(Entity):
                 """
                 Interface dhcpv4 configuration data
@@ -4713,6 +5893,16 @@ class DynamicTemplate(Entity):
             	Subscriber accounting dynamic\-template commands
             	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting>`
             
+            .. attribute:: span_monitor_sessions
+            
+            	Monitor Session container for this template
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
+            
             .. attribute:: ipv4_packet_filter
             
             	IPv4 Packet Filtering configuration for the template
@@ -4750,7 +5940,7 @@ class DynamicTemplate(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr)), ("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network)), ("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor)), ("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)), ("Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions", ("span_monitor_sessions", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions)), ("Cisco-IOS-XR-qos-ma-bng-cfg:qos", ("qos", DynamicTemplate.SubscriberServices.SubscriberService.Qos)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter)), ("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network))])
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('vrf', (YLeaf(YType.str, 'Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf'), ['str'])),
@@ -4773,6 +5963,14 @@ class DynamicTemplate(Entity):
                 self.accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting()
                 self.accounting.parent = self
                 self._children_name_map["accounting"] = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+
+                self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self._children_name_map["span_monitor_sessions"] = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+
+                self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
 
                 self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
@@ -5582,6 +6780,578 @@ class DynamicTemplate(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, ['timeout_value', 'threshold', 'direction'], name, value)
+
+
+
+
+            class SpanMonitorSessions(Entity):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("span-monitor-session", ("span_monitor_session", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession))])
+                    self._leafs = OrderedDict()
+
+                    self.span_monitor_session = YList(self)
+                    self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, [], name, value)
+
+
+                class SpanMonitorSession(Entity):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  (key)
+                    
+                    	Session Class
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\: int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['session_class']
+                        self._child_classes = OrderedDict([("attachment", ("attachment", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment)), ("acl", ("acl", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl))])
+                        self._leafs = OrderedDict([
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('mirror_first', (YLeaf(YType.uint32, 'mirror-first'), ['int'])),
+                            ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval', '')])),
+                        ])
+                        self.session_class = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+                        self.attachment = None
+                        self._children_name_map["attachment"] = "attachment"
+
+                        self.acl = None
+                        self._children_name_map["acl"] = "acl"
+                        self._segment_path = lambda: "span-monitor-session" + "[session-class='" + str(self.session_class) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, ['session_class', 'mirror_first', 'mirror_interval'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection', '')])),
+                                ('port_level_enable', (YLeaf(YType.empty, 'port-level-enable'), ['Empty'])),
+                            ])
+                            self.session_name = None
+                            self.direction = None
+                            self.port_level_enable = None
+                            self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, ['session_name', 'direction', 'port_level_enable'], name, value)
+
+
+
+                    class Acl(Entity):
+                        """
+                        Enable ACL matching for traffic mirroring
+                        
+                        .. attribute:: acl_enable
+                        
+                        	Enable ACL
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        	**length:** 1..80
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl, self).__init__()
+
+                            self.yang_name = "acl"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('acl_enable', (YLeaf(YType.empty, 'acl-enable'), ['Empty'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                            ])
+                            self.acl_enable = None
+                            self.acl_name = None
+                            self._segment_path = lambda: "acl"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl, ['acl_enable', 'acl_name'], name, value)
+
+
+
+
+
+            class Qos(Entity):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "subscriber-service"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("service-policy", ("service_policy", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy)), ("account", ("account", DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account)), ("output", ("output", DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output))])
+                    self._leafs = OrderedDict()
+
+                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+
+                    self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
+                    self.account.parent = self
+                    self._children_name_map["account"] = "account"
+
+                    self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos, [], name, value)
+
+
+                class ServicePolicy(Entity):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("input", ("input", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input)), ("output", ("output", DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output))])
+                        self._leafs = OrderedDict()
+
+                        self.input = None
+                        self._children_name_map["input"] = "input"
+
+                        self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._segment_path = lambda: "service-policy"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy, [], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+                    class Output(Entity):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                ('spi_name', (YLeaf(YType.str, 'spi-name'), ['str'])),
+                                ('merge', (YLeaf(YType.boolean, 'merge'), ['bool'])),
+                                ('merge_id', (YLeaf(YType.uint32, 'merge-id'), ['int'])),
+                                ('account_stats', (YLeaf(YType.boolean, 'account-stats'), ['bool'])),
+                            ])
+                            self.policy_name = None
+                            self.spi_name = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.account_stats = None
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, ['policy_name', 'spi_name', 'merge', 'merge_id', 'account_stats'], name, value)
+
+
+
+
+                class Account(Entity):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\: int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, self).__init__()
+
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aal', (YLeaf(YType.enumeration, 'aal'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLink', '')])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2Encap', '')])),
+                            ('atm_cell_tax', (YLeaf(YType.empty, 'atm-cell-tax'), ['Empty'])),
+                            ('user_defined', (YLeaf(YType.int32, 'user-defined'), ['int'])),
+                        ])
+                        self.aal = None
+                        self.encapsulation = None
+                        self.atm_cell_tax = None
+                        self.user_defined = None
+                        self._segment_path = lambda: "account"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, ['aal', 'encapsulation', 'atm_cell_tax', 'user_defined'], name, value)
+
+
+
+                class Output(Entity):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum_bandwidth', (YLeaf(YType.uint32, 'minimum-bandwidth'), ['int'])),
+                        ])
+                        self.minimum_bandwidth = None
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, ['minimum_bandwidth'], name, value)
 
 
 

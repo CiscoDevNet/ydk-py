@@ -340,6 +340,17 @@ class SdrInventory(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: card_valid
+                        
+                        	Card Valid
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        	**default value**\: 0
+                        
                         .. attribute:: pi_slot_number
                         
                         	Pi Slot Number
@@ -417,6 +428,7 @@ class SdrInventory(Entity):
                                 ('card_type', (YLeaf(YType.uint32, 'card-type'), ['int'])),
                                 ('card_type_string', (YLeaf(YType.str, 'card-type-string'), ['str'])),
                                 ('node_name_string', (YLeaf(YType.str, 'node-name-string'), ['str'])),
+                                ('card_valid', (YLeaf(YType.uint32, 'card-valid'), ['int'])),
                                 ('pi_slot_number', (YLeaf(YType.uint32, 'pi-slot-number'), ['int'])),
                                 ('shutdown', (YLeaf(YType.uint32, 'shutdown'), ['int'])),
                                 ('ctype', (YLeaf(YType.uint32, 'ctype'), ['int'])),
@@ -432,6 +444,7 @@ class SdrInventory(Entity):
                             self.card_type = None
                             self.card_type_string = None
                             self.node_name_string = None
+                            self.card_valid = None
                             self.pi_slot_number = None
                             self.shutdown = None
                             self.ctype = None
@@ -441,7 +454,7 @@ class SdrInventory(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
+                            self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'card_valid', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
 
 
 

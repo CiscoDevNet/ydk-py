@@ -199,8 +199,21 @@ module Cisco-IOS-XE-platform {
               type enumeration {
                 enum "10000";
                 enum "25000";
+                enum "35000";
                 enum "50000";
-              }
+                enum "75000";
+                enum "100000";
+                enum "150000";
+                enum "200000";
+                enum "250000";
+                enum "300000";
+                enum "400000";
+                enum "500000";
+                enum "1000000";
+                enum "1500000";
+                enum "2000000";
+                enum "3000000";
+             }
             }
             leaf eval-only {
               description

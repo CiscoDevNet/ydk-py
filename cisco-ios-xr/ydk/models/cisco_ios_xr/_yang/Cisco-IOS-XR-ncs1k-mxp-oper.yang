@@ -3,7 +3,7 @@ module Cisco-IOS-XR-ncs1k-mxp-oper {
   prefix ncs1k-mxp-oper;
 
   include Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2018-06-20;
   }
 
   organization
@@ -29,6 +29,10 @@ module Cisco-IOS-XR-ncs1k-mxp-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-20 {
+    description
+      "Modify the existing variable name.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

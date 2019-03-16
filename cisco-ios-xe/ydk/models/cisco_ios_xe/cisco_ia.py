@@ -145,6 +145,33 @@ class OnepLogLevel(Enum):
     trace = Enum.YLeaf(6, "trace")
 
 
+class ParserMsgProcessingMethod(Enum):
+    """
+    ParserMsgProcessingMethod (Enum Class)
+
+    .. data:: blacklist = 0
+
+    	Check all parser output against a set
+
+    	of known errors and abort the transaction
+
+    	if matched.
+
+    .. data:: whitelist = 1
+
+    	Check all parser output against a set
+
+    	of known messages to ignore and abort 
+
+    	the transaction if not matched.
+
+    """
+
+    blacklist = Enum.YLeaf(0, "blacklist")
+
+    whitelist = Enum.YLeaf(1, "whitelist")
+
+
 class SyslogSeverity(Enum):
     """
     SyslogSeverity (Enum Class)
@@ -229,7 +256,7 @@ class SyncFrom(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(SyncFrom, self).__init__()
@@ -273,7 +300,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(SyncFrom.Input, self).__init__()
@@ -313,7 +340,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(SyncFrom.Output, self).__init__()
@@ -358,7 +385,7 @@ class SaveConfig(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(SaveConfig, self).__init__()
@@ -393,7 +420,7 @@ class SaveConfig(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(SaveConfig.Output, self).__init__()
@@ -438,7 +465,7 @@ class IsSyncing(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(IsSyncing, self).__init__()
@@ -473,7 +500,7 @@ class IsSyncing(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(IsSyncing.Output, self).__init__()
@@ -517,7 +544,7 @@ class Checkpoint(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(Checkpoint, self).__init__()
@@ -552,7 +579,7 @@ class Checkpoint(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(Checkpoint.Output, self).__init__()
@@ -602,7 +629,7 @@ class Revert(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(Revert, self).__init__()
@@ -655,7 +682,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(Revert.Input, self).__init__()
@@ -697,7 +724,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(Revert.Output, self).__init__()
@@ -746,7 +773,7 @@ class Rollback(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-03-28'
+    _revision = '2018-08-03'
 
     def __init__(self):
         super(Rollback, self).__init__()
@@ -813,7 +840,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(Rollback.Input, self).__init__()
@@ -859,7 +886,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-03-28'
+        _revision = '2018-08-03'
 
         def __init__(self):
             super(Rollback.Output, self).__init__()

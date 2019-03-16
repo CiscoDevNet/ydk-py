@@ -261,7 +261,7 @@ class SystemTime(Entity):
         
         .. attribute:: uptime
         
-        	Amount of time in seconds since this system     was last initialized
+        	Amount of time in seconds since this system was last initialized
         	**type**\: int
         
         	**range:** 0..4294967295

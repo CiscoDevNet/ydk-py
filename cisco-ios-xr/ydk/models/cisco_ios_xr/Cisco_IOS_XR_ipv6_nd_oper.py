@@ -1886,6 +1886,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1906,15 +1924,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "local-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -1949,6 +1971,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1969,15 +2009,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "global-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -2494,6 +2538,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2514,15 +2576,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "local-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 
@@ -2557,6 +2623,24 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: flags
+                        
+                        	Address flags
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2577,15 +2661,19 @@ class Ipv6NodeDiscovery(Entity):
                                 ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
                                 ('pref_lifetime', (YLeaf(YType.uint32, 'pref-lifetime'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
                             ])
                             self.ipv6_address = None
                             self.valid_lifetime = None
                             self.pref_lifetime = None
+                            self.prefix_length = None
+                            self.flags = None
                             self._segment_path = lambda: "vr-global-address"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
 
 

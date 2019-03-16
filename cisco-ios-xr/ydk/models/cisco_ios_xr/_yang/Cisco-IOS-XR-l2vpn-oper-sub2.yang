@@ -2241,7 +2241,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     list up-count {
       max-elements "4";
       description
-        "Number of active cross-connections array - 
+        "Number of active cross-connections array -
          
          Index 0 is LikeToLike, 1 is IPInterworking, 2 is
          

@@ -49,6 +49,40 @@ module Cisco-IOS-XE-crypto {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-11-19 {
+    description
+      "Added module for container ipv6 under crypto ikev2 authorization policy";
+  }
+  revision 2018-11-02 {
+    description
+      "Added container local, container remote and container access-list under crypto ikev2 
+      authorization policy route set";
+  }
+  revision 2018-09-19 {
+    description
+        "Added leaf reactive, leaf gateway, container password, container reconnect and leaf dns under crypto ikev2.";
+  }
+  revision 2018-08-29 {
+    description
+        "Moved pki trust-point before pki certificate";
+  }
+  revision 2018-08-07 {
+    description
+        "Added name mangler list and cluster container under crypto ikev2, backup container under client, name mangler
+         container under profile authorisation and added fileds for ikev2 authorization policy.";
+}
+  revision 2018-07-27{
+    description
+        "Added Authorization container under trustpoint configuration.";
+  }
+  revision 2018-07-26{
+    description
+        "Added certificate chain storage support under trustpoint configuration";
+  }
+  revision 2018-07-10 {
+    description
+      "Add .* to cli-preformatted, apply input validation to disallow newlines";
+  }
   revision 2018-06-28{
     description
         "Added must constraints for deleting vrf";
@@ -525,6 +559,11 @@ module Cisco-IOS-XE-crypto {
         type uint64 {
           range "1..4294967295";
         }
+      }
+      leaf gateway {
+        description
+          "Force encrypted traffic via this preferred gateway";
+        type inet:ip-address;
       }
     }
     leaf-list transform-set {
@@ -1836,7 +1875,9 @@ module Cisco-IOS-XE-crypto {
             }
           }
           leaf key {
-            type string;
+            type string {
+              pattern '.*';
+            }
           }
         }
         case hex-case {
@@ -1850,6 +1891,28 @@ module Cisco-IOS-XE-crypto {
     }
   }
 
+  grouping crypto-ikev2-profile-aaa-auth-passwd-grouping {
+    leaf password {
+      description  
+        "Specify the AAA password";
+      type empty;
+    }
+    leaf encryption {
+      description
+        "The password encryption algorithm in use";  
+      when "../password";
+      type uint8 {
+         range "0..9";
+      }
+    } 
+    leaf key {
+      when "../password or ../encryption";
+      description
+        "The UNENCRYPTED (cleartext) user password";
+      type string;
+    }   
+  }   
+
   grouping crypto-ikev2-profile-aaa-authorization-grouping {
     list list {
       description
@@ -1858,6 +1921,7 @@ module Cisco-IOS-XE-crypto {
       leaf name {
         type string;
       }
+      uses crypto-ikev2-profile-aaa-auth-passwd-grouping;
       leaf username {
         type string;
       }
@@ -1867,23 +1931,17 @@ module Cisco-IOS-XE-crypto {
         when "../username";
         type empty;
       }
-      leaf name-mangler {
+      container name-mangler {
         description
           "Specify the name-mangler to derive AAA username";
-        type string;
-      }
-      container password {
-        description
-          "Specify the AAA password";
-        leaf encryption {
-          type enumeration {
-            enum "0";
-            enum "6";
+        leaf name {
+          description
+            "mangler name";
+          type leafref {
+            path "/ios:native/ios:crypto/ios-crypto:ikev2/ios-crypto:name-mangler/ios-crypto:name";
           }
         }
-        leaf key {
-          type string;
-        }
+        uses crypto-ikev2-profile-aaa-auth-passwd-grouping;
       }
     }
   }
@@ -2456,6 +2514,41 @@ module Cisco-IOS-XE-crypto {
       }
     }
   }
+ 
+  grouping crypto-ikev2-authorization-route-set-local-grouping {
+    leaf next-hop {
+      description
+        "next-hop address";
+      type union {  
+        type inet:ipv4-address;
+        type inet:ipv6-address;
+      }
+    }
+    leaf vrf {
+      description
+        "vrf name";
+      must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
+        /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+        /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+        error-message "% vrf with address-family does not exist. Create first";
+        }
+        type string;
+    }
+    leaf tag {
+      description
+        "tag-value";
+      type uint32 {
+        range "1..497777";
+      }
+    }
+    leaf distance {
+      description
+        "distance-value";
+      type uint16 {
+        range "1..255";
+      }
+    }
+  }
 
   grouping crypto-ikev2-grouping {
     container authorization {
@@ -2482,10 +2575,226 @@ module Cisco-IOS-XE-crypto {
                 }
               }
             }
+            container access-list {
+              description
+                "Specify the route access-list";
+              leaf access-list-range {
+                type union {
+                  type uint16 {
+                    range "1..99";
+                  }
+                  type uint16 {
+                    range "1300..1999";
+                  }
+                  type string;
+                }
+              }
+              container ipv6 {
+                description
+                  "ipv6 access-list";
+                leaf name {
+                  description
+                    "access-list name";
+                  type string;
+                }
+              }
+            }
+            container remote {
+              description
+                "Specify routes to be pushed to peer";
+              list ipv4 {
+                description
+                  "ipv4 route";
+                key "prefix";
+                leaf prefix {
+                  description
+                    "IP address prefix";
+                  type inet:ipv4-address;
+                }
+                leaf ipv4-mask {
+                  description
+                    "specify mask";
+                  type inet:ipv4-address;
+                }
+              }
+              list ipv6 {
+                description
+                  "pv6 route";
+                key "prefix";
+                leaf prefix {
+                  description
+                    "IPv6 address/prefix-length";
+                  type ios-types:ipv6-prefix;
+                }
+              }
+            }
+            container local {
+              description
+                "Specify route set local parameters";
+              list ipv4 {
+                description
+                  "ipv4 route";
+                key "prefix";
+                leaf prefix {
+                  description
+                    "IP address prefix";
+                  type inet:ipv4-address;
+                }
+                leaf ipv4-mask {
+                  description
+                    "specify mask";
+                  type inet:ipv4-address;
+                }
+                uses crypto-ikev2-authorization-route-set-local-grouping;
+              }
+              list ipv6 {
+                description
+                  "ipv6 route";
+                key "prefix";
+                leaf prefix {
+                  description
+                    "IPv6 address/prefix-length";
+                  type ios-types:ipv6-prefix;
+                }
+                uses crypto-ikev2-authorization-route-set-local-grouping;
+              }
+            }
+          }
+          container accept {
+            description
+              "Route accept parameters";
+            container any {
+              description
+                "Accept all subnets from peer";
+              choice distance-tag {
+                case distance {
+                  leaf distance {
+                    description
+                      "Specify distance for routes to remote subnets";
+                    type uint16 {
+                      range "1..255";
+                    }
+                  }   
+                }               
+                case tag {
+                  leaf tag {
+                    description
+                      "Specify tag for routes to remote subnets";
+                    type uint64 {
+                      range "1..497777";
+                    }
+                  }   
+                }   
+              }       
+            }       
+          }       
+        }       
+        container ipv6 {
+          description
+            "Specify the ipv6 attributes";
+          container dns {
+            description
+              "Specify DNS Addresses";
+            leaf primary {
+              description
+                "Primary DNS IPv6 address";
+              type inet:ipv6-address;
+            }
+            leaf secondary {
+              description
+                "Secondary DNS IPv6 address";
+              when "../primary";      
+              type inet:ipv6-address;
+            }
+          }
+          container pool {
+            description
+              "Specify local address pool";
+            leaf pool-name {
+              description  
+                "address pool name";
+              type string;
+            }
           }
         }
-      }
-    }
+        container pool {
+          description
+            "Specify local address pool";
+          leaf pool-name {
+            type string;
+          } 
+        } 
+        container aaa {
+          description
+            "Specify aaa attribute list";
+          container attribute {
+            description
+              "AAA attribute list";
+            leaf aaa-attribute-list {
+              description
+                "AAA attribute list";
+              type string;
+            }
+          }   
+        }     
+        list split-dns {
+          description
+            "Split DNS names";
+          key "name";
+          leaf name {
+            description
+              "DNS extension";
+            type string;
+          }
+        }  
+        leaf backup-gateway {
+          description
+            "Specify backup gateway";
+            type union {
+              type inet:ipv4-address;
+              type string;
+            }
+        }
+        container dns {
+            description
+              "Specify DNS Addresses";
+            leaf primary {
+              description
+                "Primary DNS IP address";
+              type inet:ipv4-address;
+            }  
+             leaf secondary {
+               description
+                 "Secondary DNS IP address";
+               type inet:ipv4-address;
+             }
+          }   
+        container dhcp {
+          description
+            "Specify DHCP server for config address";
+          leaf giaddr {
+            description
+              "Specify giaddr for dhcp scope";
+            type inet:ip-address;
+          }
+          leaf server {
+            description
+              "Specify dhcp server addresses";
+            type union {
+              type inet:ipv4-address;
+              type string;
+            } 
+          } 
+          leaf timeout {
+            description
+              "Specify DHCP response timeout in seconds";
+            type uint8 {
+              range "1..30";
+            }
+          }   
+        }   
+      }       
+    }       
     leaf certificate-cache {
       description
         "Cache for storing certs fetched from HTTP URLs";
@@ -2501,26 +2810,41 @@ module Cisco-IOS-XE-crypto {
             "Configure an IKEv2 FlexVPN client";
           type string;
         }
-        list peer {
-          key "peer-id";
-          leaf peer-id {
-            type uint8;
+        container peer {
+          description
+            "Allowed Encryption/Decryption Peer";
+          list peer-id-list {
+            description
+              "peer sequence number";  
+            key "peer-id";
+            leaf peer-id {
+              type uint8;
+            }
+            container peer-id-container {
+              leaf peer-address {
+                description
+                  "ip address";  
+                type inet:ip-address;
+              }
+              leaf track {
+                description
+                  "Peer track object";  
+                type uint16 {
+                  range "0..1000";
+                }
+              }
+              leaf up-down {
+                type enumeration {
+                  enum "up";
+                  enum "down";
+                }
+              }
+            }
           }
-          container peer-id-container {
-            leaf peer-address {
-              type inet:ip-address;
-            }
-            leaf track {
-              type uint16 {
-                range "0..1000";
-              }
-            }
-            leaf up-down {
-              type enumeration {
-                enum "up";
-                enum "down";
-              }
-            }
+          leaf reactivate {
+            description
+              "Re-activate peer enabled";
+            type empty;
           }
         }
         container connect {
@@ -2563,12 +2887,77 @@ module Cisco-IOS-XE-crypto {
             }
           }
         }
-      }
-    }
-    leaf cluster {
+        container backup {
+          description
+            "Backup Configuration";
+          container group {
+            description
+              "Group";
+            choice group-number-default {
+              case group-number-case {
+                leaf group-number {
+                  type uint16 {
+                    range "1..255";
+                  }
+                } 
+              }   
+              case default-case {
+                leaf default {
+                  description
+                    "Default Group";
+                  type boolean;
+                  default true;
+                } 
+              }   
+            }     
+          }       
+        }       
+      }       
+    }   
+    container cluster {
       description
         "Cluster load-balancer settings";
-      type empty;
+      container slave {
+        description
+          "Slave settings";
+        leaf hello {
+          description
+            "Hello time interval";
+          type uint32 {
+                range "100..30000";
+          }
+        }
+        leaf max-session {
+          description
+            "Maximum SAs (IKE and IPsec)";
+          type uint32 {
+                range "1..100000";
+          }
+        }   
+        leaf priority {
+          description 
+            "Priority";
+          type uint16 {
+              range "1..100";
+          }
+        }   
+        leaf update {
+          description
+            "Load update time interval";
+          type uint32 {
+              range "100..60000";
+          }
+        }     
+      }   
+      container standby-group {
+        description
+          "HSRP group";
+        leaf name {
+          description
+            "HSRP group name";
+          type string;
+        }
+      }
     }
     leaf cookie-challenge {
       description
@@ -2684,10 +3073,117 @@ module Cisco-IOS-XE-crypto {
         }
       }
     }
-    leaf name-mangler {
+    list name-mangler {
       description
         "Name mangler";
-      type string;
+      key "name";
+      leaf name {
+        type string;
+      }
+      leaf dn {
+        description
+          "Derive name from DN identity";
+        type enumeration {
+          enum "common-name";
+          enum "country";
+          enum "domain";
+          enum "locality";
+          enum "organization";
+          enum "organization-unit";
+          enum "state";
+        }
+      }
+      container eap {
+        description
+          "Derive name from EAP identity";
+        choice eap-options {
+          case dn {
+            leaf dn {
+              description
+                "Derive name from DN identity";
+               type enumeration {
+                 enum "common-name";
+                 enum "country";
+                 enum "domain";
+                 enum "locality";
+                 enum "organization";
+                 enum "organization-unit";
+                 enum "state";
+               }
+            }
+          }
+          case all {
+            leaf all {
+              description
+                "entire portion of the identity";
+              type empty;
+            }
+          }
+          case prefix {
+            container prefix {
+              description
+                "prefix portion of eap identity";
+              container delimiter {
+                description
+                  "Specify the delimiter";
+                choice delimeter-choice {
+                  leaf dot {
+                    type empty;
+                  }
+                  leaf at-sign {
+                    type empty;
+                  }
+                  /*double backslash is for escape. Show running will show single backslash.
+                    Confd_cli will need input as double backslash.
+                  */
+                  leaf slash-sign {
+                    type empty;
+                  }
+                }
+              }
+            }
+          }
+          case suffix {
+            container suffix {
+              description
+                "suffix portion of eap identity";
+              container delimiter {
+                description
+                  "Specify the delimiter";
+                choice delimeter-choice {
+                  leaf dot {
+                    type empty;
+                  }
+                  leaf at-sign {
+                    type empty;
+                  }
+                  leaf slash-sign {
+                    type empty;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      leaf email {
+        description
+          "Derive name from EMAIL identity";
+        type enumeration {
+          enum "all";
+          enum "domain";
+          enum "username";
+        }
+      }
+      leaf fqdn {
+        description
+          "Derive name from FQDN identity";
+        type enumeration {
+          enum "all";
+          enum "domain";
+          enum "hostname";
+        }
+      }
     }
     container nat {
       description
@@ -2909,28 +3405,24 @@ module Cisco-IOS-XE-crypto {
     container reconnect {
       description
         "Cluster Reconnect";
-      leaf key {
+      list key {
         description
           "Cluster Reconnect key";
-        type uint8 {
-          range "1..2";
-        }
-      }
-      choice value-active {
-        case value-case {
-          leaf value {
-            type string {
-              length "1..128";
-            }
+        max-elements 2;
+        key "key-index";
+        leaf "key-index" {
+          type uint8 {
+            range "1..2";
           }
         }
-        case active-case {
-          leaf active {
-            description
-              "Current active cluster reconnect key";
-            type string {
-              length "1..128";
-            }
+        leaf active {
+          description
+            "Current active cluster reconnect key";
+          type empty;
+        }
+        leaf key-value {
+          type string {
+            length "1..128";
           }
         }
       }
@@ -3997,22 +4489,8 @@ module Cisco-IOS-XE-crypto {
       leaf url {
         description
           "URL for the client to fetch configuration";
-        type enumeration {
-          enum "bootflash:";
-          enum "cns:";
-          enum "flash:";
-          enum "ftp:";
-          enum "http:";
-          enum "https:";
-          enum "null:";
-          enum "nvram:";
-          enum "pram:";
-          enum "rcp:";
-          enum "scp:";
-          enum "system:";
-          enum "tar:";
-          enum "tftp:";
-          enum "tmpsys:";
+        type string {
+          pattern "(((bootflash:)|(cns:)|(pram:)|(flash:)|(null:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)|(rcp:)|(system)|(tmpsys)|(tar)).*)";
         }
       }
       leaf version {
@@ -4638,42 +5116,16 @@ module Cisco-IOS-XE-crypto {
 
   grouping crypto-key-url-file-ex-grouping {
     leaf file {
-      type enumeration {
-        enum "bootflash:";
-        enum "flash:";
-        enum "ftp:";
-        enum "http:";
-        enum "https:";
-        enum "null:";
-        enum "nvram:";
-        enum "pram:";
-        enum "rcp:";
-        enum "scp:";
-        enum "system:";
-        enum "tftp:";
-        enum "tmpsys:";
+      type string {
+         pattern "(((crashinfo:)|(flash:)|(ftp:)|(http:)|(https:)|(null:)|(nvram:)|(rcp:)|(scp:)|(system:)|(tar:)|(tftp:)|(tmpfs:)|(webui:)).*)";
       }
     }
   }
 
   grouping crypto-key-url-file-im-grouping {
     leaf file {
-      type enumeration {
-        enum "bootflash:";
-        enum "cns:";
-        enum "flash:";
-        enum "ftp:";
-        enum "http:";
-        enum "https:";
-        enum "null:";
-        enum "nvram:";
-        enum "pram:";
-        enum "rcp:";
-        enum "scp:";
-        enum "system:";
-        enum "tar:";
-        enum "tftp:";
-        enum "tmpsys:";
+      type string {
+         pattern "(((cns:)|(crashinfo:)|(flash:)|(ftp:)|(http:)|(https:)|(null:)|(nvram:)|(rcp:)|(scp:)|(system:)|(tar:)|(tftp:)|(tmpfs:)|(webui:)).*)";
       }
     }
   }
@@ -6141,6 +6593,446 @@ module Cisco-IOS-XE-crypto {
           "Get the CA certificate";
         type string;
       }
+      // crypto pki trustpoint *
+      list trustpoint {
+        description
+          "Define a CA trustpoint";
+        key "id";
+        leaf id {
+          type string;
+        }
+        //  authorization     Authorization parameters.
+        container authorization {
+          description "Authorization parameters.";
+          leaf list {
+            description "AAA authorization list to use";
+            type string;
+          }
+          leaf password {
+            description "password used for authorization request";
+            type string;
+          }
+          container username {
+            description "specify how AAA username is generated";
+            container alt-subjectname {
+              description "aaa username generated from certificate alt-subjectname";
+              leaf userprinciplename {
+                description "cert upn field as aaa username";
+                type empty;
+              }
+              container userprinciplename-conf {
+                container userprinciplename {
+                  description "cert upn field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+            }
+            container subjectname {
+              description "aaa username generated from certificate subjectname";
+              leaf all {
+                description "complete subject name as aaa username";
+                type empty;
+              }
+              container all-conf {
+                container all {
+                  description "complete subject name field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf commonname {
+                description "common name as aaa username";
+                type empty;
+              }
+              container commonname-conf {
+                container commonname {
+                  description "Common name field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf country {
+                description "country as aaa username";
+                type empty;
+              }
+              container country-conf {
+                container country {
+                  description "country field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf email {
+                description "email as aaa username";
+                type empty;
+              }
+              container email-conf {
+                container email {
+                  description "email field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf ipaddress {
+                description "IP address as aaa username";
+                type empty;
+              }
+              container ipaddress-conf {
+                container ipaddress {
+                  description "IP address field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf locality {
+                description "locality as aaa username";
+                type empty;
+              }
+              container locality-conf {
+                container locality {
+                  description "locality field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf organization {
+                description "organization as aaa username";
+                type empty;
+              }
+              container organization-conf {
+                container organization {
+                  description "organization field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf organizationalunit {
+                description "organizational unit as aaa username";
+                type empty; 
+              }
+              container organizationalunit-conf {
+                container organizationalunit {
+                  description "organizational unit field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf postalcode {
+                description "postal code as aaa username";
+                type empty;
+              }
+              container postalcode-conf {
+                container postalcode {
+                  description "postal code field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf serialnumber {
+                description "serialnumber as aaa username";
+                type empty;
+              }
+              container serialnumber-conf {
+                container serialnumber {
+                  description "serial number field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf state {
+                description "state as aaa username";
+                type empty;
+              }
+              container state-conf {
+                container state {
+                  description "state field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf streetaddress {
+                description "streetaddress as aaa username";
+                type empty;
+              }
+              container streetaddress-conf {
+                container streetaddress {
+                  description "streetaddress field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf title {
+                description "title name as aaa username";
+                type empty;
+              }
+              container title-conf {
+                container title {
+                  description "title name field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+              leaf unstructuredname {
+                description "unstructured name as aaa username";
+                type empty;
+              }
+              container unstructuredname-conf {
+                container unstructuredname {
+                  description "unstructured name field as aaa username";
+                  leaf secondary {
+                    description "secondary username";
+                    when "../../../../../username";
+                    type empty;
+                  }
+                }
+              }
+            }
+          }
+        }
+        //  certificate       certificate options
+        container certificate {
+          description "certificate options";
+          leaf chain {
+            description "certificate chain configuration file";
+            type string;
+          }
+        }
+        //  chain-validation  Validation parameters
+        //  crl               CRL options
+
+        container auto-enroll {
+          description
+            "Automatically enroll this router identity";
+          leaf percent {
+            description
+              "renewal percentage";
+            type ios-types:percentage;
+          }
+          leaf regenerate {
+            description
+              "Regenerate keys on re-enrollment";
+            type empty;
+          } 
+        }
+        container enrollment {
+          description
+            "Enrollment parameters";
+          leaf http-proxy {
+            description
+              "HTTP proxy server for enrollment";
+            type string;
+          }
+          container mode {
+            description
+              "Mode supported by the Certificate Authority";
+            leaf ra {
+              description
+                "Registration Authority mode";
+              type empty;
+            }
+          }
+          leaf pkcs12 {
+            type empty;
+          }
+          leaf profile {
+            description
+              "Specify an profile for enrollment";
+            type string;
+          }
+          container retry {
+            description
+              "Polling parameters";
+            leaf count {
+              description
+                "How many times to poll CA for our certificate";
+              type uint8 {
+                range "1..100";
+              }
+            }
+            leaf period {
+              description
+                "How long to wait between requests to CA for our certificate";
+              type uint8 {
+                range "1..60";
+              }
+            }
+          }
+          leaf selfsigned {
+            description
+              "Generate a Self Signed Certificate";
+            type empty;
+          }
+          container terminal {
+            description
+              "Enroll via the terminal (cut-and-paste)";
+            presence "true";
+            leaf pem {
+              description
+                "Include PEM encapsulation boundaries";
+              type empty;
+            }
+          }
+          leaf url {
+            description
+              "CA server enrollment URL";
+            type string;
+          }
+        }
+        leaf fqdn {
+          description
+            "include fully-qualified domain name";
+          type string;
+        }
+        container password {
+          description
+            "revocation password";
+          presence true;
+          leaf encryption-type {
+            description
+              "Encryption type";
+            type uint8 {
+              range "0..9";
+            }
+          }
+          leaf clear-password {
+            description
+              "revocation password";
+            type string;
+          }
+        }   
+        //  exit              Exit from certificate authority trustpoint
+        //                    entry mode
+        //  fingerprint       CA Certificate Fingerprint
+        //  hash              Hash algorithm
+        //  ip-address        include ip address
+        //  ip-extension      RFC3779 IP extension for device certificate
+        //                    request
+        //  match             Match a certificate map
+        //  no                Negate a command or set its defaults
+        //  ocsp              OCSP parameters
+        //  on                create keypair on device.
+        //  password          revocation password
+        //  primary           Specify trustpoint as primary
+        //  query             Query parameters
+        //  regenerate        Regenerate keys on re-enrollment
+        leaf revocation-check {
+          description
+            "Revocation checking options";
+          type enumeration {
+            enum "crl";
+            enum "none";
+            enum "ocsp";
+          }
+        }
+        //  root              Protocol to get CA certificate
+        container rsakeypair {
+          description
+            "Specify rsakeypair for this identity";  
+          leaf key-label {
+            description
+              "RSA keypair label";
+            type string;
+          }
+          leaf gen-key {
+            description
+              "General Purpose or Signature Key length";
+            type uint16 {
+              range "360..4096";
+            }
+          }
+          leaf encrypt-key {
+            description
+              "Encryption Key length";
+            type uint16 {
+              range "360..4096";
+            }
+          }
+        }
+        container serial-number {
+          description
+            "help";
+          presence true;
+          leaf none {
+            description
+              "do not include serial number";
+            type empty;
+          }
+        }
+        container ip-address {
+          description
+            "include ip address";
+          leaf address-line {
+            description
+              "interface name or ip address";
+            type string;
+          }
+          leaf none {
+            description
+              "do not include ip address";
+            type empty;
+          }
+        }
+        //  serial-number     include serial number
+        //  show              Show this router trustpoint
+        //  source            Specify source
+        //  storage           key and certificate storage location to use
+        //                    with this trustpoint.
+        leaf subject-name {
+          description
+            "Subject Name";
+          type string;
+        }
+        //  usage             Certificate Usage
+        //  vrf               vrf to use for enrollment and obtaining CRLs
+        leaf vrf {
+          description
+          "Name of VRF to use with trustpoint";
+          type string;
+        }
+      }
       container certificate {
         description
           "Actions on certificates";
@@ -6232,13 +7124,15 @@ Hex-data is not supported */
           description
             "specify where to store certificates";
           leaf path {
-            type union {
-              type enumeration {
-                enum "bootflash:";
-                enum "flash:";
-                enum "nvram:";
-              }
-              type string;
+            description 
+            "
+              WORD        WORD
+              crashinfo:  path  to store certificates
+              flash:      path  to store certificates
+              nvram:      path  to store certificates
+              <cr>        <cr> ";
+            type string {
+              pattern "((((crashinfo:)|(flash:)|(nvram:)).*)|(.*)|(^.{0}$))";
             }
           }
           leaf on {
@@ -6569,209 +7463,6 @@ Hex-data is not supported */
         }
       }
 
-      // crypto pki trustpoint *
-      list trustpoint {
-        description
-          "Define a CA trustpoint";
-        key "id";
-        leaf id {
-          type string;
-        }
-        //  authorization     Authorization parameters.
-        //  certificate       certificate options
-        //  chain-validation  Validation parameters
-        //  crl               CRL options
-
-        container auto-enroll {
-          description
-            "Automatically enroll this router identity";
-          leaf percent {
-            description
-              "renewal percentage";
-            type ios-types:percentage;
-          }
-          leaf regenerate {
-            description
-              "Regenerate keys on re-enrollment";
-            type empty;
-          } 
-        }
-        container enrollment {
-          description
-            "Enrollment parameters";
-          leaf http-proxy {
-            description
-              "HTTP proxy server for enrollment";
-            type string;
-          }
-          container mode {
-            description
-              "Mode supported by the Certificate Authority";
-            leaf ra {
-              description
-                "Registration Authority mode";
-              type empty;
-            }
-          }
-          leaf pkcs12 {
-            type empty;
-          }
-          leaf profile {
-            description
-              "Specify an profile for enrollment";
-            type string;
-          }
-          container retry {
-            description
-              "Polling parameters";
-            leaf count {
-              description
-                "How many times to poll CA for our certificate";
-              type uint8 {
-                range "1..100";
-              }
-            }
-            leaf period {
-              description
-                "How long to wait between requests to CA for our certificate";
-              type uint8 {
-                range "1..60";
-              }
-            }
-          }
-          leaf selfsigned {
-            description
-              "Generate a Self Signed Certificate";
-            type empty;
-          }
-          container terminal {
-            description
-              "Enroll via the terminal (cut-and-paste)";
-            presence "true";
-            leaf pem {
-              description
-                "Include PEM encapsulation boundaries";
-              type empty;
-            }
-          }
-          leaf url {
-            description
-              "CA server enrollment URL";
-            type string;
-          }
-        }
-        leaf fqdn {
-          description
-            "include fully-qualified domain name";
-          type string;
-        }
-        container password {
-          description
-            "revocation password";
-          presence true;
-          leaf encryption-type {
-            description
-              "Encryption type";
-            type uint8 {
-              range "0..9";
-            }
-          }
-          leaf clear-password {
-            description
-              "revocation password";
-            type string;
-          }
-        }   
-        //  exit              Exit from certificate authority trustpoint
-        //                    entry mode
-        //  fingerprint       CA Certificate Fingerprint
-        //  hash              Hash algorithm
-        //  ip-address        include ip address
-        //  ip-extension      RFC3779 IP extension for device certificate
-        //                    request
-        //  match             Match a certificate map
-        //  no                Negate a command or set its defaults
-        //  ocsp              OCSP parameters
-        //  on                create keypair on device.
-        //  password          revocation password
-        //  primary           Specify trustpoint as primary
-        //  query             Query parameters
-        //  regenerate        Regenerate keys on re-enrollment
-        leaf revocation-check {
-          description
-            "Revocation checking options";
-          type enumeration {
-            enum "crl";
-            enum "none";
-            enum "ocsp";
-          }
-        }
-        //  root              Protocol to get CA certificate
-        container rsakeypair {
-          description
-            "Specify rsakeypair for this identity";  
-          leaf key-label {
-            description
-              "RSA keypair label";
-            type string;
-          }
-          leaf gen-key {
-            description
-              "General Purpose or Signature Key length";
-            type uint16 {
-              range "360..4096";
-            }
-          }
-          leaf encrypt-key {
-            description
-              "Encryption Key length";
-            type uint16 {
-              range "360..4096";
-            }
-          }
-        }
-        container serial-number {
-          description
-            "help";
-          presence true;
-          leaf none {
-            description
-              "do not include serial number";
-            type empty;
-          }
-        }
-        container ip-address {
-          description
-            "include ip address";
-          leaf address-line {
-            description
-              "interface name or ip address";
-            type string;
-          }
-          leaf none {
-            description
-              "do not include ip address";
-            type empty;
-          }
-        }
-        //  serial-number     include serial number
-        //  show              Show this router trustpoint
-        //  source            Specify source
-        //  storage           key and certificate storage location to use
-        //                    with this trustpoint.
-        leaf subject-name {
-          description
-            "Subject Name";
-          type string;
-        }
-        //  usage             Certificate Usage
-        //  vrf               vrf to use for enrollment and obtaining CRLs
-        leaf vrf {
-          description
-          "Name of VRF to use with trustpoint";
-          type string;
-        }
-      }
       // crypto pki token *
       container token {
         description

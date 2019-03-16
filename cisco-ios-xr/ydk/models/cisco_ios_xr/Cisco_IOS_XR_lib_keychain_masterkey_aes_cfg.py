@@ -20,6 +20,21 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class KeyEncryption(Enum):
+    """
+    KeyEncryption (Enum Class)
+
+    Key encryption
+
+    .. data:: type6 = 2
+
+    	Type6
+
+    """
+
+    type6 = Enum.YLeaf(2, "type6")
+
+
 
 class Password(Entity):
     """
@@ -66,11 +81,7 @@ class Password(Entity):
         .. attribute:: aes
         
         	encryption type used to store key
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**default value**\: 0
+        	**type**\:  :py:class:`KeyEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.KeyEncryption>`
         
         
 
@@ -89,7 +100,7 @@ class Password(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('aes', (YLeaf(YType.uint32, 'aes'), ['int'])),
+                ('aes', (YLeaf(YType.enumeration, 'aes'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg', 'KeyEncryption', '')])),
             ])
             self.aes = None
             self._segment_path = lambda: "encryption"

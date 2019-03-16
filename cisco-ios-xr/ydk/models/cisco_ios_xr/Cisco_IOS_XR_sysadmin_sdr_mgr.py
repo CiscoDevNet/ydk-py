@@ -113,7 +113,7 @@ class SdrConfig(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-05-15'
+    _revision = '2018-10-22'
 
     def __init__(self):
         super(SdrConfig, self).__init__()
@@ -223,7 +223,7 @@ class SdrConfig(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-05-15'
+        _revision = '2018-10-22'
 
         def __init__(self):
             super(SdrConfig.Sdr, self).__init__()
@@ -346,7 +346,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Resources, self).__init__()
@@ -402,7 +402,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Resources.CardType, self).__init__()
@@ -446,7 +446,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Location, self).__init__()
@@ -485,7 +485,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Action, self).__init__()
@@ -524,7 +524,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Action.Location, self).__init__()
@@ -564,7 +564,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Detail, self).__init__()
@@ -763,7 +763,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Detail.Location, self).__init__()
@@ -857,7 +857,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-05-15'
+                    _revision = '2018-10-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.Detail.Location.RebootHist1, self).__init__()
@@ -909,7 +909,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.RebootHistory, self).__init__()
@@ -952,7 +952,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.RebootHistory.Reverse, self).__init__()
@@ -1016,7 +1016,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-05-15'
+                    _revision = '2018-10-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.RebootHistory.Reverse.Location, self).__init__()
@@ -1076,7 +1076,7 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-05-15'
+                        _revision = '2018-10-22'
 
                         def __init__(self):
                             super(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, self).__init__()
@@ -1121,7 +1121,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.RebootHistory.DefaultDisp, self).__init__()
@@ -1185,7 +1185,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-05-15'
+                    _revision = '2018-10-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location, self).__init__()
@@ -1245,7 +1245,7 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-05-15'
+                        _revision = '2018-10-22'
 
                         def __init__(self):
                             super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, self).__init__()
@@ -1291,7 +1291,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Nodes, self).__init__()
@@ -1400,7 +1400,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Nodes.Location, self).__init__()
@@ -1470,7 +1470,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Pairing2, self).__init__()
@@ -1521,7 +1521,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Pairing2.Sdrlead, self).__init__()
@@ -1576,7 +1576,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Pairing2.Pairing, self).__init__()
@@ -1638,7 +1638,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Pairing, self).__init__()
@@ -1687,7 +1687,7 @@ class SdrManager(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-05-15'
+    _revision = '2018-10-22'
 
     def __init__(self):
         super(SdrManager, self).__init__()
@@ -1727,7 +1727,7 @@ class SdrManager(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-05-15'
+        _revision = '2018-10-22'
 
         def __init__(self):
             super(SdrManager.SdrMgr, self).__init__()
@@ -1772,7 +1772,7 @@ class SdrManager(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrManager.SdrMgr.Trace, self).__init__()
@@ -1820,7 +1820,7 @@ class SdrManager(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrManager.SdrMgr.Trace.Location, self).__init__()
@@ -1867,7 +1867,7 @@ class SdrManager(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-05-15'
+                    _revision = '2018-10-22'
 
                     def __init__(self):
                         super(SdrManager.SdrMgr.Trace.Location.AllOptions, self).__init__()
@@ -1907,7 +1907,7 @@ class SdrManager(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-05-15'
+                        _revision = '2018-10-22'
 
                         def __init__(self):
                             super(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -1955,7 +1955,7 @@ class SdrOperation(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-05-15'
+    _revision = '2018-10-22'
 
     def __init__(self):
         super(SdrOperation, self).__init__()
@@ -2002,7 +2002,7 @@ class SdrOperation(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-05-15'
+        _revision = '2018-10-22'
 
         def __init__(self):
             super(SdrOperation.Sdr, self).__init__()
@@ -2045,7 +2045,7 @@ class SdrOperation(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(SdrOperation.Sdr.Nodes, self).__init__()
@@ -2105,7 +2105,7 @@ class SdrOperation(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-05-15'
+                _revision = '2018-10-22'
 
                 def __init__(self):
                     super(SdrOperation.Sdr.Nodes.Location, self).__init__()
@@ -2155,7 +2155,7 @@ class PrivateSdr(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-05-15'
+    _revision = '2018-10-22'
 
     def __init__(self):
         super(PrivateSdr, self).__init__()
@@ -2217,7 +2217,7 @@ class PrivateSdr(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-05-15'
+        _revision = '2018-10-22'
 
         def __init__(self):
             super(PrivateSdr.SdrName, self).__init__()
@@ -2297,7 +2297,7 @@ class PrivateSdr(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-05-15'
+            _revision = '2018-10-22'
 
             def __init__(self):
                 super(PrivateSdr.SdrName.Pairing, self).__init__()

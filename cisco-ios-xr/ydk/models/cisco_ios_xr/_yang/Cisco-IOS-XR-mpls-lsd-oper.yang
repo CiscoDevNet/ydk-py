@@ -184,8 +184,8 @@ module Cisco-IOS-XR-mpls-lsd-oper {
         leaf client-name {
           type xr:Cisco-ios-xr-string;
           description
-            "Client Instance name in the form of    
-             'Application-<client_name>' or     
+            "Client Instance name in the form of
+             'Application-<client_name>' or
              'BCDL_Agent-<index:parent_index>'";
         }
         uses MPLS-LSD-CLIENT;

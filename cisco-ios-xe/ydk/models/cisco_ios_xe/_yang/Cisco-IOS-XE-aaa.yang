@@ -401,9 +401,9 @@ module Cisco-IOS-XE-aaa {
     }
     container session-identifier { 
       description
-        "This attribute will be used to correlate Radius \
-         requests of a session and to identify sessions within \
-         radius-proxy";
+        "This attribute will be used to correlate Radius" +
+        "requests of a session and to identify sessions within" +
+        "radius-proxy";
       leaf attribute {
         description
           "Specify an IETF Radius attribute";
@@ -486,26 +486,26 @@ module Cisco-IOS-XE-aaa {
   grouping aaa-server-options {
     leaf word1 {
       description
-        "Name of the filter to be applied (max 31 chars. \
-        (max 31 chars. longer will be ignored)";
+        "Name of the filter to be applied (max 31 chars." +
+        "(max 31 chars. longer will be ignored)";
       type string;
     } 
     leaf word2 {
       description
-        "Name of the filter to be applied (max 31 chars. \
-        (max 31 chars. longer will be ignored)";
+        "Name of the filter to be applied (max 31 chars." +
+        "(max 31 chars. longer will be ignored)";
       type string;
     } 
     leaf word3 {
       description
-        "Name of the filter to be applied (max 31 chars. \
-        (max 31 chars. longer will be ignored)";
+        "Name of the filter to be applied (max 31 chars." +
+        "(max 31 chars. longer will be ignored)";
       type string;
     } 
     leaf word4 {
       description
-        "Name of the filter to be applied (max 31 chars. \
-        (max 31 chars. longer will be ignored)";
+        "Name of the filter to be applied (max 31 chars." +
+        "(max 31 chars. longer will be ignored)";
       type string;
     } 
   }
@@ -1702,8 +1702,8 @@ module Cisco-IOS-XE-aaa {
         }
         list authorization-list {
           description
-            "Named authorization list (max 31 characters, \
-             longer will be rejected)";
+            "Named authorization list (max 31 characters," +
+            "longer will be rejected)";
           key "name";
           leaf name {
             type string;
@@ -2256,8 +2256,8 @@ module Cisco-IOS-XE-aaa {
         }
         list accounting-list {
           description
-            "Named authorization list (max 31 characters, \
-             longer will be rejected)";
+            "Named authorization list (max 31 characters," +
+            "longer will be rejected)";
           key "name";
           leaf name {
             type string;
@@ -2275,8 +2275,8 @@ module Cisco-IOS-XE-aaa {
         }
         list accounting-list {
           description
-            "Named authorization list (max 31 characters, \
-             longer will be rejected)";
+            "Named authorization list (max 31 characters," +
+            "longer will be rejected)";
           key "name";
           leaf name {
             type string;

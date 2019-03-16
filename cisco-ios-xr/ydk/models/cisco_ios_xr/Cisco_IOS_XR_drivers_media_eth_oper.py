@@ -2300,7 +2300,13 @@ class EthernetMedia(Enum):
 
     	4 lane CWDM Lite cable
 
-    .. data:: ethernet_base_max = 376
+    .. data:: ethernet_100gbase_sr_bd = 376
+
+    	Bi-directional fiber over 2 lane optics (short
+
+    	reach)
+
+    .. data:: ethernet_base_max = 377
 
     	ethernet base max
 
@@ -3058,7 +3064,9 @@ class EthernetMedia(Enum):
 
     ethernet_100gbase_sm_sr = Enum.YLeaf(375, "ethernet-100gbase-sm-sr")
 
-    ethernet_base_max = Enum.YLeaf(376, "ethernet-base-max")
+    ethernet_100gbase_sr_bd = Enum.YLeaf(376, "ethernet-100gbase-sr-bd")
+
+    ethernet_base_max = Enum.YLeaf(377, "ethernet-base-max")
 
 
 class EthernetPortEnable(Enum):

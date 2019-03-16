@@ -25,8 +25,8 @@ class gNMIServiceProvider(_gNMIServiceProvider):
     """ Python wrapper for gNMIServiceProvider
     """
 
-    def __init__(self, repo, address, port, username, password,
-                       server_certificate=None, private_key=None):
+    def __init__(self, repo, address, username, password,
+                       port=57400, server_certificate=None, private_key=None):
 
         if port is None:
             port = 57400

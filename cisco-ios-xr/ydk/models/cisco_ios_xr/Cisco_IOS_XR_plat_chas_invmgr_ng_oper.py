@@ -3184,7 +3184,7 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 .. attribute:: description
                                                                                 
-                                                                                	describes in user\-readable terms                 what the entity in question does
+                                                                                	describes in user\-readable terms what the entity in question does
                                                                                 	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
@@ -3573,7 +3573,7 @@ class PlatformInventory(Entity):
                                                                         
                                                                         .. attribute:: description
                                                                         
-                                                                        	describes in user\-readable terms                 what the entity in question does
+                                                                        	describes in user\-readable terms what the entity in question does
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
@@ -4050,7 +4050,7 @@ class PlatformInventory(Entity):
                                                                         
                                                                         .. attribute:: description
                                                                         
-                                                                        	describes in user\-readable terms                 what the entity in question does
+                                                                        	describes in user\-readable terms what the entity in question does
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
@@ -4439,7 +4439,7 @@ class PlatformInventory(Entity):
                                                                 
                                                                 .. attribute:: description
                                                                 
-                                                                	describes in user\-readable terms                 what the entity in question does
+                                                                	describes in user\-readable terms what the entity in question does
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
@@ -4916,7 +4916,7 @@ class PlatformInventory(Entity):
                                                                 
                                                                 .. attribute:: description
                                                                 
-                                                                	describes in user\-readable terms                 what the entity in question does
+                                                                	describes in user\-readable terms what the entity in question does
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
@@ -5305,7 +5305,7 @@ class PlatformInventory(Entity):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms                 what the entity in question does
+                                                        	describes in user\-readable terms what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
@@ -5782,7 +5782,7 @@ class PlatformInventory(Entity):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms                 what the entity in question does
+                                                        	describes in user\-readable terms what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
@@ -6171,7 +6171,7 @@ class PlatformInventory(Entity):
                                                 
                                                 .. attribute:: description
                                                 
-                                                	describes in user\-readable terms                 what the entity in question does
+                                                	describes in user\-readable terms what the entity in question does
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
@@ -6559,7 +6559,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms                 what the entity in question does
+                                            	describes in user\-readable terms what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -7245,7 +7245,7 @@ class PlatformInventory(Entity):
                                                             
                                                             .. attribute:: description
                                                             
-                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	describes in user\-readable terms what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
@@ -7634,7 +7634,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	describes in user\-readable terms what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -8111,7 +8111,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	describes in user\-readable terms what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -8500,7 +8500,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms                 what the entity in question does
+                                            	describes in user\-readable terms what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -9296,7 +9296,7 @@ class PlatformInventory(Entity):
                                                                     
                                                                     .. attribute:: description
                                                                     
-                                                                    	describes in user\-readable terms                 what the entity in question does
+                                                                    	describes in user\-readable terms what the entity in question does
                                                                     	**type**\: str
                                                                     
                                                                     	**length:** 0..255
@@ -9685,7 +9685,7 @@ class PlatformInventory(Entity):
                                                             
                                                             .. attribute:: description
                                                             
-                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	describes in user\-readable terms what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
@@ -10162,7 +10162,7 @@ class PlatformInventory(Entity):
                                                             
                                                             .. attribute:: description
                                                             
-                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	describes in user\-readable terms what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
@@ -10551,7 +10551,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	describes in user\-readable terms what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -11028,7 +11028,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	describes in user\-readable terms what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -11417,7 +11417,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms                 what the entity in question does
+                                            	describes in user\-readable terms what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -11993,7 +11993,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	describes in user\-readable terms what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -12382,7 +12382,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms                 what the entity in question does
+                                            	describes in user\-readable terms what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -12859,7 +12859,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms                 what the entity in question does
+                                            	describes in user\-readable terms what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -13248,7 +13248,7 @@ class PlatformInventory(Entity):
                                     
                                     .. attribute:: description
                                     
-                                    	describes in user\-readable terms                 what the entity in question does
+                                    	describes in user\-readable terms what the entity in question does
                                     	**type**\: str
                                     
                                     	**length:** 0..255
@@ -13637,7 +13637,7 @@ class PlatformInventory(Entity):
                             
                             .. attribute:: description
                             
-                            	describes in user\-readable terms                 what the entity in question does
+                            	describes in user\-readable terms what the entity in question does
                             	**type**\: str
                             
                             	**length:** 0..255
@@ -14026,7 +14026,7 @@ class PlatformInventory(Entity):
                     
                     .. attribute:: description
                     
-                    	describes in user\-readable terms                 what the entity in question does
+                    	describes in user\-readable terms what the entity in question does
                     	**type**\: str
                     
                     	**length:** 0..255

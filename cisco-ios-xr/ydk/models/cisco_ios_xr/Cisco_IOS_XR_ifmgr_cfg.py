@@ -330,6 +330,25 @@ class InterfaceConfigurations(Entity):
         	Frequency Synchronization interface configuration
         	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.FrequencySynchronization>`
         
+        .. attribute:: nv_satellite_access
+        
+        	nV Satellite Access Link Configuration
+        	**type**\:  :py:class:`NvSatelliteAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess>`
+        
+        .. attribute:: nv_satellite_fabric_link
+        
+        	nV Satellite Fabric Link Configuration
+        	**type**\:  :py:class:`NvSatelliteFabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink>`
+        
+        	**presence node**\: True
+        
+        .. attribute:: nv_satellite_fabric_network
+        
+        	Complex Network connection to one or more Satellites
+        	**type**\:  :py:class:`NvSatelliteFabricNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork>`
+        
+        	**presence node**\: True
+        
         .. attribute:: nve
         
         	NVE operational data
@@ -339,6 +358,16 @@ class InterfaceConfigurations(Entity):
         
         	Configure pm parameters
         	**type**\:  :py:class:`PerformanceManagement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement>`
+        
+        .. attribute:: ptp
+        
+        	Precision Time Protocol interface configuration
+        	**type**\:  :py:class:`Ptp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp>`
+        
+        .. attribute:: ethernet_control
+        
+        	EthernetControl
+        	**type**\:  :py:class:`EthernetControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl>`
         
         .. attribute:: pbr
         
@@ -376,11 +405,6 @@ class InterfaceConfigurations(Entity):
         
         	Configure Performance Monitoring 
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: ptp
-        
-        	Precision Time Protocol interface configuration
-        	**type**\:  :py:class:`Ptp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp>`
         
         .. attribute:: subscriber
         
@@ -432,25 +456,6 @@ class InterfaceConfigurations(Entity):
         	Interface specific CDP configuration
         	**type**\:  :py:class:`Cdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Cdp>`
         
-        .. attribute:: nv_satellite_access
-        
-        	nV Satellite Access Link Configuration
-        	**type**\:  :py:class:`NvSatelliteAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess>`
-        
-        .. attribute:: nv_satellite_fabric_link
-        
-        	nV Satellite Fabric Link Configuration
-        	**type**\:  :py:class:`NvSatelliteFabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink>`
-        
-        	**presence node**\: True
-        
-        .. attribute:: nv_satellite_fabric_network
-        
-        	Complex Network connection to one or more Satellites
-        	**type**\:  :py:class:`NvSatelliteFabricNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork>`
-        
-        	**presence node**\: True
-        
         .. attribute:: maintenance_embargo
         
         	configure maintenance embargo flag on the given interface
@@ -477,6 +482,11 @@ class InterfaceConfigurations(Entity):
         	**type**\:  :py:class:`Lldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp>`
         
         	**presence node**\: True
+        
+        .. attribute:: atm
+        
+        	ATM Configuration
+        	**type**\:  :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm>`
         
         .. attribute:: dot1x_interface
         
@@ -657,7 +667,7 @@ class InterfaceConfigurations(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['active','interface_name']
-            self._child_classes = OrderedDict([("dampening", ("dampening", InterfaceConfigurations.InterfaceConfiguration.Dampening)), ("mtus", ("mtus", InterfaceConfigurations.InterfaceConfiguration.Mtus)), ("encapsulation", ("encapsulation", InterfaceConfigurations.InterfaceConfiguration.Encapsulation)), ("Cisco-IOS-XR-ppp-ma-fsm-cfg:ppp", ("cisco_ios_xr_ppp_ma_fsm_cfg_ppp", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaFsmCfgPpp)), ("Cisco-IOS-XR-infra-rsi-cfg:afs", ("afs", InterfaceConfigurations.InterfaceConfiguration.Afs)), ("Cisco-IOS-XR-l2vpn-cfg:pseudowire-ether", ("pseudowire_ether", InterfaceConfigurations.InterfaceConfiguration.PseudowireEther)), ("Cisco-IOS-XR-l2vpn-cfg:pseudowire-iw", ("pseudowire_iw", InterfaceConfigurations.InterfaceConfiguration.PseudowireIw)), ("Cisco-IOS-XR-l2vpn-cfg:bvi", ("bvi", InterfaceConfigurations.InterfaceConfiguration.Bvi)), ("Cisco-IOS-XR-l2vpn-cfg:l2-transport", ("l2_transport", InterfaceConfigurations.InterfaceConfiguration.L2Transport)), ("Cisco-IOS-XR-ppp-ma-lcp-cfg:ppp", ("cisco_ios_xr_ppp_ma_lcp_cfg_ppp_", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaLcpCfgPpp)), ("Cisco-IOS-XR-infra-statsd-cfg:statistics", ("statistics", InterfaceConfigurations.InterfaceConfiguration.Statistics)), ("Cisco-IOS-XR-ppp-ma-ipcpiw-cfg:ppp", ("cisco_ios_xr_ppp_ma_ipcpiw_cfg_ppp__", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaIpcpiwCfgPpp)), ("Cisco-IOS-XR-subscriber-pppoe-ma-cmd-cfg:pppoe", ("pppoe", InterfaceConfigurations.InterfaceConfiguration.Pppoe)), ("Cisco-IOS-XR-drivers-media-eth-cfg:ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ethernet)), ("Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions", ("span_monitor_sessions", InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions)), ("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", ("frequency_synchronization", InterfaceConfigurations.InterfaceConfiguration.FrequencySynchronization)), ("Cisco-IOS-XR-tunnel-nve-cfg:nve", ("nve", InterfaceConfigurations.InterfaceConfiguration.Nve)), ("Cisco-IOS-XR-pmengine-cfg:performance-management", ("performance_management", InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement)), ("Cisco-IOS-XR-pbr-cfg:pbr", ("pbr", InterfaceConfigurations.InterfaceConfiguration.Pbr)), ("Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip", ("tunnel_ip", InterfaceConfigurations.InterfaceConfiguration.TunnelIp)), ("Cisco-IOS-XR-controller-optics-cfg:optics", ("optics", InterfaceConfigurations.InterfaceConfiguration.Optics)), ("Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks", ("loopbacks", InterfaceConfigurations.InterfaceConfiguration.Loopbacks)), ("Cisco-IOS-XR-ptp-cfg:ptp", ("ptp", InterfaceConfigurations.InterfaceConfiguration.Ptp)), ("Cisco-IOS-XR-subscriber-ipsub-cfg:subscriber", ("subscriber", InterfaceConfigurations.InterfaceConfiguration.Subscriber)), ("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-sub-configuration", ("vlan_sub_configuration", InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-service", ("ethernet_service", InterfaceConfigurations.InterfaceConfiguration.EthernetService)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-bng", ("ethernet_bng", InterfaceConfigurations.InterfaceConfiguration.EthernetBng)), ("Cisco-IOS-XR-l2-eth-infra-cfg:mac-accounting", ("mac_accounting", InterfaceConfigurations.InterfaceConfiguration.MacAccounting)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features", ("ethernet_features", InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures)), ("Cisco-IOS-XR-l2-eth-infra-cfg:carrier-delay", ("carrier_delay", InterfaceConfigurations.InterfaceConfiguration.CarrierDelay)), ("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-trunk-configuration", ("vlan_trunk_configuration", InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-session", ("ssrp_session", InterfaceConfigurations.InterfaceConfiguration.SsrpSession)), ("Cisco-IOS-XR-cdp-cfg:cdp", ("cdp", InterfaceConfigurations.InterfaceConfiguration.Cdp)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access", ("nv_satellite_access", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link", ("nv_satellite_fabric_link", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network", ("nv_satellite_fabric_network", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork)), ("Cisco-IOS-XR-dwdm-ui-cfg:dwdm", ("dwdm", InterfaceConfigurations.InterfaceConfiguration.Dwdm)), ("Cisco-IOS-XR-qos-ma-cfg:qos", ("qos", InterfaceConfigurations.InterfaceConfiguration.Qos)), ("Cisco-IOS-XR-ppp-ma-cfg:ppp", ("cisco_ios_xr_ppp_ma_cfg_ppp___", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaCfgPpp)), ("Cisco-IOS-XR-ethernet-lldp-cfg:lldp", ("lldp", InterfaceConfigurations.InterfaceConfiguration.Lldp)), ("Cisco-IOS-XR-dot1x-if-cfg:dot1x-interface", ("dot1x_interface", InterfaceConfigurations.InterfaceConfiguration.Dot1xInterface)), ("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network", ("ipv4_network", InterfaceConfigurations.InterfaceConfiguration.Ipv4Network)), ("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network-forwarding", ("ipv4_network_forwarding", InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-table", ("aaa_table", InterfaceConfigurations.InterfaceConfiguration.AaaTable)), ("Cisco-IOS-XR-ip-pfilter-cfg:ipv6-packet-filter", ("ipv6_packet_filter", InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-cfg:es-packet-filter", ("es_packet_filter", InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter)), ("Cisco-IOS-XR-ip-pfilter-cfg:ipv4-packet-filter", ("ipv4_packet_filter", InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter)), ("Cisco-IOS-XR-flowspec-cfg:ipv4-flow-spec", ("ipv4_flow_spec", InterfaceConfigurations.InterfaceConfiguration.Ipv4FlowSpec)), ("Cisco-IOS-XR-flowspec-cfg:ipv6-flow-spec", ("ipv6_flow_spec", InterfaceConfigurations.InterfaceConfiguration.Ipv6FlowSpec)), ("Cisco-IOS-XR-wanphy-ui-cfg:wanphy", ("wanphy", InterfaceConfigurations.InterfaceConfiguration.Wanphy)), ("Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network", ("ipv6_network", InterfaceConfigurations.InterfaceConfiguration.Ipv6Network)), ("Cisco-IOS-XR-mpls-io-cfg:mpls", ("mpls", InterfaceConfigurations.InterfaceConfiguration.Mpls)), ("Cisco-IOS-XR-mpls-te-cfg:tunnel-te-attributes", ("tunnel_te_attributes", InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes)), ("Cisco-IOS-XR-mpls-te-cfg:transport-profile-tunnel", ("transport_profile_tunnel", InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel)), ("Cisco-IOS-XR-mpls-te-cfg:mte-tunnel-attributes", ("mte_tunnel_attributes", InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes)), ("Cisco-IOS-XR-controller-otu-cfg:otu", ("otu", InterfaceConfigurations.InterfaceConfiguration.Otu)), ("Cisco-IOS-XR-traffmon-netflow-cfg:net-flow", ("net_flow", InterfaceConfigurations.InterfaceConfiguration.NetFlow)), ("Cisco-IOS-XR-bundlemgr-cfg:bfd", ("bfd", InterfaceConfigurations.InterfaceConfiguration.Bfd)), ("Cisco-IOS-XR-bundlemgr-cfg:bundle", ("bundle", InterfaceConfigurations.InterfaceConfiguration.Bundle)), ("Cisco-IOS-XR-bundlemgr-cfg:lacp", ("lacp", InterfaceConfigurations.InterfaceConfiguration.Lacp)), ("Cisco-IOS-XR-bundlemgr-cfg:bundle-member", ("bundle_member", InterfaceConfigurations.InterfaceConfiguration.BundleMember)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", InterfaceConfigurations.InterfaceConfiguration.Mlacp)), ("Cisco-IOS-XR-crypto-macsec-mka-if-cfg:macsec", ("macsec", InterfaceConfigurations.InterfaceConfiguration.Macsec)), ("Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor", ("ipv6_neighbor", InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor)), ("Cisco-IOS-XR-iedge4710-cfg:service-policies", ("service_policies", InterfaceConfigurations.InterfaceConfiguration.ServicePolicies)), ("Cisco-IOS-XR-ncs5500-coherent-portmode-cfg:portmode", ("portmode", InterfaceConfigurations.InterfaceConfiguration.Portmode)), ("Cisco-IOS-XR-ppp-ma-ipcp-cfg:ppp", ("cisco_ios_xr_ppp_ma_ipcp_cfg_ppp____", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaIpcpCfgPpp)), ("Cisco-IOS-XR-ipv4-arp-cfg:dagrs", ("dagrs", InterfaceConfigurations.InterfaceConfiguration.Dagrs)), ("Cisco-IOS-XR-ipv4-arp-cfg:ipv4arp", ("ipv4arp", InterfaceConfigurations.InterfaceConfiguration.Ipv4arp))])
+            self._child_classes = OrderedDict([("dampening", ("dampening", InterfaceConfigurations.InterfaceConfiguration.Dampening)), ("mtus", ("mtus", InterfaceConfigurations.InterfaceConfiguration.Mtus)), ("encapsulation", ("encapsulation", InterfaceConfigurations.InterfaceConfiguration.Encapsulation)), ("Cisco-IOS-XR-ppp-ma-fsm-cfg:ppp", ("cisco_ios_xr_ppp_ma_fsm_cfg_ppp", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaFsmCfgPpp)), ("Cisco-IOS-XR-infra-rsi-cfg:afs", ("afs", InterfaceConfigurations.InterfaceConfiguration.Afs)), ("Cisco-IOS-XR-l2vpn-cfg:pseudowire-ether", ("pseudowire_ether", InterfaceConfigurations.InterfaceConfiguration.PseudowireEther)), ("Cisco-IOS-XR-l2vpn-cfg:pseudowire-iw", ("pseudowire_iw", InterfaceConfigurations.InterfaceConfiguration.PseudowireIw)), ("Cisco-IOS-XR-l2vpn-cfg:bvi", ("bvi", InterfaceConfigurations.InterfaceConfiguration.Bvi)), ("Cisco-IOS-XR-l2vpn-cfg:l2-transport", ("l2_transport", InterfaceConfigurations.InterfaceConfiguration.L2Transport)), ("Cisco-IOS-XR-ppp-ma-lcp-cfg:ppp", ("cisco_ios_xr_ppp_ma_lcp_cfg_ppp_", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaLcpCfgPpp)), ("Cisco-IOS-XR-infra-statsd-cfg:statistics", ("statistics", InterfaceConfigurations.InterfaceConfiguration.Statistics)), ("Cisco-IOS-XR-ppp-ma-ipcpiw-cfg:ppp", ("cisco_ios_xr_ppp_ma_ipcpiw_cfg_ppp__", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaIpcpiwCfgPpp)), ("Cisco-IOS-XR-subscriber-pppoe-ma-cmd-cfg:pppoe", ("pppoe", InterfaceConfigurations.InterfaceConfiguration.Pppoe)), ("Cisco-IOS-XR-drivers-media-eth-cfg:ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ethernet)), ("Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions", ("span_monitor_sessions", InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions)), ("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", ("frequency_synchronization", InterfaceConfigurations.InterfaceConfiguration.FrequencySynchronization)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access", ("nv_satellite_access", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link", ("nv_satellite_fabric_link", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network", ("nv_satellite_fabric_network", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork)), ("Cisco-IOS-XR-tunnel-nve-cfg:nve", ("nve", InterfaceConfigurations.InterfaceConfiguration.Nve)), ("Cisco-IOS-XR-pmengine-cfg:performance-management", ("performance_management", InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement)), ("Cisco-IOS-XR-ptp-cfg:ptp", ("ptp", InterfaceConfigurations.InterfaceConfiguration.Ptp)), ("Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control", ("ethernet_control", InterfaceConfigurations.InterfaceConfiguration.EthernetControl)), ("Cisco-IOS-XR-pbr-cfg:pbr", ("pbr", InterfaceConfigurations.InterfaceConfiguration.Pbr)), ("Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip", ("tunnel_ip", InterfaceConfigurations.InterfaceConfiguration.TunnelIp)), ("Cisco-IOS-XR-controller-optics-cfg:optics", ("optics", InterfaceConfigurations.InterfaceConfiguration.Optics)), ("Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks", ("loopbacks", InterfaceConfigurations.InterfaceConfiguration.Loopbacks)), ("Cisco-IOS-XR-subscriber-ipsub-cfg:subscriber", ("subscriber", InterfaceConfigurations.InterfaceConfiguration.Subscriber)), ("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-sub-configuration", ("vlan_sub_configuration", InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-service", ("ethernet_service", InterfaceConfigurations.InterfaceConfiguration.EthernetService)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-bng", ("ethernet_bng", InterfaceConfigurations.InterfaceConfiguration.EthernetBng)), ("Cisco-IOS-XR-l2-eth-infra-cfg:mac-accounting", ("mac_accounting", InterfaceConfigurations.InterfaceConfiguration.MacAccounting)), ("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features", ("ethernet_features", InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures)), ("Cisco-IOS-XR-l2-eth-infra-cfg:carrier-delay", ("carrier_delay", InterfaceConfigurations.InterfaceConfiguration.CarrierDelay)), ("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-trunk-configuration", ("vlan_trunk_configuration", InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-session", ("ssrp_session", InterfaceConfigurations.InterfaceConfiguration.SsrpSession)), ("Cisco-IOS-XR-cdp-cfg:cdp", ("cdp", InterfaceConfigurations.InterfaceConfiguration.Cdp)), ("Cisco-IOS-XR-dwdm-ui-cfg:dwdm", ("dwdm", InterfaceConfigurations.InterfaceConfiguration.Dwdm)), ("Cisco-IOS-XR-qos-ma-cfg:qos", ("qos", InterfaceConfigurations.InterfaceConfiguration.Qos)), ("Cisco-IOS-XR-ppp-ma-cfg:ppp", ("cisco_ios_xr_ppp_ma_cfg_ppp___", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaCfgPpp)), ("Cisco-IOS-XR-ethernet-lldp-cfg:lldp", ("lldp", InterfaceConfigurations.InterfaceConfiguration.Lldp)), ("Cisco-IOS-XR-atm-vcm-cfg:atm", ("atm", InterfaceConfigurations.InterfaceConfiguration.Atm)), ("Cisco-IOS-XR-dot1x-if-cfg:dot1x-interface", ("dot1x_interface", InterfaceConfigurations.InterfaceConfiguration.Dot1xInterface)), ("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network", ("ipv4_network", InterfaceConfigurations.InterfaceConfiguration.Ipv4Network)), ("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network-forwarding", ("ipv4_network_forwarding", InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-table", ("aaa_table", InterfaceConfigurations.InterfaceConfiguration.AaaTable)), ("Cisco-IOS-XR-ip-pfilter-cfg:ipv6-packet-filter", ("ipv6_packet_filter", InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter)), ("Cisco-IOS-XR-ip-pfilter-cfg:es-packet-filter", ("es_packet_filter", InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter)), ("Cisco-IOS-XR-ip-pfilter-cfg:ipv4-packet-filter", ("ipv4_packet_filter", InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter)), ("Cisco-IOS-XR-flowspec-cfg:ipv4-flow-spec", ("ipv4_flow_spec", InterfaceConfigurations.InterfaceConfiguration.Ipv4FlowSpec)), ("Cisco-IOS-XR-flowspec-cfg:ipv6-flow-spec", ("ipv6_flow_spec", InterfaceConfigurations.InterfaceConfiguration.Ipv6FlowSpec)), ("Cisco-IOS-XR-wanphy-ui-cfg:wanphy", ("wanphy", InterfaceConfigurations.InterfaceConfiguration.Wanphy)), ("Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network", ("ipv6_network", InterfaceConfigurations.InterfaceConfiguration.Ipv6Network)), ("Cisco-IOS-XR-mpls-io-cfg:mpls", ("mpls", InterfaceConfigurations.InterfaceConfiguration.Mpls)), ("Cisco-IOS-XR-mpls-te-cfg:tunnel-te-attributes", ("tunnel_te_attributes", InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes)), ("Cisco-IOS-XR-mpls-te-cfg:transport-profile-tunnel", ("transport_profile_tunnel", InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel)), ("Cisco-IOS-XR-mpls-te-cfg:mte-tunnel-attributes", ("mte_tunnel_attributes", InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes)), ("Cisco-IOS-XR-controller-otu-cfg:otu", ("otu", InterfaceConfigurations.InterfaceConfiguration.Otu)), ("Cisco-IOS-XR-traffmon-netflow-cfg:net-flow", ("net_flow", InterfaceConfigurations.InterfaceConfiguration.NetFlow)), ("Cisco-IOS-XR-bundlemgr-cfg:bfd", ("bfd", InterfaceConfigurations.InterfaceConfiguration.Bfd)), ("Cisco-IOS-XR-bundlemgr-cfg:bundle", ("bundle", InterfaceConfigurations.InterfaceConfiguration.Bundle)), ("Cisco-IOS-XR-bundlemgr-cfg:lacp", ("lacp", InterfaceConfigurations.InterfaceConfiguration.Lacp)), ("Cisco-IOS-XR-bundlemgr-cfg:bundle-member", ("bundle_member", InterfaceConfigurations.InterfaceConfiguration.BundleMember)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", InterfaceConfigurations.InterfaceConfiguration.Mlacp)), ("Cisco-IOS-XR-crypto-macsec-mka-if-cfg:macsec", ("macsec", InterfaceConfigurations.InterfaceConfiguration.Macsec)), ("Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor", ("ipv6_neighbor", InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor)), ("Cisco-IOS-XR-iedge4710-cfg:service-policies", ("service_policies", InterfaceConfigurations.InterfaceConfiguration.ServicePolicies)), ("Cisco-IOS-XR-ncs5500-coherent-portmode-cfg:portmode", ("portmode", InterfaceConfigurations.InterfaceConfiguration.Portmode)), ("Cisco-IOS-XR-ppp-ma-ipcp-cfg:ppp", ("cisco_ios_xr_ppp_ma_ipcp_cfg_ppp____", InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRPppMaIpcpCfgPpp)), ("Cisco-IOS-XR-ipv4-arp-cfg:dagrs", ("dagrs", InterfaceConfigurations.InterfaceConfiguration.Dagrs)), ("Cisco-IOS-XR-ipv4-arp-cfg:ipv4arp", ("ipv4arp", InterfaceConfigurations.InterfaceConfiguration.Ipv4arp))])
             self._leafs = OrderedDict([
                 ('active', (YLeaf(YType.str, 'active'), ['str'])),
                 ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
@@ -759,6 +769,16 @@ class InterfaceConfigurations(Entity):
             self.frequency_synchronization.parent = self
             self._children_name_map["frequency_synchronization"] = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
 
+            self.nv_satellite_access = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess()
+            self.nv_satellite_access.parent = self
+            self._children_name_map["nv_satellite_access"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
+
+            self.nv_satellite_fabric_link = None
+            self._children_name_map["nv_satellite_fabric_link"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
+
+            self.nv_satellite_fabric_network = None
+            self._children_name_map["nv_satellite_fabric_network"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
+
             self.nve = InterfaceConfigurations.InterfaceConfiguration.Nve()
             self.nve.parent = self
             self._children_name_map["nve"] = "Cisco-IOS-XR-tunnel-nve-cfg:nve"
@@ -766,6 +786,14 @@ class InterfaceConfigurations(Entity):
             self.performance_management = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement()
             self.performance_management.parent = self
             self._children_name_map["performance_management"] = "Cisco-IOS-XR-pmengine-cfg:performance-management"
+
+            self.ptp = InterfaceConfigurations.InterfaceConfiguration.Ptp()
+            self.ptp.parent = self
+            self._children_name_map["ptp"] = "Cisco-IOS-XR-ptp-cfg:ptp"
+
+            self.ethernet_control = InterfaceConfigurations.InterfaceConfiguration.EthernetControl()
+            self.ethernet_control.parent = self
+            self._children_name_map["ethernet_control"] = "Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control"
 
             self.pbr = InterfaceConfigurations.InterfaceConfiguration.Pbr()
             self.pbr.parent = self
@@ -782,10 +810,6 @@ class InterfaceConfigurations(Entity):
             self.loopbacks = InterfaceConfigurations.InterfaceConfiguration.Loopbacks()
             self.loopbacks.parent = self
             self._children_name_map["loopbacks"] = "Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks"
-
-            self.ptp = InterfaceConfigurations.InterfaceConfiguration.Ptp()
-            self.ptp.parent = self
-            self._children_name_map["ptp"] = "Cisco-IOS-XR-ptp-cfg:ptp"
 
             self.subscriber = InterfaceConfigurations.InterfaceConfiguration.Subscriber()
             self.subscriber.parent = self
@@ -827,16 +851,6 @@ class InterfaceConfigurations(Entity):
             self.cdp.parent = self
             self._children_name_map["cdp"] = "Cisco-IOS-XR-cdp-cfg:cdp"
 
-            self.nv_satellite_access = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess()
-            self.nv_satellite_access.parent = self
-            self._children_name_map["nv_satellite_access"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
-
-            self.nv_satellite_fabric_link = None
-            self._children_name_map["nv_satellite_fabric_link"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
-
-            self.nv_satellite_fabric_network = None
-            self._children_name_map["nv_satellite_fabric_network"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
-
             self.dwdm = InterfaceConfigurations.InterfaceConfiguration.Dwdm()
             self.dwdm.parent = self
             self._children_name_map["dwdm"] = "Cisco-IOS-XR-dwdm-ui-cfg:dwdm"
@@ -851,6 +865,10 @@ class InterfaceConfigurations(Entity):
 
             self.lldp = None
             self._children_name_map["lldp"] = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
+
+            self.atm = InterfaceConfigurations.InterfaceConfiguration.Atm()
+            self.atm.parent = self
+            self._children_name_map["atm"] = "Cisco-IOS-XR-atm-vcm-cfg:atm"
 
             self.dot1x_interface = InterfaceConfigurations.InterfaceConfiguration.Dot1xInterface()
             self.dot1x_interface.parent = self
@@ -1659,6 +1677,11 @@ class InterfaceConfigurations(Entity):
             	Connection Attachment Circuit configuration
             	**type**\:  :py:class:`Cac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac>`
             
+            .. attribute:: atm_port_mode_parameters
+            
+            	ATM L2transport Port Mode Parameters Configuration
+            	**type**\:  :py:class:`AtmPortModeParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters>`
+            
             
 
             """
@@ -1674,7 +1697,7 @@ class InterfaceConfigurations(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions", ("span_monitor_sessions", InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions)), ("Cisco-IOS-XR-l2-eth-infra-cfg:l2-protocols", ("l2_protocols", InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols)), ("Cisco-IOS-XR-l2-eth-infra-cfg:l2-ethernet-features", ("l2_ethernet_features", InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures)), ("Cisco-IOS-XR-qos-ma-cfg:pac", ("pac", InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac)), ("Cisco-IOS-XR-qos-ma-cfg:cac", ("cac", InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions", ("span_monitor_sessions", InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions)), ("Cisco-IOS-XR-l2-eth-infra-cfg:l2-protocols", ("l2_protocols", InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols)), ("Cisco-IOS-XR-l2-eth-infra-cfg:l2-ethernet-features", ("l2_ethernet_features", InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures)), ("Cisco-IOS-XR-qos-ma-cfg:pac", ("pac", InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac)), ("Cisco-IOS-XR-qos-ma-cfg:cac", ("cac", InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac)), ("Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters", ("atm_port_mode_parameters", InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters))])
                 self._leafs = OrderedDict([
                     ('enabled', (YLeaf(YType.empty, 'enabled'), ['Empty'])),
                     ('propagate_remote_status', (YLeaf(YType.empty, 'Cisco-IOS-XR-l2-eth-infra-cfg:propagate-remote-status'), ['Empty'])),
@@ -1701,6 +1724,10 @@ class InterfaceConfigurations(Entity):
                 self.cac = InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac()
                 self.cac.parent = self
                 self._children_name_map["cac"] = "Cisco-IOS-XR-qos-ma-cfg:cac"
+
+                self.atm_port_mode_parameters = InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters()
+                self.atm_port_mode_parameters.parent = self
+                self._children_name_map["atm_port_mode_parameters"] = "Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters"
                 self._segment_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2-transport"
                 self._is_frozen = True
 
@@ -3833,6 +3860,102 @@ class InterfaceConfigurations(Entity):
 
 
 
+            class AtmPortModeParameters(Entity):
+                """
+                ATM L2transport Port Mode Parameters
+                Configuration
+                
+                .. attribute:: cell_packing
+                
+                	Configure cell\-packing parameters.  All parameters are mandatory
+                	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters, self).__init__()
+
+                    self.yang_name = "atm-port-mode-parameters"
+                    self.yang_parent_name = "l2-transport"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("cell-packing", ("cell_packing", InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking))])
+                    self._leafs = OrderedDict()
+
+                    self.cell_packing = None
+                    self._children_name_map["cell_packing"] = "cell-packing"
+                    self._segment_path = lambda: "Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters, [], name, value)
+
+
+                class CellPacking(Entity):
+                    """
+                    Configure cell\-packing parameters.  All
+                    parameters are mandatory.
+                    
+                    .. attribute:: maximum_cells_packed
+                    
+                    	Maximum number of cells to be packed in a packet
+                    	**type**\: int
+                    
+                    	**range:** 2..255
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: cell_packing_timer_id
+                    
+                    	Which cell packing timer to use
+                    	**type**\: int
+                    
+                    	**range:** 1..3
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'atm-vcm-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking, self).__init__()
+
+                        self.yang_name = "cell-packing"
+                        self.yang_parent_name = "atm-port-mode-parameters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('maximum_cells_packed', (YLeaf(YType.uint32, 'maximum-cells-packed'), ['int'])),
+                            ('cell_packing_timer_id', (YLeaf(YType.uint32, 'cell-packing-timer-id'), ['int'])),
+                        ])
+                        self.maximum_cells_packed = None
+                        self.cell_packing_timer_id = None
+                        self._segment_path = lambda: "cell-packing"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking, ['maximum_cells_packed', 'cell_packing_timer_id'], name, value)
+
+
+
+
 
         class CiscoIOSXRPppMaLcpCfgPpp(Entity):
             """
@@ -5464,6 +5587,1325 @@ class InterfaceConfigurations(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+
+
+        class NvSatelliteAccess(Entity):
+            """
+            nV Satellite Access Link Configuration
+            
+            .. attribute:: qos
+            
+            	Interface QOS configuration
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos>`
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2017-09-30'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess, self).__init__()
+
+                self.yang_name = "nv-satellite-access"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-qos-ma-sat-cfg:qos", ("qos", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos))])
+                self._leafs = OrderedDict()
+
+                self.qos = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess, [], name, value)
+
+
+            class Qos(Entity):
+                """
+                Interface QOS configuration
+                
+                .. attribute:: output
+                
+                	Egress service policy
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output>`
+                
+                .. attribute:: input
+                
+                	Ingress service policy
+                	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-sat-cfg'
+                _revision = '2017-03-03'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "nv-satellite-access"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("output", ("output", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output)), ("input", ("input", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input))])
+                    self._leafs = OrderedDict()
+
+                    self.output = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+
+                    self.input = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input()
+                    self.input.parent = self
+                    self._children_name_map["input"] = "input"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos, [], name, value)
+
+
+                class Output(Entity):
+                    """
+                    Egress service policy
+                    
+                    .. attribute:: service_policy
+                    
+                    	Service policy details
+                    	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output.ServicePolicy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-sat-cfg'
+                    _revision = '2017-03-03'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output.ServicePolicy))])
+                        self._leafs = OrderedDict()
+
+                        self.service_policy = YList(self)
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output, [], name, value)
+
+
+                    class ServicePolicy(Entity):
+                        """
+                        Service policy details
+                        
+                        .. attribute:: service_policy_name  (key)
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output.ServicePolicy, self).__init__()
+
+                            self.yang_name = "service-policy"
+                            self.yang_parent_name = "output"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['service_policy_name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                            ])
+                            self.service_policy_name = None
+                            self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Output.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+                class Input(Entity):
+                    """
+                    Ingress service policy
+                    
+                    .. attribute:: service_policy
+                    
+                    	Service policy details
+                    	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input.ServicePolicy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-sat-cfg'
+                    _revision = '2017-03-03'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input, self).__init__()
+
+                        self.yang_name = "input"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input.ServicePolicy))])
+                        self._leafs = OrderedDict()
+
+                        self.service_policy = YList(self)
+                        self._segment_path = lambda: "input"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input, [], name, value)
+
+
+                    class ServicePolicy(Entity):
+                        """
+                        Service policy details
+                        
+                        .. attribute:: service_policy_name  (key)
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input.ServicePolicy, self).__init__()
+
+                            self.yang_name = "service-policy"
+                            self.yang_parent_name = "input"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['service_policy_name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                            ])
+                            self.service_policy_name = None
+                            self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess.Qos.Input.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+
+
+        class NvSatelliteFabricLink(Entity):
+            """
+            nV Satellite Fabric Link Configuration
+            
+            .. attribute:: satellite
+            
+            	Hub & Spoke connection to a single Satellite
+            	**type**\: int
+            
+            	**range:** 100..65534
+            
+            	**mandatory**\: True
+            
+            .. attribute:: minimum_required_links
+            
+            	Mininum number of active links required
+            	**type**\: int
+            
+            	**range:** 1..64
+            
+            .. attribute:: redundancy
+            
+            	Redundancy submode
+            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy>`
+            
+            .. attribute:: remote_ports
+            
+            	Remote Ports table
+            	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts>`
+            
+            .. attribute:: qos
+            
+            	Interface QOS configuration
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos>`
+            
+            .. attribute:: ethernet_features
+            
+            	Ethernet Satellite configuration
+            	**type**\:  :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
+            
+            .. attribute:: frequency_synchronization
+            
+            	Frequency Synchronization satellite configuration
+            	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.FrequencySynchronization>`
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2017-09-30'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink, self).__init__()
+
+                self.yang_name = "nv-satellite-fabric-link"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("redundancy", ("redundancy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy)), ("remote-ports", ("remote_ports", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts)), ("Cisco-IOS-XR-qos-ma-sat-cfg:qos", ("qos", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos)), ("Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features", ("ethernet_features", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures)), ("Cisco-IOS-XR-freqsync-sat-cfg:frequency-synchronization", ("frequency_synchronization", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.FrequencySynchronization))])
+                self.is_presence_container = True
+                self._leafs = OrderedDict([
+                    ('satellite', (YLeaf(YType.uint32, 'satellite'), ['int'])),
+                    ('minimum_required_links', (YLeaf(YType.uint32, 'minimum-required-links'), ['int'])),
+                ])
+                self.satellite = None
+                self.minimum_required_links = None
+
+                self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy()
+                self.redundancy.parent = self
+                self._children_name_map["redundancy"] = "redundancy"
+
+                self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts()
+                self.remote_ports.parent = self
+                self._children_name_map["remote_ports"] = "remote-ports"
+
+                self.qos = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos()
+                self.qos.parent = self
+                self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+
+                self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures()
+                self.ethernet_features.parent = self
+                self._children_name_map["ethernet_features"] = "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
+
+                self.frequency_synchronization = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.FrequencySynchronization()
+                self.frequency_synchronization.parent = self
+                self._children_name_map["frequency_synchronization"] = "Cisco-IOS-XR-freqsync-sat-cfg:frequency-synchronization"
+                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink, [u'satellite', u'minimum_required_links'], name, value)
+
+
+            class Redundancy(Entity):
+                """
+                Redundancy submode
+                
+                .. attribute:: iccp_group
+                
+                	Links the satellite fabric to the given ICCP group
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: minimum_preferred_links
+                
+                	Mininum number of active links preferred
+                	**type**\: int
+                
+                	**range:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-cfg'
+                _revision = '2017-09-30'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy, self).__init__()
+
+                    self.yang_name = "redundancy"
+                    self.yang_parent_name = "nv-satellite-fabric-link"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('iccp_group', (YLeaf(YType.uint32, 'iccp-group'), ['int'])),
+                        ('minimum_preferred_links', (YLeaf(YType.uint32, 'minimum-preferred-links'), ['int'])),
+                    ])
+                    self.iccp_group = None
+                    self.minimum_preferred_links = None
+                    self._segment_path = lambda: "redundancy"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy, [u'iccp_group', u'minimum_preferred_links'], name, value)
+
+
+
+            class RemotePorts(Entity):
+                """
+                Remote Ports table
+                
+                .. attribute:: remote_port
+                
+                	Remote Ports
+                	**type**\: list of  		 :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort>`
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-cfg'
+                _revision = '2017-09-30'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts, self).__init__()
+
+                    self.yang_name = "remote-ports"
+                    self.yang_parent_name = "nv-satellite-fabric-link"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("remote-port", ("remote_port", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort))])
+                    self._leafs = OrderedDict()
+
+                    self.remote_port = YList(self)
+                    self._segment_path = lambda: "remote-ports"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts, [], name, value)
+
+
+                class RemotePort(Entity):
+                    """
+                    Remote Ports
+                    
+                    .. attribute:: port_type  (key)
+                    
+                    	Port type
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: slot  (key)
+                    
+                    	Slot
+                    	**type**\: int
+                    
+                    	**range:** 0..8
+                    
+                    .. attribute:: sub_slot  (key)
+                    
+                    	Sub slot
+                    	**type**\: int
+                    
+                    	**range:** 0..8
+                    
+                    .. attribute:: port_range
+                    
+                    	Port range
+                    	**type**\: str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'icpe-infra-cfg'
+                    _revision = '2017-09-30'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort, self).__init__()
+
+                        self.yang_name = "remote-port"
+                        self.yang_parent_name = "remote-ports"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['port_type','slot','sub_slot']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('port_type', (YLeaf(YType.str, 'port-type'), ['str'])),
+                            ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
+                            ('sub_slot', (YLeaf(YType.uint32, 'sub-slot'), ['int'])),
+                            ('port_range', (YLeaf(YType.str, 'port-range'), ['str'])),
+                        ])
+                        self.port_type = None
+                        self.slot = None
+                        self.sub_slot = None
+                        self.port_range = None
+                        self._segment_path = lambda: "remote-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
+
+
+
+
+            class Qos(Entity):
+                """
+                Interface QOS configuration
+                
+                .. attribute:: output
+                
+                	Egress service policy
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output>`
+                
+                .. attribute:: input
+                
+                	Ingress service policy
+                	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-sat-cfg'
+                _revision = '2017-03-03'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "nv-satellite-fabric-link"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("output", ("output", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output)), ("input", ("input", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input))])
+                    self._leafs = OrderedDict()
+
+                    self.output = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output()
+                    self.output.parent = self
+                    self._children_name_map["output"] = "output"
+
+                    self.input = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input()
+                    self.input.parent = self
+                    self._children_name_map["input"] = "input"
+                    self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos, [], name, value)
+
+
+                class Output(Entity):
+                    """
+                    Egress service policy
+                    
+                    .. attribute:: service_policy
+                    
+                    	Service policy details
+                    	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output.ServicePolicy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-sat-cfg'
+                    _revision = '2017-03-03'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output, self).__init__()
+
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output.ServicePolicy))])
+                        self._leafs = OrderedDict()
+
+                        self.service_policy = YList(self)
+                        self._segment_path = lambda: "output"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output, [], name, value)
+
+
+                    class ServicePolicy(Entity):
+                        """
+                        Service policy details
+                        
+                        .. attribute:: service_policy_name  (key)
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output.ServicePolicy, self).__init__()
+
+                            self.yang_name = "service-policy"
+                            self.yang_parent_name = "output"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['service_policy_name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                            ])
+                            self.service_policy_name = None
+                            self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Output.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+                class Input(Entity):
+                    """
+                    Ingress service policy
+                    
+                    .. attribute:: service_policy
+                    
+                    	Service policy details
+                    	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input.ServicePolicy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-sat-cfg'
+                    _revision = '2017-03-03'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input, self).__init__()
+
+                        self.yang_name = "input"
+                        self.yang_parent_name = "qos"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input.ServicePolicy))])
+                        self._leafs = OrderedDict()
+
+                        self.service_policy = YList(self)
+                        self._segment_path = lambda: "input"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input, [], name, value)
+
+
+                    class ServicePolicy(Entity):
+                        """
+                        Service policy details
+                        
+                        .. attribute:: service_policy_name  (key)
+                        
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input.ServicePolicy, self).__init__()
+
+                            self.yang_name = "service-policy"
+                            self.yang_parent_name = "input"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['service_policy_name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                            ])
+                            self.service_policy_name = None
+                            self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Qos.Input.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+
+            class EthernetFeatures(Entity):
+                """
+                Ethernet Satellite configuration
+                
+                .. attribute:: cfm
+                
+                	CFM Satellite configuration
+                	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-sat-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures, self).__init__()
+
+                    self.yang_name = "ethernet-features"
+                    self.yang_parent_name = "nv-satellite-fabric-link"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("cfm", ("cfm", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm))])
+                    self._leafs = OrderedDict()
+
+                    self.cfm = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm()
+                    self.cfm.parent = self
+                    self._children_name_map["cfm"] = "cfm"
+                    self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures, [], name, value)
+
+
+                class Cfm(Entity):
+                    """
+                    CFM Satellite configuration
+                    
+                    .. attribute:: continuity_check_interval
+                    
+                    	Continuity\-Check Interval
+                    	**type**\:  :py:class:`CfmCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval>`
+                    
+                    .. attribute:: level
+                    
+                    	Maintenance Domain Level
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: enable
+                    
+                    	Enable CFM on Satellite
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-sat-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm, self).__init__()
+
+                        self.yang_name = "cfm"
+                        self.yang_parent_name = "ethernet-features"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('continuity_check_interval', (YLeaf(YType.enumeration, 'continuity-check-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmInterval', '')])),
+                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ])
+                        self.continuity_check_interval = None
+                        self.level = None
+                        self.enable = None
+                        self._segment_path = lambda: "cfm"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm, ['continuity_check_interval', 'level', 'enable'], name, value)
+
+
+
+
+            class FrequencySynchronization(Entity):
+                """
+                Frequency Synchronization satellite
+                configuration
+                
+                .. attribute:: enable
+                
+                	Enable Frequency Synchronization
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'freqsync-sat-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.FrequencySynchronization, self).__init__()
+
+                    self.yang_name = "frequency-synchronization"
+                    self.yang_parent_name = "nv-satellite-fabric-link"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ])
+                    self.enable = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-freqsync-sat-cfg:frequency-synchronization"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.FrequencySynchronization, ['enable'], name, value)
+
+
+
+
+        class NvSatelliteFabricNetwork(Entity):
+            """
+            Complex Network connection to one or more
+            Satellites
+            
+            .. attribute:: satellites
+            
+            	Connected Satellite table
+            	**type**\:  :py:class:`Satellites <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
+            
+            .. attribute:: redundancy
+            
+            	Redundancy submode
+            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy>`
+            
+            .. attribute:: enable
+            
+            	Enable
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**mandatory**\: True
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2017-09-30'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork, self).__init__()
+
+                self.yang_name = "nv-satellite-fabric-network"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("satellites", ("satellites", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites)), ("redundancy", ("redundancy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy))])
+                self.is_presence_container = True
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+
+                self.satellites = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites()
+                self.satellites.parent = self
+                self._children_name_map["satellites"] = "satellites"
+
+                self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy()
+                self.redundancy.parent = self
+                self._children_name_map["redundancy"] = "redundancy"
+                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork, [u'enable'], name, value)
+
+
+            class Satellites(Entity):
+                """
+                Connected Satellite table
+                
+                .. attribute:: satellite
+                
+                	Connected Satellite
+                	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite>`
+                
+                .. attribute:: qos
+                
+                	Interface QOS configuration
+                	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos>`
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-cfg'
+                _revision = '2017-09-30'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites, self).__init__()
+
+                    self.yang_name = "satellites"
+                    self.yang_parent_name = "nv-satellite-fabric-network"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("satellite", ("satellite", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite)), ("Cisco-IOS-XR-qos-ma-sat-cfg:qos", ("qos", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos))])
+                    self._leafs = OrderedDict()
+
+                    self.qos = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos()
+                    self.qos.parent = self
+                    self._children_name_map["qos"] = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+
+                    self.satellite = YList(self)
+                    self._segment_path = lambda: "satellites"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites, [], name, value)
+
+
+                class Satellite(Entity):
+                    """
+                    Connected Satellite
+                    
+                    .. attribute:: satellite_id  (key)
+                    
+                    	Satellite ID
+                    	**type**\: int
+                    
+                    	**range:** 100..65534
+                    
+                    .. attribute:: remote_ports
+                    
+                    	Remote Ports table
+                    	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enable
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'icpe-infra-cfg'
+                    _revision = '2017-09-30'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite, self).__init__()
+
+                        self.yang_name = "satellite"
+                        self.yang_parent_name = "satellites"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['satellite_id']
+                        self._child_classes = OrderedDict([("remote-ports", ("remote_ports", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts))])
+                        self._leafs = OrderedDict([
+                            ('satellite_id', (YLeaf(YType.uint32, 'satellite-id'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ])
+                        self.satellite_id = None
+                        self.enable = None
+
+                        self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts()
+                        self.remote_ports.parent = self
+                        self._children_name_map["remote_ports"] = "remote-ports"
+                        self._segment_path = lambda: "satellite" + "[satellite-id='" + str(self.satellite_id) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite, [u'satellite_id', u'enable'], name, value)
+
+
+                    class RemotePorts(Entity):
+                        """
+                        Remote Ports table
+                        
+                        .. attribute:: remote_port
+                        
+                        	Remote Ports
+                        	**type**\: list of  		 :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'icpe-infra-cfg'
+                        _revision = '2017-09-30'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts, self).__init__()
+
+                            self.yang_name = "remote-ports"
+                            self.yang_parent_name = "satellite"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("remote-port", ("remote_port", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort))])
+                            self._leafs = OrderedDict()
+
+                            self.remote_port = YList(self)
+                            self._segment_path = lambda: "remote-ports"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts, [], name, value)
+
+
+                        class RemotePort(Entity):
+                            """
+                            Remote Ports
+                            
+                            .. attribute:: port_type  (key)
+                            
+                            	Port type
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: slot  (key)
+                            
+                            	Slot
+                            	**type**\: int
+                            
+                            	**range:** 0..8
+                            
+                            .. attribute:: sub_slot  (key)
+                            
+                            	Sub slot
+                            	**type**\: int
+                            
+                            	**range:** 0..8
+                            
+                            .. attribute:: port_range
+                            
+                            	Port range
+                            	**type**\: str
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'icpe-infra-cfg'
+                            _revision = '2017-09-30'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort, self).__init__()
+
+                                self.yang_name = "remote-port"
+                                self.yang_parent_name = "remote-ports"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['port_type','slot','sub_slot']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('port_type', (YLeaf(YType.str, 'port-type'), ['str'])),
+                                    ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
+                                    ('sub_slot', (YLeaf(YType.uint32, 'sub-slot'), ['int'])),
+                                    ('port_range', (YLeaf(YType.str, 'port-range'), ['str'])),
+                                ])
+                                self.port_type = None
+                                self.slot = None
+                                self.sub_slot = None
+                                self.port_range = None
+                                self._segment_path = lambda: "remote-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
+
+
+
+
+
+                class Qos(Entity):
+                    """
+                    Interface QOS configuration
+                    
+                    .. attribute:: output
+                    
+                    	Egress service policy
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output>`
+                    
+                    .. attribute:: input
+                    
+                    	Ingress service policy
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-sat-cfg'
+                    _revision = '2017-03-03'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos, self).__init__()
+
+                        self.yang_name = "qos"
+                        self.yang_parent_name = "satellites"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("output", ("output", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output)), ("input", ("input", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input))])
+                        self._leafs = OrderedDict()
+
+                        self.output = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output()
+                        self.output.parent = self
+                        self._children_name_map["output"] = "output"
+
+                        self.input = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input()
+                        self.input.parent = self
+                        self._children_name_map["input"] = "input"
+                        self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos, [], name, value)
+
+
+                    class Output(Entity):
+                        """
+                        Egress service policy
+                        
+                        .. attribute:: service_policy
+                        
+                        	Service policy details
+                        	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output.ServicePolicy>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "qos"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output.ServicePolicy))])
+                            self._leafs = OrderedDict()
+
+                            self.service_policy = YList(self)
+                            self._segment_path = lambda: "output"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output, [], name, value)
+
+
+                        class ServicePolicy(Entity):
+                            """
+                            Service policy details
+                            
+                            .. attribute:: service_policy_name  (key)
+                            
+                            	Name of policy\-map
+                            	**type**\: str
+                            
+                            	**length:** 0..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'qos-ma-sat-cfg'
+                            _revision = '2017-03-03'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output.ServicePolicy, self).__init__()
+
+                                self.yang_name = "service-policy"
+                                self.yang_parent_name = "output"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['service_policy_name']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                                ])
+                                self.service_policy_name = None
+                                self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Output.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+                    class Input(Entity):
+                        """
+                        Ingress service policy
+                        
+                        .. attribute:: service_policy
+                        
+                        	Service policy details
+                        	**type**\: list of  		 :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input.ServicePolicy>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'qos-ma-sat-cfg'
+                        _revision = '2017-03-03'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "qos"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("service-policy", ("service_policy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input.ServicePolicy))])
+                            self._leafs = OrderedDict()
+
+                            self.service_policy = YList(self)
+                            self._segment_path = lambda: "input"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input, [], name, value)
+
+
+                        class ServicePolicy(Entity):
+                            """
+                            Service policy details
+                            
+                            .. attribute:: service_policy_name  (key)
+                            
+                            	Name of policy\-map
+                            	**type**\: str
+                            
+                            	**length:** 0..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'qos-ma-sat-cfg'
+                            _revision = '2017-03-03'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input.ServicePolicy, self).__init__()
+
+                                self.yang_name = "service-policy"
+                                self.yang_parent_name = "input"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['service_policy_name']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('service_policy_name', (YLeaf(YType.str, 'service-policy-name'), ['str'])),
+                                ])
+                                self.service_policy_name = None
+                                self._segment_path = lambda: "service-policy" + "[service-policy-name='" + str(self.service_policy_name) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Qos.Input.ServicePolicy, ['service_policy_name'], name, value)
+
+
+
+
+
+
+            class Redundancy(Entity):
+                """
+                Redundancy submode
+                
+                .. attribute:: iccp_group
+                
+                	Links the satellite fabric to the given ICCP group
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: minimum_preferred_links
+                
+                	Mininum number of active links preferred
+                	**type**\: int
+                
+                	**range:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-cfg'
+                _revision = '2017-09-30'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy, self).__init__()
+
+                    self.yang_name = "redundancy"
+                    self.yang_parent_name = "nv-satellite-fabric-network"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('iccp_group', (YLeaf(YType.uint32, 'iccp-group'), ['int'])),
+                        ('minimum_preferred_links', (YLeaf(YType.uint32, 'minimum-preferred-links'), ['int'])),
+                    ])
+                    self.iccp_group = None
+                    self.minimum_preferred_links = None
+                    self._segment_path = lambda: "redundancy"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy, [u'iccp_group', u'minimum_preferred_links'], name, value)
 
 
 
@@ -16061,6 +17503,1724 @@ class InterfaceConfigurations(Entity):
 
 
 
+        class Ptp(Entity):
+            """
+            Precision Time Protocol interface configuration
+            
+            .. attribute:: source_ipv6_address
+            
+            	Source IPv6 Address
+            	**type**\:  :py:class:`SourceIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address>`
+            
+            .. attribute:: announce_interval
+            
+            	Announce interval
+            	**type**\:  :py:class:`AnnounceInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval>`
+            
+            .. attribute:: interop
+            
+            	Table for interop configuration
+            	**type**\:  :py:class:`Interop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop>`
+            
+            .. attribute:: source_ipv4_address
+            
+            	Source IPv4 Address
+            	**type**\:  :py:class:`SourceIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address>`
+            
+            .. attribute:: slaves
+            
+            	Table for slave configuration
+            	**type**\:  :py:class:`Slaves <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves>`
+            
+            .. attribute:: sync_interval
+            
+            	Sync interval
+            	**type**\:  :py:class:`SyncInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval>`
+            
+            .. attribute:: masters
+            
+            	Table for master configuration
+            	**type**\:  :py:class:`Masters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters>`
+            
+            .. attribute:: communication
+            
+            	Communication model
+            	**type**\:  :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication>`
+            
+            .. attribute:: delay_request_minimum_interval
+            
+            	Minimum delay request interval
+            	**type**\:  :py:class:`DelayRequestMinimumInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval>`
+            
+            .. attribute:: sync_grant_duration
+            
+            	Sync unicast grant duration, in seconds
+            	**type**\: int
+            
+            	**range:** 60..1000
+            
+            	**units**\: second
+            
+            	**default value**\: 300
+            
+            .. attribute:: general_cos
+            
+            	General COS
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            	**default value**\: 6
+            
+            .. attribute:: enable
+            
+            	Enable the precision time protocol
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: sync_timeout
+            
+            	Sync timeout, in milliseconds
+            	**type**\: int
+            
+            	**range:** 100..100000
+            
+            	**units**\: millisecond
+            
+            	**default value**\: 5000
+            
+            .. attribute:: transport
+            
+            	Transport
+            	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+            
+            	**default value**\: ipv4
+            
+            .. attribute:: profile
+            
+            	Precision Time Protocol configuration profile
+            	**type**\: str
+            
+            .. attribute:: announce_timeout
+            
+            	Announce Timeout
+            	**type**\: int
+            
+            	**range:** 2..10
+            
+            	**default value**\: 3
+            
+            .. attribute:: cos
+            
+            	COS
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            	**default value**\: 6
+            
+            .. attribute:: ipv4ttl
+            
+            	IPv4 TTL
+            	**type**\: int
+            
+            	**range:** 1..255
+            
+            	**default value**\: 255
+            
+            .. attribute:: port_state
+            
+            	Port state restriction
+            	**type**\:  :py:class:`PtpPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpPortState>`
+            
+            	**default value**\: any
+            
+            .. attribute:: delay_response_timeout
+            
+            	Delay\-Response timeout, in milliseconds
+            	**type**\: int
+            
+            	**range:** 100..100000
+            
+            	**units**\: millisecond
+            
+            	**default value**\: 5000
+            
+            .. attribute:: local_priority
+            
+            	Local priority
+            	**type**\: int
+            
+            	**range:** 1..255
+            
+            	**default value**\: 128
+            
+            .. attribute:: delay_response_grant_duration
+            
+            	Delay\-Response unicast grant duration, in seconds
+            	**type**\: int
+            
+            	**range:** 60..1000
+            
+            	**units**\: second
+            
+            	**default value**\: 300
+            
+            .. attribute:: event_cos
+            
+            	Event COS
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            	**default value**\: 6
+            
+            .. attribute:: dscp
+            
+            	DSCP
+            	**type**\: int
+            
+            	**range:** 0..63
+            
+            	**default value**\: 46
+            
+            .. attribute:: ipv6_hop_limit
+            
+            	IPv6 Hop Limit
+            	**type**\: int
+            
+            	**range:** 1..255
+            
+            	**default value**\: 255
+            
+            .. attribute:: general_dscp
+            
+            	General DSCP
+            	**type**\: int
+            
+            	**range:** 0..63
+            
+            	**default value**\: 46
+            
+            .. attribute:: clock_operation
+            
+            	Clock Operation
+            	**type**\:  :py:class:`PtpClockOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockOperation>`
+            
+            	**default value**\: two-step
+            
+            .. attribute:: announce_grant_duration
+            
+            	Announce unicast grant duration, in seconds
+            	**type**\: int
+            
+            	**range:** 60..1000
+            
+            	**units**\: second
+            
+            	**default value**\: 300
+            
+            .. attribute:: unicast_grant_invalid_request
+            
+            	Invalid unicast grant request response
+            	**type**\:  :py:class:`PtpInvalidUnicastGrantRequestResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpInvalidUnicastGrantRequestResponse>`
+            
+            	**default value**\: reduce
+            
+            .. attribute:: event_dscp
+            
+            	Event DSCP
+            	**type**\: int
+            
+            	**range:** 0..63
+            
+            	**default value**\: 46
+            
+            
+
+            """
+
+            _prefix = 'ptp-cfg'
+            _revision = '2017-02-02'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.Ptp, self).__init__()
+
+                self.yang_name = "ptp"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("source-ipv6-address", ("source_ipv6_address", InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address)), ("announce-interval", ("announce_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval)), ("interop", ("interop", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop)), ("source-ipv4-address", ("source_ipv4_address", InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address)), ("slaves", ("slaves", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves)), ("sync-interval", ("sync_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval)), ("masters", ("masters", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters)), ("communication", ("communication", InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval))])
+                self._leafs = OrderedDict([
+                    ('sync_grant_duration', (YLeaf(YType.uint32, 'sync-grant-duration'), ['int'])),
+                    ('general_cos', (YLeaf(YType.uint32, 'general-cos'), ['int'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('sync_timeout', (YLeaf(YType.uint32, 'sync-timeout'), ['int'])),
+                    ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
+                    ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
+                    ('announce_timeout', (YLeaf(YType.uint32, 'announce-timeout'), ['int'])),
+                    ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
+                    ('ipv4ttl', (YLeaf(YType.uint32, 'ipv4ttl'), ['int'])),
+                    ('port_state', (YLeaf(YType.enumeration, 'port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpPortState', '')])),
+                    ('delay_response_timeout', (YLeaf(YType.uint32, 'delay-response-timeout'), ['int'])),
+                    ('local_priority', (YLeaf(YType.uint32, 'local-priority'), ['int'])),
+                    ('delay_response_grant_duration', (YLeaf(YType.uint32, 'delay-response-grant-duration'), ['int'])),
+                    ('event_cos', (YLeaf(YType.uint32, 'event-cos'), ['int'])),
+                    ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                    ('ipv6_hop_limit', (YLeaf(YType.uint32, 'ipv6-hop-limit'), ['int'])),
+                    ('general_dscp', (YLeaf(YType.uint32, 'general-dscp'), ['int'])),
+                    ('clock_operation', (YLeaf(YType.enumeration, 'clock-operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockOperation', '')])),
+                    ('announce_grant_duration', (YLeaf(YType.uint32, 'announce-grant-duration'), ['int'])),
+                    ('unicast_grant_invalid_request', (YLeaf(YType.enumeration, 'unicast-grant-invalid-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpInvalidUnicastGrantRequestResponse', '')])),
+                    ('event_dscp', (YLeaf(YType.uint32, 'event-dscp'), ['int'])),
+                ])
+                self.sync_grant_duration = None
+                self.general_cos = None
+                self.enable = None
+                self.sync_timeout = None
+                self.transport = None
+                self.profile = None
+                self.announce_timeout = None
+                self.cos = None
+                self.ipv4ttl = None
+                self.port_state = None
+                self.delay_response_timeout = None
+                self.local_priority = None
+                self.delay_response_grant_duration = None
+                self.event_cos = None
+                self.dscp = None
+                self.ipv6_hop_limit = None
+                self.general_dscp = None
+                self.clock_operation = None
+                self.announce_grant_duration = None
+                self.unicast_grant_invalid_request = None
+                self.event_dscp = None
+
+                self.source_ipv6_address = InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address()
+                self.source_ipv6_address.parent = self
+                self._children_name_map["source_ipv6_address"] = "source-ipv6-address"
+
+                self.announce_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval()
+                self.announce_interval.parent = self
+                self._children_name_map["announce_interval"] = "announce-interval"
+
+                self.interop = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop()
+                self.interop.parent = self
+                self._children_name_map["interop"] = "interop"
+
+                self.source_ipv4_address = InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address()
+                self.source_ipv4_address.parent = self
+                self._children_name_map["source_ipv4_address"] = "source-ipv4-address"
+
+                self.slaves = InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves()
+                self.slaves.parent = self
+                self._children_name_map["slaves"] = "slaves"
+
+                self.sync_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval()
+                self.sync_interval.parent = self
+                self._children_name_map["sync_interval"] = "sync-interval"
+
+                self.masters = InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters()
+                self.masters.parent = self
+                self._children_name_map["masters"] = "masters"
+
+                self.communication = InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication()
+                self.communication.parent = self
+                self._children_name_map["communication"] = "communication"
+
+                self.delay_request_minimum_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval()
+                self.delay_request_minimum_interval.parent = self
+                self._children_name_map["delay_request_minimum_interval"] = "delay-request-minimum-interval"
+                self._segment_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp, [u'sync_grant_duration', u'general_cos', u'enable', u'sync_timeout', u'transport', u'profile', u'announce_timeout', u'cos', u'ipv4ttl', u'port_state', u'delay_response_timeout', u'local_priority', u'delay_response_grant_duration', u'event_cos', u'dscp', u'ipv6_hop_limit', u'general_dscp', u'clock_operation', u'announce_grant_duration', u'unicast_grant_invalid_request', u'event_dscp'], name, value)
+
+
+            class SourceIpv6Address(Entity):
+                """
+                Source IPv6 Address
+                
+                .. attribute:: enable
+                
+                	Enable source IPv6 address
+                	**type**\: bool
+                
+                .. attribute:: source_ipv6
+                
+                	Source IPv6 address to use
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address, self).__init__()
+
+                    self.yang_name = "source-ipv6-address"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('source_ipv6', (YLeaf(YType.str, 'source-ipv6'), ['str'])),
+                    ])
+                    self.enable = None
+                    self.source_ipv6 = None
+                    self._segment_path = lambda: "source-ipv6-address"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address, [u'enable', u'source_ipv6'], name, value)
+
+
+
+            class AnnounceInterval(Entity):
+                """
+                Announce interval
+                
+                .. attribute:: time_type
+                
+                	Interval or Frequency
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                
+                	**default value**\: interval
+                
+                .. attribute:: time_period
+                
+                	Time Period
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                
+                	**default value**\: 2
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval, self).__init__()
+
+                    self.yang_name = "announce-interval"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
+                    ])
+                    self.time_type = None
+                    self.time_period = None
+                    self._segment_path = lambda: "announce-interval"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval, [u'time_type', u'time_period'], name, value)
+
+
+
+            class Interop(Entity):
+                """
+                Table for interop configuration
+                
+                .. attribute:: egress_conversion
+                
+                	Iteroperation configuration to be used on egress
+                	**type**\:  :py:class:`EgressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion>`
+                
+                .. attribute:: ingress_conversion
+                
+                	Iteroperation configuration to be used on ingress
+                	**type**\:  :py:class:`IngressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion>`
+                
+                .. attribute:: profile
+                
+                	Profile to interoperate with
+                	**type**\:  :py:class:`PtpClockProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockProfile>`
+                
+                .. attribute:: domain
+                
+                	Domain number of the peer clock
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop, self).__init__()
+
+                    self.yang_name = "interop"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("egress-conversion", ("egress_conversion", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion)), ("ingress-conversion", ("ingress_conversion", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion))])
+                    self._leafs = OrderedDict([
+                        ('profile', (YLeaf(YType.enumeration, 'profile'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockProfile', '')])),
+                        ('domain', (YLeaf(YType.uint32, 'domain'), ['int'])),
+                    ])
+                    self.profile = None
+                    self.domain = None
+
+                    self.egress_conversion = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion()
+                    self.egress_conversion.parent = self
+                    self._children_name_map["egress_conversion"] = "egress-conversion"
+
+                    self.ingress_conversion = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion()
+                    self.ingress_conversion.parent = self
+                    self._children_name_map["ingress_conversion"] = "ingress-conversion"
+                    self._segment_path = lambda: "interop"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop, [u'profile', u'domain'], name, value)
+
+
+                class EgressConversion(Entity):
+                    """
+                    Iteroperation configuration to be used on
+                    egress
+                    
+                    .. attribute:: clock_class_mappings
+                    
+                    	Table for specific mappings for given clock class values
+                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings>`
+                    
+                    .. attribute:: clock_accuracy
+                    
+                    	Clock Accuracy value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..254
+                    
+                    .. attribute:: priority2
+                    
+                    	Priority2 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: clock_class_default
+                    
+                    	Default clock class to use when a more specific mapping is not available
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: offset_scaled_log_variance
+                    
+                    	OSLV value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: priority1
+                    
+                    	Priority1 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion, self).__init__()
+
+                        self.yang_name = "egress-conversion"
+                        self.yang_parent_name = "interop"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings))])
+                        self._leafs = OrderedDict([
+                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
+                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
+                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
+                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                        ])
+                        self.clock_accuracy = None
+                        self.priority2 = None
+                        self.clock_class_default = None
+                        self.offset_scaled_log_variance = None
+                        self.priority1 = None
+
+                        self.clock_class_mappings = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings()
+                        self.clock_class_mappings.parent = self
+                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
+                        self._segment_path = lambda: "egress-conversion"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion, [u'clock_accuracy', u'priority2', u'clock_class_default', u'offset_scaled_log_variance', u'priority1'], name, value)
+
+
+                    class ClockClassMappings(Entity):
+                        """
+                        Table for specific mappings for given clock
+                        class values
+                        
+                        .. attribute:: clock_class_mapping
+                        
+                        	Mapping for a given clock class value
+                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings, self).__init__()
+
+                            self.yang_name = "clock-class-mappings"
+                            self.yang_parent_name = "egress-conversion"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping))])
+                            self._leafs = OrderedDict()
+
+                            self.clock_class_mapping = YList(self)
+                            self._segment_path = lambda: "clock-class-mappings"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings, [], name, value)
+
+
+                        class ClockClassMapping(Entity):
+                            """
+                            Mapping for a given clock class value
+                            
+                            .. attribute:: clock_class_from  (key)
+                            
+                            	Clock Class to map from
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: clock_class_to
+                            
+                            	Clock class to map to
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+
+                                self.yang_name = "clock-class-mapping"
+                                self.yang_parent_name = "clock-class-mappings"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['clock_class_from']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
+                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
+                                ])
+                                self.clock_class_from = None
+                                self.clock_class_to = None
+                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, [u'clock_class_from', u'clock_class_to'], name, value)
+
+
+
+
+
+                class IngressConversion(Entity):
+                    """
+                    Iteroperation configuration to be used on
+                    ingress
+                    
+                    .. attribute:: clock_class_mappings
+                    
+                    	Table for specific mappings for given clock class values
+                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings>`
+                    
+                    .. attribute:: clock_accuracy
+                    
+                    	Clock Accuracy value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..254
+                    
+                    .. attribute:: priority2
+                    
+                    	Priority2 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: clock_class_default
+                    
+                    	Default clock class to use when a more specific mapping is not available
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: offset_scaled_log_variance
+                    
+                    	OSLV value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: priority1
+                    
+                    	Priority1 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion, self).__init__()
+
+                        self.yang_name = "ingress-conversion"
+                        self.yang_parent_name = "interop"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings))])
+                        self._leafs = OrderedDict([
+                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
+                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
+                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
+                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                        ])
+                        self.clock_accuracy = None
+                        self.priority2 = None
+                        self.clock_class_default = None
+                        self.offset_scaled_log_variance = None
+                        self.priority1 = None
+
+                        self.clock_class_mappings = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings()
+                        self.clock_class_mappings.parent = self
+                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
+                        self._segment_path = lambda: "ingress-conversion"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion, [u'clock_accuracy', u'priority2', u'clock_class_default', u'offset_scaled_log_variance', u'priority1'], name, value)
+
+
+                    class ClockClassMappings(Entity):
+                        """
+                        Table for specific mappings for given clock
+                        class values
+                        
+                        .. attribute:: clock_class_mapping
+                        
+                        	Mapping for a given clock class value
+                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings, self).__init__()
+
+                            self.yang_name = "clock-class-mappings"
+                            self.yang_parent_name = "ingress-conversion"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping))])
+                            self._leafs = OrderedDict()
+
+                            self.clock_class_mapping = YList(self)
+                            self._segment_path = lambda: "clock-class-mappings"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings, [], name, value)
+
+
+                        class ClockClassMapping(Entity):
+                            """
+                            Mapping for a given clock class value
+                            
+                            .. attribute:: clock_class_from  (key)
+                            
+                            	Clock Class to map from
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: clock_class_to
+                            
+                            	Clock class to map to
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+
+                                self.yang_name = "clock-class-mapping"
+                                self.yang_parent_name = "clock-class-mappings"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['clock_class_from']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
+                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
+                                ])
+                                self.clock_class_from = None
+                                self.clock_class_to = None
+                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, [u'clock_class_from', u'clock_class_to'], name, value)
+
+
+
+
+
+
+            class SourceIpv4Address(Entity):
+                """
+                Source IPv4 Address
+                
+                .. attribute:: enable
+                
+                	Enable source IP address
+                	**type**\: bool
+                
+                .. attribute:: source_ip
+                
+                	Source IP address to use
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address, self).__init__()
+
+                    self.yang_name = "source-ipv4-address"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('source_ip', (YLeaf(YType.str, 'source-ip'), ['str'])),
+                    ])
+                    self.enable = None
+                    self.source_ip = None
+                    self._segment_path = lambda: "source-ipv4-address"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address, [u'enable', u'source_ip'], name, value)
+
+
+
+            class Slaves(Entity):
+                """
+                Table for slave configuration
+                
+                .. attribute:: slave
+                
+                	Slave configuration
+                	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave>`
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves, self).__init__()
+
+                    self.yang_name = "slaves"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("slave", ("slave", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave))])
+                    self._leafs = OrderedDict()
+
+                    self.slave = YList(self)
+                    self._segment_path = lambda: "slaves"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves, [], name, value)
+
+
+                class Slave(Entity):
+                    """
+                    Slave configuration
+                    
+                    .. attribute:: transport  (key)
+                    
+                    	Slave Transport Type
+                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+                    
+                    .. attribute:: ethernet
+                    
+                    	ethernet
+                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet>`
+                    
+                    .. attribute:: ipv4_or_ipv6
+                    
+                    	ipv4 or ipv6
+                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave, self).__init__()
+
+                        self.yang_name = "slave"
+                        self.yang_parent_name = "slaves"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['transport']
+                        self._child_classes = OrderedDict([("ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6))])
+                        self._leafs = OrderedDict([
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
+                        ])
+                        self.transport = None
+
+                        self.ethernet = YList(self)
+                        self.ipv4_or_ipv6 = YList(self)
+                        self._segment_path = lambda: "slave" + "[transport='" + str(self.transport) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave, [u'transport'], name, value)
+
+
+                    class Ethernet(Entity):
+                        """
+                        ethernet
+                        
+                        .. attribute:: slave_mac_address  (key)
+                        
+                        	Slave MAC Address
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: non_negotiated
+                        
+                        	Enable non\-negotiated unicast on this interface
+                        	**type**\: bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet, self).__init__()
+
+                            self.yang_name = "ethernet"
+                            self.yang_parent_name = "slave"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['slave_mac_address']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('slave_mac_address', (YLeaf(YType.str, 'slave-mac-address'), ['str'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                            ])
+                            self.slave_mac_address = None
+                            self.non_negotiated = None
+                            self._segment_path = lambda: "ethernet" + "[slave-mac-address='" + str(self.slave_mac_address) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet, [u'slave_mac_address', u'non_negotiated'], name, value)
+
+
+
+                    class Ipv4OrIpv6(Entity):
+                        """
+                        ipv4 or ipv6
+                        
+                        .. attribute:: slave_ip_address  (key)
+                        
+                        	Slave IP Address
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: non_negotiated
+                        
+                        	Enable non\-negotiated unicast on this interface
+                        	**type**\: bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6, self).__init__()
+
+                            self.yang_name = "ipv4-or-ipv6"
+                            self.yang_parent_name = "slave"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['slave_ip_address']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('slave_ip_address', (YLeaf(YType.str, 'slave-ip-address'), ['str','str'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                            ])
+                            self.slave_ip_address = None
+                            self.non_negotiated = None
+                            self._segment_path = lambda: "ipv4-or-ipv6" + "[slave-ip-address='" + str(self.slave_ip_address) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6, [u'slave_ip_address', u'non_negotiated'], name, value)
+
+
+
+
+
+            class SyncInterval(Entity):
+                """
+                Sync interval
+                
+                .. attribute:: time_type
+                
+                	Interval or Frequency
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                
+                	**default value**\: interval
+                
+                .. attribute:: time_period
+                
+                	Time Period
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                
+                	**default value**\: 1
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval, self).__init__()
+
+                    self.yang_name = "sync-interval"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
+                    ])
+                    self.time_type = None
+                    self.time_period = None
+                    self._segment_path = lambda: "sync-interval"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval, [u'time_type', u'time_period'], name, value)
+
+
+
+            class Masters(Entity):
+                """
+                Table for master configuration
+                
+                .. attribute:: master
+                
+                	Master configuration
+                	**type**\: list of  		 :py:class:`Master <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master>`
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters, self).__init__()
+
+                    self.yang_name = "masters"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("master", ("master", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master))])
+                    self._leafs = OrderedDict()
+
+                    self.master = YList(self)
+                    self._segment_path = lambda: "masters"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters, [], name, value)
+
+
+                class Master(Entity):
+                    """
+                    Master configuration
+                    
+                    .. attribute:: transport  (key)
+                    
+                    	Master Transport Type
+                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+                    
+                    .. attribute:: ethernet
+                    
+                    	ethernet
+                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet>`
+                    
+                    .. attribute:: ipv4_or_ipv6
+                    
+                    	ipv4 or ipv6
+                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master, self).__init__()
+
+                        self.yang_name = "master"
+                        self.yang_parent_name = "masters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['transport']
+                        self._child_classes = OrderedDict([("ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6))])
+                        self._leafs = OrderedDict([
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
+                        ])
+                        self.transport = None
+
+                        self.ethernet = YList(self)
+                        self.ipv4_or_ipv6 = YList(self)
+                        self._segment_path = lambda: "master" + "[transport='" + str(self.transport) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master, [u'transport'], name, value)
+
+
+                    class Ethernet(Entity):
+                        """
+                        ethernet
+                        
+                        .. attribute:: master_mac_address  (key)
+                        
+                        	Master MAC Address \- only used if Transport is Ethernet
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: delay_asymmetry
+                        
+                        	The delay asymmetry for this master
+                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry>`
+                        
+                        	**presence node**\: True
+                        
+                        .. attribute:: master_clock_class
+                        
+                        	Master clock class
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: non_negotiated
+                        
+                        	Enable non\-negotiated unicast on this interface
+                        	**type**\: bool
+                        
+                        .. attribute:: priority
+                        
+                        	Master priority
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: communication
+                        
+                        	Communication Model
+                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                        
+                        	**default value**\: unicast
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet, self).__init__()
+
+                            self.yang_name = "ethernet"
+                            self.yang_parent_name = "master"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['master_mac_address']
+                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry))])
+                            self._leafs = OrderedDict([
+                                ('master_mac_address', (YLeaf(YType.str, 'master-mac-address'), ['str'])),
+                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
+                            ])
+                            self.master_mac_address = None
+                            self.master_clock_class = None
+                            self.non_negotiated = None
+                            self.priority = None
+                            self.communication = None
+
+                            self.delay_asymmetry = None
+                            self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
+                            self._segment_path = lambda: "ethernet" + "[master-mac-address='" + str(self.master_mac_address) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet, [u'master_mac_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+
+
+                        class DelayAsymmetry(Entity):
+                            """
+                            The delay asymmetry for this master
+                            
+                            .. attribute:: magnitude
+                            
+                            	How much longer the master to slave path takes than the reverse
+                            	**type**\: int
+                            
+                            	**range:** \-500000000..500000000
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: units
+                            
+                            	The units to use for the delay asymmetry
+                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry, self).__init__()
+
+                                self.yang_name = "delay-asymmetry"
+                                self.yang_parent_name = "ethernet"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self.is_presence_container = True
+                                self._leafs = OrderedDict([
+                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
+                                ])
+                                self.magnitude = None
+                                self.units = None
+                                self._segment_path = lambda: "delay-asymmetry"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+
+
+
+
+                    class Ipv4OrIpv6(Entity):
+                        """
+                        ipv4 or ipv6
+                        
+                        .. attribute:: master_ip_address  (key)
+                        
+                        	Master IP Address \- used if Transport is not Ethernet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: delay_asymmetry
+                        
+                        	The delay asymmetry for this master
+                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry>`
+                        
+                        	**presence node**\: True
+                        
+                        .. attribute:: master_clock_class
+                        
+                        	Master clock class
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: non_negotiated
+                        
+                        	Enable non\-negotiated unicast on this interface
+                        	**type**\: bool
+                        
+                        .. attribute:: priority
+                        
+                        	Master priority
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: communication
+                        
+                        	Communication Model
+                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                        
+                        	**default value**\: unicast
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6, self).__init__()
+
+                            self.yang_name = "ipv4-or-ipv6"
+                            self.yang_parent_name = "master"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['master_ip_address']
+                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry))])
+                            self._leafs = OrderedDict([
+                                ('master_ip_address', (YLeaf(YType.str, 'master-ip-address'), ['str','str'])),
+                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
+                            ])
+                            self.master_ip_address = None
+                            self.master_clock_class = None
+                            self.non_negotiated = None
+                            self.priority = None
+                            self.communication = None
+
+                            self.delay_asymmetry = None
+                            self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
+                            self._segment_path = lambda: "ipv4-or-ipv6" + "[master-ip-address='" + str(self.master_ip_address) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6, [u'master_ip_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+
+
+                        class DelayAsymmetry(Entity):
+                            """
+                            The delay asymmetry for this master
+                            
+                            .. attribute:: magnitude
+                            
+                            	How much longer the master to slave path takes than the reverse
+                            	**type**\: int
+                            
+                            	**range:** \-500000000..500000000
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: units
+                            
+                            	The units to use for the delay asymmetry
+                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, self).__init__()
+
+                                self.yang_name = "delay-asymmetry"
+                                self.yang_parent_name = "ipv4-or-ipv6"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self.is_presence_container = True
+                                self._leafs = OrderedDict([
+                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
+                                ])
+                                self.magnitude = None
+                                self.units = None
+                                self._segment_path = lambda: "delay-asymmetry"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+
+
+
+
+
+
+            class Communication(Entity):
+                """
+                Communication model
+                
+                .. attribute:: model
+                
+                	Communication Model
+                	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                
+                	**default value**\: unicast
+                
+                .. attribute:: target_address_set
+                
+                	Target address set
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: target_address
+                
+                	Target address
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication, self).__init__()
+
+                    self.yang_name = "communication"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('model', (YLeaf(YType.enumeration, 'model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
+                        ('target_address_set', (YLeaf(YType.boolean, 'target-address-set'), ['bool'])),
+                        ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
+                    ])
+                    self.model = None
+                    self.target_address_set = None
+                    self.target_address = None
+                    self._segment_path = lambda: "communication"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication, [u'model', u'target_address_set', u'target_address'], name, value)
+
+
+
+            class DelayRequestMinimumInterval(Entity):
+                """
+                Minimum delay request interval
+                
+                .. attribute:: time_type
+                
+                	Interval or Frequency
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                
+                	**default value**\: interval
+                
+                .. attribute:: time_period
+                
+                	Time Period
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                
+                	**default value**\: 1
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval, self).__init__()
+
+                    self.yang_name = "delay-request-minimum-interval"
+                    self.yang_parent_name = "ptp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
+                    ])
+                    self.time_type = None
+                    self.time_period = None
+                    self._segment_path = lambda: "delay-request-minimum-interval"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval, [u'time_type', u'time_period'], name, value)
+
+
+
+
+        class EthernetControl(Entity):
+            """
+            EthernetControl
+            
+            .. attribute:: transceiver
+            
+            	Transceiver
+            	**type**\:  :py:class:`Transceiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver>`
+            
+            .. attribute:: transport_mode
+            
+            	Set the transport mode on an interface
+            	**type**\:  :py:class:`EtherCtrlTransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.EtherCtrlTransportMode>`
+            
+            .. attribute:: small_frame_padding
+            
+            	Enable small frame padding on an interface
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'asr9k-lc-ethctrl-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.EthernetControl, self).__init__()
+
+                self.yang_name = "ethernet-control"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("transceiver", ("transceiver", InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver))])
+                self._leafs = OrderedDict([
+                    ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'EtherCtrlTransportMode', '')])),
+                    ('small_frame_padding', (YLeaf(YType.empty, 'small-frame-padding'), ['Empty'])),
+                ])
+                self.transport_mode = None
+                self.small_frame_padding = None
+
+                self.transceiver = InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver()
+                self.transceiver.parent = self
+                self._children_name_map["transceiver"] = "transceiver"
+                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.EthernetControl, ['transport_mode', 'small_frame_padding'], name, value)
+
+
+            class Transceiver(Entity):
+                """
+                Transceiver
+                
+                .. attribute:: permit
+                
+                	Permit
+                	**type**\:  :py:class:`Permit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit>`
+                
+                
+
+                """
+
+                _prefix = 'asr9k-lc-ethctrl-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver, self).__init__()
+
+                    self.yang_name = "transceiver"
+                    self.yang_parent_name = "ethernet-control"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("permit", ("permit", InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit))])
+                    self._leafs = OrderedDict()
+
+                    self.permit = InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit()
+                    self.permit.parent = self
+                    self._children_name_map["permit"] = "permit"
+                    self._segment_path = lambda: "transceiver"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver, [], name, value)
+
+
+                class Permit(Entity):
+                    """
+                    Permit
+                    
+                    .. attribute:: type
+                    
+                    	Permit pluggable type all
+                    	**type**\:  :py:class:`PermitPluggable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.PermitPluggable>`
+                    
+                    .. attribute:: pid
+                    
+                    	Permit pluggable PID (Product ID) all
+                    	**type**\:  :py:class:`PermitPluggablePid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.PermitPluggablePid>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'asr9k-lc-ethctrl-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit, self).__init__()
+
+                        self.yang_name = "permit"
+                        self.yang_parent_name = "transceiver"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'PermitPluggable', '')])),
+                            ('pid', (YLeaf(YType.enumeration, 'pid'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'PermitPluggablePid', '')])),
+                        ])
+                        self.type = None
+                        self.pid = None
+                        self._segment_path = lambda: "permit"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit, ['type', 'pid'], name, value)
+
+
+
+
+
         class Pbr(Entity):
             """
             Interface PBR configuration
@@ -17511,1589 +20671,6 @@ class InterfaceConfigurations(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Loopbacks.Loopback, ['level', 'loopback'], name, value)
-
-
-
-
-        class Ptp(Entity):
-            """
-            Precision Time Protocol interface configuration
-            
-            .. attribute:: source_ipv6_address
-            
-            	Source IPv6 Address
-            	**type**\:  :py:class:`SourceIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address>`
-            
-            .. attribute:: announce_interval
-            
-            	Announce interval
-            	**type**\:  :py:class:`AnnounceInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval>`
-            
-            .. attribute:: interop
-            
-            	Table for interop configuration
-            	**type**\:  :py:class:`Interop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop>`
-            
-            .. attribute:: source_ipv4_address
-            
-            	Source IPv4 Address
-            	**type**\:  :py:class:`SourceIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address>`
-            
-            .. attribute:: slaves
-            
-            	Table for slave configuration
-            	**type**\:  :py:class:`Slaves <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves>`
-            
-            .. attribute:: sync_interval
-            
-            	Sync interval
-            	**type**\:  :py:class:`SyncInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval>`
-            
-            .. attribute:: masters
-            
-            	Table for master configuration
-            	**type**\:  :py:class:`Masters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters>`
-            
-            .. attribute:: communication
-            
-            	Communication model
-            	**type**\:  :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication>`
-            
-            .. attribute:: delay_request_minimum_interval
-            
-            	Minimum delay request interval
-            	**type**\:  :py:class:`DelayRequestMinimumInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval>`
-            
-            .. attribute:: sync_grant_duration
-            
-            	Sync unicast grant duration, in seconds
-            	**type**\: int
-            
-            	**range:** 60..1000
-            
-            	**units**\: second
-            
-            	**default value**\: 300
-            
-            .. attribute:: general_cos
-            
-            	General COS
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            	**default value**\: 6
-            
-            .. attribute:: enable
-            
-            	Enable the precision time protocol
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: sync_timeout
-            
-            	Sync timeout, in milliseconds
-            	**type**\: int
-            
-            	**range:** 100..100000
-            
-            	**units**\: millisecond
-            
-            	**default value**\: 5000
-            
-            .. attribute:: transport
-            
-            	Transport
-            	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
-            
-            	**default value**\: ipv4
-            
-            .. attribute:: profile
-            
-            	Precision Time Protocol configuration profile
-            	**type**\: str
-            
-            .. attribute:: announce_timeout
-            
-            	Announce Timeout
-            	**type**\: int
-            
-            	**range:** 2..10
-            
-            	**default value**\: 3
-            
-            .. attribute:: cos
-            
-            	COS
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            	**default value**\: 6
-            
-            .. attribute:: ipv4ttl
-            
-            	IPv4 TTL
-            	**type**\: int
-            
-            	**range:** 1..255
-            
-            	**default value**\: 255
-            
-            .. attribute:: port_state
-            
-            	Port state restriction
-            	**type**\:  :py:class:`PtpPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpPortState>`
-            
-            	**default value**\: any
-            
-            .. attribute:: delay_response_timeout
-            
-            	Delay\-Response timeout, in milliseconds
-            	**type**\: int
-            
-            	**range:** 100..100000
-            
-            	**units**\: millisecond
-            
-            	**default value**\: 5000
-            
-            .. attribute:: local_priority
-            
-            	Local priority
-            	**type**\: int
-            
-            	**range:** 1..255
-            
-            	**default value**\: 128
-            
-            .. attribute:: delay_response_grant_duration
-            
-            	Delay\-Response unicast grant duration, in seconds
-            	**type**\: int
-            
-            	**range:** 60..1000
-            
-            	**units**\: second
-            
-            	**default value**\: 300
-            
-            .. attribute:: event_cos
-            
-            	Event COS
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            	**default value**\: 6
-            
-            .. attribute:: dscp
-            
-            	DSCP
-            	**type**\: int
-            
-            	**range:** 0..63
-            
-            	**default value**\: 46
-            
-            .. attribute:: ipv6_hop_limit
-            
-            	IPv6 Hop Limit
-            	**type**\: int
-            
-            	**range:** 1..255
-            
-            	**default value**\: 255
-            
-            .. attribute:: general_dscp
-            
-            	General DSCP
-            	**type**\: int
-            
-            	**range:** 0..63
-            
-            	**default value**\: 46
-            
-            .. attribute:: clock_operation
-            
-            	Clock Operation
-            	**type**\:  :py:class:`PtpClockOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockOperation>`
-            
-            	**default value**\: two-step
-            
-            .. attribute:: announce_grant_duration
-            
-            	Announce unicast grant duration, in seconds
-            	**type**\: int
-            
-            	**range:** 60..1000
-            
-            	**units**\: second
-            
-            	**default value**\: 300
-            
-            .. attribute:: unicast_grant_invalid_request
-            
-            	Invalid unicast grant request response
-            	**type**\:  :py:class:`PtpInvalidUnicastGrantRequestResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpInvalidUnicastGrantRequestResponse>`
-            
-            	**default value**\: reduce
-            
-            .. attribute:: event_dscp
-            
-            	Event DSCP
-            	**type**\: int
-            
-            	**range:** 0..63
-            
-            	**default value**\: 46
-            
-            
-
-            """
-
-            _prefix = 'ptp-cfg'
-            _revision = '2017-02-02'
-
-            def __init__(self):
-                super(InterfaceConfigurations.InterfaceConfiguration.Ptp, self).__init__()
-
-                self.yang_name = "ptp"
-                self.yang_parent_name = "interface-configuration"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("source-ipv6-address", ("source_ipv6_address", InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address)), ("announce-interval", ("announce_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval)), ("interop", ("interop", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop)), ("source-ipv4-address", ("source_ipv4_address", InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address)), ("slaves", ("slaves", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves)), ("sync-interval", ("sync_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval)), ("masters", ("masters", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters)), ("communication", ("communication", InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval))])
-                self._leafs = OrderedDict([
-                    ('sync_grant_duration', (YLeaf(YType.uint32, 'sync-grant-duration'), ['int'])),
-                    ('general_cos', (YLeaf(YType.uint32, 'general-cos'), ['int'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                    ('sync_timeout', (YLeaf(YType.uint32, 'sync-timeout'), ['int'])),
-                    ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
-                    ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
-                    ('announce_timeout', (YLeaf(YType.uint32, 'announce-timeout'), ['int'])),
-                    ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
-                    ('ipv4ttl', (YLeaf(YType.uint32, 'ipv4ttl'), ['int'])),
-                    ('port_state', (YLeaf(YType.enumeration, 'port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpPortState', '')])),
-                    ('delay_response_timeout', (YLeaf(YType.uint32, 'delay-response-timeout'), ['int'])),
-                    ('local_priority', (YLeaf(YType.uint32, 'local-priority'), ['int'])),
-                    ('delay_response_grant_duration', (YLeaf(YType.uint32, 'delay-response-grant-duration'), ['int'])),
-                    ('event_cos', (YLeaf(YType.uint32, 'event-cos'), ['int'])),
-                    ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
-                    ('ipv6_hop_limit', (YLeaf(YType.uint32, 'ipv6-hop-limit'), ['int'])),
-                    ('general_dscp', (YLeaf(YType.uint32, 'general-dscp'), ['int'])),
-                    ('clock_operation', (YLeaf(YType.enumeration, 'clock-operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockOperation', '')])),
-                    ('announce_grant_duration', (YLeaf(YType.uint32, 'announce-grant-duration'), ['int'])),
-                    ('unicast_grant_invalid_request', (YLeaf(YType.enumeration, 'unicast-grant-invalid-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpInvalidUnicastGrantRequestResponse', '')])),
-                    ('event_dscp', (YLeaf(YType.uint32, 'event-dscp'), ['int'])),
-                ])
-                self.sync_grant_duration = None
-                self.general_cos = None
-                self.enable = None
-                self.sync_timeout = None
-                self.transport = None
-                self.profile = None
-                self.announce_timeout = None
-                self.cos = None
-                self.ipv4ttl = None
-                self.port_state = None
-                self.delay_response_timeout = None
-                self.local_priority = None
-                self.delay_response_grant_duration = None
-                self.event_cos = None
-                self.dscp = None
-                self.ipv6_hop_limit = None
-                self.general_dscp = None
-                self.clock_operation = None
-                self.announce_grant_duration = None
-                self.unicast_grant_invalid_request = None
-                self.event_dscp = None
-
-                self.source_ipv6_address = InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address()
-                self.source_ipv6_address.parent = self
-                self._children_name_map["source_ipv6_address"] = "source-ipv6-address"
-
-                self.announce_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval()
-                self.announce_interval.parent = self
-                self._children_name_map["announce_interval"] = "announce-interval"
-
-                self.interop = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop()
-                self.interop.parent = self
-                self._children_name_map["interop"] = "interop"
-
-                self.source_ipv4_address = InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address()
-                self.source_ipv4_address.parent = self
-                self._children_name_map["source_ipv4_address"] = "source-ipv4-address"
-
-                self.slaves = InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves()
-                self.slaves.parent = self
-                self._children_name_map["slaves"] = "slaves"
-
-                self.sync_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval()
-                self.sync_interval.parent = self
-                self._children_name_map["sync_interval"] = "sync-interval"
-
-                self.masters = InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters()
-                self.masters.parent = self
-                self._children_name_map["masters"] = "masters"
-
-                self.communication = InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication()
-                self.communication.parent = self
-                self._children_name_map["communication"] = "communication"
-
-                self.delay_request_minimum_interval = InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval()
-                self.delay_request_minimum_interval.parent = self
-                self._children_name_map["delay_request_minimum_interval"] = "delay-request-minimum-interval"
-                self._segment_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp, ['sync_grant_duration', 'general_cos', 'enable', 'sync_timeout', 'transport', 'profile', 'announce_timeout', 'cos', 'ipv4ttl', 'port_state', 'delay_response_timeout', 'local_priority', 'delay_response_grant_duration', 'event_cos', 'dscp', 'ipv6_hop_limit', 'general_dscp', 'clock_operation', 'announce_grant_duration', 'unicast_grant_invalid_request', 'event_dscp'], name, value)
-
-
-            class SourceIpv6Address(Entity):
-                """
-                Source IPv6 Address
-                
-                .. attribute:: enable
-                
-                	Enable source IPv6 address
-                	**type**\: bool
-                
-                .. attribute:: source_ipv6
-                
-                	Source IPv6 address to use
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address, self).__init__()
-
-                    self.yang_name = "source-ipv6-address"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
-                        ('source_ipv6', (YLeaf(YType.str, 'source-ipv6'), ['str'])),
-                    ])
-                    self.enable = None
-                    self.source_ipv6 = None
-                    self._segment_path = lambda: "source-ipv6-address"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
-
-
-
-            class AnnounceInterval(Entity):
-                """
-                Announce interval
-                
-                .. attribute:: time_type
-                
-                	Interval or Frequency
-                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
-                
-                	**default value**\: interval
-                
-                .. attribute:: time_period
-                
-                	Time Period
-                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
-                
-                	**default value**\: 2
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval, self).__init__()
-
-                    self.yang_name = "announce-interval"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
-                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
-                    ])
-                    self.time_type = None
-                    self.time_period = None
-                    self._segment_path = lambda: "announce-interval"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.AnnounceInterval, ['time_type', 'time_period'], name, value)
-
-
-
-            class Interop(Entity):
-                """
-                Table for interop configuration
-                
-                .. attribute:: egress_conversion
-                
-                	Iteroperation configuration to be used on egress
-                	**type**\:  :py:class:`EgressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion>`
-                
-                .. attribute:: ingress_conversion
-                
-                	Iteroperation configuration to be used on ingress
-                	**type**\:  :py:class:`IngressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion>`
-                
-                .. attribute:: profile
-                
-                	Profile to interoperate with
-                	**type**\:  :py:class:`PtpClockProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockProfile>`
-                
-                .. attribute:: domain
-                
-                	Domain number of the peer clock
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop, self).__init__()
-
-                    self.yang_name = "interop"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("egress-conversion", ("egress_conversion", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion)), ("ingress-conversion", ("ingress_conversion", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion))])
-                    self._leafs = OrderedDict([
-                        ('profile', (YLeaf(YType.enumeration, 'profile'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockProfile', '')])),
-                        ('domain', (YLeaf(YType.uint32, 'domain'), ['int'])),
-                    ])
-                    self.profile = None
-                    self.domain = None
-
-                    self.egress_conversion = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion()
-                    self.egress_conversion.parent = self
-                    self._children_name_map["egress_conversion"] = "egress-conversion"
-
-                    self.ingress_conversion = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion()
-                    self.ingress_conversion.parent = self
-                    self._children_name_map["ingress_conversion"] = "ingress-conversion"
-                    self._segment_path = lambda: "interop"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop, ['profile', 'domain'], name, value)
-
-
-                class EgressConversion(Entity):
-                    """
-                    Iteroperation configuration to be used on
-                    egress
-                    
-                    .. attribute:: clock_class_mappings
-                    
-                    	Table for specific mappings for given clock class values
-                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings>`
-                    
-                    .. attribute:: clock_accuracy
-                    
-                    	Clock Accuracy value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..254
-                    
-                    .. attribute:: priority2
-                    
-                    	Priority2 value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: clock_class_default
-                    
-                    	Default clock class to use when a more specific mapping is not available
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: offset_scaled_log_variance
-                    
-                    	OSLV value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: priority1
-                    
-                    	Priority1 value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'ptp-cfg'
-                    _revision = '2017-02-02'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion, self).__init__()
-
-                        self.yang_name = "egress-conversion"
-                        self.yang_parent_name = "interop"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings))])
-                        self._leafs = OrderedDict([
-                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
-                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
-                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
-                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
-                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
-                        ])
-                        self.clock_accuracy = None
-                        self.priority2 = None
-                        self.clock_class_default = None
-                        self.offset_scaled_log_variance = None
-                        self.priority1 = None
-
-                        self.clock_class_mappings = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings()
-                        self.clock_class_mappings.parent = self
-                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
-                        self._segment_path = lambda: "egress-conversion"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
-
-
-                    class ClockClassMappings(Entity):
-                        """
-                        Table for specific mappings for given clock
-                        class values
-                        
-                        .. attribute:: clock_class_mapping
-                        
-                        	Mapping for a given clock class value
-                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings, self).__init__()
-
-                            self.yang_name = "clock-class-mappings"
-                            self.yang_parent_name = "egress-conversion"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping))])
-                            self._leafs = OrderedDict()
-
-                            self.clock_class_mapping = YList(self)
-                            self._segment_path = lambda: "clock-class-mappings"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings, [], name, value)
-
-
-                        class ClockClassMapping(Entity):
-                            """
-                            Mapping for a given clock class value
-                            
-                            .. attribute:: clock_class_from  (key)
-                            
-                            	Clock Class to map from
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: clock_class_to
-                            
-                            	Clock class to map to
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**mandatory**\: True
-                            
-                            
-
-                            """
-
-                            _prefix = 'ptp-cfg'
-                            _revision = '2017-02-02'
-
-                            def __init__(self):
-                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
-
-                                self.yang_name = "clock-class-mapping"
-                                self.yang_parent_name = "clock-class-mappings"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['clock_class_from']
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
-                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
-                                ])
-                                self.clock_class_from = None
-                                self.clock_class_to = None
-                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
-
-
-
-
-
-                class IngressConversion(Entity):
-                    """
-                    Iteroperation configuration to be used on
-                    ingress
-                    
-                    .. attribute:: clock_class_mappings
-                    
-                    	Table for specific mappings for given clock class values
-                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings>`
-                    
-                    .. attribute:: clock_accuracy
-                    
-                    	Clock Accuracy value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..254
-                    
-                    .. attribute:: priority2
-                    
-                    	Priority2 value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: clock_class_default
-                    
-                    	Default clock class to use when a more specific mapping is not available
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: offset_scaled_log_variance
-                    
-                    	OSLV value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: priority1
-                    
-                    	Priority1 value to use for the peer clock
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'ptp-cfg'
-                    _revision = '2017-02-02'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion, self).__init__()
-
-                        self.yang_name = "ingress-conversion"
-                        self.yang_parent_name = "interop"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings))])
-                        self._leafs = OrderedDict([
-                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
-                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
-                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
-                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
-                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
-                        ])
-                        self.clock_accuracy = None
-                        self.priority2 = None
-                        self.clock_class_default = None
-                        self.offset_scaled_log_variance = None
-                        self.priority1 = None
-
-                        self.clock_class_mappings = InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings()
-                        self.clock_class_mappings.parent = self
-                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
-                        self._segment_path = lambda: "ingress-conversion"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
-
-
-                    class ClockClassMappings(Entity):
-                        """
-                        Table for specific mappings for given clock
-                        class values
-                        
-                        .. attribute:: clock_class_mapping
-                        
-                        	Mapping for a given clock class value
-                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings, self).__init__()
-
-                            self.yang_name = "clock-class-mappings"
-                            self.yang_parent_name = "ingress-conversion"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping))])
-                            self._leafs = OrderedDict()
-
-                            self.clock_class_mapping = YList(self)
-                            self._segment_path = lambda: "clock-class-mappings"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings, [], name, value)
-
-
-                        class ClockClassMapping(Entity):
-                            """
-                            Mapping for a given clock class value
-                            
-                            .. attribute:: clock_class_from  (key)
-                            
-                            	Clock Class to map from
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: clock_class_to
-                            
-                            	Clock class to map to
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**mandatory**\: True
-                            
-                            
-
-                            """
-
-                            _prefix = 'ptp-cfg'
-                            _revision = '2017-02-02'
-
-                            def __init__(self):
-                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
-
-                                self.yang_name = "clock-class-mapping"
-                                self.yang_parent_name = "clock-class-mappings"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['clock_class_from']
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
-                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
-                                ])
-                                self.clock_class_from = None
-                                self.clock_class_to = None
-                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
-
-
-
-
-
-
-            class SourceIpv4Address(Entity):
-                """
-                Source IPv4 Address
-                
-                .. attribute:: enable
-                
-                	Enable source IP address
-                	**type**\: bool
-                
-                .. attribute:: source_ip
-                
-                	Source IP address to use
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address, self).__init__()
-
-                    self.yang_name = "source-ipv4-address"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
-                        ('source_ip', (YLeaf(YType.str, 'source-ip'), ['str'])),
-                    ])
-                    self.enable = None
-                    self.source_ip = None
-                    self._segment_path = lambda: "source-ipv4-address"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SourceIpv4Address, ['enable', 'source_ip'], name, value)
-
-
-
-            class Slaves(Entity):
-                """
-                Table for slave configuration
-                
-                .. attribute:: slave
-                
-                	Slave configuration
-                	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave>`
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves, self).__init__()
-
-                    self.yang_name = "slaves"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("slave", ("slave", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave))])
-                    self._leafs = OrderedDict()
-
-                    self.slave = YList(self)
-                    self._segment_path = lambda: "slaves"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves, [], name, value)
-
-
-                class Slave(Entity):
-                    """
-                    Slave configuration
-                    
-                    .. attribute:: transport  (key)
-                    
-                    	Slave Transport Type
-                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
-                    
-                    .. attribute:: ethernet
-                    
-                    	ethernet
-                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet>`
-                    
-                    .. attribute:: ipv4_or_ipv6
-                    
-                    	ipv4 or ipv6
-                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ptp-cfg'
-                    _revision = '2017-02-02'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave, self).__init__()
-
-                        self.yang_name = "slave"
-                        self.yang_parent_name = "slaves"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['transport']
-                        self._child_classes = OrderedDict([("ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6))])
-                        self._leafs = OrderedDict([
-                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
-                        ])
-                        self.transport = None
-
-                        self.ethernet = YList(self)
-                        self.ipv4_or_ipv6 = YList(self)
-                        self._segment_path = lambda: "slave" + "[transport='" + str(self.transport) + "']"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave, ['transport'], name, value)
-
-
-                    class Ethernet(Entity):
-                        """
-                        ethernet
-                        
-                        .. attribute:: slave_mac_address  (key)
-                        
-                        	Slave MAC Address
-                        	**type**\: str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: non_negotiated
-                        
-                        	Enable non\-negotiated unicast on this interface
-                        	**type**\: bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet, self).__init__()
-
-                            self.yang_name = "ethernet"
-                            self.yang_parent_name = "slave"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['slave_mac_address']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('slave_mac_address', (YLeaf(YType.str, 'slave-mac-address'), ['str'])),
-                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
-                            ])
-                            self.slave_mac_address = None
-                            self.non_negotiated = None
-                            self._segment_path = lambda: "ethernet" + "[slave-mac-address='" + str(self.slave_mac_address) + "']"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
-
-
-
-                    class Ipv4OrIpv6(Entity):
-                        """
-                        ipv4 or ipv6
-                        
-                        .. attribute:: slave_ip_address  (key)
-                        
-                        	Slave IP Address
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: non_negotiated
-                        
-                        	Enable non\-negotiated unicast on this interface
-                        	**type**\: bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6, self).__init__()
-
-                            self.yang_name = "ipv4-or-ipv6"
-                            self.yang_parent_name = "slave"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['slave_ip_address']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('slave_ip_address', (YLeaf(YType.str, 'slave-ip-address'), ['str','str'])),
-                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
-                            ])
-                            self.slave_ip_address = None
-                            self.non_negotiated = None
-                            self._segment_path = lambda: "ipv4-or-ipv6" + "[slave-ip-address='" + str(self.slave_ip_address) + "']"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
-
-
-
-
-
-            class SyncInterval(Entity):
-                """
-                Sync interval
-                
-                .. attribute:: time_type
-                
-                	Interval or Frequency
-                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
-                
-                	**default value**\: interval
-                
-                .. attribute:: time_period
-                
-                	Time Period
-                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
-                
-                	**default value**\: 1
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval, self).__init__()
-
-                    self.yang_name = "sync-interval"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
-                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
-                    ])
-                    self.time_type = None
-                    self.time_period = None
-                    self._segment_path = lambda: "sync-interval"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.SyncInterval, ['time_type', 'time_period'], name, value)
-
-
-
-            class Masters(Entity):
-                """
-                Table for master configuration
-                
-                .. attribute:: master
-                
-                	Master configuration
-                	**type**\: list of  		 :py:class:`Master <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master>`
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters, self).__init__()
-
-                    self.yang_name = "masters"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("master", ("master", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master))])
-                    self._leafs = OrderedDict()
-
-                    self.master = YList(self)
-                    self._segment_path = lambda: "masters"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters, [], name, value)
-
-
-                class Master(Entity):
-                    """
-                    Master configuration
-                    
-                    .. attribute:: transport  (key)
-                    
-                    	Master Transport Type
-                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
-                    
-                    .. attribute:: ethernet
-                    
-                    	ethernet
-                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet>`
-                    
-                    .. attribute:: ipv4_or_ipv6
-                    
-                    	ipv4 or ipv6
-                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ptp-cfg'
-                    _revision = '2017-02-02'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master, self).__init__()
-
-                        self.yang_name = "master"
-                        self.yang_parent_name = "masters"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['transport']
-                        self._child_classes = OrderedDict([("ethernet", ("ethernet", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6))])
-                        self._leafs = OrderedDict([
-                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
-                        ])
-                        self.transport = None
-
-                        self.ethernet = YList(self)
-                        self.ipv4_or_ipv6 = YList(self)
-                        self._segment_path = lambda: "master" + "[transport='" + str(self.transport) + "']"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master, ['transport'], name, value)
-
-
-                    class Ethernet(Entity):
-                        """
-                        ethernet
-                        
-                        .. attribute:: master_mac_address  (key)
-                        
-                        	Master MAC Address \- only used if Transport is Ethernet
-                        	**type**\: str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: delay_asymmetry
-                        
-                        	The delay asymmetry for this master
-                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry>`
-                        
-                        	**presence node**\: True
-                        
-                        .. attribute:: master_clock_class
-                        
-                        	Master clock class
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: non_negotiated
-                        
-                        	Enable non\-negotiated unicast on this interface
-                        	**type**\: bool
-                        
-                        .. attribute:: priority
-                        
-                        	Master priority
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: communication
-                        
-                        	Communication Model
-                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
-                        
-                        	**default value**\: unicast
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet, self).__init__()
-
-                            self.yang_name = "ethernet"
-                            self.yang_parent_name = "master"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['master_mac_address']
-                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry))])
-                            self._leafs = OrderedDict([
-                                ('master_mac_address', (YLeaf(YType.str, 'master-mac-address'), ['str'])),
-                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
-                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
-                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
-                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
-                            ])
-                            self.master_mac_address = None
-                            self.master_clock_class = None
-                            self.non_negotiated = None
-                            self.priority = None
-                            self.communication = None
-
-                            self.delay_asymmetry = None
-                            self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
-                            self._segment_path = lambda: "ethernet" + "[master-mac-address='" + str(self.master_mac_address) + "']"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet, ['master_mac_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
-
-
-                        class DelayAsymmetry(Entity):
-                            """
-                            The delay asymmetry for this master
-                            
-                            .. attribute:: magnitude
-                            
-                            	How much longer the master to slave path takes than the reverse
-                            	**type**\: int
-                            
-                            	**range:** \-500000000..500000000
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: units
-                            
-                            	The units to use for the delay asymmetry
-                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
-                            
-                            	**mandatory**\: True
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ptp-cfg'
-                            _revision = '2017-02-02'
-
-                            def __init__(self):
-                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry, self).__init__()
-
-                                self.yang_name = "delay-asymmetry"
-                                self.yang_parent_name = "ethernet"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self.is_presence_container = True
-                                self._leafs = OrderedDict([
-                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
-                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
-                                ])
-                                self.magnitude = None
-                                self.units = None
-                                self._segment_path = lambda: "delay-asymmetry"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
-
-
-
-
-                    class Ipv4OrIpv6(Entity):
-                        """
-                        ipv4 or ipv6
-                        
-                        .. attribute:: master_ip_address  (key)
-                        
-                        	Master IP Address \- used if Transport is not Ethernet
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: delay_asymmetry
-                        
-                        	The delay asymmetry for this master
-                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry>`
-                        
-                        	**presence node**\: True
-                        
-                        .. attribute:: master_clock_class
-                        
-                        	Master clock class
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: non_negotiated
-                        
-                        	Enable non\-negotiated unicast on this interface
-                        	**type**\: bool
-                        
-                        .. attribute:: priority
-                        
-                        	Master priority
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: communication
-                        
-                        	Communication Model
-                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
-                        
-                        	**default value**\: unicast
-                        
-                        
-
-                        """
-
-                        _prefix = 'ptp-cfg'
-                        _revision = '2017-02-02'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6, self).__init__()
-
-                            self.yang_name = "ipv4-or-ipv6"
-                            self.yang_parent_name = "master"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['master_ip_address']
-                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry))])
-                            self._leafs = OrderedDict([
-                                ('master_ip_address', (YLeaf(YType.str, 'master-ip-address'), ['str','str'])),
-                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
-                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
-                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
-                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
-                            ])
-                            self.master_ip_address = None
-                            self.master_clock_class = None
-                            self.non_negotiated = None
-                            self.priority = None
-                            self.communication = None
-
-                            self.delay_asymmetry = None
-                            self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
-                            self._segment_path = lambda: "ipv4-or-ipv6" + "[master-ip-address='" + str(self.master_ip_address) + "']"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6, ['master_ip_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
-
-
-                        class DelayAsymmetry(Entity):
-                            """
-                            The delay asymmetry for this master
-                            
-                            .. attribute:: magnitude
-                            
-                            	How much longer the master to slave path takes than the reverse
-                            	**type**\: int
-                            
-                            	**range:** \-500000000..500000000
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: units
-                            
-                            	The units to use for the delay asymmetry
-                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
-                            
-                            	**mandatory**\: True
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ptp-cfg'
-                            _revision = '2017-02-02'
-
-                            def __init__(self):
-                                super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, self).__init__()
-
-                                self.yang_name = "delay-asymmetry"
-                                self.yang_parent_name = "ipv4-or-ipv6"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self.is_presence_container = True
-                                self._leafs = OrderedDict([
-                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
-                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
-                                ])
-                                self.magnitude = None
-                                self.units = None
-                                self._segment_path = lambda: "delay-asymmetry"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
-
-
-
-
-
-
-            class Communication(Entity):
-                """
-                Communication model
-                
-                .. attribute:: model
-                
-                	Communication Model
-                	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
-                
-                	**default value**\: unicast
-                
-                .. attribute:: target_address_set
-                
-                	Target address set
-                	**type**\: bool
-                
-                	**default value**\: false
-                
-                .. attribute:: target_address
-                
-                	Target address
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication, self).__init__()
-
-                    self.yang_name = "communication"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('model', (YLeaf(YType.enumeration, 'model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
-                        ('target_address_set', (YLeaf(YType.boolean, 'target-address-set'), ['bool'])),
-                        ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
-                    ])
-                    self.model = None
-                    self.target_address_set = None
-                    self.target_address = None
-                    self._segment_path = lambda: "communication"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.Communication, ['model', 'target_address_set', 'target_address'], name, value)
-
-
-
-            class DelayRequestMinimumInterval(Entity):
-                """
-                Minimum delay request interval
-                
-                .. attribute:: time_type
-                
-                	Interval or Frequency
-                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
-                
-                	**default value**\: interval
-                
-                .. attribute:: time_period
-                
-                	Time Period
-                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
-                
-                	**default value**\: 1
-                
-                
-
-                """
-
-                _prefix = 'ptp-cfg'
-                _revision = '2017-02-02'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval, self).__init__()
-
-                    self.yang_name = "delay-request-minimum-interval"
-                    self.yang_parent_name = "ptp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
-                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
-                    ])
-                    self.time_type = None
-                    self.time_period = None
-                    self._segment_path = lambda: "delay-request-minimum-interval"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Ptp.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
 
 
 
@@ -22891,657 +24468,6 @@ class InterfaceConfigurations(Entity):
 
 
 
-        class NvSatelliteAccess(Entity):
-            """
-            nV Satellite Access Link Configuration
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2017-09-30'
-
-            def __init__(self):
-                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess, self).__init__()
-
-                self.yang_name = "nv-satellite-access"
-                self.yang_parent_name = "interface-configuration"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
-                self._is_frozen = True
-
-
-
-        class NvSatelliteFabricLink(Entity):
-            """
-            nV Satellite Fabric Link Configuration
-            
-            .. attribute:: satellite
-            
-            	Hub & Spoke connection to a single Satellite
-            	**type**\: int
-            
-            	**range:** 100..65534
-            
-            	**mandatory**\: True
-            
-            .. attribute:: minimum_required_links
-            
-            	Mininum number of active links required
-            	**type**\: int
-            
-            	**range:** 1..64
-            
-            .. attribute:: redundancy
-            
-            	Redundancy submode
-            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy>`
-            
-            .. attribute:: remote_ports
-            
-            	Remote Ports table
-            	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts>`
-            
-            .. attribute:: ethernet_features
-            
-            	Ethernet Satellite configuration
-            	**type**\:  :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
-            
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2017-09-30'
-
-            def __init__(self):
-                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink, self).__init__()
-
-                self.yang_name = "nv-satellite-fabric-link"
-                self.yang_parent_name = "interface-configuration"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("redundancy", ("redundancy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy)), ("remote-ports", ("remote_ports", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts)), ("Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features", ("ethernet_features", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures))])
-                self.is_presence_container = True
-                self._leafs = OrderedDict([
-                    ('satellite', (YLeaf(YType.uint32, 'satellite'), ['int'])),
-                    ('minimum_required_links', (YLeaf(YType.uint32, 'minimum-required-links'), ['int'])),
-                ])
-                self.satellite = None
-                self.minimum_required_links = None
-
-                self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy()
-                self.redundancy.parent = self
-                self._children_name_map["redundancy"] = "redundancy"
-
-                self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts()
-                self.remote_ports.parent = self
-                self._children_name_map["remote_ports"] = "remote-ports"
-
-                self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures()
-                self.ethernet_features.parent = self
-                self._children_name_map["ethernet_features"] = "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
-                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink, [u'satellite', u'minimum_required_links'], name, value)
-
-
-            class Redundancy(Entity):
-                """
-                Redundancy submode
-                
-                .. attribute:: iccp_group
-                
-                	Links the satellite fabric to the given ICCP group
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: minimum_preferred_links
-                
-                	Mininum number of active links preferred
-                	**type**\: int
-                
-                	**range:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'icpe-infra-cfg'
-                _revision = '2017-09-30'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy, self).__init__()
-
-                    self.yang_name = "redundancy"
-                    self.yang_parent_name = "nv-satellite-fabric-link"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('iccp_group', (YLeaf(YType.uint32, 'iccp-group'), ['int'])),
-                        ('minimum_preferred_links', (YLeaf(YType.uint32, 'minimum-preferred-links'), ['int'])),
-                    ])
-                    self.iccp_group = None
-                    self.minimum_preferred_links = None
-                    self._segment_path = lambda: "redundancy"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy, [u'iccp_group', u'minimum_preferred_links'], name, value)
-
-
-
-            class RemotePorts(Entity):
-                """
-                Remote Ports table
-                
-                .. attribute:: remote_port
-                
-                	Remote Ports
-                	**type**\: list of  		 :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort>`
-                
-                
-
-                """
-
-                _prefix = 'icpe-infra-cfg'
-                _revision = '2017-09-30'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts, self).__init__()
-
-                    self.yang_name = "remote-ports"
-                    self.yang_parent_name = "nv-satellite-fabric-link"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("remote-port", ("remote_port", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort))])
-                    self._leafs = OrderedDict()
-
-                    self.remote_port = YList(self)
-                    self._segment_path = lambda: "remote-ports"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts, [], name, value)
-
-
-                class RemotePort(Entity):
-                    """
-                    Remote Ports
-                    
-                    .. attribute:: port_type  (key)
-                    
-                    	Port type
-                    	**type**\: str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: slot  (key)
-                    
-                    	Slot
-                    	**type**\: int
-                    
-                    	**range:** 0..8
-                    
-                    .. attribute:: sub_slot  (key)
-                    
-                    	Sub slot
-                    	**type**\: int
-                    
-                    	**range:** 0..8
-                    
-                    .. attribute:: port_range
-                    
-                    	Port range
-                    	**type**\: str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'icpe-infra-cfg'
-                    _revision = '2017-09-30'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort, self).__init__()
-
-                        self.yang_name = "remote-port"
-                        self.yang_parent_name = "remote-ports"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['port_type','slot','sub_slot']
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('port_type', (YLeaf(YType.str, 'port-type'), ['str'])),
-                            ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
-                            ('sub_slot', (YLeaf(YType.uint32, 'sub-slot'), ['int'])),
-                            ('port_range', (YLeaf(YType.str, 'port-range'), ['str'])),
-                        ])
-                        self.port_type = None
-                        self.slot = None
-                        self.sub_slot = None
-                        self.port_range = None
-                        self._segment_path = lambda: "remote-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
-
-
-
-
-            class EthernetFeatures(Entity):
-                """
-                Ethernet Satellite configuration
-                
-                .. attribute:: cfm
-                
-                	CFM Satellite configuration
-                	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-sat-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures, self).__init__()
-
-                    self.yang_name = "ethernet-features"
-                    self.yang_parent_name = "nv-satellite-fabric-link"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("cfm", ("cfm", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm))])
-                    self._leafs = OrderedDict()
-
-                    self.cfm = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm()
-                    self.cfm.parent = self
-                    self._children_name_map["cfm"] = "cfm"
-                    self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures, [], name, value)
-
-
-                class Cfm(Entity):
-                    """
-                    CFM Satellite configuration
-                    
-                    .. attribute:: continuity_check_interval
-                    
-                    	Continuity\-Check Interval
-                    	**type**\:  :py:class:`CfmCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval>`
-                    
-                    .. attribute:: level
-                    
-                    	Maintenance Domain Level
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: enable
-                    
-                    	Enable CFM on Satellite
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-sat-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm, self).__init__()
-
-                        self.yang_name = "cfm"
-                        self.yang_parent_name = "ethernet-features"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('continuity_check_interval', (YLeaf(YType.enumeration, 'continuity-check-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmInterval', '')])),
-                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                        ])
-                        self.continuity_check_interval = None
-                        self.level = None
-                        self.enable = None
-                        self._segment_path = lambda: "cfm"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm, ['continuity_check_interval', 'level', 'enable'], name, value)
-
-
-
-
-
-        class NvSatelliteFabricNetwork(Entity):
-            """
-            Complex Network connection to one or more
-            Satellites
-            
-            .. attribute:: satellites
-            
-            	Connected Satellite table
-            	**type**\:  :py:class:`Satellites <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
-            
-            .. attribute:: redundancy
-            
-            	Redundancy submode
-            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy>`
-            
-            .. attribute:: enable
-            
-            	Enable
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            	**mandatory**\: True
-            
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2017-09-30'
-
-            def __init__(self):
-                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork, self).__init__()
-
-                self.yang_name = "nv-satellite-fabric-network"
-                self.yang_parent_name = "interface-configuration"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("satellites", ("satellites", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites)), ("redundancy", ("redundancy", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy))])
-                self.is_presence_container = True
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-
-                self.satellites = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites()
-                self.satellites.parent = self
-                self._children_name_map["satellites"] = "satellites"
-
-                self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy()
-                self.redundancy.parent = self
-                self._children_name_map["redundancy"] = "redundancy"
-                self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork, [u'enable'], name, value)
-
-
-            class Satellites(Entity):
-                """
-                Connected Satellite table
-                
-                .. attribute:: satellite
-                
-                	Connected Satellite
-                	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite>`
-                
-                
-
-                """
-
-                _prefix = 'icpe-infra-cfg'
-                _revision = '2017-09-30'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites, self).__init__()
-
-                    self.yang_name = "satellites"
-                    self.yang_parent_name = "nv-satellite-fabric-network"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("satellite", ("satellite", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite))])
-                    self._leafs = OrderedDict()
-
-                    self.satellite = YList(self)
-                    self._segment_path = lambda: "satellites"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites, [], name, value)
-
-
-                class Satellite(Entity):
-                    """
-                    Connected Satellite
-                    
-                    .. attribute:: satellite_id  (key)
-                    
-                    	Satellite ID
-                    	**type**\: int
-                    
-                    	**range:** 100..65534
-                    
-                    .. attribute:: remote_ports
-                    
-                    	Remote Ports table
-                    	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
-                    
-                    .. attribute:: enable
-                    
-                    	Enable
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'icpe-infra-cfg'
-                    _revision = '2017-09-30'
-
-                    def __init__(self):
-                        super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite, self).__init__()
-
-                        self.yang_name = "satellite"
-                        self.yang_parent_name = "satellites"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['satellite_id']
-                        self._child_classes = OrderedDict([("remote-ports", ("remote_ports", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts))])
-                        self._leafs = OrderedDict([
-                            ('satellite_id', (YLeaf(YType.uint32, 'satellite-id'), ['int'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                        ])
-                        self.satellite_id = None
-                        self.enable = None
-
-                        self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts()
-                        self.remote_ports.parent = self
-                        self._children_name_map["remote_ports"] = "remote-ports"
-                        self._segment_path = lambda: "satellite" + "[satellite-id='" + str(self.satellite_id) + "']"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite, [u'satellite_id', u'enable'], name, value)
-
-
-                    class RemotePorts(Entity):
-                        """
-                        Remote Ports table
-                        
-                        .. attribute:: remote_port
-                        
-                        	Remote Ports
-                        	**type**\: list of  		 :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'icpe-infra-cfg'
-                        _revision = '2017-09-30'
-
-                        def __init__(self):
-                            super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts, self).__init__()
-
-                            self.yang_name = "remote-ports"
-                            self.yang_parent_name = "satellite"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("remote-port", ("remote_port", InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort))])
-                            self._leafs = OrderedDict()
-
-                            self.remote_port = YList(self)
-                            self._segment_path = lambda: "remote-ports"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts, [], name, value)
-
-
-                        class RemotePort(Entity):
-                            """
-                            Remote Ports
-                            
-                            .. attribute:: port_type  (key)
-                            
-                            	Port type
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: slot  (key)
-                            
-                            	Slot
-                            	**type**\: int
-                            
-                            	**range:** 0..8
-                            
-                            .. attribute:: sub_slot  (key)
-                            
-                            	Sub slot
-                            	**type**\: int
-                            
-                            	**range:** 0..8
-                            
-                            .. attribute:: port_range
-                            
-                            	Port range
-                            	**type**\: str
-                            
-                            	**mandatory**\: True
-                            
-                            
-
-                            """
-
-                            _prefix = 'icpe-infra-cfg'
-                            _revision = '2017-09-30'
-
-                            def __init__(self):
-                                super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort, self).__init__()
-
-                                self.yang_name = "remote-port"
-                                self.yang_parent_name = "remote-ports"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['port_type','slot','sub_slot']
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('port_type', (YLeaf(YType.str, 'port-type'), ['str'])),
-                                    ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
-                                    ('sub_slot', (YLeaf(YType.uint32, 'sub-slot'), ['int'])),
-                                    ('port_range', (YLeaf(YType.str, 'port-range'), ['str'])),
-                                ])
-                                self.port_type = None
-                                self.slot = None
-                                self.sub_slot = None
-                                self.port_range = None
-                                self._segment_path = lambda: "remote-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
-
-
-
-
-
-
-            class Redundancy(Entity):
-                """
-                Redundancy submode
-                
-                .. attribute:: iccp_group
-                
-                	Links the satellite fabric to the given ICCP group
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: minimum_preferred_links
-                
-                	Mininum number of active links preferred
-                	**type**\: int
-                
-                	**range:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'icpe-infra-cfg'
-                _revision = '2017-09-30'
-
-                def __init__(self):
-                    super(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy, self).__init__()
-
-                    self.yang_name = "redundancy"
-                    self.yang_parent_name = "nv-satellite-fabric-network"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('iccp_group', (YLeaf(YType.uint32, 'iccp-group'), ['int'])),
-                        ('minimum_preferred_links', (YLeaf(YType.uint32, 'minimum-preferred-links'), ['int'])),
-                    ])
-                    self.iccp_group = None
-                    self.minimum_preferred_links = None
-                    self._segment_path = lambda: "redundancy"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy, [u'iccp_group', u'minimum_preferred_links'], name, value)
-
-
-
-
         class Dwdm(Entity):
             """
             DWDM port controller configuration
@@ -26059,6 +26985,882 @@ class InterfaceConfigurations(Entity):
 
 
 
+        class Atm(Entity):
+            """
+            ATM Configuration
+            
+            .. attribute:: pvps
+            
+            	PVP Configuration
+            	**type**\:  :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps>`
+            
+            .. attribute:: pvcs
+            
+            	PVC Configuration
+            	**type**\:  :py:class:`Pvcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs>`
+            
+            .. attribute:: maximum_cell_packing_timers
+            
+            	Configure maximum cell\-packing timers.  All parameters are mandatory
+            	**type**\:  :py:class:`MaximumCellPackingTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers>`
+            
+            	**presence node**\: True
+            
+            .. attribute:: vp_tunnels
+            
+            	VP tunnel configuration
+            	**type**\:  :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels>`
+            
+            .. attribute:: max_vpi_bits
+            
+            	Support 12\-bits VPI cell format
+            	**type**\:  :py:class:`AtmVpiBitsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsMode>`
+            
+            .. attribute:: vc_class
+            
+            	Name of the VC class
+            	**type**\: str
+            
+            	**length:** 1..30
+            
+            
+
+            """
+
+            _prefix = 'atm-vcm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(InterfaceConfigurations.InterfaceConfiguration.Atm, self).__init__()
+
+                self.yang_name = "atm"
+                self.yang_parent_name = "interface-configuration"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("pvps", ("pvps", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps)), ("pvcs", ("pvcs", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs)), ("maximum-cell-packing-timers", ("maximum_cell_packing_timers", InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers)), ("vp-tunnels", ("vp_tunnels", InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels))])
+                self._leafs = OrderedDict([
+                    ('max_vpi_bits', (YLeaf(YType.enumeration, 'max-vpi-bits'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg', 'AtmVpiBitsMode', '')])),
+                    ('vc_class', (YLeaf(YType.str, 'vc-class'), ['str'])),
+                ])
+                self.max_vpi_bits = None
+                self.vc_class = None
+
+                self.pvps = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps()
+                self.pvps.parent = self
+                self._children_name_map["pvps"] = "pvps"
+
+                self.pvcs = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs()
+                self.pvcs.parent = self
+                self._children_name_map["pvcs"] = "pvcs"
+
+                self.maximum_cell_packing_timers = None
+                self._children_name_map["maximum_cell_packing_timers"] = "maximum-cell-packing-timers"
+
+                self.vp_tunnels = InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels()
+                self.vp_tunnels.parent = self
+                self._children_name_map["vp_tunnels"] = "vp-tunnels"
+                self._segment_path = lambda: "Cisco-IOS-XR-atm-vcm-cfg:atm"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm, ['max_vpi_bits', 'vc_class'], name, value)
+
+
+            class Pvps(Entity):
+                """
+                PVP Configuration
+                
+                .. attribute:: pvp
+                
+                	Configuration of particular PVP
+                	**type**\: list of  		 :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp>`
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps, self).__init__()
+
+                    self.yang_name = "pvps"
+                    self.yang_parent_name = "atm"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("pvp", ("pvp", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp))])
+                    self._leafs = OrderedDict()
+
+                    self.pvp = YList(self)
+                    self._segment_path = lambda: "pvps"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps, [], name, value)
+
+
+                class Pvp(Entity):
+                    """
+                    Configuration of particular PVP
+                    
+                    .. attribute:: vpi  (key)
+                    
+                    	VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..4095
+                    
+                    .. attribute:: shape
+                    
+                    	Configure traffic shaping parameters
+                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape>`
+                    
+                    .. attribute:: cell_packing
+                    
+                    	Configure cell\-packing parameters.  All parameters are mandatory
+                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: enable
+                    
+                    	Create the PVP
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: test_mode
+                    
+                    	Configure the PVP test mode
+                    	**type**\:  :py:class:`AtmPvpTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestMode>`
+                    
+                    .. attribute:: oam_segment_endpoint
+                    
+                    	Enable L2VPN PVP OAM segment endpoint
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'atm-vcm-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp, self).__init__()
+
+                        self.yang_name = "pvp"
+                        self.yang_parent_name = "pvps"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['vpi']
+                        self._child_classes = OrderedDict([("shape", ("shape", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape)), ("cell-packing", ("cell_packing", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking))])
+                        self._leafs = OrderedDict([
+                            ('vpi', (YLeaf(YType.uint32, 'vpi'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('test_mode', (YLeaf(YType.enumeration, 'test-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvpTestMode', '')])),
+                            ('oam_segment_endpoint', (YLeaf(YType.empty, 'oam-segment-endpoint'), ['Empty'])),
+                        ])
+                        self.vpi = None
+                        self.enable = None
+                        self.test_mode = None
+                        self.oam_segment_endpoint = None
+
+                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape()
+                        self.shape.parent = self
+                        self._children_name_map["shape"] = "shape"
+
+                        self.cell_packing = None
+                        self._children_name_map["cell_packing"] = "cell-packing"
+                        self._segment_path = lambda: "pvp" + "[vpi='" + str(self.vpi) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp, ['vpi', 'enable', 'test_mode', 'oam_segment_endpoint'], name, value)
+
+
+                    class Shape(Entity):
+                        """
+                        Configure traffic shaping parameters
+                        
+                        .. attribute:: type
+                        
+                        	Traffic shaping type
+                        	**type**\:  :py:class:`AtmPvcShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShaping>`
+                        
+                        .. attribute:: peak_cell_rate
+                        
+                        	Peak cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: sustained_cell_rate
+                        
+                        	Sustained cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: burst_size
+                        
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape, self).__init__()
+
+                            self.yang_name = "shape"
+                            self.yang_parent_name = "pvp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShaping', '')])),
+                                ('peak_cell_rate', (YLeaf(YType.uint32, 'peak-cell-rate'), ['int'])),
+                                ('sustained_cell_rate', (YLeaf(YType.uint32, 'sustained-cell-rate'), ['int'])),
+                                ('burst_size', (YLeaf(YType.uint32, 'burst-size'), ['int'])),
+                            ])
+                            self.type = None
+                            self.peak_cell_rate = None
+                            self.sustained_cell_rate = None
+                            self.burst_size = None
+                            self._segment_path = lambda: "shape"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape, ['type', 'peak_cell_rate', 'sustained_cell_rate', 'burst_size'], name, value)
+
+
+
+                    class CellPacking(Entity):
+                        """
+                        Configure cell\-packing parameters.  All
+                        parameters are mandatory.
+                        
+                        .. attribute:: maximum_cells_packed
+                        
+                        	Maximum number of cells to be packed in a packet
+                        	**type**\: int
+                        
+                        	**range:** 2..255
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: cell_packing_timer_id
+                        
+                        	Which cell packing timer to use
+                        	**type**\: int
+                        
+                        	**range:** 1..3
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking, self).__init__()
+
+                            self.yang_name = "cell-packing"
+                            self.yang_parent_name = "pvp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('maximum_cells_packed', (YLeaf(YType.uint32, 'maximum-cells-packed'), ['int'])),
+                                ('cell_packing_timer_id', (YLeaf(YType.uint32, 'cell-packing-timer-id'), ['int'])),
+                            ])
+                            self.maximum_cells_packed = None
+                            self.cell_packing_timer_id = None
+                            self._segment_path = lambda: "cell-packing"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking, ['maximum_cells_packed', 'cell_packing_timer_id'], name, value)
+
+
+
+
+
+            class Pvcs(Entity):
+                """
+                PVC Configuration
+                
+                .. attribute:: pvc
+                
+                	Configuration particular PVC
+                	**type**\: list of  		 :py:class:`Pvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc>`
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs, self).__init__()
+
+                    self.yang_name = "pvcs"
+                    self.yang_parent_name = "atm"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("pvc", ("pvc", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc))])
+                    self._leafs = OrderedDict()
+
+                    self.pvc = YList(self)
+                    self._segment_path = lambda: "pvcs"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs, [], name, value)
+
+
+                class Pvc(Entity):
+                    """
+                    Configuration particular PVC
+                    
+                    .. attribute:: vpi  (key)
+                    
+                    	VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..4095
+                    
+                    .. attribute:: vci  (key)
+                    
+                    	VCI value
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: pv_ctype  (key)
+                    
+                    	PVC type
+                    	**type**\:  :py:class:`AtmPvcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcData>`
+                    
+                    .. attribute:: shape
+                    
+                    	Configure traffic shaping parameters
+                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape>`
+                    
+                    .. attribute:: oam_emulation
+                    
+                    	L2VPN OAM emulation
+                    	**type**\:  :py:class:`OamEmulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation>`
+                    
+                    .. attribute:: cell_packing
+                    
+                    	Configure cell\-packing parameters.  All parameters are mandatory
+                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: vc_class
+                    
+                    	Name of the VC class
+                    	**type**\: str
+                    
+                    	**length:** 1..30
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Configure encapsulation
+                    	**type**\:  :py:class:`AtmPvcEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulation>`
+                    
+                    .. attribute:: enable
+                    
+                    	Create the PVC
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: test_mode
+                    
+                    	Configure the PVC test mode
+                    	**type**\:  :py:class:`AtmPvcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestMode>`
+                    
+                    .. attribute:: oam_segment_endpoint
+                    
+                    	Enable L2VPN PVC OAM segment endpoint
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'atm-vcm-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc, self).__init__()
+
+                        self.yang_name = "pvc"
+                        self.yang_parent_name = "pvcs"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['vpi','vci','pv_ctype']
+                        self._child_classes = OrderedDict([("shape", ("shape", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape)), ("oam-emulation", ("oam_emulation", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation)), ("cell-packing", ("cell_packing", InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking))])
+                        self._leafs = OrderedDict([
+                            ('vpi', (YLeaf(YType.uint32, 'vpi'), ['int'])),
+                            ('vci', (YLeaf(YType.uint32, 'vci'), ['int'])),
+                            ('pv_ctype', (YLeaf(YType.enumeration, 'pv-ctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcData', '')])),
+                            ('vc_class', (YLeaf(YType.str, 'vc-class'), ['str'])),
+                            ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcEncapsulation', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('test_mode', (YLeaf(YType.enumeration, 'test-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvcTestMode', '')])),
+                            ('oam_segment_endpoint', (YLeaf(YType.empty, 'oam-segment-endpoint'), ['Empty'])),
+                        ])
+                        self.vpi = None
+                        self.vci = None
+                        self.pv_ctype = None
+                        self.vc_class = None
+                        self.encapsulation = None
+                        self.enable = None
+                        self.test_mode = None
+                        self.oam_segment_endpoint = None
+
+                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape()
+                        self.shape.parent = self
+                        self._children_name_map["shape"] = "shape"
+
+                        self.oam_emulation = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation()
+                        self.oam_emulation.parent = self
+                        self._children_name_map["oam_emulation"] = "oam-emulation"
+
+                        self.cell_packing = None
+                        self._children_name_map["cell_packing"] = "cell-packing"
+                        self._segment_path = lambda: "pvc" + "[vpi='" + str(self.vpi) + "']" + "[vci='" + str(self.vci) + "']" + "[pv-ctype='" + str(self.pv_ctype) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc, ['vpi', 'vci', 'pv_ctype', 'vc_class', 'encapsulation', 'enable', 'test_mode', 'oam_segment_endpoint'], name, value)
+
+
+                    class Shape(Entity):
+                        """
+                        Configure traffic shaping parameters
+                        
+                        .. attribute:: type
+                        
+                        	Traffic shaping type
+                        	**type**\:  :py:class:`AtmPvcShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShaping>`
+                        
+                        .. attribute:: peak_cell_rate
+                        
+                        	Peak cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: sustained_cell_rate
+                        
+                        	Sustained cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: burst_size
+                        
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape, self).__init__()
+
+                            self.yang_name = "shape"
+                            self.yang_parent_name = "pvc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShaping', '')])),
+                                ('peak_cell_rate', (YLeaf(YType.uint32, 'peak-cell-rate'), ['int'])),
+                                ('sustained_cell_rate', (YLeaf(YType.uint32, 'sustained-cell-rate'), ['int'])),
+                                ('burst_size', (YLeaf(YType.uint32, 'burst-size'), ['int'])),
+                            ])
+                            self.type = None
+                            self.peak_cell_rate = None
+                            self.sustained_cell_rate = None
+                            self.burst_size = None
+                            self._segment_path = lambda: "shape"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape, ['type', 'peak_cell_rate', 'sustained_cell_rate', 'burst_size'], name, value)
+
+
+
+                    class OamEmulation(Entity):
+                        """
+                        L2VPN OAM emulation
+                        
+                        .. attribute:: enable
+                        
+                        	Enable OAM emulation
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: ais_transmit_rate
+                        
+                        	AIS cell transmit rate (1 per x seconds)
+                        	**type**\: int
+                        
+                        	**range:** 0..60
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation, self).__init__()
+
+                            self.yang_name = "oam-emulation"
+                            self.yang_parent_name = "pvc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('ais_transmit_rate', (YLeaf(YType.uint32, 'ais-transmit-rate'), ['int'])),
+                            ])
+                            self.enable = None
+                            self.ais_transmit_rate = None
+                            self._segment_path = lambda: "oam-emulation"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation, ['enable', 'ais_transmit_rate'], name, value)
+
+
+
+                    class CellPacking(Entity):
+                        """
+                        Configure cell\-packing parameters.  All
+                        parameters are mandatory.
+                        
+                        .. attribute:: maximum_cells_packed
+                        
+                        	Maximum number of cells to be packed in a packet
+                        	**type**\: int
+                        
+                        	**range:** 2..255
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: cell_packing_timer_id
+                        
+                        	Which cell packing timer to use
+                        	**type**\: int
+                        
+                        	**range:** 1..3
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking, self).__init__()
+
+                            self.yang_name = "cell-packing"
+                            self.yang_parent_name = "pvc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('maximum_cells_packed', (YLeaf(YType.uint32, 'maximum-cells-packed'), ['int'])),
+                                ('cell_packing_timer_id', (YLeaf(YType.uint32, 'cell-packing-timer-id'), ['int'])),
+                            ])
+                            self.maximum_cells_packed = None
+                            self.cell_packing_timer_id = None
+                            self._segment_path = lambda: "cell-packing"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking, ['maximum_cells_packed', 'cell_packing_timer_id'], name, value)
+
+
+
+
+
+            class MaximumCellPackingTimers(Entity):
+                """
+                Configure maximum cell\-packing timers.  All
+                parameters are mandatory.
+                
+                .. attribute:: cell_packing_timer1
+                
+                	Cell\-packing timer1 (micro seconds)
+                	**type**\: int
+                
+                	**range:** 50..4095
+                
+                	**mandatory**\: True
+                
+                .. attribute:: cell_packing_timer2
+                
+                	Cell\-packing timer2 (micro seconds)
+                	**type**\: int
+                
+                	**range:** 50..4095
+                
+                	**mandatory**\: True
+                
+                .. attribute:: cell_packing_timer3
+                
+                	Cell\-packing timer3 (micro seconds)
+                	**type**\: int
+                
+                	**range:** 50..4095
+                
+                	**mandatory**\: True
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'atm-vcm-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers, self).__init__()
+
+                    self.yang_name = "maximum-cell-packing-timers"
+                    self.yang_parent_name = "atm"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('cell_packing_timer1', (YLeaf(YType.uint32, 'cell-packing-timer1'), ['int'])),
+                        ('cell_packing_timer2', (YLeaf(YType.uint32, 'cell-packing-timer2'), ['int'])),
+                        ('cell_packing_timer3', (YLeaf(YType.uint32, 'cell-packing-timer3'), ['int'])),
+                    ])
+                    self.cell_packing_timer1 = None
+                    self.cell_packing_timer2 = None
+                    self.cell_packing_timer3 = None
+                    self._segment_path = lambda: "maximum-cell-packing-timers"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers, ['cell_packing_timer1', 'cell_packing_timer2', 'cell_packing_timer3'], name, value)
+
+
+
+            class VpTunnels(Entity):
+                """
+                VP tunnel configuration
+                
+                .. attribute:: vp_tunnel
+                
+                	Configure a VP tunnel on this interface
+                	**type**\: list of  		 :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel>`
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels, self).__init__()
+
+                    self.yang_name = "vp-tunnels"
+                    self.yang_parent_name = "atm"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("vp-tunnel", ("vp_tunnel", InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel))])
+                    self._leafs = OrderedDict()
+
+                    self.vp_tunnel = YList(self)
+                    self._segment_path = lambda: "vp-tunnels"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels, [], name, value)
+
+
+                class VpTunnel(Entity):
+                    """
+                    Configure a VP tunnel on this interface
+                    
+                    .. attribute:: vpi  (key)
+                    
+                    	VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..4095
+                    
+                    .. attribute:: shape
+                    
+                    	Configure Traffic shaping parameters
+                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape>`
+                    
+                    .. attribute:: enable_hierarchical_shaping
+                    
+                    	Enable Hierarchical Shaping configuration
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: enable
+                    
+                    	Create the VP Tunnel
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: disable_f4oam
+                    
+                    	Disable F4 OAM configuration
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'atm-vcm-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel, self).__init__()
+
+                        self.yang_name = "vp-tunnel"
+                        self.yang_parent_name = "vp-tunnels"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['vpi']
+                        self._child_classes = OrderedDict([("shape", ("shape", InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape))])
+                        self._leafs = OrderedDict([
+                            ('vpi', (YLeaf(YType.uint32, 'vpi'), ['int'])),
+                            ('enable_hierarchical_shaping', (YLeaf(YType.empty, 'enable-hierarchical-shaping'), ['Empty'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('disable_f4oam', (YLeaf(YType.empty, 'disable-f4oam'), ['Empty'])),
+                        ])
+                        self.vpi = None
+                        self.enable_hierarchical_shaping = None
+                        self.enable = None
+                        self.disable_f4oam = None
+
+                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape()
+                        self.shape.parent = self
+                        self._children_name_map["shape"] = "shape"
+                        self._segment_path = lambda: "vp-tunnel" + "[vpi='" + str(self.vpi) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel, ['vpi', 'enable_hierarchical_shaping', 'enable', 'disable_f4oam'], name, value)
+
+
+                    class Shape(Entity):
+                        """
+                        Configure Traffic shaping parameters
+                        
+                        .. attribute:: type
+                        
+                        	Traffic shaping type
+                        	**type**\:  :py:class:`AtmVpShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmVpShaping>`
+                        
+                        .. attribute:: peak_cell_rate
+                        
+                        	Peak cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: sustained_cell_rate
+                        
+                        	Sustained cell rate (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 8..622080
+                        
+                        .. attribute:: burst_size
+                        
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape, self).__init__()
+
+                            self.yang_name = "shape"
+                            self.yang_parent_name = "vp-tunnel"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes', 'AtmVpShaping', '')])),
+                                ('peak_cell_rate', (YLeaf(YType.uint32, 'peak-cell-rate'), ['int'])),
+                                ('sustained_cell_rate', (YLeaf(YType.uint32, 'sustained-cell-rate'), ['int'])),
+                                ('burst_size', (YLeaf(YType.uint32, 'burst-size'), ['int'])),
+                            ])
+                            self.type = None
+                            self.peak_cell_rate = None
+                            self.sustained_cell_rate = None
+                            self.burst_size = None
+                            self._segment_path = lambda: "shape"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape, ['type', 'peak_cell_rate', 'sustained_cell_rate', 'burst_size'], name, value)
+
+
+
+
+
+
         class Dot1xInterface(Entity):
             """
             Interface Specific Dot1x Configuration
@@ -27158,7 +28960,7 @@ class InterfaceConfigurations(Entity):
                 
                 .. attribute:: name
                 
-                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                 	**type**\: str
                 
                 	**length:** 1..64
@@ -27239,7 +29041,7 @@ class InterfaceConfigurations(Entity):
                 
                 .. attribute:: name
                 
-                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Outbound  packets
+                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Outbound packets
                 	**type**\: str
                 
                 	**length:** 1..64

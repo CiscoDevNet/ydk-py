@@ -607,7 +607,7 @@ class SoftwareInstall(Entity):
     """
 
     _prefix = 'spirit-install-instmgr-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-08-24'
 
     def __init__(self):
         super(SoftwareInstall, self).__init__()
@@ -707,7 +707,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Superseded, self).__init__()
@@ -773,7 +773,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Superseded.SupersededPackageInfo, self).__init__()
@@ -822,7 +822,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.CommittedSummary, self).__init__()
@@ -897,7 +897,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.CommittedSummary.CommittedPackageInfo, self).__init__()
@@ -948,7 +948,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.ActiveSummary, self).__init__()
@@ -1023,7 +1023,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.ActiveSummary.ActivePackageInfo, self).__init__()
@@ -1074,7 +1074,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.InactiveSummary, self).__init__()
@@ -1163,7 +1163,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Prepare, self).__init__()
@@ -1215,7 +1215,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Prepare.Rpm, self).__init__()
@@ -1255,7 +1255,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Prepare.Package, self).__init__()
@@ -1296,7 +1296,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Active, self).__init__()
@@ -1371,7 +1371,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Active.ActivePackageInfo, self).__init__()
@@ -1445,6 +1445,13 @@ class SoftwareInstall(Entity):
         
         	**config**\: False
         
+        .. attribute:: img_info
+        
+        	this tag is deprecated
+        	**type**\: str
+        
+        	**config**\: False
+        
         .. attribute:: package
         
         	package
@@ -1457,7 +1464,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Version, self).__init__()
@@ -1474,12 +1481,14 @@ class SoftwareInstall(Entity):
                 ('copyright_info', (YLeaf(YType.str, 'copyright-info'), ['str'])),
                 ('hardware_info', (YLeaf(YType.str, 'hardware-info'), ['str'])),
                 ('system_uptime', (YLeaf(YType.str, 'system-uptime'), ['str'])),
+                ('img_info', (YLeaf(YType.str, 'img-info'), ['str'])),
             ])
             self.location = None
             self.label = None
             self.copyright_info = None
             self.hardware_info = None
             self.system_uptime = None
+            self.img_info = None
 
             self.package = YList(self)
             self._segment_path = lambda: "version"
@@ -1487,7 +1496,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime'], name, value)
+            self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime', 'img_info'], name, value)
 
 
         class Package(Entity):
@@ -1541,7 +1550,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Version.Package, self).__init__()
@@ -1592,7 +1601,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Inactive, self).__init__()
@@ -1632,7 +1641,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Request, self).__init__()
@@ -1672,7 +1681,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.SupersededSummary, self).__init__()
@@ -1719,7 +1728,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Issu, self).__init__()
@@ -1806,7 +1815,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Issu.Stage, self).__init__()
@@ -1856,7 +1865,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Issu.Inventory, self).__init__()
@@ -1924,7 +1933,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Issu.Inventory.Invinfo, self).__init__()
@@ -1974,7 +1983,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Committed, self).__init__()
@@ -2049,7 +2058,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Committed.CommittedPackageInfo, self).__init__()
@@ -2121,7 +2130,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.AllOperationsLog, self).__init__()
@@ -2174,7 +2183,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.ReverseDetail, self).__init__()
@@ -2214,7 +2223,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Reverse, self).__init__()
@@ -2254,7 +2263,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Summary, self).__init__()
@@ -2294,7 +2303,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.AllOperationsLog.Detail, self).__init__()
@@ -2335,7 +2344,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Packages, self).__init__()
@@ -2394,7 +2403,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Packages.Package, self).__init__()
@@ -2445,7 +2454,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Verbose, self).__init__()
@@ -2484,7 +2493,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Brief, self).__init__()
@@ -2523,7 +2532,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.Packages.Package.Detail, self).__init__()
@@ -2564,7 +2573,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.OperationLogs, self).__init__()
@@ -2618,7 +2627,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.OperationLogs.OperationLog, self).__init__()
@@ -2666,7 +2675,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.OperationLogs.OperationLog.Summary, self).__init__()
@@ -2706,7 +2715,7 @@ class SoftwareInstall(Entity):
                 """
 
                 _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-08-24'
 
                 def __init__(self):
                     super(SoftwareInstall.OperationLogs.OperationLog.Detail, self).__init__()
@@ -2755,7 +2764,7 @@ class SoftwareInstall(Entity):
         """
 
         _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-08-24'
 
         def __init__(self):
             super(SoftwareInstall.Repository, self).__init__()
@@ -2799,7 +2808,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Repository.Xr, self).__init__()
@@ -2840,7 +2849,7 @@ class SoftwareInstall(Entity):
             """
 
             _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-08-24'
 
             def __init__(self):
                 super(SoftwareInstall.Repository.All, self).__init__()

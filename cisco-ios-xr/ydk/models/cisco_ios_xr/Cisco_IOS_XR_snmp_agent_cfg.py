@@ -5001,7 +5001,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'clns-isis-cfg'
-            _revision = '2018-06-14'
+            _revision = '2018-11-23'
 
             def __init__(self):
                 super(Snmp.Notification.Isis, self).__init__()

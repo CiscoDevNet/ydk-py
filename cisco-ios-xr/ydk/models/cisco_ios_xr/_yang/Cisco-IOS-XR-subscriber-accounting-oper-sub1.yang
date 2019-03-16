@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-10-30 {
+    description
+      "Fixed for CSCvm83576.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -29,6 +33,58 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  grouping ACCT-MA-SRG-STATS-INFO-BAG-DATA {
+    description
+      "ACCT MA SRG STATS INFO BAG DATA";
+    leaf interface-name {
+      type string;
+      description
+        "Interface name";
+    }
+    leaf access-interface-handle {
+      type uint32;
+      description
+        "Access Interface handle";
+    }
+    leaf accounting-mode {
+      type uint32;
+      description
+        "Accounting Feature Mode";
+    }
+    leaf srg-node-role {
+      type uint32;
+      description
+        "SRG Role for given access interface";
+    }
+    leaf srg-master-eoms-pending-flag {
+      type boolean;
+      description
+        "True/False,if SRG Master Node Sync is still
+         pending";
+    }
+    leaf srg-diameter-up-flag {
+      type boolean;
+      description
+        "True/False,SRG Node Diameter Notification flag";
+    }
+    leaf srg-role-upd-time {
+      type string;
+      description
+        "SRG Role Notification time in DDD MMM DD HH:MM
+         :SS YYYY format eg: Tue Apr 11 21:30:47 2011";
+    }
+  }
+
+  grouping ACCT-MA-SRG-STATS {
+    description
+      "ACCT MA SRG STATS";
+    container srg-status-counters {
+      description
+        "Accounting's SRG Statistics Info Bag";
+      uses ACCT-MA-SRG-STATS-INFO-BAG-DATA;
+    }
   }
 
   grouping ACCT-MA-FLOW-FEAT-BAG-DATA {

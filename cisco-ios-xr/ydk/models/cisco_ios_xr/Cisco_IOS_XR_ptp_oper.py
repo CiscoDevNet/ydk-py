@@ -4298,6 +4298,33 @@ class Ptp(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: bad_clock_class
+                    
+                    	Illegal clock class (255) in announce messages
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: steps_removed
+                    
+                    	Steps removed too high
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: reserved_clock_id
+                    
+                    	Reserved Clock ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: g8265_1_incompatible
                     
                     	Packet not compatible with G.8265.1 profile
@@ -4373,6 +4400,9 @@ class Ptp(Entity):
                             ('no_offload_session', (YLeaf(YType.uint32, 'no-offload-session'), ['int'])),
                             ('not_supported', (YLeaf(YType.uint32, 'not-supported'), ['int'])),
                             ('min_clock_class', (YLeaf(YType.uint32, 'min-clock-class'), ['int'])),
+                            ('bad_clock_class', (YLeaf(YType.uint32, 'bad-clock-class'), ['int'])),
+                            ('steps_removed', (YLeaf(YType.uint32, 'steps-removed'), ['int'])),
+                            ('reserved_clock_id', (YLeaf(YType.uint32, 'reserved-clock-id'), ['int'])),
                             ('g8265_1_incompatible', (YLeaf(YType.uint32, 'g8265-1-incompatible'), ['int'])),
                             ('g8275_1_incompatible', (YLeaf(YType.uint32, 'g8275-1-incompatible'), ['int'])),
                             ('g8275_2_incompatible', (YLeaf(YType.uint32, 'g8275-2-incompatible'), ['int'])),
@@ -4400,6 +4430,9 @@ class Ptp(Entity):
                         self.no_offload_session = None
                         self.not_supported = None
                         self.min_clock_class = None
+                        self.bad_clock_class = None
+                        self.steps_removed = None
+                        self.reserved_clock_id = None
                         self.g8265_1_incompatible = None
                         self.g8275_1_incompatible = None
                         self.g8275_2_incompatible = None
@@ -4408,7 +4441,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.PacketCounters.DropReasons, [u'not_ready', u'wrong_domain', u'too_short', u'looped_same_port', u'looped_higher_port', u'looped_lower_port', u'no_timestamp', u'zero_timestamp', u'invalid_tl_vs', u'not_for_us', u'not_listening', u'wrong_master', u'unknown_master', u'not_master', u'not_slave', u'not_granted', u'too_slow', u'invalid_packet', u'wrong_sequence_id', u'no_offload_session', u'not_supported', u'min_clock_class', u'g8265_1_incompatible', u'g8275_1_incompatible', u'g8275_2_incompatible', u'incorrect_address'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.PacketCounters.DropReasons, [u'not_ready', u'wrong_domain', u'too_short', u'looped_same_port', u'looped_higher_port', u'looped_lower_port', u'no_timestamp', u'zero_timestamp', u'invalid_tl_vs', u'not_for_us', u'not_listening', u'wrong_master', u'unknown_master', u'not_master', u'not_slave', u'not_granted', u'too_slow', u'invalid_packet', u'wrong_sequence_id', u'no_offload_session', u'not_supported', u'min_clock_class', u'bad_clock_class', u'steps_removed', u'reserved_clock_id', u'g8265_1_incompatible', u'g8275_1_incompatible', u'g8275_2_incompatible', u'incorrect_address'], name, value)
 
 
 

@@ -538,6 +538,10 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         description
           "Traffic Collector";
       }
+      enum "mgmt-lsd-app-type-cofo-sync-lib" {
+        description
+          "COFO Sync Lib";
+      }
       enum "mgmt-lsd-app-type-any" {
         description
           "Any";

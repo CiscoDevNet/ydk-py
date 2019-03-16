@@ -181,33 +181,32 @@ module Cisco-IOS-XR-fia-hw-profile-cfg {
           }
         }
       }
-      container flowspecs {
+      container flowspec-table {
         description
           "Configure Flowspec profile.";
-        list flowspec {
-          key "v6-enable location-string location-id";
+        container flowspecs {
           description
-            "none";
-          leaf v6-enable {
-            type xr:Cisco-ios-xr-string;
+            "Configure v6 enable on Flowspec profile.";
+          list flowspec {
+            key "location-string location-id";
             description
               "none";
-          }
-          leaf location-string {
-            type xr:Cisco-ios-xr-string;
-            description
-              "Location of FLOWSPEC config";
-          }
-          leaf location-id {
-            type uint32;
-            description
-              "Location ID hex to Decimal 0xffff for all";
-          }
-          leaf enable-val {
-            type uint32;
-            mandatory true;
-            description
-              "If Enabled set value to 65535";
+            leaf location-string {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Location of FLOWSPEC config";
+            }
+            leaf location-id {
+              type uint32;
+              description
+                "Location ID hex to Decimal 65535";
+            }
+            leaf enable-val {
+              type uint32;
+              mandatory true;
+              description
+                "If Enabled set value to 1";
+            }
           }
         }
       }
@@ -250,8 +249,8 @@ module Cisco-IOS-XR-fia-hw-profile-cfg {
           list stats-profile-mode {
             key "stats-mode-default";
             description
-              "Configure stats for qos-enhanced and
-               acl-permit";
+              "Configure stats for qos-enhanced, acl-permit
+               and ingress-sr";
             leaf mode {
               type uint32;
               mandatory true;
@@ -273,6 +272,27 @@ module Cisco-IOS-XR-fia-hw-profile-cfg {
           type boolean;
           description
             "Enabled or disabled";
+        }
+      }
+      container sr-policies {
+        description
+          "Configure IPV6 NULL label autopush for SR
+           policy.";
+        list sr-policy {
+          key "null-label-autopush";
+          description
+            "none";
+          leaf null-label-autopush {
+            type xr:Cisco-ios-xr-string;
+            description
+              "none";
+          }
+          leaf enable-val {
+            type uint32;
+            mandatory true;
+            description
+              "If Enabled set value to 1";
+          }
         }
       }
       container bundle-scale {

@@ -457,7 +457,7 @@ submodule Cisco-IOS-XR-invmgr-oper-sub2 {
     leaf redundancystate {
       type int32;
       description
-        "integer value for Redundancy State if    
+        "integer value for Redundancy State if
          applicable to this entity";
     }
     leaf ceport {

@@ -165,15 +165,27 @@ class Ipv4dhcpdFmt(Enum):
 
     	Not a Format String
 
-    .. data:: format = 1
+    .. data:: hex = 1
 
-    	Format String
+    	Hex Format String
+
+    .. data:: ascii = 2
+
+    	Ascii Format String
+
+    .. data:: extended = 3
+
+    	Extended Format String
 
     """
 
     no_format = Enum.YLeaf(0, "no-format")
 
-    format = Enum.YLeaf(1, "format")
+    hex = Enum.YLeaf(1, "hex")
+
+    ascii = Enum.YLeaf(2, "ascii")
+
+    extended = Enum.YLeaf(3, "extended")
 
 
 class Ipv4dhcpdFmtSpecifier(Enum):
@@ -1844,6 +1856,11 @@ class Ipv4Dhcpd(Entity):
                         	default routers
                         	**type**\:  :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters>`
                         
+                        .. attribute:: delete_binding_on_discover
+                        
+                        	Delete binding on receiving discover
+                        	**type**\:  :py:class:`DeleteBindingOnDiscover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover>`
+                        
                         .. attribute:: net_bios_name_servers
                         
                         	NetBIOS name servers
@@ -1973,7 +1990,7 @@ class Ipv4Dhcpd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("server-id-check", ("server_id_check", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck)), ("lease-limit", ("lease_limit", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit)), ("requested-ip-address", ("requested_ip_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress)), ("aaa-server", ("aaa_server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer)), ("default-routers", ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters)), ("net-bios-name-servers", ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers)), ("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match)), ("broadcast-flag", ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag)), ("session", ("session", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session)), ("classes", ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes)), ("relay", ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay)), ("lease", ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease)), ("netbios-node-type", ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType)), ("dns-servers", ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers)), ("dhcp-to-aaa", ("dhcp_to_aaa", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa)), ("option-codes", ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes))])
+                            self._child_classes = OrderedDict([("server-id-check", ("server_id_check", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck)), ("lease-limit", ("lease_limit", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit)), ("requested-ip-address", ("requested_ip_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress)), ("aaa-server", ("aaa_server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer)), ("default-routers", ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters)), ("delete-binding-on-discover", ("delete_binding_on_discover", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover)), ("net-bios-name-servers", ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers)), ("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match)), ("broadcast-flag", ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag)), ("session", ("session", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session)), ("classes", ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes)), ("relay", ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay)), ("lease", ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease)), ("netbios-node-type", ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType)), ("dns-servers", ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers)), ("dhcp-to-aaa", ("dhcp_to_aaa", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa)), ("option-codes", ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes))])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('server_allow_move', (YLeaf(YType.empty, 'server-allow-move'), ['Empty'])),
@@ -2015,6 +2032,10 @@ class Ipv4Dhcpd(Entity):
                             self.default_routers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters()
                             self.default_routers.parent = self
                             self._children_name_map["default_routers"] = "default-routers"
+
+                            self.delete_binding_on_discover = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover()
+                            self.delete_binding_on_discover.parent = self
+                            self._children_name_map["delete_binding_on_discover"] = "delete-binding-on-discover"
 
                             self.net_bios_name_servers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers()
                             self.net_bios_name_servers.parent = self
@@ -2297,6 +2318,43 @@ class Ipv4Dhcpd(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters, ['default_router'], name, value)
+
+
+
+                        class DeleteBindingOnDiscover(Entity):
+                            """
+                            Delete binding on receiving discover
+                            
+                            .. attribute:: disable
+                            
+                            	Disable delete binding on discover
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-cfg'
+                            _revision = '2017-09-30'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover, self).__init__()
+
+                                self.yang_name = "delete-binding-on-discover"
+                                self.yang_parent_name = "server"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                ])
+                                self.disable = None
+                                self._segment_path = lambda: "delete-binding-on-discover"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover, ['disable'], name, value)
 
 
 

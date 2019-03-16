@@ -32,419 +32,111 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-20 {
+    description
+      "Fixed yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-  typedef Iedge-oper-session-af-state {
+  typedef Iedge-oper-service-status {
     type enumeration {
-      enum "not-started" {
+      enum "unknown" {
         description
-          "Not started";
+          "Unknown";
       }
-      enum "down" {
+      enum "error" {
         description
-          "Down";
+          "Error";
       }
-      enum "up-pending" {
+      enum "new" {
         description
-          "Up Pending";
+          "New";
       }
-      enum "up" {
+      enum "loading" {
         description
-          "Up";
+          "Loading";
+      }
+      enum "req-association" {
+        description
+          "Request Association";
+      }
+      enum "associated" {
+        description
+          "Associated";
+      }
+      enum "req-pd-association" {
+        description
+          "Request PD Association";
+      }
+      enum "applied" {
+        description
+          "Applied";
+      }
+      enum "req-unassociation" {
+        description
+          "Request Unassociation";
+      }
+      enum "req-pd-unassociation" {
+        description
+          "Request PD Unassociation";
+      }
+      enum "unapplied" {
+        description
+          "Unapplied";
+      }
+      enum "max" {
+        description
+          "Max";
       }
     }
     description
-      "Subscriber session address family state";
+      "Subscriber service status";
   }
 
-  typedef Aaa-terminate-cause {
+  typedef Iedge-oper-service {
     type enumeration {
-      enum "none" {
+      enum "unknown" {
         description
-          "None";
+          "Unknown Service";
       }
-      enum "user-request" {
+      enum "profile" {
         description
-          "User request";
+          "Profile";
       }
-      enum "lost-carrier" {
+      enum "template" {
         description
-          "Lost carrier";
+          "Template";
       }
-      enum "lost-service" {
+      enum "grp-template" {
         description
-          "Lost service";
+          "GRP Template";
       }
-      enum "idle-timeout" {
+      enum "ppp-template" {
         description
-          "Idle timeout";
+          "PPP Template";
       }
-      enum "session-timeout" {
+      enum "eth-template" {
         description
-          "Session timeout";
+          "ETH Template";
       }
-      enum "admin-reset" {
+      enum "ip-sub-template" {
         description
-          "Admin reset";
+          "IPSub Template";
       }
-      enum "admin-reboot" {
+      enum "multi-template" {
         description
-          "Admin reboot";
+          "Multi Template";
       }
-      enum "port-error" {
+      enum "max-templae" {
         description
-          "Port error";
-      }
-      enum "nas-error" {
-        description
-          "NAS error";
-      }
-      enum "nas-request" {
-        description
-          "NAS request";
-      }
-      enum "nas-reboot" {
-        description
-          "NAS reboot";
-      }
-      enum "port-unneeded" {
-        description
-          "Port unneeded";
-      }
-      enum "port-preempted" {
-        description
-          "Port preempted";
-      }
-      enum "port-suspended" {
-        description
-          "Port suspended";
-      }
-      enum "service-unavailable" {
-        description
-          "Service unavailable";
-      }
-      enum "callback" {
-        description
-          "Callback";
-      }
-      enum "user-error" {
-        description
-          "User error";
-      }
-      enum "host-request" {
-        description
-          "Host request";
-      }
-      enum "supplicant-restart" {
-        description
-          "Supplicant restart";
-      }
-      enum "reauthorization-failure" {
-        description
-          "Reauthorization failure";
-      }
-      enum "port-reinitialized" {
-        description
-          "Port reinitialized";
-      }
-      enum "admin-disabled" {
-        description
-          "Admin disabled";
+          "MAX Template";
       }
     }
     description
-      "AAA terminate cause types";
-  }
-
-  typedef Aaa-interface {
-    type enumeration {
-      enum "none" {
-        description
-          "None";
-      }
-      enum "primary-rate" {
-        description
-          "Primary rate";
-      }
-      enum "basic-rate" {
-        description
-          "Basic rate";
-      }
-      enum "serial" {
-        description
-          "Serial";
-      }
-      enum "asynchronous" {
-        description
-          "Asynchronous";
-      }
-      enum "vty" {
-        description
-          "VTY";
-      }
-      enum "atm" {
-        description
-          "ATM";
-      }
-      enum "ethernet" {
-        description
-          "Ethernet";
-      }
-      enum "ppp-over-atm" {
-        description
-          "PPP over ATM";
-      }
-      enum "pppoe-over-atm" {
-        description
-          "PPPoE over ATM";
-      }
-      enum "pppoe-over-ethernet" {
-        description
-          "PPPoE over ethernet";
-      }
-      enum "ppp-over-vlan" {
-        description
-          "PPP over VLAN";
-      }
-      enum "ppp-over-qinq" {
-        description
-          "PPP over Q in Q";
-      }
-      enum "v120" {
-        description
-          "V120";
-      }
-      enum "v110" {
-        description
-          "V110";
-      }
-      enum "piafs" {
-        description
-          "PHS internet access forum standard";
-      }
-      enum "x75" {
-        description
-          "X75";
-      }
-      enum "ip-sec" {
-        description
-          "IP sec";
-      }
-      enum "other" {
-        description
-          "Other";
-      }
-      enum "virtual-pppoe-over-ethernet" {
-        description
-          "Virtual PPPoE over ethernet";
-      }
-      enum "virtual-pppoe-over-vlan" {
-        description
-          "Virtual PPPoE over VLAN";
-      }
-      enum "virtual-pppoe-over-qinq" {
-        description
-          "Virtual PPPoE over Q in Q";
-      }
-      enum "ipo-e-over-ethernet" {
-        description
-          "IPoE over ethernet";
-      }
-      enum "ipo-e-over-vlan" {
-        description
-          "IPoE over VLAN";
-      }
-      enum "ipo-e-over-qinq" {
-        description
-          "IPoE over Q in Q";
-      }
-      enum "virtual-i-po-e-over-ethernet" {
-        description
-          "Virtual IPoE over ethernet";
-      }
-      enum "virtual-i-po-e-over-vlan" {
-        description
-          "Virtual IPoE over VLAN";
-      }
-      enum "virtual-i-po-e-over-qinq" {
-        description
-          "Virtual IPoE over Q in Q";
-      }
-    }
-    description
-      "AAA interface types";
-  }
-
-  typedef Aaa-tunnel-proto {
-    type enumeration {
-      enum "none" {
-        description
-          "None";
-      }
-      enum "pptp" {
-        description
-          "Point-to-point tunneling protocol";
-      }
-      enum "l2f" {
-        description
-          "Layer 2 forwarding";
-      }
-      enum "l2tp" {
-        description
-          "Layer 2 tunneling protocol";
-      }
-      enum "atmp" {
-        description
-          "Ascend tunnel management protocol";
-      }
-      enum "vtp" {
-        description
-          "VLAN trunk protocol";
-      }
-      enum "ah" {
-        description
-          "Authentication header";
-      }
-      enum "ip-over-ip" {
-        description
-          "IP over IP";
-      }
-      enum "minimum-ip-over-ip" {
-        description
-          "Minimum IP over IP";
-      }
-      enum "esp" {
-        description
-          "Encapsulating security payload";
-      }
-      enum "gre" {
-        description
-          "Generic routing encapsulation";
-      }
-      enum "bay-dvs" {
-        description
-          "Bay dial virtual services";
-      }
-      enum "ip-in-ip" {
-        description
-          "IP in IP";
-      }
-      enum "vlan" {
-        description
-          "VLAN";
-      }
-    }
-    description
-      "Tunnel protocol types";
-  }
-
-  typedef Aaa-tunnel-medium {
-    type enumeration {
-      enum "none" {
-        description
-          "None";
-      }
-      enum "ipv4" {
-        description
-          "IPv4";
-      }
-      enum "ipv6" {
-        description
-          "IPv6";
-      }
-      enum "nsap" {
-        description
-          "NSAP";
-      }
-      enum "hdlc" {
-        description
-          "HDLC";
-      }
-      enum "bbn" {
-        description
-          "BBN";
-      }
-      enum "all802" {
-        description
-          "ALL 802";
-      }
-    }
-    description
-      "Tunnel medium types";
-  }
-
-  typedef Aaa-auth-service {
-    type enumeration {
-      enum "none" {
-        description
-          "None";
-      }
-      enum "login" {
-        description
-          "Login";
-      }
-      enum "framed" {
-        description
-          "Framed";
-      }
-      enum "callback-login" {
-        description
-          "Callback login";
-      }
-      enum "callback-framed" {
-        description
-          "Callback framed";
-      }
-      enum "outbound" {
-        description
-          "Outbound";
-      }
-      enum "administrator" {
-        description
-          "Administrator";
-      }
-      enum "prompt" {
-        description
-          "Prompt";
-      }
-      enum "authentication-only" {
-        description
-          "Authentication only";
-      }
-      enum "callback-nas-prompt" {
-        description
-          "Callback NAS prompt";
-      }
-      enum "call-check" {
-        description
-          "Call check";
-      }
-      enum "callback-administrator" {
-        description
-          "Callback administrator";
-      }
-      enum "voice" {
-        description
-          "Voice";
-      }
-      enum "fax" {
-        description
-          "Fax";
-      }
-      enum "modem-relay" {
-        description
-          "Modem relay";
-      }
-      enum "eap-over-udp" {
-        description
-          "EAP over UDP";
-      }
-    }
-    description
-      "AAA authorization service types";
+      "Service types";
   }
 
   typedef Iedge-oper-session-state {
@@ -542,328 +234,6 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       "Subscriber session types";
   }
 
-  grouping IEDGE-MOBILITY-SESSION-DATA {
-    description
-      "Mobility attributes";
-    leaf mpc-protocol {
-      type boolean;
-      description
-        "Cisco MPC Protocol";
-    }
-    leaf mobility-ipv4-address {
-      type string;
-      description
-        "IPv4 address of Mobility Node";
-    }
-    leaf mobility-default-ipv4-gateway {
-      type string;
-      description
-        "Default Gateway IPv4 Address";
-    }
-    leaf mobility-dns-server {
-      type string;
-      description
-        "DNS Server Primary";
-    }
-    leaf mobility-dhcp-server {
-      type string;
-      description
-        "DHCP Server";
-    }
-    leaf mobility-ipv4-netmask {
-      type string;
-      description
-        "IPv4 Netmask";
-    }
-    leaf domain-name {
-      type string;
-      description
-        "Domain Name";
-    }
-    leaf uplink-gre-key {
-      type string;
-      description
-        "Uplink GRE Key";
-    }
-    leaf downlink-gre-key {
-      type string;
-      description
-        "Downlink GRE Key";
-    }
-    leaf lease-time {
-      type string;
-      units "second";
-      description
-        "Duration of lease in seconds";
-    }
-  }
-
-  grouping IEDGE-AAA-ATTR {
-    description
-      "AAA attributes";
-    leaf ipv4mtu {
-      type uint32;
-      description
-        "IPv4 maximum transmission unit";
-    }
-    leaf ipv4-unnumbered {
-      type string;
-      description
-        "IPv4 unnumbered";
-    }
-    leaf authorization-service-type {
-      type Aaa-auth-service;
-      description
-        "Authorization service type";
-    }
-    leaf tunnel-client-endpoint {
-      type Ipv4-address;
-      description
-        "Tunnel client endpoint";
-    }
-    leaf tunnel-server-endpoint {
-      type Ipv4-address;
-      description
-        "Tunnel server endpoint";
-    }
-    leaf tunnel-tos-setting {
-      type uint32;
-      description
-        "Tunnel TOS setting";
-    }
-    leaf tunnel-medium {
-      type Aaa-tunnel-medium;
-      description
-        "Tunnel medium";
-    }
-    leaf tunnel-preference {
-      type uint32;
-      description
-        "Tunnel preference";
-    }
-    leaf tunnel-client-authentication-id {
-      type string;
-      description
-        "Tunnel client authentication ID";
-    }
-    leaf tunnel-protocol {
-      type Aaa-tunnel-proto;
-      description
-        "Tunnel protocol";
-    }
-    leaf actual-data-rate-upstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Actual data rate upstream (in Mbps)";
-    }
-    leaf actual-data-rate-downstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Actual data rate downstream (in Mbps)";
-    }
-    leaf attainable-data-rate-upstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Attainable data rate upstream (in Mbps)";
-    }
-    leaf attainable-data-rate-downstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Attainable data rate downstream (in Mbps)";
-    }
-    leaf pool-address {
-      type string;
-      description
-        "IP address pool";
-    }
-    leaf circuit-id {
-      type string;
-      description
-        "Circuit ID";
-    }
-    leaf connection-receive-speed {
-      type uint32;
-      description
-        "Connection receive speed";
-    }
-    leaf connection-transmission-speed {
-      type uint32;
-      description
-        "Connection transmission speed";
-    }
-    leaf destination-station-id {
-      type string;
-      description
-        "Destination station ID";
-    }
-    leaf primary-dns-server-address {
-      type Ipv4-address;
-      description
-        "Primary DNS server address";
-    }
-    leaf secondary-dns-server-address {
-      type Ipv4-address;
-      description
-        "Secondary DNS server address";
-    }
-    leaf formatted-calling-station-id {
-      type string;
-      description
-        "Formatted calling station id";
-    }
-    leaf interface-name {
-      type string;
-      description
-        "Interface name";
-    }
-    leaf interface-type {
-      type Aaa-interface;
-      description
-        "Interface type";
-    }
-    leaf interim-accounting-interval {
-      type uint32;
-      description
-        "Interim accounting interval";
-    }
-    leaf ingress-access-list {
-      type string;
-      description
-        "Ingress access list";
-    }
-    leaf egress-access-list {
-      type string;
-      description
-        "Egress access list";
-    }
-    leaf ip-netmask {
-      type Ipv4-address;
-      description
-        "IP netmask for the user";
-    }
-    leaf is-interworking-functionality {
-      type boolean;
-      description
-        "True, if interworking functionality";
-    }
-    leaf max-interleaving-delay-downstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Maximum interleaving delay downstream (in Mbps)";
-    }
-    leaf max-interleaving-delay-upstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Maximum interleaving delay upstream (in Mbps)";
-    }
-    leaf max-data-rate-upstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Maximum data rate upstream (in Mbps)";
-    }
-    leaf max-data-rate-downstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Maximum data rate downstream (in Mbps)";
-    }
-    leaf min-data-rate-downstream {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Minimum data rate downstream (in Mbps)";
-    }
-    leaf min-data-rate-downstream-low-power {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Minimum data rate downstream low power (in Mbps)";
-    }
-    leaf min-data-rate-upstream-low-power {
-      type uint32;
-      units "Mbit/s";
-      description
-        "Minimum data rate upstream low power (in Mbps)";
-    }
-    leaf primary-net-bios-server-address {
-      type Ipv4-address;
-      description
-        "Primary net bios server address";
-    }
-    leaf secondary-net-bios-server-address {
-      type Ipv4-address;
-      description
-        "Secondary net bios server address";
-    }
-    leaf parent-interface-name {
-      type xr:Interface-name;
-      description
-        "Parent interface name";
-    }
-    leaf remote-id {
-      type string;
-      description
-        "Remote ID";
-    }
-    leaf route {
-      type string;
-      description
-        "Route information for a user session";
-    }
-    leaf session-timeout {
-      type uint32;
-      units "second";
-      description
-        "Session timeout (in seconds)";
-    }
-    leaf strict-rpf-packets {
-      type uint32;
-      description
-        "Strict RPF packets";
-    }
-    leaf accounting-session-id {
-      type string;
-      description
-        "Accounting session ID";
-    }
-    leaf upstream-parameterized-qos-policy {
-      type string;
-      description
-        "Upstream parameterized QoS policy to be applied
-         on the subscriber side";
-    }
-    leaf downstream-parameterized-qos-policy {
-      type string;
-      description
-        "Downstream parameterized QoS policy to be
-         applied on the subscriber side";
-    }
-    leaf upstream-qos-policy {
-      type string;
-      description
-        "Upstream QoS policy to be applied on the
-         subscriber side";
-    }
-    leaf downstream-qos-policy {
-      type string;
-      description
-        "Downstream QoS policy to be applied on the
-         subscriber side";
-    }
-    leaf session-termination-cause {
-      type Aaa-terminate-cause;
-      description
-        "Session termination cause";
-    }
-  }
-
   grouping IEDGE-OPER-COA-DATA {
     description
       "IEDGE OPER COA DATA";
@@ -872,29 +242,62 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Coa Request Acked";
     }
-    leaf request-time {
+    leaf request-time-epoch {
+      type uint64;
+      units "second";
+      description
+        "Request time in epoch seconds";
+    }
+    leaf reply-time-epoch {
+      type uint64;
+      units "second";
+      description
+        "Reply time in epoch seconds";
+    }
+  }
+
+  grouping IEDGE-OPER-SERVICE-DATA {
+    description
+      "Subscriber service information";
+    leaf service-name {
       type string;
       description
-        "Request time in DDD MMM DD HH:MM:SS YYYY format
-         eg: Tue Apr 11 21:30:47 2011";
+        "ServiceName";
     }
-    leaf coa-request-attributes {
-      type yang:hex-string;
-      description
-        "List of Request Attributes collected in COA
-         response";
-    }
-    leaf reply-time {
+    leaf service-params {
       type string;
       description
-        "Reply time in DDD MMM DD HH:MM:SS YYYY format eg
-         : Tue Apr 11 21:30:47 2011";
+        "ServiceParams";
     }
-    leaf coa-reply-attributes {
-      type yang:hex-string;
+    leaf service-type {
+      type Iedge-oper-service;
       description
-        "List of Reply Attributes collected in COA
-         response";
+        "ServiceType";
+    }
+    leaf service-status {
+      type Iedge-oper-service-status;
+      description
+        "ServiceStatus";
+    }
+    leaf service-id {
+      type uint32;
+      description
+        "ServiceIdentifier";
+    }
+    leaf service-prepaid {
+      type boolean;
+      description
+        "ServicePrepaid";
+    }
+  }
+
+  grouping IEDGE-POLICY-DATA {
+    description
+      "Subscriber policy information";
+    leaf policy-epoch {
+      type string;
+      description
+        "Matching event, condition and executed actions";
     }
   }
 
@@ -927,11 +330,11 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Accounting session ID";
     }
-    leaf accounting-start-time {
-      type string;
+    leaf accounting-start-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Accounting start time in DDD MMM DD HH:MM:SS
-         YYYY format eg: Tue Feb 15 15:12:49 2011";
+        "Accounting start time in epoch-seconds";
     }
     leaf is-interim-accounting-enabled {
       type boolean;
@@ -944,12 +347,12 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Interim accounting interval (in minutes)";
     }
-    leaf last-successful-interim-update-time {
-      type string;
+    leaf last-successful-interim-update-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Time of last successful interim update in DDD
-         MMM DD HH:MM:SS YYYY format eg: Tue Apr 11 21:30
-         :47 2011";
+        "Time of last successful interim update in
+         epoch-seconds ";
     }
     leaf next-interim-update-attempt-time {
       type uint32;
@@ -957,12 +360,12 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Time of next interim update attempt (in seconds)";
     }
-    leaf last-interim-update-attempt-time {
-      type string;
+    leaf last-interim-update-attempt-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Time of last interim update attempt in DDD MMM
-         DD HH:MM:SS YYYY format eg: Tue Apr 11 21:30:47
-         2011";
+        "Time of last interim update attempt in
+         epoch-seconds";
     }
     leaf sent-interim-updates {
       type uint32;
@@ -1003,18 +406,6 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Accounting information";
       uses IEDGE-ACCNT-DATA;
-    }
-    container user-profile-attributes {
-      description
-        "List of user profile attributes collected for
-         subscriber session";
-      uses IEDGE-AAA-ATTR;
-    }
-    container mobility-attributes {
-      description
-        "List of mobility attributes collected for
-         subscriber session";
-      uses IEDGE-MOBILITY-SESSION-DATA;
     }
     leaf session-type {
       type Iedge-oper-session;
@@ -1136,11 +527,11 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Session state";
     }
-    leaf session-creation-time {
-      type string;
+    leaf session-creation-time-epoch {
+      type uint64;
+      units "second";
       description
-        "Session creation time in DDD MMM DD HH:MM:SS
-         YYYY format eg: Tue Apr 11 21:30:47 2011";
+        "Session creation time in epoch seconds";
     }
     leaf idle-state-change-time {
       type string;
@@ -1161,25 +552,17 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
         "Access interface name associated with the
          session";
     }
-    leaf pending-callbacks {
-      type uint64;
+    list sub-policy-data {
       description
-        "Active pending callbacks bitmask";
+        "Subscriber control policy applied to this
+         session";
+      uses IEDGE-POLICY-DATA;
     }
-    leaf af-up-status {
-      type uint32;
+    list session-service-info {
       description
-        "AF status per Subscriber Session";
-    }
-    leaf session-ipv4-state {
-      type Iedge-oper-session-af-state;
-      description
-        "Session IPv4 state";
-    }
-    leaf session-ipv6-state {
-      type Iedge-oper-session-af-state;
-      description
-        "Session IPv6 state";
+        "List of subscriber services associated to this
+         session";
+      uses IEDGE-OPER-SERVICE-DATA;
     }
     list session-change-of-authorization {
       description

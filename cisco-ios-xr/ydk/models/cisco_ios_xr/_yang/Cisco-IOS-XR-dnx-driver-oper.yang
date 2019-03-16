@@ -328,7 +328,7 @@ module Cisco-IOS-XR-dnx-driver-oper {
                 container pbc-stats {
                   description
                     "PBC stats bag";
-                  uses FIA-EDM-STATS-INFO;
+                  uses FIA-EDM-STATS-ASIC-PBC-INFO;
                 }
               }
               container fmac-statistics {

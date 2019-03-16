@@ -1,12 +1,8 @@
 module Cisco-IOS-XR-sysadmin-entity-sensor-mib {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-entity-sensor-mib";
   prefix CISCO_ENTITY_SENSOR_MIB;
-
   import ietf-yang-types {
     prefix yang;
-  }
-  import tailf-common {
-    prefix tailf;
   }
   import SNMPv2-TC {
     prefix SNMPv2-TC;
@@ -14,9 +10,7 @@ module Cisco-IOS-XR-sysadmin-entity-sensor-mib {
   import Cisco-IOS-XR-sysadmin-entity-mib {
     prefix ENTITY-MIB;
   }
-
-  organization
-    "Cisco Systems Inc.";
+  organization "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -27,20 +21,95 @@ module Cisco-IOS-XR-sysadmin-entity-sensor-mib {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-  description
-    "This module contains a collection of YANG
-     definitions for Cisco IOS-XR SysAdmin configuration.
-     
-     Copyright(c) 2015-2017 by Cisco Systems, Inc.
-     All rights reserved.";
 
+  description 
+    "This module contains definitions
+     for the Calvados model objects.
+
+    This module contains a collection of YANG
+definitions for Cisco IOS-XR SysAdmin configuration.
+
+Copyright(c) 2015-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2017-04-12 {
     description
       "Changed namespace and module name";
   }
-  revision 2002-10-16 {
-    description
-      "";
+
+  container CISCO-ENTITY-SENSOR-MIB {
+    container entSensorValueTable {
+      config false;
+      list entSensorValueEntry {
+        key "entPhysicalIndex";
+        config false;
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf entSensorType {
+          type SensorDataType;
+          config false;
+        }
+        leaf entSensorScale {
+          type SensorDataScale;
+          config false;
+        }
+        leaf entSensorPrecision {
+          type SensorPrecision;
+          config false;
+        }
+        leaf entSensorValue {
+          type SensorValue;
+          config false;
+        }
+        leaf entSensorStatus {
+          type SensorStatus;
+          config false;
+        }
+        leaf entSensorValueTimeStamp {
+          type yang:timestamp;
+          config false;
+        }
+        leaf entSensorValueUpdateRate {
+          type SensorValueUpdateRate;
+          config false;
+        }
+        leaf entSensorMeasuredEntity {
+          type entSensorMeasuredEntityType;
+          config false;
+        }
+      }
+    }
+    container entSensorThresholdTable {
+      config false;
+      list entSensorThresholdEntry {
+        key "entPhysicalIndex entSensorThresholdIndex";
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf entSensorThresholdIndex {
+          type entSensorThresholdIndexType;
+        }
+        leaf entSensorThresholdSeverity {
+          type SensorThresholdSeverity;
+        }
+        leaf entSensorThresholdRelation {
+          type SensorThresholdRelation;
+        }
+        leaf entSensorThresholdValue {
+          type SensorValue;
+        }
+        leaf entSensorThresholdEvaluation {
+          type SNMPv2-TC:TruthValue;
+          config false;
+        }
+        leaf entSensorThresholdNotificationEnable {
+          type SNMPv2-TC:TruthValue;
+        }
+      }
+    }
   }
 
   typedef SensorDataType {
@@ -224,102 +293,6 @@ module Cisco-IOS-XR-sysadmin-entity-sensor-mib {
   typedef entSensorThresholdIndexType {
     type int32 {
       range "1 .. 99999999";
-    }
-  }
-  tailf:id "http://tail-f.com/ns/mibs/CISCO-ENTITY-SENSOR-MIB/200210160000Z";
-  tailf:snmp-mib-module-name "CISCO-ENTITY-SENSOR-MIB";
-
-  container CISCO-ENTITY-SENSOR-MIB {
-    container entSensorValueTable {
-      config false;
-      tailf:callpoint "cp_snmp_entSensorValueTable";
-      list entSensorValueEntry {
-        key "entPhysicalIndex";
-        config false;
-        tailf:sort-order "snmp";
-        tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-          tailf:snmp-oid "1.3.6.1.2.1.47.1.1.1.1.1";
-        }
-        leaf entSensorType {
-          type SensorDataType;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.1";
-        }
-        leaf entSensorScale {
-          type SensorDataScale;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.2";
-        }
-        leaf entSensorPrecision {
-          type SensorPrecision;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.3";
-        }
-        leaf entSensorValue {
-          type SensorValue;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.4";
-        }
-        leaf entSensorStatus {
-          type SensorStatus;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.5";
-        }
-        leaf entSensorValueTimeStamp {
-          type yang:timestamp;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.6";
-        }
-        leaf entSensorValueUpdateRate {
-          type SensorValueUpdateRate;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.7";
-        }
-        leaf entSensorMeasuredEntity {
-          type entSensorMeasuredEntityType;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.1.1.1.8";
-        }
-      }
-    }
-    container entSensorThresholdTable {
-      config false;
-      list entSensorThresholdEntry {
-        key "entPhysicalIndex entSensorThresholdIndex";
-        tailf:sort-order "snmp";
-        tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-          tailf:snmp-oid "1.3.6.1.2.1.47.1.1.1.1.1";
-        }
-        leaf entSensorThresholdIndex {
-          type entSensorThresholdIndexType;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.1";
-        }
-        leaf entSensorThresholdSeverity {
-          type SensorThresholdSeverity;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.2";
-        }
-        leaf entSensorThresholdRelation {
-          type SensorThresholdRelation;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.3";
-        }
-        leaf entSensorThresholdValue {
-          type SensorValue;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.4";
-        }
-        leaf entSensorThresholdEvaluation {
-          type SNMPv2-TC:TruthValue;
-          config false;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.5";
-        }
-        leaf entSensorThresholdNotificationEnable {
-          type SNMPv2-TC:TruthValue;
-          tailf:snmp-oid "1.3.6.1.4.1.9.9.91.1.2.1.1.6";
-        }
-      }
     }
   }
 }
