@@ -131,9 +131,9 @@ cd ../cisco-nx-os
 ${PYTHON_BIN} setup.py sdist
 pip_check_install  dist/*.tar.gz
 
-print_msg "Running codec sample"
+print_msg "Checking ${PYTHON_BIN} environment"
+run_cmd ${PIP_BIN} list
+
+print_msg "Running codec sample test"
 cd ../core/samples
 ${PYTHON_BIN} bgp_codec.py
-
-print_msg "Checking ${PYTHON_BIN} environment"
-run_cmd ${PIP_BIN} list --format=columns

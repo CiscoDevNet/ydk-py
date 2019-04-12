@@ -4,7 +4,7 @@ function print_msg {
     echo -e "${MSG_COLOR}*** $(date): tests.sh | $@ ${NOCOLOR}"
 }
 
-function run_exec_test {
+function run_cmd {
     local cmd=$@
     print_msg "Running command: $cmd"
     $cmd
@@ -151,6 +151,9 @@ cd ../cisco-nx-os
 ${PYTHON_BIN} setup.py sdist
 pip_check_install  dist/*.tar.gz
 
-print_msg "Running codec sample"
+print_msg "Checking ${PYTHON_BIN} environment"
+run_cmd ${PIP_BIN} list
+
+print_msg "Running codec sample test"
 cd ../core/samples
 ${PYTHON_BIN} bgp_codec.py
