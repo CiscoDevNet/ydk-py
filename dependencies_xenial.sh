@@ -71,7 +71,7 @@ os_info=$(cat /etc/*-release)
 print_msg "OS info: $os_info"
 
 apt-get update -y > /dev/null
-apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo unzip git -y
+apt-get install gdebi-core python-dev python-pip python3-dev python3-pip libtool-bin wget sudo unzip git -y
 apt-get install libpcre3-dev libpcre++-dev libssh-dev libxml2-dev libxslt1-dev -y
 
 check_install_gcc
