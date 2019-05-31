@@ -153,7 +153,7 @@ class Obfl(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Obfl.ObflMgr.Trace, [u'buffer'], name, value)
+                self._perform_setattr(Obfl.ObflMgr.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -200,7 +200,7 @@ class Obfl(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Obfl.ObflMgr.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Obfl.ObflMgr.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -247,7 +247,7 @@ class Obfl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -285,7 +285,7 @@ class Obfl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -376,7 +376,7 @@ class Obfl(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Obfl.ObflShow.Trace, [u'buffer'], name, value)
+                self._perform_setattr(Obfl.ObflShow.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -423,7 +423,7 @@ class Obfl(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Obfl.ObflShow.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Obfl.ObflShow.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -470,7 +470,7 @@ class Obfl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -508,7 +508,7 @@ class Obfl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

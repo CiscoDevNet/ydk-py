@@ -207,6 +207,16 @@ module Cisco-IOS-XR-ipv4-arp-cfg {
           "Enable the dynamic learning of ARP entries(for
            local subnet) on the interface";
       }
+      leaf drop-adj-timeout {
+        type uint32 {
+          range "900..7200";
+        }
+        units "second";
+        default "3600";
+        description
+          "Number of seconds for ARP drop adjacency
+           timeout";
+      }
       leaf learning-solicited {
         type empty;
         description

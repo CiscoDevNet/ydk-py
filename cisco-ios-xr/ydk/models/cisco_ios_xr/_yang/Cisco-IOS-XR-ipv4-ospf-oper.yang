@@ -190,6 +190,21 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
     container segment-routing {
       description
         "Container for Segment Routing";
+      container adjacency-sids {
+        description
+          "Container for SR Adjacency SIDs";
+        list adjacency-sid {
+          key "adj-sid";
+          description
+            "SR Adj SID Bag";
+          leaf adj-sid {
+            type uint32;
+            description
+              "Adjacency SID";
+          }
+          uses OSPF-SH-ADJ-SID;
+        }
+      }
       container sr-endpoint-policies {
         description
           "Container for SR Policies";

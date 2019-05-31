@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-Subscriber-infra-subdb-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-28 {
+    description
+      "Fixed Subscriber database Association.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

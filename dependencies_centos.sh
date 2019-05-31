@@ -48,9 +48,9 @@ function check_install_gcc {
 
 function install_ydk_core {
     print_msg "Installing YDK core libraries"
-    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8.2-1.x86_64.rpm > /dev/null
+    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk-0.8.3-1.x86_64.rpm > /dev/null
     print_msg "Installing YDK gNMI Service library"
-    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk_gnmi-0.4.0-2.x86_64.rpm > /dev/null
+    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk_gnmi-0.4.0-2.x86_64.rpm > /dev/null
 }
 
 # Terminal colors

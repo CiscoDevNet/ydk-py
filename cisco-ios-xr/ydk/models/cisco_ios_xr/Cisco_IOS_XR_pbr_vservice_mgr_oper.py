@@ -482,7 +482,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, [u'type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, ['type'], name, value)
 
 
                             class Sfp(Entity):
@@ -585,7 +585,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -639,7 +639,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -694,7 +694,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -748,7 +748,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -802,7 +802,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -856,7 +856,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -934,7 +934,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -987,7 +987,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, [u'si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, ['si'], name, value)
 
 
                             class Data(Entity):
@@ -1047,7 +1047,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, [u'type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, ['type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -1100,7 +1100,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1154,7 +1154,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -1311,7 +1311,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, [u'type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, ['type'], name, value)
 
 
                             class Sfp(Entity):
@@ -1414,7 +1414,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1468,7 +1468,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -1523,7 +1523,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1577,7 +1577,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -1631,7 +1631,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1685,7 +1685,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1763,7 +1763,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -1816,7 +1816,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, [u'si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, ['si'], name, value)
 
 
                             class Data(Entity):
@@ -1876,7 +1876,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, [u'type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, ['type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -1929,7 +1929,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -1983,7 +1983,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -2190,7 +2190,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, [u'type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, ['type'], name, value)
 
 
                             class Sfp(Entity):
@@ -2293,7 +2293,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -2347,7 +2347,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -2402,7 +2402,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -2456,7 +2456,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -2510,7 +2510,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -2564,7 +2564,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -2642,7 +2642,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -2695,7 +2695,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, [u'si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, ['si'], name, value)
 
 
                             class Data(Entity):
@@ -2755,7 +2755,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, [u'type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, ['type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -2808,7 +2808,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -2862,7 +2862,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -3113,7 +3113,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, [u'type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, ['type'], name, value)
 
 
                     class Sfp(Entity):
@@ -3216,7 +3216,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -3270,7 +3270,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -3325,7 +3325,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -3379,7 +3379,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -3433,7 +3433,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -3487,7 +3487,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -3565,7 +3565,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -3618,7 +3618,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, [u'si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, ['si'], name, value)
 
 
                     class Data(Entity):
@@ -3678,7 +3678,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, [u'type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, ['type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -3731,7 +3731,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -3785,7 +3785,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -4045,7 +4045,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, [u'type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, ['type'], name, value)
 
 
                     class Sfp(Entity):
@@ -4148,7 +4148,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -4202,7 +4202,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -4257,7 +4257,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -4311,7 +4311,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -4365,7 +4365,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -4419,7 +4419,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -4497,7 +4497,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -4550,7 +4550,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, [u'si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, ['si'], name, value)
 
 
                     class Data(Entity):
@@ -4610,7 +4610,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, [u'type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, ['type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -4663,7 +4663,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -4717,7 +4717,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -4918,7 +4918,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, [u'type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, ['type'], name, value)
 
 
                     class Sfp(Entity):
@@ -5023,7 +5023,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -5078,7 +5078,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -5134,7 +5134,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -5189,7 +5189,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 
@@ -5244,7 +5244,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -5299,7 +5299,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -5378,7 +5378,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
 
@@ -5432,7 +5432,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, [u'si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, ['si'], name, value)
 
 
                     class Data(Entity):
@@ -5493,7 +5493,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, [u'type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, ['type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -5547,7 +5547,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
 
@@ -5602,7 +5602,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
 

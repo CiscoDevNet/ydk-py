@@ -1,7 +1,9 @@
 module Cisco-IOS-XR-sysadmin-syslog {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-syslog";
   prefix syslog;
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -12,27 +14,34 @@ module Cisco-IOS-XR-sysadmin-syslog {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-This module defines configuration for
-sysadmin syslog infrastructure.
-
-Copyright(c) 2010-2016 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     This module defines configuration for
+     sysadmin syslog infrastructure.
+     
+     Copyright(c) 2010-2016 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-05-09 {
     description
       "Namespace change to comply with Cisco guidelines";
   }
 
+  typedef num-lines-type {
+    type uint32;
+  }
+
+  typedef dir-or-file-path-type {
+    type string;
+  }
 
   grouping syslog-grp {
     container console {
@@ -87,13 +96,5 @@ All rights reserved.
         }
       }
     }
-  }
-
-  typedef num-lines-type {
-    type uint32;
-  }
-
-  typedef dir-or-file-path-type {
-    type string;
   }
 }

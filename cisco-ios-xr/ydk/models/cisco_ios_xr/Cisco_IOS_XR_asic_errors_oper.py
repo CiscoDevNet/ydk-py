@@ -342,7 +342,7 @@ class AsicErrors(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, [u'legacy_client', u'cih_client'], name, value)
+                                self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, ['legacy_client', 'cih_client'], name, value)
 
 
                             class SumData(Entity):
@@ -476,7 +476,7 @@ class AsicErrors(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, [u'num_nodes', u'crc_err_count', u'sbe_err_count', u'mbe_err_count', u'par_err_count', u'gen_err_count', u'reset_err_count', u'node_key'], name, value)
+                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
 
 
                                 class ErrCount(Entity):
@@ -525,7 +525,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, [u'name', u'count'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, ['name', 'count'], name, value)
 
 
 
@@ -575,7 +575,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, [u'name', u'count'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
 
 
@@ -1466,7 +1466,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -1526,7 +1526,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -1609,7 +1609,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -1821,7 +1821,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -1881,7 +1881,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -1964,7 +1964,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -2176,7 +2176,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -2236,7 +2236,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -2319,7 +2319,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -2531,7 +2531,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -2591,7 +2591,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -2674,7 +2674,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -2886,7 +2886,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -2946,7 +2946,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -3029,7 +3029,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -3241,7 +3241,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -3301,7 +3301,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -3384,7 +3384,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -3596,7 +3596,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -3656,7 +3656,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -3739,7 +3739,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -3951,7 +3951,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -4011,7 +4011,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -4094,7 +4094,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -4306,7 +4306,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -4366,7 +4366,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -4449,7 +4449,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -4661,7 +4661,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -4721,7 +4721,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -4804,7 +4804,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -5016,7 +5016,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -5076,7 +5076,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -5159,7 +5159,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -5371,7 +5371,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -5431,7 +5431,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -5514,7 +5514,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -5726,7 +5726,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -5786,7 +5786,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -5869,7 +5869,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -6081,7 +6081,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -6141,7 +6141,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -6224,7 +6224,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -6436,7 +6436,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -6496,7 +6496,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -6579,7 +6579,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -6791,7 +6791,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -6851,7 +6851,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -6934,7 +6934,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -7146,7 +7146,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -7206,7 +7206,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -7289,7 +7289,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -7501,7 +7501,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -7561,7 +7561,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -7644,7 +7644,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -7856,7 +7856,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -7916,7 +7916,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -7999,7 +7999,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -8211,7 +8211,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -8271,7 +8271,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -8354,7 +8354,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -8566,7 +8566,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -8626,7 +8626,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -8709,7 +8709,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -8921,7 +8921,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -8981,7 +8981,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -9064,7 +9064,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -9276,7 +9276,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -9336,7 +9336,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -9419,7 +9419,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -9631,7 +9631,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -9691,7 +9691,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -9774,7 +9774,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -9986,7 +9986,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -10046,7 +10046,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -10129,7 +10129,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -10188,7 +10188,7 @@ class AsicErrors(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, [u'legacy_client', u'cih_client'], name, value)
+                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, ['legacy_client', 'cih_client'], name, value)
 
 
                                 class SumData(Entity):
@@ -10322,7 +10322,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, [u'num_nodes', u'crc_err_count', u'sbe_err_count', u'mbe_err_count', u'par_err_count', u'gen_err_count', u'reset_err_count', u'node_key'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
 
 
                                     class ErrCount(Entity):
@@ -10371,7 +10371,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, [u'name', u'count'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, ['name', 'count'], name, value)
 
 
 
@@ -10421,7 +10421,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, [u'name', u'count'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
 
 
@@ -10633,7 +10633,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -10693,7 +10693,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -10776,7 +10776,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -10988,7 +10988,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -11048,7 +11048,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -11131,7 +11131,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -11343,7 +11343,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -11403,7 +11403,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -11486,7 +11486,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -11698,7 +11698,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -11758,7 +11758,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -11841,7 +11841,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -12053,7 +12053,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -12113,7 +12113,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -12196,7 +12196,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -12408,7 +12408,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -12468,7 +12468,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -12551,7 +12551,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -12763,7 +12763,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -12823,7 +12823,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -12906,7 +12906,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -13118,7 +13118,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -13178,7 +13178,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -13261,7 +13261,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -13473,7 +13473,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -13533,7 +13533,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -13616,7 +13616,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -13828,7 +13828,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -13888,7 +13888,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -13971,7 +13971,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -14183,7 +14183,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -14243,7 +14243,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -14326,7 +14326,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -14538,7 +14538,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -14598,7 +14598,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -14681,7 +14681,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -14893,7 +14893,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -14953,7 +14953,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -15036,7 +15036,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -15248,7 +15248,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -15308,7 +15308,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -15391,7 +15391,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -15603,7 +15603,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -15663,7 +15663,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -15746,7 +15746,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -15958,7 +15958,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -16018,7 +16018,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -16101,7 +16101,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -16313,7 +16313,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -16373,7 +16373,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -16456,7 +16456,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -16668,7 +16668,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -16728,7 +16728,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -16811,7 +16811,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -17023,7 +17023,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -17083,7 +17083,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -17166,7 +17166,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -17378,7 +17378,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -17438,7 +17438,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -17521,7 +17521,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -17733,7 +17733,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -17793,7 +17793,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -17876,7 +17876,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -18088,7 +18088,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -18148,7 +18148,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -18231,7 +18231,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -18443,7 +18443,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -18503,7 +18503,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -18586,7 +18586,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -18798,7 +18798,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -18858,7 +18858,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -18941,7 +18941,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 
@@ -19153,7 +19153,7 @@ class AsicErrors(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, [u'name', u'asic_info', u'node_key', u'alarm_on', u'thresh_hi', u'period_hi', u'thresh_lo', u'period_lo', u'count', u'intr_type', u'leaf_id', u'last_cleared'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
                                     class CsrsInfo(Entity):
@@ -19213,7 +19213,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
 
 
@@ -19296,7 +19296,7 @@ class AsicErrors(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
 
 

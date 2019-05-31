@@ -8,9 +8,6 @@ module Cisco-IOS-XR-aaa-protocol-radius-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
-  import Cisco-IOS-XR-aaa-lib-datatypes {
-    prefix dt1;
-  }
   import Cisco-IOS-XR-aaa-locald-oper {
     prefix a1;
   }

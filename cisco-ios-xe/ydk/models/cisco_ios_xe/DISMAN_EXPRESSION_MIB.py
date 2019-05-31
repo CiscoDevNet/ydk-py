@@ -107,7 +107,7 @@ class DISMANEXPRESSIONMIB(Entity):
         	The minimum expExpressionDeltaInterval this system will accept.  A system may use the larger values of this minimum to lessen the impact of constantly computing deltas.  For larger delta sampling intervals the system samples less often and suffers less overhead.  This object provides a way to enforce such lower overhead for all expressions created after it is set.  The value \-1 indicates that expResourceDeltaMinimum is irrelevant as the system will not accept 'deltaValue' as a value for expObjectSampleType.  Unless explicitly resource limited, a system's value for this object should be 1, allowing as small as a 1 second interval for ongoing delta sampling.  Changing this value will not invalidate an existing setting of expObjectSampleType
         	**type**\: int
         
-        	**range:** \-1..None \| 1..600
+        	**range:** \-1..\-1 \| 1..600
         
         	**config**\: False
         

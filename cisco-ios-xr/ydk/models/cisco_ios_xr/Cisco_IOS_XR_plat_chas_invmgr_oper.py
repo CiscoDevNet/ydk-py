@@ -1857,7 +1857,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, [u'processor_type', u'speed', u'revision'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, ['processor_type', 'speed', 'revision'], name, value)
 
 
 
@@ -1946,7 +1946,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, [u'main_memory_size', u'nvram_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, ['main_memory_size', 'nvram_size'], name, value)
 
 
                                     class Rom(Entity):
@@ -2041,7 +2041,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, [u'image_name', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, ['image_name', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type'], name, value)
 
 
 
@@ -2185,7 +2185,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
 
 
 
@@ -2248,7 +2248,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, [u'processor_type', u'speed', u'revision'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, ['processor_type', 'speed', 'revision'], name, value)
 
 
 
@@ -2393,7 +2393,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
 
 
 
@@ -2469,7 +2469,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, [u'disk_name', u'disk_size', u'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, ['disk_name', 'disk_size', 'sector_size'], name, value)
 
 
                                     class Disks(Entity):
@@ -2535,7 +2535,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, [u'disk_name', u'disk_size', u'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, ['disk_name', 'disk_size', 'sector_size'], name, value)
 
 
 
@@ -2915,7 +2915,7 @@ class PlatformInventory(Entity):
                                                             
                                                             .. attribute:: description
                                                             
-                                                            	describes in user\-readable terms what the entity in question does
+                                                            	describes in user\-readable terms                 what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
@@ -3023,7 +3023,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -3120,7 +3120,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -3175,7 +3175,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3231,7 +3231,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3391,7 +3391,7 @@ class PlatformInventory(Entity):
                                                                 
                                                                 .. attribute:: description
                                                                 
-                                                                	describes in user\-readable terms what the entity in question does
+                                                                	describes in user\-readable terms                 what the entity in question does
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
@@ -3499,7 +3499,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -3596,7 +3596,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                 class LastOperationalStateChange(Entity):
@@ -3651,7 +3651,7 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3707,7 +3707,7 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3780,7 +3780,7 @@ class PlatformInventory(Entity):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms what the entity in question does
+                                                        	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
@@ -3888,7 +3888,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -3985,7 +3985,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -4040,7 +4040,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4096,7 +4096,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4257,7 +4257,7 @@ class PlatformInventory(Entity):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms what the entity in question does
+                                                        	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
@@ -4365,7 +4365,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -4462,7 +4462,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -4517,7 +4517,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4573,7 +4573,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4646,7 +4646,7 @@ class PlatformInventory(Entity):
                                                 
                                                 .. attribute:: description
                                                 
-                                                	describes in user\-readable terms what the entity in question does
+                                                	describes in user\-readable terms                 what the entity in question does
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
@@ -4754,7 +4754,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -4851,7 +4851,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -4906,7 +4906,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4962,7 +4962,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5034,7 +5034,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms what the entity in question does
+                                            	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -5142,7 +5142,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -5239,7 +5239,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -5294,7 +5294,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5350,7 +5350,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5610,7 +5610,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms what the entity in question does
+                                                    	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -5718,7 +5718,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -5815,7 +5815,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -5870,7 +5870,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5926,7 +5926,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5999,7 +5999,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms what the entity in question does
+                                            	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -6107,7 +6107,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -6204,7 +6204,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -6259,7 +6259,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6315,7 +6315,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6537,7 +6537,7 @@ class PlatformInventory(Entity):
                                                 
                                                 .. attribute:: description
                                                 
-                                                	describes in user\-readable terms what the entity in question does
+                                                	describes in user\-readable terms                 what the entity in question does
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
@@ -6645,7 +6645,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -6742,7 +6742,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -6797,7 +6797,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6853,7 +6853,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7013,7 +7013,7 @@ class PlatformInventory(Entity):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms what the entity in question does
+                                                    	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
@@ -7121,7 +7121,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -7218,7 +7218,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -7273,7 +7273,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7329,7 +7329,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7402,7 +7402,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms what the entity in question does
+                                            	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -7510,7 +7510,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -7607,7 +7607,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -7662,7 +7662,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7718,7 +7718,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7879,7 +7879,7 @@ class PlatformInventory(Entity):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms what the entity in question does
+                                            	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
@@ -7987,7 +7987,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -8084,7 +8084,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -8139,7 +8139,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8195,7 +8195,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8268,7 +8268,7 @@ class PlatformInventory(Entity):
                                     
                                     .. attribute:: description
                                     
-                                    	describes in user\-readable terms what the entity in question does
+                                    	describes in user\-readable terms                 what the entity in question does
                                     	**type**\: str
                                     
                                     	**length:** 0..255
@@ -8376,7 +8376,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -8473,7 +8473,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                     class LastOperationalStateChange(Entity):
@@ -8528,7 +8528,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8584,7 +8584,7 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8657,7 +8657,7 @@ class PlatformInventory(Entity):
                             
                             .. attribute:: description
                             
-                            	describes in user\-readable terms what the entity in question does
+                            	describes in user\-readable terms                 what the entity in question does
                             	**type**\: str
                             
                             	**length:** 0..255
@@ -8765,7 +8765,7 @@ class PlatformInventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -8862,7 +8862,7 @@ class PlatformInventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                             class LastOperationalStateChange(Entity):
@@ -8917,7 +8917,7 @@ class PlatformInventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8973,7 +8973,7 @@ class PlatformInventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -9046,7 +9046,7 @@ class PlatformInventory(Entity):
                     
                     .. attribute:: description
                     
-                    	describes in user\-readable terms what the entity in question does
+                    	describes in user\-readable terms                 what the entity in question does
                     	**type**\: str
                     
                     	**length:** 0..255
@@ -9154,7 +9154,7 @@ class PlatformInventory(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
 
 
 
@@ -9251,7 +9251,7 @@ class PlatformInventory(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                     class LastOperationalStateChange(Entity):
@@ -9306,7 +9306,7 @@ class PlatformInventory(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -9362,7 +9362,7 @@ class PlatformInventory(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 

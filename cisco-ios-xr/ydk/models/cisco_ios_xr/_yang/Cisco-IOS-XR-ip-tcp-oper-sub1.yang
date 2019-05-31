@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-01 {
+    description
+      "Added socket async double free prevention count in tcp statistics summary";
+  }
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";
@@ -1629,6 +1633,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub1 {
         "Local address";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Local address";
       }
     }
     list foreign-address {
@@ -1637,6 +1643,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub1 {
         "Foreign address";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Foreign address";
       }
     }
     list packet-hold-queue {
@@ -1712,6 +1720,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub1 {
         "Local address";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Local address";
       }
     }
     list foreign-address {
@@ -1720,6 +1730,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub1 {
         "Foreign address";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Foreign address";
       }
     }
   }

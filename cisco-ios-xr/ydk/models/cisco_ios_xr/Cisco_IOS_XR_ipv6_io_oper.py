@@ -536,6 +536,15 @@ class Ipv6Io(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: io_puntback
+                        
+                        	IPv6 IO Puntback
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -584,6 +593,7 @@ class Ipv6Io(Entity):
                                 ('lisp_v6_decap_packets', (YLeaf(YType.uint32, 'lisp-v6-decap-packets'), ['int'])),
                                 ('lisp_encap_errors', (YLeaf(YType.uint32, 'lisp-encap-errors'), ['int'])),
                                 ('lisp_decap_errors', (YLeaf(YType.uint32, 'lisp-decap-errors'), ['int'])),
+                                ('io_puntback', (YLeaf(YType.uint32, 'io-puntback'), ['int'])),
                             ])
                             self.total_packets = None
                             self.local_destination_packets = None
@@ -616,11 +626,12 @@ class Ipv6Io(Entity):
                             self.lisp_v6_decap_packets = None
                             self.lisp_encap_errors = None
                             self.lisp_decap_errors = None
+                            self.io_puntback = None
                             self._segment_path = lambda: "ipv6"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, [u'total_packets', u'local_destination_packets', u'format_errors', u'truncated_packets', u'hop_count_exceeded_packets', u'bad_source_address_packets', u'bad_header_packets', u'unknown_option_type_packets', u'unknown_protocol_packets', u'fragments', u'reassembled_packets', u'reassembly_timeouts', u'reassembly_failures', u'reassembly_maximum_drops', u'generated_packets', u'forwarded_packets', u'source_routed_packets', u'fragmented_packets', u'fragment_count', u'fragment_failures', u'no_route_packets', u'too_big_packets', u'received_multicast_packets', u'sent_multicast_packets', u'miscellaneous_drops', u'lisp_v4_encap_packets', u'lisp_v4_decap_packets', u'lisp_v6_encap_packets', u'lisp_v6_decap_packets', u'lisp_encap_errors', u'lisp_decap_errors'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, ['total_packets', 'local_destination_packets', 'format_errors', 'truncated_packets', 'hop_count_exceeded_packets', 'bad_source_address_packets', 'bad_header_packets', 'unknown_option_type_packets', 'unknown_protocol_packets', 'fragments', 'reassembled_packets', 'reassembly_timeouts', 'reassembly_failures', 'reassembly_maximum_drops', 'generated_packets', 'forwarded_packets', 'source_routed_packets', 'fragmented_packets', 'fragment_count', 'fragment_failures', 'no_route_packets', 'too_big_packets', 'received_multicast_packets', 'sent_multicast_packets', 'miscellaneous_drops', 'lisp_v4_encap_packets', 'lisp_v4_decap_packets', 'lisp_v6_encap_packets', 'lisp_v6_decap_packets', 'lisp_encap_errors', 'lisp_decap_errors', 'io_puntback'], name, value)
 
 
 
@@ -1068,7 +1079,7 @@ class Ipv6Io(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, [u'total_messages', u'too_short_error_messages', u'checksum_error_messages', u'unknown_error_type_messages', u'output_messages', u'sent_rate_limited_packets', u'sent_unreachable_routing_messages', u'sent_unreachable_admin_messages', u'sent_unreachable_neighbor_messages', u'sent_unreachable_address_messages', u'sent_unreachable_port_messages', u'received_unreachable_routing_messages', u'received_unreachable_admin_messages', u'received_unreachable_neighbor_messages', u'received_unreachable_address_messages', u'received_unreachable_port_messages', u'sent_hop_count_expired_messages', u'sent_reassembly_timeouts', u'received_hop_count_expired_messages', u'received_reassembly_timeouts', u'sent_too_big_messages', u'received_too_big_messages', u'sent_parameter_error_messages', u'sent_parameter_header_messages', u'sent_parameter_option_messages', u'received_parameter_error_messages', u'received_parameter_header_messages', u'received_parameter_option_messages', u'sent_echo_request_messages', u'sent_echo_reply_messages', u'received_echo_request_messages', u'received_echo_reply_messages', u'sent_unknown_timeout_messages', u'received_unknown_timeout_messages', u'sent_parameter_unknown_type_messages', u'received_parameter_unknown_type_messages', u'sent_unreachable_unknown_type_messages', u'received_unreachable_unknown_type_messages'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, ['total_messages', 'too_short_error_messages', 'checksum_error_messages', 'unknown_error_type_messages', 'output_messages', 'sent_rate_limited_packets', 'sent_unreachable_routing_messages', 'sent_unreachable_admin_messages', 'sent_unreachable_neighbor_messages', 'sent_unreachable_address_messages', 'sent_unreachable_port_messages', 'received_unreachable_routing_messages', 'received_unreachable_admin_messages', 'received_unreachable_neighbor_messages', 'received_unreachable_address_messages', 'received_unreachable_port_messages', 'sent_hop_count_expired_messages', 'sent_reassembly_timeouts', 'received_hop_count_expired_messages', 'received_reassembly_timeouts', 'sent_too_big_messages', 'received_too_big_messages', 'sent_parameter_error_messages', 'sent_parameter_header_messages', 'sent_parameter_option_messages', 'received_parameter_error_messages', 'received_parameter_header_messages', 'received_parameter_option_messages', 'sent_echo_request_messages', 'sent_echo_reply_messages', 'received_echo_request_messages', 'received_echo_reply_messages', 'sent_unknown_timeout_messages', 'received_unknown_timeout_messages', 'sent_parameter_unknown_type_messages', 'received_parameter_unknown_type_messages', 'sent_unreachable_unknown_type_messages', 'received_unreachable_unknown_type_messages'], name, value)
 
 
 
@@ -1208,7 +1219,7 @@ class Ipv6Io(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, [u'sent_router_solicitation_messages', u'sent_router_advertisement_messages', u'sent_neighbor_solicitation_messages', u'sent_neighbor_advertisement_messages', u'sent_redirect_messages', u'received_router_solicitation_messages', u'received_router_advertisement_messages', u'received_neighbor_solicitation_messages', u'received_neighbor_advertisement_messages', u'received_redirect_messages'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, ['sent_router_solicitation_messages', 'sent_router_advertisement_messages', 'sent_neighbor_solicitation_messages', 'sent_neighbor_advertisement_messages', 'sent_redirect_messages', 'received_router_solicitation_messages', 'received_router_advertisement_messages', 'received_neighbor_solicitation_messages', 'received_neighbor_advertisement_messages', 'received_redirect_messages'], name, value)
 
 
 

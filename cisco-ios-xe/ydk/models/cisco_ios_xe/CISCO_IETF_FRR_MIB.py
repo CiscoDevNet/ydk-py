@@ -612,7 +612,7 @@ class CISCOIETFFRRMIB(Entity):
             	This object contains an implementation\-specific explanation of the event
             	**type**\: str
             
-            	**length:** 128
+            	**length:** 128..128
             
             	**config**\: False
             
@@ -780,7 +780,7 @@ class CISCOIETFFRRMIB(Entity):
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -789,7 +789,7 @@ class CISCOIETFFRRMIB(Entity):
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             

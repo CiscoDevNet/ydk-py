@@ -107,7 +107,7 @@ class Install(Entity):
     """
 
     _prefix = 'install'
-    _revision = '2017-10-13'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Install, self).__init__()
@@ -187,7 +187,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Version, self).__init__()
@@ -234,7 +234,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Inactive, self).__init__()
@@ -277,7 +277,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Inactive.Summary, self).__init__()
@@ -318,7 +318,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Prepare, self).__init__()
@@ -358,7 +358,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Package, self).__init__()
@@ -417,7 +417,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Package.PkgList, self).__init__()
@@ -466,7 +466,7 @@ class Install(Entity):
                 """
 
                 _prefix = 'install'
-                _revision = '2017-10-13'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Install.Package.PkgList.Detail, self).__init__()
@@ -505,7 +505,7 @@ class Install(Entity):
                 """
 
                 _prefix = 'install'
-                _revision = '2017-10-13'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Install.Package.PkgList.Verbose, self).__init__()
@@ -553,7 +553,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Active, self).__init__()
@@ -596,7 +596,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Active.Summary, self).__init__()
@@ -644,7 +644,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Superseded, self).__init__()
@@ -687,7 +687,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Superseded.Summary, self).__init__()
@@ -728,7 +728,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Request, self).__init__()
@@ -775,7 +775,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Repository, self).__init__()
@@ -818,7 +818,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Repository.All, self).__init__()
@@ -880,7 +880,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Log, self).__init__()
@@ -945,7 +945,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Log.Id, self).__init__()
@@ -990,7 +990,7 @@ class Install(Entity):
                 """
 
                 _prefix = 'install'
-                _revision = '2017-10-13'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Install.Log.Id.Detail, self).__init__()
@@ -1037,7 +1037,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Log.Reverse, self).__init__()
@@ -1080,7 +1080,7 @@ class Install(Entity):
                 """
 
                 _prefix = 'install'
-                _revision = '2017-10-13'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Install.Log.Reverse.Detail, self).__init__()
@@ -1121,7 +1121,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Log.Detail, self).__init__()
@@ -1162,7 +1162,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Which, self).__init__()
@@ -1214,7 +1214,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Which.FileList, self).__init__()
@@ -1259,7 +1259,7 @@ class Install(Entity):
                 """
 
                 _prefix = 'install'
-                _revision = '2017-10-13'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Install.Which.FileList.Detail, self).__init__()
@@ -1307,7 +1307,7 @@ class Install(Entity):
         """
 
         _prefix = 'install'
-        _revision = '2017-10-13'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Install.Committed, self).__init__()
@@ -1350,7 +1350,7 @@ class Install(Entity):
             """
 
             _prefix = 'install'
-            _revision = '2017-10-13'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Install.Committed.Summary, self).__init__()

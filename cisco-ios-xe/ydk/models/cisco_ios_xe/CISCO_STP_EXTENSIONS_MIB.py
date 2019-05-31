@@ -4065,7 +4065,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	Indicates the Bridge Identifier (refer to BridgeId  defined in BRIDGE\-MIB) of CIST (Common and Internal  Spanning Tree) Regional Root for the MST region.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4) and stpxSMSTInstanceIndex is 0
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             

@@ -248,7 +248,7 @@ class Ipv4Network(Entity):
     """
 
     _prefix = 'ipv4-io-oper'
-    _revision = '2015-10-20'
+    _revision = '2018-08-01'
 
     def __init__(self):
         super(Ipv4Network, self).__init__()
@@ -292,7 +292,7 @@ class Ipv4Network(Entity):
         """
 
         _prefix = 'ipv4-io-oper'
-        _revision = '2015-10-20'
+        _revision = '2018-08-01'
 
         def __init__(self):
             super(Ipv4Network.Nodes, self).__init__()
@@ -347,7 +347,7 @@ class Ipv4Network(Entity):
             """
 
             _prefix = 'ipv4-io-oper'
-            _revision = '2015-10-20'
+            _revision = '2018-08-01'
 
             def __init__(self):
                 super(Ipv4Network.Nodes.Node, self).__init__()
@@ -375,7 +375,7 @@ class Ipv4Network(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Network.Nodes.Node, [u'node_name'], name, value)
+                self._perform_setattr(Ipv4Network.Nodes.Node, ['node_name'], name, value)
 
 
             class InterfaceData(Entity):
@@ -401,7 +401,7 @@ class Ipv4Network(Entity):
                 """
 
                 _prefix = 'ipv4-io-oper'
-                _revision = '2015-10-20'
+                _revision = '2018-08-01'
 
                 def __init__(self):
                     super(Ipv4Network.Nodes.Node.InterfaceData, self).__init__()
@@ -445,7 +445,7 @@ class Ipv4Network(Entity):
                     """
 
                     _prefix = 'ipv4-io-oper'
-                    _revision = '2015-10-20'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
@@ -498,7 +498,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
@@ -525,7 +525,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, [u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
                         class Briefs(Entity):
@@ -545,7 +545,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-io-oper'
-                            _revision = '2015-10-20'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
@@ -617,7 +617,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-io-oper'
-                                _revision = '2015-10-20'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
@@ -644,7 +644,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, [u'interface_name', u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
 
 
 
@@ -666,7 +666,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-io-oper'
-                            _revision = '2015-10-20'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
@@ -733,41 +733,6 @@ class Ipv4Network(Entity):
                                 
                                 	BGP PA config on the interface
                                 	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: pub_utime
-                                
-                                	Address Publish Time
-                                	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: caps_utime
-                                
-                                	CAPS Add Time
-                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_en_utime
-                                
-                                	FWD ENABLE Time
-                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_dis_utime
-                                
-                                	FWD DISABLE Time
-                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
                                 	**config**\: False
                                 
@@ -874,7 +839,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: next_unnumbered_interface_name
                                 
-                                	Name of interface which is also unnum to same interface where this intf is unnumbered
+                                	Name of interface which is also unnum to         same interface where this intf is unnumbered
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -929,7 +894,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: state_recvd_frm_im
                                 
-                                	state as recieved from IM
+                                	state as recieved                                from IM
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
                                 
                                 	**config**\: False
@@ -992,7 +957,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-io-oper'
-                                _revision = '2015-10-20'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
@@ -1002,7 +967,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress))])
+                                    self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("multicast-group", ("multicast_group", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                         ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
@@ -1080,33 +1045,13 @@ class Ipv4Network(Entity):
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
 
-                                    self.pub_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime()
-                                    self.pub_utime.parent = self
-                                    self._children_name_map["pub_utime"] = "pub-utime"
-
-                                    self.idb_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self._children_name_map["idb_utime"] = "idb-utime"
-
-                                    self.caps_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self._children_name_map["caps_utime"] = "caps-utime"
-
-                                    self.fwd_en_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-
-                                    self.fwd_dis_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-
                                     self.multicast_group = YList(self)
                                     self.secondary_address = YList(self)
                                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, [u'interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
 
 
                                 class Acl(Entity):
@@ -1146,7 +1091,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, self).__init__()
@@ -1171,7 +1116,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
 
 
 
@@ -1205,7 +1150,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl, self).__init__()
@@ -1234,7 +1179,7 @@ class Ipv4Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Inbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1244,7 +1189,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, self).__init__()
@@ -1263,7 +1208,7 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, ['entry'], name, value)
 
 
 
@@ -1273,7 +1218,7 @@ class Ipv4Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Outbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1283,7 +1228,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, self).__init__()
@@ -1302,7 +1247,7 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, ['entry'], name, value)
 
 
 
@@ -1312,7 +1257,7 @@ class Ipv4Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Common ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1322,7 +1267,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, self).__init__()
@@ -1341,7 +1286,7 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, ['entry'], name, value)
 
 
 
@@ -1362,7 +1307,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress, self).__init__()
@@ -1389,7 +1334,7 @@ class Ipv4Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Helper address
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -1401,7 +1346,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, self).__init__()
@@ -1420,7 +1365,7 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, ['entry'], name, value)
 
 
 
@@ -1462,7 +1407,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
@@ -1487,7 +1432,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
 
 
@@ -1514,7 +1459,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
@@ -1571,7 +1516,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
@@ -1594,7 +1539,7 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
 
 
@@ -1628,7 +1573,7 @@ class Ipv4Network(Entity):
                                         """
 
                                         _prefix = 'ipv4-io-oper'
-                                        _revision = '2015-10-20'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
@@ -1651,138 +1596,8 @@ class Ipv4Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
-
-
-
-                                class PubUtime(Entity):
-                                    """
-                                    Address Publish Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime, self).__init__()
-
-                                        self.yang_name = "pub-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "pub-utime"
-                                        self._is_frozen = True
-
-
-
-                                class IdbUtime(Entity):
-                                    """
-                                    IDB Create Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime, self).__init__()
-
-                                        self.yang_name = "idb-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "idb-utime"
-                                        self._is_frozen = True
-
-
-
-                                class CapsUtime(Entity):
-                                    """
-                                    CAPS Add Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime, self).__init__()
-
-                                        self.yang_name = "caps-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "caps-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdEnUtime(Entity):
-                                    """
-                                    FWD ENABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime, self).__init__()
-
-                                        self.yang_name = "fwd-en-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-en-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdDisUtime(Entity):
-                                    """
-                                    FWD DISABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime, self).__init__()
-
-                                        self.yang_name = "fwd-dis-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-dis-utime"
-                                        self._is_frozen = True
 
 
 
@@ -1804,7 +1619,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
@@ -1823,7 +1638,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'group_address'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['group_address'], name, value)
 
 
 
@@ -1863,7 +1678,7 @@ class Ipv4Network(Entity):
                                     """
 
                                     _prefix = 'ipv4-io-oper'
-                                    _revision = '2015-10-20'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, self).__init__()
@@ -1886,7 +1701,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
 
 
 
@@ -1941,7 +1756,7 @@ class Ipv4Network(Entity):
                     """
 
                     _prefix = 'ipv4-io-oper'
-                    _revision = '2015-10-20'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv4Network.Nodes.Node.InterfaceData.Summary, self).__init__()
@@ -1976,7 +1791,7 @@ class Ipv4Network(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
+                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
 
 
                     class IfUpUp(Entity):
@@ -2015,7 +1830,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
@@ -2038,7 +1853,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
 
 
@@ -2078,7 +1893,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
@@ -2101,7 +1916,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
 
 
@@ -2141,7 +1956,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
@@ -2164,7 +1979,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
 
 
@@ -2204,7 +2019,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
@@ -2227,7 +2042,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
 
 
@@ -2250,7 +2065,7 @@ class Ipv4Network(Entity):
                 """
 
                 _prefix = 'ipv4-io-oper'
-                _revision = '2015-10-20'
+                _revision = '2018-08-01'
 
                 def __init__(self):
                     super(Ipv4Network.Nodes.Node.Statistics, self).__init__()
@@ -2296,7 +2111,7 @@ class Ipv4Network(Entity):
                     """
 
                     _prefix = 'ipv4-io-oper'
-                    _revision = '2015-10-20'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv4Network.Nodes.Node.Statistics.Traffic, self).__init__()
@@ -2737,7 +2552,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, self).__init__()
@@ -2844,7 +2659,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, [u'input_packets', u'received_packets', u'format_errors', u'bad_hop_count', u'bad_source_address', u'bad_header', u'no_protocol', u'no_gateway', u'reassemble_input', u'reassembled', u'reassemble_timeout', u'reassemble_max_drop', u'reassemble_failed', u'options_present', u'bad_option', u'unknown_option', u'bad_security_option', u'basic_security_option', u'extended_security_option', u'cipso_option', u'strict_source_route_option', u'loose_source_route_option', u'record_route_option', u'sid_option', u'timestamp_option', u'router_alert_option', u'noop_option', u'end_option', u'packets_output', u'packets_forwarded', u'packets_fragmented', u'fragment_count', u'encapsulation_failed', u'no_router', u'packet_too_big', u'multicast_in', u'multicast_out', u'broadcast_in', u'broadcast_out', u'lisp_v4_encap', u'lisp_v4_decap', u'lisp_v6_encap', u'lisp_v6_decap', u'lisp_encap_error', u'lisp_decap_error'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, ['input_packets', 'received_packets', 'format_errors', 'bad_hop_count', 'bad_source_address', 'bad_header', 'no_protocol', 'no_gateway', 'reassemble_input', 'reassembled', 'reassemble_timeout', 'reassemble_max_drop', 'reassemble_failed', 'options_present', 'bad_option', 'unknown_option', 'bad_security_option', 'basic_security_option', 'extended_security_option', 'cipso_option', 'strict_source_route_option', 'loose_source_route_option', 'record_route_option', 'sid_option', 'timestamp_option', 'router_alert_option', 'noop_option', 'end_option', 'packets_output', 'packets_forwarded', 'packets_fragmented', 'fragment_count', 'encapsulation_failed', 'no_router', 'packet_too_big', 'multicast_in', 'multicast_out', 'broadcast_in', 'broadcast_out', 'lisp_v4_encap', 'lisp_v4_decap', 'lisp_v6_encap', 'lisp_v6_decap', 'lisp_encap_error', 'lisp_decap_error'], name, value)
 
 
 
@@ -3190,7 +3005,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-io-oper'
-                        _revision = '2015-10-20'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, self).__init__()
@@ -3281,7 +3096,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, [u'received', u'checksum_error', u'unknown', u'output', u'admin_unreachable_sent', u'network_unreachable_sent', u'host_unreachable_sent', u'protocol_unreachable_sent', u'port_unreachable_sent', u'fragment_unreachable_sent', u'admin_unreachable_received', u'network_unreachable_received', u'host_unreachable_received', u'protocol_unreachable_received', u'port_unreachable_received', u'fragment_unreachable_received', u'hopcount_sent', u'reassembly_sent', u'hopcount_received', u'reassebly_received', u'param_error_received', u'param_error_send', u'echo_request_sent', u'echo_request_received', u'echo_reply_sent', u'echo_reply_received', u'mask_request_sent', u'mask_request_received', u'mask_reply_sent', u'mask_reply_received', u'source_quench_received', u'redirect_received', u'redirect_send', u'timestamp_received', u'timestamp_reply_received', u'router_advert_received', u'router_solicit_received'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, ['received', 'checksum_error', 'unknown', 'output', 'admin_unreachable_sent', 'network_unreachable_sent', 'host_unreachable_sent', 'protocol_unreachable_sent', 'port_unreachable_sent', 'fragment_unreachable_sent', 'admin_unreachable_received', 'network_unreachable_received', 'host_unreachable_received', 'protocol_unreachable_received', 'port_unreachable_received', 'fragment_unreachable_received', 'hopcount_sent', 'reassembly_sent', 'hopcount_received', 'reassebly_received', 'param_error_received', 'param_error_send', 'echo_request_sent', 'echo_request_received', 'echo_reply_sent', 'echo_reply_received', 'mask_request_sent', 'mask_request_received', 'mask_reply_sent', 'mask_reply_received', 'source_quench_received', 'redirect_received', 'redirect_send', 'timestamp_received', 'timestamp_reply_received', 'router_advert_received', 'router_solicit_received'], name, value)
 
 
 
@@ -3305,7 +3120,7 @@ class Ipv4Network(Entity):
         """
 
         _prefix = 'ipv4-ma-oper'
-        _revision = '2017-08-23'
+        _revision = '2018-08-01'
 
         def __init__(self):
             super(Ipv4Network.Interfaces, self).__init__()
@@ -3352,7 +3167,7 @@ class Ipv4Network(Entity):
             """
 
             _prefix = 'ipv4-ma-oper'
-            _revision = '2017-08-23'
+            _revision = '2018-08-01'
 
             def __init__(self):
                 super(Ipv4Network.Interfaces.Interface, self).__init__()
@@ -3395,7 +3210,7 @@ class Ipv4Network(Entity):
                 """
 
                 _prefix = 'ipv4-ma-oper'
-                _revision = '2017-08-23'
+                _revision = '2018-08-01'
 
                 def __init__(self):
                     super(Ipv4Network.Interfaces.Interface.Vrfs, self).__init__()
@@ -3448,7 +3263,7 @@ class Ipv4Network(Entity):
                     """
 
                     _prefix = 'ipv4-ma-oper'
-                    _revision = '2017-08-23'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf, self).__init__()
@@ -3515,41 +3330,6 @@ class Ipv4Network(Entity):
                         
                         	BGP PA config on the interface
                         	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: pub_utime
-                        
-                        	Address Publish Time
-                        	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: idb_utime
-                        
-                        	IDB Create Time
-                        	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: caps_utime
-                        
-                        	CAPS Add Time
-                        	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: fwd_en_utime
-                        
-                        	FWD ENABLE Time
-                        	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: fwd_dis_utime
-                        
-                        	FWD DISABLE Time
-                        	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime>`
                         
                         	**config**\: False
                         
@@ -3656,7 +3436,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: next_unnumbered_interface_name
                         
-                        	Name of interface which is also unnum to same interface where this intf is unnumbered
+                        	Name of interface which is also unnum to         same interface where this intf is unnumbered
                         	**type**\: str
                         
                         	**config**\: False
@@ -3711,7 +3491,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: state_recvd_frm_im
                         
-                        	state as recieved from IM
+                        	state as recieved                                from IM
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
                         
                         	**config**\: False
@@ -3774,7 +3554,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-ma-oper'
-                        _revision = '2017-08-23'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, self).__init__()
@@ -3784,7 +3564,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress))])
+                            self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa)), ("multicast-group", ("multicast_group", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress))])
                             self._leafs = OrderedDict([
                                 ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
                                 ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
@@ -3860,33 +3640,13 @@ class Ipv4Network(Entity):
                             self.bgp_pa.parent = self
                             self._children_name_map["bgp_pa"] = "bgp-pa"
 
-                            self.pub_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime()
-                            self.pub_utime.parent = self
-                            self._children_name_map["pub_utime"] = "pub-utime"
-
-                            self.idb_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime()
-                            self.idb_utime.parent = self
-                            self._children_name_map["idb_utime"] = "idb-utime"
-
-                            self.caps_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime()
-                            self.caps_utime.parent = self
-                            self._children_name_map["caps_utime"] = "caps-utime"
-
-                            self.fwd_en_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime()
-                            self.fwd_en_utime.parent = self
-                            self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-
-                            self.fwd_dis_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime()
-                            self.fwd_dis_utime.parent = self
-                            self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-
                             self.multicast_group = YList(self)
                             self.secondary_address = YList(self)
                             self._segment_path = lambda: "detail"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, [u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
+                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, ['primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
 
 
                         class Acl(Entity):
@@ -3926,7 +3686,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, self).__init__()
@@ -3951,7 +3711,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
 
 
 
@@ -3985,7 +3745,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl, self).__init__()
@@ -4014,7 +3774,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Inbound ACLs
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -4024,7 +3784,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, self).__init__()
@@ -4043,7 +3803,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, [u'entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, ['entry'], name, value)
 
 
 
@@ -4053,7 +3813,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Outbound ACLs
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -4063,7 +3823,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, self).__init__()
@@ -4082,7 +3842,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, [u'entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, ['entry'], name, value)
 
 
 
@@ -4092,7 +3852,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Common ACLs
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -4102,7 +3862,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, self).__init__()
@@ -4121,7 +3881,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, [u'entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, ['entry'], name, value)
 
 
 
@@ -4142,7 +3902,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress, self).__init__()
@@ -4169,7 +3929,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Helper address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -4181,7 +3941,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, self).__init__()
@@ -4200,7 +3960,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, ['entry'], name, value)
 
 
 
@@ -4242,7 +4002,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, self).__init__()
@@ -4267,7 +4027,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
 
 
@@ -4294,7 +4054,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, self).__init__()
@@ -4351,7 +4111,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, self).__init__()
@@ -4374,7 +4134,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
 
 
@@ -4408,7 +4168,7 @@ class Ipv4Network(Entity):
                                 """
 
                                 _prefix = 'ipv4-ma-oper'
-                                _revision = '2017-08-23'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, self).__init__()
@@ -4431,138 +4191,8 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
-
-
-
-                        class PubUtime(Entity):
-                            """
-                            Address Publish Time
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
-
-                            def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime, self).__init__()
-
-                                self.yang_name = "pub-utime"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "pub-utime"
-                                self._is_frozen = True
-
-
-
-                        class IdbUtime(Entity):
-                            """
-                            IDB Create Time
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
-
-                            def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime, self).__init__()
-
-                                self.yang_name = "idb-utime"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "idb-utime"
-                                self._is_frozen = True
-
-
-
-                        class CapsUtime(Entity):
-                            """
-                            CAPS Add Time
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
-
-                            def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime, self).__init__()
-
-                                self.yang_name = "caps-utime"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "caps-utime"
-                                self._is_frozen = True
-
-
-
-                        class FwdEnUtime(Entity):
-                            """
-                            FWD ENABLE Time
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
-
-                            def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime, self).__init__()
-
-                                self.yang_name = "fwd-en-utime"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "fwd-en-utime"
-                                self._is_frozen = True
-
-
-
-                        class FwdDisUtime(Entity):
-                            """
-                            FWD DISABLE Time
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
-
-                            def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime, self).__init__()
-
-                                self.yang_name = "fwd-dis-utime"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "fwd-dis-utime"
-                                self._is_frozen = True
 
 
 
@@ -4584,7 +4214,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, self).__init__()
@@ -4603,7 +4233,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, [u'group_address'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, ['group_address'], name, value)
 
 
 
@@ -4643,7 +4273,7 @@ class Ipv4Network(Entity):
                             """
 
                             _prefix = 'ipv4-ma-oper'
-                            _revision = '2017-08-23'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, self).__init__()
@@ -4666,7 +4296,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
 
 
 
@@ -4713,7 +4343,7 @@ class Ipv4Network(Entity):
                         """
 
                         _prefix = 'ipv4-ma-oper'
-                        _revision = '2017-08-23'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, self).__init__()
@@ -4738,7 +4368,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, [u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
+                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, ['primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
 
 
 

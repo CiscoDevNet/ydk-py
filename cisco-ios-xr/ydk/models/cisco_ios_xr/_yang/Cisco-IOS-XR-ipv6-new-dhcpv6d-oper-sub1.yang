@@ -391,6 +391,35 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       description
         "Relay Profile name";
     }
+    leaf l2-intf-ac-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "L2Intf AC Name";
+    }
+    leaf ifname {
+      type string {
+        length "0..65";
+      }
+      description
+        "DHCP access interface";
+    }
+    leaf serg-state {
+      type uint32;
+      description
+        "DHCPV6 SERG state";
+    }
+    leaf serg-intf-role {
+      type uint32;
+      description
+        "DHCPV6 SERG Intf Role";
+    }
+    leaf relay-binding-chaddr {
+      type yang:hex-string;
+      description
+        "Client MAC address";
+    }
   }
 
   grouping IPV6-DHCPV6D-RELAY-BINDINGS-SUMMARY {
@@ -592,6 +621,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     list ipv6-dhcpv6d-server-interface-reference {
       description
         "ipv6 dhcpv6d server interface reference";
+      container next-interface {
+        description
+          "next interface";
+      }
       leaf server-reference-interface-name {
         type string {
           length "0..65";
@@ -781,6 +814,13 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       }
       description
         "DHCPV6 profile name";
+    }
+    leaf seleceted-profile-name {
+      type string {
+        length "0..64";
+      }
+      description
+        "DHCPV6 selected profile name";
     }
     leaf framed-ipv6-prefix {
       type Ipv6-address;
@@ -1246,6 +1286,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     list bag-dhcpv6d-addr-attrb {
       description
         "bag dhcpv6d addr attrb";
+      container next-addr-attrb {
+        description
+          "next addr attrb";
+      }
       leaf prefix {
         type inet:ipv6-address;
         description
@@ -1281,6 +1325,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
         description
           "List of addresses in this IA";
         uses BAG-DHCPV6D-ADDR-ATTRB;
+      }
+      container next-iaiapd {
+        description
+          "next iaiapd";
       }
       leaf ia-type {
         type Bag-dhcpv6d-ia-id;
@@ -1430,6 +1478,13 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       }
       description
         "DHCPV6 profile name";
+    }
+    leaf selected-profile-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "DHCPV6 selected profile name";
     }
     leaf framed-ipv6-prefix {
       type Ipv6-address;
@@ -1627,6 +1682,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     list ipv6-dhcpv6d-proxy-interface-reference {
       description
         "ipv6 dhcpv6d proxy interface reference";
+      container next-interface {
+        description
+          "next interface";
+      }
       leaf proxy-reference-interface-name {
         type string {
           length "0..65";
@@ -1643,6 +1702,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     list ipv6-dhcpv6d-proxy-vrf-reference {
       description
         "ipv6 dhcpv6d proxy vrf reference";
+      container next-vrf {
+        description
+          "next vrf";
+      }
       leaf proxy-reference-vrf-name {
         type string {
           length "0..33";
@@ -1659,6 +1722,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     list ipv6-dhcpv6d-proxy-iid-reference {
       description
         "ipv6 dhcpv6d proxy iid reference";
+      container next-interface-id {
+        description
+          "next interface id";
+      }
       leaf proxy-iid-interface-name {
         type string {
           length "0..65";

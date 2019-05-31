@@ -881,7 +881,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -1014,7 +1014,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
 
 
 
@@ -1112,7 +1112,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -1245,7 +1245,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
 
 
 
@@ -1350,7 +1350,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, [u'wave_band', u'wave_channel_min', u'wave_channel_max'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, ['wave_band', 'wave_channel_min', 'wave_channel_max'], name, value)
 
 
 
@@ -1474,7 +1474,7 @@ class Dwdm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dwdm.Ports.Port.Info, [u'controller_state', u'transport_admin_state', u'slice_state'], name, value)
+                    self._perform_setattr(Dwdm.Ports.Port.Info, ['controller_state', 'transport_admin_state', 'slice_state'], name, value)
 
 
                 class G709Info(Entity):
@@ -1788,7 +1788,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, [u'is_g709_enabled', u'is_fec_mode_default', u'fec_mode', u'remote_fec_mode', u'efec_mode', u'loopback_mode', u'ec', u'ec_accum', u'uc', u'fec_ber', u'fec_ber_man', u'q', u'q_margin', u'fe_cstr', u'qstr', u'qmargin_str', u'network_port_id', u'network_conn_id', u'is_prbs_enabled', u'g709_prbs_mode', u'g709_prbs_pattern', u'prbs_time_stamp'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, ['is_g709_enabled', 'is_fec_mode_default', 'fec_mode', 'remote_fec_mode', 'efec_mode', 'loopback_mode', 'ec', 'ec_accum', 'uc', 'fec_ber', 'fec_ber_man', 'q', 'q_margin', 'fe_cstr', 'qstr', 'qmargin_str', 'network_port_id', 'network_conn_id', 'is_prbs_enabled', 'g709_prbs_mode', 'g709_prbs_pattern', 'prbs_time_stamp'], name, value)
 
 
                     class FecMismatch(Entity):
@@ -1855,7 +1855,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -1934,7 +1934,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -2013,7 +2013,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -2340,7 +2340,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, [u'bei', u'bip'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, ['bei', 'bip'], name, value)
 
 
                         class Los(Entity):
@@ -2407,7 +2407,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2475,7 +2475,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2543,7 +2543,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2611,7 +2611,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2679,7 +2679,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2747,7 +2747,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2815,7 +2815,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2883,7 +2883,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -2951,7 +2951,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -3019,7 +3019,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -3098,7 +3098,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3177,7 +3177,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3256,7 +3256,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3335,7 +3335,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3414,7 +3414,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3493,7 +3493,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -3534,7 +3534,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, ['counter'], name, value)
 
 
 
@@ -3575,7 +3575,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, ['counter'], name, value)
 
 
 
@@ -3616,7 +3616,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, ['counter'], name, value)
 
 
 
@@ -3657,7 +3657,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, ['counter'], name, value)
 
 
 
@@ -3698,7 +3698,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, ['counter'], name, value)
 
 
 
@@ -3739,7 +3739,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, ['counter'], name, value)
 
 
 
@@ -3780,7 +3780,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, ['counter'], name, value)
 
 
 
@@ -3821,7 +3821,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, ['counter'], name, value)
 
 
 
@@ -4181,7 +4181,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
 
 
 
@@ -4454,7 +4454,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, [u'bip', u'bei'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, ['bip', 'bei'], name, value)
 
 
                         class Oci(Entity):
@@ -4521,7 +4521,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4589,7 +4589,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4657,7 +4657,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4725,7 +4725,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4793,7 +4793,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4861,7 +4861,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -4929,7 +4929,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
 
@@ -5008,7 +5008,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -5087,7 +5087,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -5166,7 +5166,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -5245,7 +5245,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
 
 
@@ -5286,7 +5286,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, ['counter'], name, value)
 
 
 
@@ -5327,7 +5327,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, ['counter'], name, value)
 
 
 
@@ -5368,7 +5368,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, ['counter'], name, value)
 
 
 
@@ -5409,7 +5409,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, ['counter'], name, value)
 
 
 
@@ -5450,7 +5450,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, ['counter'], name, value)
 
 
 
@@ -5491,7 +5491,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, ['counter'], name, value)
 
 
 
@@ -5532,7 +5532,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, ['counter'], name, value)
 
 
 
@@ -5573,7 +5573,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, [u'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, ['counter'], name, value)
 
 
 
@@ -5933,7 +5933,7 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
 
 
 
@@ -6386,7 +6386,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, [u'optics_type', u'clock_source', u'wave_frequency_progressive_string', u'wavelength_progressive_string', u'is_wave_frequency_progressive_valid', u'wavelength_progressive', u'wave_band', u'wave_channel', u'wave_frequency', u'is_wave_frequency_valid', u'wave_channel_owner', u'gmpls_set_wave_channel', u'configured_wave_channel', u'default_wave_channel', u'transmit_power', u'transmit_power_threshold', u'laser_current_bias', u'laser_current_bias_threshold', u'receive_power', u'is_rx_los_threshold_supported', u'rx_los_threshold', u'transmit_power_min', u'transmit_power_max', u'transmit_power_avg', u'receive_power_min', u'receive_power_max', u'receive_power_avg', u'laser_bias_current_min', u'laser_bias_current_max', u'laser_bias_current_avg', u'chromatic_dispersion', u'differential_group_delay', u'polarization_mode_dispersion', u'signal_to_noise_ratio', u'polarization_dependent_loss', u'polarization_change_rate', u'phase_noise', u'output_power_fail', u'input_power_fail'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, ['optics_type', 'clock_source', 'wave_frequency_progressive_string', 'wavelength_progressive_string', 'is_wave_frequency_progressive_valid', 'wavelength_progressive', 'wave_band', 'wave_channel', 'wave_frequency', 'is_wave_frequency_valid', 'wave_channel_owner', 'gmpls_set_wave_channel', 'configured_wave_channel', 'default_wave_channel', 'transmit_power', 'transmit_power_threshold', 'laser_current_bias', 'laser_current_bias_threshold', 'receive_power', 'is_rx_los_threshold_supported', 'rx_los_threshold', 'transmit_power_min', 'transmit_power_max', 'transmit_power_avg', 'receive_power_min', 'receive_power_max', 'receive_power_avg', 'laser_bias_current_min', 'laser_bias_current_max', 'laser_bias_current_avg', 'chromatic_dispersion', 'differential_group_delay', 'polarization_mode_dispersion', 'signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'phase_noise', 'output_power_fail', 'input_power_fail'], name, value)
 
 
 
@@ -6483,7 +6483,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, [u'tdc_valid', u'major_alarm', u'operation_mode', u'tdc_status', u'dispersion_offset', u'reroute_ber', u'is_reroute_control_enabled'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, ['tdc_valid', 'major_alarm', 'operation_mode', 'tdc_status', 'dispersion_offset', 'reroute_ber', 'is_reroute_control_enabled'], name, value)
 
 
 
@@ -6524,7 +6524,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, [u'network_srlg'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, ['network_srlg'], name, value)
 
 
 
@@ -6829,7 +6829,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, [u'proactive_feature', u'proactive_mode', u'proactive_fsm_state', u'proactive_fsm_if_state', u'tas_state', u'trig_thresh_coeff', u'trig_thresh_power', u'rvrt_thresh_coeff', u'rvrt_thresh_power', u'default_trig_thresh_coeff', u'default_trig_thresh_power', u'default_rvrt_thresh_coeff', u'default_rvrt_thresh_power', u'trig_samples', u'rvrt_samples', u'trigger_window', u'revert_window', u'protection_trigger', u'interface_trigger', u'tx_aps', u'tx_aps_descr', u'rx_aps', u'rx_aps_descr', u'alarm_state', u'trig_ec_cnt', u'rvrt_ec_cnt', u'prefec_thresh_crossed'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, ['proactive_feature', 'proactive_mode', 'proactive_fsm_state', 'proactive_fsm_if_state', 'tas_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'default_trig_thresh_coeff', 'default_trig_thresh_power', 'default_rvrt_thresh_coeff', 'default_rvrt_thresh_power', 'trig_samples', 'rvrt_samples', 'trigger_window', 'revert_window', 'protection_trigger', 'interface_trigger', 'tx_aps', 'tx_aps_descr', 'rx_aps', 'rx_aps_descr', 'alarm_state', 'trig_ec_cnt', 'rvrt_ec_cnt', 'prefec_thresh_crossed'], name, value)
 
 
 
@@ -6879,7 +6879,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, [u'is_log_enabled', u'log_filename'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, ['is_log_enabled', 'log_filename'], name, value)
 
 
 
@@ -7096,7 +7096,7 @@ class Vtxp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, [u'vtxp_enable'], name, value)
+                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, ['vtxp_enable'], name, value)
 
 
 

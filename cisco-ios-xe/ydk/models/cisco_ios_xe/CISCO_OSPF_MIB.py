@@ -202,7 +202,7 @@ class CISCOOSPFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.CospfGeneralGroup, [u'cospfrfc1583compatibility', u'cospfopaquelsasupport', u'cospftrafficengineeringsupport', u'cospfopaqueaslsacount', u'cospfopaqueaslsacksumsum'], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfGeneralGroup, ['cospfrfc1583compatibility', 'cospfopaquelsasupport', 'cospftrafficengineeringsupport', 'cospfopaqueaslsacount', 'cospfopaqueaslsacksumsum'], name, value)
 
 
 
@@ -364,7 +364,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, [u'ospflsdbareaid', u'cospflsdbtype', u'ospflsdblsid', u'ospflsdbrouterid', u'cospflsdbsequence', u'cospflsdbage', u'cospflsdbchecksum', u'cospflsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, ['ospflsdbareaid', 'cospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'cospflsdbsequence', 'cospflsdbage', 'cospflsdbchecksum', 'cospflsdbadvertisement'], name, value)
 
             class CospfLsdbType(Enum):
                 """
@@ -570,7 +570,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, [u'cospfshamlinkareaid', u'cospfshamlinklocalipaddress', u'cospfshamlinkneighborid', u'cospfshamlinkretransinterval', u'cospfshamlinkhellointerval', u'cospfshamlinkrtrdeadinterval', u'cospfshamlinkstate', u'cospfshamlinkevents', u'cospfshamlinkmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, ['cospfshamlinkareaid', 'cospfshamlinklocalipaddress', 'cospfshamlinkneighborid', 'cospfshamlinkretransinterval', 'cospfshamlinkhellointerval', 'cospfshamlinkrtrdeadinterval', 'cospfshamlinkstate', 'cospfshamlinkevents', 'cospfshamlinkmetric'], name, value)
 
             class CospfShamLinkState(Enum):
                 """
@@ -755,7 +755,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, [u'cospflocallsdbipaddress', u'cospflocallsdbaddresslessif', u'cospflocallsdbtype', u'cospflocallsdblsid', u'cospflocallsdbrouterid', u'cospflocallsdbsequence', u'cospflocallsdbage', u'cospflocallsdbchecksum', u'cospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, ['cospflocallsdbipaddress', 'cospflocallsdbaddresslessif', 'cospflocallsdbtype', 'cospflocallsdblsid', 'cospflocallsdbrouterid', 'cospflocallsdbsequence', 'cospflocallsdbage', 'cospflocallsdbchecksum', 'cospflocallsdbadvertisement'], name, value)
 
             class CospfLocalLsdbType(Enum):
                 """
@@ -938,7 +938,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, [u'cospfvirtlocallsdbtransitarea', u'cospfvirtlocallsdbneighbor', u'cospfvirtlocallsdbtype', u'cospfvirtlocallsdblsid', u'cospfvirtlocallsdbrouterid', u'cospfvirtlocallsdbsequence', u'cospfvirtlocallsdbage', u'cospfvirtlocallsdbchecksum', u'cospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, ['cospfvirtlocallsdbtransitarea', 'cospfvirtlocallsdbneighbor', 'cospfvirtlocallsdbtype', 'cospfvirtlocallsdblsid', 'cospfvirtlocallsdbrouterid', 'cospfvirtlocallsdbsequence', 'cospfvirtlocallsdbage', 'cospfvirtlocallsdbchecksum', 'cospfvirtlocallsdbadvertisement'], name, value)
 
             class CospfVirtLocalLsdbType(Enum):
                 """
@@ -1138,7 +1138,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, [u'cospfshamlinkslocalipaddrtype', u'cospfshamlinkslocalipaddr', u'cospfshamlinknbrarea', u'cospfshamlinknbripaddrtype', u'cospfshamlinknbripaddr', u'cospfshamlinknbrrtrid', u'cospfshamlinknbroptions', u'cospfshamlinknbrstate', u'cospfshamlinknbrevents', u'cospfshamlinknbrlsretransqlen', u'cospfshamlinknbrhellosuppressed'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, ['cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinknbrarea', 'cospfshamlinknbripaddrtype', 'cospfshamlinknbripaddr', 'cospfshamlinknbrrtrid', 'cospfshamlinknbroptions', 'cospfshamlinknbrstate', 'cospfshamlinknbrevents', 'cospfshamlinknbrlsretransqlen', 'cospfshamlinknbrhellosuppressed'], name, value)
 
             class CospfShamLinkNbrState(Enum):
                 """
@@ -1366,7 +1366,7 @@ class CISCOOSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, [u'cospfshamlinksareaid', u'cospfshamlinkslocalipaddrtype', u'cospfshamlinkslocalipaddr', u'cospfshamlinksremoteipaddrtype', u'cospfshamlinksremoteipaddr', u'cospfshamlinksretransinterval', u'cospfshamlinkshellointerval', u'cospfshamlinksrtrdeadinterval', u'cospfshamlinksstate', u'cospfshamlinksevents', u'cospfshamlinksmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, ['cospfshamlinksareaid', 'cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinksremoteipaddrtype', 'cospfshamlinksremoteipaddr', 'cospfshamlinksretransinterval', 'cospfshamlinkshellointerval', 'cospfshamlinksrtrdeadinterval', 'cospfshamlinksstate', 'cospfshamlinksevents', 'cospfshamlinksmetric'], name, value)
 
             class CospfShamLinksState(Enum):
                 """

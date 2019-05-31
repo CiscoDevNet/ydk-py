@@ -46,7 +46,7 @@ class Mgmt(Entity):
     """
 
     _prefix = 'calvados_system'
-    _revision = '2017-10-31'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Mgmt, self).__init__()
@@ -103,7 +103,7 @@ class Mgmt(Entity):
         """
 
         _prefix = 'calvados_system'
-        _revision = '2017-10-31'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Mgmt.Ipv4, self).__init__()
@@ -152,7 +152,7 @@ class Mgmt(Entity):
         """
 
         _prefix = 'calvados_system'
-        _revision = '2017-10-31'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Mgmt.Ipv6, self).__init__()

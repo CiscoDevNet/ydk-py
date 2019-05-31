@@ -768,6 +768,15 @@ class SoftwareInstall(Entity):
             
             	**config**\: False
             
+            .. attribute:: number_of_packages
+            
+            	NumberOfPackages
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
             
 
             """
@@ -790,18 +799,20 @@ class SoftwareInstall(Entity):
                     ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
                     ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
                     ('superseded_packages', (YLeaf(YType.str, 'superseded-packages'), ['str'])),
+                    ('number_of_packages', (YLeaf(YType.uint32, 'number-of-packages'), ['int'])),
                 ])
                 self.error_message = None
                 self.location = None
                 self.node_type = None
                 self.boot_partition_name = None
                 self.superseded_packages = None
+                self.number_of_packages = None
                 self._segment_path = lambda: "superseded-package-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/superseded/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages', 'number_of_packages'], name, value)
 
 
 

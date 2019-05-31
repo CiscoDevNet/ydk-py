@@ -1021,7 +1021,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
                             class Start(Entity):
@@ -1116,7 +1116,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -1212,7 +1212,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -1308,7 +1308,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -1404,7 +1404,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -1500,7 +1500,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -1596,7 +1596,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
 
 
@@ -1704,7 +1704,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -1778,7 +1778,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
 
 
@@ -1885,7 +1885,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -2120,7 +2120,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
                                 class Start(Entity):
@@ -2215,7 +2215,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -2311,7 +2311,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -2407,7 +2407,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -2503,7 +2503,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -2599,7 +2599,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -2695,7 +2695,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
 
 
@@ -2803,7 +2803,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -2910,7 +2910,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -3138,7 +3138,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
                                 class AccountLogon(Entity):
@@ -3200,7 +3200,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3263,7 +3263,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3326,7 +3326,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3389,7 +3389,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3452,7 +3452,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3515,7 +3515,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3578,7 +3578,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3641,7 +3641,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -3716,7 +3716,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
 
 
@@ -3945,7 +3945,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
                             class AccountLogon(Entity):
@@ -4007,7 +4007,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4070,7 +4070,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4133,7 +4133,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4196,7 +4196,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4259,7 +4259,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4322,7 +4322,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4385,7 +4385,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4448,7 +4448,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -4556,7 +4556,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -4663,7 +4663,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -4898,7 +4898,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
                                 class Start(Entity):
@@ -4993,7 +4993,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -5089,7 +5089,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -5185,7 +5185,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -5281,7 +5281,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -5377,7 +5377,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -5473,7 +5473,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
 
 
@@ -5581,7 +5581,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -5688,7 +5688,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
 
 
@@ -5916,7 +5916,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
                                 class AccountLogon(Entity):
@@ -5978,7 +5978,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6041,7 +6041,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6104,7 +6104,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6167,7 +6167,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6230,7 +6230,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6293,7 +6293,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6356,7 +6356,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6419,7 +6419,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -6494,7 +6494,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
 
 
@@ -6646,7 +6646,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
                             class Start(Entity):
@@ -6741,7 +6741,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -6837,7 +6837,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -6933,7 +6933,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -7029,7 +7029,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -7125,7 +7125,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
 
 
@@ -7221,7 +7221,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
 
 
@@ -7296,7 +7296,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
 
 
@@ -7525,7 +7525,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
                             class AccountLogon(Entity):
@@ -7587,7 +7587,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7650,7 +7650,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7713,7 +7713,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7776,7 +7776,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7839,7 +7839,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7902,7 +7902,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -7965,7 +7965,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -8028,7 +8028,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
 
 
@@ -8269,7 +8269,7 @@ class Subscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, [u'no_subscriber_control_policy_on_interface', u'no_class_match_in_start_request', u'nas_port_attribute_format_warnings', u'nas_port_id_attribute_format_warnings', u'destination_station_id_attribute_format_warnings', u'calling_station_id_attribute_format_warnings', u'username_attribute_format_warnings', u'install_user_profiles', u'user_profile_install_errors', u'user_profile_removals', u'user_profile_errors', u'sess_disc_quota_exhausts', u'sess_disc_no_quota', u'sess_disc_quota_avail', u'sess_disc_recon_ip', u'sess_disc_none_started', u'sess_disc_quota', u'sess_disc_quota_remaining', u'sess_disc_q_count'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, ['no_subscriber_control_policy_on_interface', 'no_class_match_in_start_request', 'nas_port_attribute_format_warnings', 'nas_port_id_attribute_format_warnings', 'destination_station_id_attribute_format_warnings', 'calling_station_id_attribute_format_warnings', 'username_attribute_format_warnings', 'install_user_profiles', 'user_profile_install_errors', 'user_profile_removals', 'user_profile_errors', 'sess_disc_quota_exhausts', 'sess_disc_no_quota', 'sess_disc_quota_avail', 'sess_disc_recon_ip', 'sess_disc_none_started', 'sess_disc_quota', 'sess_disc_quota_remaining', 'sess_disc_q_count'], name, value)
 
 
 
@@ -8376,7 +8376,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, [u'disc_reason', u'session_count', u'latest_activity', u'if_name'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, ['disc_reason', 'session_count', 'latest_activity', 'if_name'], name, value)
 
 
 
@@ -8988,7 +8988,7 @@ class Subscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, [u'txlist_send_triggered', u'txlist_send_failed', u'txlist_send_failed_notactive', u'actual_txlist_sent', u'alreadyin_txlist', u'txlist_encode', u'txlist_encode_fail', u'create_update_encode', u'delete_encode', u'create_upd_clean_callback', u'delete_clean_callback', u'slave_recv_entry', u'slave_decode_fail', u'slave_create_update', u'slave_delete', u'srg_context_malloc', u'srg_context_free', u'sod_count', u'eod_count', u'sod_eod_replay_req_count', u'sod_eod_dirty_mark_count', u'sod_eod_dirty_delete_count', u'ack_to_srg', u'nack_to_srg', u'nack_to_srg_fail_cnt', u'txlist_remove_all', u'txlist_del_sync', u'txlist_del_sync_notlinked', u'txlist_del_app', u'txlist_del_app_notlinked', u'txlist_clean_invalid_state', u'txlist_remove_all_internal_error', u'is_srg_flow_control_enabled', u'max_inflight_sessoin_count', u'flow_control_resume_threshold', u'inflight_session_count', u'inflight_add_count', u'inflight_under_run_count', u'inflight_alloc_fails', u'inflight_insert_failures', u'inflight_deletes', u'inflight_not_found', u'inflight_delete_failures', u'total_pause_count', u'total_resume_count', u'total_dont_send_to_txlist', u'total_srg_not_master', u'total_master_eoms_pending', u'total_master_eoms_pending_cleared', u'last_pause_period', u'total_pause_time', u'last_pause_time', u'last_resume_time'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'slave_recv_entry', 'slave_decode_fail', 'slave_create_update', 'slave_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_not_master', 'total_master_eoms_pending', 'total_master_eoms_pending_cleared', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
 
 
 
@@ -9752,7 +9752,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -9859,7 +9859,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -9966,7 +9966,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -10124,7 +10124,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -10220,7 +10220,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -10316,7 +10316,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -10586,7 +10586,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -10693,7 +10693,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -10800,7 +10800,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -10958,7 +10958,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -11054,7 +11054,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -11150,7 +11150,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -11420,7 +11420,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -11527,7 +11527,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -11634,7 +11634,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -11792,7 +11792,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -11888,7 +11888,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -11984,7 +11984,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -12254,7 +12254,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -12361,7 +12361,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -12468,7 +12468,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -12626,7 +12626,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -12722,7 +12722,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -12818,7 +12818,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -13087,7 +13087,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -13194,7 +13194,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -13301,7 +13301,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -13459,7 +13459,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -13555,7 +13555,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -13651,7 +13651,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -13920,7 +13920,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -14027,7 +14027,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -14134,7 +14134,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -14292,7 +14292,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -14388,7 +14388,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -14484,7 +14484,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -14875,7 +14875,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time_epoch', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name'], name, value)
 
 
                                 class Accounting(Entity):
@@ -15108,7 +15108,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time_epoch', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time_epoch', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time_epoch', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
 
 
 
@@ -15149,7 +15149,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, [u'policy_epoch'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, ['policy_epoch'], name, value)
 
 
 
@@ -15236,7 +15236,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, [u'service_name', u'service_params', u'service_type', u'service_status', u'service_id', u'service_prepaid'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, ['service_name', 'service_params', 'service_type', 'service_status', 'service_id', 'service_prepaid'], name, value)
 
 
 
@@ -15301,7 +15301,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, [u'request_acked', u'request_time_epoch', u'reply_time_epoch'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, ['request_acked', 'request_time_epoch', 'reply_time_epoch'], name, value)
 
 
 
@@ -15582,7 +15582,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -15689,7 +15689,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -15796,7 +15796,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -15954,7 +15954,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -16050,7 +16050,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -16146,7 +16146,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -16367,7 +16367,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -16474,7 +16474,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -16581,7 +16581,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -16739,7 +16739,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -16835,7 +16835,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -16931,7 +16931,7 @@ class Subscriber(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                        self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -17201,7 +17201,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -17308,7 +17308,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -17415,7 +17415,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -17573,7 +17573,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -17669,7 +17669,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -17765,7 +17765,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -18034,7 +18034,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -18141,7 +18141,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -18248,7 +18248,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -18406,7 +18406,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -18502,7 +18502,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -18598,7 +18598,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -18869,7 +18869,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -18976,7 +18976,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -19083,7 +19083,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -19241,7 +19241,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -19337,7 +19337,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -19433,7 +19433,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -19703,7 +19703,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -19810,7 +19810,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -19917,7 +19917,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -20075,7 +20075,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -20171,7 +20171,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -20267,7 +20267,7 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -20538,7 +20538,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -20645,7 +20645,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -20752,7 +20752,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -20910,7 +20910,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -21006,7 +21006,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -21102,7 +21102,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -21323,7 +21323,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -21430,7 +21430,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -21537,7 +21537,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -21695,7 +21695,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -21791,7 +21791,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -21887,7 +21887,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -22156,7 +22156,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -22263,7 +22263,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -22370,7 +22370,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -22528,7 +22528,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -22624,7 +22624,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -22720,7 +22720,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -22990,7 +22990,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -23097,7 +23097,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -23204,7 +23204,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -23362,7 +23362,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -23458,7 +23458,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -23554,7 +23554,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -23823,7 +23823,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -23930,7 +23930,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -24037,7 +24037,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -24195,7 +24195,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -24291,7 +24291,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -24387,7 +24387,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -24655,7 +24655,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -24762,7 +24762,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -24869,7 +24869,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -25027,7 +25027,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -25123,7 +25123,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -25219,7 +25219,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -25501,7 +25501,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -25608,7 +25608,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -25715,7 +25715,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -25873,7 +25873,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -25969,7 +25969,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -26065,7 +26065,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -26334,7 +26334,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -26441,7 +26441,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -26548,7 +26548,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -26706,7 +26706,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -26802,7 +26802,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -26898,7 +26898,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -27168,7 +27168,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -27275,7 +27275,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -27382,7 +27382,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -27540,7 +27540,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -27636,7 +27636,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -27732,7 +27732,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -28003,7 +28003,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -28110,7 +28110,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -28217,7 +28217,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -28375,7 +28375,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -28471,7 +28471,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -28567,7 +28567,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -28838,7 +28838,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -28945,7 +28945,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -29052,7 +29052,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -29210,7 +29210,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -29306,7 +29306,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -29402,7 +29402,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -29672,7 +29672,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -29779,7 +29779,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -29886,7 +29886,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
 
 
@@ -30044,7 +30044,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -30140,7 +30140,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -30236,7 +30236,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
 
 
@@ -30627,7 +30627,7 @@ class Subscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time_epoch', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name'], name, value)
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name'], name, value)
 
 
                         class Accounting(Entity):
@@ -30860,7 +30860,7 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time_epoch', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time_epoch', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time_epoch', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
 
 
 
@@ -30901,7 +30901,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, [u'policy_epoch'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, ['policy_epoch'], name, value)
 
 
 
@@ -30988,7 +30988,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, [u'service_name', u'service_params', u'service_type', u'service_status', u'service_id', u'service_prepaid'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, ['service_name', 'service_params', 'service_type', 'service_status', 'service_id', 'service_prepaid'], name, value)
 
 
 
@@ -31053,7 +31053,7 @@ class Subscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time_epoch', u'reply_time_epoch'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, ['request_acked', 'request_time_epoch', 'reply_time_epoch'], name, value)
 
 
 
@@ -31268,7 +31268,7 @@ class IedgeLicenseManager(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, [u'session_limit', u'session_threshold', u'session_license_count', u'session_count'], name, value)
+                    self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, ['session_limit', 'session_threshold', 'session_license_count', 'session_count'], name, value)
 
 
 

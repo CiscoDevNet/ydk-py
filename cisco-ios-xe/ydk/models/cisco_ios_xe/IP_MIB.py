@@ -4350,7 +4350,7 @@ class IPMIB(Entity):
             	The value to be placed in the router lifetime field of router advertisements sent from this interface.  This value MUST be either 0 or between ipv6RouterAdvertMaxInterval and 9000 seconds.  A value of zero indicates that the router is not to be used as a default router.  The default is 3 \* ipv6RouterAdvertMaxInterval
             	**type**\: int
             
-            	**range:** 0..None \| 4..9000
+            	**range:** 0..0 \| 4..9000
             
             	**config**\: False
             

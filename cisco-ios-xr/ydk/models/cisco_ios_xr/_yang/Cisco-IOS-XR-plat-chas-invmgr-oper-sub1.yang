@@ -632,7 +632,7 @@ submodule Cisco-IOS-XR-plat-chas-invmgr-oper-sub1 {
         length "0..255";
       }
       description
-        "describes in user-readable terms
+        "describes in user-readable terms                
          what the entity in question does";
     }
     leaf model-name {

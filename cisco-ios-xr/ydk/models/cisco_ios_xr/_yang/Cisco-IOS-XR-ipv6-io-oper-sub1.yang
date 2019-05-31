@@ -439,6 +439,11 @@ submodule Cisco-IOS-XR-ipv6-io-oper-sub1 {
       description
         "Lisp Decap errors";
     }
+    leaf io-puntback {
+      type uint32;
+      description
+        "IPv6 IO Puntback";
+    }
   }
 
   grouping IPV6-TRAFFIC {

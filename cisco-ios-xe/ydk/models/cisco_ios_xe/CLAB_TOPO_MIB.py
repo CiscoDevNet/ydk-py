@@ -164,7 +164,7 @@ class CLABTOPOMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CLABTOPOMIB.ClabTopoFiberNodeCfgTable.ClabTopoFiberNodeCfgEntry, [u'clabtopofibernodecfgnodename', u'clabtopofibernodecfgnodedescr', u'clabtopofibernodecfgrowstatus'], name, value)
+                self._perform_setattr(CLABTOPOMIB.ClabTopoFiberNodeCfgTable.ClabTopoFiberNodeCfgEntry, ['clabtopofibernodecfgnodename', 'clabtopofibernodecfgnodedescr', 'clabtopofibernodecfgrowstatus'], name, value)
 
 
 
@@ -275,7 +275,7 @@ class CLABTOPOMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CLABTOPOMIB.ClabTopoChFnCfgTable.ClabTopoChFnCfgEntry, [u'clabtopofibernodecfgnodename', u'clabtopochfncfgchifindex', u'clabtopochfncfgrowstatus'], name, value)
+                self._perform_setattr(CLABTOPOMIB.ClabTopoChFnCfgTable.ClabTopoChFnCfgEntry, ['clabtopofibernodecfgnodename', 'clabtopochfncfgchifindex', 'clabtopochfncfgrowstatus'], name, value)
 
 
 

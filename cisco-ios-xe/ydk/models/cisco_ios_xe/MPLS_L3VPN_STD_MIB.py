@@ -462,7 +462,7 @@ class MPLSL3VPNSTDMIB(Entity):
             	The VPN ID as specified in [RFC2685].  If a VPN ID has not been specified for this VRF, then this variable SHOULD be set to a zero\-length OCTET STRING
             	**type**\: str
             
-            	**length:** 0 \| 7
+            	**length:** 0..0 \| 7..7
             
             	**config**\: False
             

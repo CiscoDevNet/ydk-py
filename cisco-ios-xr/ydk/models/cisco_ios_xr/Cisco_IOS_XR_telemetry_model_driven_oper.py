@@ -574,7 +574,7 @@ class TelemetryModelDriven(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', u'id', u'configured'], name, value)
+                self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', 'id', 'configured'], name, value)
 
 
             class Destination_(Entity):
@@ -826,7 +826,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
 
 
                     class DestIpAddress(Entity):
@@ -886,7 +886,7 @@ class TelemetryModelDriven(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1118,7 +1118,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops', u'strict_timer'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops', 'strict_timer'], name, value)
 
 
                     class CollectionPath(Entity):
@@ -1175,7 +1175,7 @@ class TelemetryModelDriven(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
 
 
 
@@ -1503,7 +1503,7 @@ class TelemetryModelDriven(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
 
 
 
@@ -1691,7 +1691,7 @@ class TelemetryModelDriven(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, [u'id', u'state', u'source_qos_marking'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, ['id', 'state', 'source_qos_marking'], name, value)
 
 
                 class SourceInterface(Entity):
@@ -1771,7 +1771,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, [u'interface_name', u'state', u'ipv4_address', u'ipv6_address', u'vrf_id'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, ['interface_name', 'state', 'ipv4_address', 'ipv6_address', 'vrf_id'], name, value)
 
 
 
@@ -1843,7 +1843,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, [u'sample_interval', u'heartbeat_interval', u'suppress_redundant'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, ['sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
 
 
                     class SensorGroup(Entity):
@@ -1901,7 +1901,7 @@ class TelemetryModelDriven(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, [u'id', u'configured'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, ['id', 'configured'], name, value)
 
 
                         class SensorPath(Entity):
@@ -1958,7 +1958,7 @@ class TelemetryModelDriven(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
+                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
 
 
 
@@ -2019,7 +2019,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, [u'id', u'configured'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, ['id', 'configured'], name, value)
 
 
                     class Destination(Entity):
@@ -2223,7 +2223,7 @@ class TelemetryModelDriven(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
 
 
                         class DestIpAddress(Entity):
@@ -2283,7 +2283,7 @@ class TelemetryModelDriven(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2517,7 +2517,7 @@ class TelemetryModelDriven(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops', u'strict_timer'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops', 'strict_timer'], name, value)
 
 
                 class CollectionPath(Entity):
@@ -2574,7 +2574,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
 
 
 
@@ -2902,7 +2902,7 @@ class TelemetryModelDriven(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
 
 
 
@@ -3014,7 +3014,7 @@ class TelemetryModelDriven(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', u'id', u'configured'], name, value)
+                self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', 'id', 'configured'], name, value)
 
 
             class SensorPath(Entity):
@@ -3071,7 +3071,7 @@ class TelemetryModelDriven(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
 
 
 

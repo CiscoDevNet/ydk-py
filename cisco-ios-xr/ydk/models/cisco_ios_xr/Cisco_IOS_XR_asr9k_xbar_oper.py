@@ -274,28 +274,28 @@ class CrossBarStats(Entity):
                         
                         .. attribute:: in_stats
                         
-                        	in stats
+                        	Ingress Stats
                         	**type**\:  :py:class:`InStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: eg_stats
                         
-                        	eg stats
+                        	Egress Stats
                         	**type**\:  :py:class:`EgStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: xps_stats
                         
-                        	xps stats
+                        	Crosspoint Scheduler Stats
                         	**type**\:  :py:class:`XpsStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: internal_err_cnt
                         
-                        	internal err cnt
+                        	Internal Error Count
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -342,58 +342,58 @@ class CrossBarStats(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat, ['asic_id', 'port', u'internal_err_cnt'], name, value)
+                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat, ['asic_id', 'port', 'internal_err_cnt'], name, value)
 
 
                         class InStats(Entity):
                             """
-                            in stats
+                            Ingress Stats
                             
                             .. attribute:: ibb_stats
                             
-                            	ibb stats
+                            	Input Buffer Block Stats
                             	**type**\:  :py:class:`IbbStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: ibf_stats
                             
-                            	ibf stats
+                            	Input Forwarding Block Stats
                             	**type**\:  :py:class:`IbfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: ibb_uc_stats
                             
-                            	ibb uc stats
+                            	Input Buffer Block UC Stats
                             	**type**\:  :py:class:`IbbUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: ibf_uc_stats
                             
-                            	ibf uc stats
+                            	Input Forwarding Block UC Stats
                             	**type**\:  :py:class:`IbfUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: ibb_mc_stats
                             
-                            	ibb mc stats
+                            	Input Buffer Block MC Stats
                             	**type**\:  :py:class:`IbbMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: ibf_mc_stats
                             
-                            	ibf mc stats
+                            	Input Forwarding Block MC Stats
                             	**type**\:  :py:class:`IbfMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: cfl_stats
                             
-                            	cfl stats
+                            	Ingress Common Fabric Link Stats
                             	**type**\:  :py:class:`CflStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats>`
                             
                             	**config**\: False
@@ -452,7 +452,7 @@ class CrossBarStats(Entity):
 
                             class IbbStats(Entity):
                                 """
-                                ibb stats
+                                Input Buffer Block Stats
                                 
                                 .. attribute:: ipcicmtail_drop
                                 
@@ -542,17 +542,17 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats, [u'ipcicmtail_drop', u'dhe_diag_pkt', u'ibmdnouttot', u'icmdnenq', u'icmdndeq', u'ibmcsrccouttot'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats, ['ipcicmtail_drop', 'dhe_diag_pkt', 'ibmdnouttot', 'icmdnenq', 'icmdndeq', 'ibmcsrccouttot'], name, value)
 
 
 
                             class IbfStats(Entity):
                                 """
-                                ibf stats
+                                Input Forwarding Block Stats
                                 
                                 .. attribute:: unused
                                 
-                                	unused
+                                	Ingress Unused Counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -583,13 +583,13 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats, [u'unused'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats, ['unused'], name, value)
 
 
 
                             class IbbUcStats(Entity):
                                 """
-                                ibb uc stats
+                                Input Buffer Block UC Stats
                                 
                                 .. attribute:: ipc_data_tot
                                 
@@ -800,13 +800,13 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats, [u'ipc_data_tot', u'ipc_data_totsz', u'ipcrunt', u'ipcgiant', u'ipc_data_err', u'ipclinkerr', u'ipcptcerr', u'ipcpkt_drop', u'ipcdes_drop', u'dhetail_drop', u'ibmoutsop', u'ibmouteop', u'ibmoutbyte', u'icmenq', u'icmdeq', u'icmfcxoff', u'icmfcxon'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats, ['ipc_data_tot', 'ipc_data_totsz', 'ipcrunt', 'ipcgiant', 'ipc_data_err', 'ipclinkerr', 'ipcptcerr', 'ipcpkt_drop', 'ipcdes_drop', 'dhetail_drop', 'ibmoutsop', 'ibmouteop', 'ibmoutbyte', 'icmenq', 'icmdeq', 'icmfcxoff', 'icmfcxon'], name, value)
 
 
 
                             class IbfUcStats(Entity):
                                 """
-                                ibf uc stats
+                                Input Forwarding Block UC Stats
                                 
                                 .. attribute:: pktcnt
                                 
@@ -907,13 +907,13 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats, [u'pktcnt', u'pktoutp0cnt', u'pktoutp1cnt', u'pkt_input_err_drop', u'pkthwerr_drop', u'pkt_null_poe_drop', u'pkt_disp_oe_drop'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats, ['pktcnt', 'pktoutp0cnt', 'pktoutp1cnt', 'pkt_input_err_drop', 'pkthwerr_drop', 'pkt_null_poe_drop', 'pkt_disp_oe_drop'], name, value)
 
 
 
                             class IbbMcStats(Entity):
                                 """
-                                ibb mc stats
+                                Input Buffer Block MC Stats
                                 
                                 .. attribute:: ipc_data_tot
                                 
@@ -1135,13 +1135,13 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats, [u'ipc_data_tot', u'ipc_data_totsz', u'ipcrunt', u'ipcgiant', u'ipc_data_err', u'ipclinkerr', u'ipcptcerr', u'ipcpkt_drop', u'ipcdes_drop', u'dhehitail_drop', u'dhelotail_drop', u'ibmoutsop', u'ibmouteop', u'ibmoutbyte', u'icmenq', u'icmdeq', u'icmfcxoff', u'icmfcxon'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats, ['ipc_data_tot', 'ipc_data_totsz', 'ipcrunt', 'ipcgiant', 'ipc_data_err', 'ipclinkerr', 'ipcptcerr', 'ipcpkt_drop', 'ipcdes_drop', 'dhehitail_drop', 'dhelotail_drop', 'ibmoutsop', 'ibmouteop', 'ibmoutbyte', 'icmenq', 'icmdeq', 'icmfcxoff', 'icmfcxon'], name, value)
 
 
 
                             class IbfMcStats(Entity):
                                 """
-                                ibf mc stats
+                                Input Forwarding Block MC Stats
                                 
                                 .. attribute:: pktcnt
                                 
@@ -1286,31 +1286,31 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats, [u'pktcnt', u'pktoutcnt', u'pkthi_copy_sup_event', u'pktlo_copy_sup_event', u'pkt_input_err_drop', u'pktfgid_addr_err_drop', u'pktfgidlkuperr_drop', u'pkt_null_poe_drop', u'pkt_copy_sup_drop', u'pkt_disp_oe_drop', u'pktto_drop_cnt'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats, ['pktcnt', 'pktoutcnt', 'pkthi_copy_sup_event', 'pktlo_copy_sup_event', 'pkt_input_err_drop', 'pktfgid_addr_err_drop', 'pktfgidlkuperr_drop', 'pkt_null_poe_drop', 'pkt_copy_sup_drop', 'pkt_disp_oe_drop', 'pktto_drop_cnt'], name, value)
 
 
 
                             class CflStats(Entity):
                                 """
-                                cfl stats
+                                Ingress Common Fabric Link Stats
                                 
                                 .. attribute:: cfl_uc_stats
                                 
-                                	cfl uc stats
+                                	Ingress CFL Unicast Stats
                                 	**type**\:  :py:class:`CflUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: cfl_mc_stats
                                 
-                                	cfl mc stats
+                                	Ingress CFL Multicast Stats
                                 	**type**\:  :py:class:`CflMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: cfl_misc_stats
                                 
-                                	cfl misc stats
+                                	Ingress CFL Miscellaneous Stats
                                 	**type**\:  :py:class:`CflMiscStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats>`
                                 
                                 	**config**\: False
@@ -1353,7 +1353,7 @@ class CrossBarStats(Entity):
 
                                 class CflUcStats(Entity):
                                     """
-                                    cfl uc stats
+                                    Ingress CFL Unicast Stats
                                     
                                     .. attribute:: crc_match_pattern
                                     
@@ -1420,7 +1420,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: in_uc_rate
                                     
-                                    	in uc rate
+                                    	Ingress CFL Unicast Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1465,13 +1465,13 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats, [u'crc_match_pattern', u'pkts_rcvd', u'packed_pkts_rcvd', u'pkts_flushed', u'runt_pkts_drop_ped', u'small_pkts_drop_ped', u'pkts_to_ib_from_port', u'in_uc_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats, ['crc_match_pattern', 'pkts_rcvd', 'packed_pkts_rcvd', 'pkts_flushed', 'runt_pkts_drop_ped', 'small_pkts_drop_ped', 'pkts_to_ib_from_port', 'in_uc_rate'], name, value)
 
 
 
                                 class CflMcStats(Entity):
                                     """
-                                    cfl mc stats
+                                    Ingress CFL Multicast Stats
                                     
                                     .. attribute:: crc_match_pattern
                                     
@@ -1538,7 +1538,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: in_mc_rate
                                     
-                                    	in mc rate
+                                    	Ingress CFL Multicast Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1583,13 +1583,13 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats, [u'crc_match_pattern', u'pkts_rcvd', u'packed_pkts_rcvd', u'pkts_flushed', u'runt_pkts_drop_ped', u'small_pkts_drop_ped', u'pkts_to_ib_from_port', u'in_mc_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats, ['crc_match_pattern', 'pkts_rcvd', 'packed_pkts_rcvd', 'pkts_flushed', 'runt_pkts_drop_ped', 'small_pkts_drop_ped', 'pkts_to_ib_from_port', 'in_mc_rate'], name, value)
 
 
 
                                 class CflMiscStats(Entity):
                                     """
-                                    cfl misc stats
+                                    Ingress CFL Miscellaneous Stats
                                     
                                     .. attribute:: crc_stomp
                                     
@@ -1611,7 +1611,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: in_total_rate
                                     
-                                    	in total rate
+                                    	Ingress CFL Total Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1646,7 +1646,7 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats, [u'crc_stomp', u'crc_new_err', u'in_total_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats, ['crc_stomp', 'crc_new_err', 'in_total_rate'], name, value)
 
 
 
@@ -1654,32 +1654,32 @@ class CrossBarStats(Entity):
 
                         class EgStats(Entity):
                             """
-                            eg stats
+                            Egress Stats
                             
                             .. attribute:: obu_stats
                             
-                            	obu stats
+                            	Output Buffer Stats
                             	**type**\:  :py:class:`ObuStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: obu_uc_stats
                             
-                            	obu uc stats
+                            	Output Buffer UC Stats
                             	**type**\:  :py:class:`ObuUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: obu_mc_stats
                             
-                            	obu mc stats
+                            	Output Buffer MC Stats
                             	**type**\:  :py:class:`ObuMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats>`
                             
                             	**config**\: False
                             
                             .. attribute:: cfl_stats
                             
-                            	cfl stats
+                            	Egress Common Fabric Link Stats
                             	**type**\:  :py:class:`CflStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats>`
                             
                             	**config**\: False
@@ -1726,14 +1726,12 @@ class CrossBarStats(Entity):
 
                             class ObuStats(Entity):
                                 """
-                                obu stats
+                                Output Buffer Stats
                                 
                                 .. attribute:: data_queque
                                 
-                                	data queque
-                                	**type**\: list of int
-                                
-                                	**range:** 0..4294967295
+                                	Output Buffer Data Queue Queue Count
+                                	**type**\: list of  		 :py:class:`DataQueque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque>`
                                 
                                 	**config**\: False
                                 
@@ -1752,22 +1750,62 @@ class CrossBarStats(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('data_queque', (YLeafList(YType.uint32, 'data-queque'), ['int'])),
-                                    ])
-                                    self.data_queque = []
+                                    self._child_classes = OrderedDict([("data-queque", ("data_queque", CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque))])
+                                    self._leafs = OrderedDict()
+
+                                    self.data_queque = YList(self)
                                     self._segment_path = lambda: "obu-stats"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats, [u'data_queque'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats, [], name, value)
+
+
+                                class DataQueque(Entity):
+                                    """
+                                    Output Buffer Data Queue Queue Count
+                                    
+                                    .. attribute:: entry
+                                    
+                                    	Output Buffer Data Queue Queue Count
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'asr9k-xbar-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque, self).__init__()
+
+                                        self.yang_name = "data-queque"
+                                        self.yang_parent_name = "obu-stats"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
+                                        ])
+                                        self.entry = None
+                                        self._segment_path = lambda: "data-queque"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque, ['entry'], name, value)
+
 
 
 
                             class ObuUcStats(Entity):
                                 """
-                                obu uc stats
+                                Output Buffer UC Stats
                                 
                                 .. attribute:: pktin
                                 
@@ -1846,13 +1884,13 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats, [u'pktin', u'pktout', u'bytein', u'byteout', u'pkttrunc'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats, ['pktin', 'pktout', 'bytein', 'byteout', 'pkttrunc'], name, value)
 
 
 
                             class ObuMcStats(Entity):
                                 """
-                                obu mc stats
+                                Output Buffer MC Stats
                                 
                                 .. attribute:: pktin
                                 
@@ -1931,31 +1969,31 @@ class CrossBarStats(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats, [u'pktin', u'pktout', u'bytein', u'byteout', u'pkttrunc'], name, value)
+                                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats, ['pktin', 'pktout', 'bytein', 'byteout', 'pkttrunc'], name, value)
 
 
 
                             class CflStats(Entity):
                                 """
-                                cfl stats
+                                Egress Common Fabric Link Stats
                                 
                                 .. attribute:: cfl_uc_stats
                                 
-                                	cfl uc stats
+                                	Egress CFL Unicast Stats
                                 	**type**\:  :py:class:`CflUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: cfl_mc_stats
                                 
-                                	cfl mc stats
+                                	Egress CFL Multicast Stats
                                 	**type**\:  :py:class:`CflMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: cfl_misc_stats
                                 
-                                	cfl misc stats
+                                	Egress CFL Miscellaneous Stats
                                 	**type**\:  :py:class:`CflMiscStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats>`
                                 
                                 	**config**\: False
@@ -1998,7 +2036,7 @@ class CrossBarStats(Entity):
 
                                 class CflUcStats(Entity):
                                     """
-                                    cfl uc stats
+                                    Egress CFL Unicast Stats
                                     
                                     .. attribute:: pkts_truncated
                                     
@@ -2020,7 +2058,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: eg_uc_rate
                                     
-                                    	eg uc rate
+                                    	Egress CFL Unicast Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2055,13 +2093,13 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats, [u'pkts_truncated', u'pkts_from_ob_to_port', u'eg_uc_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats, ['pkts_truncated', 'pkts_from_ob_to_port', 'eg_uc_rate'], name, value)
 
 
 
                                 class CflMcStats(Entity):
                                     """
-                                    cfl mc stats
+                                    Egress CFL Multicast Stats
                                     
                                     .. attribute:: pkts_truncated
                                     
@@ -2083,7 +2121,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: eg_mc_rate
                                     
-                                    	eg mc rate
+                                    	Egress CFL Multicast Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2118,13 +2156,13 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats, [u'pkts_truncated', u'pkts_from_ob_to_port', u'eg_mc_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats, ['pkts_truncated', 'pkts_from_ob_to_port', 'eg_mc_rate'], name, value)
 
 
 
                                 class CflMiscStats(Entity):
                                     """
-                                    cfl misc stats
+                                    Egress CFL Miscellaneous Stats
                                     
                                     .. attribute:: ecc_corr_err
                                     
@@ -2164,7 +2202,7 @@ class CrossBarStats(Entity):
                                     
                                     .. attribute:: eg_total_rate
                                     
-                                    	eg total rate
+                                    	Egress CFL Total Rate
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -2203,7 +2241,7 @@ class CrossBarStats(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats, [u'ecc_corr_err', u'ecc_uncorr_err', u'ecc_raw_corr_err', u'ecc_raw_uncorr_err', u'eg_total_rate'], name, value)
+                                        self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats, ['ecc_corr_err', 'ecc_uncorr_err', 'ecc_raw_corr_err', 'ecc_raw_uncorr_err', 'eg_total_rate'], name, value)
 
 
 
@@ -2211,7 +2249,7 @@ class CrossBarStats(Entity):
 
                         class XpsStats(Entity):
                             """
-                            xps stats
+                            Crosspoint Scheduler Stats
                             
                             .. attribute:: uc_timer_drop
                             
@@ -2279,7 +2317,7 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats, [u'uc_timer_drop', u'uc_timer_truncate', u'mc_timer_drop', u'mc_timer_truncate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats, ['uc_timer_drop', 'uc_timer_truncate', 'mc_timer_drop', 'mc_timer_truncate'], name, value)
 
 
 
@@ -2866,7 +2904,7 @@ class CrossBarStats(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, ['asic_id', 'port', u'internal_error_count', u'input_buffer_queued_packet_count_high', u'ingress_packet_count_since_last_read_high', u'ingress_channel_utilization_count_high', u'input_buffer_back_pressure_count_high', u'xbar_timeout_drop_count_high', u'holdrop_count_high', u'null_fpoe_drop_count_high', u'diagnostic_packet_count_high', u'input_buffer_correctable_ecc_error_count_high', u'input_buffer_uncorrectable_ecc_error_count_high', u'header_crc_error_count_high', u'short_input_header_error_count_high', u'packet_crc_error_count_high', u'short_packet_error_count_high', u'output_buffer_queued_packet_count_high', u'egress_packet_count_since_last_read_high', u'egress_channel_utilization_count_high', u'output_buffer_back_pressure_count_high', u'output_buffer_correctable_ecc_error_count_high', u'output_buffer_uncorrectable_ecc_error_count_high', u'fpoedb_correctable_ecc_error_count_high', u'fpoedb_uncorrectable_ecc_error_count_high', u'input_buffer_queued_packet_count_low', u'ingress_packet_count_since_last_read_low', u'ingress_channel_utilization_count_low', u'input_buffer_back_pressure_count_low', u'xbar_timeout_drop_count_low', u'holdrop_count_low', u'null_fpoe_drop_count_low', u'diagnostic_packet_count_low', u'input_buffer_correctable_ecc_error_count_low', u'input_buffer_uncorrectable_ecc_error_count_low', u'header_crc_error_count_low', u'short_input_header_error_count_low', u'packet_crc_error_count_low', u'short_packet_error_count_low', u'output_buffer_queued_packet_count_low', u'egress_packet_count_since_last_read_low', u'egress_channel_utilization_count_low', u'output_buffer_back_pressure_count_low', u'output_buffer_correctable_ecc_error_count_low', u'output_buffer_uncorrectable_ecc_error_count_low', u'fpoedb_correctable_ecc_error_count_low', u'fpoedb_uncorrectable_ecc_error_count_low'], name, value)
+                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, ['asic_id', 'port', 'internal_error_count', 'input_buffer_queued_packet_count_high', 'ingress_packet_count_since_last_read_high', 'ingress_channel_utilization_count_high', 'input_buffer_back_pressure_count_high', 'xbar_timeout_drop_count_high', 'holdrop_count_high', 'null_fpoe_drop_count_high', 'diagnostic_packet_count_high', 'input_buffer_correctable_ecc_error_count_high', 'input_buffer_uncorrectable_ecc_error_count_high', 'header_crc_error_count_high', 'short_input_header_error_count_high', 'packet_crc_error_count_high', 'short_packet_error_count_high', 'output_buffer_queued_packet_count_high', 'egress_packet_count_since_last_read_high', 'egress_channel_utilization_count_high', 'output_buffer_back_pressure_count_high', 'output_buffer_correctable_ecc_error_count_high', 'output_buffer_uncorrectable_ecc_error_count_high', 'fpoedb_correctable_ecc_error_count_high', 'fpoedb_uncorrectable_ecc_error_count_high', 'input_buffer_queued_packet_count_low', 'ingress_packet_count_since_last_read_low', 'ingress_channel_utilization_count_low', 'input_buffer_back_pressure_count_low', 'xbar_timeout_drop_count_low', 'holdrop_count_low', 'null_fpoe_drop_count_low', 'diagnostic_packet_count_low', 'input_buffer_correctable_ecc_error_count_low', 'input_buffer_uncorrectable_ecc_error_count_low', 'header_crc_error_count_low', 'short_input_header_error_count_low', 'packet_crc_error_count_low', 'short_packet_error_count_low', 'output_buffer_queued_packet_count_low', 'egress_packet_count_since_last_read_low', 'egress_channel_utilization_count_low', 'output_buffer_back_pressure_count_low', 'output_buffer_correctable_ecc_error_count_low', 'output_buffer_uncorrectable_ecc_error_count_low', 'fpoedb_correctable_ecc_error_count_low', 'fpoedb_uncorrectable_ecc_error_count_low'], name, value)
 
 
 
@@ -2933,98 +2971,98 @@ class CrossBarStats(Entity):
                         
                         .. attribute:: ua0_stats
                         
-                        	ua0 stats
+                        	Unicast Arbiter0 stats
                         	**type**\:  :py:class:`Ua0Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats>`
                         
                         	**config**\: False
                         
                         .. attribute:: ua1_stats
                         
-                        	ua1 stats
+                        	Unicast Arbiter1 stats
                         	**type**\:  :py:class:`Ua1Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats>`
                         
                         	**config**\: False
                         
                         .. attribute:: ua2_stats
                         
-                        	ua2 stats
+                        	Unicast Arbiter2 stats
                         	**type**\:  :py:class:`Ua2Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats>`
                         
                         	**config**\: False
                         
                         .. attribute:: ma_stats
                         
-                        	ma stats
+                        	Multicast Arbiter stats
                         	**type**\:  :py:class:`MaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: ca_stats
                         
-                        	ca stats
+                        	Control Cast stats
                         	**type**\:  :py:class:`CaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pi_stats
                         
-                        	pi stats
+                        	Port Ingress stats
                         	**type**\:  :py:class:`PiStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pe_stats
                         
-                        	pe stats
+                        	Port Egress stats
                         	**type**\:  :py:class:`PeStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pi_uc_stats
                         
-                        	pi uc stats
+                        	Ingress Unicast stats
                         	**type**\:  :py:class:`PiUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pi_mc_stats
                         
-                        	pi mc stats
+                        	Ingress Multicast stats
                         	**type**\:  :py:class:`PiMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pi_cc_stats
                         
-                        	pi cc stats
+                        	Ingress Control Cast stats
                         	**type**\:  :py:class:`PiCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pe_uc_stats
                         
-                        	pe uc stats
+                        	Egress Unicast stats
                         	**type**\:  :py:class:`PeUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pe_mc_stats
                         
-                        	pe mc stats
+                        	Egress Multicast stats
                         	**type**\:  :py:class:`PeMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: pe_cc_stats
                         
-                        	pe cc stats
+                        	Egress Control Cast stats
                         	**type**\:  :py:class:`PeCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats>`
                         
                         	**config**\: False
                         
                         .. attribute:: internal_err_cnt
                         
-                        	internal err cnt
+                        	Internal Error Count
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -3111,12 +3149,12 @@ class CrossBarStats(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, ['asic_id', 'port', u'internal_err_cnt'], name, value)
+                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, ['asic_id', 'port', 'internal_err_cnt'], name, value)
 
 
                         class Ua0Stats(Entity):
                             """
-                            ua0 stats
+                            Unicast Arbiter0 stats
                             
                             .. attribute:: dest_drop_pkt_cnt
                             
@@ -3228,13 +3266,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
 
 
                         class Ua1Stats(Entity):
                             """
-                            ua1 stats
+                            Unicast Arbiter1 stats
                             
                             .. attribute:: dest_drop_pkt_cnt
                             
@@ -3346,13 +3384,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
 
 
                         class Ua2Stats(Entity):
                             """
-                            ua2 stats
+                            Unicast Arbiter2 stats
                             
                             .. attribute:: dest_drop_pkt_cnt
                             
@@ -3464,13 +3502,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
 
 
                         class MaStats(Entity):
                             """
-                            ma stats
+                            Multicast Arbiter stats
                             
                             .. attribute:: dest_drop_pkt_cnt
                             
@@ -3593,13 +3631,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_re_transmit_cnt', u'rx_fabric_to_cnt', u'rx_hol_to_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_re_transmit_cnt', 'rx_fabric_to_cnt', 'rx_hol_to_cnt'], name, value)
 
 
 
                         class CaStats(Entity):
                             """
-                            ca stats
+                            Control Cast stats
                             
                             .. attribute:: dest_drop_pkt_cnt
                             
@@ -3689,13 +3727,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt'], name, value)
 
 
 
                         class PiStats(Entity):
                             """
-                            pi stats
+                            Port Ingress stats
                             
                             .. attribute:: total_rate1_cnt
                             
@@ -3726,7 +3764,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: total_calc_rate
                             
-                            	total calc rate
+                            	Ingress Total Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -3763,13 +3801,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, [u'total_rate1_cnt', u'total_rate2_cnt', u'total_rate3_cnt', u'total_calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate'], name, value)
 
 
 
                         class PeStats(Entity):
                             """
-                            pe stats
+                            Port Egress stats
                             
                             .. attribute:: total_rate1_cnt
                             
@@ -3800,7 +3838,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: total_calc_rate
                             
-                            	total calc rate
+                            	Egress Total Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -3848,13 +3886,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, [u'total_rate1_cnt', u'total_rate2_cnt', u'total_rate3_cnt', u'total_calc_rate', u'mc2uc_preempt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate', 'mc2uc_preempt_cnt'], name, value)
 
 
 
                         class PiUcStats(Entity):
                             """
-                            pi uc stats
+                            Ingress Unicast stats
                             
                             .. attribute:: pkt_rcv_cnt
                             
@@ -4164,7 +4202,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Ingress Unicast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -4274,13 +4312,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, [u'pkt_rcv_cnt', u'pkt_seq_err_cnt', u'in_coming_pkt_err_cnt', u'min_pkt_len_err_cnt', u'max_pkt_len_err_cnt', u'line_err_drp_pkt', u'pkt_crc_err_cnt', u'pkt_cfh_crc_err_cnt', u'line_s_written_in_mem0', u'line_s_written_in_mem1', u'line_s_written_in_mem2', u'tail_drp_pkt_cnt', u'uc0_data_mem_ecc_1bit_err_cnt', u'uc1_data_mem_ecc_1bit_err_cnt', u'uc2_data_mem_ecc_1bit_err_cnt', u'uc0_data_mem_ecc_2bit_err_cnt', u'uc1_data_mem_ecc_2bit_err_cnt', u'uc2_data_mem_ecc_2bit_err_cnt', u'diag_pkt_cnt', u'pkt_sent_to_disabled_port_cnt', u'pkt_null_poe_sent_ua0_cnt', u'pkt_null_poe_sent_ua1_cnt', u'pkt_null_poe_sent_ua2_cnt', u'pkt_fpoe_addr_rng_hit_cnt', u'fpoe_mem_ecc_1bit_err_cnt', u'fpoe_mem_ecc_2bit_err_cnt', u'pkts_sent_to_ux0_cnt', u'pkts_sent_to_ux1_cnt', u'pkts_sent_to_ux2_cnt', u'cpp_head_drop_pkt_cnt', u'tr_head_drop_pkt_cnt', u'tr_pkt_sent_to_ux', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate', u'crc_stomp_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem0', 'line_s_written_in_mem1', 'line_s_written_in_mem2', 'tail_drp_pkt_cnt', 'uc0_data_mem_ecc_1bit_err_cnt', 'uc1_data_mem_ecc_1bit_err_cnt', 'uc2_data_mem_ecc_1bit_err_cnt', 'uc0_data_mem_ecc_2bit_err_cnt', 'uc1_data_mem_ecc_2bit_err_cnt', 'uc2_data_mem_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port_cnt', 'pkt_null_poe_sent_ua0_cnt', 'pkt_null_poe_sent_ua1_cnt', 'pkt_null_poe_sent_ua2_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_ux0_cnt', 'pkts_sent_to_ux1_cnt', 'pkts_sent_to_ux2_cnt', 'cpp_head_drop_pkt_cnt', 'tr_head_drop_pkt_cnt', 'tr_pkt_sent_to_ux', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
 
 
 
                         class PiMcStats(Entity):
                             """
-                            pi mc stats
+                            Ingress Multicast stats
                             
                             .. attribute:: pkt_rcv_cnt
                             
@@ -4563,7 +4601,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Ingress Multicast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -4667,13 +4705,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, [u'pkt_rcv_cnt', u'pkt_seq_err_cnt', u'in_coming_pkt_err_cnt', u'min_pkt_len_err_cnt', u'max_pkt_len_err_cnt', u'line_err_drp_pkt', u'pkt_crc_err_cnt', u'pkt_cfh_crc_err_cnt', u'line_s_written_in_mem', u'tail_drp_pkt_cnt', u'data_mem0_ecc_1bit_err_cnt', u'data_mem1_ecc_1bit_err_cnt', u'data_mem2_ecc_1bit_err_cnt', u'data_mem0_ecc_2bit_err_cnt', u'data_mem1_ecc_2bit_err_cnt', u'data_mem2_ecc_2bit_err_cnt', u'diag_pkt_cnt', u'pkt_sent_to_disabled_port', u'pkt_fpoe_match_hit_cnt', u'pkt_null_poe_sent_cnt', u'pkt_fpoe_addr_rng_hit_cnt', u'di_hdr_len_err_pkt_cnt', u'di_err_pkt_cnt', u'fpoe_mem_ecc_1bit_err_cnt', u'fpoe_mem_ecc_2bit_err_cnt', u'pkts_sent_to_mx_cnt', u'cpp_head_drop_pkt_from_ma_cnt', u'tr_head_drop_pkt_from_ma_cnt', u'tr_pkt_sent_to_mx', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate', u'crc_stomp_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem', 'tail_drp_pkt_cnt', 'data_mem0_ecc_1bit_err_cnt', 'data_mem1_ecc_1bit_err_cnt', 'data_mem2_ecc_1bit_err_cnt', 'data_mem0_ecc_2bit_err_cnt', 'data_mem1_ecc_2bit_err_cnt', 'data_mem2_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port', 'pkt_fpoe_match_hit_cnt', 'pkt_null_poe_sent_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'di_hdr_len_err_pkt_cnt', 'di_err_pkt_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_mx_cnt', 'cpp_head_drop_pkt_from_ma_cnt', 'tr_head_drop_pkt_from_ma_cnt', 'tr_pkt_sent_to_mx', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
 
 
 
                         class PiCcStats(Entity):
                             """
-                            pi cc stats
+                            Ingress Control Cast stats
                             
                             .. attribute:: in0_ecc_serr_cnt
                             
@@ -4938,7 +4976,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Ingress Control Cast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -5027,13 +5065,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, [u'in0_ecc_serr_cnt', u'in0_ecc_derr_cnt', u'in1_ecc_serr_cnt', u'in1_ecc_derr_cnt', u'data_mem_ecc_serr_cnt', u'data_mem_ecc_derr_cnt', u'data_mem_ovf0_cnt', u'data_mem_ovf1_cnt', u'fpoe_mem_ecc_serr_cnt', u'fpoe_mem_ecc_derr_cnt', u'null_poe_cnt', u'shut_ack_cnt', u'in0_fnc_err_cnt', u'in1_fnc_err_cnt', u'in0_drop_cnt', u'in1_drop_cnt', u'in0_cong_cnt', u'in1_cong_cnt', u'in0_shut_cnt', u'in1_shut_cnt', u'tail_drop_msg_cnt', u'in0_pkt_cnt', u'in1_pkt_cnt', u'dmem_rd_cnt', u'in_dmem0_cnt', u'in_dmem1_cnt', u'out_pkt_cnt', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, ['in0_ecc_serr_cnt', 'in0_ecc_derr_cnt', 'in1_ecc_serr_cnt', 'in1_ecc_derr_cnt', 'data_mem_ecc_serr_cnt', 'data_mem_ecc_derr_cnt', 'data_mem_ovf0_cnt', 'data_mem_ovf1_cnt', 'fpoe_mem_ecc_serr_cnt', 'fpoe_mem_ecc_derr_cnt', 'null_poe_cnt', 'shut_ack_cnt', 'in0_fnc_err_cnt', 'in1_fnc_err_cnt', 'in0_drop_cnt', 'in1_drop_cnt', 'in0_cong_cnt', 'in1_cong_cnt', 'in0_shut_cnt', 'in1_shut_cnt', 'tail_drop_msg_cnt', 'in0_pkt_cnt', 'in1_pkt_cnt', 'dmem_rd_cnt', 'in_dmem0_cnt', 'in_dmem1_cnt', 'out_pkt_cnt', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
 
 
                         class PeUcStats(Entity):
                             """
-                            pe uc stats
+                            Egress Unicast stats
                             
                             .. attribute:: in_pkt_uc0_cnt
                             
@@ -5307,7 +5345,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Egress Unicast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -5398,13 +5436,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, [u'in_pkt_uc0_cnt', u'in_pkt_uc1_cnt', u'in_pkt_uc2_cnt', u'in_full_line_uc0_cnt', u'in_full_line_uc1_cnt', u'in_full_line_uc2_cnt', u'pkt_trunc_eop_uc0_cnt', u'pkt_trunc_eop_uc1_cnt', u'pkt_trunc_eop_uc2_cnt', u'pkt_sop_drop_uc0_cnt', u'pkt_sop_drop_uc1_cnt', u'pkt_sop_drop_uc2_cnt', u'pkt_ecc_err_drop_uc_cnt', u'pkt_ecc_trunc_cnt_uc_cnt', u'ecc_1bit_err_uc0_0_cnt', u'ecc_1bit_err_uc0_1_cnt', u'ecc_1bit_err_uc1_0_cnt', u'ecc_1bit_err_uc1_1_cnt', u'ecc_1bit_err_uc2_0_cnt', u'ecc_1bit_err_uc2_1_cnt', u'ecc_2bit_err_uc0_0_cnt', u'ecc_2bit_err_uc0_1_cnt', u'ecc_2bit_err_uc1_0_cnt', u'ecc_2bit_err_uc1_1_cnt', u'ecc_2bit_err_uc2_0_cnt', u'ecc_2bit_err_uc2_1_cnt', u'out_pkt_uc_cnt', u'fe_uc_sop_eop_pack_cnt', u'fc_uc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, ['in_pkt_uc0_cnt', 'in_pkt_uc1_cnt', 'in_pkt_uc2_cnt', 'in_full_line_uc0_cnt', 'in_full_line_uc1_cnt', 'in_full_line_uc2_cnt', 'pkt_trunc_eop_uc0_cnt', 'pkt_trunc_eop_uc1_cnt', 'pkt_trunc_eop_uc2_cnt', 'pkt_sop_drop_uc0_cnt', 'pkt_sop_drop_uc1_cnt', 'pkt_sop_drop_uc2_cnt', 'pkt_ecc_err_drop_uc_cnt', 'pkt_ecc_trunc_cnt_uc_cnt', 'ecc_1bit_err_uc0_0_cnt', 'ecc_1bit_err_uc0_1_cnt', 'ecc_1bit_err_uc1_0_cnt', 'ecc_1bit_err_uc1_1_cnt', 'ecc_1bit_err_uc2_0_cnt', 'ecc_1bit_err_uc2_1_cnt', 'ecc_2bit_err_uc0_0_cnt', 'ecc_2bit_err_uc0_1_cnt', 'ecc_2bit_err_uc1_0_cnt', 'ecc_2bit_err_uc1_1_cnt', 'ecc_2bit_err_uc2_0_cnt', 'ecc_2bit_err_uc2_1_cnt', 'out_pkt_uc_cnt', 'fe_uc_sop_eop_pack_cnt', 'fc_uc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
 
 
                         class PeMcStats(Entity):
                             """
-                            pe mc stats
+                            Egress Multicast stats
                             
                             .. attribute:: in_pkt_mc_cnt
                             
@@ -5552,7 +5590,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Egress Multicast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -5615,13 +5653,13 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, [u'in_pkt_mc_cnt', u'in_full_line_mc_cnt', u'pkt_trunc_eop_mc_cnt', u'pkt_sop_drop_mc_cnt', u'pkt_ecc_err_drop_mc_cnt', u'pkt_ecc_err_trunc_cnt_mc_cnt', u'ecc_1bit_err_mc0_cnt', u'ecc_1bit_err_mc1_cnt', u'ecc_1bit_err_mc2_cnt', u'ecc_2bit_err_mc0_cnt', u'ecc_2bit_err_mc1_cnt', u'ecc_2bit_err_mc2_cnt', u'out_pkt_mc_cnt', u'fe_mc_sop_eop_pack_cnt', u'fc_mc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, ['in_pkt_mc_cnt', 'in_full_line_mc_cnt', 'pkt_trunc_eop_mc_cnt', 'pkt_sop_drop_mc_cnt', 'pkt_ecc_err_drop_mc_cnt', 'pkt_ecc_err_trunc_cnt_mc_cnt', 'ecc_1bit_err_mc0_cnt', 'ecc_1bit_err_mc1_cnt', 'ecc_1bit_err_mc2_cnt', 'ecc_2bit_err_mc0_cnt', 'ecc_2bit_err_mc1_cnt', 'ecc_2bit_err_mc2_cnt', 'out_pkt_mc_cnt', 'fe_mc_sop_eop_pack_cnt', 'fc_mc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
 
 
                         class PeCcStats(Entity):
                             """
-                            pe cc stats
+                            Egress Control Cast stats
                             
                             .. attribute:: in_pkt_cnt
                             
@@ -5760,7 +5798,7 @@ class CrossBarStats(Entity):
                             
                             .. attribute:: calc_rate
                             
-                            	calc rate
+                            	Egress Control Cast Rate
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
@@ -5821,7 +5859,7 @@ class CrossBarStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, [u'in_pkt_cnt', u'out_path0_pkt_cnt', u'out_path1_pkt_cnt', u'xbar_ecc_drop_pkt_cnt', u'mem0_drop_pkt_cnt', u'mem1_drop_pkt_cnt', u'congn_pkt_cnt', u'xbar_ecc_single_err_cnt', u'xbar_ecc_double_err_cnt', u'mem0_ecc_single_err_cnt', u'mem0_ecc_double_err_cnt', u'mem1_ecc_single_err_cnt', u'mem1_ecc_double_err_cnt', u'fc_cc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, ['in_pkt_cnt', 'out_path0_pkt_cnt', 'out_path1_pkt_cnt', 'xbar_ecc_drop_pkt_cnt', 'mem0_drop_pkt_cnt', 'mem1_drop_pkt_cnt', 'congn_pkt_cnt', 'xbar_ecc_single_err_cnt', 'xbar_ecc_double_err_cnt', 'mem0_ecc_single_err_cnt', 'mem0_ecc_double_err_cnt', 'mem1_ecc_single_err_cnt', 'mem1_ecc_double_err_cnt', 'fc_cc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
 
 

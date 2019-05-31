@@ -135,7 +135,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvGenObjects, [u'intsrvflownewindex'], name, value)
+            self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvGenObjects, ['intsrvflownewindex'], name, value)
 
 
 
@@ -291,7 +291,7 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, [u'ifindex', u'intsrvifattriballocatedbits', u'intsrvifattribmaxallocatedbits', u'intsrvifattriballocatedbuffer', u'intsrvifattribflows', u'intsrvifattribpropagationdelay', u'intsrvifattribstatus'], name, value)
+                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, ['ifindex', 'intsrvifattriballocatedbits', 'intsrvifattribmaxallocatedbits', 'intsrvifattriballocatedbuffer', 'intsrvifattribflows', 'intsrvifattribpropagationdelay', 'intsrvifattribstatus'], name, value)
 
 
 
@@ -636,7 +636,7 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry, [u'intsrvflownumber', u'intsrvflowtype', u'intsrvflowowner', u'intsrvflowdestaddr', u'intsrvflowsenderaddr', u'intsrvflowdestaddrlength', u'intsrvflowsenderaddrlength', u'intsrvflowprotocol', u'intsrvflowdestport', u'intsrvflowport', u'intsrvflowflowid', u'intsrvflowinterface', u'intsrvflowifaddr', u'intsrvflowrate', u'intsrvflowburst', u'intsrvflowweight', u'intsrvflowqueue', u'intsrvflowmintu', u'intsrvflowmaxtu', u'intsrvflowbesteffort', u'intsrvflowpoliced', u'intsrvflowdiscard', u'intsrvflowservice', u'intsrvfloworder', u'intsrvflowstatus'], name, value)
+                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry, ['intsrvflownumber', 'intsrvflowtype', 'intsrvflowowner', 'intsrvflowdestaddr', 'intsrvflowsenderaddr', 'intsrvflowdestaddrlength', 'intsrvflowsenderaddrlength', 'intsrvflowprotocol', 'intsrvflowdestport', 'intsrvflowport', 'intsrvflowflowid', 'intsrvflowinterface', 'intsrvflowifaddr', 'intsrvflowrate', 'intsrvflowburst', 'intsrvflowweight', 'intsrvflowqueue', 'intsrvflowmintu', 'intsrvflowmaxtu', 'intsrvflowbesteffort', 'intsrvflowpoliced', 'intsrvflowdiscard', 'intsrvflowservice', 'intsrvfloworder', 'intsrvflowstatus'], name, value)
 
             class IntSrvFlowOwner(Enum):
                 """

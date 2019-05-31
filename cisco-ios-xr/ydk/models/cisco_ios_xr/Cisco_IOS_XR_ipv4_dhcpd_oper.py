@@ -1210,7 +1210,7 @@ class DhcpClient(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', u'interface_name', u'num_events_received', u'num_create_event_received', u'num_delete_event_received', u'num_reboot_event_received', u'num_reinit_event_received', u'num_packet_event_received', u'num_init_timer_eventi', u'num_t1_timer_event', u'num_t2_timer_event', u'num_lease_timer_event', u'num_vbind_timer_event', u'num_discovers_sent_successfully', u'num_requests_sent_successfully', u'num_releases_sent_successfully', u'num_renews_sent_successfully', u'num_rebinds_sent_successfully', u'num_declines_sent_successfully', u'num_request_after_reboot_sent', u'num_valid_offers_received', u'num_valid_acks_received', u'num_valid_nacks_received', u'num_unicast_packet_sent_successfully', u'num_broadcast_packet_sent_success', u'num_init_timer_start', u'num_init_timer_stop', u'num_t1_timer_start', u'num_t1_timer_stop', u'num_t2_timer_start', u'num_t2_timer_stop', u'num_lease_timer_start', u'num_lease_timer_stop', u'num_vbind_timer_start', u'num_vbind_timer_stop', u'num_invalid_events', u'num_discovers_failed', u'num_requests_failed', u'num_releases_failed', u'num_renews_failed', u'num_rebinds_failed', u'num_declines_failed', u'num_request_after_reboot_failed', u'num_invalid_offers', u'num_invalid_acks', u'num_invalid_nacks', u'num_invalid_packets', u'num_unicast_failed', u'num_broadcast_failed', u'num_xid_mismatch', u'num_vbind_failed'], name, value)
+                        self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', 'interface_name', 'num_events_received', 'num_create_event_received', 'num_delete_event_received', 'num_reboot_event_received', 'num_reinit_event_received', 'num_packet_event_received', 'num_init_timer_eventi', 'num_t1_timer_event', 'num_t2_timer_event', 'num_lease_timer_event', 'num_vbind_timer_event', 'num_discovers_sent_successfully', 'num_requests_sent_successfully', 'num_releases_sent_successfully', 'num_renews_sent_successfully', 'num_rebinds_sent_successfully', 'num_declines_sent_successfully', 'num_request_after_reboot_sent', 'num_valid_offers_received', 'num_valid_acks_received', 'num_valid_nacks_received', 'num_unicast_packet_sent_successfully', 'num_broadcast_packet_sent_success', 'num_init_timer_start', 'num_init_timer_stop', 'num_t1_timer_start', 'num_t1_timer_stop', 'num_t2_timer_start', 'num_t2_timer_stop', 'num_lease_timer_start', 'num_lease_timer_stop', 'num_vbind_timer_start', 'num_vbind_timer_stop', 'num_invalid_events', 'num_discovers_failed', 'num_requests_failed', 'num_releases_failed', 'num_renews_failed', 'num_rebinds_failed', 'num_declines_failed', 'num_request_after_reboot_failed', 'num_invalid_offers', 'num_invalid_acks', 'num_invalid_nacks', 'num_invalid_packets', 'num_unicast_failed', 'num_broadcast_failed', 'num_xid_mismatch', 'num_vbind_failed'], name, value)
 
 
 
@@ -1417,7 +1417,7 @@ class DhcpClient(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', u'interface_name', u'client_mac_address', u'client_id', u'ipv4_client_state', u'ipv4_address', u'ipv4_subnet_mask', u'ipv4_server_address', u'next_hop_ipv4_address', u'ipv4_lease_time', u'ipv4_renew_time', u'ipv4_rebind_time', u'ipv4_address_configured'], name, value)
+                        self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', 'interface_name', 'client_mac_address', 'client_id', 'ipv4_client_state', 'ipv4_address', 'ipv4_subnet_mask', 'ipv4_server_address', 'next_hop_ipv4_address', 'ipv4_lease_time', 'ipv4_renew_time', 'ipv4_rebind_time', 'ipv4_address_configured'], name, value)
 
 
 
@@ -1761,7 +1761,7 @@ class Ipv4Dhcpd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', u'snoop_binding_ch_addr', u'snoop_binding_ch_addr_len', u'snoop_binding_i_addr', u'snoop_binding_client_id', u'snoop_binding_client_id_len', u'snoop_binding_state', u'snoop_binding_lease', u'snoop_binding_lease_start_time', u'snoop_binding_profile_name', u'snoop_bindng_interface_name', u'snoop_binding_bridge_name'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', 'snoop_binding_ch_addr', 'snoop_binding_ch_addr_len', 'snoop_binding_i_addr', 'snoop_binding_client_id', 'snoop_binding_client_id_len', 'snoop_binding_state', 'snoop_binding_lease', 'snoop_binding_lease_start_time', 'snoop_binding_profile_name', 'snoop_bindng_interface_name', 'snoop_binding_bridge_name'], name, value)
 
 
 
@@ -1815,7 +1815,7 @@ class Ipv4Dhcpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, [u'snoop_binding_total', u'snoop_binding_timestamp'], name, value)
+                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, ['snoop_binding_total', 'snoop_binding_timestamp'], name, value)
 
 
 
@@ -1857,7 +1857,7 @@ class Ipv4Dhcpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, [u'snoop_stats_timestamp'], name, value)
+                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, ['snoop_stats_timestamp'], name, value)
 
 
 
@@ -2003,7 +2003,7 @@ class Ipv4Dhcpd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', u'snoop_profile_name', u'snoop_profile_uid', u'snoop_profile_relay_info_option', u'snoop_profile_relay_info_allow_untrusted', u'snoop_profile_relay_info_policy', u'snoop_profile_trusted'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', 'snoop_profile_name', 'snoop_profile_uid', 'snoop_profile_relay_info_option', 'snoop_profile_relay_info_allow_untrusted', 'snoop_profile_relay_info_policy', 'snoop_profile_trusted'], name, value)
 
 
 
@@ -2106,7 +2106,7 @@ class Ipv4Dhcpd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', u'snoop_statistics_bridge_name', u'snoop_statistic'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', 'snoop_statistics_bridge_name', 'snoop_statistic'], name, value)
 
 
 
@@ -2378,7 +2378,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
 
 
 
@@ -2711,7 +2711,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -2774,7 +2774,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -2837,7 +2837,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -2900,7 +2900,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -2963,7 +2963,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3026,7 +3026,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3089,7 +3089,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3152,7 +3152,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3215,7 +3215,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3278,7 +3278,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3341,7 +3341,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3404,7 +3404,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3467,7 +3467,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3530,7 +3530,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -3780,7 +3780,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', u'is_relay_option_enabled', u'relay_policy', u'relay_authenticate', u'is_relay_allow_untrusted_enabled', u'is_relay_optionvpn_enabled', u'relay_optionvpn_enabled_mode', u'is_relay_check', u'is_move_allowed', u'proxy_broadcast_flag_policy', u'proxy_profile_client_lease_time', u'proxy_lease_limit_type', u'proxy_lease_limit_count', u'profile_helper_address', u'vrf_name', u'gi_addr'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', 'is_relay_option_enabled', 'relay_policy', 'relay_authenticate', 'is_relay_allow_untrusted_enabled', 'is_relay_optionvpn_enabled', 'relay_optionvpn_enabled_mode', 'is_relay_check', 'is_move_allowed', 'proxy_broadcast_flag_policy', 'proxy_profile_client_lease_time', 'proxy_lease_limit_type', 'proxy_lease_limit_count', 'profile_helper_address', 'vrf_name', 'gi_addr'], name, value)
 
 
                         class VrfReferences(Entity):
@@ -3824,6 +3824,13 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 ipv4 dhcpd proxy vrf reference
                                 
+                                .. attribute:: next_vrf
+                                
+                                	next vrf
+                                	**type**\:  :py:class:`NextVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf>`
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: proxy_reference_vrf_name
                                 
                                 	VRF name
@@ -3848,16 +3855,46 @@ class Ipv4Dhcpd(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("next-vrf", ("next_vrf", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf))])
                                     self._leafs = OrderedDict([
                                         ('proxy_reference_vrf_name', (YLeaf(YType.str, 'proxy-reference-vrf-name'), ['str'])),
                                     ])
                                     self.proxy_reference_vrf_name = None
+
+                                    self.next_vrf = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf()
+                                    self.next_vrf.parent = self
+                                    self._children_name_map["next_vrf"] = "next-vrf"
                                     self._segment_path = lambda: "ipv4-dhcpd-proxy-vrf-reference"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, [u'proxy_reference_vrf_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+
+
+                                class NextVrf(Entity):
+                                    """
+                                    next vrf
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-dhcpd-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf, self).__init__()
+
+                                        self.yang_name = "next-vrf"
+                                        self.yang_parent_name = "ipv4-dhcpd-proxy-vrf-reference"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
+                                        self._segment_path = lambda: "next-vrf"
+                                        self._is_frozen = True
+
 
 
 
@@ -3903,6 +3940,13 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 ipv4 dhcpd proxy interface reference
                                 
+                                .. attribute:: next_interface
+                                
+                                	next interface
+                                	**type**\:  :py:class:`NextInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface>`
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: proxy_reference_interface_name
                                 
                                 	Interface name
@@ -3927,16 +3971,46 @@ class Ipv4Dhcpd(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("next-interface", ("next_interface", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface))])
                                     self._leafs = OrderedDict([
                                         ('proxy_reference_interface_name', (YLeaf(YType.str, 'proxy-reference-interface-name'), ['str'])),
                                     ])
                                     self.proxy_reference_interface_name = None
+
+                                    self.next_interface = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface()
+                                    self.next_interface.parent = self
+                                    self._children_name_map["next_interface"] = "next-interface"
                                     self._segment_path = lambda: "ipv4-dhcpd-proxy-interface-reference"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, [u'proxy_reference_interface_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
+
+
+                                class NextInterface(Entity):
+                                    """
+                                    next interface
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-dhcpd-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface, self).__init__()
+
+                                        self.yang_name = "next-interface"
+                                        self.yang_parent_name = "ipv4-dhcpd-proxy-interface-reference"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
+                                        self._segment_path = lambda: "next-interface"
+                                        self._is_frozen = True
+
 
 
 
@@ -4028,7 +4102,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -4090,7 +4164,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -4225,7 +4299,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', u'session_start_time_epoch', u'session_end_time_epoch', u'disc_reason', u'sub_label', u'mac_address'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'mac_address'], name, value)
 
 
 
@@ -4483,6 +4557,15 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: selected_profile_name
+                            
+                            	DHCP Selected profile name
+                            	**type**\: str
+                            
+                            	**length:** 0..65
+                            
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
@@ -4665,6 +4748,7 @@ class Ipv4Dhcpd(Entity):
                                     ('proxy_binding_outer_tag', (YLeaf(YType.uint32, 'proxy-binding-outer-tag'), ['int'])),
                                     ('proxy_binding_inner_tag', (YLeaf(YType.uint32, 'proxy-binding-inner-tag'), ['int'])),
                                     ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('selected_profile_name', (YLeaf(YType.str, 'selected-profile-name'), ['str'])),
                                     ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
                                     ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
                                     ('old_subscriber_label', (YLeaf(YType.uint32, 'old-subscriber-label'), ['int'])),
@@ -4701,6 +4785,7 @@ class Ipv4Dhcpd(Entity):
                                 self.proxy_binding_outer_tag = None
                                 self.proxy_binding_inner_tag = None
                                 self.profile_name = None
+                                self.selected_profile_name = None
                                 self.is_nak_next_renew = None
                                 self.subscriber_label = None
                                 self.old_subscriber_label = None
@@ -4722,7 +4807,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time_epoch', u'srg_state', u'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'event_history'], name, value)
 
 
 
@@ -4962,7 +5047,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
 
 
 
@@ -5137,7 +5222,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', u'intf_ifhandle', u'vrf_name', u'intf_mode', u'intf_is_ambiguous', u'intf_profile_name', u'intf_lease_limit_type', u'intf_lease_limit_count', u'srg_role', u'mac_throttle'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', 'intf_ifhandle', 'vrf_name', 'intf_mode', 'intf_is_ambiguous', 'intf_profile_name', 'intf_lease_limit_type', 'intf_lease_limit_count', 'srg_role', 'mac_throttle'], name, value)
 
 
 
@@ -5310,7 +5395,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -5372,7 +5457,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -5514,7 +5599,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, [u'issu_sync_complete_time', u'issu_sync_start_time', u'issu_ready_time', u'big_bang_time', u'primary_role_time', u'role', u'phase', u'version', u'issu_ready_issu_mgr_connection', u'issu_ready_entries_replicate'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, ['issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'issu_ready_issu_mgr_connection', 'issu_ready_entries_replicate'], name, value)
 
 
 
@@ -5847,7 +5932,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -5910,7 +5995,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -5973,7 +6058,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6036,7 +6121,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6099,7 +6184,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6162,7 +6247,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6225,7 +6310,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6288,7 +6373,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6351,7 +6436,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6414,7 +6499,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6477,7 +6562,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6540,7 +6625,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6603,7 +6688,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6666,7 +6751,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -6833,7 +6918,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', u'base_default_profile_name', u'default_profile_mode', u'relay_authenticate', u'remote_id', u'child_profile_count', u'intf_ref_count'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', 'base_default_profile_name', 'default_profile_mode', 'relay_authenticate', 'remote_id', 'child_profile_count', 'intf_ref_count'], name, value)
 
 
                         class InterfaceReferences(Entity):
@@ -6877,6 +6962,13 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 ipv4 dhcpd base interface reference
                                 
+                                .. attribute:: next_interface
+                                
+                                	next interface
+                                	**type**\:  :py:class:`NextInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface>`
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: base_reference_interface_name
                                 
                                 	Interface name
@@ -6901,16 +6993,46 @@ class Ipv4Dhcpd(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("next-interface", ("next_interface", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface))])
                                     self._leafs = OrderedDict([
                                         ('base_reference_interface_name', (YLeaf(YType.str, 'base-reference-interface-name'), ['str'])),
                                     ])
                                     self.base_reference_interface_name = None
+
+                                    self.next_interface = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface()
+                                    self.next_interface.parent = self
+                                    self._children_name_map["next_interface"] = "next-interface"
                                     self._segment_path = lambda: "ipv4-dhcpd-base-interface-reference"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, [u'base_reference_interface_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, ['base_reference_interface_name'], name, value)
+
+
+                                class NextInterface(Entity):
+                                    """
+                                    next interface
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-dhcpd-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface, self).__init__()
+
+                                        self.yang_name = "next-interface"
+                                        self.yang_parent_name = "ipv4-dhcpd-base-interface-reference"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
+                                        self._segment_path = lambda: "next-interface"
+                                        self._is_frozen = True
+
 
 
 
@@ -6955,6 +7077,13 @@ class Ipv4Dhcpd(Entity):
                             class Ipv4DhcpdBaseChildProfileInfo(Entity):
                                 """
                                 ipv4 dhcpd base child profile info
+                                
+                                .. attribute:: next_child_profile_info
+                                
+                                	next child profile info
+                                	**type**\:  :py:class:`NextChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: base_child_profile_name
                                 
@@ -7016,7 +7145,7 @@ class Ipv4Dhcpd(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("next-child-profile-info", ("next_child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo))])
                                     self._leafs = OrderedDict([
                                         ('base_child_profile_name', (YLeaf(YType.str, 'base-child-profile-name'), ['str'])),
                                         ('mode', (YLeaf(YType.uint8, 'mode'), ['int'])),
@@ -7029,11 +7158,41 @@ class Ipv4Dhcpd(Entity):
                                     self.matched_option_code = None
                                     self.matched_option_len = None
                                     self.option_data = None
+
+                                    self.next_child_profile_info = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo()
+                                    self.next_child_profile_info.parent = self
+                                    self._children_name_map["next_child_profile_info"] = "next-child-profile-info"
                                     self._segment_path = lambda: "ipv4-dhcpd-base-child-profile-info"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, [u'base_child_profile_name', u'mode', u'matched_option_code', u'matched_option_len', u'option_data'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, ['base_child_profile_name', 'mode', 'matched_option_code', 'matched_option_len', 'option_data'], name, value)
+
+
+                                class NextChildProfileInfo(Entity):
+                                    """
+                                    next child profile info
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-dhcpd-oper'
+                                    _revision = '2018-09-20'
+
+                                    def __init__(self):
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo, self).__init__()
+
+                                        self.yang_name = "next-child-profile-info"
+                                        self.yang_parent_name = "ipv4-dhcpd-base-child-profile-info"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
+                                        self._segment_path = lambda: "next-child-profile-info"
+                                        self._is_frozen = True
+
 
 
 
@@ -7244,7 +7403,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, [u'configured', u'version', u'full_file_write_interval', u'last_full_write_file_name', u'last_full_write_time', u'full_file_write_count', u'failed_full_file_write_count', u'full_file_record_count', u'last_full_file_write_error_timestamp', u'incremental_file_write_interval', u'last_incremental_write_file_name', u'last_incremental_write_time', u'incremental_file_write_count', u'failed_incremental_file_write_count', u'incremental_file_record_count', u'last_incremental_file_write_error_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
 
 
 
@@ -7691,7 +7850,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', u'server_profile_name_xr', u'secure_arp', u'requested_address_check', u'server_id_check', u'duplicate_mac_address_check', u'duplicate_ip_address_check', u'is_move_allowed', u'bcast_policy', u'giaddr_policy', u'subnet_mask', u'server_pool_name', u'server_profile_lease', u'server_profile_netbios_node_type', u'server_bootfile_name', u'server_domain_name', u'server_profileiedge_check', u'server_profile_server_dns_count', u'server_profiledefault_router_count', u'server_profile_netbios_name_svr_count', u'server_profile_time_svr_count', u'lease_limit_type', u'lease_limit_count', u'server_profile_dns', u'server_profile_default_router', u'server_profile_netbious_name_server', u'server_profile_time_server'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', 'server_profile_name_xr', 'secure_arp', 'requested_address_check', 'server_id_check', 'duplicate_mac_address_check', 'duplicate_ip_address_check', 'is_move_allowed', 'bcast_policy', 'giaddr_policy', 'subnet_mask', 'server_pool_name', 'server_profile_lease', 'server_profile_netbios_node_type', 'server_bootfile_name', 'server_domain_name', 'server_profileiedge_check', 'server_profile_server_dns_count', 'server_profiledefault_router_count', 'server_profile_netbios_name_svr_count', 'server_profile_time_svr_count', 'lease_limit_type', 'lease_limit_count', 'server_profile_dns', 'server_profile_default_router', 'server_profile_netbious_name_server', 'server_profile_time_server'], name, value)
 
 
 
@@ -7781,7 +7940,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -7843,7 +8002,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -8134,7 +8293,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
 
 
 
@@ -8341,6 +8500,15 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: selected_profile_name
+                            
+                            	DHCP Selected profile name
+                            	**type**\: str
+                            
+                            	**length:** 0..65
+                            
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
@@ -8523,6 +8691,7 @@ class Ipv4Dhcpd(Entity):
                                     ('proxy_binding_outer_tag', (YLeaf(YType.uint32, 'proxy-binding-outer-tag'), ['int'])),
                                     ('proxy_binding_inner_tag', (YLeaf(YType.uint32, 'proxy-binding-inner-tag'), ['int'])),
                                     ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('selected_profile_name', (YLeaf(YType.str, 'selected-profile-name'), ['str'])),
                                     ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
                                     ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
                                     ('old_subscriber_label', (YLeaf(YType.uint32, 'old-subscriber-label'), ['int'])),
@@ -8559,6 +8728,7 @@ class Ipv4Dhcpd(Entity):
                                 self.proxy_binding_outer_tag = None
                                 self.proxy_binding_inner_tag = None
                                 self.profile_name = None
+                                self.selected_profile_name = None
                                 self.is_nak_next_renew = None
                                 self.subscriber_label = None
                                 self.old_subscriber_label = None
@@ -8580,7 +8750,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time_epoch', u'srg_state', u'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'event_history'], name, value)
 
 
 
@@ -8715,7 +8885,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', u'session_start_time_epoch', u'session_end_time_epoch', u'disc_reason', u'sub_label', u'mac_address'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'mac_address'], name, value)
 
 
 
@@ -8757,7 +8927,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
 
 
 
@@ -9090,7 +9260,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9153,7 +9323,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9216,7 +9386,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9279,7 +9449,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9342,7 +9512,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9405,7 +9575,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9468,7 +9638,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9531,7 +9701,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9594,7 +9764,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9657,7 +9827,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9720,7 +9890,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9783,7 +9953,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9846,7 +10016,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -9909,7 +10079,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -10226,7 +10396,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', u'relay_profile_name', u'relay_profile_uid', u'relay_profile_helper_count', u'relay_profile_relay_info_option', u'relay_profile_relay_info_policy', u'relay_profile_relay_info_allow_untrusted', u'relay_profile_relay_info_optionvpn', u'relay_profile_relay_info_optionvpn_mode', u'relay_profile_relay_info_check', u'relay_profile_gi_addr_policy', u'relay_profile_broadcast_flag_policy', u'relay_profile_mac_mismatch_action', u'relay_profile_helper_address', u'relay_profile_helper_vrf', u'relay_profile_gi_addr'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', 'relay_profile_name', 'relay_profile_uid', 'relay_profile_helper_count', 'relay_profile_relay_info_option', 'relay_profile_relay_info_policy', 'relay_profile_relay_info_allow_untrusted', 'relay_profile_relay_info_optionvpn', 'relay_profile_relay_info_optionvpn_mode', 'relay_profile_relay_info_check', 'relay_profile_gi_addr_policy', 'relay_profile_broadcast_flag_policy', 'relay_profile_mac_mismatch_action', 'relay_profile_helper_address', 'relay_profile_helper_vrf', 'relay_profile_gi_addr'], name, value)
 
 
 
@@ -10268,7 +10438,7 @@ class Ipv4Dhcpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, [u'relay_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, ['relay_stats_timestamp'], name, value)
 
 
 
@@ -10357,7 +10527,7 @@ class Ipv4Dhcpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, [u'relay_statistics_vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, ['relay_statistics_vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -10419,7 +10589,7 @@ class Ipv4Dhcpd(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -10754,7 +10924,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -10817,7 +10987,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -10880,7 +11050,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -10943,7 +11113,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11006,7 +11176,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11069,7 +11239,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11132,7 +11302,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11195,7 +11365,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11258,7 +11428,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11321,7 +11491,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11384,7 +11554,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11447,7 +11617,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11510,7 +11680,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 
@@ -11573,7 +11743,7 @@ class Ipv4Dhcpd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
 

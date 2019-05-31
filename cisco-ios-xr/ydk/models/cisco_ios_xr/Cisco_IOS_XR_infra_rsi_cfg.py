@@ -131,7 +131,7 @@ class Vrfs(Entity):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(Vrfs, self).__init__()
@@ -220,7 +220,7 @@ class Vrfs(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Vrfs.Vrf, self).__init__()
@@ -265,7 +265,7 @@ class Vrfs(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vrfs.Vrf, [u'vrf_name', u'fallback_vrf', u'remote_route_filter_disable', u'create', u'mode_big', u'description'], name, value)
+            self._perform_setattr(Vrfs.Vrf, ['vrf_name', 'fallback_vrf', 'remote_route_filter_disable', 'create', 'mode_big', 'description'], name, value)
 
 
         class VpnId(Entity):
@@ -297,7 +297,7 @@ class Vrfs(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Vrfs.Vrf.VpnId, self).__init__()
@@ -319,7 +319,7 @@ class Vrfs(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vrfs.Vrf.VpnId, [u'vpn_oui', u'vpn_index'], name, value)
+                self._perform_setattr(Vrfs.Vrf.VpnId, ['vpn_oui', 'vpn_index'], name, value)
 
 
 
@@ -337,7 +337,7 @@ class Vrfs(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Vrfs.Vrf.Afs, self).__init__()
@@ -401,7 +401,7 @@ class Vrfs(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Vrfs.Vrf.Afs.Af, self).__init__()
@@ -433,7 +433,7 @@ class Vrfs(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrfs.Vrf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+                    self._perform_setattr(Vrfs.Vrf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
 
 
                 class MaximumPrefix(Entity):
@@ -537,12 +537,17 @@ class Vrfs(Entity):
                     	TRUE Enable advertising imported paths to PEsFALSE Disable advertising imported paths to PEs
                     	**type**\: bool
                     
+                    .. attribute:: import_from_bridge_domain
+                    
+                    	TRUE Enable advertising local EVPN paths to PEs .FALSE Disable advertising local EVPN paths to PEs
+                    	**type**\: bool
+                    
                     
 
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Vrfs.Vrf.Afs.Af.Bgp, self).__init__()
@@ -557,10 +562,12 @@ class Vrfs(Entity):
                             ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
                             ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
                             ('import_vrf_options', (YLeaf(YType.boolean, 'import-vrf-options'), ['bool'])),
+                            ('import_from_bridge_domain', (YLeaf(YType.boolean, 'import-from-bridge-domain'), ['bool'])),
                         ])
                         self.export_route_policy = None
                         self.import_route_policy = None
                         self.import_vrf_options = None
+                        self.import_from_bridge_domain = None
 
                         self.import_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets()
                         self.import_route_targets.parent = self
@@ -583,7 +590,7 @@ class Vrfs(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options'], name, value)
+                        self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options', 'import_from_bridge_domain'], name, value)
 
 
                     class ImportRouteTargets(Entity):
@@ -600,7 +607,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -637,7 +644,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -682,7 +689,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -716,7 +723,7 @@ class Vrfs(Entity):
                                     	AS number
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 0..0
                                     
                                     .. attribute:: as_  (key)
                                     
@@ -744,7 +751,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -803,7 +810,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -847,7 +854,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -884,7 +891,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -929,7 +936,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -963,7 +970,7 @@ class Vrfs(Entity):
                                     	AS number
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 0..0
                                     
                                     .. attribute:: as_  (key)
                                     
@@ -991,7 +998,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -1050,7 +1057,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -1103,7 +1110,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -1148,7 +1155,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -1196,7 +1203,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -1364,7 +1371,7 @@ class Vrfs(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Vrfs.Vrf.BgpGlobal, self).__init__()
@@ -1436,7 +1443,7 @@ class Vrfs(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-01-18'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
@@ -1490,7 +1497,7 @@ class GlobalAf(Entity):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(GlobalAf, self).__init__()
@@ -1528,7 +1535,7 @@ class GlobalAf(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(GlobalAf.Afs, self).__init__()
@@ -1593,7 +1600,7 @@ class GlobalAf(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(GlobalAf.Afs.Af, self).__init__()
@@ -1626,7 +1633,7 @@ class GlobalAf(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(GlobalAf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+                self._perform_setattr(GlobalAf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
 
 
             class MaximumPrefix(Entity):
@@ -1730,12 +1737,17 @@ class GlobalAf(Entity):
                 	TRUE Enable advertising imported paths to PEsFALSE Disable advertising imported paths to PEs
                 	**type**\: bool
                 
+                .. attribute:: import_from_bridge_domain
+                
+                	TRUE Enable advertising local EVPN paths to PEs .FALSE Disable advertising local EVPN paths to PEs
+                	**type**\: bool
+                
                 
 
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-01-18'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(GlobalAf.Afs.Af.Bgp, self).__init__()
@@ -1750,10 +1762,12 @@ class GlobalAf(Entity):
                         ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
                         ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
                         ('import_vrf_options', (YLeaf(YType.boolean, 'import-vrf-options'), ['bool'])),
+                        ('import_from_bridge_domain', (YLeaf(YType.boolean, 'import-from-bridge-domain'), ['bool'])),
                     ])
                     self.export_route_policy = None
                     self.import_route_policy = None
                     self.import_vrf_options = None
+                    self.import_from_bridge_domain = None
 
                     self.import_route_targets = GlobalAf.Afs.Af.Bgp.ImportRouteTargets()
                     self.import_route_targets.parent = self
@@ -1776,7 +1790,7 @@ class GlobalAf(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalAf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options'], name, value)
+                    self._perform_setattr(GlobalAf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options', 'import_from_bridge_domain'], name, value)
 
 
                 class ImportRouteTargets(Entity):
@@ -1793,7 +1807,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -1830,7 +1844,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -1875,7 +1889,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -1909,7 +1923,7 @@ class GlobalAf(Entity):
                                 	AS number
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 0..0
                                 
                                 .. attribute:: as_  (key)
                                 
@@ -1937,7 +1951,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -1996,7 +2010,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -2040,7 +2054,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -2077,7 +2091,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -2122,7 +2136,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -2156,7 +2170,7 @@ class GlobalAf(Entity):
                                 	AS number
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 0..0
                                 
                                 .. attribute:: as_  (key)
                                 
@@ -2184,7 +2198,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -2243,7 +2257,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -2296,7 +2310,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -2341,7 +2355,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -2389,7 +2403,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -2457,7 +2471,7 @@ class Srlg(Entity):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(Srlg, self).__init__()
@@ -2493,7 +2507,7 @@ class Srlg(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Srlg, [u'enable'], name, value)
+        self._perform_setattr(Srlg, ['enable'], name, value)
 
 
     class Interfaces(Entity):
@@ -2510,7 +2524,7 @@ class Srlg(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Srlg.Interfaces, self).__init__()
@@ -2573,7 +2587,7 @@ class Srlg(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Srlg.Interfaces.Interface, self).__init__()
@@ -2611,7 +2625,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Interfaces.Interface, [u'interface_name', u'enable'], name, value)
+                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
 
             class IncludeOptical(Entity):
@@ -2635,7 +2649,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.Interfaces.Interface.IncludeOptical, self).__init__()
@@ -2656,7 +2670,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, [u'enable', u'priority'], name, value)
+                    self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, ['enable', 'priority'], name, value)
 
 
 
@@ -2679,7 +2693,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.Interfaces.Interface.InterfaceGroup, self).__init__()
@@ -2702,7 +2716,7 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, [u'enable'], name, value)
+                    self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, ['enable'], name, value)
 
 
                 class GroupNames(Entity):
@@ -2719,7 +2733,7 @@ class Srlg(Entity):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames, self).__init__()
@@ -2749,7 +2763,7 @@ class Srlg(Entity):
                         	Group name index
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 1..1
                         
                         .. attribute:: group_name
                         
@@ -2770,7 +2784,7 @@ class Srlg(Entity):
                         """
 
                         _prefix = 'infra-rsi-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, self).__init__()
@@ -2793,7 +2807,7 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, [u'group_name_index', u'group_name', u'srlg_priority'], name, value)
+                            self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, ['group_name_index', 'group_name', 'srlg_priority'], name, value)
 
 
 
@@ -2813,7 +2827,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.Interfaces.Interface.Values, self).__init__()
@@ -2866,7 +2880,7 @@ class Srlg(Entity):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Srlg.Interfaces.Interface.Values.Value, self).__init__()
@@ -2889,7 +2903,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
 
 
@@ -2908,7 +2922,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.Interfaces.Interface.InterfaceSrlgNames, self).__init__()
@@ -2945,7 +2959,7 @@ class Srlg(Entity):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
@@ -2964,7 +2978,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, [u'srlg_name'], name, value)
+                        self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name'], name, value)
 
 
 
@@ -2985,7 +2999,7 @@ class Srlg(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Srlg.SrlgNames, self).__init__()
@@ -3032,7 +3046,7 @@ class Srlg(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Srlg.SrlgNames.SrlgName, self).__init__()
@@ -3054,7 +3068,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgNames.SrlgName, [u'srlg_name', u'srlg_value'], name, value)
+                self._perform_setattr(Srlg.SrlgNames.SrlgName, ['srlg_name', 'srlg_value'], name, value)
 
 
 
@@ -3073,7 +3087,7 @@ class Srlg(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Srlg.Groups, self).__init__()
@@ -3121,7 +3135,7 @@ class Srlg(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Srlg.Groups.Group, self).__init__()
@@ -3147,7 +3161,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Groups.Group, [u'group_name', u'enable'], name, value)
+                self._perform_setattr(Srlg.Groups.Group, ['group_name', 'enable'], name, value)
 
 
             class GroupValues(Entity):
@@ -3164,7 +3178,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.Groups.Group.GroupValues, self).__init__()
@@ -3217,7 +3231,7 @@ class Srlg(Entity):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Srlg.Groups.Group.GroupValues.GroupValue, self).__init__()
@@ -3240,7 +3254,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
 
 
@@ -3261,7 +3275,7 @@ class Srlg(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Srlg.InheritNodes, self).__init__()
@@ -3309,7 +3323,7 @@ class Srlg(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Srlg.InheritNodes.InheritNode, self).__init__()
@@ -3335,7 +3349,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InheritNodes.InheritNode, [u'inherit_node_name', u'enable'], name, value)
+                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'enable'], name, value)
 
 
             class InheritNodeValues(Entity):
@@ -3353,7 +3367,7 @@ class Srlg(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Srlg.InheritNodes.InheritNode.InheritNodeValues, self).__init__()
@@ -3406,7 +3420,7 @@ class Srlg(Entity):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, self).__init__()
@@ -3429,7 +3443,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
 
 
@@ -3455,7 +3469,7 @@ class VrfGroups(Entity):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(VrfGroups, self).__init__()
@@ -3503,7 +3517,7 @@ class VrfGroups(Entity):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(VrfGroups.VrfGroup, self).__init__()
@@ -3529,7 +3543,7 @@ class VrfGroups(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VrfGroups.VrfGroup, [u'vrf_group_name', u'enable'], name, value)
+            self._perform_setattr(VrfGroups.VrfGroup, ['vrf_group_name', 'enable'], name, value)
 
 
         class Vrfs(Entity):
@@ -3546,7 +3560,7 @@ class VrfGroups(Entity):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(VrfGroups.VrfGroup.Vrfs, self).__init__()
@@ -3583,7 +3597,7 @@ class VrfGroups(Entity):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(VrfGroups.VrfGroup.Vrfs.Vrf, self).__init__()
@@ -3602,7 +3616,7 @@ class VrfGroups(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, [u'vrf_name'], name, value)
+                    self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
 
@@ -3627,7 +3641,7 @@ class SelectiveVrfDownload(Entity):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(SelectiveVrfDownload, self).__init__()
@@ -3647,7 +3661,7 @@ class SelectiveVrfDownload(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SelectiveVrfDownload, [u'disable'], name, value)
+        self._perform_setattr(SelectiveVrfDownload, ['disable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SelectiveVrfDownload()

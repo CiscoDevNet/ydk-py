@@ -309,6 +309,11 @@ class Pce(Entity):
     	Explicit paths
     	**type**\:  :py:class:`ExplicitPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths>`
     
+    .. attribute:: peer_filter
+    
+    	Peer filter
+    	**type**\:  :py:class:`PeerFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PeerFilter>`
+    
     .. attribute:: server_address
     
     	IPv4 address of PCE server
@@ -351,7 +356,7 @@ class Pce(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("ipv6-state-syncs", ("ipv6_state_syncs", Pce.Ipv6StateSyncs)), ("pcc-addresses", ("pcc_addresses", Pce.PccAddresses)), ("logging", ("logging", Pce.Logging)), ("backoff", ("backoff", Pce.Backoff)), ("rest", ("rest", Pce.Rest)), ("state-syncs", ("state_syncs", Pce.StateSyncs)), ("segment-routing", ("segment_routing", Pce.SegmentRouting)), ("timers", ("timers", Pce.Timers)), ("netconf", ("netconf", Pce.Netconf)), ("disjoint-path", ("disjoint_path", Pce.DisjointPath)), ("explicit-paths", ("explicit_paths", Pce.ExplicitPaths))])
+        self._child_classes = OrderedDict([("ipv6-state-syncs", ("ipv6_state_syncs", Pce.Ipv6StateSyncs)), ("pcc-addresses", ("pcc_addresses", Pce.PccAddresses)), ("logging", ("logging", Pce.Logging)), ("backoff", ("backoff", Pce.Backoff)), ("rest", ("rest", Pce.Rest)), ("state-syncs", ("state_syncs", Pce.StateSyncs)), ("segment-routing", ("segment_routing", Pce.SegmentRouting)), ("timers", ("timers", Pce.Timers)), ("netconf", ("netconf", Pce.Netconf)), ("disjoint-path", ("disjoint_path", Pce.DisjointPath)), ("explicit-paths", ("explicit_paths", Pce.ExplicitPaths)), ("peer-filter", ("peer_filter", Pce.PeerFilter))])
         self._leafs = OrderedDict([
             ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
             ('ipv6_server_address', (YLeaf(YType.str, 'ipv6-server-address'), ['str'])),
@@ -404,6 +409,10 @@ class Pce(Entity):
         self.explicit_paths = Pce.ExplicitPaths()
         self.explicit_paths.parent = self
         self._children_name_map["explicit_paths"] = "explicit-paths"
+
+        self.peer_filter = Pce.PeerFilter()
+        self.peer_filter.parent = self
+        self._children_name_map["peer_filter"] = "peer-filter"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce"
         self._is_frozen = True
 
@@ -1392,7 +1401,7 @@ class Pce(Entity):
                     	The bit
                     	**type**\: int
                     
-                    	**range:** 0..31
+                    	**range:** 0..255
                     
                     	**mandatory**\: True
                     
@@ -2955,6 +2964,44 @@ class Pce(Entity):
 
 
 
+
+
+
+    class PeerFilter(Entity):
+        """
+        Peer filter
+        
+        .. attribute:: ipv4_acl
+        
+        	IPv4 ACL for peer filtering
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-cfg'
+        _revision = '2018-07-25'
+
+        def __init__(self):
+            super(Pce.PeerFilter, self).__init__()
+
+            self.yang_name = "peer-filter"
+            self.yang_parent_name = "pce"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ipv4_acl', (YLeaf(YType.str, 'ipv4-acl'), ['str'])),
+            ])
+            self.ipv4_acl = None
+            self._segment_path = lambda: "peer-filter"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pce.PeerFilter, ['ipv4_acl'], name, value)
 
 
     def clone_ptr(self):

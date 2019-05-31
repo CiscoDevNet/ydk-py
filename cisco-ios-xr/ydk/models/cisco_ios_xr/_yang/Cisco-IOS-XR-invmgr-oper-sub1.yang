@@ -23,9 +23,13 @@ submodule Cisco-IOS-XR-invmgr-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR invmgr package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-19 {
+    description
+      "Added additional bags";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -465,6 +469,13 @@ submodule Cisco-IOS-XR-invmgr-oper-sub1 {
       description
         "RMA Code";
     }
+    leaf eci-alpha-number {
+      type string {
+        length "0..255";
+      }
+      description
+        "AlphaNumeric Equipment Catalog Item (ECI) number";
+    }
   }
 
   grouping INVMGR-EEPROM-OPAQUE-DATA {
@@ -501,6 +512,80 @@ submodule Cisco-IOS-XR-invmgr-oper-sub1 {
       }
       description
         "A textual description of physical entity";
+    }
+    leaf form-factor {
+      type uint32;
+      description
+        "Optics form factor";
+    }
+    leaf connector-type {
+      type uint32;
+      description
+        "Connector type";
+    }
+    leaf otn-application-code {
+      type uint32;
+      description
+        "Otn Application Code";
+    }
+    leaf sonet-application-code {
+      type uint32;
+      description
+        "Sonet Application Code";
+    }
+    leaf ethernet-compliance-code {
+      type uint32;
+      description
+        "Ethernet Compliance Code";
+    }
+    leaf date-string {
+      type string {
+        length "0..255";
+      }
+      description
+        "Date string in IDPROM";
+    }
+  }
+
+  grouping NODEID-INFO {
+    description
+      "Node ID Information";
+    leaf node-id {
+      type uint32;
+      description
+        "Node Id Tuple";
+    }
+  }
+
+  grouping VMDONE-INFO {
+    description
+      "VM Done Information";
+    leaf vm-node-done {
+      type uint8;
+      description
+        "VM Node Done Tuple";
+    }
+  }
+
+  grouping VM-NODEID-INFO {
+    description
+      "VM Node ID Information";
+    leaf vm-node-id {
+      type uint32;
+      description
+        "VM Node Id Tuple";
+    }
+  }
+
+  grouping SUBENTITY-INFO {
+    description
+      "Subentity Information";
+    leaf subentity-name {
+      type string {
+        length "0..255";
+      }
+      description
+        "Subentity Name";
     }
   }
 }

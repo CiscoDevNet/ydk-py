@@ -151,24 +151,7 @@ module Cisco-IOS-XR-controller-odu-datatypes {
       "Otn per mon";
   }
 
-  typedef Odu-time-slot-granularity {
-    type enumeration {
-      enum "1.25g" {
-        value 0;
-        description
-          "1.25G time slot granularity";
-      }
-      enum "2.5g" {
-        value 1;
-        description
-          "2.5G time slot granularity";
-      }
-    }
-    description
-      "Odu time slot granularity";
-  }
-
-  typedef Mode {
+  typedef Odu-prbs-mode {
     type enumeration {
       enum "mode-invalid" {
         value 0;
@@ -192,7 +175,24 @@ module Cisco-IOS-XR-controller-odu-datatypes {
       }
     }
     description
-      "Mode";
+      "Odu prbs mode";
+  }
+
+  typedef Odu-time-slot-granularity {
+    type enumeration {
+      enum "1.25g" {
+        value 0;
+        description
+          "1.25G time slot granularity";
+      }
+      enum "2.5g" {
+        value 1;
+        description
+          "2.5G time slot granularity";
+      }
+    }
+    description
+      "Odu time slot granularity";
   }
 
   typedef Otn-send-tti-type-os {

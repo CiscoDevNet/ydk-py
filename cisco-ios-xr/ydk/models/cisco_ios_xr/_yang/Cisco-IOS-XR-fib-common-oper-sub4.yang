@@ -335,28 +335,32 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         description
           "Shared NHINFO";
       }
+      enum "tunnel-endpoint" {
+        description
+          "Tunnel Endpoint";
+      }
     }
     description
       "FIB NHINFO extension type";
   }
 
-  typedef Fib-frr-protocol-show {
+  typedef Fib-bag-protocol {
     type enumeration {
-      enum "frr-protocol-ipv4" {
+      enum "ipv4" {
         description
-          "frr protocol ipv4";
+          "IPv4 Protocol";
       }
-      enum "frr-protocol-ipv6" {
+      enum "ipv6" {
         description
-          "frr protocol ipv6";
+          "IPv6 Protocol";
       }
-      enum "frr-protocol-mpls" {
+      enum "mpls" {
         description
-          "frr protocol mpls";
+          "MPLS Protocol";
       }
     }
     description
-      "Fib frr protocol show";
+      "Protocol definitions for FIB Bags";
   }
 
   typedef Ss-lba-state {
@@ -769,6 +773,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "the number of frees for this proto";
       leaf entry {
         type uint32;
+        description
+          "the number of frees for this proto";
       }
     }
   }
@@ -1187,21 +1193,29 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     list fpd-gbltbl-src-entry {
       max-elements "14";
       description
-        "Number of global routes from
+        "Number of global routes from                    
          
          each route source";
       leaf entry {
         type uint64;
+        description
+          "Number of global routes from                    
+           
+           each route source";
       }
     }
     list fpd-vrftbl-src-entry {
       max-elements "14";
       description
-        "Number of vrf routes from
+        "Number of vrf routes from                       
          
          each route source";
       leaf entry {
         type uint64;
+        description
+          "Number of vrf routes from                       
+           
+           each route source";
       }
     }
     list fpd-num-retry {
@@ -1209,6 +1223,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "the number of retries of each type";
       leaf entry {
         type uint64;
+        description
+          "the number of retries of each type";
       }
     }
   }
@@ -1327,6 +1343,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "Prefer AIB routes over RIB/LSD configured state";
     }
+    leaf mi-proactive-arp-nd-enabled {
+      type boolean;
+      description
+        "Proactive-ARP-ND feature";
+    }
     leaf mi-xpl-ldi-enabled {
       type boolean;
       description
@@ -1355,6 +1376,10 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
          cleanup";
       leaf entry {
         type uint32;
+        description
+          "Number of recycled idb extensions that failed
+           
+           cleanup";
       }
     }
     list mi-lrpf-stats-fail {
@@ -1363,6 +1388,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Per protocol Failure stats for label RPF";
       leaf entry {
         type uint32;
+        description
+          "Per protocol Failure stats for label RPF";
       }
     }
     list mi-lrpf-stats-act {
@@ -1371,6 +1398,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Per protocol actions stats for label RPF";
       leaf entry {
         type uint32;
+        description
+          "Per protocol actions stats for label RPF";
       }
     }
     list mi-lrpf-num {
@@ -1379,6 +1408,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Per protocol number of label RPFs";
       leaf entry {
         type uint32;
+        description
+          "Per protocol number of label RPFs";
       }
     }
     list mi-idb-lsec-enabled-num {
@@ -1389,6 +1420,10 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
          enabled";
       leaf entry {
         type uint32;
+        description
+          "Number of interfaces having label security
+           
+           enabled";
       }
     }
     list mi-num-lisp-eid {
@@ -1397,6 +1432,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "number of LISP EID prefixes";
       leaf entry {
         type uint32;
+        description
+          "number of LISP EID prefixes";
       }
     }
     list mi-num-lisp-valid-eid {
@@ -1407,6 +1444,10 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
          forwarding";
       leaf entry {
         type uint32;
+        description
+          "number of LISP EID prefixes eligible for
+           
+           forwarding";
       }
     }
     list mi-cpuless-node {
@@ -1415,6 +1456,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "list of cpuless line cards";
       leaf entry {
         type uint32;
+        description
+          "list of cpuless line cards";
       }
     }
     list mi-proto-dbg-stat {
@@ -1642,9 +1685,34 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     }
   }
 
+  grouping FIB-SRV6-GBL-UPD-ENCAP-HOPLIMIT {
+    description
+      "FIB SRv6 global encap hop-limit info";
+    leaf use-default {
+      type boolean;
+      description
+        "Use default IPv6 hop-limit value";
+    }
+    leaf do-propagate {
+      type boolean;
+      description
+        "Propagate IP TTL to Encap IPv6 hop-limit";
+    }
+    leaf value {
+      type uint8;
+      description
+        "Specific value set for hop-limit count";
+    }
+  }
+
   grouping FIB-SRV6-GBL-UPD {
     description
       "FIB SRv6 global update";
+    container encap-hop-limit {
+      description
+        "Encap Hop-limit info";
+      uses FIB-SRV6-GBL-UPD-ENCAP-HOPLIMIT;
+    }
     leaf srv6-enabled {
       type boolean;
       description
@@ -1700,6 +1768,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Optional data";
       leaf entry {
         type uint32;
+        description
+          "Optional data";
       }
     }
   }
@@ -2009,6 +2079,21 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     }
   }
 
+  grouping FIB-SH-TBL-PATH-SRV6-INFO {
+    description
+      "SRv6 path information for FIB table entries";
+    leaf srv6-encapsulation-behavior {
+      type string;
+      description
+        "SRv6 Per-path Encapsulation Behavior";
+    }
+    leaf srv6-sid-list {
+      type string;
+      description
+        "SRv6 SID list";
+    }
+  }
+
   grouping FIB-SH-TBL-MPLS-LABEL-STACK {
     description
       "mpls label stack information for FIB table
@@ -2036,6 +2121,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "lstack";
       leaf entry {
         type uint32;
+        description
+          "lstack";
       }
     }
   }
@@ -2068,6 +2155,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Recursive Label(s)";
       leaf entry {
         type uint32;
+        description
+          "Recursive Label(s)";
       }
     }
     list igp-label-stack-array {
@@ -2212,9 +2301,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Next hop interface";
     }
     leaf next-hop-vrf {
-      type string {
-        length "0..33";
-      }
+      type string;
       description
         "Next hop VRF";
     }
@@ -2244,7 +2331,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Is recursion object a leaf?";
     }
     leaf next-prefix-recursion {
-      type yang:hex-string;
+      type string;
       description
         "Next prefix recursion in the path";
     }
@@ -2260,7 +2347,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
          path)";
     }
     leaf next-prefix-recursion2 {
-      type yang:hex-string;
+      type string;
       description
         "Next prefix2 recursion in the path";
     }
@@ -2331,7 +2418,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       "Brief path information for FIB table entries";
     list fib-sh-tbl-path {
       description
-        "fib sh tbl path";
+        "Next entry in the path";
+      container next-fib-entry-path {
+        description
+          "Next entry in the path";
+      }
       container more-detail-about-path {
         description
           "More detail about this path entry";
@@ -2341,6 +2432,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         description
           "mpls info for this path entry";
         uses FIB-SH-TBL-PATH-MPLS-INFO;
+      }
+      container srv6-information-for-path {
+        description
+          "SRv6 info for this path entry";
+        uses FIB-SH-TBL-PATH-SRV6-INFO;
       }
       leaf hardware-information {
         type yang:hex-string;
@@ -2557,6 +2653,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Sanity flag";
       leaf entry {
         type boolean;
+        description
+          "Sanity flag";
       }
     }
     list interface-handle {
@@ -2564,6 +2662,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Interface handle";
       leaf entry {
         type xr:Interface-name;
+        description
+          "Interface handle";
       }
     }
     list weights-of-path {
@@ -2571,6 +2671,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Weights of paths";
       leaf entry {
         type uint32;
+        description
+          "Weights of paths";
       }
     }
     list adjacency-address {
@@ -2821,7 +2923,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "BGP attribute next hop as";
     }
     leaf path-string {
-      type yang:hex-string;
+      type string;
       description
         "As path string";
     }
@@ -3102,10 +3204,40 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "Route is a MPLS Segment-Routing prefix";
     }
+    leaf route-is-srv6-transit {
+      type boolean;
+      description
+        "This route is SRv6 Transit function";
+    }
+    leaf route-is-srv6-end {
+      type boolean;
+      description
+        "This route is SRv6 End function";
+    }
+    leaf srv6-operation-type {
+      type string;
+      description
+        "SRv6 Operation Type";
+    }
     list extension-object {
       description
         "Leaf Extension Object List";
       uses FIB-SH-TBL-FIB-EXT-CMN-DET;
+    }
+  }
+
+  grouping FIB-SH-NHINFO-EXT-TEP-DET {
+    description
+      "NHINFO entry extension object information";
+    leaf nh-info-tep-type {
+      type uint8;
+      description
+        "TEP type";
+    }
+    leaf is-tep-single-pass {
+      type boolean;
+      description
+        "Is TEP is Single Pass";
     }
   }
 
@@ -3145,6 +3277,15 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "snecd nhr";
       uses FIB-SH-NHINFO-EXT-REP-DET;
+    }
+    container snecd-tep {
+      when "../type = 'tunnel-endpoint'" {
+        description
+          "../type = 'TunnelEndpoint'";
+      }
+      description
+        "snecd tep";
+      uses FIB-SH-NHINFO-EXT-TEP-DET;
     }
     leaf type {
       type Fib-nhinfo-ext-bag;
@@ -3423,7 +3564,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "NH is assoc w a GRE tunnel";
     }
     leaf si-gre-ti {
-      type uint32;
+      type uint64;
       description
         "GRE tunnel info";
     }
@@ -3463,7 +3604,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Ancestor IFH";
     }
     leaf si-gre-ti-resolving-leafp {
-      type uint32;
+      type uint64;
       description
         "GRE resolving ip-leaf";
     }
@@ -3508,7 +3649,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       uses FIB-SH-TIMESPEC;
     }
     leaf frr-protocol-type {
-      type Fib-frr-protocol-show;
+      type Fib-bag-protocol;
       description
         "FIB Protocol Type";
     }
@@ -3555,6 +3696,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Number of ECD pathlists per interest";
       leaf entry {
         type uint32;
+        description
+          "Number of ECD pathlists per interest";
       }
     }
   }
@@ -3890,15 +4033,20 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Number of lisp rloc objects associated with
          table";
     }
+    leaf number-routes-srv6-transit {
+      type uint32;
+      description
+        "Number of SRv6 transit routes";
+    }
+    leaf number-routes-srv6-end {
+      type uint32;
+      description
+        "Number of SRv6 end routes";
+    }
     leaf number-of-sr-labels {
       type uint32;
       description
         "Number of SR labels";
-    }
-    leaf ss-vxlan-ltep-ifh {
-      type xr:Interface-name;
-      description
-        "VXLAN local Interface handle";
     }
     leaf ss-drop-pl-count {
       type uint32;
@@ -3967,6 +4115,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Hardware resource mode";
       leaf entry {
         type uint32;
+        description
+          "Hardware resource mode";
       }
     }
     list sr-shm-state {

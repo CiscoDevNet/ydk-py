@@ -471,6 +471,13 @@ class Vpdn(Entity):
             	To support NAS\-Port format e in Cisco AVP 100
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: rate_convert_speed_avps
+            
+            	DSL Line bps Info attributes
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**units**\: bit/s
+            
             .. attribute:: description
             
             	Up to 100 characters describing this VPDN template
@@ -509,12 +516,14 @@ class Vpdn(Entity):
                 self._leafs = OrderedDict([
                     ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ('cisco_avp100_format_e_enable', (YLeaf(YType.empty, 'cisco-avp100-format-e-enable'), ['Empty'])),
+                    ('rate_convert_speed_avps', (YLeaf(YType.empty, 'rate-convert-speed-avps'), ['Empty'])),
                     ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ('l2tp_class', (YLeaf(YType.str, 'l2tp-class'), ['str'])),
                     ('dsl_line_forwarding', (YLeaf(YType.empty, 'dsl-line-forwarding'), ['Empty'])),
                 ])
                 self.template_name = None
                 self.cisco_avp100_format_e_enable = None
+                self.rate_convert_speed_avps = None
                 self.description = None
                 self.l2tp_class = None
                 self.dsl_line_forwarding = None
@@ -543,7 +552,7 @@ class Vpdn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'description', 'l2tp_class', 'dsl_line_forwarding'], name, value)
+                self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'rate_convert_speed_avps', 'description', 'l2tp_class', 'dsl_line_forwarding'], name, value)
 
 
             class CallerId(Entity):

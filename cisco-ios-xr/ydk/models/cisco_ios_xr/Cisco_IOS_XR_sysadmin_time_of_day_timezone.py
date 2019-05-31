@@ -249,7 +249,7 @@ class Trace(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Trace.TimezoneConfig.Trace_, [u'buffer'], name, value)
+                self._perform_setattr(Trace.TimezoneConfig.Trace_, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -296,7 +296,7 @@ class Trace(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Trace.TimezoneConfig.Trace_.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Trace.TimezoneConfig.Trace_.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -343,7 +343,7 @@ class Trace(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -381,7 +381,7 @@ class Trace(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -472,7 +472,7 @@ class Trace(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Trace.TimezoneNotify.Trace_, [u'buffer'], name, value)
+                self._perform_setattr(Trace.TimezoneNotify.Trace_, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -519,7 +519,7 @@ class Trace(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Trace.TimezoneNotify.Trace_.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Trace.TimezoneNotify.Trace_.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -566,7 +566,7 @@ class Trace(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -604,7 +604,7 @@ class Trace(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

@@ -647,7 +647,7 @@ class PIMMIB(Entity):
             	This object describes PIM\-specific flags related to a multicast state entry.  See the PIM Sparse Mode specification for the meaning of the RPT and SPT bits
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             

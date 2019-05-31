@@ -31,23 +31,6 @@ class OPTICALAMPLIFIERTYPE(Identity):
 
 
 
-class OPTICALAMPLIFIERMODE(Identity):
-    """
-    Type definition for different types of optical amplifier
-    operating modes
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
-
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"):
-        super(OPTICALAMPLIFIERMODE, self).__init__(ns, pref, tag)
-
-
-
 class GAINRANGE(Identity):
     """
     Base type for expressing the gain range for a switched gain
@@ -64,6 +47,23 @@ class GAINRANGE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:GAIN_RANGE"):
         super(GAINRANGE, self).__init__(ns, pref, tag)
+
+
+
+class OPTICALAMPLIFIERMODE(Identity):
+    """
+    Type definition for different types of optical amplifier
+    operating modes
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2017-07-08'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"):
+        super(OPTICALAMPLIFIERMODE, self).__init__(ns, pref, tag)
 
 
 
@@ -632,7 +632,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -716,7 +716,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -800,7 +800,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -885,7 +885,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -970,7 +970,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1054,7 +1054,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1139,7 +1139,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1224,7 +1224,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1309,7 +1309,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1394,7 +1394,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1531,7 +1531,7 @@ class OpticalAmplifier(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config, [u'interface'], name, value)
+                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config, ['interface'], name, value)
 
 
 
@@ -1605,7 +1605,7 @@ class OpticalAmplifier(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, [u'interface'], name, value)
+                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, ['interface'], name, value)
 
 
                 class InputPower(Entity):
@@ -1688,7 +1688,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1772,7 +1772,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1858,7 +1858,7 @@ class OpticalAmplifier(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
 
 
@@ -1870,9 +1870,9 @@ class OpticalAmplifier(Entity):
 
 
 
-class LOWGAINRANGE(GAINRANGE):
+class EDFA(OPTICALAMPLIFIERTYPE):
     """
-    LOW gain range setting
+    Erbium doped fiber amplifer (EDFA)
     
     
 
@@ -1881,8 +1881,24 @@ class LOWGAINRANGE(GAINRANGE):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:LOW_GAIN_RANGE"):
-        super(LOWGAINRANGE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:EDFA"):
+        super(EDFA, self).__init__(ns, pref, tag)
+
+
+
+class FORWARDRAMAN(OPTICALAMPLIFIERTYPE):
+    """
+    Forward pumping Raman amplifier
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2017-07-08'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FORWARD_RAMAN"):
+        super(FORWARDRAMAN, self).__init__(ns, pref, tag)
 
 
 
@@ -1902,9 +1918,9 @@ class BACKWARDRAMAN(OPTICALAMPLIFIERTYPE):
 
 
 
-class CONSTANTGAIN(OPTICALAMPLIFIERMODE):
+class HYBRID(OPTICALAMPLIFIERTYPE):
     """
-    Constant gain mode
+    Hybrid backward pumping Raman + EDFA amplifier
     
     
 
@@ -1913,14 +1929,14 @@ class CONSTANTGAIN(OPTICALAMPLIFIERMODE):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_GAIN"):
-        super(CONSTANTGAIN, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HYBRID"):
+        super(HYBRID, self).__init__(ns, pref, tag)
 
 
 
-class FIXEDGAINRANGE(GAINRANGE):
+class LOWGAINRANGE(GAINRANGE):
     """
-    Fixed or non\-switched gain amplfier
+    LOW gain range setting
     
     
 
@@ -1929,8 +1945,8 @@ class FIXEDGAINRANGE(GAINRANGE):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FIXED_GAIN_RANGE"):
-        super(FIXEDGAINRANGE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:LOW_GAIN_RANGE"):
+        super(LOWGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -1966,9 +1982,9 @@ class HIGHGAINRANGE(GAINRANGE):
 
 
 
-class HYBRID(OPTICALAMPLIFIERTYPE):
+class FIXEDGAINRANGE(GAINRANGE):
     """
-    Hybrid backward pumping Raman + EDFA amplifier
+    Fixed or non\-switched gain amplfier
     
     
 
@@ -1977,40 +1993,8 @@ class HYBRID(OPTICALAMPLIFIERTYPE):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HYBRID"):
-        super(HYBRID, self).__init__(ns, pref, tag)
-
-
-
-class FORWARDRAMAN(OPTICALAMPLIFIERTYPE):
-    """
-    Forward pumping Raman amplifier
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
-
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FORWARD_RAMAN"):
-        super(FORWARDRAMAN, self).__init__(ns, pref, tag)
-
-
-
-class EDFA(OPTICALAMPLIFIERTYPE):
-    """
-    Erbium doped fiber amplifer (EDFA)
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
-
-    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:EDFA"):
-        super(EDFA, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FIXED_GAIN_RANGE"):
+        super(FIXEDGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -2027,6 +2011,22 @@ class CONSTANTPOWER(OPTICALAMPLIFIERMODE):
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_POWER"):
         super(CONSTANTPOWER, self).__init__(ns, pref, tag)
+
+
+
+class CONSTANTGAIN(OPTICALAMPLIFIERMODE):
+    """
+    Constant gain mode
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2017-07-08'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_GAIN"):
+        super(CONSTANTGAIN, self).__init__(ns, pref, tag)
 
 
 

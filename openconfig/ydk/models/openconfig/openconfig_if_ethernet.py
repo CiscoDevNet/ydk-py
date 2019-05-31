@@ -31,9 +31,9 @@ class ETHERNETSPEED(Identity):
 
 
 
-class SPEED100GB(ETHERNETSPEED):
+class SPEED10MB(ETHERNETSPEED):
     """
-    100 GBps Ethernet
+    10 Mbps Ethernet
     
     
 
@@ -42,8 +42,24 @@ class SPEED100GB(ETHERNETSPEED):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100GB"):
-        super(SPEED100GB, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_10MB"):
+        super(SPEED10MB, self).__init__(ns, pref, tag)
+
+
+
+class SPEED100MB(ETHERNETSPEED):
+    """
+    100 Mbps Ethernet
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100MB"):
+        super(SPEED100MB, self).__init__(ns, pref, tag)
 
 
 
@@ -63,22 +79,6 @@ class SPEED1GB(ETHERNETSPEED):
 
 
 
-class SPEED25GB(ETHERNETSPEED):
-    """
-    25 GBps Ethernet
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_25GB"):
-        super(SPEED25GB, self).__init__(ns, pref, tag)
-
-
-
 class SPEED10GB(ETHERNETSPEED):
     """
     10 GBps Ethernet
@@ -95,9 +95,9 @@ class SPEED10GB(ETHERNETSPEED):
 
 
 
-class SPEED10MB(ETHERNETSPEED):
+class SPEED25GB(ETHERNETSPEED):
     """
-    10 Mbps Ethernet
+    25 GBps Ethernet
     
     
 
@@ -106,8 +106,8 @@ class SPEED10MB(ETHERNETSPEED):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_10MB"):
-        super(SPEED10MB, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_25GB"):
+        super(SPEED25GB, self).__init__(ns, pref, tag)
 
 
 
@@ -127,24 +127,6 @@ class SPEED40GB(ETHERNETSPEED):
 
 
 
-class SPEEDUNKNOWN(ETHERNETSPEED):
-    """
-    Interface speed is unknown.  Systems may report
-    speed UNKNOWN when an interface is down or unpopuplated (e.g.,
-    pluggable not present).
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_UNKNOWN"):
-        super(SPEEDUNKNOWN, self).__init__(ns, pref, tag)
-
-
-
 class SPEED50GB(ETHERNETSPEED):
     """
     50 GBps Ethernet
@@ -161,9 +143,9 @@ class SPEED50GB(ETHERNETSPEED):
 
 
 
-class SPEED100MB(ETHERNETSPEED):
+class SPEED100GB(ETHERNETSPEED):
     """
-    100 Mbps Ethernet
+    100 GBps Ethernet
     
     
 
@@ -172,8 +154,26 @@ class SPEED100MB(ETHERNETSPEED):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100MB"):
-        super(SPEED100MB, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100GB"):
+        super(SPEED100GB, self).__init__(ns, pref, tag)
+
+
+
+class SPEEDUNKNOWN(ETHERNETSPEED):
+    """
+    Interface speed is unknown.  Systems may report
+    speed UNKNOWN when an interface is down or unpopuplated (e.g.,
+    pluggable not present).
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_UNKNOWN"):
+        super(SPEEDUNKNOWN, self).__init__(ns, pref, tag)
 
 
 

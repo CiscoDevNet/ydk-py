@@ -173,6 +173,13 @@ class Ipv6Neighbor(Entity):
     
     	**units**\: second
     
+    .. attribute:: cos
+    
+    	Set cos value for both outer vlan and inner vlan (if present) in all ougoing ND control packets
+    	**type**\: int
+    
+    	**range:** 0..7
+    
     
 
     """
@@ -192,8 +199,10 @@ class Ipv6Neighbor(Entity):
         self._child_classes = OrderedDict([("neighbors", ("neighbors", Ipv6Neighbor.Neighbors))])
         self._leafs = OrderedDict([
             ('scavenge_timeout', (YLeaf(YType.uint32, 'scavenge-timeout'), ['int'])),
+            ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
         ])
         self.scavenge_timeout = None
+        self.cos = None
 
         self.neighbors = Ipv6Neighbor.Neighbors()
         self.neighbors.parent = self
@@ -202,7 +211,7 @@ class Ipv6Neighbor(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ipv6Neighbor, ['scavenge_timeout'], name, value)
+        self._perform_setattr(Ipv6Neighbor, ['scavenge_timeout', 'cos'], name, value)
 
 
     class Neighbors(Entity):

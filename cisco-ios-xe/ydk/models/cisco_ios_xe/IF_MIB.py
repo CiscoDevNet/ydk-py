@@ -138,7 +138,7 @@ class IFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Interfaces, [u'ifnumber'], name, value)
+            self._perform_setattr(IFMIB.Interfaces, ['ifnumber'], name, value)
 
 
 
@@ -191,7 +191,7 @@ class IFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.IfMIBObjects, [u'iftablelastchange', u'ifstacklastchange'], name, value)
+            self._perform_setattr(IFMIB.IfMIBObjects, ['iftablelastchange', 'ifstacklastchange'], name, value)
 
 
 
@@ -779,7 +779,7 @@ class IFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific', u'ifname', u'ifinmulticastpkts', u'ifinbroadcastpkts', u'ifoutmulticastpkts', u'ifoutbroadcastpkts', u'ifhcinoctets', u'ifhcinucastpkts', u'ifhcinmulticastpkts', u'ifhcinbroadcastpkts', u'ifhcoutoctets', u'ifhcoutucastpkts', u'ifhcoutmulticastpkts', u'ifhcoutbroadcastpkts', u'iflinkupdowntrapenable', u'ifhighspeed', u'ifpromiscuousmode', u'ifconnectorpresent', u'ifalias', u'ifcounterdiscontinuitytime', u'iftestid', u'ifteststatus', u'iftesttype', u'iftestresult', u'iftestcode', u'iftestowner'], name, value)
+                self._perform_setattr(IFMIB.IfTable.IfEntry, ['ifindex', 'ifdescr', 'iftype', 'ifmtu', 'ifspeed', 'ifphysaddress', 'ifadminstatus', 'ifoperstatus', 'iflastchange', 'ifinoctets', 'ifinucastpkts', 'ifinnucastpkts', 'ifindiscards', 'ifinerrors', 'ifinunknownprotos', 'ifoutoctets', 'ifoutucastpkts', 'ifoutnucastpkts', 'ifoutdiscards', 'ifouterrors', 'ifoutqlen', 'ifspecific', 'ifname', 'ifinmulticastpkts', 'ifinbroadcastpkts', 'ifoutmulticastpkts', 'ifoutbroadcastpkts', 'ifhcinoctets', 'ifhcinucastpkts', 'ifhcinmulticastpkts', 'ifhcinbroadcastpkts', 'ifhcoutoctets', 'ifhcoutucastpkts', 'ifhcoutmulticastpkts', 'ifhcoutbroadcastpkts', 'iflinkupdowntrapenable', 'ifhighspeed', 'ifpromiscuousmode', 'ifconnectorpresent', 'ifalias', 'ifcounterdiscontinuitytime', 'iftestid', 'ifteststatus', 'iftesttype', 'iftestresult', 'iftestcode', 'iftestowner'], name, value)
 
             class IfAdminStatus(Enum):
                 """
@@ -1103,7 +1103,7 @@ class IFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.IfStackTable.IfStackEntry, [u'ifstackhigherlayer', u'ifstacklowerlayer', u'ifstackstatus'], name, value)
+                self._perform_setattr(IFMIB.IfStackTable.IfStackEntry, ['ifstackhigherlayer', 'ifstacklowerlayer', 'ifstackstatus'], name, value)
 
 
 
@@ -1232,7 +1232,7 @@ class IFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.IfRcvAddressTable.IfRcvAddressEntry, [u'ifindex', u'ifrcvaddressaddress', u'ifrcvaddressstatus', u'ifrcvaddresstype'], name, value)
+                self._perform_setattr(IFMIB.IfRcvAddressTable.IfRcvAddressEntry, ['ifindex', 'ifrcvaddressaddress', 'ifrcvaddressstatus', 'ifrcvaddresstype'], name, value)
 
             class IfRcvAddressType(Enum):
                 """

@@ -1479,7 +1479,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.ReloadOpStatuses.ReloadOpStatus, ['operation_id', u'operation_id_xr', u'satellite_range', u'sats_not_initiated', u'sats_reloading', u'sats_reloaded', u'sats_reload_failed'], name, value)
+                self._perform_setattr(NvSatellite.ReloadOpStatuses.ReloadOpStatus, ['operation_id', 'operation_id_xr', 'satellite_range', 'sats_not_initiated', 'sats_reloading', 'sats_reloaded', 'sats_reload_failed'], name, value)
 
 
 
@@ -1721,7 +1721,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -1901,7 +1901,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -1957,7 +1957,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -2969,7 +2969,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus, ['satellite_id', u'satellite_id_xr', u'version_check_state', u'remote_version_present', u'type', u'ethernet_fabric_supported', u'optical_supported', u'ip_address', u'ip_address_present', u'ip_address_auto', u'ipv6_address', u'ipv6_address_present', u'vrf_name', u'vrfid', u'description', u'description_present', u'mac_address', u'mac_address_present', u'configured_serial_number', u'configured_serial_number_present', u'received_serial_number', u'received_serial_number_present', u'password', u'password_error', u'received_host_name', u'cfgd_timeout', u'timeout_warning', u'conflict_reason', u'conflict_context', u'redundancy_iccp_group', u'recovery_delay_time_left', u'host_treating_as_active', u'satellite_treating_as_active', u'sdacp_session_state', u'sdacp_session_failure_reason', u'install_state', u'remote_version'], name, value)
+                self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'type', 'ethernet_fabric_supported', 'optical_supported', 'ip_address', 'ip_address_present', 'ip_address_auto', 'ipv6_address', 'ipv6_address_present', 'vrf_name', 'vrfid', 'description', 'description_present', 'mac_address', 'mac_address_present', 'configured_serial_number', 'configured_serial_number_present', 'received_serial_number', 'received_serial_number_present', 'password', 'password_error', 'received_host_name', 'cfgd_timeout', 'timeout_warning', 'conflict_reason', 'conflict_context', 'redundancy_iccp_group', 'recovery_delay_time_left', 'host_treating_as_active', 'satellite_treating_as_active', 'sdacp_session_state', 'sdacp_session_failure_reason', 'install_state', 'remote_version'], name, value)
 
 
             class CandidateFabricPorts(Entity):
@@ -3042,7 +3042,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, [u'channel_up', u'out_of_sync', u'error_string'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, ['channel_up', 'out_of_sync', 'error_string'], name, value)
 
 
                 class ConfiguredPort(Entity):
@@ -3122,7 +3122,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, [u'port_type', u'slot', u'subslot', u'port', u'valid'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, ['port_type', 'slot', 'subslot', 'port', 'valid'], name, value)
 
 
 
@@ -3213,7 +3213,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, [u'port_type', u'slot', u'subslot', u'port', u'permanent', u'requested'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, ['port_type', 'slot', 'subslot', 'port', 'permanent', 'requested'], name, value)
 
 
 
@@ -3262,7 +3262,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, [u'chassis_sync_state'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, ['chassis_sync_state'], name, value)
 
 
                 class Application(Entity):
@@ -3309,7 +3309,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, [u'name', u'sync_state'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, ['name', 'sync_state'], name, value)
 
 
 
@@ -3366,7 +3366,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, [u'seconds', u'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -3425,7 +3425,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, [u'level', u'time', u'info'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, ['level', 'time', 'info'], name, value)
 
 
 
@@ -3592,7 +3592,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, [u'interface_handle', u'ip_address', u'ip_address_auto', u'vrf_id_present', u'vrf_id', u'minimum_preferred_links', u'number_active_links', u'min_links_satisfied', u'minimum_required_links', u'required_min_links_satisfied', u'conflict_reason', u'conflict_context'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, ['interface_handle', 'ip_address', 'ip_address_auto', 'vrf_id_present', 'vrf_id', 'minimum_preferred_links', 'number_active_links', 'min_links_satisfied', 'minimum_required_links', 'required_min_links_satisfied', 'conflict_reason', 'conflict_context'], name, value)
 
 
                 class PortRange(Entity):
@@ -3692,7 +3692,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, [u'slot', u'subslot', u'low_port', u'high_port', u'port_type', u'conflict_reason', u'conflict_context'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, ['slot', 'subslot', 'low_port', 'high_port', 'port_type', 'conflict_reason', 'conflict_context'], name, value)
 
 
 
@@ -3760,7 +3760,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, [u'interface_handle', u'state', u'conflict_reason', u'conflict_context'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, ['interface_handle', 'state', 'conflict_reason', 'conflict_context'], name, value)
 
 
 
@@ -3918,7 +3918,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatellitePriorities.SatellitePriority, ['satellite_id', u'satellite_id_xr', u'rgid', u'best_path_hops', u'configured_priority', u'host_priority', u'partner_priority', u'multichassis_redundancy'], name, value)
+                self._perform_setattr(NvSatellite.SatellitePriorities.SatellitePriority, ['satellite_id', 'satellite_id_xr', 'rgid', 'best_path_hops', 'configured_priority', 'host_priority', 'partner_priority', 'multichassis_redundancy'], name, value)
 
 
 
@@ -4070,7 +4070,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion, ['satellite_id', u'satellite_id_xr', u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
+                self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
 
             class ActiveVersion(Entity):
@@ -4126,7 +4126,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
 
 
@@ -4183,7 +4183,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
 
 
@@ -4240,7 +4240,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
 
 
@@ -4926,7 +4926,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.InstallReferenceInfo.References.Reference, ['reference_name', u'reference_name_xr', u'reference_file'], name, value)
+                    self._perform_setattr(NvSatellite.InstallReferenceInfo.References.Reference, ['reference_name', 'reference_name_xr', 'reference_file'], name, value)
 
 
 
@@ -5195,7 +5195,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, ['satellite_id', u'satellite_id_xr', u'package_support'], name, value)
+                    self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, ['satellite_id', 'satellite_id_xr', 'package_support'], name, value)
 
 
                 class InstallPackageInfo(Entity):
@@ -5349,7 +5349,7 @@ class NvSatellite(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, [u'name', u'version', u'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
 
 
@@ -5444,7 +5444,7 @@ class NvSatellite(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, [u'name', u'version', u'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
 
 
@@ -5539,7 +5539,7 @@ class NvSatellite(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, [u'name', u'version', u'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
 
 
@@ -6285,7 +6285,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, ['interface_name', u'interface_name_xr'], name, value)
+                self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, ['interface_name', 'interface_name_xr'], name, value)
 
 
             class Interface(Entity):
@@ -6332,7 +6332,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, [u'interface_name', u'interface_status'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, ['interface_name', 'interface_status'], name, value)
 
 
 
@@ -6424,7 +6424,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, [u'satellite_id', u'satellite_status', u'conflict_reason', u'satellite_ip_address', u'host_ip_address'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, ['satellite_id', 'satellite_status', 'conflict_reason', 'satellite_ip_address', 'host_ip_address'], name, value)
 
 
                 class Interface(Entity):
@@ -6545,7 +6545,7 @@ class NvSatellite(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, [u'interface_handle', u'satellite_status', u'conflict_reason', u'satellite_chassis_vendor', u'satellite_interface_id', u'satellite_interface_mac', u'satellite_chassis_mac', u'satellite_serial_id', u'satellite_module_vendor'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, ['interface_handle', 'satellite_status', 'conflict_reason', 'satellite_chassis_vendor', 'satellite_interface_id', 'satellite_interface_mac', 'satellite_chassis_mac', 'satellite_serial_id', 'satellite_module_vendor'], name, value)
 
 
 
@@ -6797,7 +6797,7 @@ class NvSatellite(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm, ['discovery_interface', u'discovery_interface_xr', u'discovery_interface_handle', u'discovery_interface_status', u'ident_packets_received', u'ready_packets_received', u'los_packets_received', u'invalid_packets_received', u'configuration_packets_sent', u'ack_packets_sent', u'reject_packets_sent', u'probe_packets_sent', u'host_ack_packets_received', u'host_ack_packets_sent', u'secs_since_pkts_cleaned'], name, value)
+                self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm, ['discovery_interface', 'discovery_interface_xr', 'discovery_interface_handle', 'discovery_interface_status', 'ident_packets_received', 'ready_packets_received', 'los_packets_received', 'invalid_packets_received', 'configuration_packets_sent', 'ack_packets_sent', 'reject_packets_sent', 'probe_packets_sent', 'host_ack_packets_received', 'host_ack_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
 
             class Satellite(Entity):
@@ -7165,7 +7165,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.Satellite, [u'satellite_id', u'satellite_interface_id', u'satellite_interface_mac', u'satellite_ip_address', u'host_ip_address', u'satellite_chassis_type', u'satellite_chassis_vendor', u'satellite_chassis_mac', u'satellite_serial_id', u'satellite_module_type', u'satellite_module_vendor', u'satellite_module_mac', u'conflict_reason', u'received_sys_mac', u'host_chassis_type', u'host_chassis_vendor', u'host_chassis_mac', u'discovery_protocol_state', u'last_imdr_state', u'current_timeout', u'is_queued_for_efd', u'is_queued_for_oc', u'ifmgr_state', u'legacy', u'deleting', u'ident_packets_received', u'ready_packets_received', u'los_packets_received', u'invalid_packets_received', u'configuration_packets_sent', u'ack_packets_sent', u'reject_packets_sent', u'secs_since_pkts_cleaned'], name, value)
+                    self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.Satellite, ['satellite_id', 'satellite_interface_id', 'satellite_interface_mac', 'satellite_ip_address', 'host_ip_address', 'satellite_chassis_type', 'satellite_chassis_vendor', 'satellite_chassis_mac', 'satellite_serial_id', 'satellite_module_type', 'satellite_module_vendor', 'satellite_module_mac', 'conflict_reason', 'received_sys_mac', 'host_chassis_type', 'host_chassis_vendor', 'host_chassis_mac', 'discovery_protocol_state', 'last_imdr_state', 'current_timeout', 'is_queued_for_efd', 'is_queued_for_oc', 'ifmgr_state', 'legacy', 'deleting', 'ident_packets_received', 'ready_packets_received', 'los_packets_received', 'invalid_packets_received', 'configuration_packets_sent', 'ack_packets_sent', 'reject_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
 
 
@@ -7284,7 +7284,7 @@ class NvSatellite(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, [u'host_chassis_mac', u'host_interface_mac', u'discovery_protocol_state', u'route_length', u'current_timeout', u'host_ack_packets_received', u'host_ack_packets_sent', u'secs_since_pkts_cleaned'], name, value)
+                    self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, ['host_chassis_mac', 'host_interface_mac', 'discovery_protocol_state', 'route_length', 'current_timeout', 'host_ack_packets_received', 'host_ack_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
 
 

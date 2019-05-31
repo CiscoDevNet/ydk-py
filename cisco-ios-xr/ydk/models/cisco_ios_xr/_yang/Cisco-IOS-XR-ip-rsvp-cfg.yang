@@ -588,11 +588,6 @@ module Cisco-IOS-XR-ip-rsvp-cfg {
             }
           }
         }
-        leaf enable {
-          type empty;
-          description
-            "Enable RSVP on an interface";
-        }
         leaf name {
           type xr:Interface-name;
           description

@@ -1,35 +1,36 @@
 module Cisco-IOS-XR-sysadmin-led-mgr-ui {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-led-mgr-ui";
   prefix led_mgr;
+
   import Cisco-IOS-XR-sysadmin-show-trace {
     prefix show_trace;
   }
-  organization "Cisco Systems Inc.";
 
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module provides CLI for Status, ATTN, ALARM LED's.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module provides CLI for Status, ATTN, ALARM LED's.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
-
 
   grouping hw-module-config-group {
     uses hw-module-attention-led-config-group;
@@ -48,10 +49,11 @@ module Cisco-IOS-XR-sysadmin-led-mgr-ui {
       }
     }
   }
+
   container led {
+    config false;
     description
       "Calvados Led Manager Status, Attn, Alarm inventory";
-    config false;
     list location {
       key "location";
       leaf location {
@@ -59,6 +61,17 @@ module Cisco-IOS-XR-sysadmin-led-mgr-ui {
       }
       list led_attributes {
         key "led_name";
+        leaf location {
+          type string;
+        }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type boolean;
+          default "false";
+        }
         leaf led_name {
           type string;
         }

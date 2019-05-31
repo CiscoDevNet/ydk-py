@@ -5,9 +5,6 @@ module Cisco-IOS-XR-ipv4-bgp-oc-oper {
   import ietf-inet-types {
     prefix inet;
   }
-  import Cisco-IOS-XR-ipv4-bgp-datatypes {
-    prefix dt1;
-  }
   include Cisco-IOS-XR-ipv4-bgp-oc-oper-sub1 {
     revision-date 2017-09-07;
   }

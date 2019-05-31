@@ -493,7 +493,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -502,7 +502,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -705,7 +705,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -714,7 +714,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1028,7 +1028,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Identifies an Peer LSR when the outer tunnel is MPLS\-TE   based
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1037,7 +1037,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             	Identifies the local LSR
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             

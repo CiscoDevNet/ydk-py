@@ -265,7 +265,7 @@ class IpDomain(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, [u'domain_lookup', u'domain_name', u'domain'], name, value)
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain_lookup', 'domain_name', 'domain'], name, value)
 
 
                 class ServerAddress(Entity):
@@ -325,7 +325,7 @@ class IpDomain(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -445,7 +445,7 @@ class IpDomain(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', u'af_name', u'age'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', 'af_name', 'age'], name, value)
 
 
                     class HostAliasList(Entity):
@@ -485,7 +485,7 @@ class IpDomain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, [u'host_alias'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, ['host_alias'], name, value)
 
 
 
@@ -546,7 +546,7 @@ class IpDomain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 

@@ -106,7 +106,7 @@ class DebugAgent(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DebugAgent.Trace, [u'buffer'], name, value)
+            self._perform_setattr(DebugAgent.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -153,7 +153,7 @@ class DebugAgent(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DebugAgent.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(DebugAgent.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -200,7 +200,7 @@ class DebugAgent(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DebugAgent.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(DebugAgent.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -238,7 +238,7 @@ class DebugAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DebugAgent.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(DebugAgent.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

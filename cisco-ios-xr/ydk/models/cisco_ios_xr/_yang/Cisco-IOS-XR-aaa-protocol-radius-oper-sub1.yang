@@ -113,7 +113,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf priority {
       type uint32;
       description
-        "A number that indicates the priority
+        "A number that indicates the priority            
          of the server";
     }
     leaf timeout-xr {
@@ -162,13 +162,13 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf current-state-duration {
       type uint32;
       description
-        "Elapsed time the server has been in
+        "Elapsed time the server has been in             
          current state";
     }
     leaf previous-state-duration {
       type uint32;
       description
-        "Elapsed time the server was been in
+        "Elapsed time the server was been in             
          previous state";
     }
     leaf packets-in {
@@ -205,7 +205,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
       type uint32;
       units "millisecond";
       description
-        "Round-trip time for authentication
+        "Round-trip time for authentication              
          in milliseconds";
     }
     leaf access-requests {
@@ -216,7 +216,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf access-request-retransmits {
       type uint32;
       description
-        "Number of retransmitted
+        "Number of retransmitted                         
          access requests";
     }
     leaf access-accepts {
@@ -257,7 +257,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf unknown-access-types {
       type uint32;
       description
-        "Number of packets received with unknown
+        "Number of packets received with unknown         
          type from authentication server";
     }
     leaf dropped-access-responses {
@@ -365,7 +365,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
       type uint32;
       units "millisecond";
       description
-        "Round-trip time for accounting
+        "Round-trip time for accounting                  
          in milliseconds";
     }
     leaf accounting-requests {
@@ -376,7 +376,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf accounting-retransmits {
       type uint32;
       description
-        "Number of retransmitted
+        "Number of retransmitted                         
          accounting requests";
     }
     leaf accounting-responses {
@@ -392,7 +392,7 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf bad-accounting-authenticators {
       type uint32;
       description
-        "Number of bad accounting
+        "Number of bad accounting                        
          authenticators";
     }
     leaf pending-accounting-requets {
@@ -403,19 +403,19 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf accounting-timeouts {
       type uint32;
       description
-        "Number of accounting packets
+        "Number of accounting packets                    
          timed-out";
     }
     leaf unknown-accounting-types {
       type uint32;
       description
-        "Number of packets received with unknown
+        "Number of packets received with unknown         
          type from accounting server";
     }
     leaf dropped-accounting-responses {
       type uint32;
       description
-        "Number of accounting responses
+        "Number of accounting responses                  
          dropped";
     }
     leaf is-a-private-server {
@@ -523,19 +523,19 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
     leaf total-deadtime {
       type uint32;
       description
-        "Total time of Server being in DEAD
+        "Total time of Server being in DEAD              
          state";
     }
     leaf last-deadtime {
       type uint32;
       description
-        "Time of Server being in DEAD state,
+        "Time of Server being in DEAD state,             
          after last UP";
     }
     leaf is-quarantined {
       type boolean;
       description
-        "flag to indicate Server is quarantined
+        "flag to indicate Server is quarantined          
          or not (Automated TEST in progress)";
     }
     leaf group-name {

@@ -253,6 +253,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       description
         "EAPOL Ethertype";
     }
+    leaf eapol-addr {
+      type string;
+      description
+        "EAPOL Destination Address";
+    }
   }
 
   grouping DOT1X-GLOBAL-PORT-CONTROL-STATISTICS {

@@ -163,22 +163,6 @@ class PortIdType(Enum):
 
 
 
-class LLDPTLV(Identity):
-    """
-    A base identity which describes the TLVs in LLDP
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:LLDP_TLV"):
-        super(LLDPTLV, self).__init__(ns, pref, tag)
-
-
-
 class LLDPSYSTEMCAPABILITY(Identity):
     """
     Base identity for standard LLDP system capabilities.
@@ -198,10 +182,9 @@ class LLDPSYSTEMCAPABILITY(Identity):
 
 
 
-class SYSTEMNAME(LLDPTLV):
+class LLDPTLV(Identity):
     """
-    The assigned name (sysName or hostname) of the device
-    which is transmitting the LLDP PDU
+    A base identity which describes the TLVs in LLDP
     
     
 
@@ -210,14 +193,14 @@ class SYSTEMNAME(LLDPTLV):
     _prefix = 'oc-lldp-types'
     _revision = '2016-05-16'
 
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_NAME"):
-        super(SYSTEMNAME, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:LLDP_TLV"):
+        super(LLDPTLV, self).__init__(ns, pref, tag)
 
 
 
-class MACBRIDGE(LLDPSYSTEMCAPABILITY):
+class OTHER(LLDPSYSTEMCAPABILITY):
     """
-    MAC bridge capability; bit position 3
+    Other capability not specified; bit position 1
     
     
 
@@ -226,41 +209,8 @@ class MACBRIDGE(LLDPSYSTEMCAPABILITY):
     _prefix = 'oc-lldp-types'
     _revision = '2016-05-16'
 
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:MAC_BRIDGE"):
-        super(MACBRIDGE, self).__init__(ns, pref, tag)
-
-
-
-class PORTDESCRIPTION(LLDPTLV):
-    """
-    The description of the port that is associated with
-    the interface on which the LLDP agent is transmitting
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_DESCRIPTION"):
-        super(PORTDESCRIPTION, self).__init__(ns, pref, tag)
-
-
-
-class DOCSISCABLEDEVICE(LLDPSYSTEMCAPABILITY):
-    """
-    DOCSIS cable device; bit position 7
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:DOCSIS_CABLE_DEVICE"):
-        super(DOCSISCABLEDEVICE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:OTHER"):
+        super(OTHER, self).__init__(ns, pref, tag)
 
 
 
@@ -280,10 +230,9 @@ class REPEATER(LLDPSYSTEMCAPABILITY):
 
 
 
-class SYSTEMDESCRIPTION(LLDPTLV):
+class MACBRIDGE(LLDPSYSTEMCAPABILITY):
     """
-    The description (sysDescr) of the device which is
-    transmitting the LLDP PDU
+    MAC bridge capability; bit position 3
     
     
 
@@ -292,8 +241,90 @@ class SYSTEMDESCRIPTION(LLDPTLV):
     _prefix = 'oc-lldp-types'
     _revision = '2016-05-16'
 
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_DESCRIPTION"):
-        super(SYSTEMDESCRIPTION, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:MAC_BRIDGE"):
+        super(MACBRIDGE, self).__init__(ns, pref, tag)
+
+
+
+class WLANACCESSPOINT(LLDPSYSTEMCAPABILITY):
+    """
+    WLAN access point capability; bit position 4
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:WLAN_ACCESS_POINT"):
+        super(WLANACCESSPOINT, self).__init__(ns, pref, tag)
+
+
+
+class ROUTER(LLDPSYSTEMCAPABILITY):
+    """
+    Router; bit position 5
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:ROUTER"):
+        super(ROUTER, self).__init__(ns, pref, tag)
+
+
+
+class TELEPHONE(LLDPSYSTEMCAPABILITY):
+    """
+    Telephone capability; bit position 6
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TELEPHONE"):
+        super(TELEPHONE, self).__init__(ns, pref, tag)
+
+
+
+class DOCSISCABLEDEVICE(LLDPSYSTEMCAPABILITY):
+    """
+    DOCSIS cable device; bit position 7
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:DOCSIS_CABLE_DEVICE"):
+        super(DOCSISCABLEDEVICE, self).__init__(ns, pref, tag)
+
+
+
+class STATIONONLY(LLDPSYSTEMCAPABILITY):
+    """
+    Station only capability, for devices that implement only an
+    end station capability, and for which none of the other
+    capabilities apply; bit position 8
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:STATION_ONLY"):
+        super(STATIONONLY, self).__init__(ns, pref, tag)
 
 
 
@@ -313,22 +344,6 @@ class CVLAN(LLDPSYSTEMCAPABILITY):
 
 
 
-class TWOPORTMACRELAY(LLDPSYSTEMCAPABILITY):
-    """
-    Two\-port MAC Relay (TPMR) capability; bit position 11
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TWO_PORT_MAC_RELAY"):
-        super(TWOPORTMACRELAY, self).__init__(ns, pref, tag)
-
-
-
 class SVLAN(LLDPSYSTEMCAPABILITY):
     """
     S\-VLAN component of a VLAN Bridge; bit position 10
@@ -345,9 +360,9 @@ class SVLAN(LLDPSYSTEMCAPABILITY):
 
 
 
-class TELEPHONE(LLDPSYSTEMCAPABILITY):
+class TWOPORTMACRELAY(LLDPSYSTEMCAPABILITY):
     """
-    Telephone capability; bit position 6
+    Two\-port MAC Relay (TPMR) capability; bit position 11
     
     
 
@@ -356,8 +371,8 @@ class TELEPHONE(LLDPSYSTEMCAPABILITY):
     _prefix = 'oc-lldp-types'
     _revision = '2016-05-16'
 
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TELEPHONE"):
-        super(TELEPHONE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TWO_PORT_MAC_RELAY"):
+        super(TWOPORTMACRELAY, self).__init__(ns, pref, tag)
 
 
 
@@ -378,9 +393,10 @@ class CHASSISID(LLDPTLV):
 
 
 
-class OTHER(LLDPSYSTEMCAPABILITY):
+class PORTID(LLDPTLV):
     """
-    Other capability not specified; bit position 1
+    The port identifier associated with the interface
+    on with the LLDP agent is transmitting
     
     
 
@@ -389,8 +405,59 @@ class OTHER(LLDPSYSTEMCAPABILITY):
     _prefix = 'oc-lldp-types'
     _revision = '2016-05-16'
 
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:OTHER"):
-        super(OTHER, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_ID"):
+        super(PORTID, self).__init__(ns, pref, tag)
+
+
+
+class PORTDESCRIPTION(LLDPTLV):
+    """
+    The description of the port that is associated with
+    the interface on which the LLDP agent is transmitting
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_DESCRIPTION"):
+        super(PORTDESCRIPTION, self).__init__(ns, pref, tag)
+
+
+
+class SYSTEMNAME(LLDPTLV):
+    """
+    The assigned name (sysName or hostname) of the device
+    which is transmitting the LLDP PDU
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_NAME"):
+        super(SYSTEMNAME, self).__init__(ns, pref, tag)
+
+
+
+class SYSTEMDESCRIPTION(LLDPTLV):
+    """
+    The description (sysDescr) of the device which is
+    transmitting the LLDP PDU
+    
+    
+
+    """
+
+    _prefix = 'oc-lldp-types'
+    _revision = '2016-05-16'
+
+    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_DESCRIPTION"):
+        super(SYSTEMDESCRIPTION, self).__init__(ns, pref, tag)
 
 
 
@@ -426,73 +493,6 @@ class MANAGEMENTADDRESS(LLDPTLV):
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:MANAGEMENT_ADDRESS"):
         super(MANAGEMENTADDRESS, self).__init__(ns, pref, tag)
-
-
-
-class ROUTER(LLDPSYSTEMCAPABILITY):
-    """
-    Router; bit position 5
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:ROUTER"):
-        super(ROUTER, self).__init__(ns, pref, tag)
-
-
-
-class PORTID(LLDPTLV):
-    """
-    The port identifier associated with the interface
-    on with the LLDP agent is transmitting
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_ID"):
-        super(PORTID, self).__init__(ns, pref, tag)
-
-
-
-class STATIONONLY(LLDPSYSTEMCAPABILITY):
-    """
-    Station only capability, for devices that implement only an
-    end station capability, and for which none of the other
-    capabilities apply; bit position 8
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:STATION_ONLY"):
-        super(STATIONONLY, self).__init__(ns, pref, tag)
-
-
-
-class WLANACCESSPOINT(LLDPSYSTEMCAPABILITY):
-    """
-    WLAN access point capability; bit position 4
-    
-    
-
-    """
-
-    _prefix = 'oc-lldp-types'
-    _revision = '2016-05-16'
-
-    def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:WLAN_ACCESS_POINT"):
-        super(WLANACCESSPOINT, self).__init__(ns, pref, tag)
 
 
 

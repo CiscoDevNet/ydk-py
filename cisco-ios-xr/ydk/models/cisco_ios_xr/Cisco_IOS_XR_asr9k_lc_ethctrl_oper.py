@@ -386,7 +386,7 @@ class Mlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus, [u'port_num', u'phy_valid', u'serdes_valid', u'mac_valid'], name, value)
+                            self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus, ['port_num', 'phy_valid', 'serdes_valid', 'mac_valid'], name, value)
 
 
                         class Config(Entity):
@@ -470,7 +470,7 @@ class Mlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config, [u'speed', u'duplex', u'pause', u'my_pause', u'loopback'], name, value)
+                                self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config, ['speed', 'duplex', 'pause', 'my_pause', 'loopback'], name, value)
 
 
 
@@ -517,7 +517,7 @@ class Mlan(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	reg
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -548,7 +548,7 @@ class Mlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg, [u'entry'], name, value)
+                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg, ['entry'], name, value)
 
 
 
@@ -596,7 +596,7 @@ class Mlan(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	reg
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -627,7 +627,7 @@ class Mlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg, [u'entry'], name, value)
+                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg, ['entry'], name, value)
 
 
 
@@ -675,7 +675,7 @@ class Mlan(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	reg
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -706,7 +706,7 @@ class Mlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg, [u'entry'], name, value)
+                                    self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg, ['entry'], name, value)
 
 
 
@@ -823,7 +823,7 @@ class Mlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus, [u'rate_limit'], name, value)
+                        self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus, ['rate_limit'], name, value)
 
 
                     class SwReg1(Entity):
@@ -869,7 +869,7 @@ class Mlan(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	reg
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -900,7 +900,7 @@ class Mlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg, [u'entry'], name, value)
+                                self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg, ['entry'], name, value)
 
 
 
@@ -948,7 +948,7 @@ class Mlan(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	reg
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -979,7 +979,7 @@ class Mlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg, [u'entry'], name, value)
+                                self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg, ['entry'], name, value)
 
 
 
@@ -1087,7 +1087,7 @@ class Mlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus, [u'ppu', u'mtu', u'mac', u'cpu_port', u'cpu_mac', u'initialized', u'restarted'], name, value)
+                            self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus, ['ppu', 'mtu', 'mac', 'cpu_port', 'cpu_mac', 'initialized', 'restarted'], name, value)
 
 
 
@@ -1229,7 +1229,7 @@ class Mlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters, [u'port_num'], name, value)
+                            self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters, ['port_num'], name, value)
 
 
                         class MlanStats(Entity):
@@ -1643,7 +1643,7 @@ class Mlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats, [u'in_good_octets_hi', u'in_good_octets', u'in_bad_octets', u'in_unicast_pkt', u'in_bcast_pkt', u'in_mcast_pkt', u'in_pause_pkt', u'in_undersize_pkt', u'in_fragments', u'in_oversize', u'in_jabber', u'in_rx_err', u'in_fcs_err', u'out_octets_hi', u'out_octets', u'out_unicast_pkt', u'out_bcast_pkt', u'out_mcast_pkt', u'out_pause_pkt', u'excessive', u'collisions', u'deferred', u'single', u'multiple', u'out_fcs_err', u'late', u'rx_tx_64_octets', u'rx_tx_65_127_octets', u'rx_tx_128_255_octets', u'rx_tx_256_511_octets', u'rx_tx_512_1023_octets', u'rx_tx_1024_max_octets', u'in_discards', u'in_filtered', u'out_filtered'], name, value)
+                                self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats, ['in_good_octets_hi', 'in_good_octets', 'in_bad_octets', 'in_unicast_pkt', 'in_bcast_pkt', 'in_mcast_pkt', 'in_pause_pkt', 'in_undersize_pkt', 'in_fragments', 'in_oversize', 'in_jabber', 'in_rx_err', 'in_fcs_err', 'out_octets_hi', 'out_octets', 'out_unicast_pkt', 'out_bcast_pkt', 'out_mcast_pkt', 'out_pause_pkt', 'excessive', 'collisions', 'deferred', 'single', 'multiple', 'out_fcs_err', 'late', 'rx_tx_64_octets', 'rx_tx_65_127_octets', 'rx_tx_128_255_octets', 'rx_tx_256_511_octets', 'rx_tx_512_1023_octets', 'rx_tx_1024_max_octets', 'in_discards', 'in_filtered', 'out_filtered'], name, value)
 
 
 
@@ -1786,7 +1786,7 @@ class Mlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters, [u'entry_num'], name, value)
+                            self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters, ['entry_num'], name, value)
 
 
                         class Atu(Entity):
@@ -1877,7 +1877,7 @@ class Mlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu, [u'db_num', u'priority', u'trunk', u'dpv', u'es'], name, value)
+                                self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu, ['db_num', 'priority', 'trunk', 'dpv', 'es'], name, value)
 
 
                             class Macaddr(Entity):
@@ -1886,7 +1886,7 @@ class Mlan(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	macaddr
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -1917,7 +1917,7 @@ class Mlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr, [u'entry'], name, value)
+                                    self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr, ['entry'], name, value)
 
 
 

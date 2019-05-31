@@ -41,11 +41,6 @@ submodule Cisco-IOS-XR-aaa-locald-oper-sub1 {
         "Computed task map";
       uses TASKMAP;
     }
-    leaf name-xr {
-      type string;
-      description
-        "Name of the usergroup";
-    }
     list taskgroup {
       description
         "Component taskgroups";
@@ -101,11 +96,6 @@ submodule Cisco-IOS-XR-aaa-locald-oper-sub1 {
       description
         "Lockout time of the policy";
       uses PP-DURATION;
-    }
-    leaf name-xr {
-      type string;
-      description
-        "Password Policy Name";
     }
     leaf min-len {
       type uint8;
@@ -176,11 +166,6 @@ submodule Cisco-IOS-XR-aaa-locald-oper-sub1 {
       description
         "Computed taskmap";
       uses TASKMAP;
-    }
-    leaf name-xr {
-      type string;
-      description
-        "Username";
     }
     leaf admin-user {
       type boolean;
@@ -253,11 +238,6 @@ submodule Cisco-IOS-XR-aaa-locald-oper-sub1 {
         "Computed task map";
       uses TASKMAP;
     }
-    leaf name-xr {
-      type string;
-      description
-        "Name of the taskgroup";
-    }
   }
 
   grouping REMOTEUSR-DET {
@@ -267,6 +247,16 @@ submodule Cisco-IOS-XR-aaa-locald-oper-sub1 {
       type string;
       description
         "Name of the usergroup";
+    }
+    leaf shelltype {
+      type string;
+      description
+        "Shell-type of user";
+    }
+    leaf directory {
+      type string;
+      description
+        "Directory of user";
     }
     leaf authenmethod {
       type int32;

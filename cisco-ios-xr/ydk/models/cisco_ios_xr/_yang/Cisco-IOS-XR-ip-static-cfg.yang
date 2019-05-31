@@ -33,6 +33,14 @@ module Cisco-IOS-XR-ip-static-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-21 {
+    description
+      "Added bfd multihop option";
+  }
+  revision 2018-08-02 {
+    description
+      "Added one more key to accept SR Policy";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -155,6 +163,17 @@ module Cisco-IOS-XR-ip-static-cfg {
         description
           "Nexthop Identifier for OC Yang model";
       }
+      leaf multihop {
+        type boolean;
+        default "false";
+        description
+          "If set, BFD is multihop enabled";
+      }
+      leaf bfd-source-address {
+        type inet:ip-address-no-zone;
+        description
+          "BFD Multihop Source";
+      }
     }
     list vrf-next-hop-interface-name {
       key "interface-name";
@@ -218,8 +237,8 @@ module Cisco-IOS-XR-ip-static-cfg {
       }
       uses VRF-NEXT-HOP-CONTENT;
     }
-    list vrf-next-hop-explicit-path-name {
-      key "explicit-path-name";
+    list vrf-next-hop-explicit-path-name-sr-policy-name {
+      key "explicit-path-name sr-policy-name";
       description
         "A forwarding interface or Segement Routing mpls
          path name and/or the address of a nexthop router
@@ -228,6 +247,24 @@ module Cisco-IOS-XR-ip-static-cfg {
         type xr:Cisco-ios-xr-string;
         description
           "Segment Routing mpls path name";
+      }
+      leaf sr-policy-name {
+        type xr:Cisco-ios-xr-string;
+        description
+          "Sr Policy name";
+      }
+      uses VRF-NEXT-HOP-CONTENT;
+    }
+    list vrf-next-hop-sr-policy-name {
+      key "sr-policy-name";
+      description
+        "A forwarding interface or Segement Routing mpls
+         path name and/or the address of a nexthop router
+         for this route (one of these must be specified)";
+      leaf sr-policy-name {
+        type xr:Cisco-ios-xr-string;
+        description
+          "Sr Policy name";
       }
       uses VRF-NEXT-HOP-CONTENT;
     }

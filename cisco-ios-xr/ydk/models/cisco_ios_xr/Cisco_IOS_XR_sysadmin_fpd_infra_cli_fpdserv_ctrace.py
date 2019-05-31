@@ -100,7 +100,7 @@ class Fpdserv(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Fpdserv.Trace, [u'buffer'], name, value)
+            self._perform_setattr(Fpdserv.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -147,7 +147,7 @@ class Fpdserv(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Fpdserv.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(Fpdserv.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -194,7 +194,7 @@ class Fpdserv(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fpdserv.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(Fpdserv.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -232,7 +232,7 @@ class Fpdserv(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

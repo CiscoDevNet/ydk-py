@@ -286,6 +286,7 @@ class Entity(_Entity):
                 #     No resolvents found for leafref "../config/id"..
                 #     Path: /ydktest-sanity:runner/one-list/identity-list/id-ref
                 for item in value:
+                    _validate_value(self._leafs[name], name, item, self.logger)
                     l.append(item)
                 leaf_name_data.extend(l.get_name_leafdata())
         self.logger.debug('Get name leaf data for "%s". Count: %s'%(self.yang_name, len(leaf_name_data)))

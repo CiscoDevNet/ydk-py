@@ -558,7 +558,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, [u'tokenringmlstatsindex', u'tokenringmlstatsdatasource', u'tokenringmlstatsdropevents', u'tokenringmlstatsmacoctets', u'tokenringmlstatsmacpkts', u'tokenringmlstatsringpurgeevents', u'tokenringmlstatsringpurgepkts', u'tokenringmlstatsbeaconevents', u'tokenringmlstatsbeacontime', u'tokenringmlstatsbeaconpkts', u'tokenringmlstatsclaimtokenevents', u'tokenringmlstatsclaimtokenpkts', u'tokenringmlstatsnaunchanges', u'tokenringmlstatslineerrors', u'tokenringmlstatsinternalerrors', u'tokenringmlstatsbursterrors', u'tokenringmlstatsacerrors', u'tokenringmlstatsaborterrors', u'tokenringmlstatslostframeerrors', u'tokenringmlstatscongestionerrors', u'tokenringmlstatsframecopiederrors', u'tokenringmlstatsfrequencyerrors', u'tokenringmlstatstokenerrors', u'tokenringmlstatssofterrorreports', u'tokenringmlstatsringpollevents', u'tokenringmlstatsowner', u'tokenringmlstatsstatus', 'tokenringmlstatsdroppedframes', 'tokenringmlstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, ['tokenringmlstatsindex', 'tokenringmlstatsdatasource', 'tokenringmlstatsdropevents', 'tokenringmlstatsmacoctets', 'tokenringmlstatsmacpkts', 'tokenringmlstatsringpurgeevents', 'tokenringmlstatsringpurgepkts', 'tokenringmlstatsbeaconevents', 'tokenringmlstatsbeacontime', 'tokenringmlstatsbeaconpkts', 'tokenringmlstatsclaimtokenevents', 'tokenringmlstatsclaimtokenpkts', 'tokenringmlstatsnaunchanges', 'tokenringmlstatslineerrors', 'tokenringmlstatsinternalerrors', 'tokenringmlstatsbursterrors', 'tokenringmlstatsacerrors', 'tokenringmlstatsaborterrors', 'tokenringmlstatslostframeerrors', 'tokenringmlstatscongestionerrors', 'tokenringmlstatsframecopiederrors', 'tokenringmlstatsfrequencyerrors', 'tokenringmlstatstokenerrors', 'tokenringmlstatssofterrorreports', 'tokenringmlstatsringpollevents', 'tokenringmlstatsowner', 'tokenringmlstatsstatus', 'tokenringmlstatsdroppedframes', 'tokenringmlstatscreatetime'], name, value)
 
 
 
@@ -856,7 +856,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, [u'tokenringpstatsindex', u'tokenringpstatsdatasource', u'tokenringpstatsdropevents', u'tokenringpstatsdataoctets', u'tokenringpstatsdatapkts', u'tokenringpstatsdatabroadcastpkts', u'tokenringpstatsdatamulticastpkts', u'tokenringpstatsdatapkts18to63octets', u'tokenringpstatsdatapkts64to127octets', u'tokenringpstatsdatapkts128to255octets', u'tokenringpstatsdatapkts256to511octets', u'tokenringpstatsdatapkts512to1023octets', u'tokenringpstatsdatapkts1024to2047octets', u'tokenringpstatsdatapkts2048to4095octets', u'tokenringpstatsdatapkts4096to8191octets', u'tokenringpstatsdatapkts8192to18000octets', u'tokenringpstatsdatapktsgreaterthan18000octets', u'tokenringpstatsowner', u'tokenringpstatsstatus', 'tokenringpstatsdroppedframes', 'tokenringpstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, ['tokenringpstatsindex', 'tokenringpstatsdatasource', 'tokenringpstatsdropevents', 'tokenringpstatsdataoctets', 'tokenringpstatsdatapkts', 'tokenringpstatsdatabroadcastpkts', 'tokenringpstatsdatamulticastpkts', 'tokenringpstatsdatapkts18to63octets', 'tokenringpstatsdatapkts64to127octets', 'tokenringpstatsdatapkts128to255octets', 'tokenringpstatsdatapkts256to511octets', 'tokenringpstatsdatapkts512to1023octets', 'tokenringpstatsdatapkts1024to2047octets', 'tokenringpstatsdatapkts2048to4095octets', 'tokenringpstatsdatapkts4096to8191octets', 'tokenringpstatsdatapkts8192to18000octets', 'tokenringpstatsdatapktsgreaterthan18000octets', 'tokenringpstatsowner', 'tokenringpstatsstatus', 'tokenringpstatsdroppedframes', 'tokenringpstatscreatetime'], name, value)
 
 
 
@@ -1228,7 +1228,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, [u'tokenringmlhistoryindex', u'tokenringmlhistorysampleindex', u'tokenringmlhistoryintervalstart', u'tokenringmlhistorydropevents', u'tokenringmlhistorymacoctets', u'tokenringmlhistorymacpkts', u'tokenringmlhistoryringpurgeevents', u'tokenringmlhistoryringpurgepkts', u'tokenringmlhistorybeaconevents', u'tokenringmlhistorybeacontime', u'tokenringmlhistorybeaconpkts', u'tokenringmlhistoryclaimtokenevents', u'tokenringmlhistoryclaimtokenpkts', u'tokenringmlhistorynaunchanges', u'tokenringmlhistorylineerrors', u'tokenringmlhistoryinternalerrors', u'tokenringmlhistorybursterrors', u'tokenringmlhistoryacerrors', u'tokenringmlhistoryaborterrors', u'tokenringmlhistorylostframeerrors', u'tokenringmlhistorycongestionerrors', u'tokenringmlhistoryframecopiederrors', u'tokenringmlhistoryfrequencyerrors', u'tokenringmlhistorytokenerrors', u'tokenringmlhistorysofterrorreports', u'tokenringmlhistoryringpollevents', u'tokenringmlhistoryactivestations'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, ['tokenringmlhistoryindex', 'tokenringmlhistorysampleindex', 'tokenringmlhistoryintervalstart', 'tokenringmlhistorydropevents', 'tokenringmlhistorymacoctets', 'tokenringmlhistorymacpkts', 'tokenringmlhistoryringpurgeevents', 'tokenringmlhistoryringpurgepkts', 'tokenringmlhistorybeaconevents', 'tokenringmlhistorybeacontime', 'tokenringmlhistorybeaconpkts', 'tokenringmlhistoryclaimtokenevents', 'tokenringmlhistoryclaimtokenpkts', 'tokenringmlhistorynaunchanges', 'tokenringmlhistorylineerrors', 'tokenringmlhistoryinternalerrors', 'tokenringmlhistorybursterrors', 'tokenringmlhistoryacerrors', 'tokenringmlhistoryaborterrors', 'tokenringmlhistorylostframeerrors', 'tokenringmlhistorycongestionerrors', 'tokenringmlhistoryframecopiederrors', 'tokenringmlhistoryfrequencyerrors', 'tokenringmlhistorytokenerrors', 'tokenringmlhistorysofterrorreports', 'tokenringmlhistoryringpollevents', 'tokenringmlhistoryactivestations'], name, value)
 
 
 
@@ -1496,7 +1496,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, [u'tokenringphistoryindex', u'tokenringphistorysampleindex', u'tokenringphistoryintervalstart', u'tokenringphistorydropevents', u'tokenringphistorydataoctets', u'tokenringphistorydatapkts', u'tokenringphistorydatabroadcastpkts', u'tokenringphistorydatamulticastpkts', u'tokenringphistorydatapkts18to63octets', u'tokenringphistorydatapkts64to127octets', u'tokenringphistorydatapkts128to255octets', u'tokenringphistorydatapkts256to511octets', u'tokenringphistorydatapkts512to1023octets', u'tokenringphistorydatapkts1024to2047octets', u'tokenringphistorydatapkts2048to4095octets', u'tokenringphistorydatapkts4096to8191octets', u'tokenringphistorydatapkts8192to18000octets', u'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, ['tokenringphistoryindex', 'tokenringphistorysampleindex', 'tokenringphistoryintervalstart', 'tokenringphistorydropevents', 'tokenringphistorydataoctets', 'tokenringphistorydatapkts', 'tokenringphistorydatabroadcastpkts', 'tokenringphistorydatamulticastpkts', 'tokenringphistorydatapkts18to63octets', 'tokenringphistorydatapkts64to127octets', 'tokenringphistorydatapkts128to255octets', 'tokenringphistorydatapkts256to511octets', 'tokenringphistorydatapkts512to1023octets', 'tokenringphistorydatapkts1024to2047octets', 'tokenringphistorydatapkts2048to4095octets', 'tokenringphistorydatapkts4096to8191octets', 'tokenringphistorydatapkts8192to18000octets', 'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
 
 
 
@@ -1583,7 +1583,7 @@ class TOKENRINGRMONMIB(Entity):
             	The address of the sender of the last beacon frame received by the probe on this ring.  If no beacon frames have been received, this object shall be equal to six octets of zero
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -1592,7 +1592,7 @@ class TOKENRINGRMONMIB(Entity):
             	The address of the NAUN in the last beacon frame received by the probe on this ring.  If no beacon frames have been received, this object shall be equal to six octets of zero
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -1601,7 +1601,7 @@ class TOKENRINGRMONMIB(Entity):
             	The address of the Active Monitor on this segment.  If this address is unknown, this object shall be equal to six octets of zero
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -1692,7 +1692,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, [u'ringstationcontrolifindex', u'ringstationcontroltablesize', u'ringstationcontrolactivestations', u'ringstationcontrolringstate', u'ringstationcontrolbeaconsender', u'ringstationcontrolbeaconnaun', u'ringstationcontrolactivemonitor', u'ringstationcontrolorderchanges', u'ringstationcontrolowner', u'ringstationcontrolstatus', 'ringstationcontroldroppedframes', 'ringstationcontrolcreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, ['ringstationcontrolifindex', 'ringstationcontroltablesize', 'ringstationcontrolactivestations', 'ringstationcontrolringstate', 'ringstationcontrolbeaconsender', 'ringstationcontrolbeaconnaun', 'ringstationcontrolactivemonitor', 'ringstationcontrolorderchanges', 'ringstationcontrolowner', 'ringstationcontrolstatus', 'ringstationcontroldroppedframes', 'ringstationcontrolcreatetime'], name, value)
 
             class RingStationControlRingState(Enum):
                 """
@@ -1799,7 +1799,7 @@ class TOKENRINGRMONMIB(Entity):
             	The physical address of this station
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -1808,7 +1808,7 @@ class TOKENRINGRMONMIB(Entity):
             	The physical address of last known NAUN of this station
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -2047,7 +2047,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationTable.RingStationEntry, [u'ringstationifindex', u'ringstationmacaddress', u'ringstationlastnaun', u'ringstationstationstatus', u'ringstationlastentertime', u'ringstationlastexittime', u'ringstationduplicateaddresses', u'ringstationinlineerrors', u'ringstationoutlineerrors', u'ringstationinternalerrors', u'ringstationinbursterrors', u'ringstationoutbursterrors', u'ringstationacerrors', u'ringstationaborterrors', u'ringstationlostframeerrors', u'ringstationcongestionerrors', u'ringstationframecopiederrors', u'ringstationfrequencyerrors', u'ringstationtokenerrors', u'ringstationinbeaconerrors', u'ringstationoutbeaconerrors', u'ringstationinsertions'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationTable.RingStationEntry, ['ringstationifindex', 'ringstationmacaddress', 'ringstationlastnaun', 'ringstationstationstatus', 'ringstationlastentertime', 'ringstationlastexittime', 'ringstationduplicateaddresses', 'ringstationinlineerrors', 'ringstationoutlineerrors', 'ringstationinternalerrors', 'ringstationinbursterrors', 'ringstationoutbursterrors', 'ringstationacerrors', 'ringstationaborterrors', 'ringstationlostframeerrors', 'ringstationcongestionerrors', 'ringstationframecopiederrors', 'ringstationfrequencyerrors', 'ringstationtokenerrors', 'ringstationinbeaconerrors', 'ringstationoutbeaconerrors', 'ringstationinsertions'], name, value)
 
             class RingStationStationStatus(Enum):
                 """
@@ -2147,7 +2147,7 @@ class TOKENRINGRMONMIB(Entity):
             	The physical address of this station
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -2179,7 +2179,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, [u'ringstationorderifindex', u'ringstationorderorderindex', u'ringstationordermacaddress'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, ['ringstationorderifindex', 'ringstationorderorderindex', 'ringstationordermacaddress'], name, value)
 
 
 
@@ -2242,7 +2242,7 @@ class TOKENRINGRMONMIB(Entity):
             	The physical address of this station
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -2290,7 +2290,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry, [u'ringstationconfigcontrolifindex', u'ringstationconfigcontrolmacaddress', u'ringstationconfigcontrolremove', u'ringstationconfigcontrolupdatestats'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry, ['ringstationconfigcontrolifindex', 'ringstationconfigcontrolmacaddress', 'ringstationconfigcontrolremove', 'ringstationconfigcontrolupdatestats'], name, value)
 
             class RingStationConfigControlRemove(Enum):
                 """
@@ -2401,7 +2401,7 @@ class TOKENRINGRMONMIB(Entity):
             	The physical address of this station
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -2419,7 +2419,7 @@ class TOKENRINGRMONMIB(Entity):
             	The assigned physical location of this station
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -2428,7 +2428,7 @@ class TOKENRINGRMONMIB(Entity):
             	The microcode EC level of this station
             	**type**\: str
             
-            	**length:** 10
+            	**length:** 10..10
             
             	**config**\: False
             
@@ -2437,7 +2437,7 @@ class TOKENRINGRMONMIB(Entity):
             	The low\-order 4 octets of the group address recognized by this station
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -2446,7 +2446,7 @@ class TOKENRINGRMONMIB(Entity):
             	the functional addresses recognized by this station
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -2486,7 +2486,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, [u'ringstationconfigifindex', u'ringstationconfigmacaddress', u'ringstationconfigupdatetime', u'ringstationconfiglocation', u'ringstationconfigmicrocode', u'ringstationconfiggroupaddress', u'ringstationconfigfunctionaladdress'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, ['ringstationconfigifindex', 'ringstationconfigmacaddress', 'ringstationconfigupdatetime', 'ringstationconfiglocation', 'ringstationconfigmicrocode', 'ringstationconfiggroupaddress', 'ringstationconfigfunctionaladdress'], name, value)
 
 
 
@@ -2837,7 +2837,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, [u'sourceroutingstatsifindex', u'sourceroutingstatsringnumber', u'sourceroutingstatsinframes', u'sourceroutingstatsoutframes', u'sourceroutingstatsthroughframes', u'sourceroutingstatsallroutesbroadcastframes', u'sourceroutingstatssingleroutebroadcastframes', u'sourceroutingstatsinoctets', u'sourceroutingstatsoutoctets', u'sourceroutingstatsthroughoctets', u'sourceroutingstatsallroutesbroadcastoctets', u'sourceroutingstatssingleroutesbroadcastoctets', u'sourceroutingstatslocalllcframes', u'sourceroutingstats1hopframes', u'sourceroutingstats2hopsframes', u'sourceroutingstats3hopsframes', u'sourceroutingstats4hopsframes', u'sourceroutingstats5hopsframes', u'sourceroutingstats6hopsframes', u'sourceroutingstats7hopsframes', u'sourceroutingstats8hopsframes', u'sourceroutingstatsmorethan8hopsframes', u'sourceroutingstatsowner', u'sourceroutingstatsstatus', 'sourceroutingstatsdroppedframes', 'sourceroutingstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, ['sourceroutingstatsifindex', 'sourceroutingstatsringnumber', 'sourceroutingstatsinframes', 'sourceroutingstatsoutframes', 'sourceroutingstatsthroughframes', 'sourceroutingstatsallroutesbroadcastframes', 'sourceroutingstatssingleroutebroadcastframes', 'sourceroutingstatsinoctets', 'sourceroutingstatsoutoctets', 'sourceroutingstatsthroughoctets', 'sourceroutingstatsallroutesbroadcastoctets', 'sourceroutingstatssingleroutesbroadcastoctets', 'sourceroutingstatslocalllcframes', 'sourceroutingstats1hopframes', 'sourceroutingstats2hopsframes', 'sourceroutingstats3hopsframes', 'sourceroutingstats4hopsframes', 'sourceroutingstats5hopsframes', 'sourceroutingstats6hopsframes', 'sourceroutingstats7hopsframes', 'sourceroutingstats8hopsframes', 'sourceroutingstatsmorethan8hopsframes', 'sourceroutingstatsowner', 'sourceroutingstatsstatus', 'sourceroutingstatsdroppedframes', 'sourceroutingstatscreatetime'], name, value)
 
 
 

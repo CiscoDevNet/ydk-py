@@ -44,67 +44,82 @@ module Cisco-IOS-XR-tunnel-vpdn-oper {
     config false;
     description
       "VPDN operational data";
-    container sessions {
+    container nodes {
       description
-        "VPDN session list";
-      list session {
-        key "session-label";
+        "List of nodes for which subscriber data is
+         collected";
+      list node {
+        key "node-name";
         description
-          " VPDN session information";
-        leaf session-label {
-          type xr:Hex-integer;
+          "Subscriber data for a particular node";
+        container sessions {
           description
-            "Session label";
+            "VPDN session list";
+          list session {
+            key "session-label";
+            description
+              " VPDN session information";
+            leaf session-label {
+              type xr:Hex-integer;
+              description
+                "Session label";
+            }
+            uses VPDN-EDM-SHOW-SESSION-DET;
+          }
         }
-        uses VPDN-EDM-SHOW-SESSION-DET;
-      }
-    }
-    container tunnel-destinations {
-      description
-        "VPDN tunnel Destinations";
-      list tunnel-destination {
-        description
-          "VPDN tunnel destination information";
-        leaf vrf-name {
-          type xr:Cisco-ios-xr-string;
+        container tunnel-destinations {
           description
-            "VRF name";
+            "VPDN tunnel Destinations";
+          list tunnel-destination {
+            description
+              "VPDN tunnel destination information";
+            leaf vrf-name {
+              type xr:Cisco-ios-xr-string;
+              description
+                "VRF name";
+            }
+            leaf address {
+              type inet:ipv4-address-no-zone;
+              description
+                "IP address";
+            }
+            uses VPDN-LSG-NODE;
+          }
         }
-        leaf address {
-          type inet:ipv4-address-no-zone;
+        container vpdn-mirroring {
           description
-            "IP address";
+            "VPDN Mirroring Statistics";
+          uses VPDN-MIRRORING-STATS;
         }
-        uses VPDN-LSG-NODE;
-      }
-    }
-    container vpdn-mirroring {
-      description
-        "VPDN Mirroring Statistics";
-      uses VPDN-MIRRORING-STATS;
-    }
-    container vpdn-redundancy {
-      description
-        "Show VPDN Redundancy information";
-      uses VPDN-REDUNDANCY;
-    }
-    container history-failures {
-      description
-        "VPDN history failure list";
-      list history-failure {
-        description
-          "VPDN history failure information";
-        leaf username {
-          type string;
+        container vpdn-redundancy {
           description
-            "Username";
+            "Show VPDN Redundancy information";
+          uses VPDN-REDUNDANCY;
         }
-        leaf remote-name {
-          type xr:Cisco-ios-xr-string;
+        container history-failures {
           description
-            "Remote name";
+            "VPDN history failure list";
+          list history-failure {
+            description
+              "VPDN history failure information";
+            leaf username {
+              type string;
+              description
+                "Username";
+            }
+            leaf remote-name {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Remote name";
+            }
+            uses VPDN-HISTORY-ENTRY;
+          }
         }
-        uses VPDN-HISTORY-ENTRY;
+        leaf node-name {
+          type xr:Node-id;
+          description
+            "Node name";
+        }
       }
     }
   }

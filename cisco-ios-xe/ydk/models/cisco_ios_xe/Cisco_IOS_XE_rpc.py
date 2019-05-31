@@ -124,7 +124,7 @@ class Switch(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Input, [u'y_switch_number', u'priority', u'renumber'], name, value)
+            self._perform_setattr(Switch.Input, ['y_switch_number', 'priority', 'renumber'], name, value)
 
 
         class Statck(Entity):
@@ -163,7 +163,7 @@ class Switch(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Switch.Input.Statck, [u'port'], name, value)
+                self._perform_setattr(Switch.Input.Statck, ['port'], name, value)
 
 
 
@@ -202,7 +202,7 @@ class Switch(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Output, [u'result'], name, value)
+            self._perform_setattr(Switch.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -291,7 +291,7 @@ class Default(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Default.Input, [u'interface'], name, value)
+            self._perform_setattr(Default.Input, ['interface'], name, value)
 
 
 
@@ -329,7 +329,7 @@ class Default(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Default.Output, [u'result'], name, value)
+            self._perform_setattr(Default.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -482,7 +482,7 @@ class Clear(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clear.Input, [u'interface', u'count'], name, value)
+            self._perform_setattr(Clear.Input, ['interface', 'count'], name, value)
 
 
         class Flow(Entity):
@@ -591,7 +591,7 @@ class Clear(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Flow.Monitor, [u'name', u'force_export', u'statistics'], name, value)
+                    self._perform_setattr(Clear.Input.Flow.Monitor, ['name', 'force_export', 'statistics'], name, value)
 
 
                 class Cache(Entity):
@@ -628,7 +628,7 @@ class Clear(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Input.Flow.Monitor.Cache, [u'force_export'], name, value)
+                        self._perform_setattr(Clear.Input.Flow.Monitor.Cache, ['force_export'], name, value)
 
 
 
@@ -674,7 +674,7 @@ class Clear(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Flow.Exporter, [u'name', u'statistics'], name, value)
+                    self._perform_setattr(Clear.Input.Flow.Exporter, ['name', 'statistics'], name, value)
 
 
 
@@ -818,7 +818,7 @@ class Clear(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Input.Ip.Dhcp.Binding, [u'vrf', u'y_all'], name, value)
+                        self._perform_setattr(Clear.Input.Ip.Dhcp.Binding, ['vrf', 'y_all'], name, value)
 
 
 
@@ -866,7 +866,7 @@ class Clear(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Ip.Ospf, [u'y_id', u'process'], name, value)
+                    self._perform_setattr(Clear.Input.Ip.Ospf, ['y_id', 'process'], name, value)
 
 
 
@@ -919,7 +919,7 @@ class Clear(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Ip.Bgp, [u'y_peer_address', u'vrf'], name, value)
+                    self._perform_setattr(Clear.Input.Ip.Bgp, ['y_peer_address', 'vrf'], name, value)
 
 
 
@@ -979,7 +979,7 @@ class Clear(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Clear.Input.ArpCache, [u'vrf', u'interface', u'y_ip'], name, value)
+                self._perform_setattr(Clear.Input.ArpCache, ['vrf', 'interface', 'y_ip'], name, value)
 
 
 
@@ -1131,7 +1131,7 @@ class Clear(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Clear.Input.Aaa.Local.User.Lockout, [u'username'], name, value)
+                            self._perform_setattr(Clear.Input.Aaa.Local.User.Lockout, ['username'], name, value)
 
 
 
@@ -1362,7 +1362,7 @@ class Clear(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall, [u'drop'], name, value)
+                                    self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall, ['drop'], name, value)
 
 
 
@@ -1405,7 +1405,7 @@ class Clear(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Clear.Input.ZonePair, [u'counter'], name, value)
+                self._perform_setattr(Clear.Input.ZonePair, ['counter'], name, value)
 
 
 
@@ -1444,7 +1444,7 @@ class Clear(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clear.Output, [u'result'], name, value)
+            self._perform_setattr(Clear.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -1531,7 +1531,7 @@ class Release(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Release.Input, [u'dhcp'], name, value)
+            self._perform_setattr(Release.Input, ['dhcp'], name, value)
 
 
 
@@ -1569,7 +1569,7 @@ class Release(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Release.Output, [u'result'], name, value)
+            self._perform_setattr(Release.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -1663,7 +1663,7 @@ class Reload(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Reload.Input, [u'force', u'reason'], name, value)
+            self._perform_setattr(Reload.Input, ['force', 'reason'], name, value)
 
 
 
@@ -1701,7 +1701,7 @@ class Reload(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Reload.Output, [u'result'], name, value)
+            self._perform_setattr(Reload.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -1797,7 +1797,7 @@ class Cellular(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cellular.Input, [u'y_if_name'], name, value)
+            self._perform_setattr(Cellular.Input, ['y_if_name'], name, value)
 
 
         class Lte(Entity):
@@ -1852,7 +1852,7 @@ class Cellular(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cellular.Input.Lte, [u'modem_reset'], name, value)
+                self._perform_setattr(Cellular.Input.Lte, ['modem_reset'], name, value)
 
 
             class Technology(Entity):
@@ -1903,7 +1903,7 @@ class Cellular(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cellular.Input.Lte.Technology, [u'lte', u'auto', u'umts'], name, value)
+                    self._perform_setattr(Cellular.Input.Lte.Technology, ['lte', 'auto', 'umts'], name, value)
 
 
 
@@ -1990,7 +1990,7 @@ class Cellular(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cellular.Input.Lte.Profile.Delete, [u'y_profile_id'], name, value)
+                        self._perform_setattr(Cellular.Input.Lte.Profile.Delete, ['y_profile_id'], name, value)
 
 
 
@@ -2100,7 +2100,7 @@ class Cellular(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cellular.Input.Lte.Profile.Create, [u'y_profile_id', u'y_prof_name', u'none', u'chap', u'pap', u'pap_chap', u'y_user_name', u'y_password', u'ipv4', u'ipv6', u'ipv4v6'], name, value)
+                        self._perform_setattr(Cellular.Input.Lte.Profile.Create, ['y_profile_id', 'y_prof_name', 'none', 'chap', 'pap', 'pap_chap', 'y_user_name', 'y_password', 'ipv4', 'ipv6', 'ipv4v6'], name, value)
 
 
 
@@ -2141,7 +2141,7 @@ class Cellular(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cellular.Output, [u'result'], name, value)
+            self._perform_setattr(Cellular.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -2284,7 +2284,7 @@ class License(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(License.Input.Smart, [u'deregister'], name, value)
+                self._perform_setattr(License.Input.Smart, ['deregister'], name, value)
 
 
             class Register(Entity):
@@ -2330,7 +2330,7 @@ class License(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(License.Input.Smart.Register, [u'idtoken', u'force'], name, value)
+                    self._perform_setattr(License.Input.Smart.Register, ['idtoken', 'force'], name, value)
 
 
 
@@ -2375,7 +2375,7 @@ class License(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(License.Input.Smart.Renew, [u'id', u'auth'], name, value)
+                    self._perform_setattr(License.Input.Smart.Renew, ['id', 'auth'], name, value)
 
 
 
@@ -2415,7 +2415,7 @@ class License(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(License.Output, [u'result'], name, value)
+            self._perform_setattr(License.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -2609,7 +2609,7 @@ class Service(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Service.Input.SdAvc, [u'activate', u'connect', u'help', u'deactivate', u'status', u'unconfigure', u'uninstall'], name, value)
+                self._perform_setattr(Service.Input.SdAvc, ['activate', 'connect', 'help', 'deactivate', 'status', 'unconfigure', 'uninstall'], name, value)
 
 
             class Configure(Entity):
@@ -2700,7 +2700,7 @@ class Service(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, [u'interface', u'service_ip', u'activate'], name, value)
+                        self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, ['interface', 'service_ip', 'activate'], name, value)
 
 
 
@@ -2739,7 +2739,7 @@ class Service(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Service.Input.SdAvc.Install, [u'package'], name, value)
+                    self._perform_setattr(Service.Input.SdAvc.Install, ['package'], name, value)
 
 
 
@@ -2777,7 +2777,7 @@ class Service(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Service.Input.SdAvc.Upgrade, [u'package'], name, value)
+                    self._perform_setattr(Service.Input.SdAvc.Upgrade, ['package'], name, value)
 
 
 
@@ -2817,7 +2817,7 @@ class Service(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Service.Output, [u'result'], name, value)
+            self._perform_setattr(Service.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -2974,7 +2974,7 @@ class VirtualService(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Install, [u'name', u'package', u'media'], name, value)
+                self._perform_setattr(VirtualService.Input.Install, ['name', 'package', 'media'], name, value)
 
 
 
@@ -3012,7 +3012,7 @@ class VirtualService(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Uninstall, [u'name'], name, value)
+                self._perform_setattr(VirtualService.Input.Uninstall, ['name'], name, value)
 
 
 
@@ -3057,7 +3057,7 @@ class VirtualService(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Upgrade, [u'name', u'package'], name, value)
+                self._perform_setattr(VirtualService.Input.Upgrade, ['name', 'package'], name, value)
 
 
 
@@ -3096,7 +3096,7 @@ class VirtualService(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VirtualService.Output, [u'result'], name, value)
+            self._perform_setattr(VirtualService.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -3198,7 +3198,7 @@ class Copy(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Copy.Input, [u'y_source', u'y_destination'], name, value)
+            self._perform_setattr(Copy.Input, ['y_source', 'y_destination'], name, value)
 
 
 
@@ -3236,7 +3236,7 @@ class Copy(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Copy.Output, [u'result'], name, value)
+            self._perform_setattr(Copy.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -3327,7 +3327,7 @@ class Delete(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Delete.Input, [u'y_filename'], name, value)
+            self._perform_setattr(Delete.Input, ['y_filename'], name, value)
 
 
 
@@ -3365,7 +3365,7 @@ class Delete(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Delete.Output, [u'result'], name, value)
+            self._perform_setattr(Delete.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -3542,7 +3542,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Install, [u'appid', u'package'], name, value)
+                self._perform_setattr(AppHosting.Input.Install, ['appid', 'package'], name, value)
 
 
 
@@ -3580,7 +3580,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Uninstall, [u'appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Uninstall, ['appid'], name, value)
 
 
 
@@ -3618,7 +3618,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Activate, [u'appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Activate, ['appid'], name, value)
 
 
 
@@ -3656,7 +3656,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Deactivate, [u'appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Deactivate, ['appid'], name, value)
 
 
 
@@ -3694,7 +3694,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Start, [u'appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Start, ['appid'], name, value)
 
 
 
@@ -3732,7 +3732,7 @@ class AppHosting(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Stop, [u'appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Stop, ['appid'], name, value)
 
 
 
@@ -3771,7 +3771,7 @@ class AppHosting(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AppHosting.Output, [u'result'], name, value)
+            self._perform_setattr(AppHosting.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -3872,7 +3872,7 @@ class Guestshell(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Guestshell.Input, [u'destroy', u'disable', u'enable'], name, value)
+            self._perform_setattr(Guestshell.Input, ['destroy', 'disable', 'enable'], name, value)
 
 
 
@@ -3910,7 +3910,7 @@ class Guestshell(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Guestshell.Output, [u'result'], name, value)
+            self._perform_setattr(Guestshell.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -3997,7 +3997,7 @@ class Start(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Start.Input, [u'maintenance'], name, value)
+            self._perform_setattr(Start.Input, ['maintenance'], name, value)
 
 
 
@@ -4035,7 +4035,7 @@ class Start(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Start.Output, [u'result'], name, value)
+            self._perform_setattr(Start.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -4122,7 +4122,7 @@ class Stop(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Stop.Input, [u'maintenance'], name, value)
+            self._perform_setattr(Stop.Input, ['maintenance'], name, value)
 
 
 
@@ -4160,7 +4160,7 @@ class Stop(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Stop.Output, [u'result'], name, value)
+            self._perform_setattr(Stop.Output, ['result'], name, value)
 
 
     def clone_ptr(self):
@@ -4372,7 +4372,7 @@ class Utd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Saved, [u'update'], name, value)
+                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Saved, ['update'], name, value)
 
 
 
@@ -4544,7 +4544,7 @@ class Utd(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco, [u'username', u'password'], name, value)
+                                    self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco, ['username', 'password'], name, value)
 
 
 
@@ -4649,7 +4649,7 @@ class Utd(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials, [u'y_url', u'username', u'password'], name, value)
+                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials, ['y_url', 'username', 'password'], name, value)
 
 
 
@@ -4689,7 +4689,7 @@ class Utd(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials, [u'y_url'], name, value)
+                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials, ['y_url'], name, value)
 
 
 
@@ -4734,7 +4734,7 @@ class Utd(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Utd.Output, [u'result'], name, value)
+            self._perform_setattr(Utd.Output, ['result'], name, value)
 
 
     def clone_ptr(self):

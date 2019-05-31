@@ -36,6 +36,10 @@ module Cisco-IOS-XR-aaa-locald-cfg {
     description
       "Added Yang support for aaa password-policy.";
   }
+  revision 2018-04-30 {
+    description
+      "Added model support for aaa shell-type, directory.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -371,6 +375,20 @@ module Cisco-IOS-XR-aaa-locald-cfg {
           type xr:Proprietary-password;
           description
             "Specify the password for the user";
+        }
+        leaf directory {
+          type string {
+            length "1..512";
+          }
+          description
+            "Specify the directory for the user";
+        }
+        leaf shell-type {
+          type string {
+            length "1..32";
+          }
+          description
+            "Specify the shell-type for the user";
         }
         leaf ordering-index {
           type uint32;

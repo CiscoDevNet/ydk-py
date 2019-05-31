@@ -54,7 +54,7 @@ class Environment(Entity):
     """
 
     _prefix = 'envmon'
-    _revision = '2018-02-06'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Environment, self).__init__()
@@ -139,7 +139,7 @@ class Environment(Entity):
         """
 
         _prefix = 'envmon'
-        _revision = '2018-02-06'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Environment.Oper, self).__init__()
@@ -199,7 +199,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Temperatures, self).__init__()
@@ -232,24 +232,6 @@ class Environment(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: loc_header
-                
-                	
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: print_header
-                
-                	
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                	**default value**\: false
-                
                 .. attribute:: sensor_attributes
                 
                 	
@@ -262,7 +244,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Temperatures.Location, self).__init__()
@@ -275,12 +257,8 @@ class Environment(Entity):
                     self._child_classes = OrderedDict([("sensor_attributes", ("sensor_attributes", Environment.Oper.Temperatures.Location.SensorAttributes))])
                     self._leafs = OrderedDict([
                         ('location', (YLeaf(YType.str, 'location'), ['str'])),
-                        ('loc_header', (YLeaf(YType.uint32, 'loc_header'), ['int'])),
-                        ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
                     ])
                     self.location = None
-                    self.loc_header = None
-                    self.print_header = None
 
                     self.sensor_attributes = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
@@ -288,7 +266,7 @@ class Environment(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Oper.Temperatures.Location, ['location', 'loc_header', 'print_header'], name, value)
+                    self._perform_setattr(Environment.Oper.Temperatures.Location, ['location'], name, value)
 
 
                 class SensorAttributes(Entity):
@@ -296,6 +274,31 @@ class Environment(Entity):
                     
                     
                     .. attribute:: sensor  (key)
+                    
+                    	
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: loc_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: print_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: location
                     
                     	
                     	**type**\: str
@@ -391,7 +394,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Temperatures.Location.SensorAttributes, self).__init__()
@@ -404,6 +407,9 @@ class Environment(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sensor', (YLeaf(YType.str, 'sensor'), ['str'])),
+                            ('loc_header', (YLeaf(YType.boolean, 'loc_header'), ['bool'])),
+                            ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
                             ('sensor_id', (YLeaf(YType.str, 'sensor_id'), ['str'])),
                             ('alarm', (YLeaf(YType.str, 'alarm'), ['str'])),
                             ('temperature_value', (YLeaf(YType.str, 'temperature_value'), ['str'])),
@@ -416,6 +422,9 @@ class Environment(Entity):
                             ('critical_hi', (YLeaf(YType.int32, 'critical_hi'), ['int'])),
                         ])
                         self.sensor = None
+                        self.loc_header = None
+                        self.print_header = None
+                        self.location = None
                         self.sensor_id = None
                         self.alarm = None
                         self.temperature_value = None
@@ -430,7 +439,7 @@ class Environment(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Oper.Temperatures.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
+                        self._perform_setattr(Environment.Oper.Temperatures.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
 
@@ -452,7 +461,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Voltages, self).__init__()
@@ -485,24 +494,6 @@ class Environment(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: print_header
-                
-                	
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                	**default value**\: false
-                
-                .. attribute:: loc_header
-                
-                	
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: sensor_attributes
                 
                 	
@@ -515,7 +506,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Voltages.Location, self).__init__()
@@ -528,12 +519,8 @@ class Environment(Entity):
                     self._child_classes = OrderedDict([("sensor_attributes", ("sensor_attributes", Environment.Oper.Voltages.Location.SensorAttributes))])
                     self._leafs = OrderedDict([
                         ('location', (YLeaf(YType.str, 'location'), ['str'])),
-                        ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
-                        ('loc_header', (YLeaf(YType.uint32, 'loc_header'), ['int'])),
                     ])
                     self.location = None
-                    self.print_header = None
-                    self.loc_header = None
 
                     self.sensor_attributes = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
@@ -541,7 +528,7 @@ class Environment(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Oper.Voltages.Location, ['location', 'print_header', 'loc_header'], name, value)
+                    self._perform_setattr(Environment.Oper.Voltages.Location, ['location'], name, value)
 
 
                 class SensorAttributes(Entity):
@@ -549,6 +536,31 @@ class Environment(Entity):
                     
                     
                     .. attribute:: sensor  (key)
+                    
+                    	
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: loc_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: print_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: location
                     
                     	
                     	**type**\: str
@@ -644,7 +656,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Voltages.Location.SensorAttributes, self).__init__()
@@ -657,6 +669,9 @@ class Environment(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sensor', (YLeaf(YType.str, 'sensor'), ['str'])),
+                            ('loc_header', (YLeaf(YType.boolean, 'loc_header'), ['bool'])),
+                            ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
                             ('sensor_id', (YLeaf(YType.str, 'sensor_id'), ['str'])),
                             ('alarm', (YLeaf(YType.str, 'alarm'), ['str'])),
                             ('value', (YLeaf(YType.str, 'value'), ['str'])),
@@ -669,6 +684,9 @@ class Environment(Entity):
                             ('critical_hi', (YLeaf(YType.int32, 'critical_hi'), ['int'])),
                         ])
                         self.sensor = None
+                        self.loc_header = None
+                        self.print_header = None
+                        self.location = None
                         self.sensor_id = None
                         self.alarm = None
                         self.value = None
@@ -683,7 +701,7 @@ class Environment(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Oper.Voltages.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
+                        self._perform_setattr(Environment.Oper.Voltages.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
 
@@ -705,7 +723,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Current, self).__init__()
@@ -738,24 +756,6 @@ class Environment(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: print_header
-                
-                	
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                	**default value**\: false
-                
-                .. attribute:: loc_header
-                
-                	
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: sensor_attributes
                 
                 	
@@ -768,7 +768,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Current.Location, self).__init__()
@@ -781,12 +781,8 @@ class Environment(Entity):
                     self._child_classes = OrderedDict([("sensor_attributes", ("sensor_attributes", Environment.Oper.Current.Location.SensorAttributes))])
                     self._leafs = OrderedDict([
                         ('location', (YLeaf(YType.str, 'location'), ['str'])),
-                        ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
-                        ('loc_header', (YLeaf(YType.uint32, 'loc_header'), ['int'])),
                     ])
                     self.location = None
-                    self.print_header = None
-                    self.loc_header = None
 
                     self.sensor_attributes = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
@@ -794,7 +790,7 @@ class Environment(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Oper.Current.Location, ['location', 'print_header', 'loc_header'], name, value)
+                    self._perform_setattr(Environment.Oper.Current.Location, ['location'], name, value)
 
 
                 class SensorAttributes(Entity):
@@ -802,6 +798,31 @@ class Environment(Entity):
                     
                     
                     .. attribute:: sensor  (key)
+                    
+                    	
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: loc_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: print_header
+                    
+                    	
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: location
                     
                     	
                     	**type**\: str
@@ -843,7 +864,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Current.Location.SensorAttributes, self).__init__()
@@ -856,12 +877,18 @@ class Environment(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sensor', (YLeaf(YType.str, 'sensor'), ['str'])),
+                            ('loc_header', (YLeaf(YType.boolean, 'loc_header'), ['bool'])),
+                            ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
                             ('sensor_id', (YLeaf(YType.str, 'sensor_id'), ['str'])),
                             ('alarm', (YLeaf(YType.str, 'alarm'), ['str'])),
                             ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ('temperature_value', (YLeaf(YType.int32, 'temperature_value'), ['int'])),
                         ])
                         self.sensor = None
+                        self.loc_header = None
+                        self.print_header = None
+                        self.location = None
                         self.sensor_id = None
                         self.alarm = None
                         self.value = None
@@ -870,7 +897,7 @@ class Environment(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Oper.Current.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value'], name, value)
+                        self._perform_setattr(Environment.Oper.Current.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'value', 'temperature_value'], name, value)
 
 
 
@@ -892,7 +919,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Fan, self).__init__()
@@ -955,7 +982,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Fan.Location, self).__init__()
@@ -1046,7 +1073,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Fan.Location.FanAttributes, self).__init__()
@@ -1099,7 +1126,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Power, self).__init__()
@@ -1144,7 +1171,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Power.Location, self).__init__()
@@ -1400,7 +1427,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Power.Location.PemAttributes, self).__init__()
@@ -1495,7 +1522,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Oper.Altitude, self).__init__()
@@ -1540,7 +1567,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Oper.Altitude.Location, self).__init__()
@@ -1613,7 +1640,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Oper.Altitude.Location.AltAttributes, self).__init__()
@@ -1663,7 +1690,7 @@ class Environment(Entity):
         """
 
         _prefix = 'envmon'
-        _revision = '2018-02-06'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Environment.All, self).__init__()
@@ -1743,7 +1770,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.All.Location, self).__init__()
@@ -1805,7 +1832,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Temperatures, self).__init__()
@@ -1931,7 +1958,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Temperatures.SensorAttributes, self).__init__()
@@ -2007,7 +2034,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Voltages, self).__init__()
@@ -2133,7 +2160,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Voltages.SensorAttributes, self).__init__()
@@ -2209,7 +2236,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Current, self).__init__()
@@ -2265,7 +2292,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Current.SensorAttributes, self).__init__()
@@ -2316,7 +2343,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Fan, self).__init__()
@@ -2402,7 +2429,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Fan.FanAttributes, self).__init__()
@@ -2461,7 +2488,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Power, self).__init__()
@@ -2716,7 +2743,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Power.PemAttributes, self).__init__()
@@ -2817,7 +2844,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.All.Location.Altitude, self).__init__()
@@ -2889,7 +2916,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.All.Location.Altitude.AltAttributes, self).__init__()
@@ -2955,24 +2982,36 @@ class Environment(Entity):
         .. attribute:: raise_fan_speed
         
         	
-        	**type**\:  :py:class:`RaiseFanSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed>`
+        	**type**\: int
+        
+        	**range:** 0..100
+        
+        	**config**\: False
         
         .. attribute:: fan_ctrl_optics
         
         	
-        	**type**\:  :py:class:`FanCtrlOptics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics>`
+        	**type**\: int
+        
+        	**range:** 0..1
+        
+        	**config**\: False
         
         .. attribute:: graceful_shutdown
         
         	
-        	**type**\:  :py:class:`GracefulShutdown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown>`
+        	**type**\: int
+        
+        	**range:** 0..1
+        
+        	**config**\: False
         
         
 
         """
 
         _prefix = 'envmon'
-        _revision = '2018-02-06'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Environment.Config, self).__init__()
@@ -2982,8 +3021,15 @@ class Environment(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("router", ("router", Environment.Config.Router)), ("air-filter", ("air_filter", Environment.Config.AirFilter)), ("fan-ctrl", ("fan_ctrl", Environment.Config.FanCtrl)), ("temperature", ("temperature", Environment.Config.Temperature)), ("monitoring", ("monitoring", Environment.Config.Monitoring)), ("raise-fan-speed", ("raise_fan_speed", Environment.Config.RaiseFanSpeed)), ("fan-ctrl-optics", ("fan_ctrl_optics", Environment.Config.FanCtrlOptics)), ("graceful-shutdown", ("graceful_shutdown", Environment.Config.GracefulShutdown))])
-            self._leafs = OrderedDict()
+            self._child_classes = OrderedDict([("router", ("router", Environment.Config.Router)), ("air-filter", ("air_filter", Environment.Config.AirFilter)), ("fan-ctrl", ("fan_ctrl", Environment.Config.FanCtrl)), ("temperature", ("temperature", Environment.Config.Temperature)), ("monitoring", ("monitoring", Environment.Config.Monitoring))])
+            self._leafs = OrderedDict([
+                ('raise_fan_speed', (YLeaf(YType.uint32, 'raise-fan-speed'), ['int'])),
+                ('fan_ctrl_optics', (YLeaf(YType.uint32, 'fan-ctrl-optics'), ['int'])),
+                ('graceful_shutdown', (YLeaf(YType.uint32, 'graceful-shutdown'), ['int'])),
+            ])
+            self.raise_fan_speed = None
+            self.fan_ctrl_optics = None
+            self.graceful_shutdown = None
 
             self.router = Environment.Config.Router()
             self.router.parent = self
@@ -3004,24 +3050,12 @@ class Environment(Entity):
             self.monitoring = Environment.Config.Monitoring()
             self.monitoring.parent = self
             self._children_name_map["monitoring"] = "monitoring"
-
-            self.raise_fan_speed = Environment.Config.RaiseFanSpeed()
-            self.raise_fan_speed.parent = self
-            self._children_name_map["raise_fan_speed"] = "raise-fan-speed"
-
-            self.fan_ctrl_optics = Environment.Config.FanCtrlOptics()
-            self.fan_ctrl_optics.parent = self
-            self._children_name_map["fan_ctrl_optics"] = "fan-ctrl-optics"
-
-            self.graceful_shutdown = Environment.Config.GracefulShutdown()
-            self.graceful_shutdown.parent = self
-            self._children_name_map["graceful_shutdown"] = "graceful-shutdown"
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Environment.Config, [], name, value)
+            self._perform_setattr(Environment.Config, ['raise_fan_speed', 'fan_ctrl_optics', 'graceful_shutdown'], name, value)
 
 
         class Router(Entity):
@@ -3038,7 +3072,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Config.Router, self).__init__()
@@ -3081,7 +3115,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Config.Router.Altitude, self).__init__()
@@ -3125,7 +3159,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.Router.Altitude.All, self).__init__()
@@ -3163,7 +3197,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.Router.Altitude.RackLoc, self).__init__()
@@ -3206,7 +3240,7 @@ class Environment(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Environment.Config.Router.Altitude.RackLoc.Location, self).__init__()
@@ -3249,7 +3283,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Config.AirFilter, self).__init__()
@@ -3292,7 +3326,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Config.AirFilter.Replaced, self).__init__()
@@ -3334,7 +3368,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.AirFilter.Replaced.All, self).__init__()
@@ -3372,7 +3406,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.AirFilter.Replaced.RackLoc, self).__init__()
@@ -3413,7 +3447,7 @@ class Environment(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Environment.Config.AirFilter.Replaced.RackLoc.Location, self).__init__()
@@ -3456,7 +3490,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Config.FanCtrl, self).__init__()
@@ -3494,7 +3528,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Config.FanCtrl.Disable, self).__init__()
@@ -3537,7 +3571,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.FanCtrl.Disable.RackLoc, self).__init__()
@@ -3576,7 +3610,7 @@ class Environment(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Environment.Config.FanCtrl.Disable.RackLoc.Location, self).__init__()
@@ -3617,7 +3651,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Config.Temperature, self).__init__()
@@ -3655,7 +3689,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Config.Temperature.Disable, self).__init__()
@@ -3698,7 +3732,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.Temperature.Disable.RackLoc, self).__init__()
@@ -3737,7 +3771,7 @@ class Environment(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Environment.Config.Temperature.Disable.RackLoc.Location, self).__init__()
@@ -3778,7 +3812,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Config.Monitoring, self).__init__()
@@ -3816,7 +3850,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Config.Monitoring.Disable, self).__init__()
@@ -3859,7 +3893,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Config.Monitoring.Disable.RackLoc, self).__init__()
@@ -3898,7 +3932,7 @@ class Environment(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Environment.Config.Monitoring.Disable.RackLoc.Location, self).__init__()
@@ -3919,500 +3953,6 @@ class Environment(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Monitoring.Disable.RackLoc.Location, ['rackid'], name, value)
-
-
-
-
-
-
-        class RaiseFanSpeed(Entity):
-            """
-            
-            
-            .. attribute:: all
-            
-            	
-            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.All>`
-            
-            .. attribute:: rack_loc
-            
-            	
-            	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.RackLoc>`
-            
-            
-
-            """
-
-            _prefix = 'envmon'
-            _revision = '2018-02-06'
-
-            def __init__(self):
-                super(Environment.Config.RaiseFanSpeed, self).__init__()
-
-                self.yang_name = "raise-fan-speed"
-                self.yang_parent_name = "config"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("all", ("all", Environment.Config.RaiseFanSpeed.All)), ("rack_loc", ("rack_loc", Environment.Config.RaiseFanSpeed.RackLoc))])
-                self._leafs = OrderedDict()
-
-                self.all = Environment.Config.RaiseFanSpeed.All()
-                self.all.parent = self
-                self._children_name_map["all"] = "all"
-
-                self.rack_loc = Environment.Config.RaiseFanSpeed.RackLoc()
-                self.rack_loc.parent = self
-                self._children_name_map["rack_loc"] = "rack_loc"
-                self._segment_path = lambda: "raise-fan-speed"
-                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Environment.Config.RaiseFanSpeed, [], name, value)
-
-
-            class All(Entity):
-                """
-                
-                
-                .. attribute:: speed_pwm
-                
-                	
-                	**type**\: int
-                
-                	**range:** 0..100
-                
-                
-
-                """
-
-                _prefix = 'envmon'
-                _revision = '2018-02-06'
-
-                def __init__(self):
-                    super(Environment.Config.RaiseFanSpeed.All, self).__init__()
-
-                    self.yang_name = "all"
-                    self.yang_parent_name = "raise-fan-speed"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('speed_pwm', (YLeaf(YType.uint32, 'speed_pwm'), ['int'])),
-                    ])
-                    self.speed_pwm = None
-                    self._segment_path = lambda: "all"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Config.RaiseFanSpeed.All, [u'speed_pwm'], name, value)
-
-
-
-            class RackLoc(Entity):
-                """
-                
-                
-                .. attribute:: location
-                
-                	
-                	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.RaiseFanSpeed.RackLoc.Location>`
-                
-                
-
-                """
-
-                _prefix = 'envmon'
-                _revision = '2018-02-06'
-
-                def __init__(self):
-                    super(Environment.Config.RaiseFanSpeed.RackLoc, self).__init__()
-
-                    self.yang_name = "rack_loc"
-                    self.yang_parent_name = "raise-fan-speed"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("location", ("location", Environment.Config.RaiseFanSpeed.RackLoc.Location))])
-                    self._leafs = OrderedDict()
-
-                    self.location = YList(self)
-                    self._segment_path = lambda: "rack_loc"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Config.RaiseFanSpeed.RackLoc, [], name, value)
-
-
-                class Location(Entity):
-                    """
-                    
-                    
-                    .. attribute:: rackid  (key)
-                    
-                    	
-                    	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
-                    
-                    .. attribute:: speed_pwm
-                    
-                    	
-                    	**type**\: int
-                    
-                    	**range:** 0..100
-                    
-                    
-
-                    """
-
-                    _prefix = 'envmon'
-                    _revision = '2018-02-06'
-
-                    def __init__(self):
-                        super(Environment.Config.RaiseFanSpeed.RackLoc.Location, self).__init__()
-
-                        self.yang_name = "location"
-                        self.yang_parent_name = "rack_loc"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['rackid']
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
-                            ('speed_pwm', (YLeaf(YType.uint32, 'speed_pwm'), ['int'])),
-                        ])
-                        self.rackid = None
-                        self.speed_pwm = None
-                        self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/rack_loc/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Config.RaiseFanSpeed.RackLoc.Location, [u'rackid', u'speed_pwm'], name, value)
-
-
-
-
-
-        class FanCtrlOptics(Entity):
-            """
-            
-            
-            .. attribute:: enable
-            
-            	
-            	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable>`
-            
-            
-
-            """
-
-            _prefix = 'envmon'
-            _revision = '2018-02-06'
-
-            def __init__(self):
-                super(Environment.Config.FanCtrlOptics, self).__init__()
-
-                self.yang_name = "fan-ctrl-optics"
-                self.yang_parent_name = "config"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("enable", ("enable", Environment.Config.FanCtrlOptics.Enable))])
-                self._leafs = OrderedDict()
-
-                self.enable = Environment.Config.FanCtrlOptics.Enable()
-                self.enable.parent = self
-                self._children_name_map["enable"] = "enable"
-                self._segment_path = lambda: "fan-ctrl-optics"
-                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Environment.Config.FanCtrlOptics, [], name, value)
-
-
-            class Enable(Entity):
-                """
-                
-                
-                .. attribute:: rack_loc
-                
-                	
-                	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable.RackLoc>`
-                
-                
-
-                """
-
-                _prefix = 'envmon'
-                _revision = '2018-02-06'
-
-                def __init__(self):
-                    super(Environment.Config.FanCtrlOptics.Enable, self).__init__()
-
-                    self.yang_name = "enable"
-                    self.yang_parent_name = "fan-ctrl-optics"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("rack_loc", ("rack_loc", Environment.Config.FanCtrlOptics.Enable.RackLoc))])
-                    self._leafs = OrderedDict()
-
-                    self.rack_loc = Environment.Config.FanCtrlOptics.Enable.RackLoc()
-                    self.rack_loc.parent = self
-                    self._children_name_map["rack_loc"] = "rack_loc"
-                    self._segment_path = lambda: "enable"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Config.FanCtrlOptics.Enable, [], name, value)
-
-
-                class RackLoc(Entity):
-                    """
-                    
-                    
-                    .. attribute:: all
-                    
-                    	
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: location
-                    
-                    	
-                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.FanCtrlOptics.Enable.RackLoc.Location>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'envmon'
-                    _revision = '2018-02-06'
-
-                    def __init__(self):
-                        super(Environment.Config.FanCtrlOptics.Enable.RackLoc, self).__init__()
-
-                        self.yang_name = "rack_loc"
-                        self.yang_parent_name = "enable"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("location", ("location", Environment.Config.FanCtrlOptics.Enable.RackLoc.Location))])
-                        self._leafs = OrderedDict([
-                            ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
-                        ])
-                        self.all = None
-
-                        self.location = YList(self)
-                        self._segment_path = lambda: "rack_loc"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Config.FanCtrlOptics.Enable.RackLoc, [u'all'], name, value)
-
-
-                    class Location(Entity):
-                        """
-                        
-                        
-                        .. attribute:: rackid  (key)
-                        
-                        	
-                        	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'envmon'
-                        _revision = '2018-02-06'
-
-                        def __init__(self):
-                            super(Environment.Config.FanCtrlOptics.Enable.RackLoc.Location, self).__init__()
-
-                            self.yang_name = "location"
-                            self.yang_parent_name = "rack_loc"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['rackid']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
-                            ])
-                            self.rackid = None
-                            self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/rack_loc/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Environment.Config.FanCtrlOptics.Enable.RackLoc.Location, [u'rackid'], name, value)
-
-
-
-
-
-
-        class GracefulShutdown(Entity):
-            """
-            
-            
-            .. attribute:: disable
-            
-            	
-            	**type**\:  :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable>`
-            
-            
-
-            """
-
-            _prefix = 'envmon'
-            _revision = '2018-02-06'
-
-            def __init__(self):
-                super(Environment.Config.GracefulShutdown, self).__init__()
-
-                self.yang_name = "graceful-shutdown"
-                self.yang_parent_name = "config"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("disable", ("disable", Environment.Config.GracefulShutdown.Disable))])
-                self._leafs = OrderedDict()
-
-                self.disable = Environment.Config.GracefulShutdown.Disable()
-                self.disable.parent = self
-                self._children_name_map["disable"] = "disable"
-                self._segment_path = lambda: "graceful-shutdown"
-                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Environment.Config.GracefulShutdown, [], name, value)
-
-
-            class Disable(Entity):
-                """
-                
-                
-                .. attribute:: rack_loc
-                
-                	
-                	**type**\:  :py:class:`RackLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable.RackLoc>`
-                
-                
-
-                """
-
-                _prefix = 'envmon'
-                _revision = '2018-02-06'
-
-                def __init__(self):
-                    super(Environment.Config.GracefulShutdown.Disable, self).__init__()
-
-                    self.yang_name = "disable"
-                    self.yang_parent_name = "graceful-shutdown"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("rack_loc", ("rack_loc", Environment.Config.GracefulShutdown.Disable.RackLoc))])
-                    self._leafs = OrderedDict()
-
-                    self.rack_loc = Environment.Config.GracefulShutdown.Disable.RackLoc()
-                    self.rack_loc.parent = self
-                    self._children_name_map["rack_loc"] = "rack_loc"
-                    self._segment_path = lambda: "disable"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Config.GracefulShutdown.Disable, [], name, value)
-
-
-                class RackLoc(Entity):
-                    """
-                    
-                    
-                    .. attribute:: all
-                    
-                    	
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: location
-                    
-                    	
-                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Config.GracefulShutdown.Disable.RackLoc.Location>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'envmon'
-                    _revision = '2018-02-06'
-
-                    def __init__(self):
-                        super(Environment.Config.GracefulShutdown.Disable.RackLoc, self).__init__()
-
-                        self.yang_name = "rack_loc"
-                        self.yang_parent_name = "disable"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("location", ("location", Environment.Config.GracefulShutdown.Disable.RackLoc.Location))])
-                        self._leafs = OrderedDict([
-                            ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
-                        ])
-                        self.all = None
-
-                        self.location = YList(self)
-                        self._segment_path = lambda: "rack_loc"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Config.GracefulShutdown.Disable.RackLoc, [u'all'], name, value)
-
-
-                    class Location(Entity):
-                        """
-                        
-                        
-                        .. attribute:: rackid  (key)
-                        
-                        	
-                        	**type**\:  :py:class:`RackId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types.RackId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'envmon'
-                        _revision = '2018-02-06'
-
-                        def __init__(self):
-                            super(Environment.Config.GracefulShutdown.Disable.RackLoc.Location, self).__init__()
-
-                            self.yang_name = "location"
-                            self.yang_parent_name = "rack_loc"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['rackid']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('rackid', (YLeaf(YType.enumeration, 'rackId'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types', 'RackId', '')])),
-                            ])
-                            self.rackid = None
-                            self._segment_path = lambda: "location" + "[rackId='" + str(self.rackid) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/rack_loc/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Environment.Config.GracefulShutdown.Disable.RackLoc.Location, [u'rackid'], name, value)
 
 
 
@@ -4443,7 +3983,7 @@ class Environment(Entity):
         """
 
         _prefix = 'envmon'
-        _revision = '2018-02-06'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Environment.Trace, self).__init__()
@@ -4465,7 +4005,7 @@ class Environment(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Environment.Trace, [u'buffer'], name, value)
+            self._perform_setattr(Environment.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -4491,7 +4031,7 @@ class Environment(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Environment.Trace.Location, self).__init__()
@@ -4512,7 +4052,7 @@ class Environment(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Environment.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(Environment.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -4538,7 +4078,7 @@ class Environment(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Environment.Trace.Location.AllOptions, self).__init__()
@@ -4559,7 +4099,7 @@ class Environment(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Environment.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(Environment.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -4578,7 +4118,7 @@ class Environment(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Environment.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -4597,7 +4137,7 @@ class Environment(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Environment.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(Environment.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -4623,7 +4163,7 @@ class PowerMgmt(Entity):
     """
 
     _prefix = 'envmon'
-    _revision = '2018-02-06'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(PowerMgmt, self).__init__()
@@ -4681,7 +4221,7 @@ class PowerMgmt(Entity):
         """
 
         _prefix = 'envmon'
-        _revision = '2018-02-06'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(PowerMgmt.Config, self).__init__()
@@ -4735,7 +4275,7 @@ class PowerMgmt(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(PowerMgmt.Config.Action, self).__init__()
@@ -4773,7 +4313,7 @@ class PowerMgmt(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.Action.Disable, self).__init__()
@@ -4816,7 +4356,7 @@ class PowerMgmt(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(PowerMgmt.Config.Action.Disable.RackLoc, self).__init__()
@@ -4855,7 +4395,7 @@ class PowerMgmt(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(PowerMgmt.Config.Action.Disable.RackLoc.Location, self).__init__()
@@ -4896,7 +4436,7 @@ class PowerMgmt(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(PowerMgmt.Config.SingleFeedMode, self).__init__()
@@ -4934,7 +4474,7 @@ class PowerMgmt(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.SingleFeedMode.Enable, self).__init__()
@@ -4977,7 +4517,7 @@ class PowerMgmt(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc, self).__init__()
@@ -5016,7 +4556,7 @@ class PowerMgmt(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location, self).__init__()
@@ -5057,7 +4597,7 @@ class PowerMgmt(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(PowerMgmt.Config.ExtendedTemp, self).__init__()
@@ -5095,7 +4635,7 @@ class PowerMgmt(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.ExtendedTemp.Enable, self).__init__()
@@ -5138,7 +4678,7 @@ class PowerMgmt(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc, self).__init__()
@@ -5177,7 +4717,7 @@ class PowerMgmt(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location, self).__init__()
@@ -5223,7 +4763,7 @@ class PowerMgmt(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(PowerMgmt.Config.RedundancyNumPms, self).__init__()
@@ -5260,14 +4800,14 @@ class PowerMgmt(Entity):
                 	
                 	**type**\: int
                 
-                	**range:** 0..5
+                	**range:** 0..1
                 
                 
 
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.RedundancyNumPms.All, self).__init__()
@@ -5305,7 +4845,7 @@ class PowerMgmt(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.RedundancyNumPms.RackLoc, self).__init__()
@@ -5341,14 +4881,14 @@ class PowerMgmt(Entity):
                     	
                     	**type**\: int
                     
-                    	**range:** 0..5
+                    	**range:** 0..1
                     
                     
 
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(PowerMgmt.Config.RedundancyNumPms.RackLoc.Location, self).__init__()
@@ -5390,7 +4930,7 @@ class PowerMgmt(Entity):
             """
 
             _prefix = 'envmon'
-            _revision = '2018-02-06'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(PowerMgmt.Config.Progressive, self).__init__()
@@ -5445,7 +4985,7 @@ class PowerMgmt(Entity):
                 """
 
                 _prefix = 'envmon'
-                _revision = '2018-02-06'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(PowerMgmt.Config.Progressive.Enable, self).__init__()
@@ -5501,7 +5041,7 @@ class PowerMgmt(Entity):
                     """
 
                     _prefix = 'envmon'
-                    _revision = '2018-02-06'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(PowerMgmt.Config.Progressive.Enable.Priority, self).__init__()
@@ -5545,7 +5085,7 @@ class PowerMgmt(Entity):
                         """
 
                         _prefix = 'envmon'
-                        _revision = '2018-02-06'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(PowerMgmt.Config.Progressive.Enable.Priority.Location, self).__init__()

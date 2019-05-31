@@ -275,7 +275,7 @@ class BRIDGEMIB(Entity):
         	The bridge identifier of the root of the spanning tree, as determined by the Spanning Tree Protocol, as executed by this node.  This value is used as the Root Identifier parameter in all Configuration Bridge PDUs originated by this node
         	**type**\: str
         
-        	**length:** 8
+        	**length:** 8..8
         
         	**config**\: False
         
@@ -812,7 +812,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, ['dot1dbaseport', 'dot1dbaseportifindex', 'dot1dbaseportcircuit', 'dot1dbaseportdelayexceededdiscards', 'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', 'dot1qpvid', 'dot1qportacceptableframetypes', 'dot1qportingressfiltering', 'dot1qportgvrpstatus', 'dot1qportgvrpfailedregistrations', 'dot1qportgvrplastpduorigin', 'dot1qportrestrictedvlanregistration'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, ['dot1dbaseport', 'dot1dbaseportifindex', 'dot1dbaseportcircuit', 'dot1dbaseportdelayexceededdiscards', 'dot1dbaseportmtuexceededdiscards', 'dot1dportcapabilities', 'dot1dportdefaultuserpriority', 'dot1dportnumtrafficclasses', 'dot1dportgarpjointime', 'dot1dportgarpleavetime', 'dot1dportgarpleavealltime', 'dot1dportgmrpstatus', 'dot1dportgmrpfailedregistrations', 'dot1dportgmrplastpduorigin', 'dot1dportrestrictedgroupregistration', 'dot1qpvid', 'dot1qportacceptableframetypes', 'dot1qportingressfiltering', 'dot1qportgvrpstatus', 'dot1qportgvrpfailedregistrations', 'dot1qportgvrplastpduorigin', 'dot1qportrestrictedvlanregistration'], name, value)
 
             class Dot1qPortAcceptableFrameTypes(Enum):
                 """
@@ -946,7 +946,7 @@ class BRIDGEMIB(Entity):
             	The unique Bridge Identifier of the Bridge recorded as the Root in the Configuration BPDUs transmitted by the Designated Bridge for the segment to which the port is attached
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -964,7 +964,7 @@ class BRIDGEMIB(Entity):
             	The Bridge Identifier of the bridge that this port considers to be the Designated Bridge for this port's segment
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -973,7 +973,7 @@ class BRIDGEMIB(Entity):
             	The Port Identifier of the port on the Designated Bridge for this port's segment
             	**type**\: str
             
-            	**length:** 2
+            	**length:** 2..2
             
             	**config**\: False
             

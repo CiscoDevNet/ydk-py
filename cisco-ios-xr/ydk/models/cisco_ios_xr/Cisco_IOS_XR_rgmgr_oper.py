@@ -215,7 +215,7 @@ class RedundancyGroupManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', u'multi_router_aps_group_number', u'controller_name_xr', u'controller_handle', u'backup_interface_name', u'backup_interface_handle', u'backup_interface_next_hop_ip_address', u'inter_chassis_group_state'], name, value)
+                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'multi_router_aps_group_number', 'controller_name_xr', 'controller_handle', 'backup_interface_name', 'backup_interface_handle', 'backup_interface_next_hop_ip_address', 'inter_chassis_group_state'], name, value)
 
 
 

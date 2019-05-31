@@ -706,6 +706,13 @@ class Ssh1(Entity):
                         """
                         session detail info
                         
+                        .. attribute:: next_session
+                        
+                        	next session
+                        	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession>`
+                        
+                        	**config**\: False
+                        
                         .. attribute:: session_id
                         
                         	Session ID
@@ -786,7 +793,7 @@ class Ssh1(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("next-session", ("next_session", Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession))])
                             self._leafs = OrderedDict([
                                 ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                                 ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -807,11 +814,41 @@ class Ssh1(Entity):
                             self.out_mac = None
                             self.start_time = None
                             self.end_time = None
+
+                            self.next_session = Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession()
+                            self.next_session.parent = self
+                            self._children_name_map["next_session"] = "next-session"
                             self._segment_path = lambda: "session-detail-info"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                        class NextSession(Entity):
+                            """
+                            next session
+                            
+                            
+
+                            """
+
+                            _prefix = 'crypto-ssh-oper'
+                            _revision = '2017-08-25'
+
+                            def __init__(self):
+                                super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+
+                                self.yang_name = "next-session"
+                                self.yang_parent_name = "session-detail-info"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+                                self._segment_path = lambda: "next-session"
+                                self._is_frozen = True
+
 
 
 
@@ -856,6 +893,13 @@ class Ssh1(Entity):
                     class SessionDetailInfo(Entity):
                         """
                         session detail info
+                        
+                        .. attribute:: next_session
+                        
+                        	next session
+                        	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_id
                         
@@ -937,7 +981,7 @@ class Ssh1(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("next-session", ("next_session", Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession))])
                             self._leafs = OrderedDict([
                                 ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                                 ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -958,11 +1002,41 @@ class Ssh1(Entity):
                             self.out_mac = None
                             self.start_time = None
                             self.end_time = None
+
+                            self.next_session = Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession()
+                            self.next_session.parent = self
+                            self._children_name_map["next_session"] = "next-session"
                             self._segment_path = lambda: "session-detail-info"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                        class NextSession(Entity):
+                            """
+                            next session
+                            
+                            
+
+                            """
+
+                            _prefix = 'crypto-ssh-oper'
+                            _revision = '2017-08-25'
+
+                            def __init__(self):
+                                super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+
+                                self.yang_name = "next-session"
+                                self.yang_parent_name = "session-detail-info"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+                                self._segment_path = lambda: "next-session"
+                                self._is_frozen = True
+
 
 
 
@@ -1192,6 +1266,13 @@ class Ssh(Entity):
                     """
                     session rekey info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -1239,7 +1320,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('session_rekey_count', (YLeaf(YType.uint32, 'session-rekey-count'), ['int'])),
@@ -1250,12 +1331,43 @@ class Ssh(Entity):
                         self.session_rekey_count = None
                         self.time_to_rekey = None
                         self.volume_to_rekey = None
+
+                        self.next_session = Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-rekey-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/session-rekey-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 
@@ -1301,6 +1413,13 @@ class Ssh(Entity):
                 class SessionRekeyInfo(Entity):
                     """
                     session rekey info
+                    
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_id
                     
@@ -1349,7 +1468,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('session_rekey_count', (YLeaf(YType.uint32, 'session-rekey-count'), ['int'])),
@@ -1360,12 +1479,43 @@ class Ssh(Entity):
                         self.session_rekey_count = None
                         self.time_to_rekey = None
                         self.volume_to_rekey = None
+
+                        self.next_session = Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-rekey-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/session-rekey-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 
@@ -1464,6 +1614,13 @@ class Ssh(Entity):
                     """
                     session detail info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -1544,7 +1701,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -1565,12 +1722,43 @@ class Ssh(Entity):
                         self.out_mac = None
                         self.start_time = None
                         self.end_time = None
+
+                        self.next_session = Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-detail-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/session-detail-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 
@@ -1616,6 +1804,13 @@ class Ssh(Entity):
                 class SessionDetailInfo(Entity):
                     """
                     session detail info
+                    
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_id
                     
@@ -1697,7 +1892,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -1718,12 +1913,43 @@ class Ssh(Entity):
                         self.out_mac = None
                         self.start_time = None
                         self.end_time = None
+
+                        self.next_session = Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-detail-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/session-detail-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 
@@ -1822,6 +2048,13 @@ class Ssh(Entity):
                     """
                     session brief info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -1897,7 +2130,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo))])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession)), ("mc-info", ("mc_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
@@ -1915,6 +2148,10 @@ class Ssh(Entity):
                         self.version = None
                         self.authentication_type = None
 
+                        self.next_session = Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
+
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self._segment_path()
@@ -1922,6 +2159,33 @@ class Ssh(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-brief-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/session-brief-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
                     class McInfo(Entity):
@@ -2039,6 +2303,13 @@ class Ssh(Entity):
                     """
                     session brief info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -2114,7 +2385,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo))])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession)), ("mc-info", ("mc_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
@@ -2132,6 +2403,10 @@ class Ssh(Entity):
                         self.version = None
                         self.authentication_type = None
 
+                        self.next_session = Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
+
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self._segment_path()
@@ -2139,6 +2414,33 @@ class Ssh(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-brief-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/session-brief-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
                     class McInfo(Entity):
@@ -2297,6 +2599,13 @@ class Ssh(Entity):
                     """
                     session history info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -2365,7 +2674,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo))])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession)), ("mc-info", ("mc_info", Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
@@ -2381,6 +2690,10 @@ class Ssh(Entity):
                         self.version = None
                         self.authentication_type = None
 
+                        self.next_session = Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
+
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-history-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/%s" % self._segment_path()
@@ -2388,6 +2701,33 @@ class Ssh(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, ['session_id', 'node_name', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-history-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/session-history-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
                     class McInfo(Entity):
@@ -2557,6 +2897,13 @@ class Ssh(Entity):
                     """
                     session detail info
                     
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
@@ -2637,7 +2984,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -2658,12 +3005,43 @@ class Ssh(Entity):
                         self.out_mac = None
                         self.start_time = None
                         self.end_time = None
+
+                        self.next_session = Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-detail-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/session-detail-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 
@@ -2709,6 +3087,13 @@ class Ssh(Entity):
                 class SessionDetailInfo(Entity):
                     """
                     session detail info
+                    
+                    .. attribute:: next_session
+                    
+                    	next session
+                    	**type**\:  :py:class:`NextSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_id
                     
@@ -2790,7 +3175,7 @@ class Ssh(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("next-session", ("next_session", Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession))])
                         self._leafs = OrderedDict([
                             ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                             ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
@@ -2811,12 +3196,43 @@ class Ssh(Entity):
                         self.out_mac = None
                         self.start_time = None
                         self.end_time = None
+
+                        self.next_session = Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession()
+                        self.next_session.parent = self
+                        self._children_name_map["next_session"] = "next-session"
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+                    class NextSession(Entity):
+                        """
+                        next session
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-08-25'
+
+                        def __init__(self):
+                            super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+
+                            self.yang_name = "next-session"
+                            self.yang_parent_name = "session-detail-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+                            self._segment_path = lambda: "next-session"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/session-detail-info/%s" % self._segment_path()
+                            self._is_frozen = True
+
 
 
 

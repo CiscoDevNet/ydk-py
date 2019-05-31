@@ -5,7 +5,7 @@ for Cisco IOS\-XR skp\-qos package operational data.
 
 This module contains definitions
 for the following management objects\:
-  platform\-qos\: QoS Skywarp platform operational data
+  platform\-qos\: QoS Skywarp platform operational data 
   platform\-qos\-ea\: platform qos ea
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
@@ -1065,7 +1065,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -1176,7 +1176,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
 
@@ -1226,7 +1226,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
 
@@ -1276,7 +1276,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
 
@@ -1421,7 +1421,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
                                         class Queue(Entity):
@@ -1472,7 +1472,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
 
 
@@ -1572,7 +1572,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -1622,7 +1622,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -1686,7 +1686,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
                                             class CommittedWeight(Entity):
@@ -1735,7 +1735,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
 
 
@@ -1798,7 +1798,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
                                                 class Bandwidth(Entity):
@@ -1847,7 +1847,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -1897,7 +1897,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -1971,7 +1971,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -2020,7 +2020,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -2070,7 +2070,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -2180,7 +2180,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2229,7 +2229,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -2278,7 +2278,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2327,7 +2327,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -2376,7 +2376,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2425,7 +2425,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -2565,7 +2565,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -2676,7 +2676,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
 
@@ -2726,7 +2726,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
 
@@ -2776,7 +2776,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
 
@@ -2921,7 +2921,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
                                         class Queue(Entity):
@@ -2972,7 +2972,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
 
 
@@ -3072,7 +3072,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -3122,7 +3122,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -3186,7 +3186,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
                                             class CommittedWeight(Entity):
@@ -3235,7 +3235,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
 
 
@@ -3298,7 +3298,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
                                                 class Bandwidth(Entity):
@@ -3347,7 +3347,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -3397,7 +3397,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -3471,7 +3471,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -3520,7 +3520,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -3570,7 +3570,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -3680,7 +3680,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3729,7 +3729,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -3778,7 +3778,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3827,7 +3827,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -3876,7 +3876,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3925,7 +3925,7 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -4063,7 +4063,7 @@ class PlatformQos(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, [u'max_policy_maps', u'max_policy_hierarchy', u'max_policy_name_length', u'max_classes_per_policy', u'max_police_actions_per_class', u'max_marking_actions_per_class', u'max_matches_per_class', u'max_classmap_name_length', u'max_bundle_members'], name, value)
+                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_policy_maps', 'max_policy_hierarchy', 'max_policy_name_length', 'max_classes_per_policy', 'max_police_actions_per_class', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_classmap_name_length', 'max_bundle_members'], name, value)
 
 
 
@@ -4297,7 +4297,7 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -4408,7 +4408,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
 
@@ -4458,7 +4458,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
 
@@ -4508,7 +4508,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
 
@@ -4653,7 +4653,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
                                 class Queue(Entity):
@@ -4704,7 +4704,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
 
 
@@ -4804,7 +4804,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -4854,7 +4854,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -4918,7 +4918,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
                                     class CommittedWeight(Entity):
@@ -4967,7 +4967,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
 
 
@@ -5030,7 +5030,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
                                         class Bandwidth(Entity):
@@ -5079,7 +5079,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -5129,7 +5129,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -5203,7 +5203,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
                                     class Cir(Entity):
@@ -5252,7 +5252,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -5302,7 +5302,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -5412,7 +5412,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -5461,7 +5461,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -5510,7 +5510,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -5559,7 +5559,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -5608,7 +5608,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -5657,7 +5657,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -5797,7 +5797,7 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -5908,7 +5908,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
 
@@ -5958,7 +5958,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
 
@@ -6008,7 +6008,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
 
@@ -6153,7 +6153,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
                                 class Queue(Entity):
@@ -6204,7 +6204,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
 
 
@@ -6304,7 +6304,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -6354,7 +6354,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -6418,7 +6418,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
                                     class CommittedWeight(Entity):
@@ -6467,7 +6467,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
 
 
@@ -6530,7 +6530,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
                                         class Bandwidth(Entity):
@@ -6579,7 +6579,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -6629,7 +6629,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -6703,7 +6703,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
                                     class Cir(Entity):
@@ -6752,7 +6752,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -6802,7 +6802,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -6912,7 +6912,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -6961,7 +6961,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -7010,7 +7010,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -7059,7 +7059,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -7108,7 +7108,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -7157,7 +7157,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
 
@@ -7675,7 +7675,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -7837,7 +7837,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
 
@@ -7992,7 +7992,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                             class Config(Entity):
@@ -8065,7 +8065,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
                                                 class Police(Entity):
@@ -8134,7 +8134,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
                                                     class Cir(Entity):
@@ -8183,7 +8183,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -8233,7 +8233,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -8334,7 +8334,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -8384,7 +8384,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -8448,7 +8448,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
                                                     class Bandwidth(Entity):
@@ -8497,7 +8497,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -8547,7 +8547,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -8612,7 +8612,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                                 class Queue(Entity):
@@ -8685,7 +8685,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
 
 
@@ -8759,7 +8759,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
 
 
@@ -8938,7 +8938,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -9100,7 +9100,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
 
@@ -9255,7 +9255,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                             class Config(Entity):
@@ -9328,7 +9328,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
                                                 class Police(Entity):
@@ -9397,7 +9397,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
                                                     class Cir(Entity):
@@ -9446,7 +9446,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -9496,7 +9496,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -9597,7 +9597,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -9647,7 +9647,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -9711,7 +9711,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
                                                     class Bandwidth(Entity):
@@ -9760,7 +9760,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -9810,7 +9810,7 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -9875,7 +9875,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                                 class Queue(Entity):
@@ -9948,7 +9948,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
 
 
@@ -10022,7 +10022,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
 
 
@@ -10304,7 +10304,7 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -10466,7 +10466,7 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
 
@@ -10621,7 +10621,7 @@ class PlatformQosEa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                     class Config(Entity):
@@ -10694,7 +10694,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
                                         class Police(Entity):
@@ -10763,7 +10763,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -10812,7 +10812,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -10862,7 +10862,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -10963,7 +10963,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -11013,7 +11013,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -11077,7 +11077,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
                                             class Bandwidth(Entity):
@@ -11126,7 +11126,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -11176,7 +11176,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -11241,7 +11241,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                         class Queue(Entity):
@@ -11314,7 +11314,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
 
 
@@ -11388,7 +11388,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
 
 
@@ -11567,7 +11567,7 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
 
@@ -11729,7 +11729,7 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
 
@@ -11884,7 +11884,7 @@ class PlatformQosEa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                     class Config(Entity):
@@ -11957,7 +11957,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
                                         class Police(Entity):
@@ -12026,7 +12026,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -12075,7 +12075,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
 
 
@@ -12125,7 +12125,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
 
@@ -12226,7 +12226,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
 
 
@@ -12276,7 +12276,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
 
@@ -12340,7 +12340,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
                                             class Bandwidth(Entity):
@@ -12389,7 +12389,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -12439,7 +12439,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
 
@@ -12504,7 +12504,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                         class Queue(Entity):
@@ -12577,7 +12577,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
 
 
@@ -12651,7 +12651,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
 
 

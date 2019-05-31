@@ -32,6 +32,13 @@ class SdrInventory(Entity):
     
     	**config**\: False
     
+    .. attribute:: memory
+    
+    	Memory
+    	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Memory>`
+    
+    	**config**\: False
+    
     
 
     """
@@ -48,12 +55,16 @@ class SdrInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("racks", ("racks", SdrInventory.Racks))])
+        self._child_classes = OrderedDict([("racks", ("racks", SdrInventory.Racks)), ("memory", ("memory", SdrInventory.Memory))])
         self._leafs = OrderedDict()
 
         self.racks = SdrInventory.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
+
+        self.memory = SdrInventory.Memory()
+        self.memory.parent = self
+        self._children_name_map["memory"] = "memory"
         self._segment_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory"
         self._is_frozen = True
 
@@ -455,6 +466,240 @@ class SdrInventory(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'card_valid', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
+
+
+
+
+
+
+
+    class Memory(Entity):
+        """
+        Memory
+        
+        .. attribute:: racks
+        
+        	RackTable
+        	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Memory.Racks>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'sdr-invmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(SdrInventory.Memory, self).__init__()
+
+            self.yang_name = "memory"
+            self.yang_parent_name = "sdr-inventory"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("racks", ("racks", SdrInventory.Memory.Racks))])
+            self._leafs = OrderedDict()
+
+            self.racks = SdrInventory.Memory.Racks()
+            self.racks.parent = self
+            self._children_name_map["racks"] = "racks"
+            self._segment_path = lambda: "memory"
+            self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SdrInventory.Memory, [], name, value)
+
+
+        class Racks(Entity):
+            """
+            RackTable
+            
+            .. attribute:: rack
+            
+            	Rack name
+            	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Memory.Racks.Rack>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'sdr-invmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(SdrInventory.Memory.Racks, self).__init__()
+
+                self.yang_name = "racks"
+                self.yang_parent_name = "memory"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("rack", ("rack", SdrInventory.Memory.Racks.Rack))])
+                self._leafs = OrderedDict()
+
+                self.rack = YList(self)
+                self._segment_path = lambda: "racks"
+                self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SdrInventory.Memory.Racks, [], name, value)
+
+
+            class Rack(Entity):
+                """
+                Rack name
+                
+                .. attribute:: name  (key)
+                
+                	Rack name
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
+                
+                .. attribute:: node_ids
+                
+                	NodeIDTable
+                	**type**\:  :py:class:`NodeIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Memory.Racks.Rack.NodeIds>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'sdr-invmgr-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SdrInventory.Memory.Racks.Rack, self).__init__()
+
+                    self.yang_name = "rack"
+                    self.yang_parent_name = "racks"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['name']
+                    self._child_classes = OrderedDict([("node-ids", ("node_ids", SdrInventory.Memory.Racks.Rack.NodeIds))])
+                    self._leafs = OrderedDict([
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ])
+                    self.name = None
+
+                    self.node_ids = SdrInventory.Memory.Racks.Rack.NodeIds()
+                    self.node_ids.parent = self
+                    self._children_name_map["node_ids"] = "node-ids"
+                    self._segment_path = lambda: "rack" + "[name='" + str(self.name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/racks/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SdrInventory.Memory.Racks.Rack, ['name'], name, value)
+
+
+                class NodeIds(Entity):
+                    """
+                    NodeIDTable
+                    
+                    .. attribute:: node_id
+                    
+                    	Inventory Admin Mempool Data  Bag
+                    	**type**\: list of  		 :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Memory.Racks.Rack.NodeIds.NodeId>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'sdr-invmgr-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(SdrInventory.Memory.Racks.Rack.NodeIds, self).__init__()
+
+                        self.yang_name = "node-ids"
+                        self.yang_parent_name = "rack"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("node-id", ("node_id", SdrInventory.Memory.Racks.Rack.NodeIds.NodeId))])
+                        self._leafs = OrderedDict()
+
+                        self.node_id = YList(self)
+                        self._segment_path = lambda: "node-ids"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SdrInventory.Memory.Racks.Rack.NodeIds, [], name, value)
+
+
+                    class NodeId(Entity):
+                        """
+                        Inventory Admin Mempool Data  Bag
+                        
+                        .. attribute:: name  (key)
+                        
+                        	nodeid
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: total_memory
+                        
+                        	Total Memory
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: available_memory
+                        
+                        	Avaialble Memory
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'sdr-invmgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SdrInventory.Memory.Racks.Rack.NodeIds.NodeId, self).__init__()
+
+                            self.yang_name = "node-id"
+                            self.yang_parent_name = "node-ids"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('total_memory', (YLeaf(YType.uint32, 'total-memory'), ['int'])),
+                                ('available_memory', (YLeaf(YType.uint32, 'available-memory'), ['int'])),
+                            ])
+                            self.name = None
+                            self.total_memory = None
+                            self.available_memory = None
+                            self._segment_path = lambda: "node-id" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SdrInventory.Memory.Racks.Rack.NodeIds.NodeId, ['name', 'total_memory', 'available_memory'], name, value)
 
 
 

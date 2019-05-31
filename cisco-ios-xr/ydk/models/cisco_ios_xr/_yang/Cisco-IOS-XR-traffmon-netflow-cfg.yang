@@ -39,6 +39,22 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Changed type of version node from range to enum and made it mandatory.";
+  }
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
+  revision 2018-05-28 {
+    description
+      "Changed some schema paths for commit check functionality.";
+  }
+  revision 2018-04-01 {
+    description
+      "Changed some schema paths for commit replace functionality.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -81,9 +97,148 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
   }
 
   typedef Nf-sample-number {
-    type uint32;
+    type uint32 {
+      range "1";
+    }
     description
       "Nf sample number";
+  }
+
+  typedef Nf-record-format {
+    type enumeration {
+      enum "datalinkframesections-any" {
+        value 0;
+        description
+          "Record Format datalinkframesections_any";
+      }
+      enum "default-mdi" {
+        value 1;
+        description
+          "Record Format default_mdi";
+      }
+      enum "default-rtp" {
+        value 2;
+        description
+          "Record Format default_rtp";
+      }
+      enum "ipv4-as-agg" {
+        value 3;
+        description
+          "Record Format ipv4_as_agg";
+      }
+      enum "ipv4-as-tos-agg" {
+        value 4;
+        description
+          "Record Format ipv4_as_tos_agg";
+      }
+      enum "ipv4-bgp-nexthop-tos-agg" {
+        value 5;
+        description
+          "Record Format ipv4_bgp_nexthop_tos_agg";
+      }
+      enum "ipv4-destination" {
+        value 6;
+        description
+          "Record Format ipv4_destination";
+      }
+      enum "ipv4-destination-tos-agg" {
+        value 7;
+        description
+          "Record Format ipv4_destination_tos_agg";
+      }
+      enum "ipv4-destination-prefix-agg" {
+        value 8;
+        description
+          "Record Format ipv4_destination_prefix_agg";
+      }
+      enum "ipv4-destination-prefix-tos-agg" {
+        value 9;
+        description
+          "Record Format ipv4_destination_prefix_tos_agg";
+      }
+      enum "ipv4-peer-as" {
+        value 10;
+        description
+          "Record Format ipv4_peer_as";
+      }
+      enum "ipv4-prefix-agg" {
+        value 11;
+        description
+          "Record Format ipv4_prefix_agg";
+      }
+      enum "ipv4-prefix-port-agg" {
+        value 12;
+        description
+          "Record Format ipv4_prefix_port_agg";
+      }
+      enum "ipv4-prefix-tos-agg" {
+        value 13;
+        description
+          "Record Format ipv4_prefix_tos_agg";
+      }
+      enum "ipv4-protocol-port-agg" {
+        value 14;
+        description
+          "Record Format ipv4_protocol_port_agg";
+      }
+      enum "ipv4-protocol-port-tos-agg" {
+        value 15;
+        description
+          "Record Format ipv4_protocol_port_tos_agg";
+      }
+      enum "ipv4-raw" {
+        value 16;
+        description
+          "Record Format ipv4_raw";
+      }
+      enum "ipv4-source-prefix-agg" {
+        value 17;
+        description
+          "Record Format ipv4_source_prefix_agg";
+      }
+      enum "ipv4-source-prefix-tos-agg" {
+        value 18;
+        description
+          "Record Format ipv4_source_prefix_tos_agg";
+      }
+      enum "ipv6" {
+        value 19;
+        description
+          "Record Format ipv6";
+      }
+      enum "ipv6-destination" {
+        value 20;
+        description
+          "Record Format ipv6_destination";
+      }
+      enum "ipv6-peer-as" {
+        value 21;
+        description
+          "Record Format ipv6_peer_as";
+      }
+      enum "mpls" {
+        value 22;
+        description
+          "Record Format mpls";
+      }
+      enum "mpls-ipv4" {
+        value 23;
+        description
+          "Record Format mpls_ipv4";
+      }
+      enum "mpls-ipv4-ipv6" {
+        value 24;
+        description
+          "Record Format mpls_ipv4_ipv6";
+      }
+      enum "mpls-ipv6" {
+        value 25;
+        description
+          "Record Format mpls_ipv6";
+      }
+    }
+    description
+      "Nf record format";
   }
 
   typedef Nf-template-timeout {
@@ -95,7 +250,7 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
   }
 
   typedef Nf-map-name {
-    type xr:Cisco-ios-xr-string {
+    type string {
       length "1..32";
     }
     description
@@ -153,8 +308,17 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
   }
 
   typedef Nf-export-version {
-    type uint32 {
-      range "9..10";
+    type enumeration {
+      enum "v9" {
+        value 9;
+        description
+          "Version v9";
+      }
+      enum "ipfix" {
+        value 10;
+        description
+          "Version ipfix";
+      }
     }
     description
       "Nf export version";
@@ -168,52 +332,53 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
       "Nf cache timeout rate limit";
   }
 
-  grouping FLOW-MONITOR-NAME {
-    description
-      "Common node of ingress, egress";
-    list flow-monitor-name {
-      key "monitor-map-name";
-      description
-        "Specify a sampler for a flow monitor";
-      leaf monitor-map-name {
-        type xr:Cisco-ios-xr-string;
+  typedef Nf-flow-direction {
+    type enumeration {
+      enum "ingress" {
+        value 0;
         description
-          "Flow monitor map name";
+          "Netflow flow direction ingress";
       }
-      leaf sampler-map-name {
-        type string;
-        mandatory true;
+      enum "egress" {
+        value 1;
         description
-          "Sampler map name";
+          "Netflow flow direction egress";
       }
     }
+    description
+      "Nf flow direction";
+  }
+
+  typedef Nf-flow-protocol {
+    type enumeration {
+      enum "ipv4" {
+        value 0;
+        description
+          "Netflow flow protocol ipv4";
+      }
+      enum "ipv6" {
+        value 1;
+        description
+          "Netflow flow protocol ipv6";
+      }
+      enum "mpls" {
+        value 2;
+        description
+          "Netflow flow protocol mpls";
+      }
+      enum "data-link-frame-section" {
+        value 13;
+        description
+          "Netflow flow protocol data-link-frame-section";
+      }
+    }
+    description
+      "Nf flow protocol";
   }
 
   grouping FLOW-MONITOR-MAP {
     description
-      "Common node of mpls, ipv4, ipv6,
-       data-link-frame-section";
-    container flow-monitor-map {
-      description
-        "Configure a flow monitor map";
-      container ingress {
-        description
-          "Configure ingress monitoring direction";
-        uses FLOW-MONITOR-NAME;
-      }
-      container egress {
-        description
-          "Configure egress monitoring direction";
-        uses FLOW-MONITOR-NAME;
-      }
-    }
-  }
-
-  grouping NETFLOW-CFG-FLOW-MONITOR-MAP {
-    description
-      "Common node of mpls, ipv4, ipv6,
-       data-link-frame-sectionCommon node of
-       flow-monitor-map-table,
+      "Common node of flow-monitor-map-table,
        flow-monitor-map-performance-table";
     list flow-monitor-map {
       key "monitor-map-name";
@@ -266,13 +431,11 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
         presence "Indicates a record node is configured.";
         description
           "Specify a flow record format";
-        leaf record-name {
-          type Nf-map-name;
+        leaf record-format {
+          type Nf-record-format;
           mandatory true;
           description
-            "Flow record format (Either 'ipv4-raw'
-             ,'ipv4-peer-as', 'ipv6', 'mpls', 'mpls-ipv4',
-             'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as')";
+            "Flow record format";
         }
         leaf label {
           type uint32 {
@@ -285,40 +448,34 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
       leaf cache-update-aging-timeout {
         type Nf-update-cache-aging-timeout;
         units "second";
-        default "1800";
         description
           "Specify the update flow cache aging timeout";
       }
       leaf cache-entries {
         type Nf-cache-entry;
-        default "65535";
         description
           "Specify the number of entries in the flow cache";
       }
       leaf cache-inactive-aging-timeout {
         type Nf-inactive-cache-aging-timeout;
         units "second";
-        default "15";
         description
           "Specify the inactive flow cache aging timeout";
       }
       leaf cache-active-aging-timeout {
         type Nf-active-cache-aging-timeout;
         units "second";
-        default "1800";
         description
           "Specify the active flow cache aging timeout";
       }
       leaf cache-timeout-rate-limit {
         type Nf-cache-timeout-rate-limit;
-        default "2000";
         description
           "Specify the maximum number of entries to age
            each second";
       }
       leaf cache-aging-mode {
         type Nf-cache-aging-mode;
-        default "normal";
         description
           "Specify the flow cache aging mode";
       }
@@ -334,28 +491,53 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
     description
       "This augment extends the configuration data of
        'Cisco-IOS-XR-ifmgr-cfg'";
-    container net-flow {
+    container flow-protocols {
       description
         "Interface netflow configuration";
-      container data-link-frame-section {
+      list flow-protocol {
+        key "flow-protocol";
         description
-          "Configure datalinkframesection netflow";
-        uses FLOW-MONITOR-MAP;
-      }
-      container mpls {
-        description
-          "Configure MPLS netflow";
-        uses FLOW-MONITOR-MAP;
-      }
-      container ipv6 {
-        description
-          "Configure IPv6 netflow";
-        uses FLOW-MONITOR-MAP;
-      }
-      container ipv4 {
-        description
-          "Configure IPv4 netflow";
-        uses FLOW-MONITOR-MAP;
+          "Configure netflow flow protocol";
+        leaf flow-protocol {
+          type Nf-flow-protocol;
+          description
+            "Netflow Flow Protocol";
+        }
+        list direction {
+          key "flow-direction";
+          description
+            "Configure netflow flow direction";
+          list monitor-info {
+            key "monitor-map";
+            description
+              "Specify a sampler for a flow monitor";
+            leaf monitor-map {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Flow monitor map name";
+            }
+          }
+          list monitor-info-sampler-map {
+            key "sampler-map monitor-map";
+            description
+              "Specify a sampler for a flow monitor";
+            leaf sampler-map {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Sampler map name";
+            }
+            leaf monitor-map {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Flow monitor map name";
+            }
+          }
+          leaf flow-direction {
+            type Nf-flow-direction;
+            description
+              "Netflow Flow Direction";
+          }
+        }
       }
     }
   }
@@ -389,17 +571,20 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
               "Destination IPv4 address";
           }
           leaf ipv6-address {
-            type string;
+            type inet:ipv6-address-no-zone;
             description
               "IPV6 address of the tunnel destination";
           }
           leaf vrf-name {
-            type string;
+            type xr:Cisco-ios-xr-string {
+              length "1..32";
+            }
             description
               "VRF name";
           }
         }
         container version {
+          presence "Indicates a version node is configured.";
           description
             "Specify export version parameters";
           container options {
@@ -427,6 +612,7 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
           }
           leaf version-type {
             type Nf-export-version;
+            mandatory true;
             description
               "Export version number";
           }
@@ -522,12 +708,12 @@ module Cisco-IOS-XR-traffmon-netflow-cfg {
     container flow-monitor-map-table {
       description
         "Flow monitor map configuration";
-      uses NETFLOW-CFG-FLOW-MONITOR-MAP;
+      uses FLOW-MONITOR-MAP;
     }
     container flow-monitor-map-performance-table {
       description
         "Configure a performance traffic flow monitor map";
-      uses NETFLOW-CFG-FLOW-MONITOR-MAP;
+      uses FLOW-MONITOR-MAP;
     }
   }
 }

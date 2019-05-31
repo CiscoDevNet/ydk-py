@@ -316,7 +316,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevBase, [u'docsdevrole', u'docsdevdatetime', u'docsdevresetnow', u'docsdevserialnumber', u'docsdevstpcontrol', u'docsdevigmpmodecontrol', u'docsdevmaxcpe'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevBase, ['docsdevrole', 'docsdevdatetime', 'docsdevresetnow', 'docsdevserialnumber', 'docsdevstpcontrol', 'docsdevigmpmodecontrol', 'docsdevmaxcpe'], name, value)
 
         class DocsDevIgmpModeControl(Enum):
             """
@@ -542,7 +542,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevSoftware, [u'docsdevswserver', u'docsdevswfilename', u'docsdevswadminstatus', u'docsdevswoperstatus', u'docsdevswcurrentvers', u'docsdevswserveraddresstype', u'docsdevswserveraddress', u'docsdevswservertransportprotocol'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevSoftware, ['docsdevswserver', 'docsdevswfilename', 'docsdevswadminstatus', 'docsdevswoperstatus', 'docsdevswcurrentvers', 'docsdevswserveraddresstype', 'docsdevswserveraddress', 'docsdevswservertransportprotocol'], name, value)
 
         class DocsDevSwAdminStatus(Enum):
             """
@@ -841,7 +841,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevServer, [u'docsdevserverbootstate', u'docsdevserverdhcp', u'docsdevservertime', u'docsdevservertftp', u'docsdevserverconfigfile', u'docsdevserverdhcpaddresstype', u'docsdevserverdhcpaddress', u'docsdevservertimeaddresstype', u'docsdevservertimeaddress', u'docsdevserverconfigtftpaddresstype', u'docsdevserverconfigtftpaddress'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevServer, ['docsdevserverbootstate', 'docsdevserverdhcp', 'docsdevservertime', 'docsdevservertftp', 'docsdevserverconfigfile', 'docsdevserverdhcpaddresstype', 'docsdevserverdhcpaddress', 'docsdevservertimeaddresstype', 'docsdevservertimeaddress', 'docsdevserverconfigtftpaddresstype', 'docsdevserverconfigtftpaddress'], name, value)
 
         class DocsDevServerBootState(Enum):
             """
@@ -1070,7 +1070,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEvent, [u'docsdevevcontrol', u'docsdevevsyslog', u'docsdevevthrottleadminstatus', u'docsdevevthrottleinhibited', u'docsdevevthrottlethreshold', u'docsdevevthrottleinterval', u'docsdevevsyslogaddresstype', u'docsdevevsyslogaddress', u'docsdevevthrottlethresholdexceeded'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEvent, ['docsdevevcontrol', 'docsdevevsyslog', 'docsdevevthrottleadminstatus', 'docsdevevthrottleinhibited', 'docsdevevthrottlethreshold', 'docsdevevthrottleinterval', 'docsdevevsyslogaddresstype', 'docsdevevsyslogaddress', 'docsdevevthrottlethresholdexceeded'], name, value)
 
         class DocsDevEvControl(Enum):
             """
@@ -1201,7 +1201,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilter, [u'docsdevfilterllcunmatchedaction', u'docsdevfilteripdefault'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilter, ['docsdevfilterllcunmatchedaction', 'docsdevfilteripdefault'], name, value)
 
         class DocsDevFilterIpDefault(Enum):
             """
@@ -1330,7 +1330,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpe, [u'docsdevcpeenroll', u'docsdevcpeipmax'], name, value)
+            self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpe, ['docsdevcpeenroll', 'docsdevcpeipmax'], name, value)
 
         class DocsDevCpeEnroll(Enum):
             """
@@ -1554,7 +1554,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevNmAccessTable.DocsDevNmAccessEntry, [u'docsdevnmaccessindex', u'docsdevnmaccessip', u'docsdevnmaccessipmask', u'docsdevnmaccesscommunity', u'docsdevnmaccesscontrol', u'docsdevnmaccessinterfaces', u'docsdevnmaccessstatus', u'docsdevnmaccesstrapversion'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevNmAccessTable.DocsDevNmAccessEntry, ['docsdevnmaccessindex', 'docsdevnmaccessip', 'docsdevnmaccessipmask', 'docsdevnmaccesscommunity', 'docsdevnmaccesscontrol', 'docsdevnmaccessinterfaces', 'docsdevnmaccessstatus', 'docsdevnmaccesstrapversion'], name, value)
 
             class DocsDevNmAccessControl(Enum):
                 """
@@ -1721,7 +1721,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEvControlTable.DocsDevEvControlEntry, [u'docsdevevpriority', u'docsdevevreporting'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEvControlTable.DocsDevEvControlEntry, ['docsdevevpriority', 'docsdevevreporting'], name, value)
 
             class DocsDevEvPriority(Enum):
                 """
@@ -1969,7 +1969,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEventTable.DocsDevEventEntry, [u'docsdevevindex', u'docsdevevfirsttime', u'docsdevevlasttime', u'docsdevevcounts', u'docsdevevlevel', u'docsdevevid', u'docsdevevtext'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevEventTable.DocsDevEventEntry, ['docsdevevindex', 'docsdevevfirsttime', 'docsdevevlasttime', 'docsdevevcounts', 'docsdevevlevel', 'docsdevevid', 'docsdevevtext'], name, value)
 
             class DocsDevEvLevel(Enum):
                 """
@@ -2202,7 +2202,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterLLCTable.DocsDevFilterLLCEntry, [u'docsdevfilterllcindex', u'docsdevfilterllcstatus', u'docsdevfilterllcifindex', u'docsdevfilterllcprotocoltype', u'docsdevfilterllcprotocol', u'docsdevfilterllcmatches'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterLLCTable.DocsDevFilterLLCEntry, ['docsdevfilterllcindex', 'docsdevfilterllcstatus', 'docsdevfilterllcifindex', 'docsdevfilterllcprotocoltype', 'docsdevfilterllcprotocol', 'docsdevfilterllcmatches'], name, value)
 
             class DocsDevFilterLLCProtocolType(Enum):
                 """
@@ -2512,7 +2512,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             	This is the value to be matched to the packet's TOS (Type of Service) value (after the TOS value is ANDed with docsDevFilterIpTosMask).  A value for this object of 0 and a mask of 0 matches all TOS values
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2523,7 +2523,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             	The mask to be applied to the packet's TOS value before matching
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2612,7 +2612,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterIpTable.DocsDevFilterIpEntry, [u'docsdevfilteripindex', u'docsdevfilteripstatus', u'docsdevfilteripcontrol', u'docsdevfilteripifindex', u'docsdevfilteripdirection', u'docsdevfilteripbroadcast', u'docsdevfilteripsaddr', u'docsdevfilteripsmask', u'docsdevfilteripdaddr', u'docsdevfilteripdmask', u'docsdevfilteripprotocol', u'docsdevfilteripsourceportlow', u'docsdevfilteripsourceporthigh', u'docsdevfilteripdestportlow', u'docsdevfilteripdestporthigh', u'docsdevfilteripmatches', u'docsdevfilteriptos', u'docsdevfilteriptosmask', u'docsdevfilteripcontinue', u'docsdevfilterippolicyid'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterIpTable.DocsDevFilterIpEntry, ['docsdevfilteripindex', 'docsdevfilteripstatus', 'docsdevfilteripcontrol', 'docsdevfilteripifindex', 'docsdevfilteripdirection', 'docsdevfilteripbroadcast', 'docsdevfilteripsaddr', 'docsdevfilteripsmask', 'docsdevfilteripdaddr', 'docsdevfilteripdmask', 'docsdevfilteripprotocol', 'docsdevfilteripsourceportlow', 'docsdevfilteripsourceporthigh', 'docsdevfilteripdestportlow', 'docsdevfilteripdestporthigh', 'docsdevfilteripmatches', 'docsdevfilteriptos', 'docsdevfilteriptosmask', 'docsdevfilteripcontinue', 'docsdevfilterippolicyid'], name, value)
 
             class DocsDevFilterIpControl(Enum):
                 """
@@ -2834,7 +2834,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterPolicyTable.DocsDevFilterPolicyEntry, [u'docsdevfilterpolicyindex', u'docsdevfilterpolicyid', u'docsdevfilterpolicystatus', u'docsdevfilterpolicyptr'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterPolicyTable.DocsDevFilterPolicyEntry, ['docsdevfilterpolicyindex', 'docsdevfilterpolicyid', 'docsdevfilterpolicystatus', 'docsdevfilterpolicyptr'], name, value)
 
 
 
@@ -2930,7 +2930,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             	This value is bitwise ANDed with the matched packet's TOS bits
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2941,7 +2941,7 @@ class DOCSCABLEDEVICEMIB(Entity):
             	This value is bitwise ORed with the result from the AND procedure (tosBits & docsDevFilterTosAndMask). The result then replaces the packet's TOS bits
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2978,7 +2978,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterTosTable.DocsDevFilterTosEntry, [u'docsdevfiltertosindex', u'docsdevfiltertosstatus', u'docsdevfiltertosandmask', u'docsdevfiltertosormask'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterTosTable.DocsDevFilterTosEntry, ['docsdevfiltertosindex', 'docsdevfiltertosstatus', 'docsdevfiltertosandmask', 'docsdevfiltertosormask'], name, value)
 
 
 
@@ -3116,7 +3116,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpeTable.DocsDevCpeEntry, [u'docsdevcpeip', u'docsdevcpesource', u'docsdevcpestatus'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpeTable.DocsDevCpeEntry, ['docsdevcpeip', 'docsdevcpesource', 'docsdevcpestatus'], name, value)
 
             class DocsDevCpeSource(Enum):
                 """
@@ -3293,7 +3293,7 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpeInetTable.DocsDevCpeInetEntry, [u'docsdevcpeinettype', u'docsdevcpeinetaddr', u'docsdevcpeinetsource', u'docsdevcpeinetrowstatus'], name, value)
+                self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevCpeInetTable.DocsDevCpeInetEntry, ['docsdevcpeinettype', 'docsdevcpeinetaddr', 'docsdevcpeinetsource', 'docsdevcpeinetrowstatus'], name, value)
 
             class DocsDevCpeInetSource(Enum):
                 """

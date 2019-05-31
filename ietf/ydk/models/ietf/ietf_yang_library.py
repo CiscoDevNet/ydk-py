@@ -100,7 +100,7 @@ class ModulesState(Entity):
         
         		**type**\: str
         
-        			**length:** 0
+        			**length:** 0..0
         
         	**config**\: False
         
@@ -281,7 +281,7 @@ class ModulesState(Entity):
             
             		**type**\: str
             
-            			**length:** 0
+            			**length:** 0..0
             
             	**config**\: False
             
@@ -340,7 +340,7 @@ class ModulesState(Entity):
             
             		**type**\: str
             
-            			**length:** 0
+            			**length:** 0..0
             
             	**config**\: False
             

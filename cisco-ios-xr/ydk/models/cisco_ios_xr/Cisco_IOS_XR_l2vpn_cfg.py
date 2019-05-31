@@ -337,9 +337,15 @@ class EthernetSegmentLoadBalance(Enum):
 
     	Single Active
 
+    .. data:: port_active = 2
+
+    	Port Active
+
     """
 
     single_active = Enum.YLeaf(1, "single-active")
+
+    port_active = Enum.YLeaf(2, "port-active")
 
 
 class EthernetSegmentServiceCarving(Enum):
@@ -348,13 +354,52 @@ class EthernetSegmentServiceCarving(Enum):
 
     Ethernet segment service carving
 
+    .. data:: mod_n = 0
+
+    	MOD N
+
+    .. data:: manual = 1
+
+    	Manual
+
     .. data:: hrw = 2
 
     	HRW
 
     """
 
+    mod_n = Enum.YLeaf(0, "mod-n")
+
+    manual = Enum.YLeaf(1, "manual")
+
     hrw = Enum.YLeaf(2, "hrw")
+
+
+class EthernetSegmentServiceCarvingMcast(Enum):
+    """
+    EthernetSegmentServiceCarvingMcast (Enum Class)
+
+    Ethernet segment service carving mcast
+
+    .. data:: disabled = 0
+
+    	Disabled
+
+    .. data:: hrw_s_g = 1
+
+    	HRW S G
+
+    .. data:: hrw_g = 2
+
+    	HRW G
+
+    """
+
+    disabled = Enum.YLeaf(0, "disabled")
+
+    hrw_s_g = Enum.YLeaf(1, "hrw-s-g")
+
+    hrw_g = Enum.YLeaf(2, "hrw-g")
 
 
 class EvpnEncapsulation(Enum):
@@ -543,6 +588,39 @@ class L2Encapsulation(Enum):
     vlan = Enum.YLeaf(4, "vlan")
 
     ethernet = Enum.YLeaf(5, "ethernet")
+
+
+class L2mcSrcTrafficEnabled(Enum):
+    """
+    L2mcSrcTrafficEnabled (Enum Class)
+
+    L2mc src traffic enabled
+
+    .. data:: l2mc_none = 0
+
+    	NONE
+
+    .. data:: l2mc_ipv4 = 1
+
+    	Multicast Source - IPv4
+
+    .. data:: l2mc_ipv6 = 2
+
+    	Multicast Source - IPv6
+
+    .. data:: l2mc_ipv4_ipv6 = 3
+
+    	Multicast Source - IPv4 IPv6
+
+    """
+
+    l2mc_none = Enum.YLeaf(0, "l2mc-none")
+
+    l2mc_ipv4 = Enum.YLeaf(1, "l2mc-ipv4")
+
+    l2mc_ipv6 = Enum.YLeaf(2, "l2mc-ipv6")
+
+    l2mc_ipv4_ipv6 = Enum.YLeaf(3, "l2mc-ipv4-ipv6")
 
 
 class L2tpCookieSize(Enum):
@@ -1007,6 +1085,10 @@ class PreferredPath(Enum):
 
     	SR TE Policy
 
+    .. data:: named_te_tunnel = 8
+
+    	Named TE Tunnel
+
     """
 
     te_tunnel = Enum.YLeaf(2, "te-tunnel")
@@ -1016,6 +1098,8 @@ class PreferredPath(Enum):
     tp_tunnel = Enum.YLeaf(4, "tp-tunnel")
 
     sr_te_policy = Enum.YLeaf(5, "sr-te-policy")
+
+    named_te_tunnel = Enum.YLeaf(8, "named-te-tunnel")
 
 
 class PwSwitchingPointTlv(Enum):
@@ -1273,7 +1357,7 @@ class L2vpn(Entity):
     """
 
     _prefix = 'l2vpn-cfg'
-    _revision = '2017-06-26'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(L2vpn, self).__init__()
@@ -1367,7 +1451,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.PwRouting, self).__init__()
@@ -1413,7 +1497,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.PwRouting.PwRoutingBgp, self).__init__()
@@ -1482,7 +1566,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, self).__init__()
@@ -1530,7 +1614,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.Neighbor, self).__init__()
@@ -1598,7 +1682,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.Database, self).__init__()
@@ -1660,7 +1744,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.G8032Rings, self).__init__()
@@ -1728,7 +1812,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.G8032Rings.G8032Ring, self).__init__()
@@ -1783,7 +1867,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s, self).__init__()
@@ -1827,7 +1911,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, self).__init__()
@@ -1867,7 +1951,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances, self).__init__()
@@ -1933,7 +2017,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, self).__init__()
@@ -1988,7 +2072,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, self).__init__()
@@ -2044,7 +2128,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, self).__init__()
@@ -2093,7 +2177,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, self).__init__()
@@ -2135,7 +2219,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s, self).__init__()
@@ -2182,7 +2266,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, self).__init__()
@@ -2227,7 +2311,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, self).__init__()
@@ -2274,7 +2358,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, self).__init__()
@@ -2317,7 +2401,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.XconnectGroups, self).__init__()
@@ -2365,7 +2449,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.XconnectGroups.XconnectGroup, self).__init__()
@@ -2410,7 +2494,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects, self).__init__()
@@ -2489,7 +2573,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, self).__init__()
@@ -2553,7 +2637,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits, self).__init__()
@@ -2590,7 +2674,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, self).__init__()
@@ -2628,7 +2712,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns, self).__init__()
@@ -2686,7 +2770,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, self).__init__()
@@ -2730,7 +2814,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires, self).__init__()
@@ -2777,7 +2861,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, self).__init__()
@@ -2872,7 +2956,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, self).__init__()
@@ -2941,7 +3025,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, self).__init__()
@@ -2980,7 +3064,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires, self).__init__()
@@ -3036,7 +3120,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, self).__init__()
@@ -3089,7 +3173,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
@@ -3154,7 +3238,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, self).__init__()
@@ -3218,7 +3302,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
@@ -3273,7 +3357,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
@@ -3328,7 +3412,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
@@ -3370,7 +3454,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, self).__init__()
@@ -3464,7 +3548,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, self).__init__()
@@ -3533,7 +3617,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, self).__init__()
@@ -3572,7 +3656,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires, self).__init__()
@@ -3628,7 +3712,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, self).__init__()
@@ -3681,7 +3765,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
@@ -3746,7 +3830,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, self).__init__()
@@ -3810,7 +3894,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
@@ -3865,7 +3949,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
@@ -3920,7 +4004,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
@@ -3962,7 +4046,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, self).__init__()
@@ -4002,7 +4086,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions, self).__init__()
@@ -4044,7 +4128,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, self).__init__()
@@ -4084,7 +4168,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds, self).__init__()
@@ -4156,7 +4240,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, self).__init__()
@@ -4204,7 +4288,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits, self).__init__()
@@ -4246,7 +4330,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, self).__init__()
@@ -4288,7 +4372,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects, self).__init__()
@@ -4366,7 +4450,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, self).__init__()
@@ -4438,7 +4522,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, self).__init__()
@@ -4518,7 +4602,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, self).__init__()
@@ -4563,7 +4647,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, self).__init__()
@@ -4600,7 +4684,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets, self).__init__()
@@ -4650,7 +4734,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, self).__init__()
@@ -4700,7 +4784,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, self).__init__()
@@ -4748,7 +4832,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, self).__init__()
@@ -4806,7 +4890,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, self).__init__()
@@ -4857,7 +4941,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
@@ -4896,7 +4980,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids, self).__init__()
@@ -4938,7 +5022,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, self).__init__()
@@ -4979,7 +5063,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits, self).__init__()
@@ -5023,7 +5107,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, self).__init__()
@@ -5071,7 +5155,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.BridgeDomainGroups, self).__init__()
@@ -5114,7 +5198,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, self).__init__()
@@ -5155,7 +5239,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains, self).__init__()
@@ -5277,6 +5361,16 @@ class L2vpn(Entity):
                         	Disable Unknown Unicast flooding
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
+                        .. attribute:: efp_visibility
+                        
+                        	Enable multicast for multiple VLANs in the bridge of a BVI
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: l2_multicast_source
+                        
+                        	L2MC Source Traffic Enabled
+                        	**type**\:  :py:class:`L2mcSrcTrafficEnabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2mcSrcTrafficEnabled>`
+                        
                         .. attribute:: igmp_snooping_disable
                         
                         	Disable IGMP Snooping
@@ -5334,7 +5428,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, self).__init__()
@@ -5350,6 +5444,8 @@ class L2vpn(Entity):
                                 ('coupled_mode', (YLeaf(YType.empty, 'coupled-mode'), ['Empty'])),
                                 ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
                                 ('flooding_unknown_unicast', (YLeaf(YType.empty, 'flooding-unknown-unicast'), ['Empty'])),
+                                ('efp_visibility', (YLeaf(YType.empty, 'efp-visibility'), ['Empty'])),
+                                ('l2_multicast_source', (YLeaf(YType.enumeration, 'l2-multicast-source'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2mcSrcTrafficEnabled', '')])),
                                 ('igmp_snooping_disable', (YLeaf(YType.empty, 'igmp-snooping-disable'), ['Empty'])),
                                 ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BridgeDomainTransportMode', '')])),
                                 ('mld_snooping', (YLeaf(YType.str, 'mld-snooping'), ['str'])),
@@ -5363,6 +5459,8 @@ class L2vpn(Entity):
                             self.coupled_mode = None
                             self.shutdown = None
                             self.flooding_unknown_unicast = None
+                            self.efp_visibility = None
+                            self.l2_multicast_source = None
                             self.igmp_snooping_disable = None
                             self.transport_mode = None
                             self.mld_snooping = None
@@ -5435,7 +5533,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
+                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'efp_visibility', 'l2_multicast_source', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
                         class BdStormControls(Entity):
@@ -5452,7 +5550,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
@@ -5492,7 +5590,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
@@ -5545,7 +5643,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
@@ -5586,7 +5684,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
@@ -5628,7 +5726,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
@@ -5668,7 +5766,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
@@ -5712,7 +5810,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
@@ -5799,7 +5897,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
@@ -5873,7 +5971,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
@@ -5914,7 +6012,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
@@ -5956,7 +6054,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
@@ -5991,11 +6089,6 @@ class L2vpn(Entity):
                                 	MAC Secure Logging
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                .. attribute:: action
-                                
-                                	MAC secure enforcement action
-                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
-                                
                                 .. attribute:: enable
                                 
                                 	Enable MAC Secure
@@ -6006,12 +6099,24 @@ class L2vpn(Entity):
                                 	MAC Secure Threshold
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: action
+                                
+                                	MAC secure enforcement action
+                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                
+                                .. attribute:: shutdown_recovery_timer
+                                
+                                	MAC Secure Shutdown Recovery Timer
+                                	**type**\: int
+                                
+                                	**range:** 10..3600
+                                
                                 
 
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
@@ -6024,19 +6129,21 @@ class L2vpn(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
-                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
                                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ('threshold', (YLeaf(YType.empty, 'threshold'), ['Empty'])),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                        ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                     ])
                                     self.logging = None
-                                    self.action = None
                                     self.enable = None
                                     self.threshold = None
+                                    self.action = None
+                                    self.shutdown_recovery_timer = None
                                     self._segment_path = lambda: "mac-secure"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'enable', 'threshold', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -6061,7 +6168,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
@@ -6106,7 +6213,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
@@ -6150,7 +6257,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
@@ -6191,7 +6298,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
@@ -6270,7 +6377,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
@@ -6328,7 +6435,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
@@ -6365,7 +6472,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
@@ -6410,7 +6517,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
@@ -6455,7 +6562,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
@@ -6509,7 +6616,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
@@ -6569,7 +6676,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
@@ -6617,7 +6724,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
@@ -6646,21 +6753,6 @@ class L2vpn(Entity):
                                             """
                                             MAC Secure
                                             
-                                            .. attribute:: logging
-                                            
-                                            	MAC Secure Logging
-                                            	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
-                                            
-                                            .. attribute:: disable
-                                            
-                                            	Disable Virtual instance port MAC Secure
-                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                            
-                                            .. attribute:: action
-                                            
-                                            	MAC secure enforcement action
-                                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
-                                            
                                             .. attribute:: enable
                                             
                                             	Enable MAC Secure
@@ -6671,12 +6763,27 @@ class L2vpn(Entity):
                                             	Accept Virtual instance port to be shutdown on mac violation
                                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                             
+                                            .. attribute:: logging
+                                            
+                                            	MAC Secure Logging
+                                            	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                            
+                                            .. attribute:: disable
+                                            
+                                            	Disable MAC Secure
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: action
+                                            
+                                            	MAC secure enforcement action
+                                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                            
                                             
 
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
@@ -6688,22 +6795,22 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
                                                     ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                     ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                     ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
                                                 ])
+                                                self.enable = None
+                                                self.accept_shutdown = None
                                                 self.logging = None
                                                 self.disable = None
                                                 self.action = None
-                                                self.enable = None
-                                                self.accept_shutdown = None
                                                 self._segment_path = lambda: "pbb-edge-mac-secure"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['enable', 'accept_shutdown', 'logging', 'disable', 'action'], name, value)
 
 
 
@@ -6758,7 +6865,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
@@ -6822,7 +6929,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
@@ -6873,7 +6980,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
@@ -6924,7 +7031,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
@@ -6966,7 +7073,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
@@ -7003,7 +7110,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
@@ -7046,7 +7153,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
@@ -7087,7 +7194,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
@@ -7124,7 +7231,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
@@ -7163,7 +7270,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
@@ -7211,7 +7318,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
@@ -7253,7 +7360,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
@@ -7309,7 +7416,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
@@ -7353,7 +7460,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
@@ -7390,7 +7497,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
@@ -7432,7 +7539,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
@@ -7552,7 +7659,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
@@ -7651,7 +7758,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
@@ -7705,7 +7812,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
@@ -7747,7 +7854,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
@@ -7787,7 +7894,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
@@ -7840,7 +7947,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
@@ -7886,7 +7993,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
@@ -7925,7 +8032,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
@@ -7962,7 +8069,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
@@ -8010,7 +8117,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
@@ -8077,7 +8184,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
@@ -8119,6 +8226,11 @@ class L2vpn(Entity):
                                         """
                                         MAC Secure
                                         
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
@@ -8126,7 +8238,7 @@ class L2vpn(Entity):
                                         
                                         .. attribute:: disable
                                         
-                                        	Disable L2 Pseudowire MAC Secure
+                                        	Disable MAC Secure
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: action
@@ -8134,17 +8246,19 @@ class L2vpn(Entity):
                                         	MAC secure enforcement action
                                         	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
                                         
-                                        .. attribute:: enable
+                                        .. attribute:: shutdown_recovery_timer
                                         
-                                        	Enable MAC Secure
-                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        	MAC Secure Shutdown Recovery Timer
+                                        	**type**\: int
+                                        
+                                        	**range:** 10..3600
                                         
                                         
 
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
@@ -8156,20 +8270,22 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                                 ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                 ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                 ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                             ])
+                                            self.enable = None
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
-                                            self.enable = None
+                                            self.shutdown_recovery_timer = None
                                             self._segment_path = lambda: "pseudowire-mac-secure"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -8194,7 +8310,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
@@ -8245,7 +8361,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
@@ -8287,7 +8403,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
@@ -8324,7 +8440,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
@@ -8371,7 +8487,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
@@ -8410,7 +8526,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
@@ -8461,7 +8577,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
@@ -8505,7 +8621,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis, self).__init__()
@@ -8569,7 +8685,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
@@ -8631,7 +8747,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
@@ -8675,7 +8791,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
@@ -8719,7 +8835,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
@@ -8759,7 +8875,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
@@ -8796,7 +8912,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
@@ -8835,7 +8951,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
@@ -8915,7 +9031,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
@@ -8976,7 +9092,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
@@ -9024,7 +9140,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
@@ -9063,7 +9179,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
@@ -9100,7 +9216,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
@@ -9175,7 +9291,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
@@ -9246,7 +9362,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
@@ -9318,7 +9434,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
@@ -9368,7 +9484,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
@@ -9408,7 +9524,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
@@ -9473,7 +9589,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
@@ -9537,7 +9653,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
@@ -9586,7 +9702,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
@@ -9626,7 +9742,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
@@ -9676,7 +9792,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
@@ -9726,7 +9842,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
@@ -9774,7 +9890,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -9819,7 +9935,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
@@ -9856,7 +9972,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
@@ -9894,7 +10010,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
@@ -9990,7 +10106,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
@@ -10072,7 +10188,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
@@ -10128,7 +10244,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
@@ -10187,7 +10303,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
@@ -10236,7 +10352,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
@@ -10275,7 +10391,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
@@ -10315,7 +10431,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
@@ -10368,7 +10484,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
@@ -10409,7 +10525,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
@@ -10446,7 +10562,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
@@ -10484,7 +10600,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
@@ -10521,7 +10637,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
@@ -10579,7 +10695,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
@@ -10636,7 +10752,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
@@ -10665,6 +10781,11 @@ class L2vpn(Entity):
                                         """
                                         MAC Secure
                                         
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
@@ -10672,7 +10793,7 @@ class L2vpn(Entity):
                                         
                                         .. attribute:: disable
                                         
-                                        	Disable L2 Interface MAC Secure
+                                        	Disable MAC Secure
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: action
@@ -10680,17 +10801,19 @@ class L2vpn(Entity):
                                         	MAC secure enforcement action
                                         	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
                                         
-                                        .. attribute:: enable
+                                        .. attribute:: shutdown_recovery_timer
                                         
-                                        	Enable MAC Secure
-                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        	MAC Secure Shutdown Recovery Timer
+                                        	**type**\: int
+                                        
+                                        	**range:** 10..3600
                                         
                                         
 
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
@@ -10702,20 +10825,22 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                                 ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                 ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                 ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                             ])
+                                            self.enable = None
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
-                                            self.enable = None
+                                            self.shutdown_recovery_timer = None
                                             self._segment_path = lambda: "interface-mac-secure"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -10745,7 +10870,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
@@ -10789,7 +10914,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
@@ -10833,7 +10958,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
@@ -10878,7 +11003,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
@@ -10927,7 +11052,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, self).__init__()
@@ -10984,7 +11109,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
@@ -11028,7 +11153,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
@@ -11070,7 +11195,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
@@ -11110,7 +11235,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
@@ -11153,7 +11278,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.PseudowireClasses, self).__init__()
@@ -11216,7 +11341,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.PseudowireClasses.PseudowireClass, self).__init__()
@@ -11320,7 +11445,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, self).__init__()
@@ -11393,7 +11518,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, self).__init__()
@@ -11439,7 +11564,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, self).__init__()
@@ -11487,7 +11612,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, self).__init__()
@@ -11533,7 +11658,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, self).__init__()
@@ -11580,7 +11705,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, self).__init__()
@@ -11682,7 +11807,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, self).__init__()
@@ -11759,7 +11884,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, self).__init__()
@@ -11807,7 +11932,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, self).__init__()
@@ -11853,9 +11978,9 @@ class L2vpn(Entity):
                         	Fallback disable
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: srte_policy
+                        .. attribute:: path_name
                         
-                        	Name of the SR TE Policy
+                        	Name of the SR TE Policy or IFName
                         	**type**\: str
                         
                         	**length:** 1..60
@@ -11865,7 +11990,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, self).__init__()
@@ -11880,17 +12005,17 @@ class L2vpn(Entity):
                                 ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PreferredPath', '')])),
                                 ('interface_tunnel_number', (YLeaf(YType.uint32, 'interface-tunnel-number'), ['int'])),
                                 ('fallback_disable', (YLeaf(YType.empty, 'fallback-disable'), ['Empty'])),
-                                ('srte_policy', (YLeaf(YType.str, 'srte-policy'), ['str'])),
+                                ('path_name', (YLeaf(YType.str, 'path-name'), ['str'])),
                             ])
                             self.type = None
                             self.interface_tunnel_number = None
                             self.fallback_disable = None
-                            self.srte_policy = None
+                            self.path_name = None
                             self._segment_path = lambda: "preferred-path"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'srte_policy'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'path_name'], name, value)
 
 
 
@@ -11918,7 +12043,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, self).__init__()
@@ -11965,7 +12090,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, self).__init__()
@@ -12008,7 +12133,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.VlanSwitches, self).__init__()
@@ -12071,7 +12196,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.VlanSwitches.VlanSwitch, self).__init__()
@@ -12128,7 +12253,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, self).__init__()
@@ -12165,7 +12290,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, self).__init__()
@@ -12325,7 +12450,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, self).__init__()
@@ -12517,7 +12642,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, self).__init__()
@@ -12710,7 +12835,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, self).__init__()
@@ -12781,7 +12906,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, self).__init__()
@@ -12903,6 +13028,16 @@ class L2vpn(Entity):
                         	Disable Unknown Unicast flooding
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
+                        .. attribute:: efp_visibility
+                        
+                        	Enable multicast for multiple VLANs in the bridge of a BVI
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: l2_multicast_source
+                        
+                        	L2MC Source Traffic Enabled
+                        	**type**\:  :py:class:`L2mcSrcTrafficEnabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2mcSrcTrafficEnabled>`
+                        
                         .. attribute:: igmp_snooping_disable
                         
                         	Disable IGMP Snooping
@@ -12960,7 +13095,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, self).__init__()
@@ -12976,6 +13111,8 @@ class L2vpn(Entity):
                                 ('coupled_mode', (YLeaf(YType.empty, 'coupled-mode'), ['Empty'])),
                                 ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
                                 ('flooding_unknown_unicast', (YLeaf(YType.empty, 'flooding-unknown-unicast'), ['Empty'])),
+                                ('efp_visibility', (YLeaf(YType.empty, 'efp-visibility'), ['Empty'])),
+                                ('l2_multicast_source', (YLeaf(YType.enumeration, 'l2-multicast-source'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2mcSrcTrafficEnabled', '')])),
                                 ('igmp_snooping_disable', (YLeaf(YType.empty, 'igmp-snooping-disable'), ['Empty'])),
                                 ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BridgeDomainTransportMode', '')])),
                                 ('mld_snooping', (YLeaf(YType.str, 'mld-snooping'), ['str'])),
@@ -12989,6 +13126,8 @@ class L2vpn(Entity):
                             self.coupled_mode = None
                             self.shutdown = None
                             self.flooding_unknown_unicast = None
+                            self.efp_visibility = None
+                            self.l2_multicast_source = None
                             self.igmp_snooping_disable = None
                             self.transport_mode = None
                             self.mld_snooping = None
@@ -13061,7 +13200,7 @@ class L2vpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
+                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'efp_visibility', 'l2_multicast_source', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
                         class BdStormControls(Entity):
@@ -13078,7 +13217,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
@@ -13118,7 +13257,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
@@ -13171,7 +13310,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
@@ -13212,7 +13351,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
@@ -13254,7 +13393,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
@@ -13294,7 +13433,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
@@ -13338,7 +13477,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
@@ -13425,7 +13564,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
@@ -13499,7 +13638,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
@@ -13540,7 +13679,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
@@ -13582,7 +13721,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
@@ -13617,11 +13756,6 @@ class L2vpn(Entity):
                                 	MAC Secure Logging
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                .. attribute:: action
-                                
-                                	MAC secure enforcement action
-                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
-                                
                                 .. attribute:: enable
                                 
                                 	Enable MAC Secure
@@ -13632,12 +13766,24 @@ class L2vpn(Entity):
                                 	MAC Secure Threshold
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: action
+                                
+                                	MAC secure enforcement action
+                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                
+                                .. attribute:: shutdown_recovery_timer
+                                
+                                	MAC Secure Shutdown Recovery Timer
+                                	**type**\: int
+                                
+                                	**range:** 10..3600
+                                
                                 
 
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
@@ -13650,19 +13796,21 @@ class L2vpn(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
-                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
                                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ('threshold', (YLeaf(YType.empty, 'threshold'), ['Empty'])),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                        ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                     ])
                                     self.logging = None
-                                    self.action = None
                                     self.enable = None
                                     self.threshold = None
+                                    self.action = None
+                                    self.shutdown_recovery_timer = None
                                     self._segment_path = lambda: "mac-secure"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'enable', 'threshold', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -13687,7 +13835,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
@@ -13732,7 +13880,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
@@ -13776,7 +13924,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
@@ -13817,7 +13965,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
@@ -13896,7 +14044,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
@@ -13954,7 +14102,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
@@ -13991,7 +14139,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
@@ -14036,7 +14184,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
@@ -14081,7 +14229,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
@@ -14135,7 +14283,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
@@ -14195,7 +14343,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
@@ -14243,7 +14391,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
@@ -14272,21 +14420,6 @@ class L2vpn(Entity):
                                             """
                                             MAC Secure
                                             
-                                            .. attribute:: logging
-                                            
-                                            	MAC Secure Logging
-                                            	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
-                                            
-                                            .. attribute:: disable
-                                            
-                                            	Disable Virtual instance port MAC Secure
-                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                            
-                                            .. attribute:: action
-                                            
-                                            	MAC secure enforcement action
-                                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
-                                            
                                             .. attribute:: enable
                                             
                                             	Enable MAC Secure
@@ -14297,12 +14430,27 @@ class L2vpn(Entity):
                                             	Accept Virtual instance port to be shutdown on mac violation
                                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                             
+                                            .. attribute:: logging
+                                            
+                                            	MAC Secure Logging
+                                            	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                            
+                                            .. attribute:: disable
+                                            
+                                            	Disable MAC Secure
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: action
+                                            
+                                            	MAC secure enforcement action
+                                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                            
                                             
 
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
@@ -14314,22 +14462,22 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
                                                     ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                     ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                     ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
                                                 ])
+                                                self.enable = None
+                                                self.accept_shutdown = None
                                                 self.logging = None
                                                 self.disable = None
                                                 self.action = None
-                                                self.enable = None
-                                                self.accept_shutdown = None
                                                 self._segment_path = lambda: "pbb-edge-mac-secure"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['enable', 'accept_shutdown', 'logging', 'disable', 'action'], name, value)
 
 
 
@@ -14384,7 +14532,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
@@ -14448,7 +14596,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
@@ -14499,7 +14647,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
@@ -14550,7 +14698,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
@@ -14592,7 +14740,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
@@ -14629,7 +14777,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
@@ -14672,7 +14820,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
@@ -14713,7 +14861,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
@@ -14750,7 +14898,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
@@ -14789,7 +14937,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
@@ -14837,7 +14985,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
@@ -14879,7 +15027,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
@@ -14935,7 +15083,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
@@ -14979,7 +15127,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
@@ -15016,7 +15164,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
@@ -15058,7 +15206,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
@@ -15178,7 +15326,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
@@ -15277,7 +15425,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
@@ -15331,7 +15479,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
@@ -15373,7 +15521,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
@@ -15413,7 +15561,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
@@ -15466,7 +15614,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
@@ -15512,7 +15660,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
@@ -15551,7 +15699,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
@@ -15588,7 +15736,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
@@ -15636,7 +15784,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
@@ -15703,7 +15851,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
@@ -15745,6 +15893,11 @@ class L2vpn(Entity):
                                         """
                                         MAC Secure
                                         
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
@@ -15752,7 +15905,7 @@ class L2vpn(Entity):
                                         
                                         .. attribute:: disable
                                         
-                                        	Disable L2 Pseudowire MAC Secure
+                                        	Disable MAC Secure
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: action
@@ -15760,17 +15913,19 @@ class L2vpn(Entity):
                                         	MAC secure enforcement action
                                         	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
                                         
-                                        .. attribute:: enable
+                                        .. attribute:: shutdown_recovery_timer
                                         
-                                        	Enable MAC Secure
-                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        	MAC Secure Shutdown Recovery Timer
+                                        	**type**\: int
+                                        
+                                        	**range:** 10..3600
                                         
                                         
 
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
@@ -15782,20 +15937,22 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                                 ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                 ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                 ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                             ])
+                                            self.enable = None
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
-                                            self.enable = None
+                                            self.shutdown_recovery_timer = None
                                             self._segment_path = lambda: "pseudowire-mac-secure"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -15820,7 +15977,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
@@ -15871,7 +16028,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
@@ -15913,7 +16070,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
@@ -15950,7 +16107,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
@@ -15997,7 +16154,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
@@ -16036,7 +16193,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
@@ -16087,7 +16244,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
@@ -16131,7 +16288,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, self).__init__()
@@ -16195,7 +16352,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
@@ -16257,7 +16414,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
@@ -16301,7 +16458,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
@@ -16345,7 +16502,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
@@ -16385,7 +16542,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
@@ -16422,7 +16579,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
@@ -16461,7 +16618,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
@@ -16541,7 +16698,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
@@ -16602,7 +16759,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
@@ -16650,7 +16807,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
@@ -16689,7 +16846,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
@@ -16726,7 +16883,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
@@ -16801,7 +16958,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
@@ -16872,7 +17029,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
@@ -16944,7 +17101,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
@@ -16994,7 +17151,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
@@ -17034,7 +17191,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
@@ -17099,7 +17256,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
@@ -17163,7 +17320,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
@@ -17212,7 +17369,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
@@ -17252,7 +17409,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
@@ -17302,7 +17459,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
@@ -17352,7 +17509,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
@@ -17400,7 +17557,7 @@ class L2vpn(Entity):
                                                 """
 
                                                 _prefix = 'l2vpn-cfg'
-                                                _revision = '2017-06-26'
+                                                _revision = '2018-06-15'
 
                                                 def __init__(self):
                                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -17445,7 +17602,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
@@ -17482,7 +17639,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
@@ -17520,7 +17677,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
@@ -17616,7 +17773,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
@@ -17698,7 +17855,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
@@ -17754,7 +17911,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
@@ -17813,7 +17970,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
@@ -17862,7 +18019,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
@@ -17901,7 +18058,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
@@ -17941,7 +18098,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
@@ -17994,7 +18151,7 @@ class L2vpn(Entity):
                                             """
 
                                             _prefix = 'l2vpn-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
@@ -18035,7 +18192,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
@@ -18072,7 +18229,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
@@ -18110,7 +18267,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
@@ -18147,7 +18304,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
@@ -18205,7 +18362,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
@@ -18262,7 +18419,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
@@ -18291,6 +18448,11 @@ class L2vpn(Entity):
                                         """
                                         MAC Secure
                                         
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
@@ -18298,7 +18460,7 @@ class L2vpn(Entity):
                                         
                                         .. attribute:: disable
                                         
-                                        	Disable L2 Interface MAC Secure
+                                        	Disable MAC Secure
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: action
@@ -18306,17 +18468,19 @@ class L2vpn(Entity):
                                         	MAC secure enforcement action
                                         	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
                                         
-                                        .. attribute:: enable
+                                        .. attribute:: shutdown_recovery_timer
                                         
-                                        	Enable MAC Secure
-                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        	MAC Secure Shutdown Recovery Timer
+                                        	**type**\: int
+                                        
+                                        	**range:** 10..3600
                                         
                                         
 
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
@@ -18328,20 +18492,22 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                                 ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
                                                 ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                                 ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
-                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                ('shutdown_recovery_timer', (YLeaf(YType.uint32, 'shutdown-recovery-timer'), ['int'])),
                                             ])
+                                            self.enable = None
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
-                                            self.enable = None
+                                            self.shutdown_recovery_timer = None
                                             self._segment_path = lambda: "interface-mac-secure"
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
 
 
@@ -18371,7 +18537,7 @@ class L2vpn(Entity):
                                         """
 
                                         _prefix = 'l2vpn-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
@@ -18415,7 +18581,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
@@ -18459,7 +18625,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
@@ -18504,7 +18670,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
@@ -18553,7 +18719,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, self).__init__()
@@ -18610,7 +18776,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
@@ -18654,7 +18820,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
@@ -18696,7 +18862,7 @@ class L2vpn(Entity):
                                 """
 
                                 _prefix = 'l2vpn-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
@@ -18736,7 +18902,7 @@ class L2vpn(Entity):
                                     """
 
                                     _prefix = 'l2vpn-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
@@ -18784,7 +18950,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.FlexibleXconnectServiceTable, self).__init__()
@@ -18827,7 +18993,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices, self).__init__()
@@ -18875,7 +19041,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, self).__init__()
@@ -18920,7 +19086,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits, self).__init__()
@@ -18957,7 +19123,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, self).__init__()
@@ -18995,7 +19161,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns, self).__init__()
@@ -19039,7 +19205,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, self).__init__()
@@ -19081,7 +19247,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices, self).__init__()
@@ -19124,7 +19290,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, self).__init__()
@@ -19165,7 +19331,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits, self).__init__()
@@ -19202,7 +19368,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, self).__init__()
@@ -19248,7 +19414,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Database.Redundancy, self).__init__()
@@ -19290,7 +19456,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Database.Redundancy.IccpRedundancyGroups, self).__init__()
@@ -19340,7 +19506,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, self).__init__()
@@ -19383,7 +19549,7 @@ class L2vpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces, self).__init__()
@@ -19444,7 +19610,7 @@ class L2vpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, self).__init__()
@@ -19496,7 +19662,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.Pbb, self).__init__()
@@ -19534,7 +19700,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.AutoDiscovery, self).__init__()
@@ -19572,7 +19738,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.AutoDiscovery.BgpSignaling, self).__init__()
@@ -19611,7 +19777,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.Utility, self).__init__()
@@ -19669,7 +19835,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Utility.Logging, self).__init__()
@@ -19716,7 +19882,7 @@ class L2vpn(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(L2vpn.Snmp, self).__init__()
@@ -19759,7 +19925,7 @@ class L2vpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(L2vpn.Snmp.Mib, self).__init__()
@@ -19801,7 +19967,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Snmp.Mib.MibInterface, self).__init__()
@@ -19839,7 +20005,7 @@ class L2vpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(L2vpn.Snmp.Mib.MibInterface.Format, self).__init__()
@@ -19878,7 +20044,7 @@ class L2vpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(L2vpn.Snmp.Mib.MibPseudowire, self).__init__()
@@ -19923,7 +20089,7 @@ class GenericInterfaceLists(Entity):
     """
 
     _prefix = 'l2vpn-cfg'
-    _revision = '2017-06-26'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(GenericInterfaceLists, self).__init__()
@@ -19971,7 +20137,7 @@ class GenericInterfaceLists(Entity):
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(GenericInterfaceLists.GenericInterfaceList, self).__init__()
@@ -20014,7 +20180,7 @@ class GenericInterfaceLists(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(GenericInterfaceLists.GenericInterfaceList.Interfaces, self).__init__()
@@ -20056,7 +20222,7 @@ class GenericInterfaceLists(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, self).__init__()
@@ -20107,7 +20273,7 @@ class Evpn(Entity):
     """
 
     _prefix = 'l2vpn-cfg'
-    _revision = '2017-06-26'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(Evpn, self).__init__()
@@ -20142,11 +20308,6 @@ class Evpn(Entity):
         
         	Enter EVPN timers configuration submode
         	**type**\:  :py:class:`EvpnTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnTimers>`
-        
-        .. attribute:: evpnmac
-        
-        	EVPN MAC Configuration
-        	**type**\:  :py:class:`Evpnmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnmac>`
         
         .. attribute:: evpn_evis
         
@@ -20219,12 +20380,17 @@ class Evpn(Entity):
         
         	**units**\: second
         
+        .. attribute:: host
+        
+        	EVPN HOST Configuration
+        	**type**\:  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host>`
+        
         
 
         """
 
         _prefix = 'l2vpn-cfg'
-        _revision = '2017-06-26'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Evpn.EvpnTables, self).__init__()
@@ -20234,7 +20400,7 @@ class Evpn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("evpn-timers", ("evpn_timers", Evpn.EvpnTables.EvpnTimers)), ("evpnmac", ("evpnmac", Evpn.EvpnTables.Evpnmac)), ("evpn-evis", ("evpn_evis", Evpn.EvpnTables.EvpnEvis)), ("evpn-virtual-access-vfis", ("evpn_virtual_access_vfis", Evpn.EvpnTables.EvpnVirtualAccessVfis)), ("evpn-load-balancing", ("evpn_load_balancing", Evpn.EvpnTables.EvpnLoadBalancing)), ("evpn-bgp-auto-discovery", ("evpn_bgp_auto_discovery", Evpn.EvpnTables.EvpnBgpAutoDiscovery)), ("evpn-groups", ("evpn_groups", Evpn.EvpnTables.EvpnGroups)), ("evpn-instances", ("evpn_instances", Evpn.EvpnTables.EvpnInstances)), ("evpn-logging", ("evpn_logging", Evpn.EvpnTables.EvpnLogging)), ("evpn-interfaces", ("evpn_interfaces", Evpn.EvpnTables.EvpnInterfaces)), ("evpn-virtual-access-pws", ("evpn_virtual_access_pws", Evpn.EvpnTables.EvpnVirtualAccessPws)), ("evpn-ethernet-segment", ("evpn_ethernet_segment", Evpn.EvpnTables.EvpnEthernetSegment))])
+            self._child_classes = OrderedDict([("evpn-timers", ("evpn_timers", Evpn.EvpnTables.EvpnTimers)), ("evpn-evis", ("evpn_evis", Evpn.EvpnTables.EvpnEvis)), ("evpn-virtual-access-vfis", ("evpn_virtual_access_vfis", Evpn.EvpnTables.EvpnVirtualAccessVfis)), ("evpn-load-balancing", ("evpn_load_balancing", Evpn.EvpnTables.EvpnLoadBalancing)), ("evpn-bgp-auto-discovery", ("evpn_bgp_auto_discovery", Evpn.EvpnTables.EvpnBgpAutoDiscovery)), ("evpn-groups", ("evpn_groups", Evpn.EvpnTables.EvpnGroups)), ("evpn-instances", ("evpn_instances", Evpn.EvpnTables.EvpnInstances)), ("evpn-logging", ("evpn_logging", Evpn.EvpnTables.EvpnLogging)), ("evpn-interfaces", ("evpn_interfaces", Evpn.EvpnTables.EvpnInterfaces)), ("evpn-virtual-access-pws", ("evpn_virtual_access_pws", Evpn.EvpnTables.EvpnVirtualAccessPws)), ("evpn-ethernet-segment", ("evpn_ethernet_segment", Evpn.EvpnTables.EvpnEthernetSegment)), ("Cisco-IOS-XR-l2rib-cfg:host", ("host", Evpn.EvpnTables.Host))])
             self._leafs = OrderedDict([
                 ('evi_cost_out', (YLeaf(YType.empty, 'evi-cost-out'), ['Empty'])),
                 ('evpn_source_interface', (YLeaf(YType.str, 'evpn-source-interface'), ['str'])),
@@ -20247,10 +20413,6 @@ class Evpn(Entity):
             self.evpn_timers = Evpn.EvpnTables.EvpnTimers()
             self.evpn_timers.parent = self
             self._children_name_map["evpn_timers"] = "evpn-timers"
-
-            self.evpnmac = Evpn.EvpnTables.Evpnmac()
-            self.evpnmac.parent = self
-            self._children_name_map["evpnmac"] = "evpnmac"
 
             self.evpn_evis = Evpn.EvpnTables.EvpnEvis()
             self.evpn_evis.parent = self
@@ -20291,6 +20453,10 @@ class Evpn(Entity):
             self.evpn_ethernet_segment = Evpn.EvpnTables.EvpnEthernetSegment()
             self.evpn_ethernet_segment.parent = self
             self._children_name_map["evpn_ethernet_segment"] = "evpn-ethernet-segment"
+
+            self.host = Evpn.EvpnTables.Host()
+            self.host.parent = self
+            self._children_name_map["host"] = "Cisco-IOS-XR-l2rib-cfg:host"
             self._segment_path = lambda: "evpn-tables"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/%s" % self._segment_path()
             self._is_frozen = True
@@ -20340,7 +20506,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnTimers, self).__init__()
@@ -20370,127 +20536,6 @@ class Evpn(Entity):
 
 
 
-        class Evpnmac(Entity):
-            """
-            EVPN MAC Configuration
-            
-            .. attribute:: evpnmac_secure
-            
-            	EVPN MAC Secure Configuration
-            	**type**\:  :py:class:`EvpnmacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnmac.EvpnmacSecure>`
-            
-            .. attribute:: enable
-            
-            	Enable EVPN MAC Configuration
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Evpn.EvpnTables.Evpnmac, self).__init__()
-
-                self.yang_name = "evpnmac"
-                self.yang_parent_name = "evpn-tables"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("evpnmac-secure", ("evpnmac_secure", Evpn.EvpnTables.Evpnmac.EvpnmacSecure))])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-
-                self.evpnmac_secure = Evpn.EvpnTables.Evpnmac.EvpnmacSecure()
-                self.evpnmac_secure.parent = self
-                self._children_name_map["evpnmac_secure"] = "evpnmac-secure"
-                self._segment_path = lambda: "evpnmac"
-                self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.Evpnmac, ['enable'], name, value)
-
-
-            class EvpnmacSecure(Entity):
-                """
-                EVPN MAC Secure Configuration
-                
-                .. attribute:: evpnmac_secure_freeze_time
-                
-                	Length of time to lock the MAC after a MAC security violation
-                	**type**\: int
-                
-                	**range:** 5..3600
-                
-                .. attribute:: enable
-                
-                	Enable EVPN MAC Secure Configuration
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: evpnmac_secure_retry_count
-                
-                	Number of times to unfreeze a MAC before permanently freezing it
-                	**type**\: int
-                
-                	**range:** 0..1000
-                
-                .. attribute:: evpnmac_secure_move_count
-                
-                	Number of moves to occur within the move interval before locking the MAC
-                	**type**\: int
-                
-                	**range:** 1..1000
-                
-                .. attribute:: evpnmac_secure_move_interval
-                
-                	Interval to watch for subsequent MAC moves before locking the MAC
-                	**type**\: int
-                
-                	**range:** 5..3600
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, self).__init__()
-
-                    self.yang_name = "evpnmac-secure"
-                    self.yang_parent_name = "evpnmac"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('evpnmac_secure_freeze_time', (YLeaf(YType.uint32, 'evpnmac-secure-freeze-time'), ['int'])),
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                        ('evpnmac_secure_retry_count', (YLeaf(YType.uint32, 'evpnmac-secure-retry-count'), ['int'])),
-                        ('evpnmac_secure_move_count', (YLeaf(YType.uint32, 'evpnmac-secure-move-count'), ['int'])),
-                        ('evpnmac_secure_move_interval', (YLeaf(YType.uint32, 'evpnmac-secure-move-interval'), ['int'])),
-                    ])
-                    self.evpnmac_secure_freeze_time = None
-                    self.enable = None
-                    self.evpnmac_secure_retry_count = None
-                    self.evpnmac_secure_move_count = None
-                    self.evpnmac_secure_move_interval = None
-                    self._segment_path = lambda: "evpnmac-secure"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnmac/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, ['evpnmac_secure_freeze_time', 'enable', 'evpnmac_secure_retry_count', 'evpnmac_secure_move_count', 'evpnmac_secure_move_interval'], name, value)
-
-
-
-
         class EvpnEvis(Entity):
             """
             Enter EVPN Instance configuration submode
@@ -20505,7 +20550,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnEvis, self).__init__()
@@ -20595,7 +20640,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnEvis.EvpnEvi, self).__init__()
@@ -20665,7 +20710,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, self).__init__()
@@ -20724,7 +20769,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, self).__init__()
@@ -20800,7 +20845,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
@@ -20855,7 +20900,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
@@ -20916,7 +20961,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
@@ -20971,7 +21016,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
@@ -21036,7 +21081,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
@@ -21088,7 +21133,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, self).__init__()
@@ -21133,7 +21178,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, self).__init__()
@@ -21174,7 +21219,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnVirtualAccessVfis, self).__init__()
@@ -21222,7 +21267,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, self).__init__()
@@ -21295,7 +21340,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, self).__init__()
@@ -21333,6 +21378,11 @@ class Evpn(Entity):
                     	Enable Ethernet Segment
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: service_carving_mcast_type
+                    
+                    	Ethernet\-Segment Service Carving multicast mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarvingMcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarvingMcast>`
+                    
                     .. attribute:: es_import_route_target
                     
                     	ES\-Import Route Target
@@ -21362,7 +21412,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, self).__init__()
@@ -21375,10 +21425,12 @@ class Evpn(Entity):
                         self._child_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving))])
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('service_carving_mcast_type', (YLeaf(YType.enumeration, 'service-carving-mcast-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarvingMcast', '')])),
                             ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
                             ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
                         self.enable = None
+                        self.service_carving_mcast_type = None
                         self.es_import_route_target = None
                         self.service_carving_type = None
 
@@ -21392,7 +21444,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, ['enable', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -21466,7 +21518,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, self).__init__()
@@ -21520,7 +21572,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
@@ -21569,7 +21621,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
@@ -21617,7 +21669,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnLoadBalancing, self).__init__()
@@ -21662,7 +21714,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnBgpAutoDiscovery, self).__init__()
@@ -21731,7 +21783,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
@@ -21778,7 +21830,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnGroups, self).__init__()
@@ -21821,7 +21873,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnGroups.EvpnGroup, self).__init__()
@@ -21862,7 +21914,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces, self).__init__()
@@ -21899,7 +21951,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, self).__init__()
@@ -21939,7 +21991,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnInstances, self).__init__()
@@ -21986,6 +22038,11 @@ class Evpn(Entity):
                 
                 	Enable Autodiscovery BGP in EVPN Instance
                 	**type**\:  :py:class:`EvpnInstanceBgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery>`
+                
+                .. attribute:: evpn_instance_etree
+                
+                	Enter EVPN E\-Tree configuration submode
+                	**type**\:  :py:class:`EvpnInstanceEtree <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree>`
                 
                 .. attribute:: evpn_instance_advertise_mac
                 
@@ -22039,7 +22096,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnInstances.EvpnInstance, self).__init__()
@@ -22049,7 +22106,7 @@ class Evpn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vpn_id','encapsulation','side']
-                    self._child_classes = OrderedDict([("evpn-instance-bgp-auto-discovery", ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery)), ("evpn-instance-advertise-mac", ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac)), ("evpn-instance-multicast", ("evpn_instance_multicast", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast)), ("evpn-instance-load-balancing", ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing))])
+                    self._child_classes = OrderedDict([("evpn-instance-bgp-auto-discovery", ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery)), ("evpn-instance-etree", ("evpn_instance_etree", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree)), ("evpn-instance-advertise-mac", ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac)), ("evpn-instance-multicast", ("evpn_instance_multicast", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast)), ("evpn-instance-load-balancing", ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing))])
                     self._leafs = OrderedDict([
                         ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
                         ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EvpnEncapsulation', '')])),
@@ -22074,6 +22131,10 @@ class Evpn(Entity):
                     self.evpn_instance_bgp_auto_discovery = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery()
                     self.evpn_instance_bgp_auto_discovery.parent = self
                     self._children_name_map["evpn_instance_bgp_auto_discovery"] = "evpn-instance-bgp-auto-discovery"
+
+                    self.evpn_instance_etree = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree()
+                    self.evpn_instance_etree.parent = self
+                    self._children_name_map["evpn_instance_etree"] = "evpn-instance-etree"
 
                     self.evpn_instance_advertise_mac = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac()
                     self.evpn_instance_advertise_mac.parent = self
@@ -22128,7 +22189,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, self).__init__()
@@ -22204,7 +22265,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
@@ -22259,7 +22320,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
@@ -22320,7 +22381,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
@@ -22375,7 +22436,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
@@ -22440,7 +22501,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
@@ -22473,6 +22534,50 @@ class Evpn(Entity):
 
 
 
+                class EvpnInstanceEtree(Entity):
+                    """
+                    Enter EVPN E\-Tree configuration submode
+                    
+                    .. attribute:: evpn_instance_etree_leaf
+                    
+                    	Configure E\-Tree as leaf
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enable EVPN E\-Tree
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2018-06-15'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree, self).__init__()
+
+                        self.yang_name = "evpn-instance-etree"
+                        self.yang_parent_name = "evpn-instance"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evpn_instance_etree_leaf', (YLeaf(YType.empty, 'evpn-instance-etree-leaf'), ['Empty'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ])
+                        self.evpn_instance_etree_leaf = None
+                        self.enable = None
+                        self._segment_path = lambda: "evpn-instance-etree"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree, ['evpn_instance_etree_leaf', 'enable'], name, value)
+
+
+
                 class EvpnInstanceAdvertiseMac(Entity):
                     """
                     Enter Advertise local MAC\-only routes
@@ -22493,7 +22598,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, self).__init__()
@@ -22537,7 +22642,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, self).__init__()
@@ -22581,7 +22686,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, self).__init__()
@@ -22627,7 +22732,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnLogging, self).__init__()
@@ -22667,7 +22772,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnInterfaces, self).__init__()
@@ -22727,7 +22832,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, self).__init__()
@@ -22804,7 +22909,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, self).__init__()
@@ -22859,6 +22964,11 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: service_carving_mcast_type
+                    
+                    	Ethernet\-Segment Service Carving multicast mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarvingMcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarvingMcast>`
+                    
                     .. attribute:: es_import_route_target
                     
                     	ES\-Import Route Target
@@ -22888,7 +22998,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, self).__init__()
@@ -22904,6 +23014,7 @@ class Evpn(Entity):
                             ('load_balancing_mode', (YLeaf(YType.enumeration, 'load-balancing-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentLoadBalance', '')])),
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('backbone_source_mac', (YLeaf(YType.str, 'backbone-source-mac'), ['str'])),
+                            ('service_carving_mcast_type', (YLeaf(YType.enumeration, 'service-carving-mcast-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarvingMcast', '')])),
                             ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
                             ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
@@ -22911,6 +23022,7 @@ class Evpn(Entity):
                         self.load_balancing_mode = None
                         self.enable = None
                         self.backbone_source_mac = None
+                        self.service_carving_mcast_type = None
                         self.es_import_route_target = None
                         self.service_carving_type = None
 
@@ -22924,7 +23036,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, ['force_single_homed', 'load_balancing_mode', 'enable', 'backbone_source_mac', 'es_import_route_target', 'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, ['force_single_homed', 'load_balancing_mode', 'enable', 'backbone_source_mac', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -22998,7 +23110,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, self).__init__()
@@ -23052,7 +23164,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, self).__init__()
@@ -23101,7 +23213,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
@@ -23144,7 +23256,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnVirtualAccessPws, self).__init__()
@@ -23199,7 +23311,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, self).__init__()
@@ -23274,7 +23386,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, self).__init__()
@@ -23312,6 +23424,11 @@ class Evpn(Entity):
                     	Enable Ethernet Segment
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: service_carving_mcast_type
+                    
+                    	Ethernet\-Segment Service Carving multicast mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarvingMcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarvingMcast>`
+                    
                     .. attribute:: es_import_route_target
                     
                     	ES\-Import Route Target
@@ -23341,7 +23458,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, self).__init__()
@@ -23354,10 +23471,12 @@ class Evpn(Entity):
                         self._child_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving))])
                         self._leafs = OrderedDict([
                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('service_carving_mcast_type', (YLeaf(YType.enumeration, 'service-carving-mcast-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarvingMcast', '')])),
                             ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
                             ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
                         self.enable = None
+                        self.service_carving_mcast_type = None
                         self.es_import_route_target = None
                         self.service_carving_type = None
 
@@ -23371,7 +23490,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, ['enable', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -23445,7 +23564,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, self).__init__()
@@ -23499,7 +23618,7 @@ class Evpn(Entity):
                         """
 
                         _prefix = 'l2vpn-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
@@ -23548,7 +23667,7 @@ class Evpn(Entity):
                             """
 
                             _prefix = 'l2vpn-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
@@ -23596,7 +23715,7 @@ class Evpn(Entity):
             """
 
             _prefix = 'l2vpn-cfg'
-            _revision = '2017-06-26'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Evpn.EvpnTables.EvpnEthernetSegment, self).__init__()
@@ -23637,7 +23756,7 @@ class Evpn(Entity):
                 """
 
                 _prefix = 'l2vpn-cfg'
-                _revision = '2017-06-26'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes, self).__init__()
@@ -23668,7 +23787,7 @@ class Evpn(Entity):
                     	ESI type
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 1..1
                     
                     .. attribute:: disable_auto_generation
                     
@@ -23680,7 +23799,7 @@ class Evpn(Entity):
                     """
 
                     _prefix = 'l2vpn-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, self).__init__()
@@ -23703,6 +23822,429 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, ['esi_type', 'disable_auto_generation'], name, value)
+
+
+
+
+
+        class Host(Entity):
+            """
+            EVPN HOST Configuration
+            
+            .. attribute:: ipv6
+            
+            	EVPN HOST IPV6\-ADDR Configuration
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Ipv6>`
+            
+            .. attribute:: ipv4
+            
+            	EVPN HOST IPV4\-ADDR Configuration
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Ipv4>`
+            
+            .. attribute:: mac
+            
+            	EVPN HOST MAC\-ADDR Configuration
+            	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Mac>`
+            
+            
+
+            """
+
+            _prefix = 'l2rib-cfg'
+            _revision = '2018-09-26'
+
+            def __init__(self):
+                super(Evpn.EvpnTables.Host, self).__init__()
+
+                self.yang_name = "host"
+                self.yang_parent_name = "evpn-tables"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("ipv6", ("ipv6", Evpn.EvpnTables.Host.Ipv6)), ("ipv4", ("ipv4", Evpn.EvpnTables.Host.Ipv4)), ("mac", ("mac", Evpn.EvpnTables.Host.Mac))])
+                self._leafs = OrderedDict()
+
+                self.ipv6 = Evpn.EvpnTables.Host.Ipv6()
+                self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+
+                self.ipv4 = Evpn.EvpnTables.Host.Ipv4()
+                self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+
+                self.mac = Evpn.EvpnTables.Host.Mac()
+                self.mac.parent = self
+                self._children_name_map["mac"] = "mac"
+                self._segment_path = lambda: "Cisco-IOS-XR-l2rib-cfg:host"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.EvpnTables.Host, [], name, value)
+
+
+            class Ipv6(Entity):
+                """
+                EVPN HOST IPV6\-ADDR Configuration
+                
+                .. attribute:: duplicate_detection
+                
+                	EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT Configuration
+                	**type**\:  :py:class:`DuplicateDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Ipv6.DuplicateDetection>`
+                
+                
+
+                """
+
+                _prefix = 'l2rib-cfg'
+                _revision = '2018-09-26'
+
+                def __init__(self):
+                    super(Evpn.EvpnTables.Host.Ipv6, self).__init__()
+
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "host"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("duplicate-detection", ("duplicate_detection", Evpn.EvpnTables.Host.Ipv6.DuplicateDetection))])
+                    self._leafs = OrderedDict()
+
+                    self.duplicate_detection = Evpn.EvpnTables.Host.Ipv6.DuplicateDetection()
+                    self.duplicate_detection.parent = self
+                    self._children_name_map["duplicate_detection"] = "duplicate-detection"
+                    self._segment_path = lambda: "ipv6"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.EvpnTables.Host.Ipv6, [], name, value)
+
+
+                class DuplicateDetection(Entity):
+                    """
+                    EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
+                    Configuration
+                    
+                    .. attribute:: move_count
+                    
+                    	Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6 address is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 1..1000
+                    
+                    	**default value**\: 5
+                    
+                    .. attribute:: retry_count
+                    
+                    	Number of times to automatically clear the duplicate flag on a MAC/IPV4/IPV6 route before permanently freezing it
+                    	**type**\: int
+                    
+                    	**range:** 0..1000
+                    
+                    	**default value**\: 3
+                    
+                    .. attribute:: freeze_time
+                    
+                    	Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 30
+                    
+                    .. attribute:: move_interval
+                    
+                    	Interval within which MoveCount number of moves need to happen before a MAC/IPv4/IPv6 route is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 180
+                    
+                    .. attribute:: disable
+                    
+                    	Set to disable duplicate detection
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2rib-cfg'
+                    _revision = '2018-09-26'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.Host.Ipv6.DuplicateDetection, self).__init__()
+
+                        self.yang_name = "duplicate-detection"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('move_count', (YLeaf(YType.uint32, 'move-count'), ['int'])),
+                            ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                            ('freeze_time', (YLeaf(YType.uint32, 'freeze-time'), ['int'])),
+                            ('move_interval', (YLeaf(YType.uint32, 'move-interval'), ['int'])),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                        ])
+                        self.move_count = None
+                        self.retry_count = None
+                        self.freeze_time = None
+                        self.move_interval = None
+                        self.disable = None
+                        self._segment_path = lambda: "duplicate-detection"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/ipv6/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.Host.Ipv6.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
+
+
+
+
+            class Ipv4(Entity):
+                """
+                EVPN HOST IPV4\-ADDR Configuration
+                
+                .. attribute:: duplicate_detection
+                
+                	EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT Configuration
+                	**type**\:  :py:class:`DuplicateDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Ipv4.DuplicateDetection>`
+                
+                
+
+                """
+
+                _prefix = 'l2rib-cfg'
+                _revision = '2018-09-26'
+
+                def __init__(self):
+                    super(Evpn.EvpnTables.Host.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "host"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("duplicate-detection", ("duplicate_detection", Evpn.EvpnTables.Host.Ipv4.DuplicateDetection))])
+                    self._leafs = OrderedDict()
+
+                    self.duplicate_detection = Evpn.EvpnTables.Host.Ipv4.DuplicateDetection()
+                    self.duplicate_detection.parent = self
+                    self._children_name_map["duplicate_detection"] = "duplicate-detection"
+                    self._segment_path = lambda: "ipv4"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.EvpnTables.Host.Ipv4, [], name, value)
+
+
+                class DuplicateDetection(Entity):
+                    """
+                    EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
+                    Configuration
+                    
+                    .. attribute:: move_count
+                    
+                    	Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6 address is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 1..1000
+                    
+                    	**default value**\: 5
+                    
+                    .. attribute:: retry_count
+                    
+                    	Number of times to automatically clear the duplicate flag on a MAC/IPV4/IPV6 route before permanently freezing it
+                    	**type**\: int
+                    
+                    	**range:** 0..1000
+                    
+                    	**default value**\: 3
+                    
+                    .. attribute:: freeze_time
+                    
+                    	Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 30
+                    
+                    .. attribute:: move_interval
+                    
+                    	Interval within which MoveCount number of moves need to happen before a MAC/IPv4/IPv6 route is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 180
+                    
+                    .. attribute:: disable
+                    
+                    	Set to disable duplicate detection
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2rib-cfg'
+                    _revision = '2018-09-26'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.Host.Ipv4.DuplicateDetection, self).__init__()
+
+                        self.yang_name = "duplicate-detection"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('move_count', (YLeaf(YType.uint32, 'move-count'), ['int'])),
+                            ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                            ('freeze_time', (YLeaf(YType.uint32, 'freeze-time'), ['int'])),
+                            ('move_interval', (YLeaf(YType.uint32, 'move-interval'), ['int'])),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                        ])
+                        self.move_count = None
+                        self.retry_count = None
+                        self.freeze_time = None
+                        self.move_interval = None
+                        self.disable = None
+                        self._segment_path = lambda: "duplicate-detection"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/ipv4/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.Host.Ipv4.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
+
+
+
+
+            class Mac(Entity):
+                """
+                EVPN HOST MAC\-ADDR Configuration
+                
+                .. attribute:: duplicate_detection
+                
+                	EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT Configuration
+                	**type**\:  :py:class:`DuplicateDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Host.Mac.DuplicateDetection>`
+                
+                
+
+                """
+
+                _prefix = 'l2rib-cfg'
+                _revision = '2018-09-26'
+
+                def __init__(self):
+                    super(Evpn.EvpnTables.Host.Mac, self).__init__()
+
+                    self.yang_name = "mac"
+                    self.yang_parent_name = "host"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("duplicate-detection", ("duplicate_detection", Evpn.EvpnTables.Host.Mac.DuplicateDetection))])
+                    self._leafs = OrderedDict()
+
+                    self.duplicate_detection = Evpn.EvpnTables.Host.Mac.DuplicateDetection()
+                    self.duplicate_detection.parent = self
+                    self._children_name_map["duplicate_detection"] = "duplicate-detection"
+                    self._segment_path = lambda: "mac"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.EvpnTables.Host.Mac, [], name, value)
+
+
+                class DuplicateDetection(Entity):
+                    """
+                    EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
+                    Configuration
+                    
+                    .. attribute:: move_count
+                    
+                    	Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6 address is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 1..1000
+                    
+                    	**default value**\: 5
+                    
+                    .. attribute:: retry_count
+                    
+                    	Number of times to automatically clear the duplicate flag on a MAC/IPV4/IPV6 route before permanently freezing it
+                    	**type**\: int
+                    
+                    	**range:** 0..1000
+                    
+                    	**default value**\: 3
+                    
+                    .. attribute:: freeze_time
+                    
+                    	Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 30
+                    
+                    .. attribute:: move_interval
+                    
+                    	Interval within which MoveCount number of moves need to happen before a MAC/IPv4/IPv6 route is marked as duplicate
+                    	**type**\: int
+                    
+                    	**range:** 5..3600
+                    
+                    	**default value**\: 180
+                    
+                    .. attribute:: disable
+                    
+                    	Set to disable duplicate detection
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2rib-cfg'
+                    _revision = '2018-09-26'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.Host.Mac.DuplicateDetection, self).__init__()
+
+                        self.yang_name = "duplicate-detection"
+                        self.yang_parent_name = "mac"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('move_count', (YLeaf(YType.uint32, 'move-count'), ['int'])),
+                            ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                            ('freeze_time', (YLeaf(YType.uint32, 'freeze-time'), ['int'])),
+                            ('move_interval', (YLeaf(YType.uint32, 'move-interval'), ['int'])),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                        ])
+                        self.move_count = None
+                        self.retry_count = None
+                        self.freeze_time = None
+                        self.move_interval = None
+                        self.disable = None
+                        self._segment_path = lambda: "duplicate-detection"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/mac/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.Host.Mac.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
 
 
 

@@ -155,7 +155,7 @@ class StartQuery(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(StartQuery.Input, [u'foreach', u'sort_by', u'limit', u'offset', u'timeout'], name, value)
+            self._perform_setattr(StartQuery.Input, ['foreach', 'sort_by', 'limit', 'offset', 'timeout'], name, value)
 
 
         class Select(Entity):
@@ -209,7 +209,7 @@ class StartQuery(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(StartQuery.Input.Select, [u'label', u'expression', u'result_type'], name, value)
+                self._perform_setattr(StartQuery.Input.Select, ['label', 'expression', 'result_type'], name, value)
 
             class ResultType(Enum):
                 """
@@ -299,7 +299,7 @@ class StartQuery(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(StartQuery.Output, [u'query_handle'], name, value)
+            self._perform_setattr(StartQuery.Output, ['query_handle'], name, value)
 
 
     def clone_ptr(self):
@@ -388,7 +388,7 @@ class FetchQueryResult(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FetchQueryResult.Input, [u'query_handle'], name, value)
+            self._perform_setattr(FetchQueryResult.Input, ['query_handle'], name, value)
 
 
 
@@ -558,7 +558,7 @@ class FetchQueryResult(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FetchQueryResult.Output.QueryResult.Result.Select, [u'label', u'path', u'value', u'data'], name, value)
+                        self._perform_setattr(FetchQueryResult.Output.QueryResult.Result.Select, ['label', 'path', 'value', 'data'], name, value)
 
 
 
@@ -695,7 +695,7 @@ class ImmediateQuery(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ImmediateQuery.Input, [u'foreach', u'sort_by', u'limit', u'offset', u'timeout'], name, value)
+            self._perform_setattr(ImmediateQuery.Input, ['foreach', 'sort_by', 'limit', 'offset', 'timeout'], name, value)
 
 
         class Select(Entity):
@@ -749,7 +749,7 @@ class ImmediateQuery(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ImmediateQuery.Input.Select, [u'label', u'expression', u'result_type'], name, value)
+                self._perform_setattr(ImmediateQuery.Input.Select, ['label', 'expression', 'result_type'], name, value)
 
             class ResultType(Enum):
                 """
@@ -969,7 +969,7 @@ class ImmediateQuery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ImmediateQuery.Output.QueryResult.Result.Select, [u'label', u'path', u'value', u'data'], name, value)
+                        self._perform_setattr(ImmediateQuery.Output.QueryResult.Result.Select, ['label', 'path', 'value', 'data'], name, value)
 
 
 
@@ -1074,7 +1074,7 @@ class ResetQuery(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ResetQuery.Input, [u'query_handle', u'offset', u'timeout'], name, value)
+            self._perform_setattr(ResetQuery.Input, ['query_handle', 'offset', 'timeout'], name, value)
 
 
     def clone_ptr(self):
@@ -1154,7 +1154,7 @@ class StopQuery(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(StopQuery.Input, [u'query_handle'], name, value)
+            self._perform_setattr(StopQuery.Input, ['query_handle'], name, value)
 
 
     def clone_ptr(self):

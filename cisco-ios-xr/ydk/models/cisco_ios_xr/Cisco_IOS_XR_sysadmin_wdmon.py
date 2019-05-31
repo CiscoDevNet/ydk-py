@@ -33,7 +33,7 @@ class Wdmon(Entity):
     """
 
     _prefix = 'wdmonh'
-    _revision = '2017-05-01'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Wdmon, self).__init__()
@@ -78,7 +78,7 @@ class Wdmon(Entity):
         """
 
         _prefix = 'wdmonh'
-        _revision = '2017-05-01'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Wdmon.Trace, self).__init__()
@@ -100,7 +100,7 @@ class Wdmon(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Wdmon.Trace, [u'buffer'], name, value)
+            self._perform_setattr(Wdmon.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -126,7 +126,7 @@ class Wdmon(Entity):
             """
 
             _prefix = 'wdmonh'
-            _revision = '2017-05-01'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Wdmon.Trace.Location, self).__init__()
@@ -147,7 +147,7 @@ class Wdmon(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Wdmon.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(Wdmon.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -173,7 +173,7 @@ class Wdmon(Entity):
                 """
 
                 _prefix = 'wdmonh'
-                _revision = '2017-05-01'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Wdmon.Trace.Location.AllOptions, self).__init__()
@@ -194,7 +194,7 @@ class Wdmon(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Wdmon.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(Wdmon.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -213,7 +213,7 @@ class Wdmon(Entity):
                     """
 
                     _prefix = 'wdmonh'
-                    _revision = '2017-05-01'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Wdmon.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -232,7 +232,7 @@ class Wdmon(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Wdmon.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(Wdmon.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -260,7 +260,7 @@ class WdmonInfo(Entity):
     """
 
     _prefix = 'wdmonh'
-    _revision = '2017-05-01'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(WdmonInfo, self).__init__()
@@ -475,7 +475,7 @@ class WdmonInfo(Entity):
         """
 
         _prefix = 'wdmonh'
-        _revision = '2017-05-01'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(WdmonInfo.AllLocations, self).__init__()

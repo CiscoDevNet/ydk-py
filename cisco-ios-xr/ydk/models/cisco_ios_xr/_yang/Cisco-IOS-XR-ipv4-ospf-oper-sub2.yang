@@ -109,6 +109,10 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         description
           "Segment Routing Local Block";
       }
+      enum "mgmt-ospf-opq-ri-tlv-type-host-name" {
+        description
+          "Dynamic Hostname";
+      }
     }
     description
       "OSPF Router Information TLV types";
@@ -236,6 +240,36 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         description
           "Unidirectional link delay";
       }
+      enum "mgmt-ospf-rrr-link-uni-min-max-delay" {
+        value 28;
+        description
+          "Unidirectional min-max delay";
+      }
+      enum "mgmt-ospf-rrr-link-uni-delay-var-iance" {
+        value 29;
+        description
+          "Unidirectional delay variance";
+      }
+      enum "mgmt-ospf-rrr-link-uni-link-loss" {
+        value 30;
+        description
+          "Unidirectional link loss";
+      }
+      enum "mgmt-ospf-rrr-link-uni-residual-bw" {
+        value 31;
+        description
+          "Unidirectional residual bandwidth";
+      }
+      enum "mgmt-ospf-rrr-link-uni-available-bw" {
+        value 32;
+        description
+          "Unidirectional available delay";
+      }
+      enum "mgmt-ospf-rrr-link-uni-utilized-bw" {
+        value 33;
+        description
+          "Unidirectional utilized bandwidth";
+      }
       enum "mgmt-ospf-rrr-link-max-reservable-bw-sub" {
         value 32768;
         description
@@ -250,6 +284,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         value 32770;
         description
           "IGP Link Metric";
+      }
+      enum "mgmt-ospf-rrr-link-ext-admin-sub-backward" {
+        value 32771;
+        description
+          "Extended admin backward";
       }
     }
     description
@@ -668,6 +707,59 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
     description
       "Ospf br";
+  }
+
+  typedef Ospf-sr-adj-sid-inactive-reason {
+    type enumeration {
+      enum "ospf-adj-sid-inactive-none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "ospf-adj-sid-inactive-no-nbr" {
+        value 1;
+        description
+          "No neighbors on interface";
+      }
+      enum "ospf-adj-sid-inactive-no-nbr-addr" {
+        value 2;
+        description
+          "Neighbor address not specified for multiple
+           neighbors";
+      }
+      enum "ospf-adj-sid-inactive-nbr-not-found" {
+        value 3;
+        description
+          "Neighbor with specified address not found";
+      }
+      enum "ospf-adj-sid-inactive-out-of-srlb" {
+        value 4;
+        description
+          "Adj SID out of SRLB";
+      }
+      enum "ospf-adj-sid-inactive-lsd-alloc-pending" {
+        value 5;
+        description
+          "LSD allocation pending";
+      }
+      enum "ospf-adj-sid-inactive-no-srlb" {
+        value 6;
+        description
+          "SRLB not allocated";
+      }
+      enum "ospf-adj-sid-inactive-sr-not-enable" {
+        value 7;
+        description
+          "Segment routing not enabled";
+      }
+      enum "ospf-adj-sid-inactive-dadj" {
+        value 8;
+        description
+          "Active in Deleted Adjacency Protection";
+      }
+    }
+    description
+      "Ospf sr adj sid inactive reason";
   }
 
   typedef Ipfrr-tbrkr {
@@ -1813,6 +1905,18 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-OPQ-RI-HOSTNAME {
+    description
+      "OSPF Hostname";
+    leaf host-name {
+      type string {
+        length "0..256";
+      }
+      description
+        "Hostname string";
+    }
+  }
+
   grouping OSPF-SH-OPQ-RI-SRLB-TLV {
     description
       "OSPF SRLB TLV";
@@ -1906,6 +2010,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "SR Algorithms";
       leaf entry {
         type uint8;
+        description
+          "SR Algorithms";
       }
     }
   }
@@ -2193,6 +2299,16 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "SRLB Range TLV";
       uses OSPF-SH-OPQ-RI-SRLB-TLV;
     }
+    container host-name {
+      when "../ritlv-internal-type = 'mgmt-ospf-opq-ri-tlv-type-host-name'" {
+        description
+          "../RITLVInternalType =
+           'MGMT_OSPF_OPQ_RI_TLV_TYPE_HOSTNAME'";
+      }
+      description
+        "Hostname string ";
+      uses OSPF-SH-OPQ-RI-HOSTNAME;
+    }
     leaf ritlv-internal-type {
       type Ospf-sh-opq-ri-tlv-types;
       description
@@ -2389,6 +2505,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Metric";
       leaf entry {
         type uint32;
+        description
+          "Metric";
       }
     }
   }
@@ -2406,6 +2524,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Neighbor router list";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Neighbor router list";
       }
     }
   }
@@ -3064,6 +3184,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "List of old MD keys (if any)";
       leaf entry {
         type uint16;
+        description
+          "List of old MD keys (if any)";
       }
     }
   }
@@ -3477,7 +3599,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf table-prefix-limit-reached {
       type boolean;
       description
-        "If true, prefix limit for table has been
+        "If true, prefix limit for table has been 
          reached";
     }
     leaf non-self-lsa-count {
@@ -3577,7 +3699,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf microloop-avoidance-delay {
       type uint32;
       description
-        "Microloop delay time after which actual
+        "Microloop delay time after which actual         
          post convergence paths are given to RIB (s)";
     }
     leaf microloop-avoidance-active {
@@ -3588,7 +3710,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf microloop-avoidance-delay-expiry {
       type uint32;
       description
-        "Remaining time for uloop delay timer
+        "Remaining time for uloop delay timer            
          to expire (s)";
     }
     leaf lsd-connected {
@@ -3790,31 +3912,31 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf sr-microloop-avoidance-active {
       type boolean;
       description
-        "If true, Segment routing Uloop avoidance
+        "If true, Segment routing Uloop avoidance        
          is currently active in this area";
     }
     leaf sr-microloop-avoidance-event-type {
       type Sr-uloop-event;
       description
-        "Event for which SR uloop is triggered
+        "Event for which SR uloop is triggered           
          Link Up/Link Down";
     }
     leaf sr-microloop-avoidance-near-end-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the near end
+        "Link State ID of the near end                   
          of the topology change";
     }
     leaf sr-microloop-avoidance-far-end-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the far end
+        "Link State ID of the far end                    
          of the topology change";
     }
     leaf sr-microloop-avoidance-pseudonode-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the pseudo node,
+        "Link State ID of the pseudo node,               
          if the change is on a broadcast link";
     }
     leaf authentication-type {
@@ -4089,6 +4211,31 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-IF-ADJ-SID {
+    description
+      "OSPF Interface Adjacency SID";
+    leaf adj-sid-label {
+      type uint32;
+      description
+        "Adjacency SID Label";
+    }
+    leaf protected-adj-sid {
+      type boolean;
+      description
+        "Adjacency SID Protection";
+    }
+    leaf adj-sid-is-active {
+      type boolean;
+      description
+        "Adj sid is allocated to a neighbor";
+    }
+    leaf adj-sid-inactive-reason {
+      type Ospf-sr-adj-sid-inactive-reason;
+      description
+        "Adjacency SID Inactive Reason";
+    }
+  }
+
   grouping OSPF-SH-SEC-ADDR {
     description
       "OSPF Secondary Address";
@@ -4246,6 +4393,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "List of old MD keys";
       leaf entry {
         type uint16;
+        description
+          "List of old MD keys";
       }
     }
   }
@@ -4746,11 +4895,18 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "SRTE Ext. Admin Group available";
     }
+    leaf interface-weight {
+      type uint32;
+      description
+        "Configured Interface weight";
+    }
     list srlg {
       description
         "SRLG Values";
       leaf entry {
         type uint32;
+        description
+          "SRLG Values";
       }
     }
     list srtete-ext-admin-group {
@@ -4758,6 +4914,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "SRTE Ext. Admin Group";
       leaf entry {
         type uint32;
+        description
+          "SRTE Ext. Admin Group";
       }
     }
     list interface-neighbor {
@@ -4779,6 +4937,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Secondary IP address list";
       uses OSPF-SH-SEC-ADDR;
+    }
+    list sr-adj-sid {
+      description
+        "SR Configured Adjacency SIDs";
+      uses OSPF-SH-IF-ADJ-SID;
     }
   }
 
@@ -4961,6 +5124,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "List of old MD keys (if any)";
       leaf entry {
         type uint16;
+        description
+          "List of old MD keys (if any)";
       }
     }
   }
@@ -5335,6 +5500,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type boolean;
       description
         "SR-TE SSPF path";
+    }
+    leaf weight {
+      type uint32;
+      description
+        "Path Weight";
     }
     list neighbor-next-hop {
       description
@@ -5760,6 +5930,31 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-NBR-ADJ-SID {
+    description
+      "OSPF Neighbor Adjacency SID";
+    leaf adj-sid-label {
+      type uint32;
+      description
+        "Adjacency SID Label";
+    }
+    leaf protected-adj-sid {
+      type boolean;
+      description
+        "Adjacency SID Protection";
+    }
+    leaf adj-sid-has-backup {
+      type boolean;
+      description
+        "Adjacency SID has backup protection";
+    }
+    leaf configured-adj-sid {
+      type boolean;
+      description
+        "Configured Adjacency SID";
+    }
+  }
+
   grouping OSPF-SH-NEIGHBOR-RETRANS {
     description
       "OSPF Neighbor Retransmission Information";
@@ -5998,25 +6193,15 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Ack List High Watermark";
     }
-    leaf adjacency-sid-label {
-      type uint32;
-      description
-        "SR Adjacency SID Label";
-    }
-    leaf adjacency-sid-protected {
-      type boolean;
-      description
-        "SR Adjacency SID Protected";
-    }
-    leaf adjacency-sid-unprotected-label {
-      type uint32;
-      description
-        "SR Adjacency SID Unprotected Label";
-    }
     leaf neighbor-interface-id {
       type uint16;
       description
         "Interface ID of neighbor recived via LLS";
+    }
+    list adjacency-sid {
+      description
+        "List of SR Adjacency SIDs";
+      uses OSPF-SH-NBR-ADJ-SID;
     }
   }
 
@@ -6215,6 +6400,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Value of Extended Admin Group";
       leaf entry {
         type uint32;
+        description
+          "Value of Extended Admin Group";
       }
     }
   }
@@ -6243,6 +6430,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Array of Unres LSP BW";
       leaf entry {
         type uint64;
+        description
+          "Array of Unres LSP BW";
       }
     }
     list max-lspbw {
@@ -6251,6 +6440,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Max LSP BW Array";
       leaf entry {
         type uint64;
+        description
+          "Max LSP BW Array";
       }
     }
   }
@@ -6349,6 +6540,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Array of Unres Oduj Prio";
       leaf entry {
         type uint32;
+        description
+          "Array of Unres Oduj Prio";
       }
     }
   }
@@ -6490,6 +6683,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Max LSP bandwidth array";
       leaf entry {
         type int64;
+        description
+          "Max LSP bandwidth array";
       }
     }
   }
@@ -6512,6 +6707,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Value of SRLG TLV";
       leaf entry {
         type uint32;
+        description
+          "Value of SRLG TLV";
       }
     }
   }
@@ -6534,6 +6731,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Value of BC TLV";
       leaf entry {
         type uint64;
+        description
+          "Value of BC TLV";
       }
     }
   }
@@ -6639,6 +6838,10 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       leaf entry {
         type uint64;
         units "byte/s";
+        description
+          "Maximum LSP bandwidth for each priority
+           
+           (bytes/s)";
       }
     }
   }
@@ -6668,6 +6871,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       leaf entry {
         type uint64;
         units "byte/s";
+        description
+          "Unreserved bandwidth for each priority (bytes/s)";
       }
     }
   }
@@ -6979,6 +7184,98 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "SR Policy List";
       uses OSPF-SH-SR-POLICY;
+    }
+  }
+
+  grouping OSPF-SH-ADJ-SID-PATH-INFO {
+    description
+      "OSPF SR Adjacency SID Path Information";
+    leaf interface-handle {
+      type xr:Interface-name;
+      description
+        "SR Adj SID Interface Handle";
+    }
+    leaf nexthop-ip-address {
+      type inet:ipv4-address;
+      description
+        "SR Adj SID Nexthop Neighbor IP Address";
+    }
+    leaf load-metric {
+      type uint32;
+      description
+        "SR Adj SID Path metric";
+    }
+    list label-stack {
+      description
+        "SR Adj SID Label Stack";
+      leaf entry {
+        type uint32;
+        description
+          "SR Adj SID Label Stack";
+      }
+    }
+  }
+
+  grouping OSPF-SH-ADJ-SID-NBR-ASSOC {
+    description
+      "OSPF SR Adjacency SID Neighbor Association
+       Information";
+    container primary-path-info {
+      description
+        "SR Adj SID Primary path info";
+      uses OSPF-SH-ADJ-SID-PATH-INFO;
+    }
+    container backup-path-info {
+      description
+        "SR Adj SID Backup path info";
+      uses OSPF-SH-ADJ-SID-PATH-INFO;
+    }
+    leaf neighbor-id {
+      type inet:ipv4-address;
+      description
+        "SR Adj SID Neighbor ID";
+    }
+    leaf sr-adj-sid-is-protected {
+      type boolean;
+      description
+        "SR Adj SID is protected";
+    }
+    leaf sr-adj-sid-has-backup {
+      type boolean;
+      description
+        "SR Adj SID has backup path";
+    }
+  }
+
+  grouping OSPF-SH-ADJ-SID {
+    description
+      "OSPF SR Adjacency SID Information";
+    leaf sr-adjacency-sid {
+      type uint32;
+      description
+        "SR Adjacency SID";
+    }
+    leaf sr-adj-sid-is-configured {
+      type boolean;
+      description
+        "SR Adj SID is configured";
+    }
+    leaf is-deleted-adjacency-protected {
+      type boolean;
+      description
+        "Is this adj-sid being protected after adjacency
+         deleted";
+    }
+    leaf deleted-adjacency-protection-timer {
+      type uint32;
+      description
+        "Remaining time for deleted adjacency protection
+         (sec)";
+    }
+    list sr-adj-sid-neighbor {
+      description
+        "SR Adj SID Neighbor List";
+      uses OSPF-SH-ADJ-SID-NBR-ASSOC;
     }
   }
 

@@ -9,28 +9,28 @@ module Cisco-IOS-XR-mpls-te-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub8 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub7 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub5 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub4 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub3 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub2 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -62,6 +62,10 @@ module Cisco-IOS-XR-mpls-te-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

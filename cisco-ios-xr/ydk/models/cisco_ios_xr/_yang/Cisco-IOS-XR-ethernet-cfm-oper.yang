@@ -15,16 +15,16 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
     prefix a1;
   }
   include Cisco-IOS-XR-ethernet-cfm-oper-sub4 {
-    revision-date 2017-10-06;
+    revision-date 2018-12-20;
   }
   include Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
-    revision-date 2017-10-06;
+    revision-date 2018-12-20;
   }
   include Cisco-IOS-XR-ethernet-cfm-oper-sub2 {
-    revision-date 2017-10-06;
+    revision-date 2018-12-20;
   }
   include Cisco-IOS-XR-ethernet-cfm-oper-sub1 {
-    revision-date 2017-10-06;
+    revision-date 2018-12-20;
   }
 
   organization
@@ -54,6 +54,10 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-12-20 {
+    description
+      "Bandwidth notification class and type name update.";
+  }
   revision 2017-10-06 {
     description
       "Traceroute transaction ID changed from int to uint.";
@@ -390,10 +394,10 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
           description
             "Interface AIS table";
           list interface-ais {
-            key "interface-name direction";
+            key "interface direction";
             description
               "AIS statistics for a particular interface";
-            leaf interface-name {
+            leaf interface {
               type xr:Interface-name;
               description
                 "Interface";
@@ -435,14 +439,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
               "CCM Learning Database entry";
             leaf domain {
               type string {
-                length "1..79";
+                length "1..127";
               }
               description
                 "Maintenance Domain";
             }
             leaf service {
               type string {
-                length "1..79";
+                length "1..127";
               }
               description
                 "Service (Maintenance Association)";
@@ -475,14 +479,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              has not yet timed out";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -515,14 +519,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              Point";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -545,14 +549,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              error";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -570,14 +574,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              error";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -600,14 +604,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              operation";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -639,14 +643,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
             "Information about a particular local MEP";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";
@@ -674,14 +678,14 @@ module Cisco-IOS-XR-ethernet-cfm-oper {
              local MEP";
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
           }
           leaf service {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Service (Maintenance Association)";

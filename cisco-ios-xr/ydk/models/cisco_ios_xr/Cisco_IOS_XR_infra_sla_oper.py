@@ -160,7 +160,7 @@ class Sla(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Sla.Protocols.Ethernet, self).__init__()
@@ -225,7 +225,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents, self).__init__()
@@ -353,7 +353,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, self).__init__()
@@ -399,7 +399,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -432,7 +432,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, self).__init__()
@@ -460,7 +460,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -479,7 +479,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -499,7 +499,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -530,7 +530,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -552,7 +552,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -606,7 +606,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, self).__init__()
@@ -632,7 +632,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -659,7 +659,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric, self).__init__()
@@ -744,7 +744,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, self).__init__()
@@ -774,7 +774,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -1051,7 +1051,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, self).__init__()
@@ -1135,7 +1135,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -1168,7 +1168,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, self).__init__()
@@ -1196,7 +1196,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -1215,7 +1215,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -1304,7 +1304,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -1334,7 +1334,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
 
 
@@ -1355,7 +1355,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -1459,7 +1459,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -1495,7 +1495,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
 
 
@@ -1521,7 +1521,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.Operations, self).__init__()
@@ -1632,7 +1632,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.Operations.Operation, self).__init__()
@@ -1674,7 +1674,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -1773,7 +1773,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, self).__init__()
@@ -1817,7 +1817,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -1854,7 +1854,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, self).__init__()
@@ -1878,7 +1878,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
 
 
 
@@ -1908,7 +1908,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, self).__init__()
@@ -1930,7 +1930,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
 
 
 
@@ -1983,7 +1983,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, self).__init__()
@@ -2009,7 +2009,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -2039,7 +2039,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, self).__init__()
@@ -2063,7 +2063,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -2125,7 +2125,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
@@ -2155,7 +2155,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -2191,7 +2191,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, self).__init__()
@@ -2219,7 +2219,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -2238,7 +2238,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -2258,7 +2258,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -2289,7 +2289,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -2311,7 +2311,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -2335,7 +2335,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsHistoricals, self).__init__()
@@ -2463,7 +2463,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, self).__init__()
@@ -2509,7 +2509,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -2542,7 +2542,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, self).__init__()
@@ -2570,7 +2570,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -2589,7 +2589,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -2609,7 +2609,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -2640,7 +2640,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -2662,7 +2662,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -2716,7 +2716,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, self).__init__()
@@ -2742,7 +2742,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -2769,7 +2769,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric, self).__init__()
@@ -2854,7 +2854,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, self).__init__()
@@ -2884,7 +2884,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -3161,7 +3161,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, self).__init__()
@@ -3245,7 +3245,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -3278,7 +3278,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, self).__init__()
@@ -3306,7 +3306,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -3325,7 +3325,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -3414,7 +3414,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -3444,7 +3444,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
 
 
@@ -3465,7 +3465,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -3569,7 +3569,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -3605,7 +3605,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
 
 
@@ -3632,7 +3632,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals, self).__init__()
@@ -3760,7 +3760,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, self).__init__()
@@ -3806,7 +3806,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -3839,7 +3839,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, self).__init__()
@@ -3867,7 +3867,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -3886,7 +3886,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -3906,7 +3906,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -3937,7 +3937,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -3959,7 +3959,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -4013,7 +4013,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, self).__init__()
@@ -4039,7 +4039,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -4066,7 +4066,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric, self).__init__()
@@ -4151,7 +4151,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, self).__init__()
@@ -4181,7 +4181,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -4458,7 +4458,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, self).__init__()
@@ -4542,7 +4542,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -4575,7 +4575,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, self).__init__()
@@ -4603,7 +4603,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -4622,7 +4622,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -4711,7 +4711,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -4741,7 +4741,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
 
 
@@ -4762,7 +4762,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -4866,7 +4866,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -4902,7 +4902,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
 
 
@@ -4929,7 +4929,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.ConfigErrors, self).__init__()
@@ -5137,7 +5137,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, self).__init__()
@@ -5203,7 +5203,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'profile_name_xr', u'display_short', u'rt_delay_inconsistent', u'ow_delay_sd_inconsistent', u'ow_delay_ds_inconsistent', u'rt_jitter_inconsistent', u'ow_jitter_sd_inconsistent', u'ow_jitter_ds_inconsistent', u'ow_loss_sd_inconsistent', u'ow_loss_ds_inconsistent', u'packet_pad_inconsistent', u'packet_rand_pad_inconsistent', u'min_packet_interval_inconsistent', u'priority_inconsistent', u'packet_type_inconsistent', u'profile_doesnt_exist', u'synthetic_loss_not_supported', u'probe_too_big', u'error_string'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'profile_name_xr', 'display_short', 'rt_delay_inconsistent', 'ow_delay_sd_inconsistent', 'ow_delay_ds_inconsistent', 'rt_jitter_inconsistent', 'ow_jitter_sd_inconsistent', 'ow_jitter_ds_inconsistent', 'ow_loss_sd_inconsistent', 'ow_loss_ds_inconsistent', 'packet_pad_inconsistent', 'packet_rand_pad_inconsistent', 'min_packet_interval_inconsistent', 'priority_inconsistent', 'packet_type_inconsistent', 'profile_doesnt_exist', 'synthetic_loss_not_supported', 'probe_too_big', 'error_string'], name, value)
 
 
 
@@ -5224,7 +5224,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.OnDemandOperations, self).__init__()
@@ -5336,7 +5336,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, self).__init__()
@@ -5378,7 +5378,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -5477,7 +5477,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, self).__init__()
@@ -5521,7 +5521,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -5558,7 +5558,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, self).__init__()
@@ -5582,7 +5582,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
 
 
 
@@ -5612,7 +5612,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, self).__init__()
@@ -5634,7 +5634,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
 
 
 
@@ -5687,7 +5687,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, self).__init__()
@@ -5713,7 +5713,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -5743,7 +5743,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, self).__init__()
@@ -5767,7 +5767,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -5829,7 +5829,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
@@ -5859,7 +5859,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -5895,7 +5895,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, self).__init__()
@@ -5923,7 +5923,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -5942,7 +5942,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -5962,7 +5962,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -5993,7 +5993,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -6015,7 +6015,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -6038,7 +6038,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsCurrents, self).__init__()
@@ -6166,7 +6166,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, self).__init__()
@@ -6212,7 +6212,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -6245,7 +6245,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, self).__init__()
@@ -6273,7 +6273,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, [u'oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, ['oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -6292,7 +6292,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -6312,7 +6312,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
 
 
@@ -6343,7 +6343,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -6365,7 +6365,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
 
 
@@ -6419,7 +6419,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, self).__init__()
@@ -6445,7 +6445,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
 
 
@@ -6472,7 +6472,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric, self).__init__()
@@ -6557,7 +6557,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, self).__init__()
@@ -6587,7 +6587,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
 
 
@@ -6864,7 +6864,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, self).__init__()
@@ -6948,7 +6948,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -6981,7 +6981,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, self).__init__()
@@ -7009,7 +7009,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -7028,7 +7028,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -7117,7 +7117,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -7147,7 +7147,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
 
 
@@ -7168,7 +7168,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -7272,7 +7272,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2017-10-06'
+                                        _revision = '2018-12-20'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -7308,7 +7308,7 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
 
 

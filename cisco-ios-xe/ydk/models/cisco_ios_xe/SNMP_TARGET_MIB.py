@@ -137,7 +137,7 @@ class SNMPTARGETMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, [u'snmptargetspinlock', u'snmpunavailablecontexts', u'snmpunknowncontexts'], name, value)
+            self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, ['snmptargetspinlock', 'snmpunavailablecontexts', 'snmpunknowncontexts'], name, value)
 
 
 
@@ -304,7 +304,7 @@ class SNMPTARGETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, [u'snmptargetaddrname', u'snmptargetaddrtdomain', u'snmptargetaddrtaddress', u'snmptargetaddrtimeout', u'snmptargetaddrretrycount', u'snmptargetaddrtaglist', u'snmptargetaddrparams', u'snmptargetaddrstoragetype', u'snmptargetaddrrowstatus'], name, value)
+                self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, ['snmptargetaddrname', 'snmptargetaddrtdomain', 'snmptargetaddrtaddress', 'snmptargetaddrtimeout', 'snmptargetaddrretrycount', 'snmptargetaddrtaglist', 'snmptargetaddrparams', 'snmptargetaddrstoragetype', 'snmptargetaddrrowstatus'], name, value)
 
 
 
@@ -447,7 +447,7 @@ class SNMPTARGETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, [u'snmptargetparamsname', u'snmptargetparamsmpmodel', u'snmptargetparamssecuritymodel', u'snmptargetparamssecurityname', u'snmptargetparamssecuritylevel', u'snmptargetparamsstoragetype', u'snmptargetparamsrowstatus'], name, value)
+                self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, ['snmptargetparamsname', 'snmptargetparamsmpmodel', 'snmptargetparamssecuritymodel', 'snmptargetparamssecurityname', 'snmptargetparamssecuritylevel', 'snmptargetparamsstoragetype', 'snmptargetparamsrowstatus'], name, value)
 
 
 

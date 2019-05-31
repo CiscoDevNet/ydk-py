@@ -298,7 +298,7 @@ class ShowFpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd, ['fpd_name', u'upgrade_status'], name, value)
+                        self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd, ['fpd_name', 'upgrade_status'], name, value)
 
 
                     class FpdInfoDetaile(Entity):
@@ -399,7 +399,7 @@ class ShowFpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
+                            self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
 
 
 
@@ -453,7 +453,7 @@ class ShowFpd(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ShowFpd.HwModuleFpd, [u'upgrade_status'], name, value)
+            self._perform_setattr(ShowFpd.HwModuleFpd, ['upgrade_status'], name, value)
 
 
         class FpdInfoDetaile(Entity):
@@ -555,7 +555,7 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
+                self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
 
 
 
@@ -731,7 +731,7 @@ class ShowFpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, [u'location', u'fpd_name'], name, value)
+                        self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, ['location', 'fpd_name'], name, value)
 
 
 
@@ -821,7 +821,7 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, [u'location', u'fpd_name'], name, value)
+                self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, ['location', 'fpd_name'], name, value)
 
 
 
@@ -945,7 +945,7 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.Package.FpdPkgData, [u'card_type', u'fpd_desc', u'upgrade_method', u'fpd_ver', u'min_sw_ver', u'min_hw_ver'], name, value)
+                self._perform_setattr(ShowFpd.Package.FpdPkgData, ['card_type', 'fpd_desc', 'upgrade_method', 'fpd_ver', 'min_sw_ver', 'min_hw_ver'], name, value)
 
 
 
@@ -1024,7 +1024,7 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.LocationHelp.LocationName, [u'location_name'], name, value)
+                self._perform_setattr(ShowFpd.LocationHelp.LocationName, ['location_name'], name, value)
 
 
 

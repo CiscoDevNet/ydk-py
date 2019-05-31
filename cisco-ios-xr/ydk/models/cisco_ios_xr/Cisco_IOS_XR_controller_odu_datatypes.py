@@ -16,11 +16,32 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Mode(Enum):
+class OduDelay(Enum):
     """
-    Mode (Enum Class)
+    OduDelay (Enum Class)
 
-    Mode
+    Odu delay
+
+    .. data:: disable = 0
+
+    	Delay Disable
+
+    .. data:: enable = 1
+
+    	Delay Enable
+
+    """
+
+    disable = Enum.YLeaf(0, "disable")
+
+    enable = Enum.YLeaf(1, "enable")
+
+
+class OduPrbsMode(Enum):
+    """
+    OduPrbsMode (Enum Class)
+
+    Odu prbs mode
 
     .. data:: mode_invalid = 0
 
@@ -47,27 +68,6 @@ class Mode(Enum):
     mode_sink = Enum.YLeaf(2, "mode-sink")
 
     mode_source_sink = Enum.YLeaf(3, "mode-source-sink")
-
-
-class OduDelay(Enum):
-    """
-    OduDelay (Enum Class)
-
-    Odu delay
-
-    .. data:: disable = 0
-
-    	Delay Disable
-
-    .. data:: enable = 1
-
-    	Delay Enable
-
-    """
-
-    disable = Enum.YLeaf(0, "disable")
-
-    enable = Enum.YLeaf(1, "enable")
 
 
 class OduTimeSlotGranularity(Enum):

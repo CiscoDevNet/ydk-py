@@ -144,7 +144,7 @@ module Cisco-IOS-XR-perf-meas-cfg {
         }
         leaf interval {
           type uint32 {
-            range "1..3600";
+            range "30..3600";
           }
           units "second";
           default "30";

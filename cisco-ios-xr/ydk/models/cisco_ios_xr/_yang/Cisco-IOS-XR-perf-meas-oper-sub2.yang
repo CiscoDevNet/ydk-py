@@ -102,6 +102,10 @@ submodule Cisco-IOS-XR-perf-meas-oper-sub2 {
           "Recevied control code error, as per RFC 6374,
            from the responder";
       }
+      enum "link-is-down" {
+        description
+          "Link is in down state";
+      }
     }
     description
       "PM advertisement reason";

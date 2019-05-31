@@ -39,7 +39,7 @@ class VM(Entity):
     """
 
     _prefix = 'vmmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-13'
 
     def __init__(self):
         super(VM, self).__init__()
@@ -84,7 +84,7 @@ class VM(Entity):
         """
 
         _prefix = 'vmmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-13'
 
         def __init__(self):
             super(VM.AllLocations, self).__init__()
@@ -141,20 +141,6 @@ class VM(Entity):
             
             	**config**\: False
             
-            .. attribute:: hb_interval_s
-            
-            	Heartbeat interval sec
-            	**type**\: str
-            
-            	**config**\: False
-            
-            .. attribute:: hb_interval_ns
-            
-            	Heartbeat interval nsec
-            	**type**\: str
-            
-            	**config**\: False
-            
             .. attribute:: last_hb_sent
             
             	Last heartbeat sent
@@ -169,19 +155,12 @@ class VM(Entity):
             
             	**config**\: False
             
-            .. attribute:: role
-            
-            	ISSU role
-            	**type**\: str
-            
-            	**config**\: False
-            
             
 
             """
 
             _prefix = 'vmmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-13'
 
             def __init__(self):
                 super(VM.AllLocations.AllUiids, self).__init__()
@@ -197,26 +176,20 @@ class VM(Entity):
                     ('id', (YLeaf(YType.str, 'id'), ['str'])),
                     ('status', (YLeaf(YType.str, 'status'), ['str'])),
                     ('ipaddr', (YLeaf(YType.str, 'ipaddr'), ['str'])),
-                    ('hb_interval_s', (YLeaf(YType.str, 'hb_interval_s'), ['str'])),
-                    ('hb_interval_ns', (YLeaf(YType.str, 'hb_interval_ns'), ['str'])),
                     ('last_hb_sent', (YLeaf(YType.str, 'last_hb_sent'), ['str'])),
                     ('last_hb_rec', (YLeaf(YType.str, 'last_hb_rec'), ['str'])),
-                    ('role', (YLeaf(YType.str, 'role'), ['str'])),
                 ])
                 self.uiid = None
                 self.id = None
                 self.status = None
                 self.ipaddr = None
-                self.hb_interval_s = None
-                self.hb_interval_ns = None
                 self.last_hb_sent = None
                 self.last_hb_rec = None
-                self.role = None
                 self._segment_path = lambda: "all-uiids" + "[uiid='" + str(self.uiid) + "']"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VM.AllLocations.AllUiids, ['uiid', 'id', 'status', 'ipaddr', 'hb_interval_s', 'hb_interval_ns', 'last_hb_sent', 'last_hb_rec', 'role'], name, value)
+                self._perform_setattr(VM.AllLocations.AllUiids, ['uiid', 'id', 'status', 'ipaddr', 'last_hb_sent', 'last_hb_rec'], name, value)
 
 
 

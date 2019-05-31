@@ -482,7 +482,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
             }
             leaf bit {
               type uint32 {
-                range "0..31";
+                range "0..255";
               }
               mandatory true;
               description
@@ -941,6 +941,15 @@ module Cisco-IOS-XR-infra-xtc-cfg {
             "Explicit-path name";
         }
         uses ENABLE;
+      }
+    }
+    container peer-filter {
+      description
+        "Peer filter";
+      leaf ipv4-acl {
+        type string;
+        description
+          "IPv4 ACL for peer filtering";
       }
     }
     leaf server-address {

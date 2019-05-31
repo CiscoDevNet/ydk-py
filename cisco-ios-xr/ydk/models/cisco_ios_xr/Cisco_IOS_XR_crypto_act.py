@@ -328,7 +328,7 @@ class KeyGenerateDsa(Entity):
         	Key modulus size can be 512, 768 or 1024 bits
         	**type**\: int
         
-        	**range:** 512..None \| 768..None \| 1024..None
+        	**range:** 512..512 \| 768..768 \| 1024..1024
         
         	**mandatory**\: True
         

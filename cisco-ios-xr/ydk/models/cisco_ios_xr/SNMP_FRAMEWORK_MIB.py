@@ -142,7 +142,7 @@ class SNMPFRAMEWORKMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
 
 
     def clone_ptr(self):

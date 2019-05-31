@@ -222,12 +222,26 @@ class SpanMonitorSession(Entity):
             
             	**default value**\: ethernet
             
+            .. attribute:: discard_class
+            
+            	Specify the discard class value to be set on all traffic mirrored to the destination
+            	**type**\: int
+            
+            	**range:** 0..7
+            
             .. attribute:: inject_interface
             
             	Specify the inject interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            .. attribute:: traffic_class
+            
+            	Specify the traffic class value to be set on all traffic mirrored to the destination
+            	**type**\: int
+            
+            	**range:** 0..7
             
             
 
@@ -248,11 +262,15 @@ class SpanMonitorSession(Entity):
                 self._leafs = OrderedDict([
                     ('session', (YLeaf(YType.str, 'session'), ['str'])),
                     ('class_', (YLeaf(YType.enumeration, 'class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                    ('discard_class', (YLeaf(YType.uint32, 'discard-class'), ['int'])),
                     ('inject_interface', (YLeaf(YType.str, 'inject-interface'), ['str'])),
+                    ('traffic_class', (YLeaf(YType.uint32, 'traffic-class'), ['int'])),
                 ])
                 self.session = None
                 self.class_ = None
+                self.discard_class = None
                 self.inject_interface = None
+                self.traffic_class = None
 
                 self.destination = SpanMonitorSession.Sessions.Session.Destination()
                 self.destination.parent = self
@@ -262,7 +280,7 @@ class SpanMonitorSession(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_', 'inject_interface'], name, value)
+                self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_', 'discard_class', 'inject_interface', 'traffic_class'], name, value)
 
 
             class Destination(Entity):

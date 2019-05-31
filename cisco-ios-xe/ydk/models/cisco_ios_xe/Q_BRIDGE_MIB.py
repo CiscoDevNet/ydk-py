@@ -341,7 +341,7 @@ class QBRIDGEMIB(Entity):
         	The next available value for dot1qVlanIndex of a local VLAN entry in dot1qVlanStaticTable.  This will report values >=4096 if a new Local VLAN may be created or else the value 0 if this is not possible.  A row creation operation in this table for an entry with a local VlanIndex value may fail if the current value of this object is not used as the index.  Even if the value read is used, there is no guarantee that it will still be the valid index when the create operation is attempted; another manager may have already got in during the intervening time interval. In this case, dot1qNextFreeLocalVlanIndex should be re\-read  and the creation re\-tried with the new value.  This value will automatically change when the current value is used to create a new row
         	**type**\: int
         
-        	**range:** 0..None \| 4096..2147483647
+        	**range:** 0..0 \| 4096..2147483647
         
         	**config**\: False
         
@@ -2311,7 +2311,7 @@ class QBRIDGEMIB(Entity):
             	The identification of the protocol above the data\-link layer in a Protocol Template.  Depending on the frame type, the octet string will have one of the following values\:  For 'ethernet', 'rfc1042' and 'snap8021H',     this is the 16\-bit (2\-octet) IEEE 802.3 Type Field. For 'snapOther',     this is the 40\-bit (5\-octet) PID. For 'llcOther',     this is the 2\-octet IEEE 802.2 Link Service Access     Point (LSAP) pair\: first octet for Destination Service     Access Point (DSAP) and second octet for Source Service     Access Point (SSAP)
             	**type**\: str
             
-            	**length:** 2 \| 5
+            	**length:** 2..2 \| 5..5
             
             	**config**\: False
             

@@ -268,6 +268,11 @@ module Cisco-IOS-XR-infra-serg-cfg {
           description
             "Set hold time (in Minutes)";
         }
+        leaf mode-active {
+          type empty;
+          description
+            "Set operation mode";
+        }
         leaf group-id {
           type uint32 {
             range "1..500";

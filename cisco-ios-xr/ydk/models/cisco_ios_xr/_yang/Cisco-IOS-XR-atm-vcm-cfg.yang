@@ -2,9 +2,6 @@ module Cisco-IOS-XR-atm-vcm-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-cfg";
   prefix atm-vcm-cfg;
 
-  import Cisco-IOS-XR-types {
-    prefix xr;
-  }
   import Cisco-IOS-XR-atm-common-datatypes {
     prefix dt1;
   }

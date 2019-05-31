@@ -307,7 +307,7 @@ class Igmp(Entity):
                 	Query response value in seconds
                 	**type**\: int
                 
-                	**range:** 1..12
+                	**range:** 1..25
                 
                 	**units**\: second
                 
@@ -726,7 +726,7 @@ class Igmp(Entity):
                     	Query response value in seconds
                     	**type**\: int
                     
-                    	**range:** 1..12
+                    	**range:** 1..25
                     
                     	**units**\: second
                     
@@ -2126,7 +2126,7 @@ class Igmp(Entity):
             	Query response value in seconds
             	**type**\: int
             
-            	**range:** 1..12
+            	**range:** 1..25
             
             	**units**\: second
             
@@ -2552,7 +2552,7 @@ class Igmp(Entity):
                 	Query response value in seconds
                 	**type**\: int
                 
-                	**range:** 1..12
+                	**range:** 1..25
                 
                 	**units**\: second
                 
@@ -4112,7 +4112,7 @@ class Mld(Entity):
                 	Query response value in seconds
                 	**type**\: int
                 
-                	**range:** 1..12
+                	**range:** 1..25
                 
                 	**units**\: second
                 
@@ -4531,7 +4531,7 @@ class Mld(Entity):
                     	Query response value in seconds
                     	**type**\: int
                     
-                    	**range:** 1..12
+                    	**range:** 1..25
                     
                     	**units**\: second
                     
@@ -5931,7 +5931,7 @@ class Mld(Entity):
             	Query response value in seconds
             	**type**\: int
             
-            	**range:** 1..12
+            	**range:** 1..25
             
             	**units**\: second
             
@@ -6357,7 +6357,7 @@ class Mld(Entity):
                 	Query response value in seconds
                 	**type**\: int
                 
-                	**range:** 1..12
+                	**range:** 1..25
                 
                 	**units**\: second
                 

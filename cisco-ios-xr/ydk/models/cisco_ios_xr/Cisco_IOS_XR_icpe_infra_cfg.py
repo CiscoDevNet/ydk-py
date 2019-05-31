@@ -125,7 +125,7 @@ class NvSatelliteGlobal(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatelliteGlobal.ChassisMac, [u'mac1', u'mac2', u'mac3'], name, value)
+            self._perform_setattr(NvSatelliteGlobal.ChassisMac, ['mac1', 'mac2', 'mac3'], name, value)
 
 
     def clone_ptr(self):
@@ -341,7 +341,7 @@ class NvSatellites(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatellites.NvSatellite, [u'satellite_id', u'vrf', u'timeout_warning', u'device_name', u'description', u'type', u'enable', u'disc_timeout', u'delayed_switchback', u'serial_number', u'secret', u'ip_address'], name, value)
+            self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'vrf', 'timeout_warning', 'device_name', 'description', 'type', 'enable', 'disc_timeout', 'delayed_switchback', 'serial_number', 'secret', 'ip_address'], name, value)
 
 
         class UpgradeOnConnect(Entity):
@@ -391,7 +391,7 @@ class NvSatellites(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.UpgradeOnConnect, [u'connect_type', u'reference', u'image_reference'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.UpgradeOnConnect, ['connect_type', 'reference', 'image_reference'], name, value)
 
             class ConnectType(Enum):
                 """
@@ -517,7 +517,7 @@ class NvSatellites(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
+                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
 
 
 
@@ -564,7 +564,7 @@ class NvSatellites(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, [u'username', u'password'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['username', 'password'], name, value)
 
 
 
@@ -603,7 +603,7 @@ class NvSatellites(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, [u'host_priority'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
 
 
 

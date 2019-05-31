@@ -112,7 +112,7 @@ class CISCODIALCONTROLMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, [u'cpeersearchtype'], name, value)
+            self._perform_setattr(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, ['cpeersearchtype'], name, value)
 
         class CPeerSearchType(Enum):
             """
@@ -427,7 +427,7 @@ class CISCODIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, [u'ccallhistoryindex', u'ccallhistorysetuptime', u'ccallhistorypeeraddress', u'ccallhistorypeersubaddress', u'ccallhistorypeerid', u'ccallhistorypeerifindex', u'ccallhistorylogicalifindex', u'ccallhistorydisconnectcause', u'ccallhistorydisconnecttext', u'ccallhistoryconnecttime', u'ccallhistorydisconnecttime', u'ccallhistorycallorigin', u'ccallhistorychargedunits', u'ccallhistoryinfotype', u'ccallhistorytransmitpackets', u'ccallhistorytransmitbytes', u'ccallhistoryreceivepackets', u'ccallhistoryreceivebytes', u'ccallhistoryreleasesource', u'ccallhistoryreleasesrc'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, ['ccallhistoryindex', 'ccallhistorysetuptime', 'ccallhistorypeeraddress', 'ccallhistorypeersubaddress', 'ccallhistorypeerid', 'ccallhistorypeerifindex', 'ccallhistorylogicalifindex', 'ccallhistorydisconnectcause', 'ccallhistorydisconnecttext', 'ccallhistoryconnecttime', 'ccallhistorydisconnecttime', 'ccallhistorycallorigin', 'ccallhistorychargedunits', 'ccallhistoryinfotype', 'ccallhistorytransmitpackets', 'ccallhistorytransmitbytes', 'ccallhistoryreceivepackets', 'ccallhistoryreceivebytes', 'ccallhistoryreleasesource', 'ccallhistoryreleasesrc'], name, value)
 
             class CCallHistoryCallOrigin(Enum):
                 """
@@ -771,7 +771,7 @@ class CISCODIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, [u'ccallhistoryindex', u'ccallhistoryiecindex', u'ccallhistoryiec'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, ['ccallhistoryindex', 'ccallhistoryiecindex', 'ccallhistoryiec'], name, value)
 
 
 

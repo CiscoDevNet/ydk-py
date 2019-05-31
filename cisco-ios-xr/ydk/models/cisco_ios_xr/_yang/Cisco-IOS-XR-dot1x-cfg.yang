@@ -159,6 +159,11 @@ module Cisco-IOS-XR-dot1x-cfg {
             "Configure PKI Trustpoint";
         }
       }
+      leaf allow-eap-tls1-0 {
+        type empty;
+        description
+          "Configure backward compatibility for TLS 1.0";
+      }
       leaf identity {
         type string {
           length "1..63";

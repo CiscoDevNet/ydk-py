@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-Subscriber-infra-subdb-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-28 {
+    description
+      "Fixed Subscriber database Association.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -289,6 +293,11 @@ submodule Cisco-IOS-XR-Subscriber-infra-subdb-oper-sub1 {
       description
         "Subdb template";
       uses SUBDB-TEMPLATES;
+    }
+    leaf session-id {
+      type uint32;
+      description
+        "Session ID";
     }
     leaf interface-name {
       type xr:Interface-name;

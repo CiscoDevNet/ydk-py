@@ -41,7 +41,7 @@ module nc-notifications {
     container streams {
       description
         "The list of event streams supported by the system. When
-         a query is issued, the returned set of streams is
+         a query is issued, the returned set of streams is 
          determined based on user privileges.";
       list stream {
         key "name";
@@ -76,7 +76,7 @@ module nc-notifications {
             "The timestamp of the creation of the log used to support
              the replay function on this stream. Note that this might
              be earlier then the earliest available notification in
-             the log. This object is updated if the log resets for
+             the log. This object is updated if the log resets for 
              some reason.  This object MUST be present if replay is
              supported.";
         }

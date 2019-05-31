@@ -123,7 +123,7 @@ class EXPRESSIONMIB(Entity):
         	The minimum expExpressionDeltaInterval this system will accept.  A system may use the larger values of this minimum to lessen the impact of constantly computing deltas.  The value \-1 indicates this system will not accept deltaValue as a value for expObjectSampleType.  Unless explicitly resource limited, a system's value for this object should be 1.  Changing this value will not invalidate an existing setting of expObjectSampleType
         	**type**\: int
         
-        	**range:** \-1..None \| 1..600
+        	**range:** \-1..\-1 \| 1..600
         
         	**config**\: False
         

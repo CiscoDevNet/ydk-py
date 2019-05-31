@@ -418,6 +418,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     list session-history-info {
       description
         "session history info";
+      container next-session {
+        description
+          "next session";
+      }
       leaf session-id {
         type uint32;
         description
@@ -498,6 +502,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     list session-brief-info {
       description
         "session brief info";
+      container next-session {
+        description
+          "next session";
+      }
       leaf session-id {
         type uint32;
         description
@@ -562,6 +570,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     list session-rekey-info {
       description
         "session rekey info";
+      container next-session {
+        description
+          "next session";
+      }
       leaf session-id {
         type uint32;
         description
@@ -606,6 +618,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     list session-detail-info {
       description
         "session detail info";
+      container next-session {
+        description
+          "next session";
+      }
       leaf session-id {
         type uint32;
         description

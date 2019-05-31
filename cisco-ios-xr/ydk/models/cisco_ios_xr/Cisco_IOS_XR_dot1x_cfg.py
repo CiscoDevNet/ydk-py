@@ -384,6 +384,11 @@ class Eap(Entity):
         	EAP TLS Configuration
         	**type**\:  :py:class:`Eaptls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Eap.EapProfile.Eaptls>`
         
+        .. attribute:: allow_eap_tls1_0
+        
+        	Configure backward compatibility for TLS 1.0
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
         .. attribute:: identity
         
         	Configure EAP Identity/UserName
@@ -409,9 +414,11 @@ class Eap(Entity):
             self._child_classes = OrderedDict([("eaptls", ("eaptls", Eap.EapProfile.Eaptls))])
             self._leafs = OrderedDict([
                 ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                ('allow_eap_tls1_0', (YLeaf(YType.empty, 'allow-eap-tls1-0'), ['Empty'])),
                 ('identity', (YLeaf(YType.str, 'identity'), ['str'])),
             ])
             self.profile_name = None
+            self.allow_eap_tls1_0 = None
             self.identity = None
 
             self.eaptls = Eap.EapProfile.Eaptls()
@@ -422,7 +429,7 @@ class Eap(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Eap.EapProfile, ['profile_name', 'identity'], name, value)
+            self._perform_setattr(Eap.EapProfile, ['profile_name', 'allow_eap_tls1_0', 'identity'], name, value)
 
 
         class Eaptls(Entity):

@@ -194,6 +194,11 @@ class Traceroute(Entity):
             	verbose output
             	**type**\: bool
             
+            .. attribute:: srv6_header
+            
+            	srv6 header
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: priority
             
             	Priority of hte packet
@@ -236,6 +241,7 @@ class Traceroute(Entity):
                     ('max_ttl', (YLeaf(YType.uint16, 'max-ttl'), ['int'])),
                     ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
                     ('verbose', (YLeaf(YType.boolean, 'verbose'), ['bool'])),
+                    ('srv6_header', (YLeaf(YType.empty, 'srv6-header'), ['Empty'])),
                     ('priority', (YLeaf(YType.uint16, 'priority'), ['int'])),
                     ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
                 ])
@@ -249,6 +255,7 @@ class Traceroute(Entity):
                 self.max_ttl = None
                 self.port = None
                 self.verbose = None
+                self.srv6_header = None
                 self.priority = None
                 self.outgoing_interface = None
                 self._segment_path = lambda: "destination"
@@ -256,7 +263,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Destination, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -334,6 +341,11 @@ class Traceroute(Entity):
             	verbose output
             	**type**\: bool
             
+            .. attribute:: srv6_header
+            
+            	srv6 header
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -364,6 +376,7 @@ class Traceroute(Entity):
                     ('max_ttl', (YLeaf(YType.uint16, 'max-ttl'), ['int'])),
                     ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
                     ('verbose', (YLeaf(YType.boolean, 'verbose'), ['bool'])),
+                    ('srv6_header', (YLeaf(YType.empty, 'srv6-header'), ['Empty'])),
                 ])
                 self.destination = None
                 self.source = None
@@ -375,12 +388,13 @@ class Traceroute(Entity):
                 self.max_ttl = None
                 self.port = None
                 self.verbose = None
+                self.srv6_header = None
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv4, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header'], name, value)
 
 
 
@@ -458,6 +472,11 @@ class Traceroute(Entity):
             	verbose output
             	**type**\: bool
             
+            .. attribute:: srv6_header
+            
+            	srv6 header
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: priority
             
             	Priority of hte packet
@@ -500,6 +519,7 @@ class Traceroute(Entity):
                     ('max_ttl', (YLeaf(YType.uint16, 'max-ttl'), ['int'])),
                     ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
                     ('verbose', (YLeaf(YType.boolean, 'verbose'), ['bool'])),
+                    ('srv6_header', (YLeaf(YType.empty, 'srv6-header'), ['Empty'])),
                     ('priority', (YLeaf(YType.uint16, 'priority'), ['int'])),
                     ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
                 ])
@@ -513,6 +533,7 @@ class Traceroute(Entity):
                 self.max_ttl = None
                 self.port = None
                 self.verbose = None
+                self.srv6_header = None
                 self.priority = None
                 self.outgoing_interface = None
                 self._segment_path = lambda: "ipv6"
@@ -520,7 +541,7 @@ class Traceroute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv6, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -665,7 +686,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, [u'destination', u'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, ['destination', 'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -763,7 +784,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -834,6 +855,11 @@ class Traceroute(Entity):
                                 	Hostname of the hop
                                 	**type**\: str
                                 
+                                .. attribute:: srv6_header
+                                
+                                	
+                                	**type**\:  :py:class:`Srv6Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header>`
+                                
                                 
 
                                 """
@@ -849,7 +875,7 @@ class Traceroute(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['probe_index']
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("srv6-header", ("srv6_header", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header))])
                                     self._leafs = OrderedDict([
                                         ('probe_index', (YLeaf(YType.uint32, 'probe-index'), ['int'])),
                                         ('result', (YLeaf(YType.str, 'result'), ['str'])),
@@ -862,11 +888,109 @@ class Traceroute(Entity):
                                     self.delta_time = None
                                     self.hop_address = None
                                     self.hop_hostname = None
+
+                                    self.srv6_header = Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header()
+                                    self.srv6_header.parent = self
+                                    self._children_name_map["srv6_header"] = "srv6-header"
                                     self._segment_path = lambda: "probe" + "[probe-index='" + str(self.probe_index) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+
+
+                                class Srv6Header(Entity):
+                                    """
+                                    
+                                    
+                                    .. attribute:: destination_address
+                                    
+                                    	Destination address for srv6 header
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: segments_left
+                                    
+                                    	Number of segments left
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: segments
+                                    
+                                    	
+                                    	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'traceroute-act'
+                                    _revision = '2018-10-01'
+
+                                    def __init__(self):
+                                        super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
+
+                                        self.yang_name = "srv6-header"
+                                        self.yang_parent_name = "probe"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("segments", ("segments", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments))])
+                                        self._leafs = OrderedDict([
+                                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                                            ('segments_left', (YLeaf(YType.uint32, 'segments-left'), ['int'])),
+                                        ])
+                                        self.destination_address = None
+                                        self.segments_left = None
+
+                                        self.segments = Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments()
+                                        self.segments.parent = self
+                                        self._children_name_map["segments"] = "segments"
+                                        self._segment_path = lambda: "srv6-header"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header, ['destination_address', 'segments_left'], name, value)
+
+
+                                    class Segments(Entity):
+                                        """
+                                        
+                                        
+                                        .. attribute:: segment
+                                        
+                                        	sid in sidlist
+                                        	**type**\: list of str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'traceroute-act'
+                                        _revision = '2018-10-01'
+
+                                        def __init__(self):
+                                            super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
+
+                                            self.yang_name = "segments"
+                                            self.yang_parent_name = "srv6-header"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('segment', (YLeafList(YType.str, 'segment'), ['str'])),
+                                            ])
+                                            self.segment = []
+                                            self._segment_path = lambda: "segments"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments, ['segment'], name, value)
+
+
 
 
 
@@ -927,7 +1051,7 @@ class Traceroute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, [u'destination', u'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, ['destination', 'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -1025,7 +1149,7 @@ class Traceroute(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -1096,6 +1220,11 @@ class Traceroute(Entity):
                                 	Hostname of the hop
                                 	**type**\: str
                                 
+                                .. attribute:: srv6_header
+                                
+                                	
+                                	**type**\:  :py:class:`Srv6Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header>`
+                                
                                 
 
                                 """
@@ -1111,7 +1240,7 @@ class Traceroute(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['probe_index']
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("srv6-header", ("srv6_header", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header))])
                                     self._leafs = OrderedDict([
                                         ('probe_index', (YLeaf(YType.uint32, 'probe-index'), ['int'])),
                                         ('result', (YLeaf(YType.str, 'result'), ['str'])),
@@ -1124,11 +1253,109 @@ class Traceroute(Entity):
                                     self.delta_time = None
                                     self.hop_address = None
                                     self.hop_hostname = None
+
+                                    self.srv6_header = Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header()
+                                    self.srv6_header.parent = self
+                                    self._children_name_map["srv6_header"] = "srv6-header"
                                     self._segment_path = lambda: "probe" + "[probe-index='" + str(self.probe_index) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+
+
+                                class Srv6Header(Entity):
+                                    """
+                                    
+                                    
+                                    .. attribute:: destination_address
+                                    
+                                    	Destination address for srv6 header
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: segments_left
+                                    
+                                    	Number of segments left
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: segments
+                                    
+                                    	
+                                    	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'traceroute-act'
+                                    _revision = '2018-10-01'
+
+                                    def __init__(self):
+                                        super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
+
+                                        self.yang_name = "srv6-header"
+                                        self.yang_parent_name = "probe"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("segments", ("segments", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments))])
+                                        self._leafs = OrderedDict([
+                                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                                            ('segments_left', (YLeaf(YType.uint32, 'segments-left'), ['int'])),
+                                        ])
+                                        self.destination_address = None
+                                        self.segments_left = None
+
+                                        self.segments = Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments()
+                                        self.segments.parent = self
+                                        self._children_name_map["segments"] = "segments"
+                                        self._segment_path = lambda: "srv6-header"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header, ['destination_address', 'segments_left'], name, value)
+
+
+                                    class Segments(Entity):
+                                        """
+                                        
+                                        
+                                        .. attribute:: segment
+                                        
+                                        	sid in sidlist
+                                        	**type**\: list of str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'traceroute-act'
+                                        _revision = '2018-10-01'
+
+                                        def __init__(self):
+                                            super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
+
+                                            self.yang_name = "segments"
+                                            self.yang_parent_name = "srv6-header"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('segment', (YLeafList(YType.str, 'segment'), ['str'])),
+                                            ])
+                                            self.segment = []
+                                            self._segment_path = lambda: "segments"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments, ['segment'], name, value)
+
+
 
 
 

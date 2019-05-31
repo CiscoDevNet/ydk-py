@@ -943,7 +943,7 @@ class DOCSSUBMGT3MIB(Entity):
             	This attribute represents the low value of a range  of ToS (Type of Service) octet values. This object is  defined as an 8\-bit octet as per the DOCSIS Specification  for packet classification.  The IP ToS octet, as originally defined in RFC 791, has  been superseded by the 6\-bit Differentiated Services  Field (DSField, RFC 3260) and the 2\-bit Explicit  Congestion Notification Field (ECN field, RFC 3168)
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -952,7 +952,7 @@ class DOCSSUBMGT3MIB(Entity):
             	This attribute represents the high value of a range  of ToS octet values. This object is defined as an 8\-bit  octet as per the DOCSIS Specification for packet classification.  The IP ToS octet, as originally defined in RFC 791, has  been superseded by the 6\-bit Differentiated Services  Field (DSField, RFC 3260) and the 2\-bit Explicit  Congestion Notification Field (ECN field, RFC 3168)
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -961,7 +961,7 @@ class DOCSSUBMGT3MIB(Entity):
             	This attribute represents the mask value that is bitwise  ANDed with ToS octet in an IP packet, and the resulting value  is used for range checking of IpTosLow and IpTosHigh
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             

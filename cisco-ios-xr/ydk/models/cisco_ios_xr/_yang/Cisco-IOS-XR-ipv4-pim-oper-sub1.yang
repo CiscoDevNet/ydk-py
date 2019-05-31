@@ -3352,7 +3352,11 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       "PIM BSR C-RP";
     list pim-bsr-crp-bag {
       description
-        "pim bsr crp bag";
+        "Next C-RP in the List";
+      container next-candidate-rp {
+        description
+          "Next C-RP in the List";
+      }
       container candidate-rp-address {
         description
           "C-RP address";

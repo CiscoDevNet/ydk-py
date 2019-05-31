@@ -325,10 +325,26 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
             "Enable a Monitor Session.  Setting this item
              causes the Monitor Session to be created.";
         }
+        leaf discard-class {
+          type uint32 {
+            range "0..7";
+          }
+          description
+            "Specify the discard class value to be set on
+             all traffic mirrored to the destination";
+        }
         leaf inject-interface {
           type xr:Interface-name;
           description
             "Specify the inject interface name";
+        }
+        leaf traffic-class {
+          type uint32 {
+            range "0..7";
+          }
+          description
+            "Specify the traffic class value to be set on
+             all traffic mirrored to the destination";
         }
         leaf session {
           type dt1:Span-session-name;

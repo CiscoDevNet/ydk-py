@@ -124,38 +124,6 @@ class PwOperStateType(Enum):
 
 
 
-class PwSignalingProtocolType(Identity):
-    """
-    Base identity for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-type"):
-        super(PwSignalingProtocolType, self).__init__(ns, pref, tag)
-
-
-
-class PwLoadBalanceType(Identity):
-    """
-    Base type for load\-balancing type
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-load-balance-type"):
-        super(PwLoadBalanceType, self).__init__(ns, pref, tag)
-
-
-
 class PwEncapsulationType(Identity):
     """
     Base identity for PW encapsulations.
@@ -185,6 +153,38 @@ class PwVcType(Identity):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type"):
         super(PwVcType, self).__init__(ns, pref, tag)
+
+
+
+class PwLoadBalanceType(Identity):
+    """
+    Base type for load\-balancing type
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-load-balance-type"):
+        super(PwLoadBalanceType, self).__init__(ns, pref, tag)
+
+
+
+class PwSignalingProtocolType(Identity):
+    """
+    Base identity for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-type"):
+        super(PwSignalingProtocolType, self).__init__(ns, pref, tag)
 
 
 
@@ -344,7 +344,7 @@ class PseudowireConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.Global, [u'pw_grouping', u'pw_oam_refresh_transmit', u'pw_status', u'predictive_redundancy', u'vc_state_notification_enabled', u'vc_state_notification_batch_size', u'vc_state_notification_rate'], name, value)
+            self._perform_setattr(PseudowireConfig.Global, ['pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'predictive_redundancy', 'vc_state_notification_enabled', 'vc_state_notification_batch_size', 'vc_state_notification_rate'], name, value)
 
 
 
@@ -544,7 +544,7 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, [u'name', u'encapsulation', u'control_word', u'signaling_protocol', u'vc_type', u'switching_tlv', u'source_ip', u'tag_rewrite_ingress_vlan', u'mac_withdraw'], name, value)
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'encapsulation', 'control_word', 'signaling_protocol', 'vc_type', 'switching_tlv', 'source_ip', 'tag_rewrite_ingress_vlan', 'mac_withdraw'], name, value)
 
 
             class LoadBalance(Entity):
@@ -598,7 +598,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, [u'ethernet', u'ip'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
 
 
                 class FlowLabel(Entity):
@@ -651,7 +651,7 @@ class PseudowireConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, [u'direction', u'tlv_code_17', u'static'], name, value)
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'tlv_code_17', 'static'], name, value)
 
                     class Direction(Enum):
                         """
@@ -747,7 +747,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, [u'interface', u'address', u'hostname', u'disable_fallback'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['interface', 'address', 'hostname', 'disable_fallback'], name, value)
 
 
 
@@ -793,7 +793,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, [u'direction', u'resync'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
 
 
 
@@ -830,7 +830,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, [u'control_word'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
 
 
 
@@ -888,7 +888,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, [u'switchover_timer', u'timer', u'never'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['switchover_timer', 'timer', 'never'], name, value)
 
 
 
@@ -961,7 +961,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, [u'decoupled', u'disable', u'peer_topo_dual_homed', u'route_watch_disable', u'redundancy_master'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'route_watch_disable', 'redundancy_master'], name, value)
 
 
 
@@ -1043,7 +1043,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, [u'description', u'shutdown', u'shut_force', u'mtu', u'max_ports', u'enabled'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'shutdown', 'shut_force', 'mtu', 'max_ports', 'enabled'], name, value)
 
 
 
@@ -1159,7 +1159,7 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, [u'name', u'ack', u'keepalive', u'timeout_refresh_send', u'timeout_refresh_ack'], name, value)
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_send', 'timeout_refresh_ack'], name, value)
 
 
 
@@ -1447,7 +1447,7 @@ class PseudowireState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireState.Pseudowires, [u'vc_peer_address', u'vc_id', u'vc_owner_type', u'vc_name', u'vc_index', u'vc_type', u'vc_owner_name', u'vc_psn_type', u'vc_local_group_id', u'vc_control_word', u'vc_local_if_mtu', u'vc_remote_group_id', u'vc_remote_control_word', u'vc_remote_if_mtu', u'vc_outbound_label', u'vc_inbound_label', u'vc_oper_status', u'vc_inbound_oper_status', u'vc_outbound_oper_status'], name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_type', 'vc_owner_name', 'vc_psn_type', 'vc_local_group_id', 'vc_control_word', 'vc_local_if_mtu', 'vc_remote_group_id', 'vc_remote_control_word', 'vc_remote_if_mtu', 'vc_outbound_label', 'vc_inbound_label', 'vc_oper_status', 'vc_inbound_oper_status', 'vc_outbound_oper_status'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -1692,61 +1692,13 @@ class PseudowireState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireState.Pseudowires.Statistics, [u'vc_create_time', u'vc_up_time', u'discontinuity_time', u'in_octets', u'in_pkts', u'in_errors', u'out_octets', u'out_pkts', u'out_errors'], name, value)
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['vc_create_time', 'vc_up_time', 'discontinuity_time', 'in_octets', 'in_pkts', 'in_errors', 'out_octets', 'out_pkts', 'out_errors'], name, value)
 
 
 
     def clone_ptr(self):
         self._top_entity = PseudowireState()
         return self._top_entity
-
-
-
-class PwVcTypeEther(PwVcType):
-    """
-    Identity for Ethernet VC type
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-ether"):
-        super(PwVcTypeEther, self).__init__(ns, pref, tag)
-
-
-
-class PwSequencingTransmit(PwSequencingType):
-    """
-    Transmit sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-transmit"):
-        super(PwSequencingTransmit, self).__init__(ns, pref, tag)
-
-
-
-class PwVcTypeVlanPassthrough(PwVcType):
-    """
-    Identity for VLAN passthrough VC type (XR)
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-vlan-passthrough"):
-        super(PwVcTypeVlanPassthrough, self).__init__(ns, pref, tag)
 
 
 
@@ -1766,9 +1718,9 @@ class PwEncapMpls(PwEncapsulationType):
 
 
 
-class PwLbIpDstIp(PwLoadBalanceType):
+class PwVcTypeEther(PwVcType):
     """
-    Load\-balancing with IP destination IP field
+    Identity for Ethernet VC type
     
     
 
@@ -1777,72 +1729,8 @@ class PwLbIpDstIp(PwLoadBalanceType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-dst-ip"):
-        super(PwLbIpDstIp, self).__init__(ns, pref, tag)
-
-
-
-class PwSequencingReceive(PwSequencingType):
-    """
-    Receive sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-receive"):
-        super(PwSequencingReceive, self).__init__(ns, pref, tag)
-
-
-
-class PwLbEthernetType(PwLoadBalanceType):
-    """
-    Base type for load\-balancing with ethernet fields
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ethernet-type"):
-        super(PwLbEthernetType, self).__init__(ns, pref, tag)
-
-
-
-class PwSignalingProtocolLdp(PwSignalingProtocolType):
-    """
-    Use MPLS LDP for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-ldp"):
-        super(PwSignalingProtocolLdp, self).__init__(ns, pref, tag)
-
-
-
-class PwSequencingBoth(PwSequencingType):
-    """
-    Receive and Transmit sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-both"):
-        super(PwSequencingBoth, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-ether"):
+        super(PwVcTypeEther, self).__init__(ns, pref, tag)
 
 
 
@@ -1862,9 +1750,9 @@ class PwVcTypeVlan(PwVcType):
 
 
 
-class PwLbIpType(PwLoadBalanceType):
+class PwVcTypeVlanPassthrough(PwVcType):
     """
-    Base type for load\-balancing with IP
+    Identity for VLAN passthrough VC type (XR)
     
     
 
@@ -1873,14 +1761,14 @@ class PwLbIpType(PwLoadBalanceType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-type"):
-        super(PwLbIpType, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-vlan-passthrough"):
+        super(PwVcTypeVlanPassthrough, self).__init__(ns, pref, tag)
 
 
 
-class PwSignalingProtocolNone(PwSignalingProtocolType):
+class PwLbEthernetType(PwLoadBalanceType):
     """
-    No PW signaling protocol
+    Base type for load\-balancing with ethernet fields
     
     
 
@@ -1889,14 +1777,14 @@ class PwSignalingProtocolNone(PwSignalingProtocolType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-none"):
-        super(PwSignalingProtocolNone, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ethernet-type"):
+        super(PwLbEthernetType, self).__init__(ns, pref, tag)
 
 
 
-class PwSignalingProtocolBgp(PwSignalingProtocolType):
+class PwLbEthSrcMac(PwLbEthernetType):
     """
-    Use BGP for PW signaling protocol
+    Load\-balancing with ethernet source MAC field
     
     
 
@@ -1905,14 +1793,14 @@ class PwSignalingProtocolBgp(PwSignalingProtocolType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-bgp"):
-        super(PwSignalingProtocolBgp, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-src-mac"):
+        super(PwLbEthSrcMac, self).__init__(ns, pref, tag)
 
 
 
-class PwLbIpSrcIp(PwLbIpType):
+class PwLbEthDstMac(PwLbEthernetType):
     """
-    Load\-balancing with IP source IP field
+    Load\-balancing with ethernet destination MAC field
     
     
 
@@ -1921,8 +1809,8 @@ class PwLbIpSrcIp(PwLbIpType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-src-ip"):
-        super(PwLbIpSrcIp, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-dst-mac"):
+        super(PwLbEthDstMac, self).__init__(ns, pref, tag)
 
 
 
@@ -1943,9 +1831,9 @@ class PwLbEthSrcDstMac(PwLbEthernetType):
 
 
 
-class PwLbEthDstMac(PwLbEthernetType):
+class PwLbIpType(PwLoadBalanceType):
     """
-    Load\-balancing with ethernet destination MAC field
+    Base type for load\-balancing with IP
     
     
 
@@ -1954,8 +1842,40 @@ class PwLbEthDstMac(PwLbEthernetType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-dst-mac"):
-        super(PwLbEthDstMac, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-type"):
+        super(PwLbIpType, self).__init__(ns, pref, tag)
+
+
+
+class PwLbIpSrcIp(PwLbIpType):
+    """
+    Load\-balancing with IP source IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-src-ip"):
+        super(PwLbIpSrcIp, self).__init__(ns, pref, tag)
+
+
+
+class PwLbIpDstIp(PwLoadBalanceType):
+    """
+    Load\-balancing with IP destination IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-dst-ip"):
+        super(PwLbIpDstIp, self).__init__(ns, pref, tag)
 
 
 
@@ -1975,9 +1895,9 @@ class PwLbIpSrcDstIp(PwLbIpType):
 
 
 
-class PwLbEthSrcMac(PwLbEthernetType):
+class PwSignalingProtocolNone(PwSignalingProtocolType):
     """
-    Load\-balancing with ethernet source MAC field
+    No PW signaling protocol
     
     
 
@@ -1986,8 +1906,88 @@ class PwLbEthSrcMac(PwLbEthernetType):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-src-mac"):
-        super(PwLbEthSrcMac, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-none"):
+        super(PwSignalingProtocolNone, self).__init__(ns, pref, tag)
+
+
+
+class PwSignalingProtocolLdp(PwSignalingProtocolType):
+    """
+    Use MPLS LDP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-ldp"):
+        super(PwSignalingProtocolLdp, self).__init__(ns, pref, tag)
+
+
+
+class PwSignalingProtocolBgp(PwSignalingProtocolType):
+    """
+    Use BGP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-bgp"):
+        super(PwSignalingProtocolBgp, self).__init__(ns, pref, tag)
+
+
+
+class PwSequencingReceive(PwSequencingType):
+    """
+    Receive sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-receive"):
+        super(PwSequencingReceive, self).__init__(ns, pref, tag)
+
+
+
+class PwSequencingTransmit(PwSequencingType):
+    """
+    Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-transmit"):
+        super(PwSequencingTransmit, self).__init__(ns, pref, tag)
+
+
+
+class PwSequencingBoth(PwSequencingType):
+    """
+    Receive and Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-both"):
+        super(PwSequencingBoth, self).__init__(ns, pref, tag)
 
 
 

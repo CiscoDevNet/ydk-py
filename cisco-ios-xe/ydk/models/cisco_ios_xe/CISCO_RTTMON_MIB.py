@@ -2783,7 +2783,7 @@ class CISCORTTMONMIB(Entity):
             	This object specifies the DSCP value to be set in the IP header of the LSP echo reply packet. The value of this object will be in range of DiffServ codepoint values between 0 to 63.  Note\: This object cannot be set to value of 255. This default value specifies that DSCP is not set for this row
             	**type**\: int
             
-            	**range:** 0..63 \| 255..None
+            	**range:** 0..63 \| 255..255
             
             	**config**\: False
             
@@ -4428,7 +4428,7 @@ class CISCORTTMONMIB(Entity):
             	This object specifies the DSCP value to be set in the IP header of the LSP echo reply packet. The value of this object will be in range of DiffServ codepoint values between 0 to 63.  Note\: This object cannot be set to value of 255. This default value specifies that DSCP is not set for this row
             	**type**\: int
             
-            	**range:** 0..63 \| 255..None
+            	**range:** 0..63 \| 255..255
             
             	**config**\: False
             
@@ -7003,7 +7003,7 @@ class CISCORTTMONMIB(Entity):
             	The minimum of all MOS values for the jitter operations in hundreds.  This value will be 0 if   \- rttMonEchoAdminCodecType of the operation is notApplicable   \- the operation is not started   \- the operation is started but failed This value will be 1 for packet loss of 10% or more
             	**type**\: int
             
-            	**range:** 0..None \| 100..500
+            	**range:** 0..0 \| 100..500
             
             	**config**\: False
             
@@ -7012,7 +7012,7 @@ class CISCORTTMONMIB(Entity):
             	The maximum of all MOS values for the jitter operations in hunderds.  This value will be 0 if   \- rttMonEchoAdminCodecType of the operation is notApplicable   \- the operation is not started   \- the operation is started but failed This value will be 1 for packet loss of 10% or more
             	**type**\: int
             
-            	**range:** 0..None \| 100..500
+            	**range:** 0..0 \| 100..500
             
             	**config**\: False
             
@@ -8428,7 +8428,7 @@ class CISCORTTMONMIB(Entity):
             	The MOS value for the latest jitter operation in hundreds. This value will be 0 if   \- rttMonEchoAdminCodecType of the operation is notApplicable   \- the operation is not started   \- the operation is started but failed This value will be 1 for packet loss of 10% or more
             	**type**\: int
             
-            	**range:** 0..None \| 100..500
+            	**range:** 0..0 \| 100..500
             
             	**config**\: False
             

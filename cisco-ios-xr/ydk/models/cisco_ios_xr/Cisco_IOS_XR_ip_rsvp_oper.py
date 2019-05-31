@@ -4177,12 +4177,12 @@ class RsvpStandby(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -4204,16 +4204,16 @@ class RsvpStandby(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RsvpStandby.PsbDetaileds.PsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(RsvpStandby.PsbDetaileds.PsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -4859,7 +4859,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4991,7 +4991,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -5123,7 +5123,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -5255,7 +5255,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -5387,7 +5387,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -5519,7 +5519,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -8761,12 +8761,12 @@ class RsvpStandby(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -8788,16 +8788,16 @@ class RsvpStandby(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RsvpStandby.RsbDetaileds.RsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(RsvpStandby.RsbDetaileds.RsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -9443,7 +9443,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -9575,7 +9575,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -9707,7 +9707,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -9839,7 +9839,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -9971,7 +9971,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10103,7 +10103,7 @@ class RsvpStandby(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -11509,7 +11509,7 @@ class RsvpStandby(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Sequence window
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -23565,12 +23565,12 @@ class RsvpStandby(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -23592,16 +23592,16 @@ class RsvpStandby(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RsvpStandby.RequestDetails.RequestDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(RsvpStandby.RequestDetails.RequestDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -25679,7 +25679,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Generalized Label Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -26334,7 +26334,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Extended Association ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -26460,7 +26460,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Extended Association ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -27289,7 +27289,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	rsvp mgmt rev lsp unsupported subobj
                                 	**type**\: int
                                 
                                 	**range:** 0..255
@@ -27850,7 +27850,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject Variable Length Label
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -28071,7 +28071,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject SRLGs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -28358,7 +28358,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Generalized Label Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -28973,7 +28973,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject Variable Length Label
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -29194,7 +29194,7 @@ class RsvpStandby(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject SRLGs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -30251,7 +30251,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Local node address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -30292,7 +30292,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Interface Neighbor List
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -30333,7 +30333,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Neighbor's hello state
                 	**type**\:  :py:class:`RsvpMgmtHelloState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloState>`
                 
                 	**config**\: False
@@ -30372,7 +30372,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Reason why communication was lost
                 	**type**\:  :py:class:`RsvpMgmtHelloDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReason>`
                 
                 	**config**\: False
@@ -30411,7 +30411,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Total number of times communication got lost
                 	**type**\: int
                 
                 	**range:** 0..65535
@@ -32157,7 +32157,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Local node address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -32198,7 +32198,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Neighbor Hello state
                 	**type**\:  :py:class:`RsvpMgmtHelloState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloState>`
                 
                 	**config**\: False
@@ -32237,7 +32237,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Reason why communication was lost
                 	**type**\:  :py:class:`RsvpMgmtHelloDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReason>`
                 
                 	**config**\: False
@@ -32276,7 +32276,7 @@ class RsvpStandby(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Total number of times communication got lost
                 	**type**\: int
                 
                 	**range:** 0..65535
@@ -34512,12 +34512,12 @@ class Rsvp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -34539,16 +34539,16 @@ class Rsvp(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.PxsbDetails.PxsbDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(Rsvp.PxsbDetails.PxsbDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -35913,12 +35913,12 @@ class Rsvp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -35940,16 +35940,16 @@ class Rsvp(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.RxsbDetails.RxsbDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(Rsvp.RxsbDetails.RxsbDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -39042,12 +39042,12 @@ class Rsvp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -39069,16 +39069,16 @@ class Rsvp(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.PsbDetaileds.PsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(Rsvp.PsbDetaileds.PsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -39724,7 +39724,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -39856,7 +39856,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -39988,7 +39988,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -40120,7 +40120,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -40252,7 +40252,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -40384,7 +40384,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -43626,12 +43626,12 @@ class Rsvp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -43653,16 +43653,16 @@ class Rsvp(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.RsbDetaileds.RsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(Rsvp.RsbDetaileds.RsbDetailed.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -44308,7 +44308,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -44440,7 +44440,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -44572,7 +44572,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -44704,7 +44704,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -44836,7 +44836,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -44968,7 +44968,7 @@ class Rsvp(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Generalized Label Value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -46374,7 +46374,7 @@ class Rsvp(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Sequence window
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -58430,12 +58430,12 @@ class Rsvp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: neighbor_logical_interface_name
+                .. attribute:: neighbor_logical_interface_handle
                 
-                	Neighbor Logical Interface Name
-                	**type**\: str
+                	Neighbor Logical Interface Handle
+                	**type**\: int
                 
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                	**range:** 0..4294967295
                 
                 	**config**\: False
                 
@@ -58457,16 +58457,16 @@ class Rsvp(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
-                        ('neighbor_logical_interface_name', (YLeaf(YType.str, 'neighbor-logical-interface-name'), ['str'])),
+                        ('neighbor_logical_interface_handle', (YLeaf(YType.uint32, 'neighbor-logical-interface-handle'), ['int'])),
                     ])
                     self.neighbor_address = None
-                    self.neighbor_logical_interface_name = None
+                    self.neighbor_logical_interface_handle = None
                     self._segment_path = lambda: "hop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.RequestDetails.RequestDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_name'], name, value)
+                    self._perform_setattr(Rsvp.RequestDetails.RequestDetail.Hop, ['neighbor_address', 'neighbor_logical_interface_handle'], name, value)
 
 
 
@@ -60544,7 +60544,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Generalized Label Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -61199,7 +61199,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Extended Association ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -61325,7 +61325,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Extended Association ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -62154,7 +62154,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	rsvp mgmt rev lsp unsupported subobj
                                 	**type**\: int
                                 
                                 	**range:** 0..255
@@ -62715,7 +62715,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject Variable Length Label
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -62936,7 +62936,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject SRLGs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -63223,7 +63223,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Generalized Label Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -63838,7 +63838,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject Variable Length Label
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -64059,7 +64059,7 @@ class Rsvp(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	The RRO Subobject SRLGs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -65116,7 +65116,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Local node address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -65157,7 +65157,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Interface Neighbor List
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -65198,7 +65198,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Neighbor's hello state
                 	**type**\:  :py:class:`RsvpMgmtHelloState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloState>`
                 
                 	**config**\: False
@@ -65237,7 +65237,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Reason why communication was lost
                 	**type**\:  :py:class:`RsvpMgmtHelloDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReason>`
                 
                 	**config**\: False
@@ -65276,7 +65276,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Total number of times communication got lost
                 	**type**\: int
                 
                 	**range:** 0..65535
@@ -67022,7 +67022,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Local node address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -67063,7 +67063,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Neighbor Hello state
                 	**type**\:  :py:class:`RsvpMgmtHelloState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloState>`
                 
                 	**config**\: False
@@ -67102,7 +67102,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Reason why communication was lost
                 	**type**\:  :py:class:`RsvpMgmtHelloDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReason>`
                 
                 	**config**\: False
@@ -67141,7 +67141,7 @@ class Rsvp(Entity):
                 
                 .. attribute:: entry
                 
-                	
+                	Total number of times communication got lost
                 	**type**\: int
                 
                 	**range:** 0..65535

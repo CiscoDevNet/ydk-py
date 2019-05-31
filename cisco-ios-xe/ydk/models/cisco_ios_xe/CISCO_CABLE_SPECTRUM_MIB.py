@@ -1761,7 +1761,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The Signal to Noise (SNR) threshold.  This object is applicable for modulation profile 1.  When the CMTS detects that the SNR goes lower than ccsUpSpecMgmtSnrThres1, it switches to profile 2. Therefore, ccsUpSpecMgmtSnrThres1 should be larger than ccsUpSpecMgmtSnrThres2.  A value 0 indicates to bypass the threshold check
             	**type**\: int
             
-            	**range:** 0..None \| 5..35
+            	**range:** 0..0 \| 5..35
             
             	**config**\: False
             
@@ -1772,7 +1772,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The Signal to Noise (SNR) threshold.  This object is applicable for modulation profile 2.  Refer to ccsUpSpecMgmtCriteria on how  ccsUpSpecMgmtSnrThres2 can trigger a change  in frequency, modulation or channel width.  A value 0 indicates to bypass the threshold check.  Note\: The SNMP SET is rejected if both  ccsUpSpecMgmtSnrThres1, ccsUpSpecMgmtSnrThres2 are non\-zero and ccsUpSpecMgmtSnrThres2 is higher than ccsUpSpecMgmtSnrThres1
             	**type**\: int
             
-            	**range:** 0..None \| 5..35
+            	**range:** 0..0 \| 5..35
             
             	**config**\: False
             
@@ -1821,7 +1821,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	A period between SNR pollings.  The SNR is collected from the Fast Fourier Transform (FFT) measurement over the in\-use band when there is no CM signals. When the CMTS detects that SNR doesn't meet ccsUpSpecMgmtSnrThres1 or ccsUpSpecMgmtSnrThres2, a possible hopping occurs, depending on the type of ccsUpSpecMgmtHopPriority
             	**type**\: int
             
-            	**range:** 0..None \| 500..25000
+            	**range:** 0..0 \| 500..25000
             
             	**config**\: False
             
@@ -1843,7 +1843,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Center frequency before hopping occurs.  A value 0 indicates that the interface has no frequency assigned
             	**type**\: int
             
-            	**range:** 0..None \| 5000..65000
+            	**range:** 0..0 \| 5000..65000
             
             	**config**\: False
             
@@ -1854,7 +1854,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Current center frequency.  A value 0 indicates that the interface has no frequency assigned
             	**type**\: int
             
-            	**range:** 0..None \| 5000..65000
+            	**range:** 0..0 \| 5000..65000
             
             	**config**\: False
             
@@ -1865,7 +1865,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Bandwidth before hopping occurs
             	**type**\: int
             
-            	**range:** 200..None \| 400..None \| 800..None \| 1600..None \| 3200..None \| 6400..None
+            	**range:** 200..200 \| 400..400 \| 800..800 \| 1600..1600 \| 3200..3200 \| 6400..6400
             
             	**config**\: False
             
@@ -1876,7 +1876,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Current bandwidth
             	**type**\: int
             
-            	**range:** 200..None \| 400..None \| 800..None \| 1600..None \| 3200..None \| 6400..None
+            	**range:** 200..200 \| 400..400 \| 800..800 \| 1600..1600 \| 3200..3200 \| 6400..6400
             
             	**config**\: False
             
@@ -1927,7 +1927,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The Carrier to Noise (CNR) threshold.  This object is applicable for modulation profile 1.   When the CMTS detects that the CNR goes lower than ccsUpSpecMgmtCnrThres1, it switches to profile 2. Therefore, ccsUpSpecMgmtCnrThres1 should be larger  than ccsUpSpecMgmtCnrThres2.  A value 0 indicates to bypass the threshold check
             	**type**\: int
             
-            	**range:** 0..None \| 5..35
+            	**range:** 0..0 \| 5..35
             
             	**config**\: False
             
@@ -1938,7 +1938,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The Carrier to Noise (CNR) threshold.  This object is applicable for modulation profile 2.  Refer to ccsUpSpecMgmtCriteria on how  ccsUpSpecMgmtCnrThres2 can trigger a change  in frequency, modulation or channel width.  A value 0 indicates to bypass the threshold check.  Note\: The SNMP SET is rejected if both  ccsUpSpecMgmtCnrThres1, ccsUpSpecMgmtCnrThres2 are non\-zero and ccsUpSpecMgmtCnrThres2 is higher than ccsUpSpecMgmtCnrThres1
             	**type**\: int
             
-            	**range:** 0..None \| 5..35
+            	**range:** 0..0 \| 5..35
             
             	**config**\: False
             

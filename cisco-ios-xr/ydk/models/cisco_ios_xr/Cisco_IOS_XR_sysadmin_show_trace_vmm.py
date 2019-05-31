@@ -146,7 +146,7 @@ class Vmm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vmm.VmManager.Trace, [u'buffer'], name, value)
+                self._perform_setattr(Vmm.VmManager.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -193,7 +193,7 @@ class Vmm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vmm.VmManager.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Vmm.VmManager.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -240,7 +240,7 @@ class Vmm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vmm.VmManager.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Vmm.VmManager.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -278,7 +278,7 @@ class Vmm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vmm.VmManager.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Vmm.VmManager.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

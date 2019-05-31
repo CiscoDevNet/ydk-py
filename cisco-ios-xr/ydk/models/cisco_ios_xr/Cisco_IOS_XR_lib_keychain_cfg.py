@@ -429,7 +429,7 @@ class Keychains(Entity):
                     
                     .. attribute:: key_id  (key)
                     
-                    	Enter CKN as non\-zero hex string of even length, length range\: <02\-64>, i.e 1\-32 bytes of MACsec CKN
+                    	Enter CKN as non\-zero hex string of even length, length range\: <02\-64>, i.e 32 bytes of MACsec CKN
                     	**type**\: str
                     
                     	**length:** 2..64

@@ -244,7 +244,7 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
+                    self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
 
 
 
@@ -384,7 +384,7 @@ class AutoRp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
+                        self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
 
 
 
@@ -972,7 +972,7 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
+                    self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
 
 
 
@@ -1112,7 +1112,7 @@ class AutoRp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
+                        self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
 
 
 

@@ -215,7 +215,7 @@ class ATMMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.AtmMIBObjects, [u'atmvpcrossconnectindexnext', u'atmvccrossconnectindexnext', u'atmtrafficdescrparamindexnext'], name, value)
+            self._perform_setattr(ATMMIB.AtmMIBObjects, ['atmvpcrossconnectindexnext', 'atmvccrossconnectindexnext', 'atmtrafficdescrparamindexnext'], name, value)
 
 
 
@@ -404,33 +404,6 @@ class ATMMIB(Entity):
             
             	The identifier assigned by a service provider to the network side of a public network UNI. If this interface has no assigned service provider address, or for other interfaces this is an octet string of zero length
             	**type**\: str
-            
-            	**config**\: False
-            
-            .. attribute:: atmintfcurrentlydowntouppvcls
-            
-            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: atmintfoamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**config**\: False
-            
-            .. attribute:: atmintfcurrentlyoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\: int
-            
-            	**range:** 0..4294967295
             
             	**config**\: False
             
@@ -684,6 +657,33 @@ class ATMMIB(Entity):
             
             	**config**\: False
             
+            .. attribute:: atmintfcurrentlydowntouppvcls
+            
+            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: atmintfoamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: atmintfcurrentlyoamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
             
 
             """
@@ -717,9 +717,6 @@ class ATMMIB(Entity):
                     ('atminterfacecurrentmaxvpibits', (YLeaf(YType.int32, 'atmInterfaceCurrentMaxVpiBits'), ['int'])),
                     ('atminterfacecurrentmaxvcibits', (YLeaf(YType.int32, 'atmInterfaceCurrentMaxVciBits'), ['int'])),
                     ('atminterfacesubscraddress', (YLeaf(YType.str, 'atmInterfaceSubscrAddress'), ['str'])),
-                    ('atmintfcurrentlydowntouppvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls'), ['int'])),
-                    ('atmintfoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls'), ['int'])),
-                    ('atmintfcurrentlyoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls'), ['int'])),
                     ('atmintfpvcfailures', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailures'), ['int'])),
                     ('atmintfcurrentlyfailingpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfCurrentlyFailingPVcls'), ['int'])),
                     ('atmintfpvcfailurestrapenable', (YLeaf(YType.boolean, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailuresTrapEnable'), ['bool'])),
@@ -748,6 +745,9 @@ class ATMMIB(Entity):
                     ('catmintfanyoamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMRcovedPVcls'), ['int'])),
                     ('catmintfcuranyoamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMRcovingPVcls'), ['int'])),
                     ('catmintftypeofoamrecover', (YLeaf(YType.enumeration, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMRecover'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMRecoveryType', '')])),
+                    ('atmintfcurrentlydowntouppvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls'), ['int'])),
+                    ('atmintfoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls'), ['int'])),
+                    ('atmintfcurrentlyoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atminterfacemaxvpcs = None
@@ -765,9 +765,6 @@ class ATMMIB(Entity):
                 self.atminterfacecurrentmaxvpibits = None
                 self.atminterfacecurrentmaxvcibits = None
                 self.atminterfacesubscraddress = None
-                self.atmintfcurrentlydowntouppvcls = None
-                self.atmintfoamfailedpvcls = None
-                self.atmintfcurrentlyoamfailingpvcls = None
                 self.atmintfpvcfailures = None
                 self.atmintfcurrentlyfailingpvcls = None
                 self.atmintfpvcfailurestrapenable = None
@@ -796,12 +793,15 @@ class ATMMIB(Entity):
                 self.catmintfanyoamrcovedpvcls = None
                 self.catmintfcuranyoamrcovingpvcls = None
                 self.catmintftypeofoamrecover = None
+                self.atmintfcurrentlydowntouppvcls = None
+                self.atmintfoamfailedpvcls = None
+                self.atmintfcurrentlyoamfailingpvcls = None
                 self._segment_path = lambda: "atmInterfaceConfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceConfTable/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, [u'ifindex', u'atminterfacemaxvpcs', u'atminterfacemaxvccs', u'atminterfaceconfvpcs', u'atminterfaceconfvccs', u'atminterfacemaxactivevpibits', u'atminterfacemaxactivevcibits', u'atminterfaceilmivpi', u'atminterfaceilmivci', u'atminterfaceaddresstype', u'atminterfaceadminaddress', u'atminterfacemyneighboripaddress', u'atminterfacemyneighborifname', u'atminterfacecurrentmaxvpibits', u'atminterfacecurrentmaxvcibits', u'atminterfacesubscraddress', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls', u'atmintfpvcfailures', u'atmintfcurrentlyfailingpvcls', u'atmintfpvcfailurestrapenable', u'atmintfpvcnotificationinterval', u'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, ['ifindex', 'atminterfacemaxvpcs', 'atminterfacemaxvccs', 'atminterfaceconfvpcs', 'atminterfaceconfvccs', 'atminterfacemaxactivevpibits', 'atminterfacemaxactivevcibits', 'atminterfaceilmivpi', 'atminterfaceilmivci', 'atminterfaceaddresstype', 'atminterfaceadminaddress', 'atminterfacemyneighboripaddress', 'atminterfacemyneighborifname', 'atminterfacecurrentmaxvpibits', 'atminterfacecurrentmaxvcibits', 'atminterfacesubscraddress', 'atmintfpvcfailures', 'atmintfcurrentlyfailingpvcls', 'atmintfpvcfailurestrapenable', 'atmintfpvcnotificationinterval', 'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls'], name, value)
 
             class AtmInterfaceAddressType(Enum):
                 """
@@ -946,7 +946,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry, [u'ifindex', u'atminterfaceds3plcpsefss', u'atminterfaceds3plcpalarmstate', u'atminterfaceds3plcpuass'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry, ['ifindex', 'atminterfaceds3plcpsefss', 'atminterfaceds3plcpalarmstate', 'atminterfaceds3plcpuass'], name, value)
 
             class AtmInterfaceDs3PlcpAlarmState(Enum):
                 """
@@ -1094,7 +1094,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry, [u'ifindex', u'atminterfaceocdevents', u'atminterfacetcalarmstate'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry, ['ifindex', 'atminterfaceocdevents', 'atminterfacetcalarmstate'], name, value)
 
             class AtmInterfaceTCAlarmState(Enum):
                 """
@@ -1314,7 +1314,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry, [u'atmtrafficdescrparamindex', u'atmtrafficdescrtype', u'atmtrafficdescrparam1', u'atmtrafficdescrparam2', u'atmtrafficdescrparam3', u'atmtrafficdescrparam4', u'atmtrafficdescrparam5', u'atmtrafficqosclass', u'atmtrafficdescrrowstatus', u'atmservicecategory', u'atmtrafficframediscard'], name, value)
+                self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry, ['atmtrafficdescrparamindex', 'atmtrafficdescrtype', 'atmtrafficdescrparam1', 'atmtrafficdescrparam2', 'atmtrafficdescrparam3', 'atmtrafficdescrparam4', 'atmtrafficdescrparam5', 'atmtrafficqosclass', 'atmtrafficdescrrowstatus', 'atmservicecategory', 'atmtrafficframediscard'], name, value)
 
 
 
@@ -1576,7 +1576,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmVplTable.AtmVplEntry, [u'ifindex', u'atmvplvpi', u'atmvpladminstatus', u'atmvploperstatus', u'atmvpllastchange', u'atmvplreceivetrafficdescrindex', u'atmvpltransmittrafficdescrindex', u'atmvplcrossconnectidentifier', u'atmvplrowstatus', u'atmvplcasttype', u'atmvplconnkind'], name, value)
+                self._perform_setattr(ATMMIB.AtmVplTable.AtmVplEntry, ['ifindex', 'atmvplvpi', 'atmvpladminstatus', 'atmvploperstatus', 'atmvpllastchange', 'atmvplreceivetrafficdescrindex', 'atmvpltransmittrafficdescrindex', 'atmvplcrossconnectidentifier', 'atmvplrowstatus', 'atmvplcasttype', 'atmvplconnkind'], name, value)
 
 
 
@@ -2161,7 +2161,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmVclTable.AtmVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmvcladminstatus', u'atmvcloperstatus', u'atmvcllastchange', u'atmvclreceivetrafficdescrindex', u'atmvcltransmittrafficdescrindex', u'atmvccaaltype', u'atmvccaal5cpcstransmitsdusize', u'atmvccaal5cpcsreceivesdusize', u'atmvccaal5encapstype', u'atmvclcrossconnectidentifier', u'atmvclrowstatus', u'atmvclcasttype', u'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
+                self._perform_setattr(ATMMIB.AtmVclTable.AtmVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmvcladminstatus', 'atmvcloperstatus', 'atmvcllastchange', 'atmvclreceivetrafficdescrindex', 'atmvcltransmittrafficdescrindex', 'atmvccaaltype', 'atmvccaal5cpcstransmitsdusize', 'atmvccaal5cpcsreceivesdusize', 'atmvccaal5encapstype', 'atmvclcrossconnectidentifier', 'atmvclrowstatus', 'atmvclcasttype', 'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
 
             class AtmVccAal5EncapsType(Enum):
                 """
@@ -2674,7 +2674,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry, [u'atmvpcrossconnectindex', u'atmvpcrossconnectlowifindex', u'atmvpcrossconnectlowvpi', u'atmvpcrossconnecthighifindex', u'atmvpcrossconnecthighvpi', u'atmvpcrossconnectadminstatus', u'atmvpcrossconnectl2hoperstatus', u'atmvpcrossconnecth2loperstatus', u'atmvpcrossconnectl2hlastchange', u'atmvpcrossconnecth2llastchange', u'atmvpcrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry, ['atmvpcrossconnectindex', 'atmvpcrossconnectlowifindex', 'atmvpcrossconnectlowvpi', 'atmvpcrossconnecthighifindex', 'atmvpcrossconnecthighvpi', 'atmvpcrossconnectadminstatus', 'atmvpcrossconnectl2hoperstatus', 'atmvpcrossconnecth2loperstatus', 'atmvpcrossconnectl2hlastchange', 'atmvpcrossconnecth2llastchange', 'atmvpcrossconnectrowstatus'], name, value)
 
 
 
@@ -3004,7 +3004,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry, [u'atmvccrossconnectindex', u'atmvccrossconnectlowifindex', u'atmvccrossconnectlowvpi', u'atmvccrossconnectlowvci', u'atmvccrossconnecthighifindex', u'atmvccrossconnecthighvpi', u'atmvccrossconnecthighvci', u'atmvccrossconnectadminstatus', u'atmvccrossconnectl2hoperstatus', u'atmvccrossconnecth2loperstatus', u'atmvccrossconnectl2hlastchange', u'atmvccrossconnecth2llastchange', u'atmvccrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry, ['atmvccrossconnectindex', 'atmvccrossconnectlowifindex', 'atmvccrossconnectlowvpi', 'atmvccrossconnectlowvci', 'atmvccrossconnecthighifindex', 'atmvccrossconnecthighvpi', 'atmvccrossconnecthighvci', 'atmvccrossconnectadminstatus', 'atmvccrossconnectl2hoperstatus', 'atmvccrossconnecth2loperstatus', 'atmvccrossconnectl2hlastchange', 'atmvccrossconnecth2llastchange', 'atmvccrossconnectrowstatus'], name, value)
 
 
 
@@ -3334,7 +3334,7 @@ class ATMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Aal5VccTable.Aal5VccEntry, [u'ifindex', u'aal5vccvpi', u'aal5vccvci', u'aal5vcccrcerrors', u'aal5vccsartimeouts', u'aal5vccoversizedsdus', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells'], name, value)
+                self._perform_setattr(ATMMIB.Aal5VccTable.Aal5VccEntry, ['ifindex', 'aal5vccvpi', 'aal5vccvci', 'aal5vcccrcerrors', 'aal5vccsartimeouts', 'aal5vccoversizedsdus', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells'], name, value)
 
 
 

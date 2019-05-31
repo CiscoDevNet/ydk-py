@@ -145,6 +145,10 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         description
           "Waiting for egress paths";
       }
+      enum "out-of-resources-pending" {
+        description
+          "Waiting for resources to become available";
+      }
       enum "label-allocation-pending" {
         description
           "Waiting for label allocation result";
@@ -349,6 +353,36 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
+  grouping XTC-TOPO-SUMMARY-BAG {
+    description
+      "XTC Topology Node Summary Information";
+    leaf nodes {
+      type uint32;
+      description
+        "Number of nodes";
+    }
+    leaf prefixes {
+      type uint32;
+      description
+        "Number of prefixes";
+    }
+    leaf prefix-sids {
+      type uint32;
+      description
+        "Number of prefix SIDs";
+    }
+    leaf links {
+      type uint32;
+      description
+        "Number of links";
+    }
+    leaf adjacency-sids {
+      type uint32;
+      description
+        "Number of adjacency SIDs";
+    }
+  }
+
   grouping XTC-IPV6-LINK-BAG {
     description
       "XTC IPv6 Link Information";
@@ -399,6 +433,17 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
+  grouping XTC-LINK-PM-METRICS {
+    description
+      "Link performance metric information";
+    leaf unidirectional-minimum-delay-microseconds {
+      type uint32;
+      units "microsecond";
+      description
+        "Min delay in microseconds";
+    }
+  }
+
   grouping XTC-IPV4-LINK-BAG {
     description
       "XTC IPv4 Link Information";
@@ -411,6 +456,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Remote node protocol identifier";
       uses XTC-NODE-PID-BAG;
+    }
+    container performance-metrics {
+      description
+        "Performance metrics";
+      uses XTC-LINK-PM-METRICS;
     }
     leaf local-ipv4-address {
       type inet:ipv4-address;
@@ -446,6 +496,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Link admin-groups";
+    }
+    leaf-list extended-administrative-group {
+      type uint32;
+      description
+        "Link Extended admin-groups";
     }
     leaf-list srlgs {
       type uint32;
@@ -646,36 +701,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
-  grouping XTC-TOPO-SUMMARY-BAG {
-    description
-      "XTC Topology Node Summary Information";
-    leaf nodes {
-      type uint32;
-      description
-        "Number of nodes";
-    }
-    leaf prefixes {
-      type uint32;
-      description
-        "Number of prefixes";
-    }
-    leaf prefix-sids {
-      type uint32;
-      description
-        "Number of prefix SIDs";
-    }
-    leaf links {
-      type uint32;
-      description
-        "Number of links";
-    }
-    leaf adjacency-sids {
-      type uint32;
-      description
-        "Number of adjacency SIDs";
-    }
-  }
-
   grouping XTC-CONTROLLER-POLICY-REQ-BAG {
     description
       "Controller policy request";
@@ -781,27 +806,63 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
   grouping XTC-POLICY-SUMMARY-BAG {
     description
       "Policy summary information";
-    container ipv4-source-address {
-      description
-        "IPv4 address used for IPv4 policies";
-      uses XTC-IP-ADDR-TYPE;
-    }
-    leaf configured-total-policy-count {
+    leaf total-policy-count {
       type uint32;
       description
-        "Total number of configured policies";
+        "Total number of policies";
     }
-    leaf configured-up-policy-count {
+    leaf up-policy-count {
       type uint32;
       description
-        "Total number of configured policies that are
-         operationally up";
+        "Total number of policies that are operationally
+         up";
     }
-    leaf configured-down-policy-count {
+    leaf down-policy-count {
       type uint32;
       description
-        "Total number of configured policies that are
-         operationally down";
+        "Total number of policies that are operationally
+         down";
+    }
+    leaf total-candidate-path-count {
+      type uint32;
+      description
+        "Total number of candidate paths";
+    }
+    leaf active-candidate-path-count {
+      type uint32;
+      description
+        "Total number of candidate paths that are active";
+    }
+    leaf inactive-candidate-path-count {
+      type uint32;
+      description
+        "Total number of candidate paths that are
+         inactive";
+    }
+    leaf total-lsp-count {
+      type uint32;
+      description
+        "Total number of LSPs";
+    }
+    leaf active-lsp-count {
+      type uint32;
+      description
+        "Total number of active LSPs";
+    }
+    leaf reoptimized-lsp-count {
+      type uint32;
+      description
+        "Total number of reoptimized LSPs";
+    }
+    leaf cleanup-lsp-count {
+      type uint32;
+      description
+        "Total number of cleanup LSPs";
+    }
+    leaf oor-lsp-count {
+      type uint32;
+      description
+        "Total number of LSPs in OOR state";
     }
   }
 
@@ -884,10 +945,20 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Endpoint address";
       uses XTC-IP-ADDR-TYPE;
     }
+    container binding-sid {
+      description
+        "Programmed Binding SID";
+      uses XTC-PREFIX-SID-TYPE;
+    }
     leaf policy-name {
       type string;
       description
         "Policy name";
+    }
+    leaf candidate-path-name {
+      type string;
+      description
+        "Candidate path name";
     }
     leaf color {
       type uint32;
@@ -980,37 +1051,15 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Current LSP state";
     }
-    leaf is-current-lsp {
+    leaf is-active-lsp {
       type boolean;
       description
-        "Whether this is the current LSP";
+        "Whether this is the active LSP";
     }
     leaf is-reoptimized-lsp {
       type boolean;
       description
         "Whether this is the reoptimized LSP";
-    }
-  }
-
-  grouping XTC-TIMER-INFO {
-    description
-      "XTC Timer information";
-    leaf running {
-      type boolean;
-      description
-        "Whether the timer is running";
-    }
-    leaf remaining-seconds {
-      type int64;
-      units "second";
-      description
-        "Number of remaining seconds";
-    }
-    leaf remaining-nano-seconds {
-      type int64;
-      units "nanosecond";
-      description
-        "Number of remaining nanoseconds";
     }
   }
 
@@ -1037,6 +1086,28 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type boolean;
       description
         "Whether the candidate path is in orphan state";
+    }
+  }
+
+  grouping XTC-TIMER-INFO {
+    description
+      "XTC Timer information";
+    leaf running {
+      type boolean;
+      description
+        "Whether the timer is running";
+    }
+    leaf remaining-seconds {
+      type int64;
+      units "second";
+      description
+        "Number of remaining seconds";
+    }
+    leaf remaining-nano-seconds {
+      type int64;
+      units "nanosecond";
+      description
+        "Number of remaining nanoseconds";
     }
   }
 
@@ -1107,6 +1178,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Affinity value";
+    }
+    leaf-list extended-value {
+      type uint32;
+      description
+        "Extended Affinity values";
     }
     list color {
       description
@@ -1258,6 +1334,12 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Requested binding SID";
       uses XTC-PREFIX-SID-TYPE;
     }
+    container cleanup-timer {
+      description
+        "Cleanup timer if the candidate path is in the
+         process of being cleaned up";
+      uses XTC-TIMER-INFO;
+    }
     container pcc-information {
       description
         "PCC PCEP-related information";
@@ -1283,10 +1365,10 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Candidate path discriminator";
     }
-    leaf is-current {
+    leaf is-active {
       type boolean;
       description
-        "Whether this is the currently used candidate
+        "Whether this is the currently active candidate
          path";
     }
     leaf is-reoptimizing {

@@ -717,6 +717,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     list ipv4-dhcpd-base-child-profile-info {
       description
         "ipv4 dhcpd base child profile info";
+      container next-child-profile-info {
+        description
+          "next child profile info";
+      }
       leaf base-child-profile-name {
         type string {
           length "0..65";
@@ -753,6 +757,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     list ipv4-dhcpd-base-interface-reference {
       description
         "ipv4 dhcpd base interface reference";
+      container next-interface {
+        description
+          "next interface";
+      }
       leaf base-reference-interface-name {
         type string {
           length "0..65";
@@ -1142,6 +1150,13 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
       description
         "DHCP profile name";
     }
+    leaf selected-profile-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "DHCP Selected profile name";
+    }
     leaf is-nak-next-renew {
       type boolean;
       description
@@ -1309,6 +1324,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     list ipv4-dhcpd-proxy-interface-reference {
       description
         "ipv4 dhcpd proxy interface reference";
+      container next-interface {
+        description
+          "next interface";
+      }
       leaf proxy-reference-interface-name {
         type string {
           length "0..65";
@@ -1325,6 +1344,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     list ipv4-dhcpd-proxy-vrf-reference {
       description
         "ipv4 dhcpd proxy vrf reference";
+      container next-vrf {
+        description
+          "next vrf";
+      }
       leaf proxy-reference-vrf-name {
         type string {
           length "0..33";

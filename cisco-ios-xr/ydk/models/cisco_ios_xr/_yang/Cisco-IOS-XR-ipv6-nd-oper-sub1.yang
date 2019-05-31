@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-02-18 {
+    description
+      "Fixing yang usability warnings.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -209,7 +213,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf prefix-address {
       type inet:ipv6-address;
       description
-        "Prefix address";
+        "IPV6 Prefix address";
     }
     leaf eui64 {
       type inet:ipv6-address;
@@ -219,17 +223,17 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf valid-life-time {
       type uint32;
       description
-        "Valid Life Time";
+        "IPV6 Prefix Valid Life Time";
     }
     leaf preferred-life-time {
       type uint32;
       description
-        "Preferred Life Time";
+        "IPV6 Prefix Preferred Life Time";
     }
     leaf prefix-len {
       type uint32;
       description
-        "Prefix Length";
+        "IPV6 Prefix Length";
     }
     leaf flags {
       type uint32;
@@ -253,48 +257,49 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     }
     container reachable-time {
       description
-        "reachabletime";
+        "common reachabletime";
       uses BAG-TIMESPEC;
     }
     container retrans-time {
       description
-        "retranstime";
+        "RA retransmit time";
       uses BAG-TIMESPEC;
     }
     leaf address {
       type inet:ipv6-address;
       description
-        "address";
+        "address of type IPV6";
     }
     leaf hops {
       type uint32;
       description
-        "hops";
+        "number of intermediate devices between source
+         and destination";
     }
     leaf flags {
       type uint32;
       description
-        "flags";
+        "RA flags";
     }
     leaf life-time {
       type uint32;
       description
-        "lifetime";
+        "active time";
     }
     leaf mtu {
       type uint32;
       description
-        "mtu";
+        "maximum transmission unit";
     }
     leaf err-msg {
       type boolean;
       description
-        "errmsg";
+        "message having the error info";
     }
     leaf vrf-id {
       type uint32;
       description
-        "vrf id";
+        "virtual routing and forwarding id";
     }
     leaf u6-tbl-id {
       type uint32;
@@ -329,7 +334,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf idb {
       type xr:Interface-name;
       description
-        "idb";
+        "interface database";
     }
     list ra {
       description
@@ -343,13 +348,13 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
       "Detailed Info of ND IPv6 Virtual Router entry";
     container local-address {
       description
-        "Link local address";
+        "IPV6 Link local address";
       uses IPV6-ND-ADDR;
     }
     leaf link-layer-address {
       type yang:mac-address;
       description
-        "Link-Layer Address";
+        "IPV6 Link-Layer Address";
     }
     leaf context {
       type uint32;
@@ -399,7 +404,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf ipv6-address {
       type inet:ipv6-address;
       description
-        "IPv6 address";
+        "Address of type IPV6";
     }
     leaf valid-lifetime {
       type uint32;
@@ -414,7 +419,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf prefix-length {
       type uint32;
       description
-        "Prefix length";
+        "IPV6 Prefix length";
     }
     leaf flags {
       type uint32;
@@ -536,13 +541,13 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     }
     container local-address {
       description
-        "Link local address";
+        "IPV6 Link local address";
       uses IPV6-ND-ADDR;
     }
     leaf parent-interface-name {
       type xr:Interface-name;
       description
-        "Parent interface name";
+        "Name of the Parent interface";
     }
     leaf iftype {
       type uint32;
@@ -557,7 +562,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf etype {
       type uint32;
       description
-        "etype";
+        "etype field";
     }
     leaf vlan-tag {
       type uint16;
@@ -567,12 +572,12 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf mac-addr-size {
       type uint32;
       description
-        "mac address size";
+        "size of mac address";
     }
     leaf mac-addr {
       type yang:mac-address;
       description
-        "mac address";
+        "media access control address";
     }
     leaf is-interface-enabled {
       type boolean;
@@ -622,17 +627,17 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf process-name {
       type string;
       description
-        "Process Name";
+        "Name of the process";
     }
     leaf sent-sequence-number {
       type uint32;
       description
-        "Sent sequence num";
+        "Sent sequence number for error detection";
     }
     leaf received-sequence-number {
       type uint32;
       description
-        "Received sequence num";
+        "Received sequence num for error detection";
     }
     leaf state {
       type Ipv6-nd-bndl-state;
@@ -642,7 +647,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf state-changes {
       type uint32;
       description
-        "State changes";
+        "change of state";
     }
     leaf sent-packets {
       type uint32;
@@ -662,32 +667,37 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf incomplete-entries {
       type uint32;
       description
-        "Total incomplete entries";
+        "Total ipv6 neighbhors count which are in INCMP
+         state";
     }
     leaf reachable-entries {
       type uint32;
       description
-        "Total reachable entries";
+        "Total ipv6 neighbhors count which are in REACH
+         state";
     }
     leaf stale-entries {
       type uint32;
       description
-        "Total stale entries";
+        "Total ipv6 neighbhors count which are STALE";
     }
     leaf delayed-entries {
       type uint32;
       description
-        "Total delayed entries";
+        "Total ipv6 neighbhors count which are in DELAY
+         state";
     }
     leaf probe-entries {
       type uint32;
       description
-        "Total probe entries";
+        "Total ipv6 neighbhors count which are in PROBE
+         state";
     }
     leaf deleted-entries {
       type uint32;
       description
-        "Total deleted entries";
+        "Total ipv6 neighbhors count which are in DELETE
+         state";
     }
     leaf subtotal-neighbor-entries {
       type uint32;
@@ -712,6 +722,21 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     container dynamic {
       description
         "Dynamic neighbor summary";
+      uses BAG-NBR-ENTRY-SUM;
+    }
+    container sync {
+      description
+        "Sync neighbor summary";
+      uses BAG-NBR-ENTRY-SUM;
+    }
+    container static-sync {
+      description
+        "StaticSync neighbor summary";
+      uses BAG-NBR-ENTRY-SUM;
+    }
+    container dynamic-sync {
+      description
+        "DynamicSync neighbor summary";
       uses BAG-NBR-ENTRY-SUM;
     }
     leaf total-neighbor-entries {
@@ -749,7 +774,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf link-layer-address {
       type yang:mac-address;
       description
-        "Link-Layer Address";
+        "IPV6 Link-Layer Address";
     }
     leaf encapsulation {
       type Ipv6-nd-media-encap;
@@ -769,7 +794,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     leaf interface-name {
       type string;
       description
-        "Interface name";
+        "Name of Interface";
     }
     leaf location {
       type xr:Node-id;

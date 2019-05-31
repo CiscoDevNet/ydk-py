@@ -30,12 +30,17 @@ class IpDomain(Entity):
     	VRF table
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs>`
     
+    .. attribute:: default_flows_disable
+    
+    	Disable default flows programming
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
     
 
     """
 
     _prefix = 'ip-domain-cfg'
-    _revision = '2017-09-07'
+    _revision = '2019-02-19'
 
     def __init__(self):
         super(IpDomain, self).__init__()
@@ -47,7 +52,10 @@ class IpDomain(Entity):
         self.has_list_ancestor = False
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("vrfs", ("vrfs", IpDomain.Vrfs))])
-        self._leafs = OrderedDict()
+        self._leafs = OrderedDict([
+            ('default_flows_disable', (YLeaf(YType.empty, 'default-flows-disable'), ['Empty'])),
+        ])
+        self.default_flows_disable = None
 
         self.vrfs = IpDomain.Vrfs()
         self.vrfs.parent = self
@@ -56,7 +64,7 @@ class IpDomain(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(IpDomain, [], name, value)
+        self._perform_setattr(IpDomain, ['default_flows_disable'], name, value)
 
 
     class Vrfs(Entity):
@@ -73,7 +81,7 @@ class IpDomain(Entity):
         """
 
         _prefix = 'ip-domain-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-02-19'
 
         def __init__(self):
             super(IpDomain.Vrfs, self).__init__()
@@ -153,7 +161,7 @@ class IpDomain(Entity):
             """
 
             _prefix = 'ip-domain-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-02-19'
 
             def __init__(self):
                 super(IpDomain.Vrfs.Vrf, self).__init__()
@@ -214,7 +222,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-02-19'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Ipv6Hosts, self).__init__()
@@ -256,7 +264,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-02-19'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, self).__init__()
@@ -296,7 +304,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-02-19'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Servers, self).__init__()
@@ -346,7 +354,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-02-19'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Servers.Server, self).__init__()
@@ -387,7 +395,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-02-19'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
@@ -432,7 +440,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-02-19'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
@@ -472,7 +480,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-02-19'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
@@ -514,7 +522,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-02-19'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()

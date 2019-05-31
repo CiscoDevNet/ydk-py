@@ -249,7 +249,7 @@ class AlarmLogger(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AlarmLogger.BufferStatus, [u'log_buffer_size', u'max_log_buffer_size', u'record_count', u'capacity_threshold', u'severity_filter'], name, value)
+            self._perform_setattr(AlarmLogger.BufferStatus, ['log_buffer_size', 'max_log_buffer_size', 'record_count', 'capacity_threshold', 'severity_filter'], name, value)
 
 
 
@@ -426,7 +426,7 @@ class AlarmLogger(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', u'source_id', u'timestamp', u'category', u'group', u'code', u'severity', u'state', u'correlation_id', u'is_admin', u'additional_text'], name, value)
+                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
 
 
 

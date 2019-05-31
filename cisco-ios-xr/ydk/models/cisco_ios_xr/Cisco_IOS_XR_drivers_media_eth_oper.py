@@ -1108,11 +1108,11 @@ class EthernetMedia(Enum):
 
     .. data:: ethernet_1000base_bx10_d = 79
 
-    	X fibre (D, 10km)
+    	X fiber (D, 10km)
 
     .. data:: ethernet_1000base_bx10_u = 80
 
-    	X fibre (U, 10km)
+    	X fiber (U, 10km)
 
     .. data:: ethernet_1000base_dwdm_1561_42 = 81
 
@@ -1976,95 +1976,95 @@ class EthernetMedia(Enum):
 
     .. data:: ethernet_1000base_bx_d = 296
 
-    	X fibre (D)
+    	X fiber (D)
 
     .. data:: ethernet_1000base_bx_u = 297
 
-    	X fibre (U)
+    	X fiber (U)
 
     .. data:: ethernet_1000base_bx20_d = 298
 
-    	X fibre (D, 20km)
+    	X fiber (D, 20km)
 
     .. data:: ethernet_1000base_bx20_u = 299
 
-    	X fibre (U, 20km)
+    	X fiber (U, 20km)
 
     .. data:: ethernet_1000base_bx40_d = 300
 
-    	X fibre (D, 40km)
+    	X fiber (D, 40km)
 
     .. data:: ethernet_1000base_bx40_da = 301
 
-    	X fibre (D, 40km)
+    	X fiber (D, 40km)
 
     .. data:: ethernet_1000base_bx40_u = 302
 
-    	X fibre (U, 40km)
+    	X fiber (U, 40km)
 
     .. data:: ethernet_1000base_bx80_d = 303
 
-    	X fibre (D, 80km)
+    	X fiber (D, 80km)
 
     .. data:: ethernet_1000base_bx80_u = 304
 
-    	X fibre (U, 80km)
+    	X fiber (U, 80km)
 
     .. data:: ethernet_1000base_bx120_d = 305
 
-    	X fibre (D, 120km)
+    	X fiber (D, 120km)
 
     .. data:: ethernet_1000base_bx120_u = 306
 
-    	X fibre (U, 120km)
+    	X fiber (U, 120km)
 
     .. data:: ethernet_10gbase_bx_d = 307
 
-    	X fibre (D)
+    	X fiber (D)
 
     .. data:: ethernet_10gbase_bx_u = 308
 
-    	X fibre (U)
+    	X fiber (U)
 
     .. data:: ethernet_10gbase_bx10_d = 309
 
-    	X fibre (D, 10km)
+    	X fiber (D, 10km)
 
     .. data:: ethernet_10gbase_bx10_u = 310
 
-    	X fibre (U, 10km)
+    	X fiber (U, 10km)
 
     .. data:: ethernet_10gbase_bx20_d = 311
 
-    	X fibre (D, 20km)
+    	X fiber (D, 20km)
 
     .. data:: ethernet_10gbase_bx20_u = 312
 
-    	X fibre (U, 20km)
+    	X fiber (U, 20km)
 
     .. data:: ethernet_10gbase_bx40_d = 313
 
-    	X fibre (D, 40km)
+    	X fiber (D, 40km)
 
     .. data:: ethernet_10gbase_bx40_u = 314
 
-    	X fibre (U, 40km)
+    	X fiber (U, 40km)
 
     .. data:: ethernet_10gbase_bx80_d = 315
 
-    	X fibre (D, 80km)
+    	X fiber (D, 80km)
 
     .. data:: ethernet_10gbase_bx80_u = 316
 
-    	X fibre (U, 80km)
+    	X fiber (U, 80km)
 
     .. data:: ethernet_10gbase_bx120_d = 317
 
-    	X fibre (D, 120km)
+    	X fiber (D, 120km)
 
     .. data:: ethernet_10gbase_bx120_u = 318
 
-    	X fibre (U, 120km)
+    	X fiber (U, 120km)
 
     .. data:: ethernet_1000base_dr_lx = 319
 
@@ -2306,7 +2306,23 @@ class EthernetMedia(Enum):
 
     	reach)
 
-    .. data:: ethernet_base_max = 377
+    .. data:: ethernet_1000base_2bx_d = 377
+
+    	2 channel X fibre (D)
+
+    .. data:: ethernet_1000base_2bx_d_i = 378
+
+    	2 channel X fibre (D/I)
+
+    .. data:: ethernet_1000base_2bx_u = 379
+
+    	2 channel X fibre (U)
+
+    .. data:: ethernet_1000base_2bx_u_i = 380
+
+    	2 channel X fibre (U/I)
+
+    .. data:: ethernet_base_max = 381
 
     	ethernet base max
 
@@ -3066,7 +3082,15 @@ class EthernetMedia(Enum):
 
     ethernet_100gbase_sr_bd = Enum.YLeaf(376, "ethernet-100gbase-sr-bd")
 
-    ethernet_base_max = Enum.YLeaf(377, "ethernet-base-max")
+    ethernet_1000base_2bx_d = Enum.YLeaf(377, "ethernet-1000base-2bx-d")
+
+    ethernet_1000base_2bx_d_i = Enum.YLeaf(378, "ethernet-1000base-2bx-d-i")
+
+    ethernet_1000base_2bx_u = Enum.YLeaf(379, "ethernet-1000base-2bx-u")
+
+    ethernet_1000base_2bx_u_i = Enum.YLeaf(380, "ethernet-1000base-2bx-u-i")
+
+    ethernet_base_max = Enum.YLeaf(381, "ethernet-base-max")
 
 
 class EthernetPortEnable(Enum):
@@ -3927,7 +3951,7 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', u'received_total_bytes', u'received_good_bytes', u'received_total_frames', u'received8021q_frames', u'received_pause_frames', u'received_unknown_opcodes', u'received_total64_octet_frames', u'received_total_octet_frames_from65_to127', u'received_total_octet_frames_from128_to255', u'received_total_octet_frames_from256_to511', u'received_total_octet_frames_from512_to1023', u'received_total_octet_frames_from1024_to1518', u'received_total_octet_frames_from1519_to_max', u'received_good_frames', u'received_unicast_frames', u'received_multicast_frames', u'received_broadcast_frames', u'number_of_buffer_overrun_packets_dropped', u'number_of_aborted_packets_dropped', u'numberof_invalid_vlan_id_packets_dropped', u'invalid_dest_mac_drop_packets', u'invalid_encap_drop_packets', u'number_of_miscellaneous_packets_dropped', u'dropped_giant_packets_greaterthan_mru', u'dropped_ether_stats_undersize_pkts', u'dropped_jabbers_packets_greaterthan_mru', u'dropped_ether_stats_fragments', u'dropped_packets_with_crc_align_errors', u'ether_stats_collisions', u'symbol_errors', u'dropped_miscellaneous_error_packets', u'rfc2819_ether_stats_oversized_pkts', u'rfc2819_ether_stats_jabbers', u'rfc2819_ether_stats_crc_align_errors', u'rfc3635dot3_stats_alignment_errors', u'total_bytes_transmitted', u'total_good_bytes_transmitted', u'total_frames_transmitted', u'transmitted8021q_frames', u'transmitted_total_pause_frames', u'transmitted_total64_octet_frames', u'transmitted_total_octet_frames_from65_to127', u'transmitted_total_octet_frames_from128_to255', u'transmitted_total_octet_frames_from256_to511', u'transmitted_total_octet_frames_from512_to1023', u'transmitted_total_octet_frames_from1024_to1518', u'transmitted_total_octet_frames_from1518_to_max', u'transmitted_good_frames', u'transmitted_unicast_frames', u'transmitted_multicast_frames', u'transmitted_broadcast_frames', u'buffer_underrun_packet_drops', u'aborted_packet_drops', u'uncounted_dropped_frames', u'miscellaneous_output_errors'], name, value)
+                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'received_total_bytes', 'received_good_bytes', 'received_total_frames', 'received8021q_frames', 'received_pause_frames', 'received_unknown_opcodes', 'received_total64_octet_frames', 'received_total_octet_frames_from65_to127', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from1519_to_max', 'received_good_frames', 'received_unicast_frames', 'received_multicast_frames', 'received_broadcast_frames', 'number_of_buffer_overrun_packets_dropped', 'number_of_aborted_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'number_of_miscellaneous_packets_dropped', 'dropped_giant_packets_greaterthan_mru', 'dropped_ether_stats_undersize_pkts', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_ether_stats_fragments', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'symbol_errors', 'dropped_miscellaneous_error_packets', 'rfc2819_ether_stats_oversized_pkts', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_crc_align_errors', 'rfc3635dot3_stats_alignment_errors', 'total_bytes_transmitted', 'total_good_bytes_transmitted', 'total_frames_transmitted', 'transmitted8021q_frames', 'transmitted_total_pause_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_good_frames', 'transmitted_unicast_frames', 'transmitted_multicast_frames', 'transmitted_broadcast_frames', 'buffer_underrun_packet_drops', 'aborted_packet_drops', 'uncounted_dropped_frames', 'miscellaneous_output_errors'], name, value)
 
 
 
@@ -4070,7 +4094,7 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', u'admin_state', u'oper_state_up'], name, value)
+                self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', 'admin_state', 'oper_state_up'], name, value)
 
 
             class PhyInfo(Entity):
@@ -4168,7 +4192,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, [u'media_type', u'phy_present', u'loopback', u'holdoff_time'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback', 'holdoff_time'], name, value)
 
 
                 class PhyDetails(Entity):
@@ -4350,7 +4374,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, [u'vendor', u'vendor_part_number', u'vendor_serial_number', u'transceiver_temperature', u'transceiver_voltage', u'transceiver_tx_power', u'transceiver_rx_power', u'transceiver_tx_bias', u'optics_wavelength', u'optics_type', u'revision_number'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['vendor', 'vendor_part_number', 'vendor_serial_number', 'transceiver_temperature', 'transceiver_voltage', 'transceiver_tx_power', 'transceiver_rx_power', 'transceiver_tx_bias', 'optics_wavelength', 'optics_type', 'revision_number'], name, value)
 
 
                     class LaneFieldValidity(Entity):
@@ -4424,7 +4448,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, [u'wavelength_valid', u'transmit_power_valid', u'receive_power_valid', u'laser_bias_valid'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['wavelength_valid', 'transmit_power_valid', 'receive_power_valid', 'laser_bias_valid'], name, value)
 
 
 
@@ -4685,7 +4709,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, [u'transceiver_temperature_alarm_high', u'transceiver_temperature_warning_high', u'transceiver_temperature_warning_low', u'transceiver_temperature_alarm_low', u'transceiver_voltage_alarm_high', u'transceiver_voltage_warning_high', u'transceiver_voltage_warning_low', u'transceiver_voltage_alarm_low', u'laser_bias_alarm_high', u'laser_bias_warning_high', u'laser_bias_warning_low', u'laser_bias_alarm_low', u'optical_transmit_power_alarm_high', u'optical_transmit_power_warning_high', u'optical_transmit_power_warning_low', u'optical_transmit_power_alarm_low', u'optical_receive_power_alarm_high', u'optical_receive_power_warning_high', u'optical_receive_power_warning_low', u'optical_receive_power_alarm_low'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['transceiver_temperature_alarm_high', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_temperature_alarm_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low', 'transceiver_voltage_alarm_low', 'laser_bias_alarm_high', 'laser_bias_warning_high', 'laser_bias_warning_low', 'laser_bias_alarm_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'optical_transmit_power_alarm_low', 'optical_receive_power_alarm_high', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_receive_power_alarm_low'], name, value)
 
 
                         class FieldValidity(Entity):
@@ -4769,7 +4793,7 @@ class EthernetInterface(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, [u'temperature_valid', u'voltage_valid', u'laser_bias_valid', u'transmit_power_valid', u'receive_power_valid'], name, value)
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['temperature_valid', 'voltage_valid', 'laser_bias_valid', 'transmit_power_valid', 'receive_power_valid'], name, value)
 
 
 
@@ -4845,7 +4869,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, [u'transceiver_temperature', u'transceiver_voltage', u'transmit_laser_power', u'received_laser_power', u'laser_bias_current'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
 
 
 
@@ -4942,7 +4966,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, [u'center_wavelength', u'transmit_laser_power', u'received_laser_power', u'laser_bias_current', u'lane_id'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current', 'lane_id'], name, value)
 
 
                         class DigOptMonAlarm(Entity):
@@ -4998,7 +5022,7 @@ class EthernetInterface(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, [u'transmit_laser_power', u'received_laser_power', u'laser_bias_current'], name, value)
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
 
 
 
@@ -5061,7 +5085,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, [u'fec', u'corrected_codeword_count', u'uncorrected_codeword_count'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['fec', 'corrected_codeword_count', 'uncorrected_codeword_count'], name, value)
 
 
 
@@ -5111,7 +5135,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, [u'level', u'loopback'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
 
 
 
@@ -5306,7 +5330,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, [u'link_state', u'led_state', u'speed', u'duplex', u'flowcontrol', u'ipg', u'laser_squelch_enabled', u'bandwidth_utilization', u'bandwidth'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['link_state', 'led_state', 'speed', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'bandwidth_utilization', 'bandwidth'], name, value)
 
 
                 class Autoneg(Entity):
@@ -5404,7 +5428,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, [u'autoneg_enabled', u'mask', u'speed', u'duplex', u'flowcontrol', u'config_override', u'fec'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'mask', 'speed', 'duplex', 'flowcontrol', 'config_override', 'fec'], name, value)
 
 
 
@@ -5524,7 +5548,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, [u'received_loss_of_signal_alarm', u'pcs_loss_of_block_lock_alarm', u'local_fault_alarm', u'remote_fault_alarm', u'sd_ber_alarm', u'sf_ber_alarm', u'loss_of_synchronization_data_alarm', u'hi_ber_alarm', u'squelch_alarm', u'rx_opd_alarm'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
 
 
 
@@ -5644,7 +5668,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, [u'received_loss_of_signal_alarm', u'pcs_loss_of_block_lock_alarm', u'local_fault_alarm', u'remote_fault_alarm', u'sd_ber_alarm', u'sf_ber_alarm', u'loss_of_synchronization_data_alarm', u'hi_ber_alarm', u'squelch_alarm', u'rx_opd_alarm'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
 
 
 
@@ -5696,7 +5720,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, [u'sync_header_errors', u'pcsbip_errors'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['sync_header_errors', 'pcsbip_errors'], name, value)
 
 
 
@@ -5759,7 +5783,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, [u'supported'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, ['supported'], name, value)
 
 
                     class Settings(Entity):
@@ -5843,7 +5867,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, [u'signal_degrade_threshold', u'signal_degrade_alarm', u'signal_fail_threshold', u'signal_fail_alarm', u'signal_remote_fault'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
 
 
 
@@ -5895,7 +5919,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, [u'sd_current_ber', u'sf_current_ber'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, ['sd_current_ber', 'sf_current_ber'], name, value)
 
 
 
@@ -5948,7 +5972,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, [u'supported'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, ['supported'], name, value)
 
 
                     class Settings(Entity):
@@ -5999,7 +6023,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, [u'received_optical_power_degrade_threshold_set', u'received_optical_power_degrade_threshold'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold_set', 'received_optical_power_degrade_threshold'], name, value)
 
 
 
@@ -6072,7 +6096,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, [u'priority_flowcontrol', u'priority_enabled_bitmap', u'rx_frame', u'tx_frame'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_flowcontrol', 'priority_enabled_bitmap', 'rx_frame', 'tx_frame'], name, value)
 
 
 
@@ -6169,7 +6193,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, [u'mtu', u'mru', u'burned_in_mac_address', u'operational_mac_address'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['mtu', 'mru', 'burned_in_mac_address', 'operational_mac_address'], name, value)
 
 
                 class UnicastMacFilters(Entity):
@@ -6209,7 +6233,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, [u'unicast_mac_address'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
 
 
 
@@ -6257,7 +6281,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, [u'multicast_promiscuous'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, ['multicast_promiscuous'], name, value)
 
 
                     class MulticastMacAddress(Entity):
@@ -6309,7 +6333,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, [u'mac_address', u'mask'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, ['mac_address', 'mask'], name, value)
 
 
 
@@ -6385,7 +6409,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, [u'maintenance_mode_enabled', u'ains_status', u'total_duration', u'remaining_duration'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['maintenance_mode_enabled', 'ains_status', 'total_duration', 'remaining_duration'], name, value)
 
 
 
@@ -6502,7 +6526,7 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', u'time_left', u'port_bert_interval'], name, value)
+                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'time_left', 'port_bert_interval'], name, value)
 
 
             class BertStatus(Entity):
@@ -6620,7 +6644,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, [u'bert_state_enabled', u'data_availability', u'receive_count', u'transmit_count', u'receive_errors', u'error_type', u'test_pattern', u'device_under_test', u'interface_device'], name, value)
+                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'receive_count', 'transmit_count', 'receive_errors', 'error_type', 'test_pattern', 'device_under_test', 'interface_device'], name, value)
 
 
 

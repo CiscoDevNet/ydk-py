@@ -193,7 +193,7 @@ class MPLSLDPSTDMIB(Entity):
         	The Label Switching Router's Identifier
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         

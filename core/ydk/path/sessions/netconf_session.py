@@ -65,5 +65,8 @@ class NetconfSession(_NetconfSession):
     def invoke(self, rpc):
         return super(NetconfSession, self).invoke(rpc)
 
+    def execute_netconf_operation(self, rpc):
+        return super(NetconfSession, self).execute_netconf_operation(rpc)
+
     def get_capabilities(self):
         return super(NetconfSession, self).get_capabilities()

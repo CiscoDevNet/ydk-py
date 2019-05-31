@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-iarm-v4-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2019-01-22;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-01-22 {
+    description
+      "Fixing yang usability issues.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -82,17 +86,19 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
               leaf address {
                 type inet:ipv4-address-no-zone;
                 description
-                  "Address";
+                  "An IPv4 Address in this Network.";
               }
               leaf prefix-length {
                 type Ipv4arm-prefix-length;
                 description
-                  "Prefix Length";
+                  "Ipv4 ARM prefix length for this address in
+                   the Network.";
               }
               leaf interface {
                 type xr:Interface-name;
                 description
-                  "Interface";
+                  "Ingress/Egress interface handle for this
+                   address in the Network.";
               }
               uses IP-ARM-EDM-DB-NET-BAG-TYPE;
             }
@@ -114,7 +120,9 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
             }
           }
           leaf vrf-name {
-            type string;
+            type xr:Cisco-ios-xr-string {
+              length "1..32";
+            }
             description
               "VRF name";
           }
@@ -134,7 +142,9 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
         description
           "IPv4 ARM VRF summary information";
         leaf vrf-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..32";
+          }
           description
             "VRF name";
         }
@@ -149,7 +159,7 @@ module Cisco-IOS-XR-ip-iarm-v4-oper {
     leaf multicast-host-interface {
       type xr:Interface-name;
       description
-        "Default multicast host interface";
+        "Interface Handle of Default Multicast Host";
     }
   }
 }

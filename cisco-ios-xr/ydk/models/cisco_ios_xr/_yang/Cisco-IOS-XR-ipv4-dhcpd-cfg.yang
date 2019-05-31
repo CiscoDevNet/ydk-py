@@ -35,13 +35,13 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-10-24 {
+    description
+      "Fixed remote id mask.";
+  }
   revision 2017-09-30 {
     description
       "Ensure propagation of MDA mandatory state to YANG model.";
-  }
-  revision 2017-09-07 {
-    description
-      "Fixed type translation error.";
   }
   revision 2017-05-01 {
     description
@@ -50,6 +50,18 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Ipv4-match-default-mode {
+    type enumeration {
+      enum "server" {
+        value 3;
+        description
+          "Server";
+      }
+    }
+    description
+      "Ipv4 match default mode";
   }
 
   typedef Ipv4dhcpd-client-id {
@@ -282,6 +294,23 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
     }
     description
       "Ipv4dhcpd broadcast flag policy";
+  }
+
+  typedef Ipv4-mode-class-mode {
+    type enumeration {
+      enum "server" {
+        value 3;
+        description
+          "Server";
+      }
+      enum "proxy" {
+        value 4;
+        description
+          "Proxy";
+      }
+    }
+    description
+      "Ipv4 mode class mode";
   }
 
   typedef Base-action {
@@ -776,6 +805,32 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                      authenticate";
                 }
               }
+              container dhcp-to-aaa {
+                description
+                  "Enable to provide the list of options need
+                   to send to aaa";
+                container base-option {
+                  description
+                    "option type";
+                  container list {
+                    description
+                      "List of options";
+                    leaf option-all {
+                      type uint32;
+                      description
+                        "option all";
+                    }
+                    leaf-list option {
+                      type uint32 {
+                        range "1..255";
+                      }
+                      max-elements "12";
+                      description
+                        "List of options";
+                    }
+                  }
+                }
+              }
               container base-match {
                 description
                   "Insert match keyword";
@@ -817,6 +872,58 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                       description
                         "Set constant integer";
                     }
+                  }
+                }
+                container mode-classes {
+                  description
+                    "Table of ModeClass";
+                  list mode-class {
+                    key "class-name";
+                    description
+                      "Specify PPP/IPoE class option";
+                    container profile {
+                      description
+                        "Enter proxy or server profile";
+                      leaf profile-name {
+                        type xr:Cisco-ios-xr-string {
+                          length "1..64";
+                        }
+                        description
+                          "Profile name";
+                      }
+                      leaf mode {
+                        type Ipv4-mode-class-mode;
+                        description
+                          "Specify mode";
+                      }
+                    }
+                    leaf class-name {
+                      type xr:Cisco-ios-xr-string {
+                        length "1..64";
+                      }
+                      description
+                        "Class name";
+                    }
+                  }
+                }
+              }
+              container match-default {
+                description
+                  "Default match option";
+                container profile {
+                  description
+                    "Enter server profile";
+                  leaf profile-name {
+                    type xr:Cisco-ios-xr-string {
+                      length "1..64";
+                    }
+                    description
+                      "Profile name";
+                  }
+                  leaf default-mode {
+                    type Ipv4-match-default-mode;
+                    description
+                      "Specify mode";
                   }
                 }
               }
@@ -1418,6 +1525,22 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
               container relay-information-option {
                 description
                   "Relay agent information option";
+                container remote-id {
+                  description
+                    "Enter remote-id value";
+                  leaf format-type {
+                    type uint32 {
+                      range "1..2";
+                    }
+                    description
+                      "Format type, 1. Hex 2. ASCII";
+                  }
+                  leaf remote-id-value {
+                    type string;
+                    description
+                      "Enter remote-id value";
+                  }
+                }
                 leaf vpn-mode {
                   type Ipv4dhcpd-relay-info-optionvpn-mode;
                   description

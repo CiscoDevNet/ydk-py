@@ -98,7 +98,7 @@ class MplsLsd(Entity):
     """
 
     _prefix = 'mpls-lsd-cfg'
-    _revision = '2015-11-09'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(MplsLsd, self).__init__()
@@ -155,7 +155,7 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2015-11-09'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLsd.Ipv6, self).__init__()
@@ -195,7 +195,7 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2015-11-09'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLsd.Ipv4, self).__init__()
@@ -233,7 +233,7 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2015-11-09'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLsd.LabelDatabases, self).__init__()
@@ -264,7 +264,7 @@ class MplsLsd(Entity):
             	Label database identifier
             	**type**\: int
             
-            	**range:** 0..4294967295
+            	**range:** 0..0
             
             .. attribute:: label_range
             
@@ -276,7 +276,7 @@ class MplsLsd(Entity):
             """
 
             _prefix = 'mpls-lsd-cfg'
-            _revision = '2015-11-09'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLsd.LabelDatabases.LabelDatabase, self).__init__()
@@ -340,7 +340,7 @@ class MplsLsd(Entity):
                 """
 
                 _prefix = 'mpls-lsd-cfg'
-                _revision = '2015-11-09'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, self).__init__()

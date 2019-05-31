@@ -78,6 +78,66 @@ submodule Cisco-IOS-XR-config-cfgmgr-exec-oper-sub1 {
       "Possible types of history";
   }
 
+  grouping CFGSESSION-D-ENTRY {
+    description
+      "Per Session Detail Information";
+    leaf session-id {
+      type string;
+      description
+        "Session Id";
+    }
+    leaf client-name {
+      type string;
+      description
+        "Client Name";
+    }
+    leaf user-id {
+      type string;
+      description
+        "UserId";
+    }
+    leaf tty-name {
+      type string;
+      description
+        "TtyName";
+    }
+    leaf timestamp {
+      type string;
+      description
+        "Timestamp";
+    }
+    leaf lock-flag {
+      type string;
+      description
+        "Lock Flag";
+    }
+    leaf trial-flag {
+      type string;
+      description
+        "Trial Flag";
+    }
+    leaf pid {
+      type uint32;
+      description
+        "PID";
+    }
+    leaf process-name {
+      type string;
+      description
+        "Process Name";
+    }
+    leaf node-name {
+      type string;
+      description
+        "Node Name";
+    }
+    leaf elapsed-time {
+      type string;
+      description
+        "Elapsed Time";
+    }
+  }
+
   grouping HIST-BACKUP {
     description
       "HIST BACKUP";
@@ -276,7 +336,7 @@ submodule Cisco-IOS-XR-config-cfgmgr-exec-oper-sub1 {
            ./type != 'CFGHIST_BAG_RECORD_CFSCHECK' and .
            ./type != 'CFGHIST_BAG_RECORD_COMMIT' and .
            ./type != 'CFGHIST_BAG_RECORD_OIR' and ../type
-           != 'CFGHIST_BAG_RECORD_SHUTDOWN' and ../type
+           != 'CFGHIST_BAG_RECORD_SHUTDOWN' and ../type 
            != 'CFGHIST_BAG_RECORD_STARTUP' and ../type !=
            'CFGHIST_BAG_RECORD_BACKUP'";
       }
@@ -295,14 +355,49 @@ submodule Cisco-IOS-XR-config-cfgmgr-exec-oper-sub1 {
       uses HIST-INFO;
     }
     leaf timestamp {
-      type uint32;
+      type string;
       description
-        "Time stamp for the history";
+        "Timestamp";
     }
-    leaf record-type {
-      type Hist-record;
+  }
+
+  grouping CFGCOMMITLIST-D-ENTRY {
+    description
+      "Per Commit Information";
+    leaf timestamp {
+      type string;
       description
-        "Record type";
+        "Timestamp";
+    }
+    leaf commit-id {
+      type string;
+      description
+        "CommitId";
+    }
+    leaf user-id {
+      type string;
+      description
+        "UserId";
+    }
+    leaf line {
+      type string;
+      description
+        "Line";
+    }
+    leaf client-name {
+      type string;
+      description
+        "Client name";
+    }
+    leaf label {
+      type string;
+      description
+        "Label";
+    }
+    leaf comment {
+      type string;
+      description
+        "Comment";
     }
   }
 }

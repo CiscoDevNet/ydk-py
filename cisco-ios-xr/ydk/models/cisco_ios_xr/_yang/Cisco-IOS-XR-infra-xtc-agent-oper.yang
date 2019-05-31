@@ -52,6 +52,38 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Xtcigp-protocol {
+    type enumeration {
+      enum "unknown" {
+        value 0;
+        description
+          "Unknown protocol";
+      }
+      enum "isis" {
+        value 1;
+        description
+          "ISIS protocol";
+      }
+      enum "ospf" {
+        value 2;
+        description
+          "OSPF protocol";
+      }
+      enum "bgp" {
+        value 4;
+        description
+          "BGP protocol";
+      }
+      enum "te" {
+        value 8;
+        description
+          "TE protocol";
+      }
+    }
+    description
+      "Xtcigp protocol";
+  }
+
   typedef Xtc-address-family {
     type enumeration {
       enum "ipv4" {
@@ -201,11 +233,6 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
         }
       }
     }
-    container topology-summary {
-      description
-        "Node summary database";
-      uses XTC-TOPO-SUMMARY-BAG;
-    }
     container topology-nodes {
       description
         "Node database in XTC Agent";
@@ -219,6 +246,26 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
             "Node Identifier";
         }
         uses XTC-TOPO-NODE-BAG;
+      }
+    }
+    container topology-summaries {
+      description
+        "Node summary table";
+      list topology-summary {
+        description
+          "Node summary database";
+        leaf af {
+          type Xtc-address-family;
+          description
+            "Only show data related to the specified
+             address family";
+        }
+        leaf protocol {
+          type Xtcigp-protocol;
+          description
+            "Match nodes from the specified IGP protocol";
+        }
+        uses XTC-TOPO-SUMMARY-BAG;
       }
     }
     container prefix-infos {

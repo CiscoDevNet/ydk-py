@@ -144,7 +144,7 @@ class Processes(Entity):
     """
 
     _prefix = 'pmh'
-    _revision = '2017-04-12'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Processes, self).__init__()
@@ -213,7 +213,7 @@ class Processes(Entity):
         """
 
         _prefix = 'pmh'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Processes.AllLocations, self).__init__()
@@ -410,7 +410,7 @@ class Processes(Entity):
             """
 
             _prefix = 'pmh'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Processes.AllLocations.Name, self).__init__()
@@ -588,7 +588,7 @@ class Processes(Entity):
                 """
 
                 _prefix = 'pmh'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Processes.AllLocations.Name.Services, self).__init__()
@@ -658,7 +658,7 @@ class ProcessManager(Entity):
     """
 
     _prefix = 'pmh'
-    _revision = '2017-04-12'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(ProcessManager, self).__init__()
@@ -755,7 +755,7 @@ class ProcessManager(Entity):
         """
 
         _prefix = 'pmh'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(ProcessManager.AllLocationsInfo, self).__init__()
@@ -814,7 +814,7 @@ class Pm(Entity):
     """
 
     _prefix = 'pmh'
-    _revision = '2017-04-12'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Pm, self).__init__()
@@ -854,7 +854,7 @@ class Pm(Entity):
         """
 
         _prefix = 'pmh'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Pm.Pm_, self).__init__()
@@ -899,7 +899,7 @@ class Pm(Entity):
             """
 
             _prefix = 'pmh'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Pm.Pm_.Trace, self).__init__()
@@ -921,7 +921,7 @@ class Pm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pm.Pm_.Trace, [u'buffer'], name, value)
+                self._perform_setattr(Pm.Pm_.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -947,7 +947,7 @@ class Pm(Entity):
                 """
 
                 _prefix = 'pmh'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Pm.Pm_.Trace.Location, self).__init__()
@@ -968,7 +968,7 @@ class Pm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pm.Pm_.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Pm.Pm_.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -994,7 +994,7 @@ class Pm(Entity):
                     """
 
                     _prefix = 'pmh'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Pm.Pm_.Trace.Location.AllOptions, self).__init__()
@@ -1015,7 +1015,7 @@ class Pm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -1034,7 +1034,7 @@ class Pm(Entity):
                         """
 
                         _prefix = 'pmh'
-                        _revision = '2017-04-12'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -1053,7 +1053,7 @@ class Pm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

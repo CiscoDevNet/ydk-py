@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ipv6-nd-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv6-nd-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2019-02-18;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv6-nd-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-02-18 {
+    description
+      "Fixing yang usability warnings.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -85,7 +89,7 @@ module Cisco-IOS-XR-ipv6-nd-oper {
         }
         container neighbor-summary {
           description
-            "IPv6 Neighbor summary";
+            "Summary of IPv6 Neighbors";
           uses IPV6-ND-NEIGHBOR-ENTRY-SUMMARY;
         }
         container bundle-nodes {

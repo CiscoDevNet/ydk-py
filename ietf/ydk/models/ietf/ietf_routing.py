@@ -33,10 +33,10 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class RoutingProtocol(Identity):
+class AddressFamily(Identity):
     """
-    Base identity from which routing protocol identities are
-    derived.
+    Base identity from which identities describing address
+    families are derived.
     
     
 
@@ -45,8 +45,8 @@ class RoutingProtocol(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-protocol"):
-        super(RoutingProtocol, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:address-family"):
+        super(AddressFamily, self).__init__(ns, pref, tag)
 
 
 
@@ -67,10 +67,10 @@ class RoutingInstance(Identity):
 
 
 
-class AddressFamily(Identity):
+class RoutingProtocol(Identity):
     """
-    Base identity from which identities describing address
-    families are derived.
+    Base identity from which routing protocol identities are
+    derived.
     
     
 
@@ -79,8 +79,8 @@ class AddressFamily(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:address-family"):
-        super(AddressFamily, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-protocol"):
+        super(RoutingProtocol, self).__init__(ns, pref, tag)
 
 
 
@@ -9677,15 +9677,15 @@ class Routing(Entity):
                     Address\-family\-specific modules augment this node with
                     their lists of routes.
                     
-                    .. attribute:: ipv6
-                    
-                    	Configuration of a 'static' pseudo\-protocol instance consists of a list of routes
-                    	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6>`
-                    
                     .. attribute:: ipv4
                     
                     	Configuration of a 'static' pseudo\-protocol instance consists of a list of routes
                     	**type**\:  :py:class:`Ipv4 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4>`
+                    
+                    .. attribute:: ipv6
+                    
+                    	Configuration of a 'static' pseudo\-protocol instance consists of a list of routes
+                    	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6>`
                     
                     
 
@@ -9702,209 +9702,21 @@ class Routing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("ietf-ipv6-unicast-routing:ipv6", ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6)), ("ietf-ipv4-unicast-routing:ipv4", ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4))])
+                        self._child_classes = OrderedDict([("ietf-ipv4-unicast-routing:ipv4", ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4)), ("ietf-ipv6-unicast-routing:ipv6", ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6))])
                         self._leafs = OrderedDict()
-
-                        self.ipv6 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6()
-                        self.ipv6.parent = self
-                        self._children_name_map["ipv6"] = "ietf-ipv6-unicast-routing:ipv6"
 
                         self.ipv4 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4()
                         self.ipv4.parent = self
                         self._children_name_map["ipv4"] = "ietf-ipv4-unicast-routing:ipv4"
+
+                        self.ipv6 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6()
+                        self.ipv6.parent = self
+                        self._children_name_map["ipv6"] = "ietf-ipv6-unicast-routing:ipv6"
                         self._segment_path = lambda: "static-routes"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes, [], name, value)
-
-
-                    class Ipv6(Entity):
-                        """
-                        Configuration of a 'static' pseudo\-protocol instance
-                        consists of a list of routes.
-                        
-                        .. attribute:: route
-                        
-                        	A user\-ordered list of static routes
-                        	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'v6ur'
-                        _revision = '2015-05-25'
-
-                        def __init__(self):
-                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, self).__init__()
-
-                            self.yang_name = "ipv6"
-                            self.yang_parent_name = "static-routes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("route", ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route))])
-                            self._leafs = OrderedDict()
-
-                            self.route = YList(self)
-                            self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, [], name, value)
-
-
-                        class Route(Entity):
-                            """
-                            A user\-ordered list of static routes.
-                            
-                            .. attribute:: destination_prefix  (key)
-                            
-                            	IPv6 destination prefix
-                            	**type**\: str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: description
-                            
-                            	Textual description of the route
-                            	**type**\: str
-                            
-                            .. attribute:: next_hop
-                            
-                            	Configuration of next\-hop
-                            	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'v6ur'
-                            _revision = '2015-05-25'
-
-                            def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, self).__init__()
-
-                                self.yang_name = "route"
-                                self.yang_parent_name = "ipv6"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['destination_prefix']
-                                self._child_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop))])
-                                self._leafs = OrderedDict([
-                                    ('destination_prefix', (YLeaf(YType.str, 'destination-prefix'), ['str'])),
-                                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
-                                ])
-                                self.destination_prefix = None
-                                self.description = None
-
-                                self.next_hop = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop()
-                                self.next_hop.parent = self
-                                self._children_name_map["next_hop"] = "next-hop"
-                                self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, ['destination_prefix', 'description'], name, value)
-
-
-                            class NextHop(Entity):
-                                """
-                                Configuration of next\-hop.
-                                
-                                .. attribute:: outgoing_interface
-                                
-                                	Name of the outgoing interface
-                                	**type**\: str
-                                
-                                .. attribute:: special_next_hop
-                                
-                                	Special next\-hop options
-                                	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop>`
-                                
-                                .. attribute:: next_hop_address
-                                
-                                	IPv6 address of the next\-hop
-                                	**type**\: str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'v6ur'
-                                _revision = '2015-05-25'
-
-                                def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, self).__init__()
-
-                                    self.yang_name = "next-hop"
-                                    self.yang_parent_name = "route"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                                        ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'Routing', 'RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop')])),
-                                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
-                                    ])
-                                    self.outgoing_interface = None
-                                    self.special_next_hop = None
-                                    self.next_hop_address = None
-                                    self._segment_path = lambda: "next-hop"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, ['outgoing_interface', 'special_next_hop', 'next_hop_address'], name, value)
-
-                                class SpecialNextHop(Enum):
-                                    """
-                                    SpecialNextHop (Enum Class)
-
-                                    Special next\-hop options.
-
-                                    .. data:: blackhole = 0
-
-                                    	Silently discard the packet.
-
-                                    .. data:: unreachable = 1
-
-                                    	Discard the packet and notify the sender with an error
-
-                                    	message indicating that the destination host is
-
-                                    	unreachable.
-
-                                    .. data:: prohibit = 2
-
-                                    	Discard the packet and notify the sender with an error
-
-                                    	message indicating that the communication is
-
-                                    	administratively prohibited.
-
-                                    .. data:: receive = 3
-
-                                    	The packet will be received by the local system.
-
-                                    """
-
-                                    blackhole = Enum.YLeaf(0, "blackhole")
-
-                                    unreachable = Enum.YLeaf(1, "unreachable")
-
-                                    prohibit = Enum.YLeaf(2, "prohibit")
-
-                                    receive = Enum.YLeaf(3, "receive")
-
-
-
-
 
 
                     class Ipv4(Entity):
@@ -10049,6 +9861,194 @@ class Routing(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, ['outgoing_interface', 'special_next_hop', 'next_hop_address'], name, value)
+
+                                class SpecialNextHop(Enum):
+                                    """
+                                    SpecialNextHop (Enum Class)
+
+                                    Special next\-hop options.
+
+                                    .. data:: blackhole = 0
+
+                                    	Silently discard the packet.
+
+                                    .. data:: unreachable = 1
+
+                                    	Discard the packet and notify the sender with an error
+
+                                    	message indicating that the destination host is
+
+                                    	unreachable.
+
+                                    .. data:: prohibit = 2
+
+                                    	Discard the packet and notify the sender with an error
+
+                                    	message indicating that the communication is
+
+                                    	administratively prohibited.
+
+                                    .. data:: receive = 3
+
+                                    	The packet will be received by the local system.
+
+                                    """
+
+                                    blackhole = Enum.YLeaf(0, "blackhole")
+
+                                    unreachable = Enum.YLeaf(1, "unreachable")
+
+                                    prohibit = Enum.YLeaf(2, "prohibit")
+
+                                    receive = Enum.YLeaf(3, "receive")
+
+
+
+
+
+
+                    class Ipv6(Entity):
+                        """
+                        Configuration of a 'static' pseudo\-protocol instance
+                        consists of a list of routes.
+                        
+                        .. attribute:: route
+                        
+                        	A user\-ordered list of static routes
+                        	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'v6ur'
+                        _revision = '2015-05-25'
+
+                        def __init__(self):
+                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, self).__init__()
+
+                            self.yang_name = "ipv6"
+                            self.yang_parent_name = "static-routes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("route", ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route))])
+                            self._leafs = OrderedDict()
+
+                            self.route = YList(self)
+                            self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, [], name, value)
+
+
+                        class Route(Entity):
+                            """
+                            A user\-ordered list of static routes.
+                            
+                            .. attribute:: destination_prefix  (key)
+                            
+                            	IPv6 destination prefix
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: description
+                            
+                            	Textual description of the route
+                            	**type**\: str
+                            
+                            .. attribute:: next_hop
+                            
+                            	Configuration of next\-hop
+                            	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'v6ur'
+                            _revision = '2015-05-25'
+
+                            def __init__(self):
+                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, self).__init__()
+
+                                self.yang_name = "route"
+                                self.yang_parent_name = "ipv6"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['destination_prefix']
+                                self._child_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop))])
+                                self._leafs = OrderedDict([
+                                    ('destination_prefix', (YLeaf(YType.str, 'destination-prefix'), ['str'])),
+                                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ])
+                                self.destination_prefix = None
+                                self.description = None
+
+                                self.next_hop = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop()
+                                self.next_hop.parent = self
+                                self._children_name_map["next_hop"] = "next-hop"
+                                self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, ['destination_prefix', 'description'], name, value)
+
+
+                            class NextHop(Entity):
+                                """
+                                Configuration of next\-hop.
+                                
+                                .. attribute:: outgoing_interface
+                                
+                                	Name of the outgoing interface
+                                	**type**\: str
+                                
+                                .. attribute:: special_next_hop
+                                
+                                	Special next\-hop options
+                                	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop>`
+                                
+                                .. attribute:: next_hop_address
+                                
+                                	IPv6 address of the next\-hop
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+
+                                """
+
+                                _prefix = 'v6ur'
+                                _revision = '2015-05-25'
+
+                                def __init__(self):
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, self).__init__()
+
+                                    self.yang_name = "next-hop"
+                                    self.yang_parent_name = "route"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                        ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'Routing', 'RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop')])),
+                                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
+                                    ])
+                                    self.outgoing_interface = None
+                                    self.special_next_hop = None
+                                    self.next_hop_address = None
+                                    self._segment_path = lambda: "next-hop"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, ['outgoing_interface', 'special_next_hop', 'next_hop_address'], name, value)
 
                                 class SpecialNextHop(Enum):
                                     """
@@ -13127,19 +13127,19 @@ class FibRoute(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: ietf_ipv6_unicast_routing_address
-            
-            	IPv6 destination address
-            	**type**\: str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
             .. attribute:: ietf_ipv4_unicast_routing_address
             
             	IPv4 destination address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: ietf_ipv6_unicast_routing_address
+            
+            	IPv6 destination address
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -13159,18 +13159,18 @@ class FibRoute(Entity):
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('address_family', (YLeaf(YType.identityref, 'address-family'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
-                    ('ietf_ipv6_unicast_routing_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:address'), ['str'])),
                     ('ietf_ipv4_unicast_routing_address', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:address'), ['str'])),
+                    ('ietf_ipv6_unicast_routing_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:address'), ['str'])),
                 ])
                 self.address_family = None
-                self.ietf_ipv6_unicast_routing_address = None
                 self.ietf_ipv4_unicast_routing_address = None
+                self.ietf_ipv6_unicast_routing_address = None
                 self._segment_path = lambda: "destination-address"
                 self._absolute_path = lambda: "ietf-routing:fib-route/input/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FibRoute.Input.DestinationAddress, ['address_family', 'ietf_ipv6_unicast_routing_address', 'ietf_ipv4_unicast_routing_address'], name, value)
+                self._perform_setattr(FibRoute.Input.DestinationAddress, ['address_family', 'ietf_ipv4_unicast_routing_address', 'ietf_ipv6_unicast_routing_address'], name, value)
 
 
 
@@ -13256,19 +13256,19 @@ class FibRoute(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
-            .. attribute:: ietf_ipv6_unicast_routing_destination_prefix
-            
-            	IPv6 destination prefix
-            	**type**\: str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-            
             .. attribute:: ietf_ipv4_unicast_routing_destination_prefix
             
             	IPv4 destination prefix
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+            
+            .. attribute:: ietf_ipv6_unicast_routing_destination_prefix
+            
+            	IPv6 destination prefix
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
             
 
@@ -13291,15 +13291,15 @@ class FibRoute(Entity):
                     ('source_protocol', (YLeaf(YType.identityref, 'source-protocol'), [('ydk.models.ietf.ietf_routing', 'RoutingProtocol')])),
                     ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
                     ('last_updated', (YLeaf(YType.str, 'last-updated'), ['str'])),
-                    ('ietf_ipv6_unicast_routing_destination_prefix', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:destination-prefix'), ['str'])),
                     ('ietf_ipv4_unicast_routing_destination_prefix', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:destination-prefix'), ['str'])),
+                    ('ietf_ipv6_unicast_routing_destination_prefix', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:destination-prefix'), ['str'])),
                 ])
                 self.address_family = None
                 self.source_protocol = None
                 self.active = None
                 self.last_updated = None
-                self.ietf_ipv6_unicast_routing_destination_prefix = None
                 self.ietf_ipv4_unicast_routing_destination_prefix = None
+                self.ietf_ipv6_unicast_routing_destination_prefix = None
 
                 self.next_hop = FibRoute.Output.Route.NextHop()
                 self.next_hop.parent = self
@@ -13309,7 +13309,7 @@ class FibRoute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FibRoute.Output.Route, ['address_family', 'source_protocol', 'active', 'last_updated', 'ietf_ipv6_unicast_routing_destination_prefix', 'ietf_ipv4_unicast_routing_destination_prefix'], name, value)
+                self._perform_setattr(FibRoute.Output.Route, ['address_family', 'source_protocol', 'active', 'last_updated', 'ietf_ipv4_unicast_routing_destination_prefix', 'ietf_ipv6_unicast_routing_destination_prefix'], name, value)
 
 
             class NextHop(Entity):
@@ -13321,17 +13321,10 @@ class FibRoute(Entity):
                 	Name of the outgoing interface
                 	**type**\: str
                 
-                .. attribute:: ietf_routing_next_hop_address
+                .. attribute:: next_hop_address
                 
                 	IP address
                 	**type**\: str
-                
-                .. attribute:: ietf_ipv6_unicast_routing_next_hop_address
-                
-                	IPv6 address of the next\-hop
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: ietf_ipv4_unicast_routing_next_hop_address
                 
@@ -13339,6 +13332,13 @@ class FibRoute(Entity):
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: ietf_ipv6_unicast_routing_next_hop_address
+                
+                	IPv6 address of the next\-hop
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: special_next_hop
                 
@@ -13363,22 +13363,22 @@ class FibRoute(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                        ('ietf_routing_next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
-                        ('ietf_ipv6_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address'), ['str'])),
+                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
                         ('ietf_ipv4_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:next-hop-address'), ['str'])),
+                        ('ietf_ipv6_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address'), ['str'])),
                         ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'FibRoute', 'Output.Route.NextHop.SpecialNextHop')])),
                     ])
                     self.outgoing_interface = None
-                    self.ietf_routing_next_hop_address = None
-                    self.ietf_ipv6_unicast_routing_next_hop_address = None
+                    self.next_hop_address = None
                     self.ietf_ipv4_unicast_routing_next_hop_address = None
+                    self.ietf_ipv6_unicast_routing_next_hop_address = None
                     self.special_next_hop = None
                     self._segment_path = lambda: "next-hop"
                     self._absolute_path = lambda: "ietf-routing:fib-route/output/route/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FibRoute.Output.Route.NextHop, ['outgoing_interface', 'ietf_routing_next_hop_address', 'ietf_ipv6_unicast_routing_next_hop_address', 'ietf_ipv4_unicast_routing_next_hop_address', 'special_next_hop'], name, value)
+                    self._perform_setattr(FibRoute.Output.Route.NextHop, ['outgoing_interface', 'next_hop_address', 'ietf_ipv4_unicast_routing_next_hop_address', 'ietf_ipv6_unicast_routing_next_hop_address', 'special_next_hop'], name, value)
 
                 class SpecialNextHop(Enum):
                     """
@@ -13430,6 +13430,56 @@ class FibRoute(Entity):
 
 
 
+class Ipv4(AddressFamily):
+    """
+    This identity represents IPv4 address family.
+    
+    
+
+    """
+
+    _prefix = 'rt'
+    _revision = '2015-05-25'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv4"):
+        super(Ipv4, self).__init__(ns, pref, tag)
+
+
+
+class Ipv6(AddressFamily):
+    """
+    This identity represents IPv6 address family.
+    
+    
+
+    """
+
+    _prefix = 'rt'
+    _revision = '2015-05-25'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv6"):
+        super(Ipv6, self).__init__(ns, pref, tag)
+
+
+
+class DefaultRoutingInstance(RoutingInstance):
+    """
+    This identity represents either a default routing instance, or
+    the only routing instance on systems that do not support
+    multiple instances.
+    
+    
+
+    """
+
+    _prefix = 'rt'
+    _revision = '2015-05-25'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:default-routing-instance"):
+        super(DefaultRoutingInstance, self).__init__(ns, pref, tag)
+
+
+
 class VrfRoutingInstance(RoutingInstance):
     """
     This identity represents a VRF routing instance. The type is
@@ -13465,24 +13515,6 @@ class Direct(RoutingProtocol):
 
 
 
-class DefaultRoutingInstance(RoutingInstance):
-    """
-    This identity represents either a default routing instance, or
-    the only routing instance on systems that do not support
-    multiple instances.
-    
-    
-
-    """
-
-    _prefix = 'rt'
-    _revision = '2015-05-25'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:default-routing-instance"):
-        super(DefaultRoutingInstance, self).__init__(ns, pref, tag)
-
-
-
 class Static(RoutingProtocol):
     """
     Static routing pseudo\-protocol.
@@ -13496,38 +13528,6 @@ class Static(RoutingProtocol):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:static"):
         super(Static, self).__init__(ns, pref, tag)
-
-
-
-class Ipv4(AddressFamily):
-    """
-    This identity represents IPv4 address family.
-    
-    
-
-    """
-
-    _prefix = 'rt'
-    _revision = '2015-05-25'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv4"):
-        super(Ipv4, self).__init__(ns, pref, tag)
-
-
-
-class Ipv6(AddressFamily):
-    """
-    This identity represents IPv6 address family.
-    
-    
-
-    """
-
-    _prefix = 'rt'
-    _revision = '2015-05-25'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv6"):
-        super(Ipv6, self).__init__(ns, pref, tag)
 
 
 

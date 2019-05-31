@@ -340,6 +340,8 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
         "Label stack";
       leaf entry {
         type uint32;
+        description
+          "Label stack";
       }
     }
   }
@@ -599,6 +601,24 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
       type uint32;
       description
         "Number of label swap/disposition entries";
+    }
+    leaf protected-label-switched-entries {
+      type uint32;
+      description
+        "Number of FRR protected label swap/disposition
+         entries";
+    }
+    leaf frr-ready-label-switched-entries {
+      type uint32;
+      description
+        "Number of FRR Ready label swap/disposition
+         entries";
+    }
+    leaf frr-active-label-switched-entries {
+      type uint32;
+      description
+        "Number of FRR Active label swap/disposition
+         entries";
     }
     leaf deleted-stale-entries {
       type uint32;

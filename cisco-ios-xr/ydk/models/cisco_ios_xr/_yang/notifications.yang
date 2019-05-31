@@ -11,7 +11,7 @@ module notifications {
   contact
     "netconf@ops.ietf.org";
   description
-    "Conversion of the 'ncEvent' XSD in the
+    "Conversion of the 'ncEvent' XSD in the 
      NETCONF Notifications RFC.";
 
   revision 2008-07-14 {
@@ -32,7 +32,7 @@ module notifications {
        takes as argument the name of the notification stream
        and filter. Both of those options limit the content of
        the subscription. In addition, there are two time-related
-       parameters, startTime and stopTime, which can be used to
+       parameters, startTime and stopTime, which can be used to 
        select the time interval of interest to the notification
        replay feature.";
     input {
@@ -40,7 +40,7 @@ module notifications {
         type streamNameType;
         default "NETCONF";
         description
-          "An optional parameter that indicates which stream of
+          "An optional parameter that indicates which stream of 
            events is of interest. If not present, then events in the
            default NETCONF stream will be sent.";
       }
@@ -50,7 +50,7 @@ module notifications {
            possible events is of interest. The format of this
            parameter is the same as that of the filter parameter
            in the NETCONF protocol operations. If not present,
-           all events not precluded by other parameters will
+           all events not precluded by other parameters will 
            be sent.";
       }
       leaf startTime {

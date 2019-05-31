@@ -39,6 +39,14 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-28 {
+    description
+      "Added new service context id gy leaf in yang";
+  }
+  revision 2019-03-05 {
+    description
+      "Fixed gx, gy leafs in yang";
+  }
   revision 2018-09-16 {
     description
       "Fixed yang gap";
@@ -105,6 +113,12 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
           description
             "Set retransmit count";
         }
+        leaf enable {
+          type boolean;
+          default "true";
+          description
+            "Enable or disable gy";
+        }
         leaf dest-host {
           type string;
           description
@@ -114,6 +128,11 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
           type Aaa-diameter-timeout;
           description
             "Transaction timer value";
+        }
+        leaf service-context-id {
+          type string;
+          description
+            "Service Context ID in FQDN format";
         }
       }
       container origin {
@@ -357,6 +376,12 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
           }
           description
             "Set retransmit count";
+        }
+        leaf enable {
+          type boolean;
+          default "true";
+          description
+            "Enable or disable gx";
         }
         leaf dest-host {
           type string;

@@ -848,11 +848,6 @@ class Rsvp(Entity):
             	Configure Bandwidth
             	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth>`
             
-            .. attribute:: enable
-            
-            	Enable RSVP on an interface
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: authentication
             
             	Configure RSVP authentication
@@ -876,10 +871,8 @@ class Rsvp(Entity):
                 self._child_classes = OrderedDict([("if-signalling", ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling)), ("bandwidth", ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth)), ("authentication", ("authentication", Rsvp.Interfaces.Interface.Authentication))])
                 self._leafs = OrderedDict([
                     ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.name = None
-                self.enable = None
 
                 self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
                 self.if_signalling.parent = self
@@ -897,7 +890,7 @@ class Rsvp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Rsvp.Interfaces.Interface, ['name', 'enable'], name, value)
+                self._perform_setattr(Rsvp.Interfaces.Interface, ['name'], name, value)
 
 
             class IfSignalling(Entity):

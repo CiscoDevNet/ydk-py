@@ -5,7 +5,7 @@ for Cisco IOS\-XR l2rib package operational data.
 
 This module contains definitions
 for the following management objects\:
-  l2rib\: L2RIB operational information
+  l2rib\: L2RIB operational information 
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
@@ -943,6 +943,27 @@ class L2rib(Entity):
         """
         L2RIB EVPN Summary
         
+        .. attribute:: mac_dd_params
+        
+        	MAC duplicate detection parameters
+        	**type**\:  :py:class:`MacDdParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.MacDdParams>`
+        
+        	**config**\: False
+        
+        .. attribute:: ipv4_dd_params
+        
+        	IPv4 duplicate detection parameters
+        	**type**\:  :py:class:`Ipv4DdParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.Ipv4DdParams>`
+        
+        	**config**\: False
+        
+        .. attribute:: ipv6_dd_params
+        
+        	IPv6 duplicate detection parameters
+        	**type**\:  :py:class:`Ipv6DdParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.Ipv6DdParams>`
+        
+        	**config**\: False
+        
         .. attribute:: converged_tables_count
         
         	Number of Converged Tables
@@ -983,13 +1004,25 @@ class L2rib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("table-summary", ("table_summary", L2rib.Summary.TableSummary))])
+            self._child_classes = OrderedDict([("mac-dd-params", ("mac_dd_params", L2rib.Summary.MacDdParams)), ("ipv4-dd-params", ("ipv4_dd_params", L2rib.Summary.Ipv4DdParams)), ("ipv6-dd-params", ("ipv6_dd_params", L2rib.Summary.Ipv6DdParams)), ("table-summary", ("table_summary", L2rib.Summary.TableSummary))])
             self._leafs = OrderedDict([
                 ('converged_tables_count', (YLeaf(YType.uint32, 'converged-tables-count'), ['int'])),
                 ('total_memory', (YLeaf(YType.uint32, 'total-memory'), ['int'])),
             ])
             self.converged_tables_count = None
             self.total_memory = None
+
+            self.mac_dd_params = L2rib.Summary.MacDdParams()
+            self.mac_dd_params.parent = self
+            self._children_name_map["mac_dd_params"] = "mac-dd-params"
+
+            self.ipv4_dd_params = L2rib.Summary.Ipv4DdParams()
+            self.ipv4_dd_params.parent = self
+            self._children_name_map["ipv4_dd_params"] = "ipv4-dd-params"
+
+            self.ipv6_dd_params = L2rib.Summary.Ipv6DdParams()
+            self.ipv6_dd_params.parent = self
+            self._children_name_map["ipv6_dd_params"] = "ipv6-dd-params"
 
             self.table_summary = YList(self)
             self._segment_path = lambda: "summary"
@@ -998,6 +1031,264 @@ class L2rib(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2rib.Summary, ['converged_tables_count', 'total_memory'], name, value)
+
+
+        class MacDdParams(Entity):
+            """
+            MAC duplicate detection parameters
+            
+            .. attribute:: dd_params_disable
+            
+            	Disable duplicate detection for MAC, IPv4 or IPv6 addresses
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_freeze_time
+            
+            	Length of time to freeze the mac after it has been detected as duplicate. Default is 30s
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_retry_count
+            
+            	Number of times to unfreeze a MAC before permanently freezing it. Default is 3 times
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_move_count
+            
+            	Number of moves to occur in move\-interval seconds before freezing the MAC. Default is 5s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: second
+            
+            .. attribute:: dd_params_move_interval
+            
+            	Interval to watch for subsequent moves before freezing the MAC. Default is 180s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'l2rib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(L2rib.Summary.MacDdParams, self).__init__()
+
+                self.yang_name = "mac-dd-params"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dd_params_disable', (YLeaf(YType.boolean, 'dd-params-disable'), ['bool'])),
+                    ('dd_params_freeze_time', (YLeaf(YType.uint16, 'dd-params-freeze-time'), ['int'])),
+                    ('dd_params_retry_count', (YLeaf(YType.uint16, 'dd-params-retry-count'), ['int'])),
+                    ('dd_params_move_count', (YLeaf(YType.uint32, 'dd-params-move-count'), ['int'])),
+                    ('dd_params_move_interval', (YLeaf(YType.uint32, 'dd-params-move-interval'), ['int'])),
+                ])
+                self.dd_params_disable = None
+                self.dd_params_freeze_time = None
+                self.dd_params_retry_count = None
+                self.dd_params_move_count = None
+                self.dd_params_move_interval = None
+                self._segment_path = lambda: "mac-dd-params"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/summary/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2rib.Summary.MacDdParams, ['dd_params_disable', 'dd_params_freeze_time', 'dd_params_retry_count', 'dd_params_move_count', 'dd_params_move_interval'], name, value)
+
+
+
+        class Ipv4DdParams(Entity):
+            """
+            IPv4 duplicate detection parameters
+            
+            .. attribute:: dd_params_disable
+            
+            	Disable duplicate detection for MAC, IPv4 or IPv6 addresses
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_freeze_time
+            
+            	Length of time to freeze the mac after it has been detected as duplicate. Default is 30s
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_retry_count
+            
+            	Number of times to unfreeze a MAC before permanently freezing it. Default is 3 times
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_move_count
+            
+            	Number of moves to occur in move\-interval seconds before freezing the MAC. Default is 5s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: second
+            
+            .. attribute:: dd_params_move_interval
+            
+            	Interval to watch for subsequent moves before freezing the MAC. Default is 180s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'l2rib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(L2rib.Summary.Ipv4DdParams, self).__init__()
+
+                self.yang_name = "ipv4-dd-params"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dd_params_disable', (YLeaf(YType.boolean, 'dd-params-disable'), ['bool'])),
+                    ('dd_params_freeze_time', (YLeaf(YType.uint16, 'dd-params-freeze-time'), ['int'])),
+                    ('dd_params_retry_count', (YLeaf(YType.uint16, 'dd-params-retry-count'), ['int'])),
+                    ('dd_params_move_count', (YLeaf(YType.uint32, 'dd-params-move-count'), ['int'])),
+                    ('dd_params_move_interval', (YLeaf(YType.uint32, 'dd-params-move-interval'), ['int'])),
+                ])
+                self.dd_params_disable = None
+                self.dd_params_freeze_time = None
+                self.dd_params_retry_count = None
+                self.dd_params_move_count = None
+                self.dd_params_move_interval = None
+                self._segment_path = lambda: "ipv4-dd-params"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/summary/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2rib.Summary.Ipv4DdParams, ['dd_params_disable', 'dd_params_freeze_time', 'dd_params_retry_count', 'dd_params_move_count', 'dd_params_move_interval'], name, value)
+
+
+
+        class Ipv6DdParams(Entity):
+            """
+            IPv6 duplicate detection parameters
+            
+            .. attribute:: dd_params_disable
+            
+            	Disable duplicate detection for MAC, IPv4 or IPv6 addresses
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_freeze_time
+            
+            	Length of time to freeze the mac after it has been detected as duplicate. Default is 30s
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_retry_count
+            
+            	Number of times to unfreeze a MAC before permanently freezing it. Default is 3 times
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
+            .. attribute:: dd_params_move_count
+            
+            	Number of moves to occur in move\-interval seconds before freezing the MAC. Default is 5s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: second
+            
+            .. attribute:: dd_params_move_interval
+            
+            	Interval to watch for subsequent moves before freezing the MAC. Default is 180s
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'l2rib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(L2rib.Summary.Ipv6DdParams, self).__init__()
+
+                self.yang_name = "ipv6-dd-params"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dd_params_disable', (YLeaf(YType.boolean, 'dd-params-disable'), ['bool'])),
+                    ('dd_params_freeze_time', (YLeaf(YType.uint16, 'dd-params-freeze-time'), ['int'])),
+                    ('dd_params_retry_count', (YLeaf(YType.uint16, 'dd-params-retry-count'), ['int'])),
+                    ('dd_params_move_count', (YLeaf(YType.uint32, 'dd-params-move-count'), ['int'])),
+                    ('dd_params_move_interval', (YLeaf(YType.uint32, 'dd-params-move-interval'), ['int'])),
+                ])
+                self.dd_params_disable = None
+                self.dd_params_freeze_time = None
+                self.dd_params_retry_count = None
+                self.dd_params_move_count = None
+                self.dd_params_move_interval = None
+                self._segment_path = lambda: "ipv6-dd-params"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/summary/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2rib.Summary.Ipv6DdParams, ['dd_params_disable', 'dd_params_freeze_time', 'dd_params_retry_count', 'dd_params_move_count', 'dd_params_move_interval'], name, value)
+
 
 
         class TableSummary(Entity):
@@ -3031,7 +3322,7 @@ class L2rib(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	TLV Value
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -3135,7 +3426,7 @@ class L2rib(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	TLV Value
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -5963,15 +6254,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: prod_id
                 
                 	Producer ID
@@ -5985,15 +6267,6 @@ class L2rib(Entity):
                 
                 	Originating Router IP Address
                 	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: admin_distance
-                
-                	Admin Distance
-                	**type**\: int
-                
-                	**range:** 0..255
                 
                 	**config**\: False
                 
@@ -6044,10 +6317,8 @@ class L2rib(Entity):
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
                         ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('vtepi_paddr', (YLeaf(YType.str, 'vtepi-paddr'), ['str'])),
-                        ('admin_distance', (YLeaf(YType.uint8, 'admin-distance'), ['int'])),
                         ('producer_id', (YLeaf(YType.uint8, 'producer-id'), ['int'])),
                         ('topo_id', (YLeaf(YType.uint32, 'topo-id'), ['int'])),
                         ('ethernet_tag_id', (YLeaf(YType.uint32, 'ethernet-tag-id'), ['int'])),
@@ -6055,10 +6326,8 @@ class L2rib(Entity):
                     self.evi = None
                     self.tag_id = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.vtepi_paddr = None
-                    self.admin_distance = None
                     self.producer_id = None
                     self.topo_id = None
                     self.ethernet_tag_id = None
@@ -6067,7 +6336,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.Imets.Imet, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', 'vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.Imets.Imet, ['evi', 'tag_id', 'ip_addr', 'prod_id', 'vtepi_paddr', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
 
@@ -8556,7 +8825,7 @@ class L2rib(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	TLV Value
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -8670,15 +8939,6 @@ class L2rib(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: admin_dist
-                
-                	Admin distance
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
                 .. attribute:: prod_id
                 
                 	Producer ID
@@ -8767,7 +9027,6 @@ class L2rib(Entity):
                         ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
                         ('tag_id', (YLeaf(YType.uint32, 'tag-id'), ['int'])),
                         ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
-                        ('admin_dist', (YLeaf(YType.uint32, 'admin-dist'), ['int'])),
                         ('prod_id', (YLeaf(YType.uint32, 'prod-id'), ['int'])),
                         ('tunnel_id', (YLeaf(YType.str, 'tunnel-id'), ['str'])),
                         ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
@@ -8779,7 +9038,6 @@ class L2rib(Entity):
                     self.evi = None
                     self.tag_id = None
                     self.ip_addr = None
-                    self.admin_dist = None
                     self.prod_id = None
                     self.tunnel_id = None
                     self.flags = None
@@ -8796,7 +9054,7 @@ class L2rib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', 'tunnel_id', 'flags', 'tunnel_type', 'l2r_label', 'encap_type', 'last_update_timestamp'], name, value)
+                    self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail, ['evi', 'tag_id', 'ip_addr', 'prod_id', 'tunnel_id', 'flags', 'tunnel_type', 'l2r_label', 'encap_type', 'last_update_timestamp'], name, value)
 
 
                 class ImetRouteBase(Entity):
@@ -8807,15 +9065,6 @@ class L2rib(Entity):
                     
                     	Originating Router IP Address
                     	**type**\: str
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: admin_distance
-                    
-                    	Admin Distance
-                    	**type**\: int
-                    
-                    	**range:** 0..255
                     
                     	**config**\: False
                     
@@ -8864,13 +9113,11 @@ class L2rib(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vtepi_paddr', (YLeaf(YType.str, 'vtepi-paddr'), ['str'])),
-                            ('admin_distance', (YLeaf(YType.uint8, 'admin-distance'), ['int'])),
                             ('producer_id', (YLeaf(YType.uint8, 'producer-id'), ['int'])),
                             ('topo_id', (YLeaf(YType.uint32, 'topo-id'), ['int'])),
                             ('ethernet_tag_id', (YLeaf(YType.uint32, 'ethernet-tag-id'), ['int'])),
                         ])
                         self.vtepi_paddr = None
-                        self.admin_distance = None
                         self.producer_id = None
                         self.topo_id = None
                         self.ethernet_tag_id = None
@@ -8879,7 +9126,7 @@ class L2rib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase, ['vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
+                        self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase, ['vtepi_paddr', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
 

@@ -250,7 +250,7 @@ class CISCONTPMIB(Entity):
         	A signed fixed\-point number indicating the total round\-trip delay in seconds, to the primary reference source at the root of the synchronization subnet
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         
@@ -261,7 +261,7 @@ class CISCONTPMIB(Entity):
         	The maximum error in seconds, relative to the primary reference source at the root of the synchronization subnet.  Only positive values greater than zero are possible
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         
@@ -272,7 +272,7 @@ class CISCONTPMIB(Entity):
         	The reference identifier of the local clock
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         
@@ -281,7 +281,7 @@ class CISCONTPMIB(Entity):
         	The local time when the local clock was last updated.  If the local clock has never been synchronized, the value is zero
         	**type**\: str
         
-        	**length:** 8
+        	**length:** 8..8
         
         	**config**\: False
         
@@ -308,7 +308,7 @@ class CISCONTPMIB(Entity):
         	The current local time.  Local time is derived from the hardware clock of the particular machine and increments at intervals depending on the design used
         	**type**\: str
         
-        	**length:** 8
+        	**length:** 8..8
         
         	**config**\: False
         
@@ -581,7 +581,7 @@ class CISCONTPMIB(Entity):
             	A signed fixed\-point number indicating the total round\-trip delay in seconds, from the peer to the primary reference source at the root of the synchronization subnet
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -592,7 +592,7 @@ class CISCONTPMIB(Entity):
             	The maximum error in seconds, of the peer clock relative to the primary reference source at the root of the synchronization subnet.  Only positive values greater than zero are possible
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -603,7 +603,7 @@ class CISCONTPMIB(Entity):
             	The reference identifier of the peer
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -612,7 +612,7 @@ class CISCONTPMIB(Entity):
             	The local time at the peer when its clock was last updated.  If the peer clock has never been synchronized, the value is zero
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -621,7 +621,7 @@ class CISCONTPMIB(Entity):
             	The local time at the peer, when its latest NTP message was sent.  If the peer becomes unreachable the value is set to zero
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -630,7 +630,7 @@ class CISCONTPMIB(Entity):
             	The local time, when the latest NTP message from the peer arrived.  If the peer becomes unreachable the value is set to zero
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -639,7 +639,7 @@ class CISCONTPMIB(Entity):
             	The local time at which the NTP message departed the sender
             	**type**\: str
             
-            	**length:** 8
+            	**length:** 8..8
             
             	**config**\: False
             
@@ -679,7 +679,7 @@ class CISCONTPMIB(Entity):
             	The estimated offset of the peer clock relative to the local clock, in seconds.  The host determines the value of this object using the NTP clock\-filter algorithm
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -690,7 +690,7 @@ class CISCONTPMIB(Entity):
             	The estimated round\-trip delay of the peer clock relative to the local clock over the network path between them, in seconds.  The host determines the value of this object using the NTP clock\-filter algorithm
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -701,7 +701,7 @@ class CISCONTPMIB(Entity):
             	The estimated maximum error of the peer clock relative to the local clock over the network path between them, in seconds.  The host determines the value of this object using the NTP clock\-filter algorithm
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1069,7 +1069,7 @@ class CISCONTPMIB(Entity):
             	The offset of the peer clock relative to the local clock in seconds
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1080,7 +1080,7 @@ class CISCONTPMIB(Entity):
             	Round\-trip delay of the peer clock relative to the local clock over the network path between them, in seconds.  This variable can take on both positive and negative values, depending on clock precision and skew\-error accumulation
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1091,7 +1091,7 @@ class CISCONTPMIB(Entity):
             	The maximum error of the peer clock relative to the local clock over the network path between them, in seconds.  Only positive values greater than zero are possible
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             

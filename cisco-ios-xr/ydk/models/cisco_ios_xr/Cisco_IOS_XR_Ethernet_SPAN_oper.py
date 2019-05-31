@@ -567,7 +567,7 @@ class SpanMonitorSession(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SpanMonitorSession.Global.Statistics.Statistic, ['session', 'interface', u'rx_packets_mirrored', u'rx_octets_mirrored', u'tx_packets_mirrored', u'tx_octets_mirrored', u'packets_not_mirrored', u'octets_not_mirrored'], name, value)
+                    self._perform_setattr(SpanMonitorSession.Global.Statistics.Statistic, ['session', 'interface', 'rx_packets_mirrored', 'rx_octets_mirrored', 'tx_packets_mirrored', 'tx_octets_mirrored', 'packets_not_mirrored', 'octets_not_mirrored'], name, value)
 
 
 
@@ -1154,7 +1154,7 @@ class SpanMonitorSession(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                     class Ipv4AddressAndVrf(Entity):
@@ -1203,7 +1203,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
 
 
 
@@ -1253,7 +1253,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
 
 
 
@@ -1360,7 +1360,7 @@ class SpanMonitorSession(Entity):
             
             .. attribute:: hardware_sessions
             
-            	Table of sessions set up in the hardware. When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
+            	Table of sessions set up in the hardware.  When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
             	**type**\:  :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
             
             	**config**\: False
@@ -1638,7 +1638,7 @@ class SpanMonitorSession(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment, ['session', 'interface', u'name', u'local_class', u'id', u'global_class', u'session_is_configured', u'source_interface', u'source_interface_state', u'pfi_error', u'dest_pw_type_not_supported', u'source_interface_is_a_destination', u'destination_interface', u'traffic_direction'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment, ['session', 'interface', 'name', 'local_class', 'id', 'global_class', 'session_is_configured', 'source_interface', 'source_interface_state', 'pfi_error', 'dest_pw_type_not_supported', 'source_interface_is_a_destination', 'destination_interface', 'traffic_direction'], name, value)
 
 
                     class TrafficParameters(Entity):
@@ -1725,7 +1725,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
 
 
 
@@ -1819,7 +1819,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -1868,7 +1868,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
 
 
 
@@ -1918,7 +1918,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
 
 
 
@@ -1927,7 +1927,7 @@ class SpanMonitorSession(Entity):
 
             class HardwareSessions(Entity):
                 """
-                Table of sessions set up in the hardware.
+                Table of sessions set up in the hardware. 
                 When all sessions are operating correctly the
                 entries in this table should match those
                 entries in GlobalSessionTable that have a
@@ -2106,7 +2106,7 @@ class SpanMonitorSession(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['session_class', 'session_id', u'id', u'name', u'session_class_xr', u'destination_interface', u'platform_error', u'inject_interface_ifh', u'inject_interface_mac', u'inject_interface_invalid'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['session_class', 'session_id', 'id', 'name', 'session_class_xr', 'destination_interface', 'platform_error', 'inject_interface_ifh', 'inject_interface_mac', 'inject_interface_invalid'], name, value)
 
 
                     class DestinationId(Entity):
@@ -2199,7 +2199,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -2248,7 +2248,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
 
 
 
@@ -2298,7 +2298,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
 
 
 
@@ -2456,7 +2456,7 @@ class SpanMonitorSession(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', u'source_interface', u'platform_error', u'destination_interface', u'traffic_direction'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', 'source_interface', 'platform_error', 'destination_interface', 'traffic_direction'], name, value)
 
 
                     class DestinationId(Entity):
@@ -2549,7 +2549,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -2598,7 +2598,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
 
 
 
@@ -2648,7 +2648,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
 
 
 
@@ -2738,7 +2738,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
 
 
 
@@ -2799,7 +2799,7 @@ class SpanMonitorSession(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, [u'class_'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, ['class_'], name, value)
 
 
                         class DestinationId(Entity):
@@ -2892,7 +2892,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                             class Ipv4AddressAndVrf(Entity):
@@ -2941,7 +2941,7 @@ class SpanMonitorSession(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
 
 
 
@@ -2991,7 +2991,7 @@ class SpanMonitorSession(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
 
 
 
@@ -3080,7 +3080,7 @@ class SpanMonitorSession(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
 
 
 

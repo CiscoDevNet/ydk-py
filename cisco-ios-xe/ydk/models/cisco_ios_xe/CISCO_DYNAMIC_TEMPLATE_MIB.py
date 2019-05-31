@@ -1103,7 +1103,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             	This object specifies the Maximum Transfer Unit (MTU) size for all packets sent on the target interface.  The value '0' cannot be written to an instance of this object. However, it serves as a convenient value when the column is not valid.  This column is valid only if the 'mtu' bit of the corresponding instance of cdtIfValid is '1'
             	**type**\: int
             
-            	**range:** 0..None \| 64..65535
+            	**range:** 0..0 \| 64..65535
             
             	**config**\: False
             
@@ -1146,7 +1146,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             	This object specifies the Maximum Transfer Unit (MTU) size for IPv4 packets sent on the target interface.  The value '0' cannot be written to an instance of this object. However, it serves as a convenient value when the column is not valid.  This column is valid only if the 'ipv4Mtu' bit of the corresponding instance of cdtIfValid is '1'
             	**type**\: int
             
-            	**range:** 0..None \| 128..65535
+            	**range:** 0..0 \| 128..65535
             
             	**config**\: False
             
@@ -1157,7 +1157,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             	This object specifies the adjustment to the Maximum Segment Size (MSS) of TCP SYN packets received by the target interface contained in IPv4 datagrams.  The value '0' cannot be written to an instance of this object. However, it serves as a convenient value when the column is not valid.  This column is valid only if the 'ipv4TcpMssAdjust' bit of the corresponding instance of cdtIfValid is '1'
             	**type**\: int
             
-            	**range:** 0..None \| 500..1460
+            	**range:** 0..0 \| 500..1460
             
             	**config**\: False
             
@@ -1205,7 +1205,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             	This object specifies the adjustment to the Maximum Segment Size (MSS) of TCP SYN packets received by the target interface contained in IPv6 datagrams.  The value '0' cannot be written to an instance of this object. However, it serves as a convenient value when the column is not valid.  This column is valid only if the 'ipv6TcpMssAdjust' bit of the corresponding instance of cdtIfValid is '1'
             	**type**\: int
             
-            	**range:** 0..None \| 500..1460
+            	**range:** 0..0 \| 500..1460
             
             	**config**\: False
             

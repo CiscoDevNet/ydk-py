@@ -763,7 +763,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, [u'etherstatsindex', u'etherstatsdatasource', u'etherstatsdropevents', u'etherstatsoctets', u'etherstatspkts', u'etherstatsbroadcastpkts', u'etherstatsmulticastpkts', u'etherstatscrcalignerrors', u'etherstatsundersizepkts', u'etherstatsoversizepkts', u'etherstatsfragments', u'etherstatsjabbers', u'etherstatscollisions', u'etherstatspkts64octets', u'etherstatspkts65to127octets', u'etherstatspkts128to255octets', u'etherstatspkts256to511octets', u'etherstatspkts512to1023octets', u'etherstatspkts1024to1518octets', u'etherstatsowner', u'etherstatsstatus', 'etherstatsdroppedframes', 'etherstatscreatetime'], name, value)
+                self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, ['etherstatsindex', 'etherstatsdatasource', 'etherstatsdropevents', 'etherstatsoctets', 'etherstatspkts', 'etherstatsbroadcastpkts', 'etherstatsmulticastpkts', 'etherstatscrcalignerrors', 'etherstatsundersizepkts', 'etherstatsoversizepkts', 'etherstatsfragments', 'etherstatsjabbers', 'etherstatscollisions', 'etherstatspkts64octets', 'etherstatspkts65to127octets', 'etherstatspkts128to255octets', 'etherstatspkts256to511octets', 'etherstatspkts512to1023octets', 'etherstatspkts1024to1518octets', 'etherstatsowner', 'etherstatsstatus', 'etherstatsdroppedframes', 'etherstatscreatetime'], name, value)
 
 
 
@@ -924,7 +924,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, [u'historycontrolindex', u'historycontroldatasource', u'historycontrolbucketsrequested', u'historycontrolbucketsgranted', u'historycontrolinterval', u'historycontrolowner', u'historycontrolstatus', 'historycontroldroppedframes'], name, value)
+                self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, ['historycontrolindex', 'historycontroldatasource', 'historycontrolbucketsrequested', 'historycontrolbucketsgranted', 'historycontrolinterval', 'historycontrolowner', 'historycontrolstatus', 'historycontroldroppedframes'], name, value)
 
 
 
@@ -1184,7 +1184,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.EtherHistoryTable.EtherHistoryEntry, [u'etherhistoryindex', u'etherhistorysampleindex', u'etherhistoryintervalstart', u'etherhistorydropevents', u'etherhistoryoctets', u'etherhistorypkts', u'etherhistorybroadcastpkts', u'etherhistorymulticastpkts', u'etherhistorycrcalignerrors', u'etherhistoryundersizepkts', u'etherhistoryoversizepkts', u'etherhistoryfragments', u'etherhistoryjabbers', u'etherhistorycollisions', u'etherhistoryutilization'], name, value)
+                self._perform_setattr(RMONMIB.EtherHistoryTable.EtherHistoryEntry, ['etherhistoryindex', 'etherhistorysampleindex', 'etherhistoryintervalstart', 'etherhistorydropevents', 'etherhistoryoctets', 'etherhistorypkts', 'etherhistorybroadcastpkts', 'etherhistorymulticastpkts', 'etherhistorycrcalignerrors', 'etherhistoryundersizepkts', 'etherhistoryoversizepkts', 'etherhistoryfragments', 'etherhistoryjabbers', 'etherhistorycollisions', 'etherhistoryutilization'], name, value)
 
 
 
@@ -1384,7 +1384,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.AlarmTable.AlarmEntry, [u'alarmindex', u'alarminterval', u'alarmvariable', u'alarmsampletype', u'alarmvalue', u'alarmstartupalarm', u'alarmrisingthreshold', u'alarmfallingthreshold', u'alarmrisingeventindex', u'alarmfallingeventindex', u'alarmowner', u'alarmstatus'], name, value)
+                self._perform_setattr(RMONMIB.AlarmTable.AlarmEntry, ['alarmindex', 'alarminterval', 'alarmvariable', 'alarmsampletype', 'alarmvalue', 'alarmstartupalarm', 'alarmrisingthreshold', 'alarmfallingthreshold', 'alarmrisingeventindex', 'alarmfallingeventindex', 'alarmowner', 'alarmstatus'], name, value)
 
             class AlarmSampleType(Enum):
                 """
@@ -1626,7 +1626,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, [u'hostcontrolindex', u'hostcontroldatasource', u'hostcontroltablesize', u'hostcontrollastdeletetime', u'hostcontrolowner', u'hostcontrolstatus', 'hostcontroldroppedframes', 'hostcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, ['hostcontrolindex', 'hostcontroldatasource', 'hostcontroltablesize', 'hostcontrollastdeletetime', 'hostcontrolowner', 'hostcontrolstatus', 'hostcontroldroppedframes', 'hostcontrolcreatetime'], name, value)
 
 
 
@@ -1821,7 +1821,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostTable.HostEntry, [u'hostindex', u'hostaddress', u'hostcreationorder', u'hostinpkts', u'hostoutpkts', u'hostinoctets', u'hostoutoctets', u'hostouterrors', u'hostoutbroadcastpkts', u'hostoutmulticastpkts'], name, value)
+                self._perform_setattr(RMONMIB.HostTable.HostEntry, ['hostindex', 'hostaddress', 'hostcreationorder', 'hostinpkts', 'hostoutpkts', 'hostinoctets', 'hostoutoctets', 'hostouterrors', 'hostoutbroadcastpkts', 'hostoutmulticastpkts'], name, value)
 
 
 
@@ -2018,7 +2018,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostTimeTable.HostTimeEntry, [u'hosttimeindex', u'hosttimecreationorder', u'hosttimeaddress', u'hosttimeinpkts', u'hosttimeoutpkts', u'hosttimeinoctets', u'hosttimeoutoctets', u'hosttimeouterrors', u'hosttimeoutbroadcastpkts', u'hosttimeoutmulticastpkts'], name, value)
+                self._perform_setattr(RMONMIB.HostTimeTable.HostTimeEntry, ['hosttimeindex', 'hosttimecreationorder', 'hosttimeaddress', 'hosttimeinpkts', 'hosttimeoutpkts', 'hosttimeinoctets', 'hosttimeoutoctets', 'hosttimeouterrors', 'hosttimeoutbroadcastpkts', 'hosttimeoutmulticastpkts'], name, value)
 
 
 
@@ -2201,7 +2201,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostTopNControlTable.HostTopNControlEntry, [u'hosttopncontrolindex', u'hosttopnhostindex', u'hosttopnratebase', u'hosttopntimeremaining', u'hosttopnduration', u'hosttopnrequestedsize', u'hosttopngrantedsize', u'hosttopnstarttime', u'hosttopnowner', u'hosttopnstatus'], name, value)
+                self._perform_setattr(RMONMIB.HostTopNControlTable.HostTopNControlEntry, ['hosttopncontrolindex', 'hosttopnhostindex', 'hosttopnratebase', 'hosttopntimeremaining', 'hosttopnduration', 'hosttopnrequestedsize', 'hosttopngrantedsize', 'hosttopnstarttime', 'hosttopnowner', 'hosttopnstatus'], name, value)
 
             class HostTopNRateBase(Enum):
                 """
@@ -2358,7 +2358,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostTopNTable.HostTopNEntry, [u'hosttopnreport', u'hosttopnindex', u'hosttopnaddress', u'hosttopnrate'], name, value)
+                self._perform_setattr(RMONMIB.HostTopNTable.HostTopNEntry, ['hosttopnreport', 'hosttopnindex', 'hosttopnaddress', 'hosttopnrate'], name, value)
 
 
 
@@ -2518,7 +2518,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, [u'matrixcontrolindex', u'matrixcontroldatasource', u'matrixcontroltablesize', u'matrixcontrollastdeletetime', u'matrixcontrolowner', u'matrixcontrolstatus', 'matrixcontroldroppedframes', 'matrixcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, ['matrixcontrolindex', 'matrixcontroldatasource', 'matrixcontroltablesize', 'matrixcontrollastdeletetime', 'matrixcontrolowner', 'matrixcontrolstatus', 'matrixcontroldroppedframes', 'matrixcontrolcreatetime'], name, value)
 
 
 
@@ -2660,7 +2660,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.MatrixSDTable.MatrixSDEntry, [u'matrixsdindex', u'matrixsdsourceaddress', u'matrixsddestaddress', u'matrixsdpkts', u'matrixsdoctets', u'matrixsderrors'], name, value)
+                self._perform_setattr(RMONMIB.MatrixSDTable.MatrixSDEntry, ['matrixsdindex', 'matrixsdsourceaddress', 'matrixsddestaddress', 'matrixsdpkts', 'matrixsdoctets', 'matrixsderrors'], name, value)
 
 
 
@@ -2802,7 +2802,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.MatrixDSTable.MatrixDSEntry, [u'matrixdsindex', u'matrixdsdestaddress', u'matrixdssourceaddress', u'matrixdspkts', u'matrixdsoctets', u'matrixdserrors'], name, value)
+                self._perform_setattr(RMONMIB.MatrixDSTable.MatrixDSEntry, ['matrixdsindex', 'matrixdsdestaddress', 'matrixdssourceaddress', 'matrixdspkts', 'matrixdsoctets', 'matrixdserrors'], name, value)
 
 
 
@@ -3011,7 +3011,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.FilterTable.FilterEntry, [u'filterindex', u'filterchannelindex', u'filterpktdataoffset', u'filterpktdata', u'filterpktdatamask', u'filterpktdatanotmask', u'filterpktstatus', u'filterpktstatusmask', u'filterpktstatusnotmask', u'filterowner', u'filterstatus', 'filterprotocoldirdatalocalindex', 'filterprotocoldirlocalindex'], name, value)
+                self._perform_setattr(RMONMIB.FilterTable.FilterEntry, ['filterindex', 'filterchannelindex', 'filterpktdataoffset', 'filterpktdata', 'filterpktdatamask', 'filterpktdatanotmask', 'filterpktstatus', 'filterpktstatusmask', 'filterpktstatusnotmask', 'filterowner', 'filterstatus', 'filterprotocoldirdatalocalindex', 'filterprotocoldirlocalindex'], name, value)
 
 
 
@@ -3231,7 +3231,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, [u'channelindex', u'channelifindex', u'channelaccepttype', u'channeldatacontrol', u'channelturnoneventindex', u'channelturnoffeventindex', u'channeleventindex', u'channeleventstatus', u'channelmatches', u'channeldescription', u'channelowner', u'channelstatus', 'channeldroppedframes', 'channelcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, ['channelindex', 'channelifindex', 'channelaccepttype', 'channeldatacontrol', 'channelturnoneventindex', 'channelturnoffeventindex', 'channeleventindex', 'channeleventstatus', 'channelmatches', 'channeldescription', 'channelowner', 'channelstatus', 'channeldroppedframes', 'channelcreatetime'], name, value)
 
             class ChannelAcceptType(Enum):
                 """
@@ -3574,7 +3574,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.BufferControlTable.BufferControlEntry, [u'buffercontrolindex', u'buffercontrolchannelindex', u'buffercontrolfullstatus', u'buffercontrolfullaction', u'buffercontrolcaptureslicesize', u'buffercontroldownloadslicesize', u'buffercontroldownloadoffset', u'buffercontrolmaxoctetsrequested', u'buffercontrolmaxoctetsgranted', u'buffercontrolcapturedpackets', u'buffercontrolturnontime', u'buffercontrolowner', u'buffercontrolstatus'], name, value)
+                self._perform_setattr(RMONMIB.BufferControlTable.BufferControlEntry, ['buffercontrolindex', 'buffercontrolchannelindex', 'buffercontrolfullstatus', 'buffercontrolfullaction', 'buffercontrolcaptureslicesize', 'buffercontroldownloadslicesize', 'buffercontroldownloadoffset', 'buffercontrolmaxoctetsrequested', 'buffercontrolmaxoctetsgranted', 'buffercontrolcapturedpackets', 'buffercontrolturnontime', 'buffercontrolowner', 'buffercontrolstatus'], name, value)
 
             class BufferControlFullAction(Enum):
                 """
@@ -3803,7 +3803,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.CaptureBufferTable.CaptureBufferEntry, [u'capturebuffercontrolindex', u'capturebufferindex', u'capturebufferpacketid', u'capturebufferpacketdata', u'capturebufferpacketlength', u'capturebufferpackettime', u'capturebufferpacketstatus'], name, value)
+                self._perform_setattr(RMONMIB.CaptureBufferTable.CaptureBufferEntry, ['capturebuffercontrolindex', 'capturebufferindex', 'capturebufferpacketid', 'capturebufferpacketdata', 'capturebufferpacketlength', 'capturebufferpackettime', 'capturebufferpacketstatus'], name, value)
 
 
 
@@ -3949,7 +3949,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.EventTable.EventEntry, [u'eventindex', u'eventdescription', u'eventtype', u'eventcommunity', u'eventlasttimesent', u'eventowner', u'eventstatus'], name, value)
+                self._perform_setattr(RMONMIB.EventTable.EventEntry, ['eventindex', 'eventdescription', 'eventtype', 'eventcommunity', 'eventlasttimesent', 'eventowner', 'eventstatus'], name, value)
 
             class EventType(Enum):
                 """
@@ -4098,7 +4098,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.LogTable.LogEntry, [u'logeventindex', u'logindex', u'logtime', u'logdescription'], name, value)
+                self._perform_setattr(RMONMIB.LogTable.LogEntry, ['logeventindex', 'logindex', 'logtime', 'logdescription'], name, value)
 
 
 

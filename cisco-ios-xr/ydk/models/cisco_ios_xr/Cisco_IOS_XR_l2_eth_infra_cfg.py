@@ -174,7 +174,7 @@ class EthernetFeatures(Entity):
     """
 
     _prefix = 'l2-eth-infra-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(EthernetFeatures, self).__init__()
@@ -220,7 +220,7 @@ class EthernetFeatures(Entity):
         """
 
         _prefix = 'l2-eth-infra-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(EthernetFeatures.EgressFiltering, self).__init__()
@@ -240,7 +240,7 @@ class EthernetFeatures(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EthernetFeatures.EgressFiltering, [u'egress_filtering_default_on'], name, value)
+            self._perform_setattr(EthernetFeatures.EgressFiltering, ['egress_filtering_default_on'], name, value)
 
 
 
@@ -268,7 +268,7 @@ class EthernetFeatures(Entity):
         """
 
         _prefix = 'ethernet-cfm-cfg'
-        _revision = '2017-10-06'
+        _revision = '2018-07-27'
 
         def __init__(self):
             super(EthernetFeatures.Cfm, self).__init__()
@@ -326,7 +326,7 @@ class EthernetFeatures(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2017-10-06'
+            _revision = '2018-07-27'
 
             def __init__(self):
                 super(EthernetFeatures.Cfm.TracerouteCache, self).__init__()
@@ -366,7 +366,7 @@ class EthernetFeatures(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2017-10-06'
+            _revision = '2018-07-27'
 
             def __init__(self):
                 super(EthernetFeatures.Cfm.Domains, self).__init__()
@@ -398,7 +398,7 @@ class EthernetFeatures(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 .. attribute:: services
                 
@@ -415,7 +415,7 @@ class EthernetFeatures(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-cfg'
-                _revision = '2017-10-06'
+                _revision = '2018-07-27'
 
                 def __init__(self):
                     super(EthernetFeatures.Cfm.Domains.Domain, self).__init__()
@@ -460,7 +460,7 @@ class EthernetFeatures(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2017-10-06'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__init__()
@@ -491,7 +491,7 @@ class EthernetFeatures(Entity):
                         	Service (Maintenance Association)
                         	**type**\: str
                         
-                        	**length:** 1..79
+                        	**length:** 1..127
                         
                         .. attribute:: efd2
                         
@@ -559,7 +559,7 @@ class EthernetFeatures(Entity):
                         	The number of tags to use when sending CFM packets from up MEPs in this Service
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 1..1
                         
                         .. attribute:: log_continuity_check_state_changes
                         
@@ -591,7 +591,7 @@ class EthernetFeatures(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2017-10-06'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__init__()
@@ -675,7 +675,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__init__()
@@ -728,7 +728,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__init__()
@@ -777,7 +777,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__init__()
@@ -819,7 +819,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, self).__init__()
@@ -864,7 +864,7 @@ class EthernetFeatures(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2017-10-06'
+                                _revision = '2018-07-27'
 
                                 def __init__(self):
                                     super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__init__()
@@ -910,7 +910,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__init__()
@@ -950,7 +950,7 @@ class EthernetFeatures(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2017-10-06'
+                                _revision = '2018-07-27'
 
                                 def __init__(self):
                                     super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__init__()
@@ -1000,7 +1000,7 @@ class EthernetFeatures(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-cfg'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-07-27'
 
                                     def __init__(self):
                                         super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__init__()
@@ -1126,7 +1126,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__init__()
@@ -1218,7 +1218,7 @@ class EthernetFeatures(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2017-10-06'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__init__()

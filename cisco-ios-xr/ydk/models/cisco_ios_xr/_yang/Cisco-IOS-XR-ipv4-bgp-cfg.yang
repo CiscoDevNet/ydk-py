@@ -49,6 +49,10 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
   revision 2018-01-18 {
     description
       "Added AO option for neighbor";
@@ -417,6 +421,12 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         description
           "Disable adv of VRF ReImported routes";
       }
+      enum "bgp-cfg-adv-vrf-evpn-re-imp-disable" {
+        value 7;
+        description
+          "Disable adv of VRF EVPN extranet Imported
+           routes";
+      }
     }
     description
       "Bgp reorg opt";
@@ -694,13 +704,14 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "Common node of global-af, vrf-global-af";
     container distance {
+      presence "Indicates a distance node is configured.";
       description
         "Define an administrative distance";
       leaf external-routes {
         type uint32 {
           range "1..255";
         }
-        default "20";
+        mandatory true;
         description
           "Distance for routes external to the AS";
       }
@@ -708,7 +719,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..255";
         }
-        default "200";
+        mandatory true;
         description
           "Distance for routes internal to the AS";
       }
@@ -716,7 +727,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..255";
         }
-        default "200";
+        mandatory true;
         description
           "Distance for local routes";
       }
@@ -837,7 +848,9 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           description
             "as or four byte as";
           leaf as-xx {
-            type uint32;
+            type uint32 {
+              range "0";
+            }
             description
               "AS number";
           }
@@ -1124,6 +1137,35 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping SEGMENT-ROUTING {
+    description
+      "Common node of global-af, vrf-global-af";
+    container segment-routing {
+      description
+        "Segment-routing Configurations";
+      container srv6 {
+        description
+          "SRv6 Configurations";
+        leaf enable {
+          type empty;
+          description
+            "Enable SRv6 configuration submode";
+        }
+        leaf srv6sid-allocation-mode {
+          type string;
+          description
+            "SID allocation mode: per-ce  Set per CE SID
+             mode,per-vrf Set per VRF SID mode";
+        }
+        leaf locator-name {
+          type string;
+          description
+            "Configure Locator name for SID allocation";
+        }
+      }
+    }
+  }
+
   grouping ADVERTISE-V4 {
     description
       "Common node of neighbor-group-af, neighbor-af,
@@ -1194,17 +1236,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           "Route policy name to specify criteria to
            originate default.";
       }
-    }
-  }
-
-  grouping SRV6-LABEL-ALLOCATION-MODE {
-    description
-      "Common node of global-af, vrf-global-af";
-    leaf srv6-label-allocation-mode {
-      type string;
-      description
-        "Label allocation mode: per-ce  Set per CE label
-         mode,per-vrf Set per VRF label mode";
     }
   }
 
@@ -1313,7 +1344,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       type boolean;
       description
         "TRUE to send extended communities to the
-         external neighbor/neighbor-group/af-group.
+         external neighbor/neighbor-group/af-group. 
          FALSE not to send and to prevent inheritance
          from a parent";
     }
@@ -1346,6 +1377,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "Common node of global-af, vrf-global-af";
     container label-mode {
+      presence "enable label-mode";
       description
         "BGP 6PE/MPLS-VPN label allocation mode";
       leaf label-allocation-mode {
@@ -1600,6 +1632,57 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping LOCAL-ADDRESS-SUB-NET {
+    description
+      "Common node of neighbor-group, neighbor,
+       vrf-neighbor, session-group";
+    container local-address-sub-net {
+      description
+        "Local Address subnet of routing updates";
+      leaf local-addresss-subnet {
+        type inet:ip-address-no-zone;
+        description
+          "local address subnet ip address ";
+      }
+      leaf prefix-len {
+        type uint32 {
+          range "0..128";
+        }
+        description
+          "prefix length";
+      }
+    }
+  }
+
+  grouping ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V4 {
+    description
+      "Common node of neighbor-group-af, neighbor-af,
+       vrf-neighbor-af, af-group-af";
+    container advertise-bridge-domain-imp-disable-v4 {
+      description
+        "Disable Advertise Of VRF EVPN Extranet Imported
+         Routes";
+      leaf af-name {
+        type dt1:Bgp-address-family;
+        must "../adv-option and ../rt-type";
+        description
+          "Address family";
+      }
+      leaf adv-option {
+        type Bgp-reorg-opt;
+        must "../af-name and ../rt-type";
+        description
+          "Advertise option";
+      }
+      leaf rt-type {
+        type Bgp-adv-rt;
+        must "../af-name and ../adv-option";
+        description
+          "RT type";
+      }
+    }
+  }
+
   grouping OPTIMAL-ROUTE-REFLECTOR-GROUP-TABLE {
     description
       "Common node of global-af, vrf-global-af";
@@ -1631,6 +1714,36 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           description
             "Tertiary Root for the ORR group";
         }
+      }
+    }
+  }
+
+  grouping ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V6 {
+    description
+      "Common node of global-af, vrf-global-afCommon
+       node of neighbor-group-af, neighbor-af,
+       vrf-neighbor-af, af-group-af";
+    container advertise-bridge-domain-imp-disable-v6 {
+      description
+        "Disable Advertise Of VRF EVPN Extranet Imported
+         Routes";
+      leaf af-name {
+        type dt1:Bgp-address-family;
+        must "../adv-option and ../rt-type";
+        description
+          "Address family";
+      }
+      leaf adv-option {
+        type Bgp-reorg-opt;
+        must "../af-name and ../rt-type";
+        description
+          "Advertise option";
+      }
+      leaf rt-type {
+        type Bgp-adv-rt;
+        must "../af-name and ../adv-option";
+        description
+          "RT type";
       }
     }
   }
@@ -2242,6 +2355,18 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping MERGE-SAFI1-AND4-INBOUND-UPDATES {
+    description
+      "Common node of neighbor-group, neighbor,
+       vrf-neighbor, session-group";
+    leaf merge-safi1-and4-inbound-updates {
+      type boolean;
+      description
+        "TRUE to merge updates FALSE to not merge updates
+         and to prevent inheritance from a parent";
+    }
+  }
+
   grouping NEIGHBOR-GRACEFUL-RESTART-STALEPATH-TIME {
     description
       "Common node of neighbor-group, neighbor,
@@ -2487,7 +2612,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "Common node of global-af, vrf-global-af";
     container dampening {
-      presence "Indicates a dampening node is configured.";
+      presence "enable dampening";
       description
         "Enable route-flap dampening";
       leaf half-life {
@@ -2502,7 +2627,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..20000";
         }
-        mandatory true;
         description
           "Value to start reusing a route.";
       }
@@ -2510,7 +2634,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         type uint32 {
           range "1..20000";
         }
-        mandatory true;
         description
           "Value to start suppressing a route.";
       }
@@ -2519,7 +2642,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           range "1..255";
         }
         units "second";
-        mandatory true;
         description
           "Maximum duration to suppress a stable route
            (seconds).";
@@ -2591,7 +2713,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf accept-route-legacy-rt {
       type boolean;
       description
-        "TRUE to configure as a accept-route-legacy-RT.
+        "TRUE to configure as a accept-route-legacy-RT. 
          FALSE to prevent accept-route-legacy-RT from
          being inherited.";
     }
@@ -2823,7 +2945,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf route-reflector-client {
       type boolean;
       description
-        "TRUE to configure as a route-reflector-client.
+        "TRUE to configure as a route-reflector-client. 
          FALSE to prevent route-reflector-client from
          being inherited.";
     }
@@ -2860,6 +2982,18 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       type empty;
       description
         "RPKI origin-AS validation enable";
+    }
+  }
+
+  grouping UPDATE-OUT-ORIG-LOOP-CHK-DISABLE {
+    description
+      "Common node of neighbor-group-af, neighbor-af,
+       vrf-neighbor-af, af-group-af";
+    leaf update-out-orig-loop-chk-disable {
+      type empty;
+      description
+        "Enable/disable Originator loop check for this
+         neighbor-group/af-group";
     }
   }
 
@@ -3185,6 +3319,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "Common node of global-af, vrf-global-af";
     container allocate-label {
+      presence "enable allocate-label";
       description
         "Label allocation policy";
       leaf all {
@@ -3200,6 +3335,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       }
       leaf un-labeled-path {
         type boolean;
+        must "../all or ../route-policy-name";
         description
           "Allocate label for unlabeled paths too";
       }
@@ -3283,7 +3419,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf suppress-four-byte-as-capability {
       type boolean;
       description
-        "TRUE to suppress BGP 4-byte-as capability.
+        "TRUE to suppress BGP 4-byte-as capability. 
          FALSE to not suppress it and to prevent
          inheritance from a parent";
     }
@@ -4008,6 +4144,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            PEsFALSE Disable advertising imported paths to
            PEs";
       }
+      leaf import-from-bridge-domain {
+        type boolean;
+        description
+          "TRUE Enable advertising local EVPN paths to PEs
+           .FALSE Disable advertising local EVPN paths to
+           PEs.";
+      }
     }
   }
   augment "/a1:global-af/a1:afs/a1:af" {
@@ -4098,6 +4241,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            PEsFALSE Disable advertising imported paths to
            PEs";
       }
+      leaf import-from-bridge-domain {
+        type boolean;
+        description
+          "TRUE Enable advertising local EVPN paths to PEs
+           .FALSE Disable advertising local EVPN paths to
+           PEs.";
+      }
     }
   }
   leaf asn-format {
@@ -4110,6 +4260,10 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     description
       "bgp";
     list instance {
+      must "instance-as" {
+        description
+          "must be set.";
+      }
       key "instance-name";
       description
         "BGP instance configuration commands";
@@ -4120,6 +4274,10 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            default";
       }
       list instance-as {
+        must "four-byte-as" {
+          description
+            "must be set.";
+        }
         key "as";
         description
           "Autonomous system";
@@ -4352,7 +4510,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     uses ADDITIONAL-PATHS-RECEIVE;
                     uses PERMANENT-NETWORK;
                     uses RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
-                    uses SRV6-LABEL-ALLOCATION-MODE;
                     uses ALLOCATE-LABEL;
                     uses ADDITIONAL-PATHS-SELECTION;
                     uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID-MP;
@@ -4364,6 +4521,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     uses MOBILE-ROUTES;
                     uses DISABLE-AS-PATH-LOOP-CHECK;
                     uses SUBSCRIBER-ROUTES;
+                    uses SEGMENT-ROUTING;
                   }
                 }
                 leaf exists {
@@ -4431,11 +4589,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DEF-IMP-DISABLE-V6;
                       uses ADVERTISE-DISABLE;
                       uses MAXIMUM-PREFIXES;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V6;
                       uses REMOVE-PRIVATE-AS-ENTIRE-AS-PATH-INBOUND;
                       uses NEXT-HOP-UNCHANGED;
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V4;
                       uses FLOWSPEC-VALIDATION;
                       uses ADVERTISE-L2VPN-EVPN;
                       uses ADVERTISE-LOCAL-L2VPN-EVPN;
@@ -4449,6 +4609,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses PREFIX-ORF-POLICY;
                       uses NEIGHBOR-AF-LONG-LIVED-GRACEFUL-RESTART-STALE-TIME;
                       uses SITE-OF-ORIGIN;
+                      uses UPDATE-OUT-ORIG-LOOP-CHK-DISABLE;
                       uses AIGP;
                       uses AIGP-SEND-MED;
                       uses ADVERTISE-V6;
@@ -4475,6 +4636,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-VRF-IMP-DISABLE-V4;
                     }
                   }
+                  uses LOCAL-ADDRESS-SUB-NET;
                   uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
@@ -4482,6 +4644,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses SESSION-GROUP-ADD-MEMBER;
                   uses EGRESS-PEER-ENGINEERING;
                   uses REMOTE-AS;
+                  uses MERGE-SAFI1-AND4-INBOUND-UPDATES;
                   uses LOCAL-AS;
                   uses NEIGHBOR-GRACEFUL-RESTART-STALEPATH-TIME;
                   uses SHUTDOWN;
@@ -4597,11 +4760,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DISABLE;
                       uses SEND-MULTICAST-ATTR;
                       uses MAXIMUM-PREFIXES;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V6;
                       uses REMOVE-PRIVATE-AS-ENTIRE-AS-PATH-INBOUND;
                       uses NEXT-HOP-UNCHANGED;
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V4;
                       uses FLOWSPEC-VALIDATION;
                       uses ADVERTISE-L2VPN-EVPN;
                       uses ADVERTISE-LOCAL-L2VPN-EVPN;
@@ -4614,6 +4779,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ACTIVATE;
                       uses PREFIX-ORF-POLICY;
                       uses NEIGHBOR-AF-LONG-LIVED-GRACEFUL-RESTART-STALE-TIME;
+                      uses UPDATE-OUT-ORIG-LOOP-CHK-DISABLE;
                       uses AIGP;
                       uses AIGP-SEND-MED;
                       uses ADVERTISE-V6;
@@ -4640,6 +4806,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-VRF-IMP-DISABLE-V4;
                     }
                   }
+                  uses LOCAL-ADDRESS-SUB-NET;
                   uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
@@ -4647,6 +4814,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses SESSION-GROUP-ADD-MEMBER;
                   uses EGRESS-PEER-ENGINEERING;
                   uses REMOTE-AS;
+                  uses MERGE-SAFI1-AND4-INBOUND-UPDATES;
                   uses LOCAL-AS;
                   uses NEIGHBOR-GRACEFUL-RESTART-STALEPATH-TIME;
                   uses SHUTDOWN;
@@ -4748,11 +4916,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DISABLE;
                       uses SEND-MULTICAST-ATTR;
                       uses MAXIMUM-PREFIXES;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V6;
                       uses REMOVE-PRIVATE-AS-ENTIRE-AS-PATH-INBOUND;
                       uses NEXT-HOP-UNCHANGED;
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V4;
                       uses FLOWSPEC-VALIDATION;
                       uses ADVERTISE-L2VPN-EVPN;
                       uses ADVERTISE-LOCAL-L2VPN-EVPN;
@@ -4766,6 +4936,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses PREFIX-ORF-POLICY;
                       uses NEIGHBOR-AF-LONG-LIVED-GRACEFUL-RESTART-STALE-TIME;
                       uses SITE-OF-ORIGIN;
+                      uses UPDATE-OUT-ORIG-LOOP-CHK-DISABLE;
                       uses AIGP;
                       uses AIGP-SEND-MED;
                       uses ADVERTISE-V6;
@@ -4803,6 +4974,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     description
                       "BGP neighbor group name";
                   }
+                  uses LOCAL-ADDRESS-SUB-NET;
                   uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
@@ -4810,6 +4982,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses SESSION-GROUP-ADD-MEMBER;
                   uses EGRESS-PEER-ENGINEERING;
                   uses REMOTE-AS;
+                  uses MERGE-SAFI1-AND4-INBOUND-UPDATES;
                   uses LOCAL-AS;
                   uses NEIGHBOR-GRACEFUL-RESTART-STALEPATH-TIME;
                   uses SHUTDOWN;
@@ -4896,11 +5069,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DISABLE;
                       uses SEND-MULTICAST-ATTR;
                       uses MAXIMUM-PREFIXES;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V6;
                       uses REMOVE-PRIVATE-AS-ENTIRE-AS-PATH-INBOUND;
                       uses NEXT-HOP-UNCHANGED;
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
+                      uses ADVERTISE-BRIDGE-DOMAIN-IMP-DISABLE-V4;
                       uses FLOWSPEC-VALIDATION;
                       uses ADVERTISE-L2VPN-EVPN;
                       uses ADVERTISE-LOCAL-L2VPN-EVPN;
@@ -4913,6 +5088,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses PREFIX-ORF-POLICY;
                       uses NEIGHBOR-AF-LONG-LIVED-GRACEFUL-RESTART-STALE-TIME;
                       uses SITE-OF-ORIGIN;
+                      uses UPDATE-OUT-ORIG-LOOP-CHK-DISABLE;
                       uses AIGP;
                       uses AIGP-SEND-MED;
                       uses ADVERTISE-V6;
@@ -4963,12 +5139,14 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     description
                       "BGP session group name";
                   }
+                  uses LOCAL-ADDRESS-SUB-NET;
                   uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
                   uses EBGP-MULTIHOP;
                   uses EGRESS-PEER-ENGINEERING;
                   uses REMOTE-AS;
+                  uses MERGE-SAFI1-AND4-INBOUND-UPDATES;
                   uses LOCAL-AS;
                   uses NEIGHBOR-GRACEFUL-RESTART-STALEPATH-TIME;
                   uses SHUTDOWN;
@@ -5078,6 +5256,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 }
                 leaf always {
                   type boolean;
+                  must "../delay";
                   default "false";
                   description
                     "Set to TRUE to disable keepalive trigger
@@ -5432,15 +5611,8 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     leaf source-rt-import-policy {
                       type empty;
                       description
-                        "Enable sourcing of import route-targets
+                        "Enable sourcing of import route-targets 
                          from import-policy";
-                    }
-                    leaf srv6-label-allocation-mode {
-                      type string;
-                      description
-                        "Label allocation mode: per-ce  Set per
-                         CE label mode,per-vrf Set per VRF label
-                         mode";
                     }
                   }
                   container disable-cluster-client-to-client-rrs {
@@ -5828,7 +6000,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses ADDITIONAL-PATHS-RECEIVE;
                   uses PERMANENT-NETWORK;
                   uses RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
-                  uses SRV6-LABEL-ALLOCATION-MODE;
                   uses ALLOCATE-LABEL;
                   uses ADDITIONAL-PATHS-SELECTION;
                   uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID-MP;
@@ -5840,6 +6011,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses MOBILE-ROUTES;
                   uses DISABLE-AS-PATH-LOOP-CHECK;
                   uses SUBSCRIBER-ROUTES;
+                  uses SEGMENT-ROUTING;
                 }
               }
               container rpki-static-routes {
@@ -5941,8 +6113,8 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 }
                 units "second";
                 description
-                  "Prefix validation time (in seconds). Range
-                   : 5 - 60. Specify 0 to disable the timer";
+                  "Prefix validation time (in seconds). Range 
+                   : 5 - 60. Specify 0 for timer off";
               }
               leaf rpki-bestpath-origin-as-allow-invalid {
                 type empty;

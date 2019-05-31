@@ -303,7 +303,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, [u'prefix_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, ['prefix_set_name'], name, value)
 
 
                 class Config(Entity):
@@ -339,7 +339,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, [u'prefix_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, ['prefix_set_name'], name, value)
 
 
 
@@ -378,7 +378,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, [u'prefix_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, ['prefix_set_name'], name, value)
 
 
 
@@ -492,7 +492,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, [u'ip_prefix', u'masklength_range'], name, value)
+                            self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, ['ip_prefix', 'masklength_range'], name, value)
 
 
                         class Config(Entity):
@@ -547,7 +547,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, [u'ip_prefix', u'masklength_range'], name, value)
+                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, ['ip_prefix', 'masklength_range'], name, value)
 
 
 
@@ -607,7 +607,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, [u'ip_prefix', u'masklength_range'], name, value)
+                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, ['ip_prefix', 'masklength_range'], name, value)
 
 
 
@@ -708,7 +708,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, [u'neighbor_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, ['neighbor_set_name'], name, value)
 
 
                 class Config(Entity):
@@ -759,7 +759,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, [u'neighbor_set_name', u'address'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, ['neighbor_set_name', 'address'], name, value)
 
 
 
@@ -815,7 +815,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, [u'neighbor_set_name', u'address'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, ['neighbor_set_name', 'address'], name, value)
 
 
 
@@ -913,7 +913,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet, [u'tag_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet, ['tag_set_name'], name, value)
 
 
                 class Config(Entity):
@@ -964,7 +964,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, [u'tag_set_name', u'tag_value'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, ['tag_set_name', 'tag_value'], name, value)
 
 
 
@@ -1020,7 +1020,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.State, [u'tag_set_name', u'tag_value'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.State, ['tag_set_name', 'tag_value'], name, value)
 
 
 
@@ -1861,7 +1861,7 @@ class RoutingPolicy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition, [u'name'], name, value)
+                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition, ['name'], name, value)
 
 
             class Config(Entity):
@@ -1897,7 +1897,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config, [u'name'], name, value)
+                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config, ['name'], name, value)
 
 
 
@@ -1936,7 +1936,7 @@ class RoutingPolicy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.State, [u'name'], name, value)
+                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.State, ['name'], name, value)
 
 
 
@@ -2051,7 +2051,7 @@ class RoutingPolicy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, [u'name'], name, value)
+                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, ['name'], name, value)
 
 
                     class Config(Entity):
@@ -2087,7 +2087,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, [u'name'], name, value)
+                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, ['name'], name, value)
 
 
 
@@ -2126,7 +2126,7 @@ class RoutingPolicy(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, [u'name'], name, value)
+                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, ['name'], name, value)
 
 
 
@@ -2171,15 +2171,15 @@ class RoutingPolicy(Entity):
                         	Policy conditions for IGP attributes
                         	**type**\:  :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
                         
-                        .. attribute:: isis_conditions
-                        
-                        	Match conditions relating to the IS\-IS protocol
-                        	**type**\:  :py:class:`IsisConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions>`
-                        
                         .. attribute:: bgp_conditions
                         
                         	Top\-level container 
                         	**type**\:  :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
+                        
+                        .. attribute:: isis_conditions
+                        
+                        	Match conditions relating to the IS\-IS protocol
+                        	**type**\:  :py:class:`IsisConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions>`
                         
                         
 
@@ -2196,7 +2196,7 @@ class RoutingPolicy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)), ("match-interface", ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface)), ("match-prefix-set", ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet)), ("match-neighbor-set", ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet)), ("match-tag-set", ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet)), ("igp-conditions", ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions)), ("openconfig-isis-policy:isis-conditions", ("isis_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions)), ("openconfig-bgp-policy:bgp-conditions", ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions))])
+                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)), ("match-interface", ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface)), ("match-prefix-set", ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet)), ("match-neighbor-set", ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet)), ("match-tag-set", ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet)), ("igp-conditions", ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions)), ("openconfig-bgp-policy:bgp-conditions", ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions)), ("openconfig-isis-policy:isis-conditions", ("isis_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions))])
                             self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config()
@@ -2227,13 +2227,13 @@ class RoutingPolicy(Entity):
                             self.igp_conditions.parent = self
                             self._children_name_map["igp_conditions"] = "igp-conditions"
 
-                            self.isis_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions()
-                            self.isis_conditions.parent = self
-                            self._children_name_map["isis_conditions"] = "openconfig-isis-policy:isis-conditions"
-
                             self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
                             self.bgp_conditions.parent = self
                             self._children_name_map["bgp_conditions"] = "openconfig-bgp-policy:bgp-conditions"
+
+                            self.isis_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions()
+                            self.isis_conditions.parent = self
+                            self._children_name_map["isis_conditions"] = "openconfig-isis-policy:isis-conditions"
                             self._segment_path = lambda: "conditions"
                             self._is_frozen = True
 
@@ -2283,7 +2283,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, [u'call_policy', u'install_protocol_eq'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, ['call_policy', 'install_protocol_eq'], name, value)
 
 
 
@@ -2333,7 +2333,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, [u'call_policy', u'install_protocol_eq'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, ['call_policy', 'install_protocol_eq'], name, value)
 
 
 
@@ -2431,7 +2431,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2485,7 +2485,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2581,7 +2581,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, [u'prefix_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, ['prefix_set', 'match_set_options'], name, value)
 
 
 
@@ -2631,7 +2631,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, [u'prefix_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, ['prefix_set', 'match_set_options'], name, value)
 
 
 
@@ -2727,7 +2727,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, [u'neighbor_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, ['neighbor_set', 'match_set_options'], name, value)
 
 
 
@@ -2777,7 +2777,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, [u'neighbor_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, ['neighbor_set', 'match_set_options'], name, value)
 
 
 
@@ -2873,7 +2873,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, [u'tag_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, ['tag_set', 'match_set_options'], name, value)
 
 
 
@@ -2923,7 +2923,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, [u'tag_set', u'match_set_options'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, ['tag_set', 'match_set_options'], name, value)
 
 
 
@@ -2951,137 +2951,6 @@ class RoutingPolicy(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "igp-conditions"
                                 self._is_frozen = True
-
-
-
-                        class IsisConditions(Entity):
-                            """
-                            Match conditions relating to the IS\-IS protocol
-                            
-                            .. attribute:: config
-                            
-                            	Configuration parameters relating to IS\-IS match conditions
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state parameters relating to IS\-IS match conditions
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-isis-pol'
-                            _revision = '2017-05-15'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, self).__init__()
-
-                                self.yang_name = "isis-conditions"
-                                self.yang_parent_name = "conditions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State))])
-                                self._leafs = OrderedDict()
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._segment_path = lambda: "openconfig-isis-policy:isis-conditions"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, [], name, value)
-
-
-                            class Config(Entity):
-                                """
-                                Configuration parameters relating to IS\-IS match
-                                conditions
-                                
-                                .. attribute:: level_eq
-                                
-                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "isis-conditions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
-                                    ])
-                                    self.level_eq = None
-                                    self._segment_path = lambda: "config"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, ['level_eq'], name, value)
-
-
-
-                            class State(Entity):
-                                """
-                                Operational state parameters relating to IS\-IS match
-                                conditions
-                                
-                                .. attribute:: level_eq
-                                
-                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "isis-conditions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
-                                    ])
-                                    self.level_eq = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, ['level_eq'], name, value)
-
 
 
 
@@ -3492,7 +3361,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config, [u'operator', u'value'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config, ['operator', 'value'], name, value)
 
 
 
@@ -3542,7 +3411,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State, [u'operator', u'value'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State, ['operator', 'value'], name, value)
 
 
 
@@ -3638,7 +3507,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, [u'operator', u'value'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, ['operator', 'value'], name, value)
 
 
 
@@ -3688,7 +3557,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, [u'operator', u'value'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, ['operator', 'value'], name, value)
 
 
 
@@ -3785,7 +3654,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config, ['community_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config, ['community_set', 'match_set_options'], name, value)
 
 
 
@@ -3835,7 +3704,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State, ['community_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State, ['community_set', 'match_set_options'], name, value)
 
 
 
@@ -3932,7 +3801,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config, ['ext_community_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config, ['ext_community_set', 'match_set_options'], name, value)
 
 
 
@@ -3983,7 +3852,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State, ['ext_community_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State, ['ext_community_set', 'match_set_options'], name, value)
 
 
 
@@ -4079,7 +3948,7 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, ['as_path_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, ['as_path_set', 'match_set_options'], name, value)
 
 
 
@@ -4130,8 +3999,139 @@ class RoutingPolicy(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, ['as_path_set', u'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, ['as_path_set', 'match_set_options'], name, value)
 
+
+
+
+
+                        class IsisConditions(Entity):
+                            """
+                            Match conditions relating to the IS\-IS protocol
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2017-05-15'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, self).__init__()
+
+                                self.yang_name = "isis-conditions"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State))])
+                                self._leafs = OrderedDict()
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-conditions"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, [], name, value)
+
+
+                            class Config(Entity):
+                                """
+                                Configuration parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "config"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, ['level_eq'], name, value)
+
+
+
+                            class State(Entity):
+                                """
+                                Operational state parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, ['level_eq'], name, value)
 
 
 
@@ -4158,15 +4158,15 @@ class RoutingPolicy(Entity):
                         	Actions to set IGP route attributes; these actions apply to multiple IGPs
                         	**type**\:  :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
                         
-                        .. attribute:: isis_actions
-                        
-                        	Actions that can be performed by IS\-IS within a policy
-                        	**type**\:  :py:class:`IsisActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions>`
-                        
                         .. attribute:: bgp_actions
                         
                         	Top\-level container for BGP\-specific actions
                         	**type**\:  :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
+                        
+                        .. attribute:: isis_actions
+                        
+                        	Actions that can be performed by IS\-IS within a policy
+                        	**type**\:  :py:class:`IsisActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions>`
                         
                         
 
@@ -4183,7 +4183,7 @@ class RoutingPolicy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)), ("igp-actions", ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions)), ("openconfig-isis-policy:isis-actions", ("isis_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions)), ("openconfig-bgp-policy:bgp-actions", ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions))])
+                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)), ("igp-actions", ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions)), ("openconfig-bgp-policy:bgp-actions", ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions)), ("openconfig-isis-policy:isis-actions", ("isis_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions))])
                             self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config()
@@ -4198,13 +4198,13 @@ class RoutingPolicy(Entity):
                             self.igp_actions.parent = self
                             self._children_name_map["igp_actions"] = "igp-actions"
 
-                            self.isis_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions()
-                            self.isis_actions.parent = self
-                            self._children_name_map["isis_actions"] = "openconfig-isis-policy:isis-actions"
-
                             self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
                             self.bgp_actions.parent = self
                             self._children_name_map["bgp_actions"] = "openconfig-bgp-policy:bgp-actions"
+
+                            self.isis_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions()
+                            self.isis_actions.parent = self
+                            self._children_name_map["isis_actions"] = "openconfig-isis-policy:isis-actions"
                             self._segment_path = lambda: "actions"
                             self._is_frozen = True
 
@@ -4252,7 +4252,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, [u'accept_route', u'reject_route'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, ['accept_route', 'reject_route'], name, value)
 
 
 
@@ -4300,7 +4300,7 @@ class RoutingPolicy(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, [u'accept_route', u'reject_route'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, ['accept_route', 'reject_route'], name, value)
 
 
 
@@ -4394,7 +4394,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, [u'set_tag'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, ['set_tag'], name, value)
 
 
 
@@ -4441,176 +4441,7 @@ class RoutingPolicy(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, [u'set_tag'], name, value)
-
-
-
-
-                        class IsisActions(Entity):
-                            """
-                            Actions that can be performed by IS\-IS within a policy
-                            
-                            .. attribute:: config
-                            
-                            	Configuration parameters relating to IS\-IS actions
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state associated with IS\-IS actions
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-isis-pol'
-                            _revision = '2017-05-15'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, self).__init__()
-
-                                self.yang_name = "isis-actions"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State))])
-                                self._leafs = OrderedDict()
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._segment_path = lambda: "openconfig-isis-policy:isis-actions"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, [], name, value)
-
-
-                            class Config(Entity):
-                                """
-                                Configuration parameters relating to IS\-IS actions
-                                
-                                .. attribute:: set_level
-                                
-                                	Set the level that a prefix is to be imported into
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                .. attribute:: set_metric_type
-                                
-                                	Set the type of metric that is to be specified when the set metric leaf is specified
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                .. attribute:: set_metric
-                                
-                                	Set the metric of the IS\-IS prefix
-                                	**type**\: int
-                                
-                                	**range:** 1..16777215
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "isis-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
-                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
-                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
-                                    ])
-                                    self.set_level = None
-                                    self.set_metric_type = None
-                                    self.set_metric = None
-                                    self._segment_path = lambda: "config"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, ['set_level', 'set_metric_type', 'set_metric'], name, value)
-
-
-
-                            class State(Entity):
-                                """
-                                Operational state associated with IS\-IS actions
-                                
-                                .. attribute:: set_level
-                                
-                                	Set the level that a prefix is to be imported into
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: set_metric_type
-                                
-                                	Set the type of metric that is to be specified when the set metric leaf is specified
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: set_metric
-                                
-                                	Set the metric of the IS\-IS prefix
-                                	**type**\: int
-                                
-                                	**range:** 1..16777215
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "isis-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
-                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
-                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
-                                    ])
-                                    self.set_level = None
-                                    self.set_metric_type = None
-                                    self.set_metric = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, ['set_level', 'set_metric_type', 'set_metric'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, ['set_tag'], name, value)
 
 
 
@@ -6034,6 +5865,175 @@ class RoutingPolicy(Entity):
                                             self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, ['ext_community_set_ref'], name, value)
 
 
+
+
+
+
+                        class IsisActions(Entity):
+                            """
+                            Actions that can be performed by IS\-IS within a policy
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to IS\-IS actions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state associated with IS\-IS actions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2017-05-15'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, self).__init__()
+
+                                self.yang_name = "isis-actions"
+                                self.yang_parent_name = "actions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State))])
+                                self._leafs = OrderedDict()
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-actions"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, [], name, value)
+
+
+                            class Config(Entity):
+                                """
+                                Configuration parameters relating to IS\-IS actions
+                                
+                                .. attribute:: set_level
+                                
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric_type
+                                
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "isis-actions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
+                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
+                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
+                                    ])
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
+                                    self._segment_path = lambda: "config"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, ['set_level', 'set_metric_type', 'set_metric'], name, value)
+
+
+
+                            class State(Entity):
+                                """
+                                Operational state associated with IS\-IS actions
+                                
+                                .. attribute:: set_level
+                                
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: set_metric_type
+                                
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "isis-actions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
+                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
+                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
+                                    ])
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, ['set_level', 'set_metric_type', 'set_metric'], name, value)
 
 
 

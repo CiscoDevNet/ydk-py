@@ -794,7 +794,7 @@ class CISCOSIPUAMIB(Entity):
         	This object specifies the amount of time to wait before  disconnecting a call already on hold. A value of 0 specifies that this functionality is disabled
         	**type**\: int
         
-        	**range:** 0..None \| 15..2880
+        	**range:** 0..0 \| 15..2880
         
         	**config**\: False
         
@@ -827,7 +827,7 @@ class CISCOSIPUAMIB(Entity):
         	This object specifies the amount of time to buffer the INVITE  while waiting for display name info in the Facility.  A value of 0 means that the INVITE wouldn't be buffered waiting for the display name info in the Facility
         	**type**\: int
         
-        	**range:** 0..None \| 50..5000
+        	**range:** 0..0 \| 50..5000
         
         	**config**\: False
         

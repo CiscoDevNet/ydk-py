@@ -57,7 +57,7 @@ class Ipv4arm(Entity):
     
     .. attribute:: multicast_host_interface
     
-    	Default multicast host interface
+    	Interface Handle of Default Multicast Host
     	**type**\: str
     
     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -69,7 +69,7 @@ class Ipv4arm(Entity):
     """
 
     _prefix = 'ip-iarm-v4-oper'
-    _revision = '2017-05-01'
+    _revision = '2019-01-22'
 
     def __init__(self):
         super(Ipv4arm, self).__init__()
@@ -124,7 +124,7 @@ class Ipv4arm(Entity):
         """
 
         _prefix = 'ip-iarm-v4-oper'
-        _revision = '2017-05-01'
+        _revision = '2019-01-22'
 
         def __init__(self):
             super(Ipv4arm.Addresses, self).__init__()
@@ -164,7 +164,7 @@ class Ipv4arm(Entity):
             """
 
             _prefix = 'ip-iarm-v4-oper'
-            _revision = '2017-05-01'
+            _revision = '2019-01-22'
 
             def __init__(self):
                 super(Ipv4arm.Addresses.Vrfs, self).__init__()
@@ -195,6 +195,8 @@ class Ipv4arm(Entity):
                 	VRF name
                 	**type**\: str
                 
+                	**length:** 1..32
+                
                 	**config**\: False
                 
                 .. attribute:: networks
@@ -216,7 +218,7 @@ class Ipv4arm(Entity):
                 """
 
                 _prefix = 'ip-iarm-v4-oper'
-                _revision = '2017-05-01'
+                _revision = '2019-01-22'
 
                 def __init__(self):
                     super(Ipv4arm.Addresses.Vrfs.Vrf, self).__init__()
@@ -264,7 +266,7 @@ class Ipv4arm(Entity):
                     """
 
                     _prefix = 'ip-iarm-v4-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2019-01-22'
 
                     def __init__(self):
                         super(Ipv4arm.Addresses.Vrfs.Vrf.Networks, self).__init__()
@@ -291,7 +293,7 @@ class Ipv4arm(Entity):
                         
                         .. attribute:: address
                         
-                        	Address
+                        	An IPv4 Address in this Network
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -300,7 +302,7 @@ class Ipv4arm(Entity):
                         
                         .. attribute:: prefix_length
                         
-                        	Prefix Length
+                        	Ipv4 ARM prefix length for this address in the Network
                         	**type**\: int
                         
                         	**range:** 0..32
@@ -309,7 +311,7 @@ class Ipv4arm(Entity):
                         
                         .. attribute:: interface
                         
-                        	Interface
+                        	Ingress/Egress interface handle for this address in the Network
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -325,7 +327,7 @@ class Ipv4arm(Entity):
                         
                         .. attribute:: interface_name
                         
-                        	Interface name
+                        	Ingress/Egress Interface name for this address in the Network
                         	**type**\: str
                         
                         	**config**\: False
@@ -349,7 +351,7 @@ class Ipv4arm(Entity):
                         """
 
                         _prefix = 'ip-iarm-v4-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2019-01-22'
 
                         def __init__(self):
                             super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, self).__init__()
@@ -382,7 +384,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'interface', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'interface', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -391,14 +393,14 @@ class Ipv4arm(Entity):
                             
                             .. attribute:: address
                             
-                            	Address
+                            	IPv4/IPv6 address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
                             
                             	**config**\: False
                             
                             .. attribute:: prefix_length
                             
-                            	Prefix length
+                            	Prefix length of theIPv4/IPv6 Address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -447,7 +449,7 @@ class Ipv4arm(Entity):
                             """
 
                             _prefix = 'ip-iarm-v4-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2019-01-22'
 
                             def __init__(self):
                                 super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, self).__init__()
@@ -480,12 +482,12 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
                             class Address(Entity):
                                 """
-                                Address
+                                IPv4/IPv6 address
                                 
                                 .. attribute:: afi
                                 
@@ -519,7 +521,7 @@ class Ipv4arm(Entity):
                                 """
 
                                 _prefix = 'ip-iarm-v4-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2019-01-22'
 
                                 def __init__(self):
                                     super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, self).__init__()
@@ -542,7 +544,7 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -566,7 +568,7 @@ class Ipv4arm(Entity):
                     """
 
                     _prefix = 'ip-iarm-v4-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2019-01-22'
 
                     def __init__(self):
                         super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
@@ -626,7 +628,7 @@ class Ipv4arm(Entity):
                         """
 
                         _prefix = 'ip-iarm-v4-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2019-01-22'
 
                         def __init__(self):
                             super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
@@ -651,7 +653,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', u'referenced_interface', u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
 
 
                         class Address(Entity):
@@ -660,14 +662,14 @@ class Ipv4arm(Entity):
                             
                             .. attribute:: address
                             
-                            	Address
+                            	IPv4/IPv6 address
                             	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
                             
                             	**config**\: False
                             
                             .. attribute:: prefix_length
                             
-                            	Prefix length
+                            	Prefix length of theIPv4/IPv6 Address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -716,7 +718,7 @@ class Ipv4arm(Entity):
                             """
 
                             _prefix = 'ip-iarm-v4-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2019-01-22'
 
                             def __init__(self):
                                 super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
@@ -749,12 +751,12 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
                             class Address_(Entity):
                                 """
-                                Address
+                                IPv4/IPv6 address
                                 
                                 .. attribute:: afi
                                 
@@ -788,7 +790,7 @@ class Ipv4arm(Entity):
                                 """
 
                                 _prefix = 'ip-iarm-v4-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2019-01-22'
 
                                 def __init__(self):
                                     super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
@@ -811,7 +813,7 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -875,7 +877,7 @@ class Ipv4arm(Entity):
         """
 
         _prefix = 'ip-iarm-v4-oper'
-        _revision = '2017-05-01'
+        _revision = '2019-01-22'
 
         def __init__(self):
             super(Ipv4arm.Summary, self).__init__()
@@ -903,7 +905,7 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.Summary, [u'producer_count', u'address_conflict_count', u'unnumbered_conflict_count', u'db_master_version', u'vrf_count'], name, value)
+            self._perform_setattr(Ipv4arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
 
 
 
@@ -923,7 +925,7 @@ class Ipv4arm(Entity):
         """
 
         _prefix = 'ip-iarm-v4-oper'
-        _revision = '2017-05-01'
+        _revision = '2019-01-22'
 
         def __init__(self):
             super(Ipv4arm.VrfSummaries, self).__init__()
@@ -954,6 +956,8 @@ class Ipv4arm(Entity):
             	VRF name
             	**type**\: str
             
+            	**length:** 1..32
+            
             	**config**\: False
             
             .. attribute:: vrf_id
@@ -977,7 +981,7 @@ class Ipv4arm(Entity):
             """
 
             _prefix = 'ip-iarm-v4-oper'
-            _revision = '2017-05-01'
+            _revision = '2019-01-22'
 
             def __init__(self):
                 super(Ipv4arm.VrfSummaries.VrfSummary, self).__init__()
@@ -1001,7 +1005,7 @@ class Ipv4arm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', u'vrf_id', u'vrf_name_xr'], name, value)
+                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
 
 
 
@@ -1028,7 +1032,7 @@ class Ipv4arm(Entity):
         
         .. attribute:: interface_name
         
-        	Interface name
+        	Interface name corresponding to the router ID
         	**type**\: str
         
         	**config**\: False
@@ -1047,7 +1051,7 @@ class Ipv4arm(Entity):
         """
 
         _prefix = 'ip-iarm-v4-oper'
-        _revision = '2017-05-01'
+        _revision = '2019-01-22'
 
         def __init__(self):
             super(Ipv4arm.RouterId, self).__init__()
@@ -1073,7 +1077,7 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.RouterId, [u'vrf_id', u'vrf_name', u'interface_name', u'router_id'], name, value)
+            self._perform_setattr(Ipv4arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
 
 
     def clone_ptr(self):

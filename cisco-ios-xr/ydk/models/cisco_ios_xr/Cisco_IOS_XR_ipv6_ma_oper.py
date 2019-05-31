@@ -142,7 +142,7 @@ class Ipv6Network(Entity):
     """
 
     _prefix = 'ipv6-ma-oper'
-    _revision = '2018-07-02'
+    _revision = '2018-08-01'
 
     def __init__(self):
         super(Ipv6Network, self).__init__()
@@ -182,7 +182,7 @@ class Ipv6Network(Entity):
         """
 
         _prefix = 'ipv6-ma-oper'
-        _revision = '2018-07-02'
+        _revision = '2018-08-01'
 
         def __init__(self):
             super(Ipv6Network.Nodes, self).__init__()
@@ -230,7 +230,7 @@ class Ipv6Network(Entity):
             """
 
             _prefix = 'ipv6-ma-oper'
-            _revision = '2018-07-02'
+            _revision = '2018-08-01'
 
             def __init__(self):
                 super(Ipv6Network.Nodes.Node, self).__init__()
@@ -280,7 +280,7 @@ class Ipv6Network(Entity):
                 """
 
                 _prefix = 'ipv6-ma-oper'
-                _revision = '2018-07-02'
+                _revision = '2018-08-01'
 
                 def __init__(self):
                     super(Ipv6Network.Nodes.Node.InterfaceData, self).__init__()
@@ -324,7 +324,7 @@ class Ipv6Network(Entity):
                     """
 
                     _prefix = 'ipv6-ma-oper'
-                    _revision = '2018-07-02'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
@@ -391,7 +391,7 @@ class Ipv6Network(Entity):
                         """
 
                         _prefix = 'ipv6-ma-oper'
-                        _revision = '2018-07-02'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
@@ -446,7 +446,7 @@ class Ipv6Network(Entity):
                             """
 
                             _prefix = 'ipv6-ma-oper'
-                            _revision = '2018-07-02'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
@@ -516,7 +516,7 @@ class Ipv6Network(Entity):
                                 """
 
                                 _prefix = 'ipv6-ma-oper'
-                                _revision = '2018-07-02'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
@@ -607,7 +607,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, self).__init__()
@@ -699,7 +699,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, self).__init__()
@@ -751,7 +751,7 @@ class Ipv6Network(Entity):
                             """
 
                             _prefix = 'ipv6-ma-oper'
-                            _revision = '2018-07-02'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails, self).__init__()
@@ -821,41 +821,6 @@ class Ipv6Network(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: caps_utime
-                                
-                                	CAPS Add Time
-                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_en_utime
-                                
-                                	FWD ENABLE Time
-                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_dis_utime
-                                
-                                	FWD DISABLE Time
-                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
@@ -876,6 +841,24 @@ class Ipv6Network(Entity):
                                 
                                 	IPv6 Operation State
                                 	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ipv6_config_flag
+                                
+                                	Interface Configured Flags
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ipv6_oper_flag
+                                
+                                	Interface Operational Flags
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
                                 
                                 	**config**\: False
                                 
@@ -923,24 +906,6 @@ class Ipv6Network(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: ipv6_config_flag
-                                
-                                	Interface Configured Flags
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: ipv6_oper_flag
-                                
-                                	Interface Operational Flags
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: idb_pointer
                                 
                                 	idb pointer value
@@ -976,7 +941,7 @@ class Ipv6Network(Entity):
                                 """
 
                                 _prefix = 'ipv6-ma-oper'
-                                _revision = '2018-07-02'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, self).__init__()
@@ -986,34 +951,34 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                         ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
                                         ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                                         ('operation_state', (YLeaf(YType.enumeration, 'operation-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState', '')])),
+                                        ('ipv6_config_flag', (YLeaf(YType.uint32, 'ipv6-config-flag'), ['int'])),
+                                        ('ipv6_oper_flag', (YLeaf(YType.uint32, 'ipv6-oper-flag'), ['int'])),
                                         ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                         ('is_icmp_unreach_enabled', (YLeaf(YType.boolean, 'is-icmp-unreach-enabled'), ['bool'])),
                                         ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
                                         ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
                                         ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
                                         ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
-                                        ('ipv6_config_flag', (YLeaf(YType.uint32, 'ipv6-config-flag'), ['int'])),
-                                        ('ipv6_oper_flag', (YLeaf(YType.uint32, 'ipv6-oper-flag'), ['int'])),
                                         ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
                                     self.mtu = None
                                     self.operation_state = None
+                                    self.ipv6_config_flag = None
+                                    self.ipv6_oper_flag = None
                                     self.vrf_name = None
                                     self.is_icmp_unreach_enabled = None
                                     self.rg_id_exists = None
                                     self.mlacp_active = None
                                     self.flow_tag_src = None
                                     self.flow_tag_dst = None
-                                    self.ipv6_config_flag = None
-                                    self.ipv6_oper_flag = None
                                     self.idb_pointer = None
 
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress()
@@ -1036,26 +1001,6 @@ class Ipv6Network(Entity):
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
 
-                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime()
-                                    self.utime.parent = self
-                                    self._children_name_map["utime"] = "utime"
-
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self._children_name_map["idb_utime"] = "idb-utime"
-
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self._children_name_map["caps_utime"] = "caps-utime"
-
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-
                                     self.multicast_group = YList(self)
                                     self.address = YList(self)
                                     self.client_multicast_group = YList(self)
@@ -1063,7 +1008,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'ipv6_config_flag', 'ipv6_oper_flag', 'idb_pointer'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'ipv6_config_flag', 'ipv6_oper_flag', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'idb_pointer'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -1125,7 +1070,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, self).__init__()
@@ -1195,7 +1140,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, self).__init__()
@@ -1254,7 +1199,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, self).__init__()
@@ -1283,7 +1228,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Inbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1293,7 +1238,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, self).__init__()
@@ -1322,7 +1267,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Outbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1332,7 +1277,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, self).__init__()
@@ -1361,7 +1306,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Common ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -1371,7 +1316,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, self).__init__()
@@ -1434,7 +1379,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, self).__init__()
@@ -1486,7 +1431,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, self).__init__()
@@ -1545,7 +1490,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, self).__init__()
@@ -1604,7 +1549,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, self).__init__()
@@ -1632,136 +1577,6 @@ class Ipv6Network(Entity):
 
 
 
-                                class Utime(Entity):
-                                    """
-                                    Address Publish Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime, self).__init__()
-
-                                        self.yang_name = "utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "utime"
-                                        self._is_frozen = True
-
-
-
-                                class IdbUtime(Entity):
-                                    """
-                                    IDB Create Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime, self).__init__()
-
-                                        self.yang_name = "idb-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "idb-utime"
-                                        self._is_frozen = True
-
-
-
-                                class CapsUtime(Entity):
-                                    """
-                                    CAPS Add Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime, self).__init__()
-
-                                        self.yang_name = "caps-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "caps-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdEnUtime(Entity):
-                                    """
-                                    FWD ENABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime, self).__init__()
-
-                                        self.yang_name = "fwd-en-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-en-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdDisUtime(Entity):
-                                    """
-                                    FWD DISABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime, self).__init__()
-
-                                        self.yang_name = "fwd-dis-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-dis-utime"
-                                        self._is_frozen = True
-
-
-
                                 class MulticastGroup(Entity):
                                     """
                                     IPv6 Multicast Group
@@ -1780,7 +1595,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, self).__init__()
@@ -1862,7 +1677,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, self).__init__()
@@ -1913,7 +1728,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, self).__init__()
@@ -1955,7 +1770,7 @@ class Ipv6Network(Entity):
                             """
 
                             _prefix = 'ipv6-ma-oper'
-                            _revision = '2018-07-02'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, self).__init__()
@@ -2025,7 +1840,7 @@ class Ipv6Network(Entity):
                                 """
 
                                 _prefix = 'ipv6-ma-oper'
-                                _revision = '2018-07-02'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, self).__init__()
@@ -2116,7 +1931,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, self).__init__()
@@ -2208,7 +2023,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, self).__init__()
@@ -2260,7 +2075,7 @@ class Ipv6Network(Entity):
                             """
 
                             _prefix = 'ipv6-ma-oper'
-                            _revision = '2018-07-02'
+                            _revision = '2018-08-01'
 
                             def __init__(self):
                                 super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
@@ -2330,41 +2145,6 @@ class Ipv6Network(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: caps_utime
-                                
-                                	CAPS Add Time
-                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_en_utime
-                                
-                                	FWD ENABLE Time
-                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: fwd_dis_utime
-                                
-                                	FWD DISABLE Time
-                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
@@ -2385,6 +2165,24 @@ class Ipv6Network(Entity):
                                 
                                 	IPv6 Operation State
                                 	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ipv6_config_flag
+                                
+                                	Interface Configured Flags
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: ipv6_oper_flag
+                                
+                                	Interface Operational Flags
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
                                 
                                 	**config**\: False
                                 
@@ -2432,24 +2230,6 @@ class Ipv6Network(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: ipv6_config_flag
-                                
-                                	Interface Configured Flags
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: ipv6_oper_flag
-                                
-                                	Interface Operational Flags
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**config**\: False
-                                
                                 .. attribute:: idb_pointer
                                 
                                 	idb pointer value
@@ -2485,7 +2265,7 @@ class Ipv6Network(Entity):
                                 """
 
                                 _prefix = 'ipv6-ma-oper'
-                                _revision = '2018-07-02'
+                                _revision = '2018-08-01'
 
                                 def __init__(self):
                                     super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
@@ -2495,34 +2275,34 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                         ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
                                         ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                                         ('operation_state', (YLeaf(YType.enumeration, 'operation-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState', '')])),
+                                        ('ipv6_config_flag', (YLeaf(YType.uint32, 'ipv6-config-flag'), ['int'])),
+                                        ('ipv6_oper_flag', (YLeaf(YType.uint32, 'ipv6-oper-flag'), ['int'])),
                                         ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                         ('is_icmp_unreach_enabled', (YLeaf(YType.boolean, 'is-icmp-unreach-enabled'), ['bool'])),
                                         ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
                                         ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
                                         ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
                                         ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
-                                        ('ipv6_config_flag', (YLeaf(YType.uint32, 'ipv6-config-flag'), ['int'])),
-                                        ('ipv6_oper_flag', (YLeaf(YType.uint32, 'ipv6-oper-flag'), ['int'])),
                                         ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
                                     self.mtu = None
                                     self.operation_state = None
+                                    self.ipv6_config_flag = None
+                                    self.ipv6_oper_flag = None
                                     self.vrf_name = None
                                     self.is_icmp_unreach_enabled = None
                                     self.rg_id_exists = None
                                     self.mlacp_active = None
                                     self.flow_tag_src = None
                                     self.flow_tag_dst = None
-                                    self.ipv6_config_flag = None
-                                    self.ipv6_oper_flag = None
                                     self.idb_pointer = None
 
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
@@ -2545,26 +2325,6 @@ class Ipv6Network(Entity):
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
 
-                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
-                                    self.utime.parent = self
-                                    self._children_name_map["utime"] = "utime"
-
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self._children_name_map["idb_utime"] = "idb-utime"
-
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self._children_name_map["caps_utime"] = "caps-utime"
-
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-
                                     self.multicast_group = YList(self)
                                     self.address = YList(self)
                                     self.client_multicast_group = YList(self)
@@ -2572,7 +2332,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'ipv6_config_flag', 'ipv6_oper_flag', 'idb_pointer'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'ipv6_config_flag', 'ipv6_oper_flag', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'idb_pointer'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -2634,7 +2394,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, self).__init__()
@@ -2704,7 +2464,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, self).__init__()
@@ -2763,7 +2523,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, self).__init__()
@@ -2792,7 +2552,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Inbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -2802,7 +2562,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, self).__init__()
@@ -2831,7 +2591,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Outbound ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -2841,7 +2601,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, self).__init__()
@@ -2870,7 +2630,7 @@ class Ipv6Network(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Common ACLs
                                         	**type**\: str
                                         
                                         	**config**\: False
@@ -2880,7 +2640,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, self).__init__()
@@ -2943,7 +2703,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
@@ -2995,7 +2755,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
@@ -3054,7 +2814,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
@@ -3113,7 +2873,7 @@ class Ipv6Network(Entity):
                                         """
 
                                         _prefix = 'ipv6-ma-oper'
-                                        _revision = '2018-07-02'
+                                        _revision = '2018-08-01'
 
                                         def __init__(self):
                                             super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
@@ -3141,136 +2901,6 @@ class Ipv6Network(Entity):
 
 
 
-                                class Utime(Entity):
-                                    """
-                                    Address Publish Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime, self).__init__()
-
-                                        self.yang_name = "utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "utime"
-                                        self._is_frozen = True
-
-
-
-                                class IdbUtime(Entity):
-                                    """
-                                    IDB Create Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime, self).__init__()
-
-                                        self.yang_name = "idb-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "idb-utime"
-                                        self._is_frozen = True
-
-
-
-                                class CapsUtime(Entity):
-                                    """
-                                    CAPS Add Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime, self).__init__()
-
-                                        self.yang_name = "caps-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "caps-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdEnUtime(Entity):
-                                    """
-                                    FWD ENABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime, self).__init__()
-
-                                        self.yang_name = "fwd-en-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-en-utime"
-                                        self._is_frozen = True
-
-
-
-                                class FwdDisUtime(Entity):
-                                    """
-                                    FWD DISABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime, self).__init__()
-
-                                        self.yang_name = "fwd-dis-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-                                        self._segment_path = lambda: "fwd-dis-utime"
-                                        self._is_frozen = True
-
-
-
                                 class MulticastGroup(Entity):
                                     """
                                     IPv6 Multicast Group
@@ -3289,7 +2919,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
@@ -3371,7 +3001,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, self).__init__()
@@ -3422,7 +3052,7 @@ class Ipv6Network(Entity):
                                     """
 
                                     _prefix = 'ipv6-ma-oper'
-                                    _revision = '2018-07-02'
+                                    _revision = '2018-08-01'
 
                                     def __init__(self):
                                         super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, self).__init__()
@@ -3496,7 +3126,7 @@ class Ipv6Network(Entity):
                     """
 
                     _prefix = 'ipv6-ma-oper'
-                    _revision = '2018-07-02'
+                    _revision = '2018-08-01'
 
                     def __init__(self):
                         super(Ipv6Network.Nodes.Node.InterfaceData.Summary, self).__init__()
@@ -3570,7 +3200,7 @@ class Ipv6Network(Entity):
                         """
 
                         _prefix = 'ipv6-ma-oper'
-                        _revision = '2018-07-02'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
@@ -3633,7 +3263,7 @@ class Ipv6Network(Entity):
                         """
 
                         _prefix = 'ipv6-ma-oper'
-                        _revision = '2018-07-02'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
@@ -3696,7 +3326,7 @@ class Ipv6Network(Entity):
                         """
 
                         _prefix = 'ipv6-ma-oper'
-                        _revision = '2018-07-02'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
@@ -3759,7 +3389,7 @@ class Ipv6Network(Entity):
                         """
 
                         _prefix = 'ipv6-ma-oper'
-                        _revision = '2018-07-02'
+                        _revision = '2018-08-01'
 
                         def __init__(self):
                             super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()

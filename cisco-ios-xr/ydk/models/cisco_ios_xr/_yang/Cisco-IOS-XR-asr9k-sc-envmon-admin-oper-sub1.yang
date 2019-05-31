@@ -157,6 +157,27 @@ submodule Cisco-IOS-XR-asr9k-sc-envmon-admin-oper-sub1 {
         "Sensor value update rate;set to 0 if sensor
          value is updated and evaluated immediately";
     }
+    leaf average {
+      type int32;
+      description
+        "Average sensor value over time interval";
+    }
+    leaf minimum {
+      type int32;
+      description
+        "Minimum Sensor value over time interval";
+    }
+    leaf maximum {
+      type int32;
+      description
+        "Maximum Sensor value over time interval";
+    }
+    leaf interval {
+      type int32;
+      description
+        "Time Interval over which sensor value is
+         monitored";
+    }
   }
 
   grouping ENVMON-THRESHOLD-INFO {

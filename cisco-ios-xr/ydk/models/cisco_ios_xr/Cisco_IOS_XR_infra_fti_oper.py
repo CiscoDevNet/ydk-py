@@ -323,7 +323,7 @@ class DciFabricInterconnect(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo, ['id1', u'fabric_id', u'config_state', u'last_upd_ts_config', u'fabric_state', u'last_upd_ts_fabric'], name, value)
+                self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo, ['id1', 'fabric_id', 'config_state', 'last_upd_ts_config', 'fabric_state', 'last_upd_ts_fabric'], name, value)
 
 
             class PeerInfo(Entity):
@@ -394,7 +394,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo, [u'peer_ip', u'peer_port', u'peer_state', u'last_upd_ts_peer_status'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo, ['peer_ip', 'peer_port', 'peer_state', 'last_upd_ts_peer_status'], name, value)
 
 
 
@@ -496,7 +496,7 @@ class DciFabricInterconnect(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb, ['id1', u'fabric_id'], name, value)
+                self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb, ['id1', 'fabric_id'], name, value)
 
 
             class FabricVrf(Entity):
@@ -585,7 +585,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf, [u'fabric_vrf', u'dci_vrf', u'fabric_vrf_flags'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf, ['fabric_vrf', 'dci_vrf', 'fabric_vrf_flags'], name, value)
 
 
                 class V4ImportRt(Entity):
@@ -632,7 +632,7 @@ class DciFabricInterconnect(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt, [u'rt_value', u'rt_flags'], name, value)
+                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -680,7 +680,7 @@ class DciFabricInterconnect(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt, [u'rt_value', u'rt_flags'], name, value)
+                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -728,7 +728,7 @@ class DciFabricInterconnect(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt, [u'rt_value', u'rt_flags'], name, value)
+                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -776,7 +776,7 @@ class DciFabricInterconnect(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt, [u'rt_value', u'rt_flags'], name, value)
+                        self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -979,7 +979,7 @@ class DciFabricInterconnect(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf, ['vrf1', u'dci_vrf', u'num_fabric_vrf', u'faric_vrfs_id_name', u'vni_id', u'bd_name', u'bvi_id', u'bvi_ip', u'bvi_ip_v6', u'dci_vrf_flags'], name, value)
+                self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf, ['vrf1', 'dci_vrf', 'num_fabric_vrf', 'faric_vrfs_id_name', 'vni_id', 'bd_name', 'bvi_id', 'bvi_ip', 'bvi_ip_v6', 'dci_vrf_flags'], name, value)
 
 
             class V4ImportRt(Entity):
@@ -1026,7 +1026,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt, [u'rt_value', u'rt_flags'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -1074,7 +1074,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt, [u'rt_value', u'rt_flags'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -1122,7 +1122,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt, [u'rt_value', u'rt_flags'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -1170,7 +1170,7 @@ class DciFabricInterconnect(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt, [u'rt_value', u'rt_flags'], name, value)
+                    self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt, ['rt_value', 'rt_flags'], name, value)
 
 
 
@@ -1329,7 +1329,7 @@ class DciFabricInterconnect(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DciFabricInterconnect.Acp, [u'vni_min', u'vni_max', u'vni_bits', u'bvi_min', u'bvi_max', u'bvi_bits', u'bd_min', u'bd_max', u'bd_bits', u'vniused_range', u'bviused_range', u'bdused_range'], name, value)
+            self._perform_setattr(DciFabricInterconnect.Acp, ['vni_min', 'vni_max', 'vni_bits', 'bvi_min', 'bvi_max', 'bvi_bits', 'bd_min', 'bd_max', 'bd_bits', 'vniused_range', 'bviused_range', 'bdused_range'], name, value)
 
 
     def clone_ptr(self):

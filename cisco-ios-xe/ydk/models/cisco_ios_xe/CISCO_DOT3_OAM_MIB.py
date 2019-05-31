@@ -646,7 +646,7 @@ class CISCODOT3OAMMIB(Entity):
             	The OUI of the OAM peer as reflected in the latest Information OAMPDU received with a Local Information TLV.  The OUI can be used to identify the vendor of the remote OAM entity.  This value is initialized to zero before any Local Information TLV is received.  
             	**type**\: str
             
-            	**length:** 3
+            	**length:** 3..3
             
             	**config**\: False
             
@@ -1767,7 +1767,7 @@ class CISCODOT3OAMMIB(Entity):
             	The OUI of the entity defining the object type.  All IEEE 802.3 defined events (as appearing in [802.3ah] except for the Organizationally Unique Event TLVs) use the IEEE 802.3 OUI of 0x0180C2.  Organizations defining their own Event Notification TLVs include their OUI in the Event Notification TLV which gets reflected here.  
             	**type**\: str
             
-            	**length:** 3
+            	**length:** 3..3
             
             	**config**\: False
             

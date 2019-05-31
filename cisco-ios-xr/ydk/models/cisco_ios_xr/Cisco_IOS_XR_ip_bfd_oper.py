@@ -1081,7 +1081,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief, ['interface_name', 'incoming_label', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief, ['interface_name', 'incoming_label', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -1212,7 +1212,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -1280,7 +1280,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -1399,7 +1399,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -1584,7 +1584,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -1770,7 +1770,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -1887,7 +1887,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.ClientDetails.ClientDetail, ['client_name', u'recreate_time'], name, value)
+                self._perform_setattr(Bfd.ClientDetails.ClientDetail, ['client_name', 'recreate_time'], name, value)
 
 
             class Brief(Entity):
@@ -1949,7 +1949,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.ClientDetails.ClientDetail.Brief, [u'name_xr', u'node_id', u'session_count'], name, value)
+                    self._perform_setattr(Bfd.ClientDetails.ClientDetail.Brief, ['name_xr', 'node_id', 'session_count'], name, value)
 
 
 
@@ -2001,7 +2001,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.ClientDetails.ClientDetail.Flags, [u'is_zombie_state', u'is_recreate_state'], name, value)
+                    self._perform_setattr(Bfd.ClientDetails.ClientDetail.Flags, ['is_zombie_state', 'is_recreate_state'], name, value)
 
 
 
@@ -2119,7 +2119,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv4SingleHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -2236,7 +2236,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv6SingleHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -2401,7 +2401,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.LabelMultiPaths.LabelMultiPath, ['interface_name', 'incoming_label', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.LabelMultiPaths.LabelMultiPath, ['interface_name', 'incoming_label', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -2866,7 +2866,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -2938,7 +2938,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -3021,7 +3021,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -3230,7 +3230,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -3439,7 +3439,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -3571,7 +3571,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -3639,7 +3639,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -3735,7 +3735,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -3830,7 +3830,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -3925,7 +3925,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -4020,7 +4020,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -4072,7 +4072,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -4128,7 +4128,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -4286,7 +4286,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -4342,7 +4342,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -4399,7 +4399,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -4456,7 +4456,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -4547,7 +4547,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -4629,7 +4629,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -4701,7 +4701,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -4791,7 +4791,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -5235,7 +5235,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -5307,7 +5307,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -5390,7 +5390,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -5599,7 +5599,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -5808,7 +5808,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -5940,7 +5940,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -6008,7 +6008,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -6104,7 +6104,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -6199,7 +6199,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -6294,7 +6294,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -6389,7 +6389,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -6441,7 +6441,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -6497,7 +6497,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -6655,7 +6655,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -6711,7 +6711,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -6768,7 +6768,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -6825,7 +6825,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -6916,7 +6916,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -6998,7 +6998,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -7070,7 +7070,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -7160,7 +7160,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -7338,7 +7338,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -7469,7 +7469,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -7537,7 +7537,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -7735,7 +7735,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.GenericSummaries.GenericSummary, ['location', u'node_id', u'pps_allocated_value', u'ppsmp_allocated_value', u'pps_max_value', u'ppsmp_max_value', u'total_session_number', u'mp_session_number', u'max_session_number', u'pps_all_percentage', u'ppsmp_percentage'], name, value)
+                self._perform_setattr(Bfd.GenericSummaries.GenericSummary, ['location', 'node_id', 'pps_allocated_value', 'ppsmp_allocated_value', 'pps_max_value', 'ppsmp_max_value', 'total_session_number', 'mp_session_number', 'max_session_number', 'pps_all_percentage', 'ppsmp_percentage'], name, value)
 
 
 
@@ -7906,7 +7906,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, ['interface_name', 'destination_address', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -8095,7 +8095,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -8212,7 +8212,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.LabelSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.LabelSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -8498,7 +8498,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -8629,7 +8629,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -8697,7 +8697,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -9251,7 +9251,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -9323,7 +9323,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -9406,7 +9406,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -9615,7 +9615,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -9824,7 +9824,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -9956,7 +9956,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -10024,7 +10024,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -10120,7 +10120,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -10215,7 +10215,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -10310,7 +10310,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -10405,7 +10405,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -10457,7 +10457,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -10513,7 +10513,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -10671,7 +10671,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -10727,7 +10727,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -10784,7 +10784,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -10841,7 +10841,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -10932,7 +10932,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -11014,7 +11014,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -11086,7 +11086,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -11176,7 +11176,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -11367,7 +11367,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -11643,7 +11643,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -11774,7 +11774,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -11842,7 +11842,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -12033,7 +12033,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -12151,7 +12151,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv4MultiHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -12336,7 +12336,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -12802,7 +12802,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -12874,7 +12874,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -12957,7 +12957,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -13166,7 +13166,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -13375,7 +13375,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -13507,7 +13507,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -13575,7 +13575,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -13671,7 +13671,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -13766,7 +13766,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -13861,7 +13861,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -13956,7 +13956,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -14008,7 +14008,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -14064,7 +14064,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -14222,7 +14222,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -14278,7 +14278,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -14335,7 +14335,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -14392,7 +14392,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -14483,7 +14483,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -14565,7 +14565,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -14637,7 +14637,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -14727,7 +14727,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -14917,7 +14917,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -15103,7 +15103,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -15483,7 +15483,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.SessionMibs.SessionMib, ['discriminator', u'local_discriminator', u'remote_discriminator', u'sessionversion', u'session_state', u'trap_bitmap', u'pkt_in', u'pkt_out', u'last_up_time_sec', u'last_up_time_nsec', u'last_down_time_sec', u'last_down_time_nsec', u'last_io_evm_schd_time_sec', u'last_io_evm_schd_time_nsec', u'last_io_evm_schd_comp_time_sec', u'last_io_evm_schd_comp_time_nsec', u'last_down_diag', u'last_rx_down_diag', u'up_counter', u'last_time_cached', u'interface_name', u'int_handle', u'detection_multiplier', u'desired_min_tx_interval', u'required_min_rx_interval', u'required_min_rx_echo_interval'], name, value)
+                self._perform_setattr(Bfd.SessionMibs.SessionMib, ['discriminator', 'local_discriminator', 'remote_discriminator', 'sessionversion', 'session_state', 'trap_bitmap', 'pkt_in', 'pkt_out', 'last_up_time_sec', 'last_up_time_nsec', 'last_down_time_sec', 'last_down_time_nsec', 'last_io_evm_schd_time_sec', 'last_io_evm_schd_time_nsec', 'last_io_evm_schd_comp_time_sec', 'last_io_evm_schd_comp_time_nsec', 'last_down_diag', 'last_rx_down_diag', 'up_counter', 'last_time_cached', 'interface_name', 'int_handle', 'detection_multiplier', 'desired_min_tx_interval', 'required_min_rx_interval', 'required_min_rx_echo_interval'], name, value)
 
 
             class DestAddress(Entity):
@@ -15554,7 +15554,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionMibs.SessionMib.DestAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Bfd.SessionMibs.SessionMib.DestAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -15672,7 +15672,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv6MultiHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -15860,7 +15860,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -16049,7 +16049,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -16180,7 +16180,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -16248,7 +16248,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -16415,7 +16415,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.SessionBriefs.SessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.SessionBriefs.SessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -16546,7 +16546,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -16614,7 +16614,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -16805,7 +16805,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -16923,7 +16923,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Summary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Summary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 
@@ -17111,7 +17111,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -17301,7 +17301,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -17490,7 +17490,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -17932,7 +17932,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -18004,7 +18004,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -18087,7 +18087,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -18296,7 +18296,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -18505,7 +18505,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -18637,7 +18637,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -18705,7 +18705,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -18801,7 +18801,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -18896,7 +18896,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -18991,7 +18991,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -19086,7 +19086,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -19138,7 +19138,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -19194,7 +19194,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -19352,7 +19352,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -19408,7 +19408,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -19465,7 +19465,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -19522,7 +19522,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -19613,7 +19613,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -19695,7 +19695,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -19767,7 +19767,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -19857,7 +19857,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -20307,7 +20307,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -20379,7 +20379,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -20462,7 +20462,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -20671,7 +20671,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -20880,7 +20880,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -21012,7 +21012,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -21080,7 +21080,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -21176,7 +21176,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -21271,7 +21271,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -21366,7 +21366,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -21461,7 +21461,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -21513,7 +21513,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -21569,7 +21569,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -21727,7 +21727,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -21783,7 +21783,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -21840,7 +21840,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -21897,7 +21897,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -21988,7 +21988,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -22070,7 +22070,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -22142,7 +22142,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -22232,7 +22232,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -22453,7 +22453,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -22896,7 +22896,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -22968,7 +22968,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -23051,7 +23051,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -23260,7 +23260,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -23469,7 +23469,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -23601,7 +23601,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -23669,7 +23669,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -23765,7 +23765,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -23860,7 +23860,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -23955,7 +23955,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -24050,7 +24050,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -24102,7 +24102,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -24158,7 +24158,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -24316,7 +24316,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -24372,7 +24372,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -24429,7 +24429,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -24486,7 +24486,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -24577,7 +24577,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -24659,7 +24659,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -24731,7 +24731,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -24821,7 +24821,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -24988,7 +24988,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, ['interface_name', 'destination_address', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -25153,7 +25153,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -25284,7 +25284,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -25352,7 +25352,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -25573,7 +25573,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -25763,7 +25763,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
 
 
@@ -25949,7 +25949,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -26513,7 +26513,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -26585,7 +26585,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -26668,7 +26668,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
 
 
@@ -26877,7 +26877,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -27086,7 +27086,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
 
 
@@ -27218,7 +27218,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -27286,7 +27286,7 @@ class Bfd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                            self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -27382,7 +27382,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -27477,7 +27477,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -27572,7 +27572,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -27667,7 +27667,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
 
 
@@ -27719,7 +27719,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
                 class ChangeTime(Entity):
@@ -27775,7 +27775,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -27933,7 +27933,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
                 class LspPingTxLastTime(Entity):
@@ -27989,7 +27989,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -28046,7 +28046,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -28103,7 +28103,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -28194,7 +28194,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -28276,7 +28276,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -28348,7 +28348,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -28438,7 +28438,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -28558,7 +28558,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.RelationBriefs.RelationBrief, ['interface_name', 'destination_address', u'state'], name, value)
+                self._perform_setattr(Bfd.RelationBriefs.RelationBrief, ['interface_name', 'destination_address', 'state'], name, value)
 
 
             class LinkInformation(Entity):
@@ -28608,7 +28608,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.RelationBriefs.RelationBrief.LinkInformation, [u'state', u'interface_name'], name, value)
+                    self._perform_setattr(Bfd.RelationBriefs.RelationBrief.LinkInformation, ['state', 'interface_name'], name, value)
 
 
 
@@ -28723,7 +28723,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.ClientBriefs.ClientBrief, ['name', u'name_xr', u'node_id', u'session_count'], name, value)
+                self._perform_setattr(Bfd.ClientBriefs.ClientBrief, ['name', 'name_xr', 'node_id', 'session_count'], name, value)
 
 
 
@@ -29009,7 +29009,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -29146,7 +29146,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.RelationDetails.RelationDetail, ['interface_name', 'destination_address', u'state', u'local_discriminator'], name, value)
+                self._perform_setattr(Bfd.RelationDetails.RelationDetail, ['interface_name', 'destination_address', 'state', 'local_discriminator'], name, value)
 
 
             class LinkInformation(Entity):
@@ -29207,7 +29207,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.RelationDetails.RelationDetail.LinkInformation, [u'state', u'interface_name', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.RelationDetails.RelationDetail.LinkInformation, ['state', 'interface_name', 'local_discriminator'], name, value)
 
 
 
@@ -29289,7 +29289,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
+                    self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
                 class IpDestinationAddress(Entity):
@@ -29361,7 +29361,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
+                        self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
 
@@ -29451,7 +29451,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
+                        self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
 
 
@@ -29760,7 +29760,7 @@ class Bfd(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
 
 
@@ -29932,7 +29932,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
+                self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
             class StatusBriefInformation(Entity):
@@ -30063,7 +30063,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -30131,7 +30131,7 @@ class Bfd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
+                        self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
 
 
@@ -30408,7 +30408,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -30596,7 +30596,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
+                self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
 
 
@@ -30713,7 +30713,7 @@ class Bfd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
+                self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
 
 

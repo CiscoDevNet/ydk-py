@@ -1,10 +1,13 @@
 module Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics";
   prefix esdma_statistics;
+
   import Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
     prefix esdma_types;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -15,25 +18,24 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains the YANG definitions
-for the Cisco IOS-XR SysAdmin
-'show controller switch statistics' commands.
-
-Copyright(c) 2011-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains the YANG definitions
+     for the Cisco IOS-XR SysAdmin
+     'show controller switch statistics' commands.
+     
+     Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2018-02-23 {
     description
       "Added a missing : for uniform output format";
   }
-
 
   grouping switch-statistics-group {
     container statistics {

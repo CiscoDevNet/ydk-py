@@ -1,7 +1,9 @@
 module Cisco-IOS-XR-sysadmin-show-trace {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-show-trace";
   prefix show_trace;
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -12,31 +14,30 @@ module Cisco-IOS-XR-sysadmin-show-trace {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-Copyright(c) 2012-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     Copyright(c) 2012-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-04-12 {
     description
       "Changed namespace and module name";
   }
 
-
   grouping traceable {
     list trace {
+      key "buffer";
+      config false;
       description
         "show traceable processes";
-      config false;
-      key "buffer";
       leaf buffer {
         type string;
       }
@@ -64,18 +65,18 @@ All rights reserved.
 
   grouping traceable_process {
     list instance {
+      key "process_name";
+      config false;
       description
         "show traceable process instance names";
-      config false;
-      key "process_name";
       leaf process_name {
         type string;
       }
       list trace {
+        key "buffer";
+        config false;
         description
           "show traceable processes";
-        config false;
-        key "buffer";
         leaf buffer {
           type string;
         }
@@ -104,8 +105,8 @@ All rights reserved.
 
   grouping traceable_with_keypath_location {
     list trace {
-      config false;
       key "buffer";
+      config false;
       leaf buffer {
         type string;
       }

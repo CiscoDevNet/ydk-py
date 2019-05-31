@@ -402,6 +402,31 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       "Pce af id";
   }
 
+  grouping PCE-PATH-LIST-BAG {
+    description
+      "PCE path list";
+    leaf headends-swapped {
+      type Pce-headend-swap;
+      description
+        "Headends swapped";
+    }
+    leaf cspf-result {
+      type Pce-cspf-rc;
+      description
+        "CSPF Result";
+    }
+    leaf iterations-done {
+      type uint32;
+      description
+        "Iterations of the Suurballe-Tarjan algorithm";
+    }
+    list output-path {
+      description
+        "Output PCE paths";
+      uses PCE-PATH-BAG;
+    }
+  }
+
   grouping PCE-ADDR-BAG {
     description
       "PCE Address Information";
@@ -425,12 +450,12 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-PATH-BAG {
     description
       "PCE path information";
-    container source {
+    container source-xr {
       description
         "Source of path";
       uses PCE-IP-ADDR-TYPE;
     }
-    container destination {
+    container destination-xr {
       description
         "Destination of path";
       uses PCE-IP-ADDR-TYPE;
@@ -444,31 +469,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Hop addresses";
       uses PCE-ADDR-BAG;
-    }
-  }
-
-  grouping PCE-PATH-LIST-BAG {
-    description
-      "PCE path list";
-    leaf headends-swapped {
-      type Pce-headend-swap;
-      description
-        "Headends swapped";
-    }
-    leaf cspf-result {
-      type Pce-cspf-rc;
-      description
-        "CSPF Result";
-    }
-    leaf iterations-done {
-      type uint32;
-      description
-        "Iterations of the Suurballe-Tarjan algorithm";
-    }
-    list output-path {
-      description
-        "Output PCE paths";
-      uses PCE-PATH-BAG;
     }
   }
 
@@ -544,6 +544,36 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Association LSP Info";
       uses PCE-ASSO-LSP-INFO;
+    }
+  }
+
+  grouping PCE-PEER-PROTO-SUMMARY-BAG {
+    description
+      "Peer summary for specified protocol";
+    leaf peer-count-up {
+      type uint32;
+      description
+        "Number of peers in up state";
+    }
+    leaf peer-count-down {
+      type uint32;
+      description
+        "Number of peers in down state";
+    }
+    leaf peer-count-all {
+      type uint32;
+      description
+        "Number of all peers";
+    }
+  }
+
+  grouping PCE-PEER-SUMMARY-BAG {
+    description
+      "Peer summary information";
+    container pcep-peers {
+      description
+        "PCEP peers summary information";
+      uses PCE-PEER-PROTO-SUMMARY-BAG;
     }
   }
 
@@ -623,6 +653,116 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping PCE-TOPO-STATS-BAG {
+    description
+      "Statistics on topology update";
+    leaf num-nodes-added {
+      type uint32;
+      description
+        "Number of nodes added";
+    }
+    leaf num-nodes-deleted {
+      type uint32;
+      description
+        "Number of nodes deleted";
+    }
+    leaf num-links-added {
+      type uint32;
+      description
+        "Number of links added";
+    }
+    leaf num-links-deleted {
+      type uint32;
+      description
+        "Number of links deleted";
+    }
+    leaf num-prefixes-added {
+      type uint32;
+      description
+        "Number of prefixes added";
+    }
+    leaf num-prefixes-deleted {
+      type uint32;
+      description
+        "Number of prefixes deleted";
+    }
+  }
+
+  grouping PCE-NODE-SUMMARY-BAG {
+    description
+      "PCE Node Summary Information";
+    container stats-topology-update {
+      description
+        "Statistics on topology update";
+      uses PCE-TOPO-STATS-BAG;
+    }
+    leaf nodes {
+      type uint32;
+      description
+        "Number of PCE nodes";
+    }
+    leaf lookup-nodes {
+      type uint32;
+      description
+        "Number of lookup nodes";
+    }
+    leaf prefixes {
+      type uint32;
+      description
+        "Number of prefixes";
+    }
+    leaf prefix-sids {
+      type uint32;
+      description
+        "Number of total prefix SIDs";
+    }
+    leaf regular-prefix-sids {
+      type uint32;
+      description
+        "Number of reguar prefix SIDs";
+    }
+    leaf strict-prefix-sids {
+      type uint32;
+      description
+        "Number of strict prefix SIDs";
+    }
+    leaf links {
+      type uint32;
+      description
+        "Number of links";
+    }
+    leaf epe-links {
+      type uint32;
+      description
+        "Number of EPE links";
+    }
+    leaf adjacency-sids {
+      type uint32;
+      description
+        "Number of total adjacency SIDs";
+    }
+    leaf epesids {
+      type uint32;
+      description
+        "Number of total EPE SIDs";
+    }
+    leaf protected-adjacency-sids {
+      type uint32;
+      description
+        "Number of protected adjacency SIDs";
+    }
+    leaf un-protected-adjacency-sids {
+      type uint32;
+      description
+        "Number of unprotected adjacency SIDs";
+    }
+    leaf topology-consistent {
+      type boolean;
+      description
+        "True if topology is consistent";
+    }
+  }
+
   grouping PCE-IPV6-LINK-BAG {
     description
       "PCE IPv6 Link Information";
@@ -675,11 +815,12 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
 
   grouping PCE-LINK-PM-METRICS {
     description
-      "PCE link performance metric information";
-    leaf unidirectional-min-delay {
+      "Link performance metric information";
+    leaf unidirectional-minimum-delay-microseconds {
       type uint32;
+      units "microsecond";
       description
-        "Min delay";
+        "Min delay in microseconds";
     }
   }
 
@@ -1032,116 +1173,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "IPv6 Link information";
       uses PCE-IPV6-LINK-BAG;
-    }
-  }
-
-  grouping PCE-TOPO-STATS-BAG {
-    description
-      "Statistics on topology update";
-    leaf num-nodes-added {
-      type uint32;
-      description
-        "Number of nodes added";
-    }
-    leaf num-nodes-deleted {
-      type uint32;
-      description
-        "Number of nodes deleted";
-    }
-    leaf num-links-added {
-      type uint32;
-      description
-        "Number of links added";
-    }
-    leaf num-links-deleted {
-      type uint32;
-      description
-        "Number of links deleted";
-    }
-    leaf num-prefixes-added {
-      type uint32;
-      description
-        "Number of prefixes added";
-    }
-    leaf num-prefixes-deleted {
-      type uint32;
-      description
-        "Number of prefixes deleted";
-    }
-  }
-
-  grouping PCE-NODE-SUMMARY-BAG {
-    description
-      "PCE Node Summary Information";
-    container stats-topology-update {
-      description
-        "Statistics on topology update";
-      uses PCE-TOPO-STATS-BAG;
-    }
-    leaf nodes {
-      type uint32;
-      description
-        "Number of PCE nodes";
-    }
-    leaf lookup-nodes {
-      type uint32;
-      description
-        "Number of lookup nodes";
-    }
-    leaf prefixes {
-      type uint32;
-      description
-        "Number of prefixes";
-    }
-    leaf prefix-sids {
-      type uint32;
-      description
-        "Number of total prefix SIDs";
-    }
-    leaf regular-prefix-sids {
-      type uint32;
-      description
-        "Number of reguar prefix SIDs";
-    }
-    leaf strict-prefix-sids {
-      type uint32;
-      description
-        "Number of strict prefix SIDs";
-    }
-    leaf links {
-      type uint32;
-      description
-        "Number of links";
-    }
-    leaf epe-links {
-      type uint32;
-      description
-        "Number of EPE links";
-    }
-    leaf adjacency-sids {
-      type uint32;
-      description
-        "Number of total adjacency SIDs";
-    }
-    leaf epesids {
-      type uint32;
-      description
-        "Number of total EPE SIDs";
-    }
-    leaf protected-adjacency-sids {
-      type uint32;
-      description
-        "Number of protected adjacency SIDs";
-    }
-    leaf un-protected-adjacency-sids {
-      type uint32;
-      description
-        "Number of unprotected adjacency SIDs";
-    }
-    leaf topology-consistent {
-      type boolean;
-      description
-        "True if topology is consistent";
     }
   }
 

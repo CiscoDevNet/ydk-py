@@ -1,23 +1,26 @@
 module Cisco-IOS-XR-sysadmin-aaa-aaa-show {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-aaa-aaa-show";
   prefix aaa_show;
+
   import tailf-aaa {
     prefix aaa;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "clos-mgbl@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module defines yang model
-for logging user/date who accessed
-shell last time
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module defines yang model
+     for logging user/date who accessed
+     shell last time
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-05-10 {
     description
       "Namespace changed from aaa_show to Cisco-IOS-XR-sysadmin-aaa-aaa-show";

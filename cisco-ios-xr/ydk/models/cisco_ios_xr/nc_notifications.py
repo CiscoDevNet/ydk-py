@@ -20,7 +20,7 @@ class Netconf(Entity):
     
     .. attribute:: streams
     
-    	The list of event streams supported by the system. When a query is issued, the returned set of streams is determined based on user privileges
+    	The list of event streams supported by the system. When a query is issued, the returned set of streams is  determined based on user privileges
     	**type**\:  :py:class:`Streams <ydk.models.cisco_ios_xr.nc_notifications.Netconf.Streams>`
     
     	**config**\: False
@@ -57,7 +57,7 @@ class Netconf(Entity):
     class Streams(Entity):
         """
         The list of event streams supported by the system. When
-        a query is issued, the returned set of streams is
+        a query is issued, the returned set of streams is 
         determined based on user privileges.
         
         .. attribute:: stream
@@ -125,7 +125,7 @@ class Netconf(Entity):
             
             .. attribute:: replaylogcreationtime
             
-            	The timestamp of the creation of the log used to support the replay function on this stream. Note that this might be earlier then the earliest available notification in the log. This object is updated if the log resets for some reason.  This object MUST be present if replay is supported
+            	The timestamp of the creation of the log used to support the replay function on this stream. Note that this might be earlier then the earliest available notification in the log. This object is updated if the log resets for  some reason.  This object MUST be present if replay is supported
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})

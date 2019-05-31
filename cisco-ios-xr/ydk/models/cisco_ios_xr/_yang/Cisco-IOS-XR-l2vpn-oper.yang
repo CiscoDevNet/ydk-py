@@ -12,16 +12,16 @@ module Cisco-IOS-XR-l2vpn-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub4 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub3 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub2 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -49,6 +49,10 @@ module Cisco-IOS-XR-l2vpn-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -114,6 +118,11 @@ module Cisco-IOS-XR-l2vpn-oper {
         value 7;
         description
           "mTE Tunnel";
+      }
+      enum "named-te-tunnel" {
+        value 8;
+        description
+          "Named TE Tunnel";
       }
     }
     description
@@ -1183,6 +1192,13 @@ module Cisco-IOS-XR-l2vpn-oper {
           list l2fib-mroute {
             description
               "Bridge Domain Multicast Information";
+            leaf bd-name {
+              type xr:Cisco-ios-xr-string {
+                length "1..65";
+              }
+              description
+                "Bridge Domain Name";
+            }
             leaf source {
               type inet:ipv4-address-no-zone;
               description
@@ -1192,20 +1208,6 @@ module Cisco-IOS-XR-l2vpn-oper {
               type inet:ipv4-address-no-zone;
               description
                 "Group IP Address";
-            }
-            leaf bd-group-name {
-              type xr:Cisco-ios-xr-string {
-                length "1..32";
-              }
-              description
-                "Bridge Group Name";
-            }
-            leaf bd-name {
-              type xr:Cisco-ios-xr-string {
-                length "1..65";
-              }
-              description
-                "Bridge Domain Name";
             }
             uses L2FIB-MCAST-LEAF-INFO;
           }
@@ -1339,7 +1341,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "P2MP Id";
               }
               leaf extended-tunnel-id {
-                type uint32;
+                type inet:ipv4-address-no-zone;
                 description
                   "Extended Tunnel Id";
               }
@@ -1552,33 +1554,22 @@ module Cisco-IOS-XR-l2vpn-oper {
           list l2fib-mroute-ipv6 {
             description
               "Bridge Domain Multicast Information";
-            leaf source {
-              type xr:Cisco-ios-xr-string {
-                length "1..128";
-              }
-              description
-                "Source IPv6 Address";
-            }
-            leaf group {
-              type xr:Cisco-ios-xr-string {
-                length "1..128";
-              }
-              description
-                "Group IPv6 Address";
-            }
-            leaf bd-group-name {
-              type xr:Cisco-ios-xr-string {
-                length "1..32";
-              }
-              description
-                "Bridge Group Name";
-            }
             leaf bd-name {
               type xr:Cisco-ios-xr-string {
                 length "1..65";
               }
               description
                 "Bridge Domain Name";
+            }
+            leaf source {
+              type inet:ip-address-no-zone;
+              description
+                "Source IPv6 Address";
+            }
+            leaf group {
+              type inet:ip-address-no-zone;
+              description
+                "Group IPv6 Address";
             }
             uses L2FIB-MCAST-LEAF-INFO;
           }
@@ -2052,6 +2043,11 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "XConnect ID";
             }
+            leaf evpn-nh {
+              type inet:ip-address-no-zone;
+              description
+                "EVPN NextHop";
+            }
             leaf source {
               type inet:ipv4-address-no-zone;
               description
@@ -2100,33 +2096,22 @@ module Cisco-IOS-XR-l2vpn-oper {
           list l2fib-mmrp {
             description
               "Bridge Domain Mmrp Information";
-            leaf source {
-              type string {
-                length "1..15";
-              }
-              description
-                "src Mac Address";
-            }
-            leaf group {
-              type string {
-                length "1..15";
-              }
-              description
-                "Group Mac Address";
-            }
-            leaf bd-group-name {
-              type xr:Cisco-ios-xr-string {
-                length "1..32";
-              }
-              description
-                "Bridge Group Name";
-            }
             leaf bd-name {
               type xr:Cisco-ios-xr-string {
                 length "1..65";
               }
               description
                 "Bridge Domain Name";
+            }
+            leaf source {
+              type yang:mac-address;
+              description
+                "Source Mac Address";
+            }
+            leaf group {
+              type yang:mac-address;
+              description
+                "Group Mac Address";
             }
             uses L2FIB-MCAST-LEAF-INFO;
           }

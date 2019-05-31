@@ -30,7 +30,7 @@ module Cisco-IOS-XR-l2rib-oper {
      
      This module contains definitions
      for the following management objects:
-       l2rib: L2RIB operational information
+       l2rib: L2RIB operational information 
      
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
@@ -238,11 +238,6 @@ module Cisco-IOS-XR-l2rib-oper {
             description
               "Originating Router IP Address";
           }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
-          }
           leaf prod-id {
             type uint32;
             description
@@ -295,11 +290,6 @@ module Cisco-IOS-XR-l2rib-oper {
             type inet:ip-address-no-zone;
             description
               "Originating Router IP Address";
-          }
-          leaf admin-dist {
-            type uint32;
-            description
-              "Admin distance";
           }
           leaf prod-id {
             type uint32;

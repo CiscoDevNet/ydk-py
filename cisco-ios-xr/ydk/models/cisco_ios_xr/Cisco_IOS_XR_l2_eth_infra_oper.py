@@ -1162,7 +1162,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', u'interface_xr', u'state', u'mtu', u'qinq_outer_ether_type', u'dot1ad_count', u'untagged_interface', u'mac_filtering'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'interface_xr', 'state', 'mtu', 'qinq_outer_ether_type', 'dot1ad_count', 'untagged_interface', 'mac_filtering'], name, value)
 
 
                     class Layer2SubInterfaces(Entity):
@@ -1257,7 +1257,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'qin_any_count', u'untagged_count'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'qin_any_count', 'untagged_count'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1320,7 +1320,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
 
 
 
@@ -1417,7 +1417,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'untagged_count', u'native_vlan'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'untagged_count', 'native_vlan'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1480,7 +1480,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
 
 
 
@@ -1542,7 +1542,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, [u'mode', u'access_vlan'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, ['mode', 'access_vlan'], name, value)
 
 
                         class TrunkVlanRanges(Entity):
@@ -1668,7 +1668,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -1754,7 +1754,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -1812,7 +1812,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -1863,7 +1863,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
 
@@ -1914,7 +1914,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -2070,7 +2070,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -2207,7 +2207,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -2258,7 +2258,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
 
@@ -2385,7 +2385,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -2471,7 +2471,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -2529,7 +2529,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -2580,7 +2580,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
 
@@ -2631,7 +2631,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -2684,7 +2684,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
 
 
@@ -2866,7 +2866,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -3003,7 +3003,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -3054,7 +3054,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
 
@@ -3181,7 +3181,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -3267,7 +3267,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -3325,7 +3325,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -3376,7 +3376,7 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
 
@@ -3427,7 +3427,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
 
@@ -3480,7 +3480,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
 
 

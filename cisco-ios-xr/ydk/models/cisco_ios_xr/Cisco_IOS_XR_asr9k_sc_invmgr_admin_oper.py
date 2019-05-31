@@ -890,7 +890,7 @@ class Inventory(Entity):
                             
                             .. attribute:: redundancystate
                             
-                            	integer value for Redundancy State if applicable to this entity
+                            	integer value for Redundancy State if     applicable to this entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -914,6 +914,15 @@ class Inventory(Entity):
                             .. attribute:: unique_id
                             
                             	Unique id for an entity
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: allocated_power
+                            
+                            	Allocated power for an entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -963,6 +972,7 @@ class Inventory(Entity):
                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                 ])
                                 self.description = None
                                 self.vendor_type = None
@@ -990,11 +1000,12 @@ class Inventory(Entity):
                                 self.ceport = None
                                 self.xr_scoped = None
                                 self.unique_id = None
+                                self.allocated_power = None
                                 self._segment_path = lambda: "basic-info"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.PowerSupplyShelfs.PowerSupplyShelf.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.PowerSupplyShelfs.PowerSupplyShelf.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -1676,7 +1687,7 @@ class Inventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -1731,7 +1742,7 @@ class Inventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -1787,7 +1798,7 @@ class Inventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -1990,7 +2001,7 @@ class Inventory(Entity):
                                                             
                                                             .. attribute:: redundancystate
                                                             
-                                                            	integer value for Redundancy State if applicable to this entity
+                                                            	integer value for Redundancy State if     applicable to this entity
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -2014,6 +2025,15 @@ class Inventory(Entity):
                                                             .. attribute:: unique_id
                                                             
                                                             	Unique id for an entity
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
+                                                            
+                                                            .. attribute:: allocated_power
+                                                            
+                                                            	Allocated power for an entity
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -2063,6 +2083,7 @@ class Inventory(Entity):
                                                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                                 ])
                                                                 self.description = None
                                                                 self.vendor_type = None
@@ -2090,11 +2111,12 @@ class Inventory(Entity):
                                                                 self.ceport = None
                                                                 self.xr_scoped = None
                                                                 self.unique_id = None
+                                                                self.allocated_power = None
                                                                 self._segment_path = lambda: "basic-info"
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -2244,7 +2266,7 @@ class Inventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -2299,7 +2321,7 @@ class Inventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -2355,7 +2377,7 @@ class Inventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -2558,7 +2580,7 @@ class Inventory(Entity):
                                                         
                                                         .. attribute:: redundancystate
                                                         
-                                                        	integer value for Redundancy State if applicable to this entity
+                                                        	integer value for Redundancy State if     applicable to this entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -2582,6 +2604,15 @@ class Inventory(Entity):
                                                         .. attribute:: unique_id
                                                         
                                                         	Unique id for an entity
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: allocated_power
+                                                        
+                                                        	Allocated power for an entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -2631,6 +2662,7 @@ class Inventory(Entity):
                                                                 ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                                 ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                 ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                                ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                             ])
                                                             self.description = None
                                                             self.vendor_type = None
@@ -2658,11 +2690,12 @@ class Inventory(Entity):
                                                             self.ceport = None
                                                             self.xr_scoped = None
                                                             self.unique_id = None
+                                                            self.allocated_power = None
                                                             self._segment_path = lambda: "basic-info"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -2902,7 +2935,7 @@ class Inventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -2957,7 +2990,7 @@ class Inventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3013,7 +3046,7 @@ class Inventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3216,7 +3249,7 @@ class Inventory(Entity):
                                                         
                                                         .. attribute:: redundancystate
                                                         
-                                                        	integer value for Redundancy State if applicable to this entity
+                                                        	integer value for Redundancy State if     applicable to this entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -3240,6 +3273,15 @@ class Inventory(Entity):
                                                         .. attribute:: unique_id
                                                         
                                                         	Unique id for an entity
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: allocated_power
+                                                        
+                                                        	Allocated power for an entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -3289,6 +3331,7 @@ class Inventory(Entity):
                                                                 ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                                 ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                 ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                                ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                             ])
                                                             self.description = None
                                                             self.vendor_type = None
@@ -3316,11 +3359,12 @@ class Inventory(Entity):
                                                             self.ceport = None
                                                             self.xr_scoped = None
                                                             self.unique_id = None
+                                                            self.allocated_power = None
                                                             self._segment_path = lambda: "basic-info"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -3471,7 +3515,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -3526,7 +3570,7 @@ class Inventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3582,7 +3626,7 @@ class Inventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -3785,7 +3829,7 @@ class Inventory(Entity):
                                                 
                                                 .. attribute:: redundancystate
                                                 
-                                                	integer value for Redundancy State if applicable to this entity
+                                                	integer value for Redundancy State if     applicable to this entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -3809,6 +3853,15 @@ class Inventory(Entity):
                                                 .. attribute:: unique_id
                                                 
                                                 	Unique id for an entity
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: allocated_power
+                                                
+                                                	Allocated power for an entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -3858,6 +3911,7 @@ class Inventory(Entity):
                                                         ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                         ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                         ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                        ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                     ])
                                                     self.description = None
                                                     self.vendor_type = None
@@ -3885,11 +3939,12 @@ class Inventory(Entity):
                                                     self.ceport = None
                                                     self.xr_scoped = None
                                                     self.unique_id = None
+                                                    self.allocated_power = None
                                                     self._segment_path = lambda: "basic-info"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -4039,7 +4094,7 @@ class Inventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -4094,7 +4149,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4150,7 +4205,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4353,7 +4408,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if applicable to this entity
+                                            	integer value for Redundancy State if     applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -4377,6 +4432,15 @@ class Inventory(Entity):
                                             .. attribute:: unique_id
                                             
                                             	Unique id for an entity
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: allocated_power
+                                            
+                                            	Allocated power for an entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -4426,6 +4490,7 @@ class Inventory(Entity):
                                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -4453,11 +4518,12 @@ class Inventory(Entity):
                                                 self.ceport = None
                                                 self.xr_scoped = None
                                                 self.unique_id = None
+                                                self.allocated_power = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -4797,7 +4863,7 @@ class Inventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -4852,7 +4918,7 @@ class Inventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -4908,7 +4974,7 @@ class Inventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5111,7 +5177,7 @@ class Inventory(Entity):
                                                     
                                                     .. attribute:: redundancystate
                                                     
-                                                    	integer value for Redundancy State if applicable to this entity
+                                                    	integer value for Redundancy State if     applicable to this entity
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -5135,6 +5201,15 @@ class Inventory(Entity):
                                                     .. attribute:: unique_id
                                                     
                                                     	Unique id for an entity
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: allocated_power
+                                                    
+                                                    	Allocated power for an entity
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -5184,6 +5259,7 @@ class Inventory(Entity):
                                                             ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                             ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                             ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                            ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                         ])
                                                         self.description = None
                                                         self.vendor_type = None
@@ -5211,11 +5287,12 @@ class Inventory(Entity):
                                                         self.ceport = None
                                                         self.xr_scoped = None
                                                         self.unique_id = None
+                                                        self.allocated_power = None
                                                         self._segment_path = lambda: "basic-info"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -5366,7 +5443,7 @@ class Inventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -5421,7 +5498,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5477,7 +5554,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -5680,7 +5757,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if applicable to this entity
+                                            	integer value for Redundancy State if     applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5704,6 +5781,15 @@ class Inventory(Entity):
                                             .. attribute:: unique_id
                                             
                                             	Unique id for an entity
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: allocated_power
+                                            
+                                            	Allocated power for an entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5753,6 +5839,7 @@ class Inventory(Entity):
                                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -5780,11 +5867,12 @@ class Inventory(Entity):
                                                 self.ceport = None
                                                 self.xr_scoped = None
                                                 self.unique_id = None
+                                                self.allocated_power = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -6074,7 +6162,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -6129,7 +6217,7 @@ class Inventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6185,7 +6273,7 @@ class Inventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6388,7 +6476,7 @@ class Inventory(Entity):
                                                 
                                                 .. attribute:: redundancystate
                                                 
-                                                	integer value for Redundancy State if applicable to this entity
+                                                	integer value for Redundancy State if     applicable to this entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6412,6 +6500,15 @@ class Inventory(Entity):
                                                 .. attribute:: unique_id
                                                 
                                                 	Unique id for an entity
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: allocated_power
+                                                
+                                                	Allocated power for an entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6461,6 +6558,7 @@ class Inventory(Entity):
                                                         ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                         ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                         ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                        ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                     ])
                                                     self.description = None
                                                     self.vendor_type = None
@@ -6488,11 +6586,12 @@ class Inventory(Entity):
                                                     self.ceport = None
                                                     self.xr_scoped = None
                                                     self.unique_id = None
+                                                    self.allocated_power = None
                                                     self._segment_path = lambda: "basic-info"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -6642,7 +6741,7 @@ class Inventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -6697,7 +6796,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6753,7 +6852,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -6956,7 +7055,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if applicable to this entity
+                                            	integer value for Redundancy State if     applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -6980,6 +7079,15 @@ class Inventory(Entity):
                                             .. attribute:: unique_id
                                             
                                             	Unique id for an entity
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: allocated_power
+                                            
+                                            	Allocated power for an entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -7029,6 +7137,7 @@ class Inventory(Entity):
                                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -7056,11 +7165,12 @@ class Inventory(Entity):
                                                 self.ceport = None
                                                 self.xr_scoped = None
                                                 self.unique_id = None
+                                                self.allocated_power = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -7300,7 +7410,7 @@ class Inventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -7355,7 +7465,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7411,7 +7521,7 @@ class Inventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7614,7 +7724,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if applicable to this entity
+                                            	integer value for Redundancy State if     applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -7638,6 +7748,15 @@ class Inventory(Entity):
                                             .. attribute:: unique_id
                                             
                                             	Unique id for an entity
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: allocated_power
+                                            
+                                            	Allocated power for an entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -7687,6 +7806,7 @@ class Inventory(Entity):
                                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -7714,11 +7834,12 @@ class Inventory(Entity):
                                                 self.ceport = None
                                                 self.xr_scoped = None
                                                 self.unique_id = None
+                                                self.allocated_power = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -7869,7 +7990,7 @@ class Inventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                     class LastOperationalStateChange(Entity):
@@ -7924,7 +8045,7 @@ class Inventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -7980,7 +8101,7 @@ class Inventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8183,7 +8304,7 @@ class Inventory(Entity):
                                     
                                     .. attribute:: redundancystate
                                     
-                                    	integer value for Redundancy State if applicable to this entity
+                                    	integer value for Redundancy State if     applicable to this entity
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -8207,6 +8328,15 @@ class Inventory(Entity):
                                     .. attribute:: unique_id
                                     
                                     	Unique id for an entity
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: allocated_power
+                                    
+                                    	Allocated power for an entity
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -8256,6 +8386,7 @@ class Inventory(Entity):
                                             ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                             ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                             ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                            ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                         ])
                                         self.description = None
                                         self.vendor_type = None
@@ -8283,11 +8414,12 @@ class Inventory(Entity):
                                         self.ceport = None
                                         self.xr_scoped = None
                                         self.unique_id = None
+                                        self.allocated_power = None
                                         self._segment_path = lambda: "basic-info"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -8438,7 +8570,7 @@ class Inventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                             class LastOperationalStateChange(Entity):
@@ -8493,7 +8625,7 @@ class Inventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8549,7 +8681,7 @@ class Inventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
 
 
@@ -8752,7 +8884,7 @@ class Inventory(Entity):
                             
                             .. attribute:: redundancystate
                             
-                            	integer value for Redundancy State if applicable to this entity
+                            	integer value for Redundancy State if     applicable to this entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -8776,6 +8908,15 @@ class Inventory(Entity):
                             .. attribute:: unique_id
                             
                             	Unique id for an entity
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: allocated_power
+                            
+                            	Allocated power for an entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -8825,6 +8966,7 @@ class Inventory(Entity):
                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                 ])
                                 self.description = None
                                 self.vendor_type = None
@@ -8852,11 +8994,12 @@ class Inventory(Entity):
                                 self.ceport = None
                                 self.xr_scoped = None
                                 self.unique_id = None
+                                self.allocated_power = None
                                 self._segment_path = lambda: "basic-info"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -9188,7 +9331,7 @@ class Inventory(Entity):
                             
                             .. attribute:: redundancystate
                             
-                            	integer value for Redundancy State if applicable to this entity
+                            	integer value for Redundancy State if     applicable to this entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -9212,6 +9355,15 @@ class Inventory(Entity):
                             .. attribute:: unique_id
                             
                             	Unique id for an entity
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: allocated_power
+                            
+                            	Allocated power for an entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -9261,6 +9413,7 @@ class Inventory(Entity):
                                     ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                                    ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                                 ])
                                 self.description = None
                                 self.vendor_type = None
@@ -9288,11 +9441,12 @@ class Inventory(Entity):
                                 self.ceport = None
                                 self.xr_scoped = None
                                 self.unique_id = None
+                                self.allocated_power = None
                                 self._segment_path = lambda: "basic-info"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.FanTrays.FanTray.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.FanTrays.FanTray.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 
@@ -9494,7 +9648,7 @@ class Inventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.PowerSupplyZones.PowerSupplyZone.PowerSupplyZoneAttributes.PowerSupplyGroupInfo, [u'power_group_redundancy_mode', u'power_group_power_units', u'power_group_available_current', u'power_group_drawn_current'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.PowerSupplyZones.PowerSupplyZone.PowerSupplyZoneAttributes.PowerSupplyGroupInfo, ['power_group_redundancy_mode', 'power_group_power_units', 'power_group_available_current', 'power_group_drawn_current'], name, value)
 
 
 
@@ -9738,7 +9892,7 @@ class Inventory(Entity):
                     
                     .. attribute:: redundancystate
                     
-                    	integer value for Redundancy State if applicable to this entity
+                    	integer value for Redundancy State if     applicable to this entity
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -9762,6 +9916,15 @@ class Inventory(Entity):
                     .. attribute:: unique_id
                     
                     	Unique id for an entity
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: allocated_power
+                    
+                    	Allocated power for an entity
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -9811,6 +9974,7 @@ class Inventory(Entity):
                             ('ceport', (YLeaf(YType.boolean, 'ceport'), ['bool'])),
                             ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                             ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
+                            ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
                         ])
                         self.description = None
                         self.vendor_type = None
@@ -9838,11 +10002,12 @@ class Inventory(Entity):
                         self.ceport = None
                         self.xr_scoped = None
                         self.unique_id = None
+                        self.allocated_power = None
                         self._segment_path = lambda: "basic-info"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Inventory.Racks.Rack.BasicAttributes.BasicInfo, [u'description', u'vendor_type', u'name', u'hardware_revision', u'firmware_revision', u'software_revision', u'chip_hardware_revision', u'serial_number', u'manufacturer_name', u'model_name', u'asset_id_str', u'asset_identification', u'is_field_replaceable_unit', u'manufacturer_asset_tags', u'composite_class_code', u'memory_size', u'environmental_monitor_path', u'alias', u'group_flag', u'new_deviation_number', u'physical_layer_interface_module_type', u'unrecognized_fru', u'redundancystate', u'ceport', u'xr_scoped', u'unique_id'], name, value)
+                        self._perform_setattr(Inventory.Racks.Rack.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
 
 
 

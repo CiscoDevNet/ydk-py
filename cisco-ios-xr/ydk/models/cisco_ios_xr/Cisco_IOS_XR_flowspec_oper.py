@@ -260,7 +260,7 @@ class FlowSpec(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FlowSpec.Clients.Client, ['client_type', 'client_id', u'client_state', u'client_flows'], name, value)
+                self._perform_setattr(FlowSpec.Clients.Client, ['client_type', 'client_id', 'client_state', 'client_flows'], name, value)
 
 
 
@@ -314,7 +314,7 @@ class FlowSpec(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FlowSpec.Summary, [u'vrfafi_tables', u'flows'], name, value)
+            self._perform_setattr(FlowSpec.Summary, ['vrfafi_tables', 'flows'], name, value)
 
 
 
@@ -575,7 +575,7 @@ class FlowSpec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, [u'total_flows', u'service_policies', u'local_install_enabled'], name, value)
+                            self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, ['total_flows', 'service_policies', 'local_install_enabled'], name, value)
 
 
 
@@ -767,7 +767,7 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, [u'packets', u'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
 
 
 
@@ -821,7 +821,7 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, [u'packets', u'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
 
 
 
@@ -1014,7 +1014,7 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, [u'packets', u'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
 
 
 
@@ -1068,7 +1068,7 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, [u'packets', u'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
 
 
 

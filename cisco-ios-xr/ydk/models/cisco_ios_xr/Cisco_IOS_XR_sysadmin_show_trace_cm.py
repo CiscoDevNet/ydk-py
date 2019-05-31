@@ -117,7 +117,7 @@ class Cm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cm.Trace, [u'buffer'], name, value)
+            self._perform_setattr(Cm.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -164,7 +164,7 @@ class Cm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cm.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(Cm.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -211,7 +211,7 @@ class Cm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cm.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(Cm.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -249,7 +249,7 @@ class Cm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cm.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(Cm.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -272,7 +272,7 @@ class Cm(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(Cm.Lsp, self).__init__()
@@ -319,7 +319,7 @@ class Cm(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(Cm.Lsp.LspdbLocations, self).__init__()
@@ -390,7 +390,7 @@ class Cm(Entity):
                 """
 
                 _prefix = 'cmh'
-                _revision = '2017-04-12'
+                _revision = '2018-07-03'
 
                 def __init__(self):
                     super(Cm.Lsp.LspdbLocations.Lspdbi, self).__init__()

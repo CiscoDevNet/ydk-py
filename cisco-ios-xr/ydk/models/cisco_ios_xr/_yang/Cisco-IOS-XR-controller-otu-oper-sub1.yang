@@ -784,6 +784,10 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
          integer format";
       leaf entry {
         type uint32;
+        description
+          "Shared Risk Link Group information expressed in
+           
+           integer format";
       }
     }
   }
@@ -813,6 +817,8 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         "tx String ";
       leaf entry {
         type uint8;
+        description
+          "tx String ";
       }
     }
     list dapi {
@@ -820,6 +826,8 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         "exp String ";
       leaf entry {
         type uint8;
+        description
+          "exp String ";
       }
     }
     list operator-specific {
@@ -827,6 +835,8 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         "rec String ";
       leaf entry {
         type uint8;
+        description
+          "rec String ";
       }
     }
   }

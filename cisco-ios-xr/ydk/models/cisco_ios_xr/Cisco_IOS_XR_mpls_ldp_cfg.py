@@ -339,7 +339,7 @@ class MplsLdp(Entity):
     """
 
     _prefix = 'mpls-ldp-cfg'
-    _revision = '2017-09-30'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(MplsLdp, self).__init__()
@@ -399,7 +399,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-09-30'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLdp.DefaultVrf, self).__init__()
@@ -446,7 +446,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Afs, self).__init__()
@@ -512,7 +512,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Afs.Af, self).__init__()
@@ -576,7 +576,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Label, self).__init__()
@@ -618,7 +618,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, self).__init__()
@@ -655,7 +655,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, self).__init__()
@@ -693,7 +693,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
@@ -731,7 +731,7 @@ class MplsLdp(Entity):
                                     	Label space ID of neighbor
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 0..0
                                     
                                     .. attribute:: prefix_acl_name
                                     
@@ -745,7 +745,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
@@ -804,7 +804,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Label.Local, self).__init__()
@@ -870,7 +870,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise, self).__init__()
@@ -923,7 +923,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
@@ -961,7 +961,7 @@ class MplsLdp(Entity):
                                     	Label space ID of neighbor
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 0..0
                                     
                                     .. attribute:: prefix_acl_name
                                     
@@ -975,7 +975,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
@@ -1018,7 +1018,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies, self).__init__()
@@ -1066,7 +1066,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, self).__init__()
@@ -1119,7 +1119,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
@@ -1161,7 +1161,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
@@ -1199,7 +1199,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
@@ -1244,7 +1244,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, self).__init__()
@@ -1298,7 +1298,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Discovery, self).__init__()
@@ -1344,7 +1344,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, self).__init__()
@@ -1384,7 +1384,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, self).__init__()
@@ -1427,7 +1427,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh, self).__init__()
@@ -1468,7 +1468,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds, self).__init__()
@@ -1505,7 +1505,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, self).__init__()
@@ -1540,12 +1540,17 @@ class MplsLdp(Entity):
                     	Configuration related to neighbors using neighbor address
                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses>`
                     
+                    .. attribute:: segment_routing_policies
+                    
+                    	Configuration related to SR policies
+                    	**type**\:  :py:class:`SegmentRoutingPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies>`
+                    
                     
 
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Neighbor, self).__init__()
@@ -1555,12 +1560,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("addresses", ("addresses", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses))])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses)), ("segment-routing-policies", ("segment_routing_policies", MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies))])
                         self._leafs = OrderedDict()
 
                         self.addresses = MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
+
+                        self.segment_routing_policies = MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies()
+                        self.segment_routing_policies.parent = self
+                        self._children_name_map["segment_routing_policies"] = "segment-routing-policies"
                         self._segment_path = lambda: "neighbor"
                         self._is_frozen = True
 
@@ -1583,7 +1592,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses, self).__init__()
@@ -1632,7 +1641,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, self).__init__()
@@ -1658,6 +1667,89 @@ class MplsLdp(Entity):
 
 
 
+                    class SegmentRoutingPolicies(Entity):
+                        """
+                        Configuration related to SR policies
+                        
+                        .. attribute:: segment_routing_policy
+                        
+                        	Name based configuration related to a SR policy
+                        	**type**\: list of  		 :py:class:`SegmentRoutingPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-ldp-cfg'
+                        _revision = '2018-06-15'
+
+                        def __init__(self):
+                            super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies, self).__init__()
+
+                            self.yang_name = "segment-routing-policies"
+                            self.yang_parent_name = "neighbor"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("segment-routing-policy", ("segment_routing_policy", MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy))])
+                            self._leafs = OrderedDict()
+
+                            self.segment_routing_policy = YList(self)
+                            self._segment_path = lambda: "segment-routing-policies"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies, [], name, value)
+
+
+                        class SegmentRoutingPolicy(Entity):
+                            """
+                            Name based configuration related to a SR
+                            policy
+                            
+                            .. attribute:: name  (key)
+                            
+                            	SR Policy Name
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: targeted
+                            
+                            	Establish targeted session with given address
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-ldp-cfg'
+                            _revision = '2018-06-15'
+
+                            def __init__(self):
+                                super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy, self).__init__()
+
+                                self.yang_name = "segment-routing-policy"
+                                self.yang_parent_name = "segment-routing-policies"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['name']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                    ('targeted', (YLeaf(YType.empty, 'targeted'), ['Empty'])),
+                                ])
+                                self.name = None
+                                self.targeted = None
+                                self._segment_path = lambda: "segment-routing-policy" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy, ['name', 'targeted'], name, value)
+
+
+
+
 
                 class RedistributionProtocol(Entity):
                     """
@@ -1674,7 +1766,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, self).__init__()
@@ -1717,7 +1809,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, self).__init__()
@@ -1768,7 +1860,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, self).__init__()
@@ -1813,7 +1905,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, self).__init__()
@@ -1873,7 +1965,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Global, self).__init__()
@@ -1927,7 +2019,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.Session, self).__init__()
@@ -1981,7 +2073,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Session.Protection, self).__init__()
@@ -2029,7 +2121,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, self).__init__()
@@ -2082,7 +2174,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.Neighbor, self).__init__()
@@ -2128,7 +2220,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds, self).__init__()
@@ -2167,7 +2259,7 @@ class MplsLdp(Entity):
                         	Label space ID of neighbor
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..0
                         
                         .. attribute:: password
                         
@@ -2179,7 +2271,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
@@ -2230,7 +2322,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
@@ -2276,7 +2368,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack, self).__init__()
@@ -2326,7 +2418,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
@@ -2368,7 +2460,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
@@ -2410,7 +2502,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.GracefulRestart, self).__init__()
@@ -2449,7 +2541,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, self).__init__()
@@ -2489,7 +2581,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Interfaces, self).__init__()
@@ -2543,7 +2635,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Interfaces.Interface, self).__init__()
@@ -2591,7 +2683,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs, self).__init__()
@@ -2646,7 +2738,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af, self).__init__()
@@ -2696,7 +2788,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
@@ -2747,7 +2839,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
@@ -2787,7 +2879,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, self).__init__()
@@ -2824,7 +2916,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, self).__init__()
@@ -2869,7 +2961,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Global, self).__init__()
@@ -2915,7 +3007,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery, self).__init__()
@@ -2979,7 +3071,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, self).__init__()
@@ -3021,7 +3113,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, self).__init__()
@@ -3058,7 +3150,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, self).__init__()
@@ -3095,7 +3187,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, self).__init__()
@@ -3141,7 +3233,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, self).__init__()
@@ -3187,7 +3279,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-09-30'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLdp.Vrfs, self).__init__()
@@ -3245,7 +3337,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Vrfs.Vrf, self).__init__()
@@ -3313,7 +3405,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Global, self).__init__()
@@ -3361,7 +3453,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.Session, self).__init__()
@@ -3404,7 +3496,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, self).__init__()
@@ -3456,7 +3548,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.Neighbor, self).__init__()
@@ -3500,7 +3592,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack, self).__init__()
@@ -3546,7 +3638,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
@@ -3587,7 +3679,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
@@ -3627,7 +3719,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds, self).__init__()
@@ -3665,7 +3757,7 @@ class MplsLdp(Entity):
                             	Label space ID of neighbor
                             	**type**\: int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..0
                             
                             .. attribute:: password
                             
@@ -3677,7 +3769,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
@@ -3727,7 +3819,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
@@ -3770,7 +3862,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, self).__init__()
@@ -3808,7 +3900,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, self).__init__()
@@ -3848,7 +3940,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Afs, self).__init__()
@@ -3898,7 +3990,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Afs.Af, self).__init__()
@@ -3952,7 +4044,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, self).__init__()
@@ -3994,7 +4086,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label, self).__init__()
@@ -4036,7 +4128,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, self).__init__()
@@ -4073,7 +4165,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, self).__init__()
@@ -4111,7 +4203,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
@@ -4142,7 +4234,7 @@ class MplsLdp(Entity):
                                         	Label space ID of neighbor
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..0
                                         
                                         .. attribute:: peer_accept_policy_data
                                         
@@ -4159,7 +4251,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-09-30'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
@@ -4203,7 +4295,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-09-30'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, self).__init__()
@@ -4249,7 +4341,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-09-30'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, self).__init__()
@@ -4307,7 +4399,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local, self).__init__()
@@ -4368,7 +4460,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise, self).__init__()
@@ -4417,7 +4509,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
@@ -4448,7 +4540,7 @@ class MplsLdp(Entity):
                                         	Label space ID of neighbor
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..0
                                         
                                         .. attribute:: peer_advertise_policy_data
                                         
@@ -4465,7 +4557,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-09-30'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
@@ -4509,7 +4601,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-09-30'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, self).__init__()
@@ -4555,7 +4647,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-09-30'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, self).__init__()
@@ -4597,7 +4689,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
@@ -4635,7 +4727,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-09-30'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
@@ -4684,7 +4776,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
@@ -4732,7 +4824,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, self).__init__()
@@ -4776,7 +4868,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Interfaces, self).__init__()
@@ -4824,7 +4916,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Interfaces.Interface, self).__init__()
@@ -4867,7 +4959,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs, self).__init__()
@@ -4912,7 +5004,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af, self).__init__()
@@ -4954,7 +5046,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
@@ -5005,7 +5097,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
@@ -5105,7 +5197,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-09-30'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(MplsLdp.Global, self).__init__()
@@ -5180,7 +5272,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.EntropyLabel, self).__init__()
@@ -5229,7 +5321,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Session, self).__init__()
@@ -5287,7 +5379,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Session.BackoffTime, self).__init__()
@@ -5328,7 +5420,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Igp, self).__init__()
@@ -5366,7 +5458,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Igp.Sync, self).__init__()
@@ -5417,7 +5509,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Global.Igp.Sync.Delay, self).__init__()
@@ -5479,7 +5571,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.EnableLogging, self).__init__()
@@ -5529,7 +5621,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Signalling, self).__init__()
@@ -5567,7 +5659,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Nsr, self).__init__()
@@ -5628,7 +5720,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.GracefulRestart, self).__init__()
@@ -5685,7 +5777,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Discovery, self).__init__()
@@ -5749,7 +5841,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Discovery.LinkHello, self).__init__()
@@ -5806,7 +5898,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Discovery.TargetedHello, self).__init__()
@@ -5862,7 +5954,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-09-30'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(MplsLdp.Global.Mldp, self).__init__()
@@ -5911,7 +6003,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.Vrfs, self).__init__()
@@ -5959,7 +6051,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.Vrfs.Vrf, self).__init__()
@@ -6002,7 +6094,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs, self).__init__()
@@ -6077,7 +6169,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af, self).__init__()
@@ -6148,7 +6240,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, self).__init__()
@@ -6194,7 +6286,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, self).__init__()
@@ -6233,7 +6325,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies, self).__init__()
@@ -6284,7 +6376,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
@@ -6333,7 +6425,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, self).__init__()
@@ -6379,7 +6471,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak, self).__init__()
@@ -6432,7 +6524,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-09-30'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
@@ -6472,7 +6564,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, self).__init__()
@@ -6513,7 +6605,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.DefaultVrf, self).__init__()
@@ -6551,7 +6643,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.DefaultVrf.Afs, self).__init__()
@@ -6627,7 +6719,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af, self).__init__()
@@ -6699,7 +6791,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, self).__init__()
@@ -6745,7 +6837,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, self).__init__()
@@ -6784,7 +6876,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies, self).__init__()
@@ -6835,7 +6927,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
@@ -6884,7 +6976,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, self).__init__()
@@ -6930,7 +7022,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak, self).__init__()
@@ -6983,7 +7075,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-09-30'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
@@ -7023,7 +7115,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-09-30'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, self).__init__()
@@ -7063,7 +7155,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-09-30'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.MldpGlobal, self).__init__()
@@ -7101,7 +7193,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.MldpGlobal.Logging, self).__init__()

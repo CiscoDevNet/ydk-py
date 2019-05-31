@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-08-23 {
     description
       "IPV4 MA schema file has all the latest changes.";
@@ -262,11 +266,6 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
     }
   }
 
-  grouping TIMEVAL-ENTRY {
-    description
-      "Creation or Update Time";
-  }
-
   grouping BGP-PA-DIR {
     description
       "BGP PA config for ingress/egress direction";
@@ -335,6 +334,8 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "Helper address";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Helper address";
       }
     }
   }
@@ -348,6 +349,8 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "Inbound ACLs";
       leaf entry {
         type Str;
+        description
+          "Inbound ACLs";
       }
     }
     list outbound {
@@ -356,6 +359,8 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "Outbound ACLs";
       leaf entry {
         type Str;
+        description
+          "Outbound ACLs";
       }
     }
     list common {
@@ -364,6 +369,8 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "Common ACLs";
       leaf entry {
         type Str;
+        description
+          "Common ACLs";
       }
     }
   }
@@ -452,31 +459,6 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "BGP PA config on the interface";
       uses BGP-PA-CONFIG;
     }
-    container pub-utime {
-      description
-        "Address Publish Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container idb-utime {
-      description
-        "IDB Create Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container caps-utime {
-      description
-        "CAPS Add Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container fwd-en-utime {
-      description
-        "FWD ENABLE Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container fwd-dis-utime {
-      description
-        "FWD DISABLE Time";
-      uses TIMEVAL-ENTRY;
-    }
     leaf primary-address {
       type inet:ipv4-address;
       description
@@ -547,7 +529,7 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
     leaf next-unnumbered-interface-name {
       type string;
       description
-        "Name of interface which is also unnum to
+        "Name of interface which is also unnum to        
          same interface where this intf is unnumbered";
     }
     leaf proxy-arp-disabled {
@@ -583,7 +565,7 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
     leaf state-recvd-frm-im {
       type Ipv4-ma-oper-line-state;
       description
-        "state as recieved
+        "state as recieved                               
          from IM";
     }
     leaf cflct-address {

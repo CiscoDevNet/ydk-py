@@ -174,13 +174,13 @@ class Fec(Enum):
 
     	Decision
 
-    .. data:: sd_everest = 9
+    .. data:: Y_15sd_fec_de = 9
 
-    	SD Everest
+    	15SDFecDe
 
-    .. data:: sd_denali = 10
+    .. data:: Y_15sd_fec = 10
 
-    	SD Denali
+    	15SDFec
 
     """
 
@@ -202,9 +202,9 @@ class Fec(Enum):
 
     high_gain_multivendor_hd = Enum.YLeaf(8, "high-gain-multivendor-hd")
 
-    sd_everest = Enum.YLeaf(9, "sd-everest")
+    Y_15sd_fec_de = Enum.YLeaf(9, "15sd-fec-de")
 
-    sd_denali = Enum.YLeaf(10, "sd-denali")
+    Y_15sd_fec = Enum.YLeaf(10, "15sd-fec")
 
 
 class Framing(Enum):

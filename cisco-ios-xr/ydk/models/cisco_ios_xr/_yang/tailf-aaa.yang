@@ -1,35 +1,36 @@
 module tailf-aaa {
   namespace "http://tail-f.com/ns/aaa/1.1";
   prefix aaa;
+
   import tailf-common {
     prefix tailf;
   }
-  organization "Tail-f Systems";
 
+  organization
+    "Tail-f Systems";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module defines the Tail-f AAA data model.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module defines the Tail-f AAA data model.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2011-09-22 {
     description
       "Released as part of ConfD-3.7.";
   }
-
 
   typedef history {
     type uint64 {
@@ -159,13 +160,14 @@ module tailf-aaa {
       type string;
     }
   }
+
   container aaa {
     container authentication {
       container users {
         list user {
           key "name";
-          ordered-by user;
           max-elements "1024";
+          ordered-by user;
           leaf name {
             type string;
           }
@@ -349,8 +351,8 @@ module tailf-aaa {
     }
   }
   container session {
-    uses session-params;
     presence "";
+    uses session-params;
   }
   list user {
     key "name";

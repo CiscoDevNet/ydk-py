@@ -60,6 +60,38 @@ module Cisco-IOS-XR-infra-xtc-oper {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Pceigp-protocol {
+    type enumeration {
+      enum "unknown" {
+        value 0;
+        description
+          "Unknown protocol";
+      }
+      enum "isis" {
+        value 1;
+        description
+          "ISIS protocol";
+      }
+      enum "ospf" {
+        value 2;
+        description
+          "OSPF protocol";
+      }
+      enum "bgp" {
+        value 4;
+        description
+          "BGP protocol";
+      }
+      enum "te" {
+        value 8;
+        description
+          "TE protocol";
+      }
+    }
+    description
+      "Pceigp protocol";
+  }
+
   typedef Pce-asso {
     type enumeration {
       enum "unknown" {
@@ -85,6 +117,23 @@ module Cisco-IOS-XR-infra-xtc-oper {
     }
     description
       "Pce asso";
+  }
+
+  typedef Pce-address-family {
+    type enumeration {
+      enum "ipv4" {
+        value 1;
+        description
+          "IPv4 address family";
+      }
+      enum "ipv6" {
+        value 2;
+        description
+          "IPv6 address family";
+      }
+    }
+    description
+      "Pce address family";
   }
 
   grouping PEER-TABLE {
@@ -177,16 +226,6 @@ module Cisco-IOS-XR-infra-xtc-oper {
     }
   }
 
-  grouping TOPOLOGY-SUMMARY {
-    description
-      "Common node of pce, pce-topology";
-    container topology-summary {
-      description
-        "Node summary database in XTC";
-      uses PCE-NODE-SUMMARY-BAG;
-    }
-  }
-
   grouping LSP-SUMMARY {
     description
       "Common node of pce, pce-lsp-data";
@@ -194,6 +233,31 @@ module Cisco-IOS-XR-infra-xtc-oper {
       description
         "LSP summary database in XTC";
       uses PCE-LSP-SUMMARY-BAG;
+    }
+  }
+
+  grouping TOPOLOGY-SUMMARY-TABLE {
+    description
+      "Common node of pce, pce-topology";
+    container topology-summaries {
+      description
+        "Node summary database in XTC";
+      list topology-summary {
+        description
+          "Node summary database in XTC";
+        leaf af {
+          type Pce-address-family;
+          description
+            "Only show data related to the specified
+             address family";
+        }
+        leaf protocol {
+          type Pceigp-protocol;
+          description
+            "Match nodes from the specified IGP protocol";
+        }
+        uses PCE-NODE-SUMMARY-BAG;
+      }
     }
   }
 
@@ -266,8 +330,8 @@ module Cisco-IOS-XR-infra-xtc-oper {
     config false;
     description
       "pce topology";
-    uses TOPOLOGY-SUMMARY;
     uses TOPOLOGY-NODE-TABLE;
+    uses TOPOLOGY-SUMMARY-TABLE;
     uses PREFIX-TABLE;
   }
   container pce {
@@ -385,6 +449,22 @@ module Cisco-IOS-XR-infra-xtc-oper {
         uses PCE-EVENT-INFO;
       }
     }
+    container peer-summaries {
+      description
+        "Detailed PCE peer information";
+      list peer-summary {
+        key "af";
+        description
+          "Summary PCE peer information";
+        leaf af {
+          type Pce-address-family;
+          description
+            "Only show data related to the specified
+             address family";
+        }
+        uses PCE-PEER-SUMMARY-BAG;
+      }
+    }
     container association-infos {
       description
         "Associaition database in XTC";
@@ -410,6 +490,33 @@ module Cisco-IOS-XR-infra-xtc-oper {
         uses PCE-ASSO-BAG;
       }
     }
+    container paths {
+      description
+        "This table models the path calculation
+         capabilities in XTC.A GET operation for the
+         complete table will return no entries.";
+      list path {
+        key "af source destination";
+        description
+          "A GET operation on this class returns the path.";
+        leaf af {
+          type uint32;
+          description
+            "Address Family";
+        }
+        leaf source {
+          type inet:ip-address-no-zone;
+          description
+            "Source of path";
+        }
+        leaf destination {
+          type inet:ip-address-no-zone;
+          description
+            "Destination of path";
+        }
+        uses PCE-PATH-BAG;
+      }
+    }
     container cspf {
       description
         "CSPF path info";
@@ -419,7 +526,6 @@ module Cisco-IOS-XR-infra-xtc-oper {
            capabilities in XTC.A GET operation for the
            complete table will return no entries.";
         list cspf-path {
-          key "af source1 destination1 metric-type source2 destination2 disjoint-level disjoint-strict shortest-path";
           description
             "A GET operation on this class returns the path
              .";
@@ -472,10 +578,10 @@ module Cisco-IOS-XR-infra-xtc-oper {
         }
       }
     }
-    uses TOPOLOGY-SUMMARY;
     uses TUNNEL-TABLE;
     uses PEER-DETAIL-TABLE;
     uses TOPOLOGY-NODE-TABLE;
+    uses TOPOLOGY-SUMMARY-TABLE;
     uses PREFIX-TABLE;
     uses LSP-SUMMARY;
     uses PEER-TABLE;

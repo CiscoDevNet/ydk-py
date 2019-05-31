@@ -1948,7 +1948,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         	entity ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
         	**type**\: str
         
-        	**length:** 23
+        	**length:** 23..23
         
         	**mandatory**\: True
         
@@ -1966,7 +1966,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         	peer ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
         	**type**\: str
         
-        	**length:** 23
+        	**length:** 23..23
         
         	**mandatory**\: True
         

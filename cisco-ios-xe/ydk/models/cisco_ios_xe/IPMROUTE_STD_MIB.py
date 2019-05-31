@@ -157,7 +157,7 @@ class IPMROUTESTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.IpMRoute, [u'ipmrouteenable', u'ipmrouteentrycount'], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRoute, ['ipmrouteenable', 'ipmrouteentrycount'], name, value)
 
         class IpMRouteEnable(Enum):
             """
@@ -640,7 +640,7 @@ class IPMROUTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry, [u'ipmroutegroup', u'ipmroutesource', u'ipmroutesourcemask', u'ipmrouteupstreamneighbor', u'ipmrouteinifindex', u'ipmrouteuptime', u'ipmrouteexpirytime', u'ipmroutepkts', u'ipmroutedifferentinifpackets', u'ipmrouteoctets', u'ipmrouteprotocol', u'ipmroutertproto', u'ipmroutertaddress', u'ipmroutertmask', u'ipmrouterttype', u'ipmroutehcoctets', 'ciscoipmroutepruneflag', 'ciscoipmroutesparseflag', 'ciscoipmrouteconnectedflag', 'ciscoipmroutelocalflag', 'ciscoipmrouteregisterflag', 'ciscoipmrouterpflag', 'ciscoipmroutesptflag', 'ciscoipmroutebps', 'ciscoipmroutemetric', 'ciscoipmroutemetricpreference', 'ciscoipmrouteinlimit', 'ciscoipmroutelastused', 'ciscoipmrouteinlimit2', 'ciscoipmroutejoinflag', 'ciscoipmroutemsdpflag', 'ciscoipmrouteproxyjoinflag', 'ciscoipmroutepkts', 'ciscoipmroutedifferentinifpkts', 'ciscoipmrouteoctets', 'ciscoipmroutebps2', 'ciscoipmroutemetric2'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'ipmrouteupstreamneighbor', 'ipmrouteinifindex', 'ipmrouteuptime', 'ipmrouteexpirytime', 'ipmroutepkts', 'ipmroutedifferentinifpackets', 'ipmrouteoctets', 'ipmrouteprotocol', 'ipmroutertproto', 'ipmroutertaddress', 'ipmroutertmask', 'ipmrouterttype', 'ipmroutehcoctets', 'ciscoipmroutepruneflag', 'ciscoipmroutesparseflag', 'ciscoipmrouteconnectedflag', 'ciscoipmroutelocalflag', 'ciscoipmrouteregisterflag', 'ciscoipmrouterpflag', 'ciscoipmroutesptflag', 'ciscoipmroutebps', 'ciscoipmroutemetric', 'ciscoipmroutemetricpreference', 'ciscoipmrouteinlimit', 'ciscoipmroutelastused', 'ciscoipmrouteinlimit2', 'ciscoipmroutejoinflag', 'ciscoipmroutemsdpflag', 'ciscoipmrouteproxyjoinflag', 'ciscoipmroutepkts', 'ciscoipmroutedifferentinifpkts', 'ciscoipmrouteoctets', 'ciscoipmroutebps2', 'ciscoipmroutemetric2'], name, value)
 
             class IpMRouteRtType(Enum):
                 """
@@ -899,7 +899,7 @@ class IPMROUTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry, [u'ipmroutenexthopgroup', u'ipmroutenexthopsource', u'ipmroutenexthopsourcemask', u'ipmroutenexthopifindex', u'ipmroutenexthopaddress', u'ipmroutenexthopstate', u'ipmroutenexthopuptime', u'ipmroutenexthopexpirytime', u'ipmroutenexthopclosestmemberhops', u'ipmroutenexthopprotocol', u'ipmroutenexthoppkts', 'ciscoipmroutenexthopoutlimit', 'ciscoipmroutenexthopmachdr', 'ciscoipmroutenexthoppkts'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'ipmroutenexthopstate', 'ipmroutenexthopuptime', 'ipmroutenexthopexpirytime', 'ipmroutenexthopclosestmemberhops', 'ipmroutenexthopprotocol', 'ipmroutenexthoppkts', 'ciscoipmroutenexthopoutlimit', 'ciscoipmroutenexthopmachdr', 'ciscoipmroutenexthoppkts'], name, value)
 
             class IpMRouteNextHopState(Enum):
                 """
@@ -1148,7 +1148,7 @@ class IPMROUTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry, [u'ipmrouteinterfaceifindex', u'ipmrouteinterfacettl', u'ipmrouteinterfaceprotocol', u'ipmrouteinterfaceratelimit', u'ipmrouteinterfaceinmcastoctets', u'ipmrouteinterfaceoutmcastoctets', u'ipmrouteinterfacehcinmcastoctets', u'ipmrouteinterfacehcoutmcastoctets', 'ciscoipmrouteifinmcastoctets', 'ciscoipmrouteifoutmcastoctets', 'ciscoipmrouteifinmcastpkts', 'ciscoipmrouteifhcinmcastpkts', 'ciscoipmrouteifoutmcastpkts', 'ciscoipmrouteifhcoutmcastpkts'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry, ['ipmrouteinterfaceifindex', 'ipmrouteinterfacettl', 'ipmrouteinterfaceprotocol', 'ipmrouteinterfaceratelimit', 'ipmrouteinterfaceinmcastoctets', 'ipmrouteinterfaceoutmcastoctets', 'ipmrouteinterfacehcinmcastoctets', 'ipmrouteinterfacehcoutmcastoctets', 'ciscoipmrouteifinmcastoctets', 'ciscoipmrouteifoutmcastoctets', 'ciscoipmrouteifinmcastpkts', 'ciscoipmrouteifhcinmcastpkts', 'ciscoipmrouteifoutmcastpkts', 'ciscoipmrouteifhcoutmcastpkts'], name, value)
 
 
 
@@ -1262,7 +1262,7 @@ class IPMROUTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry, [u'ipmrouteboundaryifindex', u'ipmrouteboundaryaddress', u'ipmrouteboundaryaddressmask', u'ipmrouteboundarystatus'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry, ['ipmrouteboundaryifindex', 'ipmrouteboundaryaddress', 'ipmrouteboundaryaddressmask', 'ipmrouteboundarystatus'], name, value)
 
 
 
@@ -1391,7 +1391,7 @@ class IPMROUTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry, [u'ipmroutescopenameaddress', u'ipmroutescopenameaddressmask', u'ipmroutescopenamelanguage', u'ipmroutescopenamestring', u'ipmroutescopenamedefault', u'ipmroutescopenamestatus'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry, ['ipmroutescopenameaddress', 'ipmroutescopenameaddressmask', 'ipmroutescopenamelanguage', 'ipmroutescopenamestring', 'ipmroutescopenamedefault', 'ipmroutescopenamestatus'], name, value)
 
 
 

@@ -116,6 +116,15 @@ module Cisco-IOS-XR-parser-cfg {
         }
       }
     }
+    container logging-suppress {
+      description
+        "logging suppress deprecated";
+      leaf deprecated {
+        type boolean;
+        description
+          "deprecating the logging suppress";
+      }
+    }
     container history {
       description
         "cli commands history";

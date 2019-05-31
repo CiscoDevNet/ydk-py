@@ -322,7 +322,7 @@ class ENTITYMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.EntityGeneral, [u'entlastchangetime'], name, value)
+            self._perform_setattr(ENTITYMIB.EntityGeneral, ['entlastchangetime'], name, value)
 
 
 
@@ -586,7 +586,7 @@ class ENTITYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, [u'entphysicalindex', u'entphysicaldescr', u'entphysicalvendortype', u'entphysicalcontainedin', u'entphysicalclass', u'entphysicalparentrelpos', u'entphysicalname', u'entphysicalhardwarerev', u'entphysicalfirmwarerev', u'entphysicalsoftwarerev', u'entphysicalserialnum', u'entphysicalmfgname', u'entphysicalmodelname', u'entphysicalalias', u'entphysicalassetid', u'entphysicalisfru', u'entphysicalmfgdate', u'entphysicaluris', 'ceentphysicalsecondserialnum'], name, value)
+                self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, ['entphysicalindex', 'entphysicaldescr', 'entphysicalvendortype', 'entphysicalcontainedin', 'entphysicalclass', 'entphysicalparentrelpos', 'entphysicalname', 'entphysicalhardwarerev', 'entphysicalfirmwarerev', 'entphysicalsoftwarerev', 'entphysicalserialnum', 'entphysicalmfgname', 'entphysicalmodelname', 'entphysicalalias', 'entphysicalassetid', 'entphysicalisfru', 'entphysicalmfgdate', 'entphysicaluris', 'ceentphysicalsecondserialnum'], name, value)
 
 
 
@@ -748,7 +748,7 @@ class ENTITYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, [u'entlogicalindex', u'entlogicaldescr', u'entlogicaltype', u'entlogicalcommunity', u'entlogicaltaddress', u'entlogicaltdomain', u'entlogicalcontextengineid', u'entlogicalcontextname'], name, value)
+                self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, ['entlogicalindex', 'entlogicaldescr', 'entlogicaltype', 'entlogicalcommunity', 'entlogicaltaddress', 'entlogicaltdomain', 'entlogicalcontextengineid', 'entlogicalcontextname'], name, value)
 
 
 
@@ -876,7 +876,7 @@ class ENTITYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, [u'entlogicalindex', u'entlpphysicalindex'], name, value)
+                self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, ['entlogicalindex', 'entlpphysicalindex'], name, value)
 
 
 
@@ -999,7 +999,7 @@ class ENTITYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, [u'entphysicalindex', u'entaliaslogicalindexorzero', u'entaliasmappingidentifier'], name, value)
+                self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, ['entphysicalindex', 'entaliaslogicalindexorzero', 'entaliasmappingidentifier'], name, value)
 
 
 
@@ -1103,7 +1103,7 @@ class ENTITYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, [u'entphysicalindex', u'entphysicalchildindex'], name, value)
+                self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, ['entphysicalindex', 'entphysicalchildindex'], name, value)
 
 
 

@@ -48,22 +48,6 @@ class NetconfDatastoreType(Enum):
 
 
 
-class SchemaFormat(Identity):
-    """
-    Base identity for data model schema languages.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:schema-format"):
-        super(SchemaFormat, self).__init__(ns, pref, tag)
-
-
-
 class Transport(Identity):
     """
     Base identity for NETCONF transport types.
@@ -77,6 +61,22 @@ class Transport(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:transport"):
         super(Transport, self).__init__(ns, pref, tag)
+
+
+
+class SchemaFormat(Identity):
+    """
+    Base identity for data model schema languages.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:schema-format"):
+        super(SchemaFormat, self).__init__(ns, pref, tag)
 
 
 
@@ -1109,22 +1109,6 @@ class NetconfState(Entity):
 
 
 
-class NetconfBeep(Transport):
-    """
-    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-beep"):
-        super(NetconfBeep, self).__init__(ns, pref, tag)
-
-
-
 class NetconfSsh(Transport):
     """
     NETCONF over Secure Shell (SSH).
@@ -1141,9 +1125,10 @@ class NetconfSsh(Transport):
 
 
 
-class Rnc(SchemaFormat):
+class NetconfSoapOverBeep(Transport):
     """
-    Relax NG Compact Syntax
+    NETCONF over Simple Object Access Protocol (SOAP) over
+    Blocks Extensible Exchange Protocol (BEEP).
     
     
 
@@ -1152,8 +1137,89 @@ class Rnc(SchemaFormat):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:rnc"):
-        super(Rnc, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-beep"):
+        super(NetconfSoapOverBeep, self).__init__(ns, pref, tag)
+
+
+
+class NetconfSoapOverHttps(Transport):
+    """
+    NETCONF over Simple Object Access Protocol (SOAP)
+    over Hypertext Transfer Protocol Secure (HTTPS).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-https"):
+        super(NetconfSoapOverHttps, self).__init__(ns, pref, tag)
+
+
+
+class NetconfBeep(Transport):
+    """
+    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-beep"):
+        super(NetconfBeep, self).__init__(ns, pref, tag)
+
+
+
+class NetconfTls(Transport):
+    """
+    NETCONF over Transport Layer Security (TLS).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-tls"):
+        super(NetconfTls, self).__init__(ns, pref, tag)
+
+
+
+class Xsd(SchemaFormat):
+    """
+    W3C XML Schema Definition.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:xsd"):
+        super(Xsd, self).__init__(ns, pref, tag)
+
+
+
+class Yang(SchemaFormat):
+    """
+    The YANG data modeling language for NETCONF.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:yang"):
+        super(Yang, self).__init__(ns, pref, tag)
 
 
 
@@ -1189,9 +1255,9 @@ class Rng(SchemaFormat):
 
 
 
-class Xsd(SchemaFormat):
+class Rnc(SchemaFormat):
     """
-    W3C XML Schema Definition.
+    Relax NG Compact Syntax
     
     
 
@@ -1200,74 +1266,8 @@ class Xsd(SchemaFormat):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:xsd"):
-        super(Xsd, self).__init__(ns, pref, tag)
-
-
-
-class NetconfSoapOverBeep(Transport):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP) over
-    Blocks Extensible Exchange Protocol (BEEP).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-beep"):
-        super(NetconfSoapOverBeep, self).__init__(ns, pref, tag)
-
-
-
-class NetconfTls(Transport):
-    """
-    NETCONF over Transport Layer Security (TLS).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-tls"):
-        super(NetconfTls, self).__init__(ns, pref, tag)
-
-
-
-class Yang(SchemaFormat):
-    """
-    The YANG data modeling language for NETCONF.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:yang"):
-        super(Yang, self).__init__(ns, pref, tag)
-
-
-
-class NetconfSoapOverHttps(Transport):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP)
-    over Hypertext Transfer Protocol Secure (HTTPS).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-https"):
-        super(NetconfSoapOverHttps, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:rnc"):
+        super(Rnc, self).__init__(ns, pref, tag)
 
 
 

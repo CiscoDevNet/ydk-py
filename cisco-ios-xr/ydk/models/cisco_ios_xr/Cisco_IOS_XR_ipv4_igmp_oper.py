@@ -635,7 +635,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                     class Interface(Entity):
@@ -751,7 +751,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -1365,7 +1365,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -1425,7 +1425,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1486,7 +1486,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1547,7 +1547,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1699,7 +1699,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -1887,7 +1887,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -1947,7 +1947,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2008,7 +2008,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2069,7 +2069,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2193,7 +2193,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -2253,7 +2253,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2367,7 +2367,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                         class GroupAddress(Entity):
@@ -2427,7 +2427,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2488,7 +2488,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2616,7 +2616,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -2676,7 +2676,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2832,7 +2832,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -3020,7 +3020,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -3080,7 +3080,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3141,7 +3141,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3202,7 +3202,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3299,7 +3299,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                             class Address(Entity):
@@ -3359,7 +3359,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3420,7 +3420,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4036,7 +4036,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -4096,7 +4096,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4157,7 +4157,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4218,7 +4218,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4351,7 +4351,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                         class Update(Entity):
@@ -4433,7 +4433,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -4493,7 +4493,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4554,7 +4554,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4692,7 +4692,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -4752,7 +4752,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4854,7 +4854,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                         class IgmpInterfaceEntry(Entity):
@@ -5418,7 +5418,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                             class Address(Entity):
@@ -5478,7 +5478,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -5539,7 +5539,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -5600,7 +5600,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6018,7 +6018,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -6272,7 +6272,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -6332,7 +6332,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6393,7 +6393,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6454,7 +6454,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -6528,7 +6528,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -6580,7 +6580,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                        self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -7193,7 +7193,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -7253,7 +7253,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -7314,7 +7314,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -7375,7 +7375,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -7534,7 +7534,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                         class MapInfo(Entity):
@@ -7596,7 +7596,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -7656,7 +7656,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -7718,7 +7718,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8333,7 +8333,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -8393,7 +8393,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8454,7 +8454,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8515,7 +8515,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -8793,7 +8793,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.Process.AmtSummary, [u'anycast_prefix', u'prefix_length', u'relay_address', u'mtu', u'tos', u'ttl', u'query_interval', u'gateway_count', u'max_gateway', u'tunnel_count', u'tunnel_configured_maximum', u'is_acl_configured', u'is_gateway_simulation', u'is_ou_of_resource'], name, value)
+                    self._perform_setattr(Mld.Standby.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
 
 
@@ -8961,7 +8961,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.Process.Nsr, [u'state', u'partner_proc_connected', u'collab_conv_done', u'rmf_notification_done', u'last_proc', u'last_proc_connection_up', u'last_proc_connection_dn', u'last_rmf_ready', u'last_rmf_not_ready', u'count_proc_connection_up', u'count_proc_connection_dn', u'count_rmf_ready', u'count_rmf_not_ready'], name, value)
+                    self._perform_setattr(Mld.Standby.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
 
 
@@ -9147,7 +9147,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', u'amtgw', u'amt_port', u'key_len', u'amtnh', u'amt_nonce', u'idb', u'mem_upd_in', u'mem_upd_out'], name, value)
+                        self._perform_setattr(Mld.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
 
 
@@ -9351,7 +9351,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.Process.UnicastQosAdjustStats, [u'queues', u'batches', u'add_to_batches', u'delete_to_batches', u'send_success', u'send_errors', u'send_comm_errors', u'send_partial_errors', u'received_resync_requests', u'sent_resync_bulks', u'is_resync_received', u'is_resync_required', u'is_resync_start_sent', u'is_qos_s_sweeped', u'last_sweep_time', u'last_download_time'], name, value)
+                    self._perform_setattr(Mld.Standby.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
 
 
@@ -9767,7 +9767,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.Process.BviStatistics, [u'receive_buffers', u'release_buffers', u'send_blocks', u'release_fail_buffers', u'null_buffer_handles', u'rx_ipc_open_notif', u'rx_ipc_close_notif', u'rx_ipc_error_notif', u'rx_ipc_lwm_notif', u'rx_ipc_input_wait_notif', u'rx_ipc_send_status_notif', u'rx_ipc_publish_notif', u'rx_ipc_q_full_notif', u'rx_ipc_output_notif', u'rx_ipc_connect_notif', u'rx_igmp_packet_success', u'rx_add_mrouter_msg', u'rx_delete_mrouter_msg', u'rx_sweep_mrouter_msg', u'tx_add_mrouter_msg', u'tx_delete_mrouter_msg', u'tx_sweep_mrouter_msg', u'rx_unknown_mrouter_msg', u'tx_unknown_mrouter_msg', u'tx_buffer_errors', u'tx_buffers', u'tx_protocol_buffers', u'tx_mrouter_buffers', u'tx_unknown_buffers', u'wtx_msg_recvd', u'wtx_msg_sent', u'wtx_msg_proto_sent', u'wtx_msg_drop_dc', u'wtx_msg_drop_nomem', u'wtx_msg_freed'], name, value)
+                    self._perform_setattr(Mld.Standby.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
 
 
@@ -9916,7 +9916,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.Process.Nsf, [u'is_multicast_nsf_active', u'multicast_nsf_timeout', u'multicast_nsf_time_left', u'respawn_count', u'last_nsf_on', u'last_nsf_off', u'last_nsf_on_min', u'last_nsf_off_min', u'last_icd_notif_recv', u'last_icd_notif_recv_min'], name, value)
+                    self._perform_setattr(Mld.Standby.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
 
 
@@ -10279,7 +10279,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.DefaultContext.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                    self._perform_setattr(Mld.Standby.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                 class Interface(Entity):
@@ -10396,7 +10396,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -11012,7 +11012,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -11072,7 +11072,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11133,7 +11133,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11194,7 +11194,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11348,7 +11348,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -11537,7 +11537,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -11598,7 +11598,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11660,7 +11660,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11722,7 +11722,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -11847,7 +11847,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -11908,7 +11908,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12024,7 +12024,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                     class GroupAddress(Entity):
@@ -12085,7 +12085,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12147,7 +12147,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12277,7 +12277,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -12338,7 +12338,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12496,7 +12496,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -12685,7 +12685,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -12746,7 +12746,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12808,7 +12808,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12870,7 +12870,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -12968,7 +12968,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                         class Address(Entity):
@@ -13029,7 +13029,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -13091,7 +13091,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -13709,7 +13709,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -13769,7 +13769,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -13830,7 +13830,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -13891,7 +13891,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -14026,7 +14026,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                     class Update(Entity):
@@ -14108,7 +14108,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -14168,7 +14168,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -14229,7 +14229,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -14369,7 +14369,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -14430,7 +14430,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -14534,7 +14534,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                     class IgmpInterfaceEntry(Entity):
@@ -15098,7 +15098,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -15158,7 +15158,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -15219,7 +15219,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -15280,7 +15280,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -15699,7 +15699,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.DefaultContext.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                    self._perform_setattr(Mld.Standby.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -15955,7 +15955,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -16016,7 +16016,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -16078,7 +16078,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -16140,7 +16140,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -16215,7 +16215,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.DefaultContext.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                    self._perform_setattr(Mld.Standby.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -16268,7 +16268,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                    self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -16883,7 +16883,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -16943,7 +16943,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -17004,7 +17004,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -17065,7 +17065,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -17226,7 +17226,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                     class MapInfo(Entity):
@@ -17289,7 +17289,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -17350,7 +17350,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -17413,7 +17413,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -18030,7 +18030,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -18090,7 +18090,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -18151,7 +18151,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -18212,7 +18212,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -18689,7 +18689,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                        self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                     class Interface(Entity):
@@ -18805,7 +18805,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -19419,7 +19419,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -19479,7 +19479,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -19540,7 +19540,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -19601,7 +19601,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -19753,7 +19753,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -19941,7 +19941,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -20001,7 +20001,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20062,7 +20062,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20123,7 +20123,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20247,7 +20247,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -20307,7 +20307,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20421,7 +20421,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                         class GroupAddress(Entity):
@@ -20481,7 +20481,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20542,7 +20542,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20670,7 +20670,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -20730,7 +20730,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -20886,7 +20886,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -21074,7 +21074,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -21134,7 +21134,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -21195,7 +21195,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -21256,7 +21256,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -21353,7 +21353,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                             class Address(Entity):
@@ -21413,7 +21413,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -21474,7 +21474,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22090,7 +22090,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -22150,7 +22150,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22211,7 +22211,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22272,7 +22272,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22405,7 +22405,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                         class Update(Entity):
@@ -22487,7 +22487,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -22547,7 +22547,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22608,7 +22608,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22746,7 +22746,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -22806,7 +22806,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -22908,7 +22908,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                         class IgmpInterfaceEntry(Entity):
@@ -23472,7 +23472,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                             class Address(Entity):
@@ -23532,7 +23532,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -23593,7 +23593,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -23654,7 +23654,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -24072,7 +24072,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.Vrfs.Vrf.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                        self._perform_setattr(Mld.Active.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -24326,7 +24326,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -24386,7 +24386,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -24447,7 +24447,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -24508,7 +24508,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -24582,7 +24582,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.Vrfs.Vrf.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                        self._perform_setattr(Mld.Active.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -24634,7 +24634,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                        self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -25247,7 +25247,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -25307,7 +25307,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -25368,7 +25368,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -25429,7 +25429,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -25588,7 +25588,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                         class MapInfo(Entity):
@@ -25650,7 +25650,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -25710,7 +25710,7 @@ class Mld(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -25772,7 +25772,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -26387,7 +26387,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -26447,7 +26447,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -26508,7 +26508,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -26569,7 +26569,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -26847,7 +26847,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.Process.AmtSummary, [u'anycast_prefix', u'prefix_length', u'relay_address', u'mtu', u'tos', u'ttl', u'query_interval', u'gateway_count', u'max_gateway', u'tunnel_count', u'tunnel_configured_maximum', u'is_acl_configured', u'is_gateway_simulation', u'is_ou_of_resource'], name, value)
+                    self._perform_setattr(Mld.Active.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
 
 
@@ -27015,7 +27015,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.Process.Nsr, [u'state', u'partner_proc_connected', u'collab_conv_done', u'rmf_notification_done', u'last_proc', u'last_proc_connection_up', u'last_proc_connection_dn', u'last_rmf_ready', u'last_rmf_not_ready', u'count_proc_connection_up', u'count_proc_connection_dn', u'count_rmf_ready', u'count_rmf_not_ready'], name, value)
+                    self._perform_setattr(Mld.Active.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
 
 
@@ -27201,7 +27201,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', u'amtgw', u'amt_port', u'key_len', u'amtnh', u'amt_nonce', u'idb', u'mem_upd_in', u'mem_upd_out'], name, value)
+                        self._perform_setattr(Mld.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
 
 
@@ -27405,7 +27405,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.Process.UnicastQosAdjustStats, [u'queues', u'batches', u'add_to_batches', u'delete_to_batches', u'send_success', u'send_errors', u'send_comm_errors', u'send_partial_errors', u'received_resync_requests', u'sent_resync_bulks', u'is_resync_received', u'is_resync_required', u'is_resync_start_sent', u'is_qos_s_sweeped', u'last_sweep_time', u'last_download_time'], name, value)
+                    self._perform_setattr(Mld.Active.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
 
 
@@ -27821,7 +27821,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.Process.BviStatistics, [u'receive_buffers', u'release_buffers', u'send_blocks', u'release_fail_buffers', u'null_buffer_handles', u'rx_ipc_open_notif', u'rx_ipc_close_notif', u'rx_ipc_error_notif', u'rx_ipc_lwm_notif', u'rx_ipc_input_wait_notif', u'rx_ipc_send_status_notif', u'rx_ipc_publish_notif', u'rx_ipc_q_full_notif', u'rx_ipc_output_notif', u'rx_ipc_connect_notif', u'rx_igmp_packet_success', u'rx_add_mrouter_msg', u'rx_delete_mrouter_msg', u'rx_sweep_mrouter_msg', u'tx_add_mrouter_msg', u'tx_delete_mrouter_msg', u'tx_sweep_mrouter_msg', u'rx_unknown_mrouter_msg', u'tx_unknown_mrouter_msg', u'tx_buffer_errors', u'tx_buffers', u'tx_protocol_buffers', u'tx_mrouter_buffers', u'tx_unknown_buffers', u'wtx_msg_recvd', u'wtx_msg_sent', u'wtx_msg_proto_sent', u'wtx_msg_drop_dc', u'wtx_msg_drop_nomem', u'wtx_msg_freed'], name, value)
+                    self._perform_setattr(Mld.Active.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
 
 
@@ -27970,7 +27970,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.Process.Nsf, [u'is_multicast_nsf_active', u'multicast_nsf_timeout', u'multicast_nsf_time_left', u'respawn_count', u'last_nsf_on', u'last_nsf_off', u'last_nsf_on_min', u'last_nsf_off_min', u'last_icd_notif_recv', u'last_icd_notif_recv_min'], name, value)
+                    self._perform_setattr(Mld.Active.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
 
 
@@ -28333,7 +28333,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.DefaultContext.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                    self._perform_setattr(Mld.Active.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                 class Interface(Entity):
@@ -28450,7 +28450,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -29066,7 +29066,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -29126,7 +29126,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29187,7 +29187,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29248,7 +29248,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29402,7 +29402,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -29591,7 +29591,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -29652,7 +29652,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29714,7 +29714,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29776,7 +29776,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -29901,7 +29901,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -29962,7 +29962,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30078,7 +30078,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                     class GroupAddress(Entity):
@@ -30139,7 +30139,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30201,7 +30201,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30331,7 +30331,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -30392,7 +30392,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30550,7 +30550,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -30739,7 +30739,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -30800,7 +30800,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30862,7 +30862,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -30924,7 +30924,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -31022,7 +31022,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                         class Address(Entity):
@@ -31083,7 +31083,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -31145,7 +31145,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -31763,7 +31763,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -31823,7 +31823,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -31884,7 +31884,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -31945,7 +31945,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -32080,7 +32080,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                     class Update(Entity):
@@ -32162,7 +32162,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -32222,7 +32222,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -32283,7 +32283,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -32423,7 +32423,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -32484,7 +32484,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -32588,7 +32588,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                     class IgmpInterfaceEntry(Entity):
@@ -33152,7 +33152,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -33212,7 +33212,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -33273,7 +33273,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -33334,7 +33334,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -33753,7 +33753,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.DefaultContext.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                    self._perform_setattr(Mld.Active.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -34009,7 +34009,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -34070,7 +34070,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -34132,7 +34132,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -34194,7 +34194,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -34269,7 +34269,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.DefaultContext.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                    self._perform_setattr(Mld.Active.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -34322,7 +34322,7 @@ class Mld(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                    self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -34937,7 +34937,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -34997,7 +34997,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -35058,7 +35058,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -35119,7 +35119,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -35280,7 +35280,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                     class MapInfo(Entity):
@@ -35343,7 +35343,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -35404,7 +35404,7 @@ class Mld(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -35467,7 +35467,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -36084,7 +36084,7 @@ class Mld(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -36144,7 +36144,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -36205,7 +36205,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -36266,7 +36266,7 @@ class Mld(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -36799,7 +36799,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                     class Interface(Entity):
@@ -36915,7 +36915,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -37529,7 +37529,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -37589,7 +37589,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -37650,7 +37650,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -37711,7 +37711,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -37863,7 +37863,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -38051,7 +38051,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -38111,7 +38111,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38172,7 +38172,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38233,7 +38233,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38357,7 +38357,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -38417,7 +38417,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38531,7 +38531,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                         class GroupAddress(Entity):
@@ -38591,7 +38591,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38652,7 +38652,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38780,7 +38780,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -38840,7 +38840,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -38996,7 +38996,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -39184,7 +39184,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -39244,7 +39244,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -39305,7 +39305,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -39366,7 +39366,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -39463,7 +39463,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                             class Address(Entity):
@@ -39523,7 +39523,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -39584,7 +39584,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40200,7 +40200,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -40260,7 +40260,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40321,7 +40321,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40382,7 +40382,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40515,7 +40515,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                         class Update(Entity):
@@ -40597,7 +40597,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -40657,7 +40657,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40718,7 +40718,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -40856,7 +40856,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -40916,7 +40916,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -41018,7 +41018,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                         class IgmpInterfaceEntry(Entity):
@@ -41582,7 +41582,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                             class Address(Entity):
@@ -41642,7 +41642,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -41703,7 +41703,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -41764,7 +41764,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -42182,7 +42182,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -42436,7 +42436,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -42496,7 +42496,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -42557,7 +42557,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -42618,7 +42618,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -42692,7 +42692,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -42744,7 +42744,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -43357,7 +43357,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -43417,7 +43417,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -43478,7 +43478,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -43539,7 +43539,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -43698,7 +43698,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                         class MapInfo(Entity):
@@ -43760,7 +43760,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -43820,7 +43820,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -43882,7 +43882,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -44497,7 +44497,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -44557,7 +44557,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -44618,7 +44618,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -44679,7 +44679,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -44957,7 +44957,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.Process.AmtSummary, [u'anycast_prefix', u'prefix_length', u'relay_address', u'mtu', u'tos', u'ttl', u'query_interval', u'gateway_count', u'max_gateway', u'tunnel_count', u'tunnel_configured_maximum', u'is_acl_configured', u'is_gateway_simulation', u'is_ou_of_resource'], name, value)
+                    self._perform_setattr(Igmp.Standby.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
 
 
@@ -45125,7 +45125,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.Process.Nsr, [u'state', u'partner_proc_connected', u'collab_conv_done', u'rmf_notification_done', u'last_proc', u'last_proc_connection_up', u'last_proc_connection_dn', u'last_rmf_ready', u'last_rmf_not_ready', u'count_proc_connection_up', u'count_proc_connection_dn', u'count_rmf_ready', u'count_rmf_not_ready'], name, value)
+                    self._perform_setattr(Igmp.Standby.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
 
 
@@ -45311,7 +45311,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', u'amtgw', u'amt_port', u'key_len', u'amtnh', u'amt_nonce', u'idb', u'mem_upd_in', u'mem_upd_out'], name, value)
+                        self._perform_setattr(Igmp.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
 
 
@@ -45515,7 +45515,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.Process.UnicastQosAdjustStats, [u'queues', u'batches', u'add_to_batches', u'delete_to_batches', u'send_success', u'send_errors', u'send_comm_errors', u'send_partial_errors', u'received_resync_requests', u'sent_resync_bulks', u'is_resync_received', u'is_resync_required', u'is_resync_start_sent', u'is_qos_s_sweeped', u'last_sweep_time', u'last_download_time'], name, value)
+                    self._perform_setattr(Igmp.Standby.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
 
 
@@ -45931,7 +45931,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.Process.BviStatistics, [u'receive_buffers', u'release_buffers', u'send_blocks', u'release_fail_buffers', u'null_buffer_handles', u'rx_ipc_open_notif', u'rx_ipc_close_notif', u'rx_ipc_error_notif', u'rx_ipc_lwm_notif', u'rx_ipc_input_wait_notif', u'rx_ipc_send_status_notif', u'rx_ipc_publish_notif', u'rx_ipc_q_full_notif', u'rx_ipc_output_notif', u'rx_ipc_connect_notif', u'rx_igmp_packet_success', u'rx_add_mrouter_msg', u'rx_delete_mrouter_msg', u'rx_sweep_mrouter_msg', u'tx_add_mrouter_msg', u'tx_delete_mrouter_msg', u'tx_sweep_mrouter_msg', u'rx_unknown_mrouter_msg', u'tx_unknown_mrouter_msg', u'tx_buffer_errors', u'tx_buffers', u'tx_protocol_buffers', u'tx_mrouter_buffers', u'tx_unknown_buffers', u'wtx_msg_recvd', u'wtx_msg_sent', u'wtx_msg_proto_sent', u'wtx_msg_drop_dc', u'wtx_msg_drop_nomem', u'wtx_msg_freed'], name, value)
+                    self._perform_setattr(Igmp.Standby.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
 
 
@@ -46080,7 +46080,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.Process.Nsf, [u'is_multicast_nsf_active', u'multicast_nsf_timeout', u'multicast_nsf_time_left', u'respawn_count', u'last_nsf_on', u'last_nsf_off', u'last_nsf_on_min', u'last_nsf_off_min', u'last_icd_notif_recv', u'last_icd_notif_recv_min'], name, value)
+                    self._perform_setattr(Igmp.Standby.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
 
 
@@ -46443,7 +46443,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.DefaultContext.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                    self._perform_setattr(Igmp.Standby.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                 class Interface(Entity):
@@ -46560,7 +46560,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -47176,7 +47176,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -47236,7 +47236,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -47297,7 +47297,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -47358,7 +47358,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -47512,7 +47512,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -47701,7 +47701,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -47762,7 +47762,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -47824,7 +47824,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -47886,7 +47886,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48011,7 +48011,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -48072,7 +48072,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48188,7 +48188,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                     class GroupAddress(Entity):
@@ -48249,7 +48249,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48311,7 +48311,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48441,7 +48441,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -48502,7 +48502,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48660,7 +48660,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -48849,7 +48849,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -48910,7 +48910,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -48972,7 +48972,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -49034,7 +49034,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -49132,7 +49132,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                         class Address(Entity):
@@ -49193,7 +49193,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -49255,7 +49255,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -49873,7 +49873,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -49933,7 +49933,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -49994,7 +49994,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -50055,7 +50055,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -50190,7 +50190,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                     class Update(Entity):
@@ -50272,7 +50272,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -50332,7 +50332,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -50393,7 +50393,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -50533,7 +50533,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -50594,7 +50594,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -50698,7 +50698,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                     class IgmpInterfaceEntry(Entity):
@@ -51262,7 +51262,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -51322,7 +51322,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -51383,7 +51383,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -51444,7 +51444,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -51863,7 +51863,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.DefaultContext.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                    self._perform_setattr(Igmp.Standby.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -52119,7 +52119,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -52180,7 +52180,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -52242,7 +52242,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -52304,7 +52304,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -52379,7 +52379,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.DefaultContext.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                    self._perform_setattr(Igmp.Standby.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -52432,7 +52432,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                    self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -53047,7 +53047,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -53107,7 +53107,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -53168,7 +53168,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -53229,7 +53229,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -53390,7 +53390,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                     class MapInfo(Entity):
@@ -53453,7 +53453,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -53514,7 +53514,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -53577,7 +53577,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -54194,7 +54194,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -54254,7 +54254,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -54315,7 +54315,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -54376,7 +54376,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -54853,7 +54853,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                     class Interface(Entity):
@@ -54969,7 +54969,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -55583,7 +55583,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -55643,7 +55643,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -55704,7 +55704,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -55765,7 +55765,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -55917,7 +55917,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -56105,7 +56105,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -56165,7 +56165,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56226,7 +56226,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56287,7 +56287,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56411,7 +56411,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -56471,7 +56471,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56585,7 +56585,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                         class GroupAddress(Entity):
@@ -56645,7 +56645,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56706,7 +56706,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -56834,7 +56834,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -56894,7 +56894,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -57050,7 +57050,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                         class GroupInfo(Entity):
@@ -57238,7 +57238,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -57298,7 +57298,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -57359,7 +57359,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -57420,7 +57420,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -57517,7 +57517,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                             class Address(Entity):
@@ -57577,7 +57577,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -57638,7 +57638,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58254,7 +58254,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -58314,7 +58314,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58375,7 +58375,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58436,7 +58436,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58569,7 +58569,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                         class Update(Entity):
@@ -58651,7 +58651,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                             class SourceAddress(Entity):
@@ -58711,7 +58711,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58772,7 +58772,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -58910,7 +58910,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -58970,7 +58970,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -59072,7 +59072,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                         class IgmpInterfaceEntry(Entity):
@@ -59636,7 +59636,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                             class Address(Entity):
@@ -59696,7 +59696,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -59757,7 +59757,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -59818,7 +59818,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -60236,7 +60236,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -60490,7 +60490,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -60550,7 +60550,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -60611,7 +60611,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -60672,7 +60672,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -60746,7 +60746,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -60798,7 +60798,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                        self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -61411,7 +61411,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -61471,7 +61471,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -61532,7 +61532,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -61593,7 +61593,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -61752,7 +61752,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                         class MapInfo(Entity):
@@ -61814,7 +61814,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                             class GroupAddressXr(Entity):
@@ -61874,7 +61874,7 @@ class Igmp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -61936,7 +61936,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -62551,7 +62551,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -62611,7 +62611,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -62672,7 +62672,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -62733,7 +62733,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -63011,7 +63011,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.Process.AmtSummary, [u'anycast_prefix', u'prefix_length', u'relay_address', u'mtu', u'tos', u'ttl', u'query_interval', u'gateway_count', u'max_gateway', u'tunnel_count', u'tunnel_configured_maximum', u'is_acl_configured', u'is_gateway_simulation', u'is_ou_of_resource'], name, value)
+                    self._perform_setattr(Igmp.Active.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
 
 
@@ -63179,7 +63179,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.Process.Nsr, [u'state', u'partner_proc_connected', u'collab_conv_done', u'rmf_notification_done', u'last_proc', u'last_proc_connection_up', u'last_proc_connection_dn', u'last_rmf_ready', u'last_rmf_not_ready', u'count_proc_connection_up', u'count_proc_connection_dn', u'count_rmf_ready', u'count_rmf_not_ready'], name, value)
+                    self._perform_setattr(Igmp.Active.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
 
 
@@ -63365,7 +63365,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', u'amtgw', u'amt_port', u'key_len', u'amtnh', u'amt_nonce', u'idb', u'mem_upd_in', u'mem_upd_out'], name, value)
+                        self._perform_setattr(Igmp.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
 
 
@@ -63569,7 +63569,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.Process.UnicastQosAdjustStats, [u'queues', u'batches', u'add_to_batches', u'delete_to_batches', u'send_success', u'send_errors', u'send_comm_errors', u'send_partial_errors', u'received_resync_requests', u'sent_resync_bulks', u'is_resync_received', u'is_resync_required', u'is_resync_start_sent', u'is_qos_s_sweeped', u'last_sweep_time', u'last_download_time'], name, value)
+                    self._perform_setattr(Igmp.Active.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
 
 
@@ -63985,7 +63985,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.Process.BviStatistics, [u'receive_buffers', u'release_buffers', u'send_blocks', u'release_fail_buffers', u'null_buffer_handles', u'rx_ipc_open_notif', u'rx_ipc_close_notif', u'rx_ipc_error_notif', u'rx_ipc_lwm_notif', u'rx_ipc_input_wait_notif', u'rx_ipc_send_status_notif', u'rx_ipc_publish_notif', u'rx_ipc_q_full_notif', u'rx_ipc_output_notif', u'rx_ipc_connect_notif', u'rx_igmp_packet_success', u'rx_add_mrouter_msg', u'rx_delete_mrouter_msg', u'rx_sweep_mrouter_msg', u'tx_add_mrouter_msg', u'tx_delete_mrouter_msg', u'tx_sweep_mrouter_msg', u'rx_unknown_mrouter_msg', u'tx_unknown_mrouter_msg', u'tx_buffer_errors', u'tx_buffers', u'tx_protocol_buffers', u'tx_mrouter_buffers', u'tx_unknown_buffers', u'wtx_msg_recvd', u'wtx_msg_sent', u'wtx_msg_proto_sent', u'wtx_msg_drop_dc', u'wtx_msg_drop_nomem', u'wtx_msg_freed'], name, value)
+                    self._perform_setattr(Igmp.Active.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
 
 
@@ -64134,7 +64134,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.Process.Nsf, [u'is_multicast_nsf_active', u'multicast_nsf_timeout', u'multicast_nsf_time_left', u'respawn_count', u'last_nsf_on', u'last_nsf_off', u'last_nsf_on_min', u'last_nsf_off_min', u'last_icd_notif_recv', u'last_icd_notif_recv_min'], name, value)
+                    self._perform_setattr(Igmp.Active.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
 
 
@@ -64497,7 +64497,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.DefaultContext.Summary, [u'robustness', u'group_limit', u'group_count', u'is_disabled', u'supported_interfaces', u'unsupported_interfaces', u'enabled_interface_count', u'disabled_interface_count', u'tunnel_mte_config_count', u'node_low_memory'], name, value)
+                    self._perform_setattr(Igmp.Active.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
                 class Interface(Entity):
@@ -64614,7 +64614,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.Summary.Interface, [u'interface_name', u'group_limit', u'group_count', u'parent_ifhandle', u'on_off', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
 
 
@@ -65230,7 +65230,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -65290,7 +65290,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -65351,7 +65351,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -65412,7 +65412,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -65566,7 +65566,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', u'is_router_exclude_mode', u'is_host_exclude_mode'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -65755,7 +65755,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -65816,7 +65816,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -65878,7 +65878,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -65940,7 +65940,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -66065,7 +66065,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source, [u'uptime', u'expiration_time', u'is_local', u'is_remote', u'is_forward', u'is_we_report', u'flags', u'is_added'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -66126,7 +66126,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -66242,7 +66242,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, [u'interface', u'reason_for_non_activity'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
                     class GroupAddress(Entity):
@@ -66303,7 +66303,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -66365,7 +66365,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -66495,7 +66495,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', u'map_type', u'source_counts'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -66556,7 +66556,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -66714,7 +66714,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', u'include_hosts', u'exclude_hosts'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
                     class GroupInfo(Entity):
@@ -66903,7 +66903,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, [u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -66964,7 +66964,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -67026,7 +67026,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -67088,7 +67088,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -67186,7 +67186,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, [u'uptime', u'is_exclude', u'expiration_time', u'source_count'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
                         class Address(Entity):
@@ -67247,7 +67247,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -67309,7 +67309,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -67927,7 +67927,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -67987,7 +67987,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68048,7 +68048,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68109,7 +68109,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68244,7 +68244,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', u'is_virtual_access', u'rate', u'rate_increments', u'rate_decrements'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
                     class Update(Entity):
@@ -68326,7 +68326,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, [u'is_add', u'weight', u'received_time'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
                         class SourceAddress(Entity):
@@ -68386,7 +68386,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68447,7 +68447,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68587,7 +68587,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', u'prefix_length', u'protocol', u'is_stale'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -68648,7 +68648,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -68752,7 +68752,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', u'join_group_count'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
                     class IgmpInterfaceEntry(Entity):
@@ -69316,7 +69316,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, [u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                         class Address(Entity):
@@ -69376,7 +69376,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -69437,7 +69437,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -69498,7 +69498,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -69917,7 +69917,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.DefaultContext.TrafficCounters, [u'elapsed_time', u'packets_in', u'packets_out', u'format_errors', u'packet_manager_input_errors', u'packet_manager_output_errors', u'checksum_errors', u'receive_socket_errors', u'socket_errors', u'bad_scope_errors', u'auxillary_data_length_errors', u'invalid_source_address_errors', u'no_socket_connection', u'miscellaneous_errors', u'input_queries', u'input_reports', u'input_leaves', u'input_mtrace', u'input_dvmrp', u'input_pim', u'output_queries', u'output_reports', u'output_leaves', u'output_mtrace', u'output_dvmrp', u'output_pim', u'get_packet_failure', u'output_no_parent_interface_handle', u'input_no_idb', u'input_no_vrf_in_idb', u'input_disabled_idb', u'input_martian_address', u'input_no_assigned_vrf_id', u'input_no_vrf_mtrace', u'input_no_platform_support_mtrace'], name, value)
+                    self._perform_setattr(Igmp.Active.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
 
 
@@ -70173,7 +70173,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', u'interface_name_xr', u'uptime', u'expiration_time', u'explicit_tracking_enabled', u'is_self_join', u'row_status', u'is_low_memory', u'router_filter_mode', u'older_host_version1_timer', u'older_host_version2_timer', u'is_added', u'is_suppressed'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
                     class GroupAddressXr(Entity):
@@ -70234,7 +70234,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -70296,7 +70296,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.LastReporter, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -70358,7 +70358,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.SourceAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -70433,7 +70433,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.DefaultContext.GroupSummary, [u'groutes', u'sg_routes', u'group_count', u'is_low_memory'], name, value)
+                    self._perform_setattr(Igmp.Active.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
 
 
@@ -70486,7 +70486,7 @@ class Igmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaceSummary, [u'interface_count', u'configuration_count'], name, value)
+                    self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
 
 
@@ -71101,7 +71101,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -71161,7 +71161,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -71222,7 +71222,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -71283,7 +71283,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -71444,7 +71444,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', u'expiration_time', u'response_pending', u'query_interval', u'elapsed_time'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
                     class MapInfo(Entity):
@@ -71507,7 +71507,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, [u'map_type', u'source_counts'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
                         class GroupAddressXr(Entity):
@@ -71568,7 +71568,7 @@ class Igmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                                self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -71631,7 +71631,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -72248,7 +72248,7 @@ class Igmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', u'interface_name_xr', u'state', u'prefix_length', u'is_interface_up', u'is_ip_enabled', u'is_router_enabled', u'igmp_version', u'host_version', u'query_interval', u'query_timeout', u'query_maximum_response_time', u'last_member_query_interval', u'group_joins', u'group_leaves', u'is_querier', u'total_active_groups', u'robustness', u'proxy_interface', u'querier_uptime', u'las_ll_registration_count', u'las_get_address_count', u'las_update_count', u'las_ll_remove_update_count', u'las_ll_add_update_count', u'las_null_update_count', u'las_unregistration_count', u'is_las_request', u'is_las_registered', u'vrf_id', u'mte_vrf_id', u'location', u'mtu', u'vrf_state', u'is_configurationverify', u'configurationvrf_set', u'configurationvrf_error', u'configuration_mcast_vrf_set', u'configuration_mcast_vrf_error', u'is_im_state_registered', u'is_subscriber', u'subscriber_mode', u'is_identity_present', u'subscriber_id', u'parent_ifhandle', u'time_since_last_query_in_seconds', u'time_since_last_report_in_seconds', u'router_uptime_in_seconds', u'mte_tuple_count'], name, value)
+                        self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
                     class Address(Entity):
@@ -72308,7 +72308,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -72369,7 +72369,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -72430,7 +72430,7 @@ class Igmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 

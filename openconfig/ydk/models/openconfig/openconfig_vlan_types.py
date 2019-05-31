@@ -52,9 +52,9 @@ class TPIDTYPES(Identity):
 
 
 
-class TPID0X9200(TPIDTYPES):
+class TPID0x8100(TPIDTYPES):
     """
-    Alternate TPID value
+    Default TPID value for 802.1q single\-tagged VLANs.
     
     
 
@@ -63,8 +63,8 @@ class TPID0X9200(TPIDTYPES):
     _prefix = 'oc-vlan-types'
     _revision = '2016-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0X9200"):
-        super(TPID0X9200, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x8100"):
+        super(TPID0x8100, self).__init__(ns, pref, tag)
 
 
 
@@ -85,22 +85,6 @@ class TPID0x8A88(TPIDTYPES):
 
 
 
-class TPID0x8100(TPIDTYPES):
-    """
-    Default TPID value for 802.1q single\-tagged VLANs.
-    
-    
-
-    """
-
-    _prefix = 'oc-vlan-types'
-    _revision = '2016-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x8100"):
-        super(TPID0x8100, self).__init__(ns, pref, tag)
-
-
-
 class TPID0x9100(TPIDTYPES):
     """
     Alternate TPID value
@@ -114,6 +98,22 @@ class TPID0x9100(TPIDTYPES):
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x9100"):
         super(TPID0x9100, self).__init__(ns, pref, tag)
+
+
+
+class TPID0X9200(TPIDTYPES):
+    """
+    Alternate TPID value
+    
+    
+
+    """
+
+    _prefix = 'oc-vlan-types'
+    _revision = '2016-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0X9200"):
+        super(TPID0X9200, self).__init__(ns, pref, tag)
 
 
 

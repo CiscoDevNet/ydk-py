@@ -28,11 +28,11 @@ function install_libssh {
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
-    sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk-0.8.3-Darwin.pkg
+    sudo installer -pkg libydk-0.8.3-Darwin.pkg -target /
 
     print_msg "Installing YDK gNMI service library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk_gnmi-0.4.0-2_Darwin.pkg
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk_gnmi-0.4.0-2_Darwin.pkg
     sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
 }
 

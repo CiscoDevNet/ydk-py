@@ -7,7 +7,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
     prefix inet;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -683,6 +687,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
         "Max Input Queue Depth";
       leaf entry {
         type uint32;
+        description
+          "Max Input Queue Depth";
       }
     }
     list average-in-queue-depth {
@@ -691,6 +697,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
         "Average Input Queue Depth";
       leaf entry {
         type uint32;
+        description
+          "Average Input Queue Depth";
       }
     }
   }
@@ -723,6 +731,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
         "Destinations";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Destinations";
       }
     }
   }
@@ -901,6 +911,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
         "List of Addresses";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "List of Addresses";
       }
     }
     list subobject {
@@ -1128,6 +1140,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
         "Backup Path";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Backup Path";
       }
     }
     list paths {

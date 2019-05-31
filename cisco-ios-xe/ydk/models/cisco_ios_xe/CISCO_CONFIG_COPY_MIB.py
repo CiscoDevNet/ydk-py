@@ -726,7 +726,7 @@ class CISCOCONFIGCOPYMIB(Entity):
             	The World Wide Name (WWN) of this destination device on which config copy operation is performed. The value of this object is zero\-length string if  WWN is unassigned or unknown. For example, devices  which do not support fibre channel would not have WWN
             	**type**\: str
             
-            	**length:** 0 \| 8 \| 16
+            	**length:** 0..0 \| 8..8 \| 16..16
             
             	**config**\: False
             

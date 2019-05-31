@@ -214,7 +214,7 @@ class EsAcl(Entity):
                     
                     .. attribute:: grant
                     
-                    	Forwarding action for the packet. This is required for any non\-remark ACE. Leave unspecified otherwise
+                    	Forwarding action for the packet. This is required  for any non\-remark ACE. Leave unspecified otherwise
                     	**type**\:  :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
                     
                     .. attribute:: source_network
@@ -243,28 +243,28 @@ class EsAcl(Entity):
                     
                     .. attribute:: cos
                     
-                    	Class of Service value. Any value not in the permissible range will be rejected
+                    	Class of Service value. Any value not in the  permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: dei
                     
-                    	Discard Eligibility Indication bit. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
+                    	Discard Eligibility Indication bit. User can specify  1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: inner_vlan1
                     
-                    	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
+                    	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not  in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..4095
                     
                     .. attribute:: inner_vlan2
                     
-                    	This represents the QinQ vlan identifier. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
+                    	This represents the QinQ vlan identifier. It is used in  the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..4095
@@ -278,7 +278,7 @@ class EsAcl(Entity):
                     
                     .. attribute:: inner_dei
                     
-                    	Discard Eligibility Indication for Inner Header. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
+                    	Discard Eligibility Indication for Inner Header. User  can specify 1 to indicate the bit is set. Leave  unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..1
@@ -376,7 +376,7 @@ class EsAcl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', u'grant', u'vlan1', u'vlan2', u'cos', u'dei', u'inner_vlan1', u'inner_vlan2', u'inner_cos', u'inner_dei', u'remark', u'ether_type_number', u'capture', u'log_option', u'sequence_str'], name, value)
+                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_vlan1', 'inner_vlan2', 'inner_cos', 'inner_dei', 'remark', 'ether_type_number', 'capture', 'log_option', 'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -423,7 +423,7 @@ class EsAcl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, [u'source_address', u'source_wild_card_bits'], name, value)
+                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits'], name, value)
 
 
 
@@ -471,7 +471,7 @@ class EsAcl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, [u'destination_address', u'destination_wild_card_bits'], name, value)
+                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)
 
 
 

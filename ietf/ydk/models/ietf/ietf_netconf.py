@@ -413,7 +413,7 @@ class GetConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GetConfig.Input, [u'filter', 'with_defaults'], name, value)
+            self._perform_setattr(GetConfig.Input, ['filter', 'with_defaults'], name, value)
 
 
         class Source(Entity):
@@ -464,7 +464,7 @@ class GetConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(GetConfig.Input.Source, [u'candidate', u'running', u'startup'], name, value)
+                self._perform_setattr(GetConfig.Input.Source, ['candidate', 'running', 'startup'], name, value)
 
 
 
@@ -503,7 +503,7 @@ class GetConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GetConfig.Output, [u'data'], name, value)
+            self._perform_setattr(GetConfig.Output, ['data'], name, value)
 
 
     def clone_ptr(self):
@@ -625,7 +625,7 @@ class EditConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EditConfig.Input, [u'default_operation', u'test_option', u'error_option', u'config', u'url'], name, value)
+            self._perform_setattr(EditConfig.Input, ['default_operation', 'test_option', 'error_option', 'config', 'url'], name, value)
 
         class DefaultOperation(Enum):
             """
@@ -756,7 +756,7 @@ class EditConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EditConfig.Input.Target, [u'candidate', u'running'], name, value)
+                self._perform_setattr(EditConfig.Input.Target, ['candidate', 'running'], name, value)
 
 
 
@@ -912,7 +912,7 @@ class CopyConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CopyConfig.Input.Target, [u'candidate', u'running', u'startup', u'url'], name, value)
+                self._perform_setattr(CopyConfig.Input.Target, ['candidate', 'running', 'startup', 'url'], name, value)
 
 
 
@@ -978,7 +978,7 @@ class CopyConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CopyConfig.Input.Source, [u'candidate', u'running', u'startup', u'url', u'config'], name, value)
+                self._perform_setattr(CopyConfig.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)
 
 
 
@@ -1102,7 +1102,7 @@ class DeleteConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DeleteConfig.Input.Target, [u'startup', u'url'], name, value)
+                self._perform_setattr(DeleteConfig.Input.Target, ['startup', 'url'], name, value)
 
 
 
@@ -1234,7 +1234,7 @@ class Lock(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lock.Input.Target, [u'candidate', u'running', u'startup'], name, value)
+                self._perform_setattr(Lock.Input.Target, ['candidate', 'running', 'startup'], name, value)
 
 
 
@@ -1366,7 +1366,7 @@ class Unlock(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Unlock.Input.Target, [u'candidate', u'running', u'startup'], name, value)
+                self._perform_setattr(Unlock.Input.Target, ['candidate', 'running', 'startup'], name, value)
 
 
 
@@ -1461,7 +1461,7 @@ class Get(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Get.Input, [u'filter', 'with_defaults'], name, value)
+            self._perform_setattr(Get.Input, ['filter', 'with_defaults'], name, value)
 
 
 
@@ -1499,7 +1499,7 @@ class Get(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Get.Output, [u'data'], name, value)
+            self._perform_setattr(Get.Output, ['data'], name, value)
 
 
     def clone_ptr(self):
@@ -1612,7 +1612,7 @@ class KillSession(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(KillSession.Input, [u'session_id'], name, value)
+            self._perform_setattr(KillSession.Input, ['session_id'], name, value)
 
 
     def clone_ptr(self):
@@ -1718,7 +1718,7 @@ class Commit(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Commit.Input, [u'confirmed', u'confirm_timeout', u'persist', u'persist_id'], name, value)
+            self._perform_setattr(Commit.Input, ['confirmed', 'confirm_timeout', 'persist', 'persist_id'], name, value)
 
 
     def clone_ptr(self):
@@ -1831,7 +1831,7 @@ class CancelCommit(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CancelCommit.Input, [u'persist_id'], name, value)
+            self._perform_setattr(CancelCommit.Input, ['persist_id'], name, value)
 
 
     def clone_ptr(self):
@@ -1975,7 +1975,7 @@ class Validate(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Validate.Input.Source, [u'candidate', u'running', u'startup', u'url', u'config'], name, value)
+                self._perform_setattr(Validate.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)
 
 
 

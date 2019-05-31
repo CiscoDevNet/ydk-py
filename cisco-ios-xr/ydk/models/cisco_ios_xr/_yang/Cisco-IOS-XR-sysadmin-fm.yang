@@ -1,13 +1,16 @@
 module Cisco-IOS-XR-sysadmin-fm {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-fm";
   prefix fm;
+
   import ietf-yang-types {
     prefix yang;
   }
   import Cisco-IOS-XR-sysadmin-types {
     prefix calvados;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -18,26 +21,25 @@ module Cisco-IOS-XR-sysadmin-fm {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-Fault management YANG model. 
-
-Copyright(c) 2014-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     Fault management YANG model. 
+     
+     Copyright(c) 2014-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2016-04-12 {
     description
       "Changed the namespace and module name";
   }
-
 
   typedef fm_fault_state_t {
     type enumeration {
@@ -463,9 +465,9 @@ All rights reserved.
       "Grouping of internal fields of a fault table entry.";
     uses fm_fault_id_t;
     list rules {
-      uses fm_fault_rule_t;
       description
         "list of fault rule declaring callbacks";
+      uses fm_fault_rule_t;
     }
     uses fm_fault_action_t;
     leaf mitigation_cb {
@@ -559,10 +561,11 @@ All rights reserved.
         "The hold time in ms for soaking the fault.";
     }
   }
+
   container fm {
+    config false;
     description
       "Sysadmin fault management operational data model";
-    config false;
     list agents {
       key "location process subsystem agent";
       leaf location {
@@ -582,8 +585,8 @@ All rights reserved.
       }
       container fm_table {
         list brief {
-          uses fm_fault_table_basic_entry_t;
           key "fm_subsystem_id fm_fault_type fm_fault_tag";
+          uses fm_fault_table_basic_entry_t;
         }
         list entry {
           key "fm_subsystem_id fm_fault_type fm_fault_tag";
@@ -592,61 +595,61 @@ All rights reserved.
             uses fm_fault_table_detail_entry_t;
           }
           list causal_list {
-            uses fm_fault_id_t;
             key "fm_subsystem_id fm_fault_type fm_fault_tag";
             description
               "Causal list of fault ids for the specified fault.";
+            uses fm_fault_id_t;
           }
           list dependency_list {
-            uses fm_fault_id_t;
             key "fm_subsystem_id fm_fault_type fm_fault_tag";
             description
               "Dependency list of fault ids.";
+            uses fm_fault_id_t;
           }
           list propagation_list {
-            uses fm_traversal_t;
             key "fm_subsystem_id fm_fault_type fm_fault_tag";
             description
               "Propagation list of fault agents.";
+            uses fm_traversal_t;
           }
           list notification_list {
-            uses fm_traversal_t;
             key "fm_subsystem_id fm_fault_type fm_fault_tag";
             description
               "Notification list of fault agents.";
+            uses fm_traversal_t;
           }
           list escalation_list {
-            uses fm_traversal_t;
             key "fm_subsystem_id fm_fault_type fm_fault_tag";
             description
               "escalation list of fault agents.";
+            uses fm_traversal_t;
           }
           container faults {
             container active {
               list brief {
-                uses fm_fault_entry_history_record_basic_t;
                 key "object_id";
+                uses fm_fault_entry_history_record_basic_t;
               }
               list detail {
-                uses fm_fault_entry_history_record_detail_t;
                 key "object_id";
+                uses fm_fault_entry_history_record_detail_t;
               }
             }
             container history {
               list brief {
-                uses fm_fault_entry_history_record_basic_t;
                 key "object_id";
+                uses fm_fault_entry_history_record_basic_t;
               }
               list detail {
-                uses fm_fault_entry_history_record_detail_t;
                 key "object_id";
+                uses fm_fault_entry_history_record_detail_t;
               }
             }
           }
           container waiting_list {
             list brief {
-              uses fm_fault_pending_info_t;
               key "fm_subsystem_id fm_fault_type fm_fault_tag";
+              uses fm_fault_pending_info_t;
             }
             list entry {
               key "fm_subsystem_id fm_fault_type fm_fault_tag";
@@ -657,20 +660,20 @@ All rights reserved.
       }
       container fm_internals {
         list detail {
-          uses fm_fault_table_internal_entry_t;
           key "fm_subsystem_id fm_fault_type fm_fault_tag";
+          uses fm_fault_table_internal_entry_t;
         }
       }
       container fm_alarm_mapping {
         list detail {
-          uses fm_fault_table_alarm_entry_t;
           key "fm_subsystem_id fm_fault_type fm_fault_tag";
+          uses fm_fault_table_alarm_entry_t;
         }
       }
       container fm_statistics {
         list detail {
-          uses fm_fault_table_stats_entry_t;
           key "fm_subsystem_id fm_fault_type fm_fault_tag";
+          uses fm_fault_table_stats_entry_t;
         }
       }
     }

@@ -39,6 +39,10 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-14 {
+    description
+      "removed enable leaf nodes that are implicitly set with CLI";
+  }
   revision 2018-01-15 {
     description
       "Added naming-union to create sublist for distribute-out.";
@@ -2024,27 +2028,28 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       description
         "Stub router configuration";
       container rbit {
+        presence "CLI submode compatibility.";
         description
           "Stub router R-bit configuration";
         uses ON-SWITCHOVER;
         uses ALWAYS;
         uses ON-STARTUP;
         uses INCLUDE-STUB;
-        uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
       }
       container v6bit {
+        presence "CLI submode compatibility.";
         description
           "Stub router V6-bit configuration";
         uses ON-SWITCHOVER;
         uses ALWAYS;
         uses ON-STARTUP;
-        uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
       }
       container max-metric {
+        presence "CLI submode compatibility.";
         description
           "Stub router max-metric configuration";
         leaf external-lsa {
@@ -2069,7 +2074,6 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         uses ALWAYS;
         uses ON-STARTUP;
         uses INCLUDE-STUB;
-        uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
       }
@@ -2480,16 +2484,6 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             "Tag";
         }
       }
-    }
-  }
-
-  grouping ENABLE {
-    description
-      "Common node of rbit, v6bit, max-metric";
-    leaf enable {
-      type empty;
-      description
-        "Enabled stub router configuration mode";
     }
   }
 
@@ -3067,11 +3061,6 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
               }
             }
-            leaf enable {
-              type empty;
-              description
-                "Enable OSPFv3 VRF configuration";
-            }
             leaf snmpvrf-trap {
               type empty;
               description
@@ -3175,11 +3164,6 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           type empty;
           description
             "Enable protocol shutdown";
-        }
-        leaf enable {
-          type empty;
-          description
-            "Enable OSPFv3";
         }
         leaf process-name {
           type xr:Cisco-ios-xr-string {

@@ -194,51 +194,55 @@ class XtcPolicyLspSmState(Enum):
 
     	Waiting for egress paths
 
-    .. data:: label_allocation_pending = 5
+    .. data:: out_of_resources_pending = 5
+
+    	Waiting for resources to become available
+
+    .. data:: label_allocation_pending = 6
 
     	Waiting for label allocation result
 
-    .. data:: label_allocation_cleanup_pending = 6
+    .. data:: label_allocation_cleanup_pending = 7
 
     	Waiting for label free result
 
-    .. data:: label_rewrite_pending = 7
+    .. data:: label_rewrite_pending = 8
 
     	Waiting for label rewrite create result
 
-    .. data:: label_rewrite_cleanup_pending = 8
+    .. data:: label_rewrite_cleanup_pending = 9
 
     	Waiting for label rewrite delete result
 
-    .. data:: bsid_allocation_pending = 9
+    .. data:: bsid_allocation_pending = 10
 
     	Waiting for BSID label allocation result
 
-    .. data:: bsid_allocation_cleanup_pending = 10
+    .. data:: bsid_allocation_cleanup_pending = 11
 
     	Waiting for BSID label free result
 
-    .. data:: bsid_rewrite_pending = 11
+    .. data:: bsid_rewrite_pending = 12
 
     	Waiting for BSID rewrite create result
 
-    .. data:: bsid_rewrite_cleanup_pending = 12
+    .. data:: bsid_rewrite_cleanup_pending = 13
 
     	Waiting for BSID rewrite delete result
 
-    .. data:: tunnel_rewrite_pending = 13
+    .. data:: tunnel_rewrite_pending = 14
 
     	Waiting for tunnel rewrite create result
 
-    .. data:: tunnel_rewrite_cleanup_pending = 14
+    .. data:: tunnel_rewrite_cleanup_pending = 15
 
     	Waiting for tunnel rewrite delete result
 
-    .. data:: install_timer_pending = 15
+    .. data:: install_timer_pending = 16
 
     	Waiting for install timer to expire
 
-    .. data:: cleanup_timer_pending = 16
+    .. data:: cleanup_timer_pending = 17
 
     	Waiting for cleanup timer to expire
 
@@ -254,29 +258,31 @@ class XtcPolicyLspSmState(Enum):
 
     egress_paths_pending = Enum.YLeaf(4, "egress-paths-pending")
 
-    label_allocation_pending = Enum.YLeaf(5, "label-allocation-pending")
+    out_of_resources_pending = Enum.YLeaf(5, "out-of-resources-pending")
 
-    label_allocation_cleanup_pending = Enum.YLeaf(6, "label-allocation-cleanup-pending")
+    label_allocation_pending = Enum.YLeaf(6, "label-allocation-pending")
 
-    label_rewrite_pending = Enum.YLeaf(7, "label-rewrite-pending")
+    label_allocation_cleanup_pending = Enum.YLeaf(7, "label-allocation-cleanup-pending")
 
-    label_rewrite_cleanup_pending = Enum.YLeaf(8, "label-rewrite-cleanup-pending")
+    label_rewrite_pending = Enum.YLeaf(8, "label-rewrite-pending")
 
-    bsid_allocation_pending = Enum.YLeaf(9, "bsid-allocation-pending")
+    label_rewrite_cleanup_pending = Enum.YLeaf(9, "label-rewrite-cleanup-pending")
 
-    bsid_allocation_cleanup_pending = Enum.YLeaf(10, "bsid-allocation-cleanup-pending")
+    bsid_allocation_pending = Enum.YLeaf(10, "bsid-allocation-pending")
 
-    bsid_rewrite_pending = Enum.YLeaf(11, "bsid-rewrite-pending")
+    bsid_allocation_cleanup_pending = Enum.YLeaf(11, "bsid-allocation-cleanup-pending")
 
-    bsid_rewrite_cleanup_pending = Enum.YLeaf(12, "bsid-rewrite-cleanup-pending")
+    bsid_rewrite_pending = Enum.YLeaf(12, "bsid-rewrite-pending")
 
-    tunnel_rewrite_pending = Enum.YLeaf(13, "tunnel-rewrite-pending")
+    bsid_rewrite_cleanup_pending = Enum.YLeaf(13, "bsid-rewrite-cleanup-pending")
 
-    tunnel_rewrite_cleanup_pending = Enum.YLeaf(14, "tunnel-rewrite-cleanup-pending")
+    tunnel_rewrite_pending = Enum.YLeaf(14, "tunnel-rewrite-pending")
 
-    install_timer_pending = Enum.YLeaf(15, "install-timer-pending")
+    tunnel_rewrite_cleanup_pending = Enum.YLeaf(15, "tunnel-rewrite-cleanup-pending")
 
-    cleanup_timer_pending = Enum.YLeaf(16, "cleanup-timer-pending")
+    install_timer_pending = Enum.YLeaf(16, "install-timer-pending")
+
+    cleanup_timer_pending = Enum.YLeaf(17, "cleanup-timer-pending")
 
 
 class XtcPolicyPath(Enum):
@@ -397,6 +403,45 @@ class XtcSrSid(Enum):
     ipv4_adjacency_sid = Enum.YLeaf(1, "ipv4-adjacency-sid")
 
     unknown_sid = Enum.YLeaf(2, "unknown-sid")
+
+
+class XtcigpProtocol(Enum):
+    """
+    XtcigpProtocol (Enum Class)
+
+    Xtcigp protocol
+
+    .. data:: unknown = 0
+
+    	Unknown protocol
+
+    .. data:: isis = 1
+
+    	ISIS protocol
+
+    .. data:: ospf = 2
+
+    	OSPF protocol
+
+    .. data:: bgp = 4
+
+    	BGP protocol
+
+    .. data:: te = 8
+
+    	TE protocol
+
+    """
+
+    unknown = Enum.YLeaf(0, "unknown")
+
+    isis = Enum.YLeaf(1, "isis")
+
+    ospf = Enum.YLeaf(2, "ospf")
+
+    bgp = Enum.YLeaf(4, "bgp")
+
+    te = Enum.YLeaf(8, "te")
 
 
 
@@ -2784,17 +2829,17 @@ class Xtc(Entity):
     
     	**config**\: False
     
-    .. attribute:: topology_summary
-    
-    	Node summary database
-    	**type**\:  :py:class:`TopologySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologySummary>`
-    
-    	**config**\: False
-    
     .. attribute:: topology_nodes
     
     	Node database in XTC Agent
     	**type**\:  :py:class:`TopologyNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes>`
+    
+    	**config**\: False
+    
+    .. attribute:: topology_summaries
+    
+    	Node summary table
+    	**type**\:  :py:class:`TopologySummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologySummaries>`
     
     	**config**\: False
     
@@ -2821,7 +2866,7 @@ class Xtc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("policy-forwardings", ("policy_forwardings", Xtc.PolicyForwardings)), ("policy-summary", ("policy_summary", Xtc.PolicySummary)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("controller", ("controller", Xtc.Controller)), ("topology-summary", ("topology_summary", Xtc.TopologySummary)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
+        self._child_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("policy-forwardings", ("policy_forwardings", Xtc.PolicyForwardings)), ("policy-summary", ("policy_summary", Xtc.PolicySummary)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("controller", ("controller", Xtc.Controller)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("topology-summaries", ("topology_summaries", Xtc.TopologySummaries)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
         self._leafs = OrderedDict()
 
         self.policies = Xtc.Policies()
@@ -2844,13 +2889,13 @@ class Xtc(Entity):
         self.controller.parent = self
         self._children_name_map["controller"] = "controller"
 
-        self.topology_summary = Xtc.TopologySummary()
-        self.topology_summary.parent = self
-        self._children_name_map["topology_summary"] = "topology-summary"
-
         self.topology_nodes = Xtc.TopologyNodes()
         self.topology_nodes.parent = self
         self._children_name_map["topology_nodes"] = "topology-nodes"
+
+        self.topology_summaries = Xtc.TopologySummaries()
+        self.topology_summaries.parent = self
+        self._children_name_map["topology_summaries"] = "topology-summaries"
 
         self.prefix_infos = Xtc.PrefixInfos()
         self.prefix_infos.parent = self
@@ -3350,6 +3395,13 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: cleanup_timer
+                
+                	Cleanup timer if the candidate path is in the process of being cleaned up
+                	**type**\:  :py:class:`CleanupTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.CandidatePath.CleanupTimer>`
+                
+                	**config**\: False
+                
                 .. attribute:: pcc_information
                 
                 	PCC PCEP\-related information
@@ -3389,9 +3441,9 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: is_current
+                .. attribute:: is_active
                 
-                	Whether this is the currently used candidate path
+                	Whether this is the currently active candidate path
                 	**type**\: bool
                 
                 	**config**\: False
@@ -3439,13 +3491,13 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("originator", ("originator", Xtc.Policies.Policy.CandidatePath.Originator)), ("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.CandidatePath.SrPathConstraints)), ("requested-bsid", ("requested_bsid", Xtc.Policies.Policy.CandidatePath.RequestedBsid)), ("pcc-information", ("pcc_information", Xtc.Policies.Policy.CandidatePath.PccInformation)), ("segment-list", ("segment_list", Xtc.Policies.Policy.CandidatePath.SegmentList))])
+                    self._child_classes = OrderedDict([("originator", ("originator", Xtc.Policies.Policy.CandidatePath.Originator)), ("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.CandidatePath.SrPathConstraints)), ("requested-bsid", ("requested_bsid", Xtc.Policies.Policy.CandidatePath.RequestedBsid)), ("cleanup-timer", ("cleanup_timer", Xtc.Policies.Policy.CandidatePath.CleanupTimer)), ("pcc-information", ("pcc_information", Xtc.Policies.Policy.CandidatePath.PccInformation)), ("segment-list", ("segment_list", Xtc.Policies.Policy.CandidatePath.SegmentList))])
                     self._leafs = OrderedDict([
                         ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
                         ('protocol_originator', (YLeaf(YType.enumeration, 'protocol-originator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyCpathProtoOrigin', '')])),
                         ('discriminator', (YLeaf(YType.uint32, 'discriminator'), ['int'])),
-                        ('is_current', (YLeaf(YType.boolean, 'is-current'), ['bool'])),
+                        ('is_active', (YLeaf(YType.boolean, 'is-active'), ['bool'])),
                         ('is_reoptimizing', (YLeaf(YType.boolean, 'is-reoptimizing'), ['bool'])),
                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                         ('error', (YLeaf(YType.str, 'error'), ['str'])),
@@ -3454,7 +3506,7 @@ class Xtc(Entity):
                     self.preference = None
                     self.protocol_originator = None
                     self.discriminator = None
-                    self.is_current = None
+                    self.is_active = None
                     self.is_reoptimizing = None
                     self.shutdown = None
                     self.error = None
@@ -3471,6 +3523,10 @@ class Xtc(Entity):
                     self.requested_bsid.parent = self
                     self._children_name_map["requested_bsid"] = "requested-bsid"
 
+                    self.cleanup_timer = Xtc.Policies.Policy.CandidatePath.CleanupTimer()
+                    self.cleanup_timer.parent = self
+                    self._children_name_map["cleanup_timer"] = "cleanup-timer"
+
                     self.pcc_information = Xtc.Policies.Policy.CandidatePath.PccInformation()
                     self.pcc_information.parent = self
                     self._children_name_map["pcc_information"] = "pcc-information"
@@ -3480,7 +3536,7 @@ class Xtc(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Policies.Policy.CandidatePath, ['name', 'preference', 'protocol_originator', 'discriminator', 'is_current', 'is_reoptimizing', 'shutdown', 'error'], name, value)
+                    self._perform_setattr(Xtc.Policies.Policy.CandidatePath, ['name', 'preference', 'protocol_originator', 'discriminator', 'is_active', 'is_reoptimizing', 'shutdown', 'error'], name, value)
 
 
                 class Originator(Entity):
@@ -3814,6 +3870,15 @@ class Xtc(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: extended_value
+                        
+                        	Extended Affinity values
+                        	**type**\: list of int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         .. attribute:: color
                         
                         	Colors
@@ -3840,16 +3905,18 @@ class Xtc(Entity):
                             self._leafs = OrderedDict([
                                 ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
                                 ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('extended_value', (YLeafList(YType.uint32, 'extended-value'), ['int'])),
                             ])
                             self.type = None
                             self.value = None
+                            self.extended_value = []
 
                             self.color = YList(self)
                             self._segment_path = lambda: "affinity-constraint"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint, ['type', 'value'], name, value)
+                            self._perform_setattr(Xtc.Policies.Policy.CandidatePath.SrPathConstraints.AffinityConstraint, ['type', 'value', 'extended_value'], name, value)
 
 
                         class Color(Entity):
@@ -3951,6 +4018,72 @@ class Xtc(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Xtc.Policies.Policy.CandidatePath.RequestedBsid, ['sid_type', 'label', 'ipv6'], name, value)
+
+
+
+                class CleanupTimer(Entity):
+                    """
+                    Cleanup timer if the candidate path is in the
+                    process of being cleaned up
+                    
+                    .. attribute:: running
+                    
+                    	Whether the timer is running
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: remaining_seconds
+                    
+                    	Number of remaining seconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: remaining_nano_seconds
+                    
+                    	Number of remaining nanoseconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.Policies.Policy.CandidatePath.CleanupTimer, self).__init__()
+
+                        self.yang_name = "cleanup-timer"
+                        self.yang_parent_name = "candidate-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                            ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                            ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                        ])
+                        self.running = None
+                        self.remaining_seconds = None
+                        self.remaining_nano_seconds = None
+                        self._segment_path = lambda: "cleanup-timer"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Policies.Policy.CandidatePath.CleanupTimer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
 
 
 
@@ -4553,9 +4686,9 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: is_current_lsp
+                .. attribute:: is_active_lsp
                 
-                	Whether this is the current LSP
+                	Whether this is the active LSP
                 	**type**\: bool
                 
                 	**config**\: False
@@ -4588,14 +4721,14 @@ class Xtc(Entity):
                         ('policy_id', (YLeaf(YType.uint16, 'policy-id'), ['int'])),
                         ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
                         ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcPolicyLspSmState', '')])),
-                        ('is_current_lsp', (YLeaf(YType.boolean, 'is-current-lsp'), ['bool'])),
+                        ('is_active_lsp', (YLeaf(YType.boolean, 'is-active-lsp'), ['bool'])),
                         ('is_reoptimized_lsp', (YLeaf(YType.boolean, 'is-reoptimized-lsp'), ['bool'])),
                     ])
                     self.lsp_id = None
                     self.policy_id = None
                     self.local_label = None
                     self.state = None
-                    self.is_current_lsp = None
+                    self.is_active_lsp = None
                     self.is_reoptimized_lsp = None
 
                     self.binding_sid = Xtc.Policies.Policy.LsPs.BindingSid()
@@ -4613,7 +4746,7 @@ class Xtc(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.Policies.Policy.LsPs, ['lsp_id', 'policy_id', 'local_label', 'state', 'is_current_lsp', 'is_reoptimized_lsp'], name, value)
+                    self._perform_setattr(Xtc.Policies.Policy.LsPs, ['lsp_id', 'policy_id', 'local_label', 'state', 'is_active_lsp', 'is_reoptimized_lsp'], name, value)
 
 
                 class BindingSid(Entity):
@@ -4977,9 +5110,23 @@ class Xtc(Entity):
             
             	**config**\: False
             
+            .. attribute:: binding_sid
+            
+            	Programmed Binding SID
+            	**type**\:  :py:class:`BindingSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicyForwardings.PolicyForwarding.BindingSid>`
+            
+            	**config**\: False
+            
             .. attribute:: policy_name
             
             	Policy name
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: candidate_path_name
+            
+            	Candidate path name
             	**type**\: str
             
             	**config**\: False
@@ -5058,10 +5205,11 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_classes = OrderedDict([("endpoint-address", ("endpoint_address", Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress)), ("paths", ("paths", Xtc.PolicyForwardings.PolicyForwarding.Paths))])
+                self._child_classes = OrderedDict([("endpoint-address", ("endpoint_address", Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress)), ("binding-sid", ("binding_sid", Xtc.PolicyForwardings.PolicyForwarding.BindingSid)), ("paths", ("paths", Xtc.PolicyForwardings.PolicyForwarding.Paths))])
                 self._leafs = OrderedDict([
                     ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                    ('candidate_path_name', (YLeaf(YType.str, 'candidate-path-name'), ['str'])),
                     ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
                     ('is_local_label_valid', (YLeaf(YType.boolean, 'is-local-label-valid'), ['bool'])),
                     ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
@@ -5071,6 +5219,7 @@ class Xtc(Entity):
                 ])
                 self.name = None
                 self.policy_name = None
+                self.candidate_path_name = None
                 self.color = None
                 self.is_local_label_valid = None
                 self.local_label = None
@@ -5082,13 +5231,17 @@ class Xtc(Entity):
                 self.endpoint_address.parent = self
                 self._children_name_map["endpoint_address"] = "endpoint-address"
 
+                self.binding_sid = Xtc.PolicyForwardings.PolicyForwarding.BindingSid()
+                self.binding_sid.parent = self
+                self._children_name_map["binding_sid"] = "binding-sid"
+
                 self.paths = YList(self)
                 self._segment_path = lambda: "policy-forwarding" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-forwardings/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding, ['name', 'policy_name', 'color', 'is_local_label_valid', 'local_label', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes'], name, value)
+                self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding, ['name', 'policy_name', 'candidate_path_name', 'color', 'is_local_label_valid', 'local_label', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes'], name, value)
 
 
             class EndpointAddress(Entity):
@@ -5149,6 +5302,67 @@ class Xtc(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding.EndpointAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+
+            class BindingSid(Entity):
+                """
+                Programmed Binding SID
+                
+                .. attribute:: sid_type
+                
+                	SIDType
+                	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
+                
+                	**config**\: False
+                
+                .. attribute:: label
+                
+                	MPLS label
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: ipv6
+                
+                	IPv6 address
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2018-11-28'
+
+                def __init__(self):
+                    super(Xtc.PolicyForwardings.PolicyForwarding.BindingSid, self).__init__()
+
+                    self.yang_name = "binding-sid"
+                    self.yang_parent_name = "policy-forwarding"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcSid', '')])),
+                        ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                    ])
+                    self.sid_type = None
+                    self.label = None
+                    self.ipv6 = None
+                    self._segment_path = lambda: "binding-sid"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.PolicyForwardings.PolicyForwarding.BindingSid, ['sid_type', 'label', 'ipv6'], name, value)
 
 
 
@@ -5325,34 +5539,99 @@ class Xtc(Entity):
         """
         Summary of all policies
         
-        .. attribute:: ipv4_source_address
+        .. attribute:: total_policy_count
         
-        	IPv4 address used for IPv4 policies
-        	**type**\:  :py:class:`Ipv4SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicySummary.Ipv4SourceAddress>`
-        
-        	**config**\: False
-        
-        .. attribute:: configured_total_policy_count
-        
-        	Total number of configured policies
+        	Total number of policies
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: configured_up_policy_count
+        .. attribute:: up_policy_count
         
-        	Total number of configured policies that are operationally up
+        	Total number of policies that are operationally up
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: configured_down_policy_count
+        .. attribute:: down_policy_count
         
-        	Total number of configured policies that are operationally down
+        	Total number of policies that are operationally down
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: total_candidate_path_count
+        
+        	Total number of candidate paths
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: active_candidate_path_count
+        
+        	Total number of candidate paths that are active
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: inactive_candidate_path_count
+        
+        	Total number of candidate paths that are inactive
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: total_lsp_count
+        
+        	Total number of LSPs
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: active_lsp_count
+        
+        	Total number of active LSPs
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: reoptimized_lsp_count
+        
+        	Total number of reoptimized LSPs
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: cleanup_lsp_count
+        
+        	Total number of cleanup LSPs
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: oor_lsp_count
+        
+        	Total number of LSPs in OOR state
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -5374,87 +5653,37 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("ipv4-source-address", ("ipv4_source_address", Xtc.PolicySummary.Ipv4SourceAddress))])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('configured_total_policy_count', (YLeaf(YType.uint32, 'configured-total-policy-count'), ['int'])),
-                ('configured_up_policy_count', (YLeaf(YType.uint32, 'configured-up-policy-count'), ['int'])),
-                ('configured_down_policy_count', (YLeaf(YType.uint32, 'configured-down-policy-count'), ['int'])),
+                ('total_policy_count', (YLeaf(YType.uint32, 'total-policy-count'), ['int'])),
+                ('up_policy_count', (YLeaf(YType.uint32, 'up-policy-count'), ['int'])),
+                ('down_policy_count', (YLeaf(YType.uint32, 'down-policy-count'), ['int'])),
+                ('total_candidate_path_count', (YLeaf(YType.uint32, 'total-candidate-path-count'), ['int'])),
+                ('active_candidate_path_count', (YLeaf(YType.uint32, 'active-candidate-path-count'), ['int'])),
+                ('inactive_candidate_path_count', (YLeaf(YType.uint32, 'inactive-candidate-path-count'), ['int'])),
+                ('total_lsp_count', (YLeaf(YType.uint32, 'total-lsp-count'), ['int'])),
+                ('active_lsp_count', (YLeaf(YType.uint32, 'active-lsp-count'), ['int'])),
+                ('reoptimized_lsp_count', (YLeaf(YType.uint32, 'reoptimized-lsp-count'), ['int'])),
+                ('cleanup_lsp_count', (YLeaf(YType.uint32, 'cleanup-lsp-count'), ['int'])),
+                ('oor_lsp_count', (YLeaf(YType.uint32, 'oor-lsp-count'), ['int'])),
             ])
-            self.configured_total_policy_count = None
-            self.configured_up_policy_count = None
-            self.configured_down_policy_count = None
-
-            self.ipv4_source_address = Xtc.PolicySummary.Ipv4SourceAddress()
-            self.ipv4_source_address.parent = self
-            self._children_name_map["ipv4_source_address"] = "ipv4-source-address"
+            self.total_policy_count = None
+            self.up_policy_count = None
+            self.down_policy_count = None
+            self.total_candidate_path_count = None
+            self.active_candidate_path_count = None
+            self.inactive_candidate_path_count = None
+            self.total_lsp_count = None
+            self.active_lsp_count = None
+            self.reoptimized_lsp_count = None
+            self.cleanup_lsp_count = None
+            self.oor_lsp_count = None
             self._segment_path = lambda: "policy-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Xtc.PolicySummary, ['configured_total_policy_count', 'configured_up_policy_count', 'configured_down_policy_count'], name, value)
-
-
-        class Ipv4SourceAddress(Entity):
-            """
-            IPv4 address used for IPv4 policies
-            
-            .. attribute:: af_name
-            
-            	AFName
-            	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
-            
-            	**config**\: False
-            
-            .. attribute:: ipv4
-            
-            	IPv4 address type
-            	**type**\: str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**config**\: False
-            
-            .. attribute:: ipv6
-            
-            	IPv6 address type
-            	**type**\: str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'infra-xtc-agent-oper'
-            _revision = '2018-11-28'
-
-            def __init__(self):
-                super(Xtc.PolicySummary.Ipv4SourceAddress, self).__init__()
-
-                self.yang_name = "ipv4-source-address"
-                self.yang_parent_name = "policy-summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAfId', '')])),
-                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
-                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
-                ])
-                self.af_name = None
-                self.ipv4 = None
-                self.ipv6 = None
-                self._segment_path = lambda: "ipv4-source-address"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-summary/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Xtc.PolicySummary.Ipv4SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
-
+            self._perform_setattr(Xtc.PolicySummary, ['total_policy_count', 'up_policy_count', 'down_policy_count', 'total_candidate_path_count', 'active_candidate_path_count', 'inactive_candidate_path_count', 'total_lsp_count', 'active_lsp_count', 'reoptimized_lsp_count', 'cleanup_lsp_count', 'oor_lsp_count'], name, value)
 
 
 
@@ -6396,92 +6625,6 @@ class Xtc(Entity):
 
 
 
-    class TopologySummary(Entity):
-        """
-        Node summary database
-        
-        .. attribute:: nodes
-        
-        	Number of nodes
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**config**\: False
-        
-        .. attribute:: prefixes
-        
-        	Number of prefixes
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**config**\: False
-        
-        .. attribute:: prefix_sids
-        
-        	Number of prefix SIDs
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**config**\: False
-        
-        .. attribute:: links
-        
-        	Number of links
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**config**\: False
-        
-        .. attribute:: adjacency_sids
-        
-        	Number of adjacency SIDs
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'infra-xtc-agent-oper'
-        _revision = '2018-11-28'
-
-        def __init__(self):
-            super(Xtc.TopologySummary, self).__init__()
-
-            self.yang_name = "topology-summary"
-            self.yang_parent_name = "xtc"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('nodes', (YLeaf(YType.uint32, 'nodes'), ['int'])),
-                ('prefixes', (YLeaf(YType.uint32, 'prefixes'), ['int'])),
-                ('prefix_sids', (YLeaf(YType.uint32, 'prefix-sids'), ['int'])),
-                ('links', (YLeaf(YType.uint32, 'links'), ['int'])),
-                ('adjacency_sids', (YLeaf(YType.uint32, 'adjacency-sids'), ['int'])),
-            ])
-            self.nodes = None
-            self.prefixes = None
-            self.prefix_sids = None
-            self.links = None
-            self.adjacency_sids = None
-            self._segment_path = lambda: "topology-summary"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Xtc.TopologySummary, ['nodes', 'prefixes', 'prefix_sids', 'links', 'adjacency_sids'], name, value)
-
-
-
     class TopologyNodes(Entity):
         """
         Node database in XTC Agent
@@ -7123,6 +7266,13 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: performance_metrics
+                
+                	Performance metrics
+                	**type**\:  :py:class:`PerformanceMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics>`
+                
+                	**config**\: False
+                
                 .. attribute:: local_ipv4_address
                 
                 	Local IPv4 address
@@ -7186,6 +7336,15 @@ class Xtc(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: extended_administrative_group
+                
+                	Link Extended admin\-groups
+                	**type**\: list of int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -7217,7 +7376,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)), ("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
+                    self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)), ("performance-metrics", ("performance_metrics", Xtc.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics)), ("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
                     self._leafs = OrderedDict([
                         ('local_ipv4_address', (YLeaf(YType.str, 'local-ipv4-address'), ['str'])),
                         ('remote_ipv4_address', (YLeaf(YType.str, 'remote-ipv4-address'), ['str'])),
@@ -7226,6 +7385,7 @@ class Xtc(Entity):
                         ('maximum_link_bandwidth', (YLeaf(YType.uint64, 'maximum-link-bandwidth'), ['int'])),
                         ('max_reservable_bandwidth', (YLeaf(YType.uint64, 'max-reservable-bandwidth'), ['int'])),
                         ('administrative_groups', (YLeaf(YType.uint32, 'administrative-groups'), ['int'])),
+                        ('extended_administrative_group', (YLeafList(YType.uint32, 'extended-administrative-group'), ['int'])),
                         ('srlgs', (YLeafList(YType.uint32, 'srlgs'), ['int'])),
                     ])
                     self.local_ipv4_address = None
@@ -7235,6 +7395,7 @@ class Xtc(Entity):
                     self.maximum_link_bandwidth = None
                     self.max_reservable_bandwidth = None
                     self.administrative_groups = None
+                    self.extended_administrative_group = []
                     self.srlgs = []
 
                     self.local_igp_information = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
@@ -7245,12 +7406,16 @@ class Xtc(Entity):
                     self.remote_node_protocol_identifier.parent = self
                     self._children_name_map["remote_node_protocol_identifier"] = "remote-node-protocol-identifier"
 
+                    self.performance_metrics = Xtc.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics()
+                    self.performance_metrics.parent = self
+                    self._children_name_map["performance_metrics"] = "performance-metrics"
+
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv4-link"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'srlgs'], name, value)
+                    self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'extended_administrative_group', 'srlgs'], name, value)
 
 
                 class LocalIgpInformation(Entity):
@@ -7872,6 +8037,49 @@ class Xtc(Entity):
 
 
 
+
+
+
+                class PerformanceMetrics(Entity):
+                    """
+                    Performance metrics
+                    
+                    .. attribute:: unidirectional_minimum_delay_microseconds
+                    
+                    	Min delay in microseconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: microsecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2018-11-28'
+
+                    def __init__(self):
+                        super(Xtc.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, self).__init__()
+
+                        self.yang_name = "performance-metrics"
+                        self.yang_parent_name = "ipv4-link"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('unidirectional_minimum_delay_microseconds', (YLeaf(YType.uint32, 'unidirectional-minimum-delay-microseconds'), ['int'])),
+                        ])
+                        self.unidirectional_minimum_delay_microseconds = None
+                        self._segment_path = lambda: "performance-metrics"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, ['unidirectional_minimum_delay_microseconds'], name, value)
 
 
 
@@ -8889,6 +9097,149 @@ class Xtc(Entity):
 
 
 
+
+
+
+
+    class TopologySummaries(Entity):
+        """
+        Node summary table
+        
+        .. attribute:: topology_summary
+        
+        	Node summary database
+        	**type**\: list of  		 :py:class:`TopologySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologySummaries.TopologySummary>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-agent-oper'
+        _revision = '2018-11-28'
+
+        def __init__(self):
+            super(Xtc.TopologySummaries, self).__init__()
+
+            self.yang_name = "topology-summaries"
+            self.yang_parent_name = "xtc"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("topology-summary", ("topology_summary", Xtc.TopologySummaries.TopologySummary))])
+            self._leafs = OrderedDict()
+
+            self.topology_summary = YList(self)
+            self._segment_path = lambda: "topology-summaries"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Xtc.TopologySummaries, [], name, value)
+
+
+        class TopologySummary(Entity):
+            """
+            Node summary database
+            
+            .. attribute:: af
+            
+            	Only show data related to the specified address family
+            	**type**\:  :py:class:`XtcAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAddressFamily>`
+            
+            	**config**\: False
+            
+            .. attribute:: protocol
+            
+            	Match nodes from the specified IGP protocol
+            	**type**\:  :py:class:`XtcigpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcigpProtocol>`
+            
+            	**config**\: False
+            
+            .. attribute:: nodes
+            
+            	Number of nodes
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: prefixes
+            
+            	Number of prefixes
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: prefix_sids
+            
+            	Number of prefix SIDs
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: links
+            
+            	Number of links
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: adjacency_sids
+            
+            	Number of adjacency SIDs
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-agent-oper'
+            _revision = '2018-11-28'
+
+            def __init__(self):
+                super(Xtc.TopologySummaries.TopologySummary, self).__init__()
+
+                self.yang_name = "topology-summary"
+                self.yang_parent_name = "topology-summaries"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcAddressFamily', '')])),
+                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper', 'XtcigpProtocol', '')])),
+                    ('nodes', (YLeaf(YType.uint32, 'nodes'), ['int'])),
+                    ('prefixes', (YLeaf(YType.uint32, 'prefixes'), ['int'])),
+                    ('prefix_sids', (YLeaf(YType.uint32, 'prefix-sids'), ['int'])),
+                    ('links', (YLeaf(YType.uint32, 'links'), ['int'])),
+                    ('adjacency_sids', (YLeaf(YType.uint32, 'adjacency-sids'), ['int'])),
+                ])
+                self.af = None
+                self.protocol = None
+                self.nodes = None
+                self.prefixes = None
+                self.prefix_sids = None
+                self.links = None
+                self.adjacency_sids = None
+                self._segment_path = lambda: "topology-summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-summaries/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Xtc.TopologySummaries.TopologySummary, ['af', 'protocol', 'nodes', 'prefixes', 'prefix_sids', 'links', 'adjacency_sids'], name, value)
 
 
 

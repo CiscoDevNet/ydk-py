@@ -277,7 +277,7 @@ class Ipv6NodeDiscovery(Entity):
     """
 
     _prefix = 'ipv6-nd-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-02-18'
 
     def __init__(self):
         super(Ipv6NodeDiscovery, self).__init__()
@@ -317,7 +317,7 @@ class Ipv6NodeDiscovery(Entity):
         """
 
         _prefix = 'ipv6-nd-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-02-18'
 
         def __init__(self):
             super(Ipv6NodeDiscovery.Nodes, self).__init__()
@@ -362,7 +362,7 @@ class Ipv6NodeDiscovery(Entity):
             
             .. attribute:: neighbor_summary
             
-            	IPv6 Neighbor summary
+            	Summary of IPv6 Neighbors
             	**type**\:  :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
             
             	**config**\: False
@@ -407,7 +407,7 @@ class Ipv6NodeDiscovery(Entity):
             """
 
             _prefix = 'ipv6-nd-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-02-18'
 
             def __init__(self):
                 super(Ipv6NodeDiscovery.Nodes.Node, self).__init__()
@@ -475,7 +475,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__init__()
@@ -521,7 +521,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__init__()
@@ -564,7 +564,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__init__()
@@ -614,7 +614,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: link_layer_address
                             
-                            	Link\-Layer Address
+                            	IPV6 Link\-Layer Address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -644,7 +644,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: interface_name
                             
-                            	Interface name
+                            	Name of Interface
                             	**type**\: str
                             
                             	**config**\: False
@@ -688,7 +688,7 @@ class Ipv6NodeDiscovery(Entity):
                             """
 
                             _prefix = 'ipv6-nd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-02-18'
 
                             def __init__(self):
                                 super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__init__()
@@ -754,7 +754,7 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-02-18'
 
                                 def __init__(self):
                                     super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__init__()
@@ -783,7 +783,7 @@ class Ipv6NodeDiscovery(Entity):
 
             class NeighborSummary(Entity):
                 """
-                IPv6 Neighbor summary
+                Summary of IPv6 Neighbors
                 
                 .. attribute:: multicast
                 
@@ -806,6 +806,27 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: sync
+                
+                	Sync neighbor summary
+                	**type**\:  :py:class:`Sync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync>`
+                
+                	**config**\: False
+                
+                .. attribute:: static_sync
+                
+                	StaticSync neighbor summary
+                	**type**\:  :py:class:`StaticSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync>`
+                
+                	**config**\: False
+                
+                .. attribute:: dynamic_sync
+                
+                	DynamicSync neighbor summary
+                	**type**\:  :py:class:`DynamicSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync>`
+                
+                	**config**\: False
+                
                 .. attribute:: total_neighbor_entries
                 
                 	Total number of entries
@@ -820,7 +841,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__init__()
@@ -830,7 +851,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("multicast", ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast)), ("static", ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)), ("dynamic", ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic))])
+                    self._child_classes = OrderedDict([("multicast", ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast)), ("static", ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)), ("dynamic", ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic)), ("sync", ("sync", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync)), ("static-sync", ("static_sync", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync)), ("dynamic-sync", ("dynamic_sync", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync))])
                     self._leafs = OrderedDict([
                         ('total_neighbor_entries', (YLeaf(YType.uint32, 'total-neighbor-entries'), ['int'])),
                     ])
@@ -847,6 +868,18 @@ class Ipv6NodeDiscovery(Entity):
                     self.dynamic = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic()
                     self.dynamic.parent = self
                     self._children_name_map["dynamic"] = "dynamic"
+
+                    self.sync = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync()
+                    self.sync.parent = self
+                    self._children_name_map["sync"] = "sync"
+
+                    self.static_sync = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync()
+                    self.static_sync.parent = self
+                    self._children_name_map["static_sync"] = "static-sync"
+
+                    self.dynamic_sync = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync()
+                    self.dynamic_sync.parent = self
+                    self._children_name_map["dynamic_sync"] = "dynamic-sync"
                     self._segment_path = lambda: "neighbor-summary"
                     self._is_frozen = True
 
@@ -860,7 +893,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: incomplete_entries
                     
-                    	Total incomplete entries
+                    	Total ipv6 neighbhors count which are in INCMP state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -869,7 +902,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: reachable_entries
                     
-                    	Total reachable entries
+                    	Total ipv6 neighbhors count which are in REACH state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -878,7 +911,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: stale_entries
                     
-                    	Total stale entries
+                    	Total ipv6 neighbhors count which are STALE
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -887,7 +920,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: delayed_entries
                     
-                    	Total delayed entries
+                    	Total ipv6 neighbhors count which are in DELAY state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -896,7 +929,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: probe_entries
                     
-                    	Total probe entries
+                    	Total ipv6 neighbhors count which are in PROBE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -905,7 +938,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: deleted_entries
                     
-                    	Total deleted entries
+                    	Total ipv6 neighbhors count which are in DELETE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -926,7 +959,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__init__()
@@ -967,7 +1000,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: incomplete_entries
                     
-                    	Total incomplete entries
+                    	Total ipv6 neighbhors count which are in INCMP state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -976,7 +1009,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: reachable_entries
                     
-                    	Total reachable entries
+                    	Total ipv6 neighbhors count which are in REACH state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -985,7 +1018,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: stale_entries
                     
-                    	Total stale entries
+                    	Total ipv6 neighbhors count which are STALE
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -994,7 +1027,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: delayed_entries
                     
-                    	Total delayed entries
+                    	Total ipv6 neighbhors count which are in DELAY state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1003,7 +1036,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: probe_entries
                     
-                    	Total probe entries
+                    	Total ipv6 neighbhors count which are in PROBE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1012,7 +1045,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: deleted_entries
                     
-                    	Total deleted entries
+                    	Total ipv6 neighbhors count which are in DELETE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1033,7 +1066,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__init__()
@@ -1074,7 +1107,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: incomplete_entries
                     
-                    	Total incomplete entries
+                    	Total ipv6 neighbhors count which are in INCMP state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1083,7 +1116,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: reachable_entries
                     
-                    	Total reachable entries
+                    	Total ipv6 neighbhors count which are in REACH state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1092,7 +1125,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: stale_entries
                     
-                    	Total stale entries
+                    	Total ipv6 neighbhors count which are STALE
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1101,7 +1134,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: delayed_entries
                     
-                    	Total delayed entries
+                    	Total ipv6 neighbhors count which are in DELAY state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1110,7 +1143,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: probe_entries
                     
-                    	Total probe entries
+                    	Total ipv6 neighbhors count which are in PROBE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1119,7 +1152,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: deleted_entries
                     
-                    	Total deleted entries
+                    	Total ipv6 neighbhors count which are in DELETE state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1140,7 +1173,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__init__()
@@ -1175,6 +1208,327 @@ class Ipv6NodeDiscovery(Entity):
 
 
 
+                class Sync(Entity):
+                    """
+                    Sync neighbor summary
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total ipv6 neighbhors count which are in INCMP state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total ipv6 neighbhors count which are in REACH state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total ipv6 neighbhors count which are STALE
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELAY state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total ipv6 neighbhors count which are in PROBE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELETE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2019-02-18'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync, self).__init__()
+
+                        self.yang_name = "sync"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', (YLeaf(YType.uint32, 'incomplete-entries'), ['int'])),
+                            ('reachable_entries', (YLeaf(YType.uint32, 'reachable-entries'), ['int'])),
+                            ('stale_entries', (YLeaf(YType.uint32, 'stale-entries'), ['int'])),
+                            ('delayed_entries', (YLeaf(YType.uint32, 'delayed-entries'), ['int'])),
+                            ('probe_entries', (YLeaf(YType.uint32, 'probe-entries'), ['int'])),
+                            ('deleted_entries', (YLeaf(YType.uint32, 'deleted-entries'), ['int'])),
+                            ('subtotal_neighbor_entries', (YLeaf(YType.uint32, 'subtotal-neighbor-entries'), ['int'])),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
+                        self._segment_path = lambda: "sync"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+
+                class StaticSync(Entity):
+                    """
+                    StaticSync neighbor summary
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total ipv6 neighbhors count which are in INCMP state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total ipv6 neighbhors count which are in REACH state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total ipv6 neighbhors count which are STALE
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELAY state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total ipv6 neighbhors count which are in PROBE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELETE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2019-02-18'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync, self).__init__()
+
+                        self.yang_name = "static-sync"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', (YLeaf(YType.uint32, 'incomplete-entries'), ['int'])),
+                            ('reachable_entries', (YLeaf(YType.uint32, 'reachable-entries'), ['int'])),
+                            ('stale_entries', (YLeaf(YType.uint32, 'stale-entries'), ['int'])),
+                            ('delayed_entries', (YLeaf(YType.uint32, 'delayed-entries'), ['int'])),
+                            ('probe_entries', (YLeaf(YType.uint32, 'probe-entries'), ['int'])),
+                            ('deleted_entries', (YLeaf(YType.uint32, 'deleted-entries'), ['int'])),
+                            ('subtotal_neighbor_entries', (YLeaf(YType.uint32, 'subtotal-neighbor-entries'), ['int'])),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
+                        self._segment_path = lambda: "static-sync"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+
+                class DynamicSync(Entity):
+                    """
+                    DynamicSync neighbor summary
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total ipv6 neighbhors count which are in INCMP state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total ipv6 neighbhors count which are in REACH state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total ipv6 neighbhors count which are STALE
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELAY state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total ipv6 neighbhors count which are in PROBE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total ipv6 neighbhors count which are in DELETE state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2019-02-18'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync, self).__init__()
+
+                        self.yang_name = "dynamic-sync"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', (YLeaf(YType.uint32, 'incomplete-entries'), ['int'])),
+                            ('reachable_entries', (YLeaf(YType.uint32, 'reachable-entries'), ['int'])),
+                            ('stale_entries', (YLeaf(YType.uint32, 'stale-entries'), ['int'])),
+                            ('delayed_entries', (YLeaf(YType.uint32, 'delayed-entries'), ['int'])),
+                            ('probe_entries', (YLeaf(YType.uint32, 'probe-entries'), ['int'])),
+                            ('deleted_entries', (YLeaf(YType.uint32, 'deleted-entries'), ['int'])),
+                            ('subtotal_neighbor_entries', (YLeaf(YType.uint32, 'subtotal-neighbor-entries'), ['int'])),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
+                        self._segment_path = lambda: "dynamic-sync"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+
 
             class BundleNodes(Entity):
                 """
@@ -1193,7 +1547,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__init__()
@@ -1246,14 +1600,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: process_name
                     
-                    	Process Name
+                    	Name of the process
                     	**type**\: str
                     
                     	**config**\: False
                     
                     .. attribute:: sent_sequence_number
                     
-                    	Sent sequence num
+                    	Sent sequence number for error detection
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1262,7 +1616,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: received_sequence_number
                     
-                    	Received sequence num
+                    	Received sequence num for error detection
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1278,7 +1632,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: state_changes
                     
-                    	State changes
+                    	change of state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1308,7 +1662,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__init__()
@@ -1370,7 +1724,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__init__()
@@ -1412,7 +1766,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, self).__init__()
@@ -1456,14 +1810,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: local_address
                     
-                    	Link local address
+                    	IPV6 Link local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
                     
                     	**config**\: False
                     
                     .. attribute:: parent_interface_name
                     
-                    	Parent interface name
+                    	Name of the Parent interface
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -1490,7 +1844,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: etype
                     
-                    	etype
+                    	etype field
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1508,7 +1862,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: mac_addr_size
                     
-                    	mac address size
+                    	size of mac address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1517,7 +1871,7 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: mac_addr
                     
-                    	mac address
+                    	media access control address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -1573,7 +1927,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
@@ -1796,7 +2150,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, self).__init__()
@@ -1857,11 +2211,11 @@ class Ipv6NodeDiscovery(Entity):
 
                     class LocalAddress(Entity):
                         """
-                        Link local address
+                        IPV6 Link local address
                         
                         .. attribute:: ipv6_address
                         
-                        	IPv6 address
+                        	Address of type IPV6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -1888,7 +2242,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: prefix_length
                         
-                        	Prefix length
+                        	IPV6 Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1909,7 +2263,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__init__()
@@ -1946,7 +2300,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: ipv6_address
                         
-                        	IPv6 address
+                        	Address of type IPV6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -1973,7 +2327,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: prefix_length
                         
-                        	Prefix length
+                        	IPV6 Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1994,7 +2348,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__init__()
@@ -2052,7 +2406,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__init__()
@@ -2096,7 +2450,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.Interfaces, self).__init__()
@@ -2295,7 +2649,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, self).__init__()
@@ -2374,7 +2728,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, self).__init__()
@@ -2411,14 +2765,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     .. attribute:: local_address
                     
-                    	Link local address
+                    	IPV6 Link local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
                     
                     	**config**\: False
                     
                     .. attribute:: link_layer_address
                     
-                    	Link\-Layer Address
+                    	IPV6 Link\-Layer Address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -2469,7 +2823,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, self).__init__()
@@ -2509,11 +2863,11 @@ class Ipv6NodeDiscovery(Entity):
 
                     class LocalAddress(Entity):
                         """
-                        Link local address
+                        IPV6 Link local address
                         
                         .. attribute:: ipv6_address
                         
-                        	IPv6 address
+                        	Address of type IPV6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -2540,7 +2894,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: prefix_length
                         
-                        	Prefix length
+                        	IPV6 Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2561,7 +2915,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, self).__init__()
@@ -2598,7 +2952,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: ipv6_address
                         
-                        	IPv6 address
+                        	Address of type IPV6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -2625,7 +2979,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: prefix_length
                         
-                        	Prefix length
+                        	IPV6 Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2646,7 +3000,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, self).__init__()
@@ -2696,7 +3050,7 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-02-18'
 
                 def __init__(self):
                     super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, self).__init__()
@@ -2743,7 +3097,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-02-18'
 
                     def __init__(self):
                         super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, self).__init__()
@@ -2776,7 +3130,7 @@ class Ipv6NodeDiscovery(Entity):
                         
                         .. attribute:: idb
                         
-                        	idb
+                        	interface database
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -2795,7 +3149,7 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-02-18'
 
                         def __init__(self):
                             super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, self).__init__()
@@ -2832,21 +3186,21 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: reachable_time
                             
-                            	reachabletime
+                            	common reachabletime
                             	**type**\:  :py:class:`ReachableTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime>`
                             
                             	**config**\: False
                             
                             .. attribute:: retrans_time
                             
-                            	retranstime
+                            	RA retransmit time
                             	**type**\:  :py:class:`RetransTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime>`
                             
                             	**config**\: False
                             
                             .. attribute:: address
                             
-                            	address
+                            	address of type IPV6
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -2855,7 +3209,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: hops
                             
-                            	hops
+                            	number of intermediate devices between source and destination
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2864,7 +3218,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: flags
                             
-                            	flags
+                            	RA flags
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2873,7 +3227,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: life_time
                             
-                            	lifetime
+                            	active time
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2882,7 +3236,7 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: mtu
                             
-                            	mtu
+                            	maximum transmission unit
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2891,14 +3245,14 @@ class Ipv6NodeDiscovery(Entity):
                             
                             .. attribute:: err_msg
                             
-                            	errmsg
+                            	message having the error info
                             	**type**\: bool
                             
                             	**config**\: False
                             
                             .. attribute:: vrf_id
                             
-                            	vrf id
+                            	virtual routing and forwarding id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2951,7 +3305,7 @@ class Ipv6NodeDiscovery(Entity):
                             """
 
                             _prefix = 'ipv6-nd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-02-18'
 
                             def __init__(self):
                                 super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, self).__init__()
@@ -3027,7 +3381,7 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-02-18'
 
                                 def __init__(self):
                                     super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, self).__init__()
@@ -3052,7 +3406,7 @@ class Ipv6NodeDiscovery(Entity):
 
                             class ReachableTime(Entity):
                                 """
-                                reachabletime
+                                common reachabletime
                                 
                                 .. attribute:: seconds
                                 
@@ -3070,7 +3424,7 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-02-18'
 
                                 def __init__(self):
                                     super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, self).__init__()
@@ -3095,7 +3449,7 @@ class Ipv6NodeDiscovery(Entity):
 
                             class RetransTime(Entity):
                                 """
-                                retranstime
+                                RA retransmit time
                                 
                                 .. attribute:: seconds
                                 
@@ -3113,7 +3467,7 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-02-18'
 
                                 def __init__(self):
                                     super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, self).__init__()
@@ -3142,7 +3496,7 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 .. attribute:: prefix_address
                                 
-                                	Prefix address
+                                	IPV6 Prefix address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -3160,7 +3514,7 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 .. attribute:: valid_life_time
                                 
-                                	Valid Life Time
+                                	IPV6 Prefix Valid Life Time
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -3169,7 +3523,7 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 .. attribute:: preferred_life_time
                                 
-                                	Preferred Life Time
+                                	IPV6 Prefix Preferred Life Time
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -3178,7 +3532,7 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 .. attribute:: prefix_len
                                 
-                                	Prefix Length
+                                	IPV6 Prefix Length
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -3208,7 +3562,7 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-02-18'
 
                                 def __init__(self):
                                     super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, self).__init__()

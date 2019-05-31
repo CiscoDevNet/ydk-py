@@ -99,6 +99,87 @@ class ArpGmpBagEntry(Enum):
     alias = Enum.YLeaf(2, "alias")
 
 
+class ArpIssuPhase(Enum):
+    """
+    ArpIssuPhase (Enum Class)
+
+    Arp issu phase
+
+    .. data:: phase_not_started = 0
+
+    	An ISSU event has not started
+
+    .. data:: phase_load = 1
+
+    	ISSU Load Phase
+
+    .. data:: phase_run = 2
+
+    	ISSU Run Phase
+
+    .. data:: phase_completed = 3
+
+    	An ISSU event has completed successfully
+
+    .. data:: phase_aborted = 4
+
+    	An ISSU event has aborted
+
+    """
+
+    phase_not_started = Enum.YLeaf(0, "phase-not-started")
+
+    phase_load = Enum.YLeaf(1, "phase-load")
+
+    phase_run = Enum.YLeaf(2, "phase-run")
+
+    phase_completed = Enum.YLeaf(3, "phase-completed")
+
+    phase_aborted = Enum.YLeaf(4, "phase-aborted")
+
+
+class ArpIssuRole(Enum):
+    """
+    ArpIssuRole (Enum Class)
+
+    Arp issu role
+
+    .. data:: role_primary = 0
+
+    	Primary role
+
+    .. data:: role_secondary = 1
+
+    	Secondary role
+
+    """
+
+    role_primary = Enum.YLeaf(0, "role-primary")
+
+    role_secondary = Enum.YLeaf(1, "role-secondary")
+
+
+class ArpIssuVersion(Enum):
+    """
+    ArpIssuVersion (Enum Class)
+
+    Arp issu version
+
+    .. data:: version1 = 0
+
+    	Version 1
+
+    .. data:: version2 = 1
+
+    	Version 2
+
+    """
+
+    version1 = Enum.YLeaf(0, "version1")
+
+    version2 = Enum.YLeaf(1, "version2")
+
+
 class ArpResolutionHistoryStatus(Enum):
     """
     ArpResolutionHistoryStatus (Enum Class)
@@ -211,6 +292,10 @@ class ArpResolutionHistoryStatus(Enum):
 
     	this Interface
 
+    .. data:: status_drop_adjacency_added = 23
+
+    	Adding drop adjacency entry for the address
+
     """
 
     status_none = Enum.YLeaf(0, "status-none")
@@ -258,6 +343,8 @@ class ArpResolutionHistoryStatus(Enum):
     status_resolved_peer_sync = Enum.YLeaf(21, "status-resolved-peer-sync")
 
     status_dropped_unsolicited_pak = Enum.YLeaf(22, "status-dropped-unsolicited-pak")
+
+    status_drop_adjacency_added = Enum.YLeaf(23, "status-drop-adjacency-added")
 
 
 class IpArpBagEncap(Enum):
@@ -441,7 +528,15 @@ class IpArpBagState(Enum):
 
     	Geo-redundancy sync'ed
 
-    .. data:: state_max = 16
+    .. data:: state_drop_adj = 16
+
+    	Drop adjacency
+
+    .. data:: state_stale = 17
+
+    	Stale
+
+    .. data:: state_max = 18
 
     	Maximum state number
 
@@ -479,7 +574,11 @@ class IpArpBagState(Enum):
 
     state_r_sync = Enum.YLeaf(15, "state-r-sync")
 
-    state_max = Enum.YLeaf(16, "state-max")
+    state_drop_adj = Enum.YLeaf(16, "state-drop-adj")
+
+    state_stale = Enum.YLeaf(17, "state-stale")
+
+    state_max = Enum.YLeaf(18, "state-max")
 
 
 
@@ -1334,6 +1433,13 @@ class Arp(Entity):
             
             	**config**\: False
             
+            .. attribute:: arp_status_info
+            
+            	Per node ARP status information
+            	**type**\:  :py:class:`ArpStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ArpStatusInfo>`
+            
+            	**config**\: False
+            
             .. attribute:: traffic_vrfs
             
             	ARP Traffic information per VRF
@@ -1384,7 +1490,7 @@ class Arp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("resolution-history-dynamic", ("resolution_history_dynamic", Arp.Nodes.Node.ResolutionHistoryDynamic)), ("traffic-vrfs", ("traffic_vrfs", Arp.Nodes.Node.TrafficVrfs)), ("traffic-node", ("traffic_node", Arp.Nodes.Node.TrafficNode)), ("resolution-history-client", ("resolution_history_client", Arp.Nodes.Node.ResolutionHistoryClient)), ("entries", ("entries", Arp.Nodes.Node.Entries)), ("traffic-interfaces", ("traffic_interfaces", Arp.Nodes.Node.TrafficInterfaces))])
+                self._child_classes = OrderedDict([("resolution-history-dynamic", ("resolution_history_dynamic", Arp.Nodes.Node.ResolutionHistoryDynamic)), ("arp-status-info", ("arp_status_info", Arp.Nodes.Node.ArpStatusInfo)), ("traffic-vrfs", ("traffic_vrfs", Arp.Nodes.Node.TrafficVrfs)), ("traffic-node", ("traffic_node", Arp.Nodes.Node.TrafficNode)), ("resolution-history-client", ("resolution_history_client", Arp.Nodes.Node.ResolutionHistoryClient)), ("entries", ("entries", Arp.Nodes.Node.Entries)), ("traffic-interfaces", ("traffic_interfaces", Arp.Nodes.Node.TrafficInterfaces))])
                 self._leafs = OrderedDict([
                     ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
@@ -1393,6 +1499,10 @@ class Arp(Entity):
                 self.resolution_history_dynamic = Arp.Nodes.Node.ResolutionHistoryDynamic()
                 self.resolution_history_dynamic.parent = self
                 self._children_name_map["resolution_history_dynamic"] = "resolution-history-dynamic"
+
+                self.arp_status_info = Arp.Nodes.Node.ArpStatusInfo()
+                self.arp_status_info.parent = self
+                self._children_name_map["arp_status_info"] = "arp-status-info"
 
                 self.traffic_vrfs = Arp.Nodes.Node.TrafficVrfs()
                 self.traffic_vrfs.parent = self
@@ -1575,6 +1685,197 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
+
+
+
+            class ArpStatusInfo(Entity):
+                """
+                Per node ARP status information
+                
+                .. attribute:: process_start_time
+                
+                	Timestamp for the process start time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: nanosecond
+                
+                .. attribute:: issu_sync_complete_time
+                
+                	Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: nanosecond
+                
+                .. attribute:: issu_ready_time
+                
+                	Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: nanosecond
+                
+                .. attribute:: big_bang_time
+                
+                	Timestamp for the Big Bang notification time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: nanosecond
+                
+                .. attribute:: primary_role_time
+                
+                	Timestamp for the change to Primary role notification time in nanoseconds since Epoch, i .e. since 00\:00\:00 UTC, January 1, 1970
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: nanosecond
+                
+                .. attribute:: role
+                
+                	The current role of the ARP process
+                	**type**\:  :py:class:`ArpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpIssuRole>`
+                
+                	**config**\: False
+                
+                .. attribute:: phase
+                
+                	The current ISSU phase of the ARP process
+                	**type**\:  :py:class:`ArpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpIssuPhase>`
+                
+                	**config**\: False
+                
+                .. attribute:: version
+                
+                	The current version of the ARP process in the context of an ISSU
+                	**type**\:  :py:class:`ArpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpIssuVersion>`
+                
+                	**config**\: False
+                
+                .. attribute:: dynamic_entries_recovered_count
+                
+                	The number of entries that have been recovered during ISSU V1 and V2 synchronisation
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: non_operational_entries_count
+                
+                	The number of entries that are currently non\-operational in the shadow database
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: interface_handle_translation_failure_count
+                
+                	The number of interface handle translation failures that occurred during the ISSU V1 and V2 synchronisation
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: issu_ready_issu_mgr_connection
+                
+                	Whether or not ARP is currently connected to ISSU Manager during the ISSU Load Phase
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: issu_ready_im
+                
+                	Whether or not ARP is in sync with IM during the ISSU Load Phase
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: issu_ready_dagr_rib
+                
+                	Whether or not the ARP DAGR system is in sync with the RIB during the ISSU Load Phase
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: issu_ready_entries_replicate
+                
+                	Whether or not ARP has received all replicated entries during the ISSU Load Phase
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'ipv4-arp-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Arp.Nodes.Node.ArpStatusInfo, self).__init__()
+
+                    self.yang_name = "arp-status-info"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('process_start_time', (YLeaf(YType.uint64, 'process-start-time'), ['int'])),
+                        ('issu_sync_complete_time', (YLeaf(YType.uint64, 'issu-sync-complete-time'), ['int'])),
+                        ('issu_ready_time', (YLeaf(YType.uint64, 'issu-ready-time'), ['int'])),
+                        ('big_bang_time', (YLeaf(YType.uint64, 'big-bang-time'), ['int'])),
+                        ('primary_role_time', (YLeaf(YType.uint64, 'primary-role-time'), ['int'])),
+                        ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpIssuRole', '')])),
+                        ('phase', (YLeaf(YType.enumeration, 'phase'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpIssuPhase', '')])),
+                        ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpIssuVersion', '')])),
+                        ('dynamic_entries_recovered_count', (YLeaf(YType.uint32, 'dynamic-entries-recovered-count'), ['int'])),
+                        ('non_operational_entries_count', (YLeaf(YType.uint32, 'non-operational-entries-count'), ['int'])),
+                        ('interface_handle_translation_failure_count', (YLeaf(YType.uint32, 'interface-handle-translation-failure-count'), ['int'])),
+                        ('issu_ready_issu_mgr_connection', (YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection'), ['bool'])),
+                        ('issu_ready_im', (YLeaf(YType.boolean, 'issu-ready-im'), ['bool'])),
+                        ('issu_ready_dagr_rib', (YLeaf(YType.boolean, 'issu-ready-dagr-rib'), ['bool'])),
+                        ('issu_ready_entries_replicate', (YLeaf(YType.boolean, 'issu-ready-entries-replicate'), ['bool'])),
+                    ])
+                    self.process_start_time = None
+                    self.issu_sync_complete_time = None
+                    self.issu_ready_time = None
+                    self.big_bang_time = None
+                    self.primary_role_time = None
+                    self.role = None
+                    self.phase = None
+                    self.version = None
+                    self.dynamic_entries_recovered_count = None
+                    self.non_operational_entries_count = None
+                    self.interface_handle_translation_failure_count = None
+                    self.issu_ready_issu_mgr_connection = None
+                    self.issu_ready_im = None
+                    self.issu_ready_dagr_rib = None
+                    self.issu_ready_entries_replicate = None
+                    self._segment_path = lambda: "arp-status-info"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Arp.Nodes.Node.ArpStatusInfo, ['process_start_time', 'issu_sync_complete_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'dynamic_entries_recovered_count', 'non_operational_entries_count', 'interface_handle_translation_failure_count', 'issu_ready_issu_mgr_connection', 'issu_ready_im', 'issu_ready_dagr_rib', 'issu_ready_entries_replicate'], name, value)
 
 
 
@@ -1833,6 +2134,15 @@ class Arp(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: drop_adjacency_entries
+                    
+                    	Total drop adjacency entries in the cache
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: ip_packets_dropped_node
                     
                     	Total ip packets droped on this node
@@ -1928,6 +2238,7 @@ class Arp(Entity):
                             ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
                             ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
                             ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                            ('drop_adjacency_entries', (YLeaf(YType.uint32, 'drop-adjacency-entries'), ['int'])),
                             ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
                             ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
                             ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
@@ -1959,6 +2270,7 @@ class Arp(Entity):
                         self.standby_entries = None
                         self.dhcp_entries = None
                         self.vxlan_entries = None
+                        self.drop_adjacency_entries = None
                         self.ip_packets_dropped_node = None
                         self.arp_packet_node_out_of_subnet = None
                         self.ip_packets_dropped_interface = None
@@ -1969,7 +2281,7 @@ class Arp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
 
@@ -2185,6 +2497,15 @@ class Arp(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: drop_adjacency_entries
+                
+                	Total drop adjacency entries in the cache
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 .. attribute:: ip_packets_dropped_node
                 
                 	Total ip packets droped on this node
@@ -2279,6 +2600,7 @@ class Arp(Entity):
                         ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
                         ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
                         ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                        ('drop_adjacency_entries', (YLeaf(YType.uint32, 'drop-adjacency-entries'), ['int'])),
                         ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
                         ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
                         ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
@@ -2309,6 +2631,7 @@ class Arp(Entity):
                     self.standby_entries = None
                     self.dhcp_entries = None
                     self.vxlan_entries = None
+                    self.drop_adjacency_entries = None
                     self.ip_packets_dropped_node = None
                     self.arp_packet_node_out_of_subnet = None
                     self.ip_packets_dropped_interface = None
@@ -2319,7 +2642,7 @@ class Arp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Arp.Nodes.Node.TrafficNode, ['requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
+                    self._perform_setattr(Arp.Nodes.Node.TrafficNode, ['requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
 
@@ -2896,6 +3219,15 @@ class Arp(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: drop_adjacency_entries
+                    
+                    	Total drop adjacency entries in the cache
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: ip_packets_dropped_node
                     
                     	Total ip packets droped on this node
@@ -2991,6 +3323,7 @@ class Arp(Entity):
                             ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
                             ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
                             ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                            ('drop_adjacency_entries', (YLeaf(YType.uint32, 'drop-adjacency-entries'), ['int'])),
                             ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
                             ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
                             ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
@@ -3022,6 +3355,7 @@ class Arp(Entity):
                         self.standby_entries = None
                         self.dhcp_entries = None
                         self.vxlan_entries = None
+                        self.drop_adjacency_entries = None
                         self.ip_packets_dropped_node = None
                         self.arp_packet_node_out_of_subnet = None
                         self.ip_packets_dropped_interface = None
@@ -3032,7 +3366,7 @@ class Arp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
 

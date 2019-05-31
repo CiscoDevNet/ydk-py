@@ -159,15 +159,15 @@ module Cisco-IOS-XR-dwdm-ui-cfg {
           "High-Gain Multivendor Interoperable Hard
            Decision";
       }
-      enum "sd-everest" {
+      enum "15sd-fec-de" {
         value 9;
         description
-          "SD Everest";
+          "15SDFecDe";
       }
-      enum "sd-denali" {
+      enum "15sd-fec" {
         value 10;
         description
-          "SD Denali";
+          "15SDFec";
       }
     }
     description
@@ -891,7 +891,7 @@ module Cisco-IOS-XR-dwdm-ui-cfg {
             mandatory true;
             description
               "None, Standard, Enhanced, High-Gain,
-               Long-Haul, Ci-BCH, SD-Everest, SD-Denali";
+               Long-Haul, Ci-BCH, 15SDFecDe, 15SDFec";
           }
           leaf efec-mode {
             type Efec;

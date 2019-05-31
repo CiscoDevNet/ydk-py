@@ -51,6 +51,246 @@ class NfCacheAgingMode(Enum):
     immediate = Enum.YLeaf(2, "immediate")
 
 
+class NfExportVersion(Enum):
+    """
+    NfExportVersion (Enum Class)
+
+    Nf export version
+
+    .. data:: v9 = 9
+
+    	Version v9
+
+    .. data:: ipfix = 10
+
+    	Version ipfix
+
+    """
+
+    v9 = Enum.YLeaf(9, "v9")
+
+    ipfix = Enum.YLeaf(10, "ipfix")
+
+
+class NfFlowDirection(Enum):
+    """
+    NfFlowDirection (Enum Class)
+
+    Nf flow direction
+
+    .. data:: ingress = 0
+
+    	Netflow flow direction ingress
+
+    .. data:: egress = 1
+
+    	Netflow flow direction egress
+
+    """
+
+    ingress = Enum.YLeaf(0, "ingress")
+
+    egress = Enum.YLeaf(1, "egress")
+
+
+class NfFlowProtocol(Enum):
+    """
+    NfFlowProtocol (Enum Class)
+
+    Nf flow protocol
+
+    .. data:: ipv4 = 0
+
+    	Netflow flow protocol ipv4
+
+    .. data:: ipv6 = 1
+
+    	Netflow flow protocol ipv6
+
+    .. data:: mpls = 2
+
+    	Netflow flow protocol mpls
+
+    .. data:: data_link_frame_section = 13
+
+    	Netflow flow protocol data-link-frame-section
+
+    """
+
+    ipv4 = Enum.YLeaf(0, "ipv4")
+
+    ipv6 = Enum.YLeaf(1, "ipv6")
+
+    mpls = Enum.YLeaf(2, "mpls")
+
+    data_link_frame_section = Enum.YLeaf(13, "data-link-frame-section")
+
+
+class NfRecordFormat(Enum):
+    """
+    NfRecordFormat (Enum Class)
+
+    Nf record format
+
+    .. data:: datalinkframesections_any = 0
+
+    	Record Format datalinkframesections_any
+
+    .. data:: default_mdi = 1
+
+    	Record Format default_mdi
+
+    .. data:: default_rtp = 2
+
+    	Record Format default_rtp
+
+    .. data:: ipv4_as_agg = 3
+
+    	Record Format ipv4_as_agg
+
+    .. data:: ipv4_as_tos_agg = 4
+
+    	Record Format ipv4_as_tos_agg
+
+    .. data:: ipv4_bgp_nexthop_tos_agg = 5
+
+    	Record Format ipv4_bgp_nexthop_tos_agg
+
+    .. data:: ipv4_destination = 6
+
+    	Record Format ipv4_destination
+
+    .. data:: ipv4_destination_tos_agg = 7
+
+    	Record Format ipv4_destination_tos_agg
+
+    .. data:: ipv4_destination_prefix_agg = 8
+
+    	Record Format ipv4_destination_prefix_agg
+
+    .. data:: ipv4_destination_prefix_tos_agg = 9
+
+    	Record Format ipv4_destination_prefix_tos_agg
+
+    .. data:: ipv4_peer_as = 10
+
+    	Record Format ipv4_peer_as
+
+    .. data:: ipv4_prefix_agg = 11
+
+    	Record Format ipv4_prefix_agg
+
+    .. data:: ipv4_prefix_port_agg = 12
+
+    	Record Format ipv4_prefix_port_agg
+
+    .. data:: ipv4_prefix_tos_agg = 13
+
+    	Record Format ipv4_prefix_tos_agg
+
+    .. data:: ipv4_protocol_port_agg = 14
+
+    	Record Format ipv4_protocol_port_agg
+
+    .. data:: ipv4_protocol_port_tos_agg = 15
+
+    	Record Format ipv4_protocol_port_tos_agg
+
+    .. data:: ipv4_raw = 16
+
+    	Record Format ipv4_raw
+
+    .. data:: ipv4_source_prefix_agg = 17
+
+    	Record Format ipv4_source_prefix_agg
+
+    .. data:: ipv4_source_prefix_tos_agg = 18
+
+    	Record Format ipv4_source_prefix_tos_agg
+
+    .. data:: ipv6 = 19
+
+    	Record Format ipv6
+
+    .. data:: ipv6_destination = 20
+
+    	Record Format ipv6_destination
+
+    .. data:: ipv6_peer_as = 21
+
+    	Record Format ipv6_peer_as
+
+    .. data:: mpls = 22
+
+    	Record Format mpls
+
+    .. data:: mpls_ipv4 = 23
+
+    	Record Format mpls_ipv4
+
+    .. data:: mpls_ipv4_ipv6 = 24
+
+    	Record Format mpls_ipv4_ipv6
+
+    .. data:: mpls_ipv6 = 25
+
+    	Record Format mpls_ipv6
+
+    """
+
+    datalinkframesections_any = Enum.YLeaf(0, "datalinkframesections-any")
+
+    default_mdi = Enum.YLeaf(1, "default-mdi")
+
+    default_rtp = Enum.YLeaf(2, "default-rtp")
+
+    ipv4_as_agg = Enum.YLeaf(3, "ipv4-as-agg")
+
+    ipv4_as_tos_agg = Enum.YLeaf(4, "ipv4-as-tos-agg")
+
+    ipv4_bgp_nexthop_tos_agg = Enum.YLeaf(5, "ipv4-bgp-nexthop-tos-agg")
+
+    ipv4_destination = Enum.YLeaf(6, "ipv4-destination")
+
+    ipv4_destination_tos_agg = Enum.YLeaf(7, "ipv4-destination-tos-agg")
+
+    ipv4_destination_prefix_agg = Enum.YLeaf(8, "ipv4-destination-prefix-agg")
+
+    ipv4_destination_prefix_tos_agg = Enum.YLeaf(9, "ipv4-destination-prefix-tos-agg")
+
+    ipv4_peer_as = Enum.YLeaf(10, "ipv4-peer-as")
+
+    ipv4_prefix_agg = Enum.YLeaf(11, "ipv4-prefix-agg")
+
+    ipv4_prefix_port_agg = Enum.YLeaf(12, "ipv4-prefix-port-agg")
+
+    ipv4_prefix_tos_agg = Enum.YLeaf(13, "ipv4-prefix-tos-agg")
+
+    ipv4_protocol_port_agg = Enum.YLeaf(14, "ipv4-protocol-port-agg")
+
+    ipv4_protocol_port_tos_agg = Enum.YLeaf(15, "ipv4-protocol-port-tos-agg")
+
+    ipv4_raw = Enum.YLeaf(16, "ipv4-raw")
+
+    ipv4_source_prefix_agg = Enum.YLeaf(17, "ipv4-source-prefix-agg")
+
+    ipv4_source_prefix_tos_agg = Enum.YLeaf(18, "ipv4-source-prefix-tos-agg")
+
+    ipv6 = Enum.YLeaf(19, "ipv6")
+
+    ipv6_destination = Enum.YLeaf(20, "ipv6-destination")
+
+    ipv6_peer_as = Enum.YLeaf(21, "ipv6-peer-as")
+
+    mpls = Enum.YLeaf(22, "mpls")
+
+    mpls_ipv4 = Enum.YLeaf(23, "mpls-ipv4")
+
+    mpls_ipv4_ipv6 = Enum.YLeaf(24, "mpls-ipv4-ipv6")
+
+    mpls_ipv6 = Enum.YLeaf(25, "mpls-ipv6")
+
+
 class NfSamplingMode(Enum):
     """
     NfSamplingMode (Enum Class)
@@ -96,7 +336,7 @@ class NetFlow(Entity):
     """
 
     _prefix = 'traffmon-netflow-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(NetFlow, self).__init__()
@@ -146,7 +386,7 @@ class NetFlow(Entity):
         """
 
         _prefix = 'traffmon-netflow-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(NetFlow.FlowExporterMaps, self).__init__()
@@ -194,6 +434,8 @@ class NetFlow(Entity):
             	Specify export version parameters
             	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Version>`
             
+            	**presence node**\: True
+            
             .. attribute:: source_interface
             
             	Configure source interface for collector
@@ -220,7 +462,7 @@ class NetFlow(Entity):
             """
 
             _prefix = 'traffmon-netflow-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__init__()
@@ -250,8 +492,7 @@ class NetFlow(Entity):
                 self.destination.parent = self
                 self._children_name_map["destination"] = "destination"
 
-                self.version = NetFlow.FlowExporterMaps.FlowExporterMap.Version()
-                self.version.parent = self
+                self.version = None
                 self._children_name_map["version"] = "version"
                 self._segment_path = lambda: "flow-exporter-map" + "[exporter-map-name='" + str(self.exporter_map_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/%s" % self._segment_path()
@@ -277,7 +518,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__init__()
@@ -316,17 +557,21 @@ class NetFlow(Entity):
                 	IPV6 address of the tunnel destination
                 	**type**\: str
                 
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
                 .. attribute:: vrf_name
                 
                 	VRF name
                 	**type**\: str
+                
+                	**length:** 1..32
                 
                 
 
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__init__()
@@ -365,9 +610,9 @@ class NetFlow(Entity):
                 .. attribute:: version_type
                 
                 	Export version number
-                	**type**\: int
+                	**type**\:  :py:class:`NfExportVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfExportVersion>`
                 
-                	**range:** 9..10
+                	**mandatory**\: True
                 
                 .. attribute:: options_template_timeout
                 
@@ -404,10 +649,12 @@ class NetFlow(Entity):
                 
                 
 
+                This class is a :ref:`presence class<presence-class>`
+
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowExporterMaps.FlowExporterMap.Version, self).__init__()
@@ -418,8 +665,9 @@ class NetFlow(Entity):
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("options", ("options", NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options))])
+                    self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('version_type', (YLeaf(YType.uint32, 'version-type'), ['int'])),
+                        ('version_type', (YLeaf(YType.enumeration, 'version-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfExportVersion', '')])),
                         ('options_template_timeout', (YLeaf(YType.uint32, 'options-template-timeout'), ['int'])),
                         ('common_template_timeout', (YLeaf(YType.uint32, 'common-template-timeout'), ['int'])),
                         ('data_template_timeout', (YLeaf(YType.uint32, 'data-template-timeout'), ['int'])),
@@ -475,7 +723,7 @@ class NetFlow(Entity):
                     """
 
                     _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options, self).__init__()
@@ -519,7 +767,7 @@ class NetFlow(Entity):
         """
 
         _prefix = 'traffmon-netflow-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(NetFlow.FlowSamplerMaps, self).__init__()
@@ -562,7 +810,7 @@ class NetFlow(Entity):
             """
 
             _prefix = 'traffmon-netflow-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__init__()
@@ -603,7 +851,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__init__()
@@ -638,7 +886,7 @@ class NetFlow(Entity):
                     	Number of packets to be sampled in the sampling interval
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 1..1
                     
                     	**mandatory**\: True
                     
@@ -656,7 +904,7 @@ class NetFlow(Entity):
                     """
 
                     _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__init__()
@@ -700,7 +948,7 @@ class NetFlow(Entity):
         """
 
         _prefix = 'traffmon-netflow-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(NetFlow.FlowMonitorMapTable, self).__init__()
@@ -759,16 +1007,12 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 1800
-            
             .. attribute:: cache_entries
             
             	Specify the number of entries in the flow cache
             	**type**\: int
             
             	**range:** 4096..1000000
-            
-            	**default value**\: 65535
             
             .. attribute:: cache_inactive_aging_timeout
             
@@ -779,8 +1023,6 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 15
-            
             .. attribute:: cache_active_aging_timeout
             
             	Specify the active flow cache aging timeout
@@ -790,8 +1032,6 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 1800
-            
             .. attribute:: cache_timeout_rate_limit
             
             	Specify the maximum number of entries to age each second
@@ -799,21 +1039,17 @@ class NetFlow(Entity):
             
             	**range:** 1..1000000
             
-            	**default value**\: 2000
-            
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
             	**type**\:  :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
-            
-            	**default value**\: normal
             
             
 
             """
 
             _prefix = 'traffmon-netflow-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__init__()
@@ -888,7 +1124,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__init__()
@@ -932,7 +1168,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__init__()
@@ -970,7 +1206,7 @@ class NetFlow(Entity):
                     """
 
                     _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
@@ -998,12 +1234,10 @@ class NetFlow(Entity):
                 """
                 Specify a flow record format
                 
-                .. attribute:: record_name
+                .. attribute:: record_format
                 
-                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\: str
-                
-                	**length:** 1..32
+                	Flow record format
+                	**type**\:  :py:class:`NfRecordFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfRecordFormat>`
                 
                 	**mandatory**\: True
                 
@@ -1021,7 +1255,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__init__()
@@ -1034,16 +1268,16 @@ class NetFlow(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('record_name', (YLeaf(YType.str, 'record-name'), ['str'])),
+                        ('record_format', (YLeaf(YType.enumeration, 'record-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfRecordFormat', '')])),
                         ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
                     ])
-                    self.record_name = None
+                    self.record_format = None
                     self.label = None
                     self._segment_path = lambda: "record"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, ['record_name', 'label'], name, value)
+                    self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, ['record_format', 'label'], name, value)
 
 
 
@@ -1063,7 +1297,7 @@ class NetFlow(Entity):
         """
 
         _prefix = 'traffmon-netflow-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(NetFlow.FlowMonitorMapPerformanceTable, self).__init__()
@@ -1122,16 +1356,12 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 1800
-            
             .. attribute:: cache_entries
             
             	Specify the number of entries in the flow cache
             	**type**\: int
             
             	**range:** 4096..1000000
-            
-            	**default value**\: 65535
             
             .. attribute:: cache_inactive_aging_timeout
             
@@ -1142,8 +1372,6 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 15
-            
             .. attribute:: cache_active_aging_timeout
             
             	Specify the active flow cache aging timeout
@@ -1153,8 +1381,6 @@ class NetFlow(Entity):
             
             	**units**\: second
             
-            	**default value**\: 1800
-            
             .. attribute:: cache_timeout_rate_limit
             
             	Specify the maximum number of entries to age each second
@@ -1162,21 +1388,17 @@ class NetFlow(Entity):
             
             	**range:** 1..1000000
             
-            	**default value**\: 2000
-            
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
             	**type**\:  :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
-            
-            	**default value**\: normal
             
             
 
             """
 
             _prefix = 'traffmon-netflow-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__init__()
@@ -1251,7 +1473,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__init__()
@@ -1295,7 +1517,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__init__()
@@ -1333,7 +1555,7 @@ class NetFlow(Entity):
                     """
 
                     _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
@@ -1361,12 +1583,10 @@ class NetFlow(Entity):
                 """
                 Specify a flow record format
                 
-                .. attribute:: record_name
+                .. attribute:: record_format
                 
-                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\: str
-                
-                	**length:** 1..32
+                	Flow record format
+                	**type**\:  :py:class:`NfRecordFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfRecordFormat>`
                 
                 	**mandatory**\: True
                 
@@ -1384,7 +1604,7 @@ class NetFlow(Entity):
                 """
 
                 _prefix = 'traffmon-netflow-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__init__()
@@ -1397,16 +1617,16 @@ class NetFlow(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('record_name', (YLeaf(YType.str, 'record-name'), ['str'])),
+                        ('record_format', (YLeaf(YType.enumeration, 'record-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfRecordFormat', '')])),
                         ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
                     ])
-                    self.record_name = None
+                    self.record_format = None
                     self.label = None
                     self._segment_path = lambda: "record"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, ['record_name', 'label'], name, value)
+                    self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, ['record_format', 'label'], name, value)
 
 
 

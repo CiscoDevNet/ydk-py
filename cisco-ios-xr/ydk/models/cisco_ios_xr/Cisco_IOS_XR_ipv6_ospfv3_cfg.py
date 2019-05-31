@@ -746,7 +746,7 @@ class Ospfv3(Entity):
     """
 
     _prefix = 'ipv6-ospfv3-cfg'
-    _revision = '2018-01-15'
+    _revision = '2018-05-14'
 
     def __init__(self):
         super(Ospfv3, self).__init__()
@@ -787,7 +787,7 @@ class Ospfv3(Entity):
         """
 
         _prefix = 'ipv6-ospfv3-cfg'
-        _revision = '2018-01-15'
+        _revision = '2018-05-14'
 
         def __init__(self):
             super(Ospfv3.Processes, self).__init__()
@@ -854,17 +854,12 @@ class Ospfv3(Entity):
             	Enable protocol shutdown
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: enable
-            
-            	Enable OSPFv3
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             
 
             """
 
             _prefix = 'ipv6-ospfv3-cfg'
-            _revision = '2018-01-15'
+            _revision = '2018-05-14'
 
             def __init__(self):
                 super(Ospfv3.Processes.Process, self).__init__()
@@ -879,12 +874,10 @@ class Ospfv3(Entity):
                     ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
                     ('nsr', (YLeaf(YType.enumeration, 'nsr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nsr', '')])),
                     ('protocol_shutdown', (YLeaf(YType.empty, 'protocol-shutdown'), ['Empty'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.process_name = None
                 self.nsr = None
                 self.protocol_shutdown = None
-                self.enable = None
 
                 self.default_vrf = Ospfv3.Processes.Process.DefaultVrf()
                 self.default_vrf.parent = self
@@ -905,7 +898,7 @@ class Ospfv3(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ospfv3.Processes.Process, ['process_name', 'nsr', 'protocol_shutdown', 'enable'], name, value)
+                self._perform_setattr(Ospfv3.Processes.Process, ['process_name', 'nsr', 'protocol_shutdown'], name, value)
 
 
             class DefaultVrf(Entity):
@@ -1152,7 +1145,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2018-01-15'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.DefaultVrf, self).__init__()
@@ -1314,7 +1307,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses, self).__init__()
@@ -1528,7 +1521,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, self).__init__()
@@ -1665,7 +1658,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
@@ -1724,7 +1717,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
@@ -1765,7 +1758,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
@@ -1824,7 +1817,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
@@ -1899,7 +1892,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
@@ -1973,7 +1966,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -2018,7 +2011,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
@@ -2055,7 +2048,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
@@ -2093,7 +2086,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
@@ -2130,7 +2123,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
@@ -2168,7 +2161,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
@@ -2344,7 +2337,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
@@ -2459,7 +2452,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
@@ -2502,7 +2495,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
@@ -2572,7 +2565,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -2651,7 +2644,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
@@ -2714,7 +2707,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
@@ -2755,7 +2748,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -2792,7 +2785,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -2830,7 +2823,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
@@ -2867,7 +2860,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
@@ -2915,7 +2908,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
@@ -2971,7 +2964,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -3016,7 +3009,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -3053,7 +3046,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3092,7 +3085,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -3129,7 +3122,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3180,7 +3173,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -3225,7 +3218,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -3262,7 +3255,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3301,7 +3294,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -3338,7 +3331,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3380,7 +3373,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -3427,7 +3420,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -3483,7 +3476,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -3528,7 +3521,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -3565,7 +3558,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3604,7 +3597,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -3641,7 +3634,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3692,7 +3685,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -3737,7 +3730,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -3774,7 +3767,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3813,7 +3806,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -3850,7 +3843,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3891,7 +3884,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
@@ -3986,7 +3979,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
@@ -4061,7 +4054,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -4135,7 +4128,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -4184,7 +4177,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
@@ -4272,7 +4265,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
@@ -4345,7 +4338,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -4419,7 +4412,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -4647,7 +4640,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -4784,7 +4777,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
@@ -4843,7 +4836,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
@@ -4884,7 +4877,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
@@ -4943,7 +4936,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
@@ -5018,7 +5011,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
@@ -5092,7 +5085,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -5137,7 +5130,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
@@ -5174,7 +5167,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
@@ -5212,7 +5205,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
@@ -5249,7 +5242,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
@@ -5287,7 +5280,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
@@ -5463,7 +5456,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
@@ -5578,7 +5571,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
@@ -5621,7 +5614,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
@@ -5691,7 +5684,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -5770,7 +5763,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
@@ -5833,7 +5826,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
@@ -5874,7 +5867,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -5911,7 +5904,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -5949,7 +5942,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
@@ -5986,7 +5979,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
@@ -6034,7 +6027,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
@@ -6090,7 +6083,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -6135,7 +6128,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -6172,7 +6165,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6211,7 +6204,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -6248,7 +6241,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6299,7 +6292,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -6344,7 +6337,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -6381,7 +6374,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6420,7 +6413,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -6457,7 +6450,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6499,7 +6492,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -6546,7 +6539,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -6602,7 +6595,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -6647,7 +6640,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -6684,7 +6677,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6723,7 +6716,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -6760,7 +6753,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6811,7 +6804,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -6856,7 +6849,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -6893,7 +6886,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6932,7 +6925,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -6969,7 +6962,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -7010,7 +7003,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
@@ -7105,7 +7098,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
@@ -7180,7 +7173,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -7254,7 +7247,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -7303,7 +7296,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
@@ -7391,7 +7384,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
@@ -7464,7 +7457,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -7538,7 +7531,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -7599,7 +7592,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Timers, self).__init__()
@@ -7664,7 +7657,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing, self).__init__()
@@ -7709,7 +7702,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers, self).__init__()
@@ -7751,7 +7744,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle, self).__init__()
@@ -7814,7 +7807,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa, self).__init__()
@@ -7871,7 +7864,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf, self).__init__()
@@ -7915,7 +7908,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes, self).__init__()
@@ -7971,7 +7964,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -8020,7 +8013,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Snmp, self).__init__()
@@ -8069,7 +8062,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit, self).__init__()
@@ -8114,7 +8107,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.FastReroute, self).__init__()
@@ -8155,7 +8148,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink, self).__init__()
@@ -8202,7 +8195,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix, self).__init__()
@@ -8244,7 +8237,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -8288,7 +8281,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -8337,7 +8330,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Distance, self).__init__()
@@ -8393,7 +8386,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, self).__init__()
@@ -8449,7 +8442,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Maximum, self).__init__()
@@ -8505,7 +8498,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes, self).__init__()
@@ -8548,7 +8541,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Redistributes, self).__init__()
@@ -8606,7 +8599,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, self).__init__()
@@ -8715,7 +8708,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
@@ -8855,7 +8848,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, self).__init__()
@@ -8991,7 +8984,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
@@ -9125,7 +9118,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -9190,7 +9183,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Ignore, self).__init__()
@@ -9228,7 +9221,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa, self).__init__()
@@ -9266,7 +9259,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut, self).__init__()
@@ -9303,7 +9296,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts, self).__init__()
@@ -9358,7 +9351,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
@@ -9414,7 +9407,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
@@ -9462,7 +9455,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
@@ -9508,7 +9501,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
@@ -9550,7 +9543,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DistributeList, self).__init__()
@@ -9587,7 +9580,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, self).__init__()
@@ -9620,22 +9613,28 @@ class Ospfv3(Entity):
                     	Stub router R\-bit configuration
                     	**type**\:  :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: v6bit
                     
                     	Stub router V6\-bit configuration
                     	**type**\:  :py:class:`V6bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: max_metric
                     
                     	Stub router max\-metric configuration
                     	**type**\:  :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric>`
                     
+                    	**presence node**\: True
+                    
                     
 
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.StubRouter, self).__init__()
@@ -9648,16 +9647,13 @@ class Ospfv3(Entity):
                         self._child_classes = OrderedDict([("rbit", ("rbit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit)), ("v6bit", ("v6bit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit)), ("max-metric", ("max_metric", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric))])
                         self._leafs = OrderedDict()
 
-                        self.rbit = Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit()
-                        self.rbit.parent = self
+                        self.rbit = None
                         self._children_name_map["rbit"] = "rbit"
 
-                        self.v6bit = Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit()
-                        self.v6bit.parent = self
+                        self.v6bit = None
                         self._children_name_map["v6bit"] = "v6bit"
 
-                        self.max_metric = Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric()
-                        self.max_metric.parent = self
+                        self.max_metric = None
                         self._children_name_map["max_metric"] = "max-metric"
                         self._segment_path = lambda: "stub-router"
                         self._is_frozen = True
@@ -9694,11 +9690,6 @@ class Ospfv3(Entity):
                         	Advertise stub links with maximum metric in stub router mode
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: enable
-                        
-                        	Enabled stub router configuration mode
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: on_proc_migration
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -9719,10 +9710,12 @@ class Ospfv3(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, self).__init__()
@@ -9733,18 +9726,17 @@ class Ospfv3(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                 ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
                                 ('include_stub', (YLeaf(YType.empty, 'include-stub'), ['Empty'])),
-                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                 ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                             ])
                             self.on_switchover = None
                             self.always = None
                             self.include_stub = None
-                            self.enable = None
                             self.on_proc_migration = None
                             self.on_proc_restart = None
 
@@ -9755,7 +9747,7 @@ class Ospfv3(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -9783,7 +9775,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup, self).__init__()
@@ -9832,11 +9824,6 @@ class Ospfv3(Entity):
                         	Enter stub router operational state on startup
                         	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup>`
                         
-                        .. attribute:: enable
-                        
-                        	Enabled stub router configuration mode
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: on_proc_migration
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -9857,10 +9844,12 @@ class Ospfv3(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, self).__init__()
@@ -9871,16 +9860,15 @@ class Ospfv3(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                 ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
-                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                 ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                             ])
                             self.on_switchover = None
                             self.always = None
-                            self.enable = None
                             self.on_proc_migration = None
                             self.on_proc_restart = None
 
@@ -9891,7 +9879,7 @@ class Ospfv3(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, ['on_switchover', 'always', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, ['on_switchover', 'always', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -9919,7 +9907,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup, self).__init__()
@@ -9991,11 +9979,6 @@ class Ospfv3(Entity):
                         	Advertise stub links with maximum metric in stub router mode
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: enable
-                        
-                        	Enabled stub router configuration mode
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: on_proc_migration
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -10016,10 +9999,12 @@ class Ospfv3(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, self).__init__()
@@ -10030,13 +10015,13 @@ class Ospfv3(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('external_lsa', (YLeaf(YType.uint32, 'external-lsa'), ['int'])),
                                 ('summary_lsa', (YLeaf(YType.uint32, 'summary-lsa'), ['int'])),
                                 ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                 ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
                                 ('include_stub', (YLeaf(YType.empty, 'include-stub'), ['Empty'])),
-                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                 ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                             ])
@@ -10045,7 +10030,6 @@ class Ospfv3(Entity):
                             self.on_switchover = None
                             self.always = None
                             self.include_stub = None
-                            self.enable = None
                             self.on_proc_migration = None
                             self.on_proc_restart = None
 
@@ -10056,7 +10040,7 @@ class Ospfv3(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -10084,7 +10068,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup, self).__init__()
@@ -10141,7 +10125,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Bfd, self).__init__()
@@ -10182,7 +10166,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter, self).__init__()
@@ -10219,7 +10203,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All, self).__init__()
@@ -10267,7 +10251,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Capability, self).__init__()
@@ -10327,7 +10311,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Authentication, self).__init__()
@@ -10398,7 +10382,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.GracefulRestart, self).__init__()
@@ -10445,7 +10429,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation, self).__init__()
@@ -10511,7 +10495,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate, self).__init__()
@@ -10558,7 +10542,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope, self).__init__()
@@ -10605,7 +10589,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute, self).__init__()
@@ -10661,7 +10645,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -10706,7 +10690,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -10743,7 +10727,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -10782,7 +10766,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -10819,7 +10803,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -10870,7 +10854,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -10915,7 +10899,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -10952,7 +10936,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -10991,7 +10975,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -11028,7 +11012,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -11100,7 +11084,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Encryption, self).__init__()
@@ -11158,7 +11142,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.AutoCost, self).__init__()
@@ -11199,7 +11183,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2018-01-15'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.Vrfs, self).__init__()
@@ -11235,11 +11219,6 @@ class Ospfv3(Entity):
                     
                     	OSPFv3 Domain ID
                     	**type**\:  :py:class:`DomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId>`
-                    
-                    .. attribute:: enable
-                    
-                    	Enable OSPFv3 VRF configuration
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: snmpvrf_trap
                     
@@ -11476,7 +11455,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.Vrfs.Vrf, self).__init__()
@@ -11489,7 +11468,6 @@ class Ospfv3(Entity):
                         self._child_classes = OrderedDict([("domain-id", ("domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId)), ("area-addresses", ("area_addresses", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospfv3.Processes.Process.Vrfs.Vrf.Timers)), ("summary-prefixes", ("summary_prefixes", Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("snmp", ("snmp", Ospfv3.Processes.Process.Vrfs.Vrf.Snmp)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute)), ("distance", ("distance", Ospfv3.Processes.Process.Vrfs.Vrf.Distance)), ("maximum", ("maximum", Ospfv3.Processes.Process.Vrfs.Vrf.Maximum)), ("redistributes", ("redistributes", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes)), ("ignore", ("ignore", Ospfv3.Processes.Process.Vrfs.Vrf.Ignore)), ("distribute-list-out", ("distribute_list_out", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList)), ("stub-router", ("stub_router", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter)), ("capability", ("capability", Ospfv3.Processes.Process.Vrfs.Vrf.Capability)), ("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.Authentication)), ("graceful-restart", ("graceful_restart", Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart)), ("default-information", ("default_information", Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("process-scope", ("process_scope", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.Encryption)), ("auto-cost", ("auto_cost", Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost))])
                         self._leafs = OrderedDict([
                             ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('snmpvrf_trap', (YLeaf(YType.empty, 'snmpvrf-trap'), ['Empty'])),
                             ('prefix_suppression', (YLeaf(YType.boolean, 'prefix-suppression'), ['bool'])),
                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
@@ -11511,7 +11489,6 @@ class Ospfv3(Entity):
                             ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                         ])
                         self.vrf_name = None
-                        self.enable = None
                         self.snmpvrf_trap = None
                         self.prefix_suppression = None
                         self.retransmit_interval = None
@@ -11622,7 +11599,7 @@ class Ospfv3(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf, ['vrf_name', 'enable', 'snmpvrf_trap', 'prefix_suppression', 'retransmit_interval', 'passive', 'default_metric', 'flood_reduction', 'hello_interval', 'priority', 'cost', 'dead_interval', 'packet_size', 'instance', 'spf_prefix_priority_policy', 'router_id', 'network', 'mtu_ignore', 'log_adjacency_changes', 'demand_circuit', 'transmit_delay'], name, value)
+                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf, ['vrf_name', 'snmpvrf_trap', 'prefix_suppression', 'retransmit_interval', 'passive', 'default_metric', 'flood_reduction', 'hello_interval', 'priority', 'cost', 'dead_interval', 'packet_size', 'instance', 'spf_prefix_priority_policy', 'router_id', 'network', 'mtu_ignore', 'log_adjacency_changes', 'demand_circuit', 'transmit_delay'], name, value)
 
 
                     class DomainId(Entity):
@@ -11644,7 +11621,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId, self).__init__()
@@ -11685,7 +11662,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, self).__init__()
@@ -11727,7 +11704,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, self).__init__()
@@ -11772,7 +11749,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, self).__init__()
@@ -11817,7 +11794,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses, self).__init__()
@@ -12031,7 +12008,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, self).__init__()
@@ -12168,7 +12145,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
@@ -12227,7 +12204,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
@@ -12268,7 +12245,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
@@ -12327,7 +12304,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
@@ -12402,7 +12379,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
@@ -12476,7 +12453,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -12521,7 +12498,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
@@ -12558,7 +12535,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
@@ -12596,7 +12573,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
@@ -12633,7 +12610,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
@@ -12671,7 +12648,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
@@ -12847,7 +12824,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
@@ -12962,7 +12939,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
@@ -13005,7 +12982,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
@@ -13075,7 +13052,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -13154,7 +13131,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
@@ -13217,7 +13194,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
@@ -13258,7 +13235,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -13295,7 +13272,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -13333,7 +13310,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
@@ -13370,7 +13347,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
@@ -13418,7 +13395,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
@@ -13474,7 +13451,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -13519,7 +13496,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -13556,7 +13533,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13595,7 +13572,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -13632,7 +13609,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13683,7 +13660,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -13728,7 +13705,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -13765,7 +13742,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13804,7 +13781,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -13841,7 +13818,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13883,7 +13860,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -13930,7 +13907,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -13986,7 +13963,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -14031,7 +14008,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -14068,7 +14045,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -14107,7 +14084,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -14144,7 +14121,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -14195,7 +14172,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -14240,7 +14217,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -14277,7 +14254,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -14316,7 +14293,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -14353,7 +14330,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -14394,7 +14371,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
@@ -14489,7 +14466,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
@@ -14564,7 +14541,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -14638,7 +14615,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -14687,7 +14664,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
@@ -14775,7 +14752,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
@@ -14848,7 +14825,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -14922,7 +14899,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -15150,7 +15127,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -15287,7 +15264,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
@@ -15346,7 +15323,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
@@ -15387,7 +15364,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
@@ -15446,7 +15423,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
@@ -15521,7 +15498,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
@@ -15595,7 +15572,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -15640,7 +15617,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
@@ -15677,7 +15654,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
@@ -15715,7 +15692,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
@@ -15752,7 +15729,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
@@ -15790,7 +15767,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
@@ -15966,7 +15943,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
@@ -16081,7 +16058,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
@@ -16124,7 +16101,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
@@ -16194,7 +16171,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -16273,7 +16250,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
@@ -16336,7 +16313,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
@@ -16377,7 +16354,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -16414,7 +16391,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -16452,7 +16429,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
@@ -16489,7 +16466,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
@@ -16537,7 +16514,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
@@ -16593,7 +16570,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -16638,7 +16615,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -16675,7 +16652,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -16714,7 +16691,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -16751,7 +16728,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -16802,7 +16779,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -16847,7 +16824,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -16884,7 +16861,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -16923,7 +16900,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -16960,7 +16937,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2018-01-15'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -17002,7 +16979,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -17049,7 +17026,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -17105,7 +17082,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -17150,7 +17127,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -17187,7 +17164,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -17226,7 +17203,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -17263,7 +17240,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -17314,7 +17291,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -17359,7 +17336,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -17396,7 +17373,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -17435,7 +17412,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2018-01-15'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -17472,7 +17449,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2018-01-15'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -17513,7 +17490,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
@@ -17608,7 +17585,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
@@ -17683,7 +17660,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -17757,7 +17734,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -17806,7 +17783,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
@@ -17894,7 +17871,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
@@ -17967,7 +17944,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -18041,7 +18018,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -18102,7 +18079,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers, self).__init__()
@@ -18167,7 +18144,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing, self).__init__()
@@ -18212,7 +18189,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers, self).__init__()
@@ -18254,7 +18231,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle, self).__init__()
@@ -18317,7 +18294,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa, self).__init__()
@@ -18374,7 +18351,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf, self).__init__()
@@ -18418,7 +18395,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes, self).__init__()
@@ -18474,7 +18451,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -18523,7 +18500,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp, self).__init__()
@@ -18572,7 +18549,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit, self).__init__()
@@ -18617,7 +18594,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute, self).__init__()
@@ -18658,7 +18635,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, self).__init__()
@@ -18705,7 +18682,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, self).__init__()
@@ -18747,7 +18724,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -18791,7 +18768,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -18840,7 +18817,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, self).__init__()
@@ -18896,7 +18873,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, self).__init__()
@@ -18952,7 +18929,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum, self).__init__()
@@ -19008,7 +18985,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes, self).__init__()
@@ -19051,7 +19028,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes, self).__init__()
@@ -19109,7 +19086,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, self).__init__()
@@ -19218,7 +19195,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
@@ -19358,7 +19335,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, self).__init__()
@@ -19494,7 +19471,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
@@ -19628,7 +19605,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -19693,7 +19670,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore, self).__init__()
@@ -19731,7 +19708,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa, self).__init__()
@@ -19769,7 +19746,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut, self).__init__()
@@ -19806,7 +19783,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts, self).__init__()
@@ -19861,7 +19838,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
@@ -19917,7 +19894,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
@@ -19965,7 +19942,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
@@ -20011,7 +19988,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
@@ -20053,7 +20030,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList, self).__init__()
@@ -20090,7 +20067,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, self).__init__()
@@ -20123,22 +20100,28 @@ class Ospfv3(Entity):
                         	Stub router R\-bit configuration
                         	**type**\:  :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit>`
                         
+                        	**presence node**\: True
+                        
                         .. attribute:: v6bit
                         
                         	Stub router V6\-bit configuration
                         	**type**\:  :py:class:`V6bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: max_metric
                         
                         	Stub router max\-metric configuration
                         	**type**\:  :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric>`
                         
+                        	**presence node**\: True
+                        
                         
 
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter, self).__init__()
@@ -20151,16 +20134,13 @@ class Ospfv3(Entity):
                             self._child_classes = OrderedDict([("rbit", ("rbit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit)), ("v6bit", ("v6bit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit)), ("max-metric", ("max_metric", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric))])
                             self._leafs = OrderedDict()
 
-                            self.rbit = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit()
-                            self.rbit.parent = self
+                            self.rbit = None
                             self._children_name_map["rbit"] = "rbit"
 
-                            self.v6bit = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit()
-                            self.v6bit.parent = self
+                            self.v6bit = None
                             self._children_name_map["v6bit"] = "v6bit"
 
-                            self.max_metric = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric()
-                            self.max_metric.parent = self
+                            self.max_metric = None
                             self._children_name_map["max_metric"] = "max-metric"
                             self._segment_path = lambda: "stub-router"
                             self._is_frozen = True
@@ -20197,11 +20177,6 @@ class Ospfv3(Entity):
                             	Advertise stub links with maximum metric in stub router mode
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: enable
-                            
-                            	Enabled stub router configuration mode
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             .. attribute:: on_proc_migration
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -20222,10 +20197,12 @@ class Ospfv3(Entity):
                             
                             
 
+                            This class is a :ref:`presence class<presence-class>`
+
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, self).__init__()
@@ -20236,18 +20213,17 @@ class Ospfv3(Entity):
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup))])
+                                self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                     ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
                                     ('include_stub', (YLeaf(YType.empty, 'include-stub'), ['Empty'])),
-                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                     ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                                 ])
                                 self.on_switchover = None
                                 self.always = None
                                 self.include_stub = None
-                                self.enable = None
                                 self.on_proc_migration = None
                                 self.on_proc_restart = None
 
@@ -20258,7 +20234,7 @@ class Ospfv3(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -20286,7 +20262,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup, self).__init__()
@@ -20335,11 +20311,6 @@ class Ospfv3(Entity):
                             	Enter stub router operational state on startup
                             	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup>`
                             
-                            .. attribute:: enable
-                            
-                            	Enabled stub router configuration mode
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             .. attribute:: on_proc_migration
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -20360,10 +20331,12 @@ class Ospfv3(Entity):
                             
                             
 
+                            This class is a :ref:`presence class<presence-class>`
+
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, self).__init__()
@@ -20374,16 +20347,15 @@ class Ospfv3(Entity):
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup))])
+                                self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                     ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
-                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                     ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                                 ])
                                 self.on_switchover = None
                                 self.always = None
-                                self.enable = None
                                 self.on_proc_migration = None
                                 self.on_proc_restart = None
 
@@ -20394,7 +20366,7 @@ class Ospfv3(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, ['on_switchover', 'always', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, ['on_switchover', 'always', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -20422,7 +20394,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup, self).__init__()
@@ -20494,11 +20466,6 @@ class Ospfv3(Entity):
                             	Advertise stub links with maximum metric in stub router mode
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: enable
-                            
-                            	Enabled stub router configuration mode
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             .. attribute:: on_proc_migration
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -20519,10 +20486,12 @@ class Ospfv3(Entity):
                             
                             
 
+                            This class is a :ref:`presence class<presence-class>`
+
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, self).__init__()
@@ -20533,13 +20502,13 @@ class Ospfv3(Entity):
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup))])
+                                self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('external_lsa', (YLeaf(YType.uint32, 'external-lsa'), ['int'])),
                                     ('summary_lsa', (YLeaf(YType.uint32, 'summary-lsa'), ['int'])),
                                     ('on_switchover', (YLeaf(YType.uint32, 'on-switchover'), ['int'])),
                                     ('always', (YLeaf(YType.empty, 'always'), ['Empty'])),
                                     ('include_stub', (YLeaf(YType.empty, 'include-stub'), ['Empty'])),
-                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ('on_proc_migration', (YLeaf(YType.uint32, 'on-proc-migration'), ['int'])),
                                     ('on_proc_restart', (YLeaf(YType.uint32, 'on-proc-restart'), ['int'])),
                                 ])
@@ -20548,7 +20517,6 @@ class Ospfv3(Entity):
                                 self.on_switchover = None
                                 self.always = None
                                 self.include_stub = None
-                                self.enable = None
                                 self.on_proc_migration = None
                                 self.on_proc_restart = None
 
@@ -20559,7 +20527,7 @@ class Ospfv3(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -20587,7 +20555,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup, self).__init__()
@@ -20644,7 +20612,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Bfd, self).__init__()
@@ -20685,7 +20653,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter, self).__init__()
@@ -20722,7 +20690,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All, self).__init__()
@@ -20770,7 +20738,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Capability, self).__init__()
@@ -20830,7 +20798,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Authentication, self).__init__()
@@ -20901,7 +20869,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart, self).__init__()
@@ -20948,7 +20916,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation, self).__init__()
@@ -21014,7 +20982,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate, self).__init__()
@@ -21061,7 +21029,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope, self).__init__()
@@ -21108,7 +21076,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2018-01-15'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, self).__init__()
@@ -21164,7 +21132,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -21209,7 +21177,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -21246,7 +21214,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -21285,7 +21253,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -21322,7 +21290,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -21373,7 +21341,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2018-01-15'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -21418,7 +21386,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -21455,7 +21423,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -21494,7 +21462,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2018-01-15'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -21531,7 +21499,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2018-01-15'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -21603,7 +21571,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Encryption, self).__init__()
@@ -21661,7 +21629,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2018-01-15'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost, self).__init__()
@@ -21712,7 +21680,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2018-01-15'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.Af, self).__init__()
@@ -21752,7 +21720,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2018-01-15'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.TraceBufs, self).__init__()
@@ -21797,7 +21765,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2018-01-15'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.TraceBufs.TraceBuf, self).__init__()

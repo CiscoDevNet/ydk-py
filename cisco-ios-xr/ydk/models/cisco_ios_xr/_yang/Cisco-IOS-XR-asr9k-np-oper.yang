@@ -64,6 +64,11 @@ module Cisco-IOS-XR-asr9k-np-oper {
             key "np-name";
             description
               "np0 to np7";
+            container np-uidb {
+              description
+                "Hardware np uidb";
+              uses PRM-NP-UIDB;
+            }
             container chn-load {
               description
                 "prm channel load info";
@@ -78,6 +83,16 @@ module Cisco-IOS-XR-asr9k-np-oper {
               description
                 "prm tcam summary info";
               uses TCAM-INFO-SHOW-SUM;
+            }
+            container l2rm-hw-resource {
+              description
+                "L2rm Hardware Resources";
+              uses PRM-NP-L2RM-HW-RSC;
+            }
+            container profile {
+              description
+                "Hardware Profile";
+              uses PRM-NP-PROFILE;
             }
             container counters {
               description

@@ -143,7 +143,7 @@ class CISCOETHERCFMMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOETHERCFMMIB.CecCfmEvents, [u'cethercfmmaxeventindex'], name, value)
+            self._perform_setattr(CISCOETHERCFMMIB.CecCfmEvents, ['cethercfmmaxeventindex'], name, value)
 
 
 
@@ -426,7 +426,7 @@ class CISCOETHERCFMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOETHERCFMMIB.CEtherCfmEventTable.CEtherCfmEventEntry, [u'cethercfmeventdomainindex', u'cethercfmeventsvlan', u'cethercfmeventindex', u'cethercfmeventdomainname', u'cethercfmeventtype', u'cethercfmeventlastchange', u'cethercfmeventserviceid', u'cethercfmeventlclmepid', u'cethercfmeventlclmacaddress', u'cethercfmeventlclmepcount', u'cethercfmeventlclifcount', u'cethercfmeventrmtmepid', u'cethercfmeventrmtmacaddress', u'cethercfmeventrmtportstate', u'cethercfmeventrmtserviceid', u'cethercfmeventcode', u'cethercfmeventdeleterow'], name, value)
+                self._perform_setattr(CISCOETHERCFMMIB.CEtherCfmEventTable.CEtherCfmEventEntry, ['cethercfmeventdomainindex', 'cethercfmeventsvlan', 'cethercfmeventindex', 'cethercfmeventdomainname', 'cethercfmeventtype', 'cethercfmeventlastchange', 'cethercfmeventserviceid', 'cethercfmeventlclmepid', 'cethercfmeventlclmacaddress', 'cethercfmeventlclmepcount', 'cethercfmeventlclifcount', 'cethercfmeventrmtmepid', 'cethercfmeventrmtmacaddress', 'cethercfmeventrmtportstate', 'cethercfmeventrmtserviceid', 'cethercfmeventcode', 'cethercfmeventdeleterow'], name, value)
 
             class CEtherCfmEventCode(Enum):
                 """

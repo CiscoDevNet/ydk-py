@@ -6,7 +6,7 @@ for Cisco IOS\-XR asr9k\-lpts package operational data.
 This module contains definitions
 for the following management objects\:
   platform\-lptsp\-ifib\-static\: ASR9K platform ifib operational
-    data
+    data 
   platform\-lptsp\-ifib\: platform lptsp ifib
   platform\-lptsp\-ifib\-np\-stats\: platform lptsp ifib np stats
 
@@ -317,7 +317,7 @@ class PlatformLptspIfibStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo, [u'punt_reason', u'sid', u'flow_rate', u'burst_rate', u'accepted', u'dropped', u'punt_reason_string', u'change_type'], name, value)
+                        self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo, ['punt_reason', 'sid', 'flow_rate', 'burst_rate', 'accepted', 'dropped', 'punt_reason_string', 'change_type'], name, value)
 
 
 
@@ -392,7 +392,7 @@ class PlatformLptspIfibStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats, [u'accepted', u'dropped', u'clear_ts', u'no_stats_mem_err'], name, value)
+                    self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
 
 
@@ -740,7 +740,7 @@ class PlatformLptspIfib(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformLptspIfib.Nodes.Node.Police.PoliceInfo, [u'avgrate', u'burst', u'static_avgrate', u'avgrate_type', u'flow_type', u'accepted_stats', u'dropped_stats', u'policer', u'str_iptos_val', u'change_type', u'acl_config', u'acl_str'], name, value)
+                        self._perform_setattr(PlatformLptspIfib.Nodes.Node.Police.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'flow_type', 'accepted_stats', 'dropped_stats', 'policer', 'str_iptos_val', 'change_type', 'acl_config', 'acl_str'], name, value)
 
 
 
@@ -815,7 +815,7 @@ class PlatformLptspIfib(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PlatformLptspIfib.Nodes.Node.Stats, [u'accepted', u'dropped', u'clear_ts', u'no_stats_mem_err'], name, value)
+                    self._perform_setattr(PlatformLptspIfib.Nodes.Node.Stats, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
 
 
@@ -1240,7 +1240,7 @@ class PlatformLptspIfibNpStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo, [u'avgrate', u'burst', u'static_avgrate', u'avgrate_type', u'flow_type', u'accepted_stats', u'dropped_stats', u'policer', u'str_iptos_val', u'change_type', u'acl_config', u'acl_str'], name, value)
+                                self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'flow_type', 'accepted_stats', 'dropped_stats', 'policer', 'str_iptos_val', 'change_type', 'acl_config', 'acl_str'], name, value)
 
 
 

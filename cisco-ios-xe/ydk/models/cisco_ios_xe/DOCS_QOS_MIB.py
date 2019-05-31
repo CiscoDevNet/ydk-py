@@ -348,7 +348,7 @@ class DOCSQOSMIB(Entity):
             	The low value of a range of TOS byte values. If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -357,7 +357,7 @@ class DOCSQOSMIB(Entity):
             	The 8\-bit high value of a range of TOS byte values.  If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -366,7 +366,7 @@ class DOCSQOSMIB(Entity):
             	The mask value is bitwise ANDed with TOS byte  in an IP packet and this value is used check  range checking of TosLow and TosHigh.  If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -724,7 +724,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqospktclassid', u'docsqospktclassdirection', u'docsqospktclasspriority', u'docsqospktclassiptoslow', u'docsqospktclassiptoshigh', u'docsqospktclassiptosmask', u'docsqospktclassipprotocol', u'docsqospktclassipsourceaddr', u'docsqospktclassipsourcemask', u'docsqospktclassipdestaddr', u'docsqospktclassipdestmask', u'docsqospktclasssourceportstart', u'docsqospktclasssourceportend', u'docsqospktclassdestportstart', u'docsqospktclassdestportend', u'docsqospktclassdestmacaddr', u'docsqospktclassdestmacmask', u'docsqospktclasssourcemacaddr', u'docsqospktclassenetprotocoltype', u'docsqospktclassenetprotocol', u'docsqospktclassuserpriapplies', u'docsqospktclassuserprilow', u'docsqospktclassuserprihigh', u'docsqospktclassvlanid', u'docsqospktclassstate', u'docsqospktclasspkts', u'docsqospktclassbitmap', u'docsqospktclassinetsourceaddrtype', u'docsqospktclassinetsourceaddr', u'docsqospktclassinetsourcemasktype', u'docsqospktclassinetsourcemask', u'docsqospktclassinetdestaddrtype', u'docsqospktclassinetdestaddr', u'docsqospktclassinetdestmasktype', u'docsqospktclassinetdestmask'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry, ['ifindex', 'docsqosserviceflowid', 'docsqospktclassid', 'docsqospktclassdirection', 'docsqospktclasspriority', 'docsqospktclassiptoslow', 'docsqospktclassiptoshigh', 'docsqospktclassiptosmask', 'docsqospktclassipprotocol', 'docsqospktclassipsourceaddr', 'docsqospktclassipsourcemask', 'docsqospktclassipdestaddr', 'docsqospktclassipdestmask', 'docsqospktclasssourceportstart', 'docsqospktclasssourceportend', 'docsqospktclassdestportstart', 'docsqospktclassdestportend', 'docsqospktclassdestmacaddr', 'docsqospktclassdestmacmask', 'docsqospktclasssourcemacaddr', 'docsqospktclassenetprotocoltype', 'docsqospktclassenetprotocol', 'docsqospktclassuserpriapplies', 'docsqospktclassuserprilow', 'docsqospktclassuserprihigh', 'docsqospktclassvlanid', 'docsqospktclassstate', 'docsqospktclasspkts', 'docsqospktclassbitmap', 'docsqospktclassinetsourceaddrtype', 'docsqospktclassinetsourceaddr', 'docsqospktclassinetsourcemasktype', 'docsqospktclassinetsourcemask', 'docsqospktclassinetdestaddrtype', 'docsqospktclassinetdestaddr', 'docsqospktclassinetdestmasktype', 'docsqospktclassinetdestmask'], name, value)
 
             class DocsQosPktClassEnetProtocolType(Enum):
                 """
@@ -1094,7 +1094,7 @@ class DOCSQOSMIB(Entity):
             	Specifies the AND mask for IP TOS byte for overwriting IP packets TOS value.  The IP packets TOS byte is  bitwise ANDed with docsQosParamSetTosAndMask and  result is bitwise ORed with docsQosParamSetTosORMask and result is written to IP packet TOS byte.  A value of 'FF'H for docsQosParamSetTosAndMask and a value of '00'H for docsQosParamSetTosOrMask means  that IP Packet TOS byte is not overwritten.  Even though the this object is only enforced by the Cable Modem Termination System (CMTS), Cable Modems must report the value as signaled in the referenced parameter.  This combination is reported if the referenced parameter is not present in a QOS Parameter Set
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -1103,7 +1103,7 @@ class DOCSQOSMIB(Entity):
             	Specifies the OR mask for IP TOS byte. See the description of docsQosParamSetTosAndMask for further details
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -1123,7 +1123,7 @@ class DOCSQOSMIB(Entity):
             	Specifies which transmit interval opportunities  the CM omits for upstream transmission requests and  packet transmissions. This object takes its default value for downstream service flows.  Unless otherwise indicated, a bit value of 1 means that a CM must \*not\* use that opportunity for  upstream transmission.  Calling bit 0 the least significant bit of the  least significant (4th) octet, and increasing bit number with significance, the bit definitions are as defined below\:  broadcastReqOpp(0)\:      all CMs broadcast request opportunities  priorityReqMulticastReq(1)\:      priority request multicast request opportunities  reqDataForReq(2)\:      request/data opportunities for requests  reqDataForData(3)\:      request/data opportunities for data  piggybackReqWithData(4)\:      piggyback requests with data  concatenateData(5)\:      concatenate data  fragmentData(6)\:      fragment data  suppresspayloadheaders(7)\:       suppress payload headers  dropPktsExceedUGSize(8)\:      A value of 1 mean that service flow must drop      packet that do not fit in the Unsolicited       Grant size   If the referenced parameter is not present in  a QOS Parameter Set, the value of this object is reported as '00000000'H
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1205,7 +1205,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosParamSetTable.DocsQosParamSetEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqosparamsettype', u'docsqosparamsetserviceclassname', u'docsqosparamsetpriority', u'docsqosparamsetmaxtrafficrate', u'docsqosparamsetmaxtrafficburst', u'docsqosparamsetminreservedrate', u'docsqosparamsetminreservedpkt', u'docsqosparamsetactivetimeout', u'docsqosparamsetadmittedtimeout', u'docsqosparamsetmaxconcatburst', u'docsqosparamsetschedulingtype', u'docsqosparamsetnompollinterval', u'docsqosparamsettolpolljitter', u'docsqosparamsetunsolicitgrantsize', u'docsqosparamsetnomgrantinterval', u'docsqosparamsettolgrantjitter', u'docsqosparamsetgrantsperinterval', u'docsqosparamsettosandmask', u'docsqosparamsettosormask', u'docsqosparamsetmaxlatency', u'docsqosparamsetrequestpolicyoct', u'docsqosparamsetbitmap'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosParamSetTable.DocsQosParamSetEntry, ['ifindex', 'docsqosserviceflowid', 'docsqosparamsettype', 'docsqosparamsetserviceclassname', 'docsqosparamsetpriority', 'docsqosparamsetmaxtrafficrate', 'docsqosparamsetmaxtrafficburst', 'docsqosparamsetminreservedrate', 'docsqosparamsetminreservedpkt', 'docsqosparamsetactivetimeout', 'docsqosparamsetadmittedtimeout', 'docsqosparamsetmaxconcatburst', 'docsqosparamsetschedulingtype', 'docsqosparamsetnompollinterval', 'docsqosparamsettolpolljitter', 'docsqosparamsetunsolicitgrantsize', 'docsqosparamsetnomgrantinterval', 'docsqosparamsettolgrantjitter', 'docsqosparamsetgrantsperinterval', 'docsqosparamsettosandmask', 'docsqosparamsettosormask', 'docsqosparamsetmaxlatency', 'docsqosparamsetrequestpolicyoct', 'docsqosparamsetbitmap'], name, value)
 
             class DocsQosParamSetType(Enum):
                 """
@@ -1411,7 +1411,7 @@ class DOCSQOSMIB(Entity):
             	This object is obsolete
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1422,7 +1422,7 @@ class DOCSQOSMIB(Entity):
             	This object is obsolete
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -1433,7 +1433,7 @@ class DOCSQOSMIB(Entity):
             	This object is obsolete
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -1490,7 +1490,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqosserviceflowprovisionedparamsetindex', u'docsqosserviceflowadmittedparamsetindex', u'docsqosserviceflowactiveparamsetindex', u'docsqosserviceflowsid', u'docsqosserviceflowdirection', u'docsqosserviceflowprimary', u'docsqosserviceflowactivetimeout', u'docsqosserviceflowadmittedtimeout', u'docsqosserviceflowschedulingtype', u'docsqosserviceflowrequestpolicy', u'docsqosserviceflowtosandmask', u'docsqosserviceflowtosormask'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry, ['ifindex', 'docsqosserviceflowid', 'docsqosserviceflowprovisionedparamsetindex', 'docsqosserviceflowadmittedparamsetindex', 'docsqosserviceflowactiveparamsetindex', 'docsqosserviceflowsid', 'docsqosserviceflowdirection', 'docsqosserviceflowprimary', 'docsqosserviceflowactivetimeout', 'docsqosserviceflowadmittedtimeout', 'docsqosserviceflowschedulingtype', 'docsqosserviceflowrequestpolicy', 'docsqosserviceflowtosandmask', 'docsqosserviceflowtosormask'], name, value)
 
 
 
@@ -1669,7 +1669,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowStatsTable.DocsQosServiceFlowStatsEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqosserviceflowpkts', u'docsqosserviceflowoctets', u'docsqosserviceflowtimecreated', u'docsqosserviceflowtimeactive', u'docsqosserviceflowphsunknowns', u'docsqosserviceflowpoliceddroppkts', u'docsqosserviceflowpoliceddelaypkts'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowStatsTable.DocsQosServiceFlowStatsEntry, ['ifindex', 'docsqosserviceflowid', 'docsqosserviceflowpkts', 'docsqosserviceflowoctets', 'docsqosserviceflowtimecreated', 'docsqosserviceflowtimeactive', 'docsqosserviceflowphsunknowns', 'docsqosserviceflowpoliceddroppkts', 'docsqosserviceflowpoliceddelaypkts'], name, value)
 
 
 
@@ -1801,7 +1801,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosUpstreamStatsTable.DocsQosUpstreamStatsEntry, [u'ifindex', u'docsqossid', u'docsqosupstreamfragments', u'docsqosupstreamfragdiscards', u'docsqosupstreamconcatbursts'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosUpstreamStatsTable.DocsQosUpstreamStatsEntry, ['ifindex', 'docsqossid', 'docsqosupstreamfragments', 'docsqosupstreamfragdiscards', 'docsqosupstreamconcatbursts'], name, value)
 
 
 
@@ -2137,7 +2137,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosDynamicServiceStatsTable.DocsQosDynamicServiceStatsEntry, [u'ifindex', u'docsqosifdirection', u'docsqosdsareqs', u'docsqosdsarsps', u'docsqosdsaacks', u'docsqosdscreqs', u'docsqosdscrsps', u'docsqosdscacks', u'docsqosdsdreqs', u'docsqosdsdrsps', u'docsqosdynamicadds', u'docsqosdynamicaddfails', u'docsqosdynamicchanges', u'docsqosdynamicchangefails', u'docsqosdynamicdeletes', u'docsqosdynamicdeletefails', u'docsqosdccreqs', u'docsqosdccrsps', u'docsqosdccacks', u'docsqosdccs', u'docsqosdccfails', u'docsqosdccrspdeparts', u'docsqosdccrsparrives'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosDynamicServiceStatsTable.DocsQosDynamicServiceStatsEntry, ['ifindex', 'docsqosifdirection', 'docsqosdsareqs', 'docsqosdsarsps', 'docsqosdsaacks', 'docsqosdscreqs', 'docsqosdscrsps', 'docsqosdscacks', 'docsqosdsdreqs', 'docsqosdsdrsps', 'docsqosdynamicadds', 'docsqosdynamicaddfails', 'docsqosdynamicchanges', 'docsqosdynamicchangefails', 'docsqosdynamicdeletes', 'docsqosdynamicdeletefails', 'docsqosdccreqs', 'docsqosdccrsps', 'docsqosdccacks', 'docsqosdccs', 'docsqosdccfails', 'docsqosdccrspdeparts', 'docsqosdccrsparrives'], name, value)
 
 
 
@@ -2368,7 +2368,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowLogTable.DocsQosServiceFlowLogEntry, [u'docsqosserviceflowlogindex', u'docsqosserviceflowlogifindex', u'docsqosserviceflowlogsfid', u'docsqosserviceflowlogcmmac', u'docsqosserviceflowlogpkts', u'docsqosserviceflowlogoctets', u'docsqosserviceflowlogtimedeleted', u'docsqosserviceflowlogtimecreated', u'docsqosserviceflowlogtimeactive', u'docsqosserviceflowlogdirection', u'docsqosserviceflowlogprimary', u'docsqosserviceflowlogserviceclassname', u'docsqosserviceflowlogpoliceddroppkts', u'docsqosserviceflowlogpoliceddelaypkts', u'docsqosserviceflowlogcontrol'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowLogTable.DocsQosServiceFlowLogEntry, ['docsqosserviceflowlogindex', 'docsqosserviceflowlogifindex', 'docsqosserviceflowlogsfid', 'docsqosserviceflowlogcmmac', 'docsqosserviceflowlogpkts', 'docsqosserviceflowlogoctets', 'docsqosserviceflowlogtimedeleted', 'docsqosserviceflowlogtimecreated', 'docsqosserviceflowlogtimeactive', 'docsqosserviceflowlogdirection', 'docsqosserviceflowlogprimary', 'docsqosserviceflowlogserviceclassname', 'docsqosserviceflowlogpoliceddroppkts', 'docsqosserviceflowlogpoliceddelaypkts', 'docsqosserviceflowlogcontrol'], name, value)
 
             class DocsQosServiceFlowLogControl(Enum):
                 """
@@ -2640,7 +2640,7 @@ class DOCSQOSMIB(Entity):
             	Template for docsQosParamSetRequestPolicyOct
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -2649,7 +2649,7 @@ class DOCSQOSMIB(Entity):
             	Template for docsQosParamSetTosAndMask
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2658,7 +2658,7 @@ class DOCSQOSMIB(Entity):
             	Template for docsQosParamSetTosOrMask
             	**type**\: str
             
-            	**length:** 1
+            	**length:** 1..1
             
             	**config**\: False
             
@@ -2738,7 +2738,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassTable.DocsQosServiceClassEntry, [u'docsqosserviceclassname', u'docsqosserviceclassparamsetindex', u'docsqosserviceclassstatus', u'docsqosserviceclasspriority', u'docsqosserviceclassmaxtrafficrate', u'docsqosserviceclassmaxtrafficburst', u'docsqosserviceclassminreservedrate', u'docsqosserviceclassminreservedpkt', u'docsqosserviceclassmaxconcatburst', u'docsqosserviceclassnompollinterval', u'docsqosserviceclasstolpolljitter', u'docsqosserviceclassunsolicitgrantsize', u'docsqosserviceclassnomgrantinterval', u'docsqosserviceclasstolgrantjitter', u'docsqosserviceclassgrantsperinterval', u'docsqosserviceclassmaxlatency', u'docsqosserviceclassactivetimeout', u'docsqosserviceclassadmittedtimeout', u'docsqosserviceclassschedulingtype', u'docsqosserviceclassrequestpolicy', u'docsqosserviceclasstosandmask', u'docsqosserviceclasstosormask', u'docsqosserviceclassdirection'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassTable.DocsQosServiceClassEntry, ['docsqosserviceclassname', 'docsqosserviceclassparamsetindex', 'docsqosserviceclassstatus', 'docsqosserviceclasspriority', 'docsqosserviceclassmaxtrafficrate', 'docsqosserviceclassmaxtrafficburst', 'docsqosserviceclassminreservedrate', 'docsqosserviceclassminreservedpkt', 'docsqosserviceclassmaxconcatburst', 'docsqosserviceclassnompollinterval', 'docsqosserviceclasstolpolljitter', 'docsqosserviceclassunsolicitgrantsize', 'docsqosserviceclassnomgrantinterval', 'docsqosserviceclasstolgrantjitter', 'docsqosserviceclassgrantsperinterval', 'docsqosserviceclassmaxlatency', 'docsqosserviceclassactivetimeout', 'docsqosserviceclassadmittedtimeout', 'docsqosserviceclassschedulingtype', 'docsqosserviceclassrequestpolicy', 'docsqosserviceclasstosandmask', 'docsqosserviceclasstosormask', 'docsqosserviceclassdirection'], name, value)
 
 
 
@@ -2859,7 +2859,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassPolicyTable.DocsQosServiceClassPolicyEntry, [u'docsqosserviceclasspolicyindex', u'docsqosserviceclasspolicyname', u'docsqosserviceclasspolicyrulepriority', u'docsqosserviceclasspolicystatus'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassPolicyTable.DocsQosServiceClassPolicyEntry, ['docsqosserviceclasspolicyindex', 'docsqosserviceclasspolicyname', 'docsqosserviceclasspolicyrulepriority', 'docsqosserviceclasspolicystatus'], name, value)
 
 
 
@@ -3040,7 +3040,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosPHSTable.DocsQosPHSEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqospktclassid', u'docsqosphsfield', u'docsqosphsmask', u'docsqosphssize', u'docsqosphsverify', u'docsqosphsclassifierindex', u'docsqosphsindex'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosPHSTable.DocsQosPHSEntry, ['ifindex', 'docsqosserviceflowid', 'docsqospktclassid', 'docsqosphsfield', 'docsqosphsmask', 'docsqosphssize', 'docsqosphsverify', 'docsqosphsclassifierindex', 'docsqosphsindex'], name, value)
 
 
 
@@ -3147,7 +3147,7 @@ class DOCSQOSMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSQOSMIB.DocsQosCmtsMacToSrvFlowTable.DocsQosCmtsMacToSrvFlowEntry, [u'docsqoscmtscmmac', u'docsqoscmtsserviceflowid', u'docsqoscmtsifindex'], name, value)
+                self._perform_setattr(DOCSQOSMIB.DocsQosCmtsMacToSrvFlowTable.DocsQosCmtsMacToSrvFlowEntry, ['docsqoscmtscmmac', 'docsqoscmtsserviceflowid', 'docsqoscmtsifindex'], name, value)
 
 
 

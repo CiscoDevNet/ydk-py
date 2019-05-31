@@ -1572,7 +1572,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             	This object specifies the size of the voice payload sample to be produced by the coder specified in cvVoIPPeerCfgCoderRate. Each coder sample produces 10 bytes of voice payload. The specified value will be rounded down to the nearest valid size.  A value of 0, specifies that the coder defined by cvVoIPPeerCfgCoderRate should produce its default payload size
             	**type**\: int
             
-            	**range:** 0..None \| 10..240
+            	**range:** 0..0 \| 10..240
             
             	**config**\: False
             
@@ -1583,7 +1583,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             	This object specifies the payload size to be produced by the coder when it is generating fax data. A value of 0, specifies that the coder specified in cvVoIPCfgPeerCoderRate should produce its default fax payload size
             	**type**\: int
             
-            	**range:** 0..None \| 10..255
+            	**range:** 0..0 \| 10..255
             
             	**config**\: False
             
@@ -1959,7 +1959,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             	The object specifies the maximum allowed connection to/from the peer. A value of \-1 disables the limit of maximum connections
             	**type**\: int
             
-            	**range:** \-1..None \| 1..2147483647
+            	**range:** \-1..\-1 \| 1..2147483647
             
             	**config**\: False
             

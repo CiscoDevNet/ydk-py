@@ -196,7 +196,7 @@ submodule Cisco-IOS-XR-cdp-oper-sub1 {
       "CDP Protocol Hello entry";
     list cdp-prot-hello-entry {
       description
-        "cdp prot hello entry";
+        "Next protocol hello entry in list";
       leaf hello-message {
         type yang:hex-string;
         description
@@ -238,7 +238,7 @@ submodule Cisco-IOS-XR-cdp-oper-sub1 {
       "CDP Address entry";
     list cdp-addr-entry {
       description
-        "cdp addr entry";
+        "Next address entry in list";
       container address {
         description
           "Network layer address";
@@ -292,7 +292,7 @@ submodule Cisco-IOS-XR-cdp-oper-sub1 {
       "CDP neighbor info";
     list cdp-neighbor {
       description
-        "cdp neighbor";
+        "Next neighbor in the list";
       container detail {
         description
           "Detailed neighbor info";
